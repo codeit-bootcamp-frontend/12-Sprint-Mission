@@ -1,0 +1,164 @@
+/* 헤더 스타일 */
+body {
+    display: flex;
+    flex-direction: column; /* 요소를 수직으로 나열 */
+    
+    margin: 0 auto;
+    padding: 0;
+    width: 100%;
+    max-width: 1920px;
+    
+}
+
+header {
+    display: flex;
+    justify-content: center; /* 헤더박스를 헤더의 가로 중앙에 배치 */
+    align-items: center; /* 수직 중앙 정렬 */
+    height: 70px;
+    width: 100%; 
+}
+
+
+.logo-img {
+    height: 51px;
+    width: 153px;
+    cursor: pointer; /* 마우스를 올렸을 때 커서가 손 모양으로 변경 */
+
+}
+
+
+.login-img {
+    height: 48px;
+    width: 128px;
+    cursor: pointer; /* 마우스를 올렸을 때 커서가 손 모양으로 변경 */
+    
+}
+
+
+
+.header-box  {
+    display: flex;
+    justify-content: space-between;
+    
+
+    width: 100%; /* 100% 너비로 설정 */
+    max-width: 1120px; /* 최대 너비는 1120px로 제한 */
+}  
+/* 배너 스타일 */
+.banner {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    background: #CFE5FF;
+    justify-content: center;
+    width: 100%; /* 너비를 100%로 설정하여 화면에 맞춤 */
+    height: 540px; /* 배너 높이 */
+}
+
+/* 첫 번째 섹션 스타일 */
+.first-section {
+    background-color: #ffffff;
+    padding: 40px 0;
+    height: 2160px;
+    text-align: center;
+    width: 100%; /* 섹션이 화면 전체 너비를 차지하도록 */
+}
+
+.section-img {
+    display: flex;
+    justify-content: center; /* 가로 중앙 정렬 */
+    align-items: center; /* 세로 중앙 정렬 */
+    width: 100%; /* 각 이미지 섹션의 너비를 100%로 설정 */
+    height: 720px;
+}
+
+.second-section {
+    display: flex;
+    justify-content: center; /* 가로 중앙 정렬 */
+    align-items: center; /* 세로 중앙 정렬 */
+    width: 100%; /* 각 이미지 섹션의 너비를 100%로 설정 */
+    height: 540px;
+
+}
+
+.third-section {
+    position: relative;
+    display: flex;
+    justify-content: center; /* 가로 중앙 정렬 */
+    align-items: center; /* 세로 중앙 정렬 */
+    width: 100%; /* 각 이미지 섹션의 너비를 100%로 설정 */
+    height: 160px;
+
+}
+
+.banner-img {
+    position: relative;
+}
+
+.goo-img {
+    position: absolute;
+    top: 70.5%; 
+    left: 21%;
+    z-index: 1; /* 겹침 순서를 지정해 주기 위해 사용 */
+    cursor: pointer; /* 마우스를 올렸을 때 커서가 손 모양으로 변경 */
+}
+
+.insta-img {
+    position: absolute;
+    top: 18.75%; 
+    left: 78.1%; 
+    z-index: 1; /* 겹침 순서를 지정해 주기 위해 사용 */
+    cursor: pointer; /* 마우스를 올렸을 때 커서가 손 모양으로 변경 */
+}
+
+.facebook-img {
+    position: absolute;
+    top: 18.75%; 
+    left: 73.1%; 
+    z-index: 1; /* 겹침 순서를 지정해 주기 위해 사용 */
+    cursor: pointer; /* 마우스를 올렸을 때 커서가 손 모양으로 변경 */
+}
+
+.youtube-img {
+    position: absolute;
+    top: 18.75%; 
+    left: 76.5%; 
+    z-index: 1; /* 겹침 순서를 지정해 주기 위해 사용 */
+    cursor: pointer; /* 마우스를 올렸을 때 커서가 손 모양으로 변경 */
+}
+
+.twitter-img {
+    position: absolute;
+    top: 18.75%; 
+    left: 74.7%; 
+    z-index: 1; /* 겹침 순서를 지정해 주기 위해 사용 */
+    cursor: pointer; /* 마우스를 올렸을 때 커서가 손 모양으로 변경 */
+}
+
+.a1-img {
+    text-indent: -9999px; /* 텍스트 숨기기 */
+    position: absolute;
+
+    width: 41px; /* 원하는 버튼 크기 */
+    height: 4px; /* 원하는 버튼 크기 */
+    top: 18.75%; 
+    left: 51.9%; 
+    z-index: 1; /* 겹침 순서를 지정해 주기 위해 사용 */
+    cursor: pointer; /* 마우스를 올렸을 때 커서가 손 모양으로 변경 */
+}
+
+.a2-img {
+    text-indent: -9999px; /* 텍스트 숨기기 */
+    position: absolute;
+
+    width: 150px; /* 원하는 버튼 크기 */
+    height: 4px; /* 원하는 버튼 크기 */
+    top: 18.75%; 
+    left: 45.7%; 
+    z-index: 1; /* 겹침 순서를 지정해 주기 위해 사용 */
+    cursor: pointer; /* 마우스를 올렸을 때 커서가 손 모양으로 변경 */
+}
+
+
+
+ 
