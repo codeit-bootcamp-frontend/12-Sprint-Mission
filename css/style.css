@@ -1,0 +1,246 @@
+@charset "utf-8";
+
+.headerWrap,
+section,
+.footerWrap {
+    padding:0 200px
+}
+header{
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    z-index:1;
+    height:70px;
+    border-bottom:1px solid #DFDFDF;
+    background:#fff;
+}
+.headerWrap{
+    -webkit-display:flex;
+    display:flex;
+    -webkit-flex-direction:row;
+    flex-direction:row;
+    align-items: center;
+    justify-content: space-between;
+    height:100%;
+}
+.logoWrap > a{
+    -webkit-display:flex;
+    display:flex;
+    -webkit-flex-direction:row;
+    flex-direction:row;
+    align-items: center;
+}
+.logoWrap > a .txt{
+    margin-left:8px;
+    font-family: 'Rokaf';
+    font-size:2.563em;
+    font-weight:700;
+    color:#3692FF
+}
+.btnLogin{
+    width:128px;
+    height:48px;
+    line-height:48px;
+    text-align:center;
+    border-radius:8px;
+    transition:.3s;
+    font-size:1.6em;
+    font-weight:600;
+    background:#3692FF;
+    color:#F9FAFB;
+}
+.btnLogin:hover{
+    background:#1967D6
+}
+.section1{
+    margin-top:70px;
+}
+section.type1{
+    min-height:540px;
+    background:#CFE5FF
+}
+section .contentsWrap{
+    -webkit-display:flex;
+    display:flex;
+    -webkit-flex-direction:row;
+    flex-direction:row;
+    justify-content: center;
+    align-items: center;
+    min-height:inherit;
+}
+.type1 .contentsWrap{
+    align-items:end;
+}
+.type1 .contentsWrap .txtBox{
+    min-width:fit-content;
+    margin:0 8px 100px 0;
+}
+section .title{
+    line-height:1.4
+}
+.type1 .title{
+    margin-bottom:32px;
+    font-size:4em;
+    color:#374151;
+}
+.type1 .btnMain{
+    min-width:357px;
+    height:56px;
+    line-height:56px;
+    text-align:center;
+    border-radius:40px;
+    transition:.3s;
+    background:#3692FF;
+    color:#F9FAFB;
+    font-size:2em;
+    font-weight:600;
+}
+.type1 .btnMain:hover{
+    background:#1967D6
+}
+.type2 .contentsWrap{
+    max-width:988px;
+    margin:138px auto;
+    justify-content: space-between;
+    border-radius:12px;
+    overflow:hidden;
+    background:#FCFCFC
+}
+.type2 .txtBox{
+    flex:1;
+    padding-left:65px;
+}
+.section3.type2 .txtBox{
+    text-align:right;
+    padding-left:0;
+    padding-right:65px;
+}
+.type2 .keyword{
+    font-size:1.8em;
+    font-weight:700;
+    color:#3692FF
+}
+.type2 .title{
+    margin:15px 0 25px;
+    font-size:4em
+}
+.type2 .description{
+    font-size:2.4em;
+    font-weight:400;
+    line-height:32px;
+    color:#374151;
+}
+footer{
+    padding:32px 0 108px;
+    background:#111827;
+    color:#E5E7EB
+}
+.footerWrap{
+    -webkit-display:flex;
+    display:flex;
+    -webkit-flex-direction:row;
+    flex-direction:row;
+    justify-content: space-between;
+    align-items: center;
+}
+.footerWrap .copyright{
+    color:#9CA3AF
+}
+.footerWrap .btnLink{
+    -webkit-display:flex;
+    display:flex;
+    -webkit-flex-direction:row;
+    flex-direction:row;
+    align-items: center;
+}
+.footerWrap .btnLink > a{
+    margin-right:30px;
+}
+.footerWrap .btnLink > a:last-child{
+    margin-right:0;
+}
+.footerWrap .socialBox{
+    -webkit-display:flex;
+    display:flex;
+    -webkit-flex-direction:row;
+    flex-direction:row;
+    align-items: center;
+}
+.footerWrap .socialBox li{
+    margin-right:10px;
+    cursor: pointer;
+}
+.footerWrap .socialBox li:last-child{
+    margin-right:0
+}
+
+@media (max-width: 1500px) {
+    .type1 .title,
+    .type2 .title{
+        font-size:3.7em;
+    }
+    .type1 .btnMain{
+        min-width:300px;
+    }
+    .type2 .description{
+        font-size: 2.2em;
+    }
+}
+
+@media (max-width: 1350px) {
+    .type1 .title,
+    .type2 .title{
+        font-size:3.3em;
+    }
+    .type1 .btnMain{
+        min-width:250px;
+    }
+    .type2 .description{
+        font-size: 2em;
+    }
+    .type2 .imgBox{
+        flex:1.5
+    }
+}
+
+@media (max-width: 1250px){
+    section.type1{
+        min-height:500px;
+    }
+    .type1 .title,
+    .type2 .title{
+        font-size:2.7em;
+    }
+    .type1 .btnMain{
+        min-width:230px;
+    }
+    .type2 .contentsWrap{
+        margin:120px auto;
+    }
+    .type2 .description{
+        font-size: 1.5em;
+        line-height: 24px;
+    }
+    .type2 .txtBox{
+        padding:0 30px;
+    }
+    .section3.type2 .txtBox{
+        padding:0 30px;
+    }
+}
+
+@media (max-width: 1050px){
+    section.type1 {
+        min-height: 400px;
+    }
+    .type1 .title, .type2 .title {
+        font-size: 2.3em;
+    }
+    .type1 .btnMain {
+        min-width: 200px;
+    }
+    .type2 .contentsWrap {
+        margin: 100px auto;
+    }
+}
