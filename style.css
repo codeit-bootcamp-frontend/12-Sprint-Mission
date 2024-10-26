@@ -1,0 +1,198 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+}
+
+
+
+.main {
+  width: 100%;
+  background-color: #CFE5FF;
+  height: 540px;
+}
+
+.main-info {
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  padding-top: 200px;
+}
+
+.bottom-info {
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  padding-top: 143px;
+}
+
+.main-info img {
+  height: 340px;
+  width: 746px;
+}
+
+.bottomImg {
+  height: 397px;
+  width: 746px;
+}
+
+.main-description p {
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 56px;
+  color: #374151;
+  margin: 40px 0;
+
+}
+
+.main-description a {
+  font-weight: 400;
+  font-size: 20px;
+  padding: 16px 124px;
+  background-color: #3692FF;
+  color: white;
+  border-radius: 40px;
+  text-decoration: none;
+  display: inline-block;
+
+
+}
+
+.header-info {
+  /* width: 80%; */
+  margin: 0 auto;
+  padding: 10px 200px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.header-info img {
+  width: 50px;
+}
+
+.header-info .logo-title {
+  flex-grow: 1;
+  color: #3692FF;
+  font-weight: 800;
+  font-size: 25px;
+  text-decoration: none;
+}
+
+.loginBtn {
+  text-decoration: none;
+  background-color: #3692FF;
+  width: 128px;
+  height: 48px;
+  border-radius: 8px;
+  /* 텍스트 */
+  color: white;
+  font-weight: 600;
+  font-size: 16px;
+  /* 텍스트 중앙정렬 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.section {
+  height: 720px;
+  width: 100%;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.section-info {
+  background-color: #FCFCFC;
+  display: flex;
+  width: 988px;
+  height: 444px;
+
+  border-radius: 12px;
+  gap: 50px;
+}
+
+.section-description {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-grow: 1;
+}
+
+.section-description h2 {
+  margin: 20px 0;
+  font-size: 40px;
+  font-weight: 700;
+  color: #374151;
+}
+
+.section-description span {
+  font-size: 18px;
+  font-weight: 700;
+  color: #3692FF;
+}
+
+.section-description p {
+  font-size: 24px;
+  font-weight: 500;
+  color: #374151;
+}
+
+.section-description.textright {
+  text-align: right;
+}
+
+.section2 {
+  height: 100px;
+  width: 100%;
+  background-color: #FCFCFC;
+}
+
+footer {
+  background-color: #111827;
+  height: 180px;
+  width: 100%;
+  color: white;
+  display: flex;
+  justify-content: center;
+  padding-top: 30px;
+
+}
+
+.footer-help {
+  display: flex;
+  gap: 20px;
+}
+
+.footer-help a {
+  color: #E5E7EB;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.footer-info {
+  display: flex;
+  width: 80%;
+  justify-content: space-between;
+}
+
+.footer-info span {
+  color: #9CA3AF;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.footer-logo {
+  display: flex;
+  gap: 10px;
+}
+
+.footer-logo img {
+  width: 20px;
+  height: 20px;
+}
