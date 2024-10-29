@@ -14,18 +14,13 @@ h3 {
   font-family: "Pretendard-Regular";
 }
 
-header,
-section {
-  width: 100%;
-}
-
 a {
   text-decoration: none;
   text-align: center;
   cursor: pointer;
 }
 
-.header-container {
+.header__container {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -34,19 +29,19 @@ a {
   padding: 9.5px 400px;
 }
 
-.logo-container {
+.header__logo {
   display: flex;
   align-items: center;
   gap: 8.5px;
 }
 
-.logo-container a {
+.header__logo span {
   font-size: 26px;
   font-weight: 700;
   color: #3692ff;
 }
 
-.login-button {
+.header__login-button {
   width: 128px;
   height: 48px;
   background: #3692ff;
