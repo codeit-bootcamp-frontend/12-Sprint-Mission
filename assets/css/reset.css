@@ -64,9 +64,17 @@ a {
   text-decoration: none;
 }
 button {
+  background: transparent;
+  border: none;
   cursor: pointer;
   color: inherit;
 }
 img {
   vertical-align: top;
+}
+input {
+  padding: 0;
+  margin: 0;
+  border: none;
+  font: inherit;
 }
