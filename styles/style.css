@@ -1,7 +1,8 @@
 @charset "utf-8";
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css");
 
 * {
-    font-family: sans-serif;
+    font-family: pretendard;
 }
 
 .top_logo {
@@ -13,7 +14,7 @@
     max-width: 1120px;
     margin: 0 auto;
 }
-.frame{
+.divider{
     flex-grow:1;
 }
 .top_logo>img {
@@ -98,7 +99,6 @@
 
     padding-top: 138px;
     padding-bottom: 138px;
-
 
 }
 
