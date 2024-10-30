@@ -1,3 +1,19 @@
+:root {
+  /* gray */
+  --gray-900: #111827;
+  --gray-800: #1F2937;
+  --gray-700: #374151;
+  --gray-600: #4B5563;
+  --gray-500: #6B7280;
+  --gray-400: #9CA3AF;
+  --gray-200: #E5E7EB;
+  --gray-100: #F3F4F6;
+  --gray-50: #F9FAFB;
+
+  /* blue */
+  --blue: #3692FF;
+}
+
 /* 
   전체 선택자(*) 및 a, button, img 태그에 대한 CSS는 새로운 웹 개발 프로젝트를 시작할 때 전역 스타일에 기본적으로 넣어주면 좋은 내용들입니다. 
   브라우저 간의 스타일 차이를 최소화하고 예측 가능한 레이아웃을 위해 브라우저 기본 세팅을 일부 리셋해 준다고 생각하면 됩니다. 
@@ -127,4 +143,17 @@ h1 {
   font-weight: 700;
   border-radius: 999px;
   padding: 16px 124px;
+}
+
+/* 접근성 요소 숨기기 */
+.blind {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0); /* 구형 브라우저를 위해 사용 */
+  clip-path: polygon(0 0, 0 0, 0 0); /* inset(50%) 와 동일한 표현 */
+  border: 0;
 }

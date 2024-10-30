@@ -1,0 +1,134 @@
+.login {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 640px;
+  margin: 60px auto 0;
+}
+
+.logo-wrapper {
+  
+  max-width: 396px;
+}
+
+.logo-wrapper a {
+  display: block;
+}
+
+.logo-wrapper a img {
+  width: 100%;
+}
+
+.auth-form {
+  width: 100%;
+  margin-top: 40px;
+}
+
+.form-submit-btn {
+  width: 100%;
+  padding: 16px 124px;
+  font-size: 20px;
+  font-weight: 700;
+  border-radius: 9999px;
+  background-color: var(--gray-400);
+}
+
+.form-submit-btn.valid {
+  background-color: var(--blue);
+}
+
+.form-item {
+  margin-bottom: 24px;
+}
+
+.form-item label {
+  display: block;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.form-item input {
+  display: block;
+  width: 100%;
+  height: 56px;
+  padding: 15px 24px;
+  margin-top: 16px;
+  color: var(--gray-800);
+  border: none;
+  border-radius: 12px;
+  background-color: var(--gray-100);
+}
+
+.form-item input::placeholder {
+  font-family: "Pretendard", sans-serif;
+  font-size: 16px;
+  color: var(--gray-400);
+}
+
+.form-item input:focus {
+  outline-color: var(--blue);
+}
+
+.form-item input.valid {
+  font-family: "Pretendard", sans-serif;
+  font-size: 16px;
+  color: var(--gray-400);
+}
+
+.input-box {
+  position: relative;
+}
+
+.password-blind-btn {
+  position: absolute;
+  top: 50%;
+  right: 26px;
+  transform: translate(0, -50%);
+}
+
+.password-blind-btn img {
+  width: 24px;
+}
+
+.social-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 16px 23px;
+  margin-top: 24px;
+  border-radius: 8px;
+  background-color: #E6F2FF;
+}
+
+.social-wrapper h2 {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.solcial-login-buttons {
+  display: flex;
+  gap: 16px;
+}
+
+.solcial-login-buttons a {
+  display: block;
+}
+
+.solcial-login-buttons img {
+  display: block;
+  width: 42px;
+}
+
+.social-auth-wrapper {
+  margin-top: 24px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.social-auth-wrapper a {
+  color: #3182f6;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}

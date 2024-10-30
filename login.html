@@ -1,20 +1,8 @@
-<!-- 
-    <VS Code에서 HTML 기본구조 자동생성하기>
-
-    - `!` 입력 후 tab 키를 누르면 HTML 기본 양식이 입력됩니다.
-
-    - 이때, <html lang="en"> 부분을 매번 lang="ko"로 바꾸는 것이 번거로우니 양식을 바꿔봅시다.
-      command/ctrl + 쉼표 를 눌러 VS Code 설정창을 열고 emmet을 검색해 주세요. 
-      스크롤을 내려 Emmet: Variables 섹션에 Add Item을 누르고 lang Item의 Value를 ko로 바꿔 입력해 주세요. 
-      마지막으로 Add Item 버튼을 눌러 저장하면 끝!
--->
-
 <!DOCTYPE html>
 <html lang="ko">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- 기본 양식 생성 후, 제목을 수정하고 해당 페이지에 적용할 파비콘 및 스타일시트를 추가해 주세요. -->
     <title>판다마켓 - 로그인</title>
     <link rel="icon" href="images/logo/favicon.ico" />
     <link
@@ -24,9 +12,54 @@
       href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"
     />
     <link rel="stylesheet" href="styles/global.css" />
+    <link rel="stylesheet" href="styles/auth.css" />
   </head>
 
   <body>
-    <h1>임시 로그인 페이지</h1>
+    <main class="auth-container login">
+      <h1 class="blind">판다마켓 로그인</h1>
+      <div class="logo-wrapper">
+        <a href="/">
+          <img src="images/logo/logo.svg"/>
+        </a>
+      </div>
+      <form method="post" action="login.html" accept-charset="UTF-8" class="auth-form">
+        <h2 class="blind">일반 로그인하기</h2>
+        <div class="form-item">
+          <label for="email">이메일</label>
+          <input type="email" id="email" placeholder="이메일을 입력해 주세요" required/>
+        </div>
+        <div class="form-item">
+          <label for="password">비밀번호</label>
+          <div class="input-box">
+            <input type="password" id="password" placeholder="비밀번호를 입력해 주세요" required/>
+            <button type="button" class="password-blind-btn">
+              <img src="images/icon/password_blind_btn.png" alt="패스워스 숨기기 아이콘"/>
+            </button>
+          </div>
+        </div>
+        <!-- 
+          TODO: 유효성 검사 후
+          1) submit 버튼에 .valid(활성화) 추가
+          2) disabled = false
+        -->
+        <button type="submit" class="button form-submit-btn" disabled>로그인</button>
+      </form>
+      <div class="social-wrapper">
+        <h2>간편 로그인하기</h2>
+        <div class="solcial-login-buttons">
+          <a href="https://www.google.com/" target="_blank">
+            <img src="images/social/google.png" alt="구글 로그인"/>
+          </a>
+          <a href="https://www.google.com/" target="_blank">
+            <img src="images/social/kakao.png" alt="카카오 로그인"/>
+          </a>
+        </div>
+      </div>
+      <div class="social-auth-wrapper">
+        판다마켓이 처음이신가요?
+        <a href="signup.html">회원가입</a>
+      </div>
+    </main>
   </body>
 </html>
