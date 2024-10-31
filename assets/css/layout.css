@@ -9,6 +9,7 @@ body {
   font-family: "Pretendard", sans-serif;
   font-size: 1.6rem;
   line-height: 1.3;
+  color: var(--color-seondary-800);
 }
 
 .root:has(.header) {
