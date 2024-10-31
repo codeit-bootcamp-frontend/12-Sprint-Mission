@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 @font-face {
   font-family: "Pretendard-Regular";
   src: url("https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff")
@@ -6,17 +10,12 @@
   font-style: normal;
 }
 
-p,
-a,
-h1,
-h2,
-h3 {
+body {
   font-family: "Pretendard-Regular";
 }
 
 a {
   text-decoration: none;
-  text-align: center;
   cursor: pointer;
 }
 
@@ -52,33 +51,35 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
+  line-height: 26px;
 }
 
-.main-section,
-.banner-section {
+.main-banner,
+.sub-banner {
   background: #cfe5ff;
 }
 
-.margin-container,
-.banner-container {
-  margin: 0 auto;
+.main-banner__container,
+.sub-banner__container {
   padding: 0 405px;
   width: 1110px;
 }
 
-.main-banner-container {
+.main-banner__container {
   display: flex;
   align-items: center;
   padding-top: 200px;
   gap: 7px;
 }
 
-.click-container {
+.main-banner__text-container {
   display: flex;
   flex-direction: column;
   gap: 32px;
+  padding-bottom: 60px;
 }
 
+h1,
 h2 {
   font-size: 40px;
   font-weight: 700;
@@ -87,7 +88,7 @@ h2 {
   white-space: nowrap;
 }
 
-.click-container a {
+.main-banner__click-button {
   width: 100%;
   color: #f9fafb;
   background-color: #3692ff;
@@ -101,14 +102,13 @@ h2 {
   line-height: 32px;
 }
 
-.market-explain-container {
+.feature-section {
   padding: 138px 466px;
   width: 988px;
+  margin: 0 auto;
 }
 
-.search-container,
-.hot-items-container,
-.register-container {
+.feature-section__container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -117,7 +117,7 @@ h2 {
   background-color: #fcfcfc;
 }
 
-.explain-container {
+.feature-section__content-box {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -126,24 +126,18 @@ h2 {
   padding-right: 24px;
 }
 
-h3 {
+.feature-section__content-box__label {
   color: #3692ff;
   font-size: 18px;
   font-weight: 700;
   line-height: 26px;
 }
 
-.explain-container > h2 {
-  letter-spacing: calc(40px * 0.02);
+.feature-section__content-box__title {
+  padding-bottom: 24px;
 }
 
-.main-explain-container {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-}
-
-.main-explain-container > p {
+.feature-section__content-box__description {
   font-size: 24px;
   font-weight: 500;
   line-height: 32px;
@@ -151,16 +145,16 @@ h3 {
   white-space: nowrap;
 }
 
-.search-container > img {
+.feature-section__image-left {
   order: 2;
 }
 
-.search-container > .explain-container {
-  padding-left: 24px;
-  padding-right: 0;
+.feature-section__content-box--right {
+  text-align: right;
+  align-items: flex-end;
 }
 
-.banner-container {
+.sub-banner__container {
   display: flex;
   gap: 69px;
   justify-content: space-between;
