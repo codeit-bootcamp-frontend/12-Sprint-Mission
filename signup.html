@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>판다마켓 - 로그인</title>
+    <title>판다마켓 - 회원가입</title>
     <link rel="icon" href="images/logo/favicon.ico" />
     <link
       rel="stylesheet"
@@ -16,19 +16,23 @@
   </head>
 
   <body>
-    <main class="auth-container login">
-      <h1 class="blind">판다마켓 로그인</h1>
+    <main class="auth-container">
+      <h1 class="blind">판다마켓 회원가입</h1>
       <div class="logo-wrapper">
         <a href="/">
           <img src="images/logo/logo.svg"/>
         </a>
       </div>
 
-      <form method="post" action="login.html" accept-charset="UTF-8" class="auth-form">
+      <form method="post" action="signup.html" accept-charset="UTF-8" class="auth-form">
         <h2 class="blind">일반 로그인하기</h2>
         <div class="form-item">
           <label for="email">이메일</label>
           <input type="email" id="email" placeholder="이메일을 입력해주세요" required/>
+        </div>
+        <div class="form-item">
+          <label for="email">닉네임</label>
+          <input type="text" id="nickname" placeholder="닉네임을 입력해주세요" required/>
         </div>
         <!-- 
           TODO: [password/js] 비밀번호 보기/숨기기 기능 
@@ -44,12 +48,21 @@
             </button>
           </div>
         </div>
+        <div class="form-item">
+          <label for="password2">비밀번호 확인</label>
+          <div class="input-box">
+            <input type="password" id="password2" placeholder="비밀번호를 다시 한 번 입력해주세요" required/>
+            <button type="button" class="password-blind-btn">
+              <img src="images/icon/password_show_btn.png" alt="비밀번호 확인 숨기기 아이콘"/>
+            </button>
+          </div>
+        </div>
         <!-- 
           TODO: [submit button/js] 유효성 검사 후 상태값 변경
           1) .valid(활성화) 추가
           2) disabled = false
         -->
-        <button type="submit" class="button form-submit-btn" disabled>로그인</button>
+        <button type="submit" class="button form-submit-btn" disabled>회원가입</button>
       </form>
       
       <div class="social-wrapper">
@@ -64,8 +77,8 @@
         </div>
       </div>
       <div class="social-auth-wrapper">
-        판다마켓이 처음이신가요?
-        <a href="signup.html">회원가입</a>
+        이미 회원이신가요?
+        <a href="signup.html">로그인</a>
       </div>
     </main>
   </body>

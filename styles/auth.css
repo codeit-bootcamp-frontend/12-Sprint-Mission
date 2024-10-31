@@ -1,10 +1,11 @@
-.login {
+.auth-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   max-width: 640px;
-  margin: 60px auto 0;
+  margin: 0 auto;
+  padding: 60px 0;
 }
 
 .logo-wrapper {
@@ -29,7 +30,7 @@
   width: 100%;
   padding: 16px 124px;
   font-size: 20px;
-  font-weight: 700;
+  font-weight: 600;
   border-radius: 9999px;
   background-color: var(--gray-400);
 }
