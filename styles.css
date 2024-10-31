@@ -72,11 +72,11 @@ body {
 }
 
 #banner_top {
-  background-image: url(/image_folder/banner_top.png);
+  background-image: url(image_folder/banner_top.png);
 }
 
 #banner_bottom {
-  background-image: url(/image_folder/banner_bottom.png);
+  background-image: url(image_folder/banner_bottom.png);
 }
 
 .wrapper {
@@ -129,6 +129,7 @@ h1 {
 .info__box:nth-child(2) {
   text-align: right;
 }
+
 
 .footer {
   display: flex;
