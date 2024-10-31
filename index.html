@@ -4,76 +4,101 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>판다마켓</title>
+    <link
+      rel="stylesheet"
+      as="style"
+      crossorigin
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"
+    />
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
-    <header>
-        <nav class="navbar">
-            <div class="container">
-                <a href="index.html" class="logo">
-                    <img src="image_folder/Property 1=md.png" alt="판다마켓 로고">
-                </a>
-                <a href="login.html" class="login-button">로그인</a>  
-            </div>
-        </nav>
-        
+    <header class="header">
+        <nav class="header__navbar">
+            <a href="index.html" class="header__logo">
+                <img src="image_folder/navbar_logo.png" alt="판다마켓 로고" width="153">
+            </a>
+            <a href="login.html" id="navbar__login-button" class="button">로그인</a>  
+        </nav>  
     </header>
 
-    <div class="landing-container">
-        <div class="landing-frame">
-            <div class="text-container">
-                <a class="landingtop-text">일상의 모든 물건을 거래해 보세요<a>
-                <a href="items.html" class="explore-button">
-                    <span class="button-text">구경하러 가기</span>
-                </a>
+    <main>
+        <section id="banner_top" class="banner__container">
+            <div class="wrapper">
+                <h1>일상의 모든 물건을<br />
+                    거래해 보세요</h1>
+                <a href="items.html" class="button etc-button">구경하러 가기</a>   
             </div>
-            <img class="landingtop-img" src="image_folder/img_home_top.png" alt="랜딩이미지상단">
-        </div>
-    </div>
-
-    <div class="section">
-        <img src="image_folder/desktop_02.png" alt="프레임 1번 이미지" id="frame-image">
-    </div>
-
-    <div class="section">
-        <img src="image_folder/desktop_03.png" alt="프레임 2번 이미지" id="frame-image">
-    </div>
-
-    <div class="section">
-        <img src="image_folder/desktop_04.png" alt="프레임 3번 이미지" id="frame-image">
-    </div>
-
-    <div class="landing-container">
-        <div class="landing-frame">
-            <div class="text-container">
-                <a class="landingbottom-text">믿을 수 있는<br> 판다마켓 중고 거래</a>
-
+            
+        </section>
+        <section class="wrapper info__wrapper">
+            <div class="info__box">
+                <img src="/image_folder/Img_home_01.png" alt="인기상품" width="50%">
+                <div class="info__content">
+                    <h2 class="info__tag">Hot item</h2>
+                    <h1>인기 상품을<br>확인해 보세요</h1>
+                    <p class="info__description">
+                        가장 HOT한 중고거래 물품을<br />판다마켓에서 확인해 보세요
+                    </p>
+                </div>
             </div>
-            <img class="landingbottom-img" src="image_folder/Img_home_bottom.png" alt="랜딩이미지하단">    
+
+            <div class="info__box">
+                <div class="info__content">
+                    <h2 class="info__tag">Search</h2>
+                    <h1>구매를 원하는<br />상품을 검색하세요</h1>
+                    <p class="info__description">
+                        구매하고 싶은 물품은 검색해서<br />쉽게 찾아보세요
+                    </p>
+                </div>
+                <img src="/image_folder/Img_home_02.png" alt="상품검색" width="50%">
+            </div>
+
+            <div class="info__box">
+                <img src="image_folder/Img_home_03.png" alt="상품등록" width="50%">
+                <div class="info__content">
+                    <h2 class="info__tag">Register</h2>
+                    <h1>판매를 원하는<br />상품을 등록하세요</h1>
+                    <p class="info__description">
+                        어떤 물건이든 판매하고 싶은 상품을<br />쉽게 등록하세요
+                    </p>
+                </div>
+            </div>
+        </section>
+        <section id="banner_bottom" class="banner__container">
+            <div class="wrapper">
+                <h1>
+                    믿을 수 있는
+                    <br>
+                    판다마켓 중고거래
+                </h1>
+            </div>
+        </section>
+    </main>
+   
+
+    <footer>
+        <div>&copy; codeit - 2024</div>
+        
+        <div id="footerMenu">
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="faq.html">FAQ</a>
         </div>
-    </div>
-
-    <footer class="footer">
-        <p class="footer-left">&copy; codeit - 2024</p>
-
-        <div class="footer-center">
-            <a href="privacy.html" class="footer-link">Privacy Policy</a>
-            <a href="faq.html" class="footer-link">FAQ</a>
-        </div>
-
-        <div class="footer-right">
-            <a href="https://www.facebook.com" target="_blank" class="icon-style">
-                <img src="image_folder/ic_facebook.png" alt="Facebook">
-            </a>
-            <a href="https://www.twitter.com" target="_blank" class="icon-style">
-                <img src="image_folder/ic_twitter.png" alt="Twitter">
-            </a>
-            <a href="https://www.youtube.com" target="_blank" class="icon-style">
-                <img src="image_folder/ic_youtube.png" alt="YouTube">
-            </a>
-            <a href="https://www.instagram.com" target="_blank" class="icon-style">
-                <img src="image_folder/ic_instagram.png" alt="Instagram">
-            </a>
+        
+        <div id="socialMedia">
+          <a href="https://www.facebook.com" target="_blank">
+            <img src="image_folder/ic_facebook.png" alt="Facebook" width="20" />
+          </a>
+          <a href="https://www.twitter.com" target="_blank">
+            <img src="image_folder/ic_twitter.png" alt="Twitter" width="20" />
+          </a>
+          <a href="https://www.youtube.com" target="_blank">
+            <img src="image_folder/ic_youtube.png" alt="YouTube" width="20" />
+          </a>
+          <a href="https://www.instagram.com" target="_blank">
+            <img src="image_folder/ic_instagram.png" alt="Instagram" width="20" />
+          </a>
         </div>
     </footer>   
 </body>
