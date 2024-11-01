@@ -1,0 +1,152 @@
+h1 {
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 56px;
+  color: #374151;
+}
+
+p {
+  font-weight: 500px;
+  font-size: 24px;
+  line-height: 32px;
+  color: #374151;
+}
+
+.container {
+  max-width: 1120px;
+  margin: 0 auto;
+  display: flex;
+}
+
+header {
+  height: 70px;
+  padding: 9px 0;
+  border-bottom: 1px solid #dfdfdf;
+}
+
+header > .container {
+  justify-content: space-between;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8.59px;
+  font-weight: 700;
+  font-size: 25.63px;
+  line-height: 34.6px;
+  color: #3692ff;
+}
+
+.logo-img {
+  width: 40px;
+  height: 40.14px;
+}
+
+.banner {
+  height: 540px;
+  background-color: #cfe5ff;
+  position: relative;
+}
+
+.banner-top-img {
+  width: 746px;
+  height: 340px;
+}
+
+.banner-content {
+  position: absolute;
+  bottom: 0;
+  display: flex;
+}
+
+.main-section {
+  height: 720px;
+  padding: 138px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.card {
+  max-width: 988px;
+  height: 444px;
+  background-color: #fcfcfc;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: 64px;
+}
+
+.card > img {
+  width: 579px;
+  height: 444px;
+}
+
+.title {
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 26px;
+  color: #3692ff;
+}
+
+.card1 {
+  padding: 0 47.5px 0 23.5px;
+}
+
+.card2 {
+  padding: 0 14px 0 38px;
+  flex-direction: row-reverse;
+  text-align: end;
+}
+
+.card3 {
+  padding-right: 9px;
+}
+
+.banner-bottom .banner-content {
+  gap: 69px;
+  align-items: center;
+}
+
+.banner-bottom-img {
+  width: 746px;
+  height: 397px;
+}
+
+footer {
+  padding: 32px 0;
+  background-color: #111827;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19.09px;
+}
+
+footer > .container {
+  justify-content: space-between;
+}
+
+.footer-left {
+  color: #9ca3af;
+}
+
+.footer-center {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.footer-center a:hover {
+  text-decoration: underline;
+}
+
+.footer-center > a{
+  color: #e5e7eb;
+}
+
+.footer-right {
+  display: flex;
+  gap: 12px;
+}
+
+
+

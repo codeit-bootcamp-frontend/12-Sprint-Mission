@@ -1,0 +1,129 @@
+body {
+  padding: 60px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  width: 640px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+label {
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 26px;
+  color: #1f2937;
+}
+
+input {
+  width: 100%;
+  height: 56px;
+  padding: 16px 24px;
+  border-radius: 12px;
+  border: none;
+  background-color: #f3f4f6;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+  color: #1f2937;
+}
+
+input::placeholder {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+  color: #9ca3af;
+}
+
+input:focus {
+  outline-color: #3692ff;
+}
+
+.logo {
+  width: 396px;
+  margin: 0 auto;
+  padding: 12.98px 0 15.14px 0;
+  margin-bottom: 40px;
+  font-family: 'ROKAF Sans';
+  font-weight: 700;
+  font-size: 66.34px;
+  line-height: 89.56px;
+  color: #3692ff;
+  display: flex;
+  align-items: center;
+  gap: 22.24px;
+}
+
+.logo-img {
+  width: 103.53px;
+  height: 103.88px;
+}
+
+.label {
+  margin-bottom: 16px;
+}
+
+.auth-btn {
+  text-align: center;
+  background-color: #9ca3af;
+  color: #f3f4f6;
+  border-radius: 40px;
+  padding: 16px 23px;
+}
+
+.password {
+  position: relative;
+}
+
+.pw-eye-btn-on,
+.pw-eye-btn-off {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+}
+
+.pw-eye-btn-on:hover,
+.pw-eye-btn-off:hover {
+  cursor: pointer;
+}
+
+.done {
+  display: none;
+}
+
+.bottom-menu {
+  height: 74px;
+  background-color: #e6f2ff;
+  padding: 16px 23px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 26px;
+  border-radius: 8px;
+}
+
+.sns-icons {
+  display: flex;
+  gap: 16px;
+}
+
+.auth-guide {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 24px;
+  color: #1f2937;
+  text-align: center;
+}
+
+.auth-guide-btn {
+  color: #3692ff;
+  text-decoration: underline;
+}
