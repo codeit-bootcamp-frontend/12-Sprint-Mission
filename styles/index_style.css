@@ -22,16 +22,23 @@
 }
 
 .log_btn {
-    border-radius: 8px;
-    font-size: 16px;
-    font-weight: 600;
-    line-height: 26px;
     width: 128px;
     height: 48px;
-    background-color: #3692FF;
-    border-style: none;
-    color: white;
+    position: center;
+    background-color: #3692ff;
+    border-radius: 8px;
+    margin-top: 10px;
     cursor: pointer;
+}
+
+.log_btn>a{
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 48px;
+    text-align: center;
+    color: #fff;
+    text-decoration: none;
+    padding-left: 43px;
 }
 
 .banner {
