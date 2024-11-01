@@ -37,6 +37,7 @@ body {
 
 .banner__contents-box {
   width: 100%;
+  max-width: 1110px;
   position: relative;
   z-index: 1;
 }

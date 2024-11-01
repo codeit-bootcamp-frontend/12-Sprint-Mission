@@ -5,43 +5,53 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>회원가입</title>
+    <link rel="stylesheet" href="style.css">
   </head>
 
   <body>
 
-    <main>
-      <a href="../index.html">
-        <img src="../img/logo.png" alt="">
-        <span>판다마켓</span>
+    <main class="main">
+      <a class="main-header" href="../index.html">
+        <img class="main-header__logo-img" src="../img/logo.png" alt="">
+        <span class="main-header__logo-title">판다마켓</span>
       </a>
 
+      <form class="signup-form" action="">
+        <label class="signup-form__label" for="email">이메일</label>
+        <input id="email" class="signup-form__input-email" type="email" placeholder="이메일을 입력해주세요">
 
-      <form action="">
-        <label for="email">이메일</label>
-        <input id="email" type="email">
-        <label for="name">닉네임</label>
-        <input id="name" type="text">
-        <label for="password">비밀번호</label>
-        <input id="password" type="password">
-        <label for="re-password">비밀번호 확인</label>
-        <input id="re-password" type="password">
-        <button>회원가입</button>
+        <label class="signup-form__label" for="name">닉네임</label>
+        <input id="name" class="signup-form__input-name" type="text" placeholder="닉네임을 입력해주세요">
+
+        <label class="signup-form__label" for="password">비밀번호
+          <img class="signup-form__input-blind" src="/img/btn_visibility_off_24px.png" alt="">
+        </label>
+        <input id="password" class="signup-form__input-password" type="password" placeholder="비밀번호를 입력해주세요">
+
+        <label class="signup-form__label" for="confirm-password">비밀번호
+          <img class="signup-form__input-blind" src="/img/btn_visibility_off_24px.png" alt="">
+        </label>
+        <input id="confirm-password" class="signup-form__input-confirmpassword" type="password"
+          placeholder="비밀번호를 다시 한 번 입력해주세요">
+
+        <button class="signup-form__btn">회원가입</button>
       </form>
 
-      <div>
-        <p>간편 로그인하기</p>
-        <a href="https://www.google.com/">
-          <img src="/img/google.png" alt="">
-        </a>
-
-        <a href="https://www.kakaocorp.com/page/">
-          <img src="/img/kakao.png" alt="">
-        </a>
+      <div class="login-easy">
+        <p class="login-easy__title">간편 로그인하기</p>
+        <div class="login-easy__link">
+          <a class="login-easy__img" href="https://www.google.com/">
+            <img src="/img/google.png" alt="">
+          </a>
+          <a class="login-easy__img" href="https://www.kakaocorp.com/page/">
+            <img src="/img/kakao.png" alt="">
+          </a>
+        </div>
       </div>
 
-      <div>
-        <p>이미 회원이신가요?</p>
-        <a href="../login/index.html">로그인</a>
+      <div class="to-login">
+        <p class="to-login__title">이미 회원이신가요?</p>
+        <a class="to-login__link" href="../login/index.html">로그인</a>
       </div>
     </main>
 
