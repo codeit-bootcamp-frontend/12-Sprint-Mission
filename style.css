@@ -16,6 +16,7 @@ header {
   height: 70px;
   padding: 0 200px;
   background-color: #ffffff;
+  position: fixed;
 }
 
 h2 {

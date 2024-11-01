@@ -1,0 +1,91 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: pretendard;
+}
+
+label {
+  margin-bottom: 16px;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 26px;
+  color: #1f2937;
+}
+
+input {
+  padding: 15px 24px;
+  width: 100%;
+  margin-bottom: 24px;
+  border-radius: 12px;
+  background-color: #f3f4f6;
+  border: none;
+}
+
+input:focus {
+  border-color: #3692ff;
+}
+
+input::placeholder {
+  color: #9ca3af;
+}
+
+.login-container {
+  width: 640px;
+  height: 618px;
+  margin: 231px 640px;
+}
+
+.login-container-tap {
+  display: flex;
+  flex-direction: column;
+}
+
+.login-title {
+  width: 396px;
+  height: 132px;
+  text-align: center;
+  padding: 0 122px 40px 122px;
+}
+
+button {
+  background-color: #3691ff;
+  border-radius: 40px;
+  padding: 16px 124px;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+  color: #ffffff;
+  width: 100%;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 32px;
+}
+
+.password-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.simple__login {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #e6f2ff;
+  border-radius: 8px;
+  padding: 16px 23px;
+  margin: 24px 0;
+}
+
+.simple__icon {
+  display: flex;
+  gap: 16px;
+}
+
+.login-bottom {
+  text-align: center;
+}
