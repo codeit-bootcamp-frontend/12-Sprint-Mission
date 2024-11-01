@@ -328,6 +328,12 @@
   outline: none;
 }
 
+.form-item:has(.item-error) .item-field input[type="text"],
+.form-item:has(.item-error) .item-field input[type="password"] {
+  border: 1px solid var(--color-error);
+  outline: none;
+}
+
 .form-item .item-field input::placeholder {
   color: var(--color-seondary-400);
 }
