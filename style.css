@@ -1,0 +1,434 @@
+* {
+    box-sizing: border-box;
+  }
+
+  :root {
+    --blue: #3692ff ;
+    --gray900: #111827 ;
+    --gray800: #1f2937 ;
+    --gray700: #374151 ;
+    --gray600: #4b5563 ;
+    --gray500: #6b7280 ;
+    --gray400: #9ca3af ;
+    --gray200: #e5e7eb ;
+    --gray100: #f3f4f6 ;
+    --gray50: #f9fafb ;
+  }
+
+  @font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+  html {
+    font-family: Pretendard, sans-serif;
+    word-break: keep-all;
+  }
+
+body {
+  background-color: #ffffff;
+  margin: 0 0;
+}
+
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  background-color: #ffffff;
+  display: grid ;
+  grid-template-columns: minmax(200px, 1fr) 153px minmax(0, 3fr) 128px minmax(200px, 1fr);
+  grid-template-areas: 
+    ". panda_logo . login ."
+  ;
+  height: 70px;
+  align-items: center; 
+}
+
+.panda-logo {
+  cursor: pointer;  
+  grid-area: panda_logo;
+}
+
+button {
+  cursor: pointer;  
+}
+
+.login {  
+  grid-area: login;
+  display: inline-flex;
+  width: 128px;
+  height: 48px;            
+  font-size: 16px;
+  font-weight: 600;           
+  background-color: var(--blue); 
+  color: white;             
+  border: none;             
+  border-radius: 8px;   
+  font-size: 16px;
+  padding: 0;
+  text-decoration: none;
+  align-items: center; 
+  justify-content: center; 
+}
+
+.login:hover {
+  background-color: #1682ff ;
+  cursor: pointer; 
+}
+
+
+.banner-container {
+  position: relative;
+  background-color: #cfe5ff;
+  width: 100%;
+  height: 540px;
+  margin: 70px 0 0;
+}
+
+.banner-text {
+  font-size: 40px;
+  font-weight: 700;
+  width: 357px;
+  line-height: 1.4;
+  color: var(--gray700);
+}
+
+.store-button {
+  display: inline-flex;
+  font-size: 20px;
+  font-weight: 600;
+  width: 357px;
+  height: 56px;
+  border-radius: 40px;
+  background-color: var(--blue);
+  border: 0px;
+  color: var(--gray50);
+  text-decoration: none;
+  align-items: center; 
+  justify-content: center; 
+}
+
+.store-button:hover {
+  background-color: #1682ff ;
+  cursor: pointer; 
+}
+
+.banner {
+  position: absolute; 
+  left: 50%; 
+  bottom: 0; 
+  transform: translateX(-50%); 
+  display: flex;
+  align-items: center ;
+  justify-content: center;
+}
+
+.banner-top-img {
+  width: 746px;
+  height: 340px;
+}
+
+.main-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+  width: 100%;
+  height: 720px;
+}
+
+.main-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 64px;
+  padding: 0 24px ;
+  background-color: #fcfcfc;
+  border-radius: 12px;
+}
+
+.main-img {
+  width: 579px;
+  height: 444px;
+}
+
+.blue-text {
+  font-size: 18px;
+  color: var(--blue);
+  font-weight: 700;
+}
+
+.main-text {
+  font-weight: 700;
+  font-size: 40px;
+  color: var(--gray700);
+  line-height: 1.4;
+}
+
+.content-text {
+  font-size: 24px;
+  color: var(--gray700);
+  line-height: 1.4;
+  font-weight: 500;
+}
+
+.right {
+  text-align: right;
+}
+
+.home-bottom-img {
+  width: 746px;
+  height: 397px;
+}
+
+footer {
+  background-color: var(--gray900);
+  width: 100%;
+  height: 160px;
+}
+
+.footer-grid {
+  display: grid ;
+  grid-template-columns: minmax(200px, 400px) 153px 3fr 128px minmax(200px, 400px);
+  grid-template-rows: 32px 1fr;
+  grid-template-areas: 
+    ". . . . ."
+    ". code FAQ sns ."
+  ;
+  align-items: center; 
+}
+
+.footer-codeit {
+  grid-area: code;
+  font-size: 16px;
+  color: var(--gray400);
+}
+
+.sup {
+  grid-area: FAQ;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  font-size: 16px;
+  color: var(--gray200);
+  font-weight: 400;
+}
+
+.privacy a, .FAQ a {
+  color: inherit;            
+  text-decoration: none;
+  cursor: pointer;       
+}
+
+
+.footer-sns {
+  grid-area: sns;
+  display: flex;
+  gap: 12px;
+}
+
+.facebook {
+  cursor: pointer;  
+  width: 20px;
+  height: 20px;
+}
+
+.footer-sns-icon {
+  cursor: pointer;  
+  width: 20px;
+  height: 20px;
+}
+
+
+/* 로그인 페이지 스타일 */
+
+ #login-container {
+  display: flex; 
+  justify-content: center; 
+  margin: 231px 0 100px;
+  height: 100vh; 
+}
+
+.login-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.login-panda-logo {
+  width: 396px;
+  height: 132px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin: 40px 0 24px;
+}
+
+.input-email {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.input-email input[type="email"] {
+  background-color: var(--gray100);
+  width: 100%; 
+  height: 56px;
+  padding: 15px 24px; 
+  border: none ;
+  border-radius: 12px; 
+  font-size: 16px;
+  color: var(--gray800);
+}
+
+.input-email input::placeholder {
+  color: var(--gray400);;
+}
+
+.input-password {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.input-password input[type="password"] {
+  background-color: var(--gray100);
+  width: 100%; 
+  height: 56px;
+  padding: 15px 24px; 
+  border: none ;
+  border-radius: 12px; 
+  font-size: 16px;
+  color: var(--gray800);
+}
+
+.input-password input::placeholder {
+  color: var(--gray400);;
+}
+
+.email-label {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.password-label {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.login-button {
+  background-color: var(--gray400);
+  border: none;
+  border-radius: 40px;
+  width: 640px;
+  height: 56px;
+  font-size: 20px;
+  color: var(--gray100);
+}
+
+.easy-login {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #e6f2ff;
+  border-radius: 8px;
+  font-size: 16px;
+  padding: 16px 23px;
+  width: 640px;
+  height: 74px;
+}
+
+.easy-icon {
+  display: flex;
+  gap: 16px;
+}
+
+.google-icon {
+  width: 42px;
+  height: 42px;
+}
+
+.kakaotalk-icon {
+  width: 42px;
+  height: 42px;
+}
+
+.signup-text {
+  margin: 24px 0 0;
+  width: 197px;
+  font-size: 14px;
+  color: var(--gray800);
+}
+
+.signup-landing {
+  color: var(--blue);
+}
+
+/*회원가입 페이지 스타일*/
+
+.input-nickname {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.input-nickname input[type="text"] {
+  background-color: var(--gray100);
+  width: 100%; 
+  height: 56px;
+  padding: 15px 24px; 
+  border: none ;
+  border-radius: 12px; 
+  font-size: 16px;
+  color: var(--gray800);
+}
+
+.input-nickname input::placeholder {
+  color: var(--gray400);;
+}
+
+.nickname-label {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.input-password-confirm {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.input-password-confirm input[type="password"] {
+  background-color: var(--gray100);
+  width: 100%; 
+  height: 56px;
+  padding: 15px 24px; 
+  border: none ;
+  border-radius: 12px; 
+  font-size: 16px;
+  color: var(--gray800);
+}
+
+.input-password-confirm input::placeholder {
+  color: var(--gray400);;
+}
+
+.password-confirm-label {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+input:focus {
+  outline: 2px solid var(--blue);
+}
+
+.login-button:hover {
+  background-color: var(--blue);
+}
