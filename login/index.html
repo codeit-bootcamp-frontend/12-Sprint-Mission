@@ -5,38 +5,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>판다마켓 로그인</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" as="style" crossorigin
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css" />
   </head>
 
   <body>
-    <main>
-      <a href="../index.html">
-        <img src="../img/logo.png" alt="">
-        <span>판다마켓</span>
+    <main class="main">
+      <a class="main-header" href="../index.html">
+        <img class="main-header__logo-img" src="../img/logo.png" alt="">
+        <span class="main-header__logo-title">판다마켓</span>
       </a>
 
-
-      <form action="">
-        <label for="email">이메일</label>
-        <input id="email" type="email">
-        <label for="password">비밀번호</label>
-        <input id="password" type="password">
-        <button>로그인</button>
+      <form class="login-form" action="">
+        <label class="login-form__label" for="email">이메일</label>
+        <input id="email" class="login-form__input-email" type="email" placeholder="이메일을 입력해주세요">
+        <label class="login-form__label" for="password">비밀번호
+          <img class="login-form__input-blind" src="/img/btn_visibility_off_24px.png" alt="">
+        </label>
+        <input id="password" class="login-form__input-password" type="password" placeholder="비밀번호를 입력해주세요">
+        <button class="login-form__btn">로그인</button>
       </form>
 
-      <div>
-        <p>간편 로그인하기</p>
-        <a href="https://www.google.com/">
-          <img src="/img/google.png" alt="">
-        </a>
-
-        <a href="https://www.kakaocorp.com/page/">
-          <img src="/img/kakao.png" alt="">
-        </a>
+      <div class="login-easy">
+        <p class="login-easy__title">간편 로그인하기</p>
+        <div class="login-easy__link">
+          <a class="login-easy__img" href="https://www.google.com/">
+            <img src="/img/google.png" alt="">
+          </a>
+          <a class="login-easy__img" href="https://www.kakaocorp.com/page/">
+            <img src="/img/kakao.png" alt="">
+          </a>
+        </div>
       </div>
 
-      <div>
-        <p>판다마켓이 처음이신가요?</p>
-        <a href="../signup/index.html">회원가입</a>
+      <div class="to-signup">
+        <p class="to-signup__title">판다마켓이 처음이신가요?</p>
+        <a class="to-signup__link" href="../signup/index.html">회원가입</a>
       </div>
     </main>
 
