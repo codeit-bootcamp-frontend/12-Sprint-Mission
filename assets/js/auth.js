@@ -1,4 +1,4 @@
-import { VALIDATION_MESSAGES, VALIDATION_REGEX } from "./messages.js";
+import { VALIDATION_MESSAGES, VALIDATION_REGEX } from "./constants.js";
 
 export default class Auth {
   constructor(form) {
