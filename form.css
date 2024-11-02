@@ -12,12 +12,17 @@ body {
   padding: 0;
 }
 
-.login-container {
+.login-container,
+.signup-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 640px;
   height: 618px;
+}
+
+.signup-container {
+  height: 842px;
 }
 
 .form-container {
@@ -35,7 +40,7 @@ body {
   color: #1F2937;
 }
 
-#email, #password {
+#email, #password, #name, #password-check {
   display: block;
   width: 100%;
   height: 56px;
@@ -46,7 +51,10 @@ body {
   background-color: #F3F4F6;
 }
 
-#email::placeholder, #password::placeholder {
+#email::placeholder, 
+#password::placeholder, 
+#name::placeholder,
+#password-check::placeholder {
   font-size: 16px;
   color: #9CA3AF;
 }
@@ -55,7 +63,8 @@ input:focus {
   outline: #3692FF auto 1px;
 }
 
-.button.login {
+.button.login,
+.button.signup {
   width: 100%;
   height: 56px;
   background-color: #9CA3AF;
@@ -66,7 +75,8 @@ input:focus {
   font-weight: 600;
 }
 
-.button.login:hover {
+.button.login:hover,
+.button.signup:hover {
   background-color: #3692FF;
 }
 
@@ -95,13 +105,15 @@ input:focus {
   height: 42px;
 }
 
-.signup-prompt {
+.signup-prompt,
+.login-prompt {
   font-size: 14px;
   font-weight: 500;
   color: #1F2937;
 }
 
-.signup-link {
+.signup-link,
+.login-link {
   font-size: 14px;
   font-weight: 500;
   color: #3692FF;
