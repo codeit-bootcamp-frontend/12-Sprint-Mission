@@ -23,6 +23,9 @@ input {
   border-radius: 12px;
   background-color: #f3f4f6;
   border: none;
+  background-image: url(./image/eyes_cloes.png);
+  background-repeat: no-repeat;
+  background-position: right;
 }
 
 input:focus {
