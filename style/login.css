@@ -1,3 +1,105 @@
-h1 {
-  color: red;
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Noto Sans KR", sans-serif;
+}
+
+header {
+  margin-top: 100px;
+}
+
+header,
+footer {
+  text-align: center;
+}
+
+main {
+  width: 640px;
+  margin: 0 auto;
+}
+
+label,
+button {
+  display: block;
+}
+
+label {
+  margin: 16px 0;
+  color: #1f2937;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+input {
+  width: 640px;
+  height: 56px;
+  padding: 24px 24px;
+  border: 2px solid #f3f4f6;
+  border-radius: 14px;
+  background-color: #f3f4f6;
+  outline: none;
+}
+
+input:focus {
+  border: 2px solid #369fff;
+  border-radius: 14px;
+}
+
+button {
+  margin-top: 16px;
+}
+
+footer {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+.login-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.logo {
+  width: 396px;
+}
+
+input::placeholder {
+  color: #9ca3af;
+}
+
+.input-password {
+  position: relative;
+}
+
+.toggle-password {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  cursor: pointer;
+}
+
+.login-btn {
+  padding: 16px 0;
+  border: 1px solid #9ca3af;
+  border-radius: 40px;
+  background-color: #9ca3af;
+  color: #f3f4f6;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 32px;
+}
+
+.simple-login {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 24px 0;
+  padding: 16px 16px;
+  border: 1px solid #e6f2ff;
+  border-radius: 8px;
+  background-color: #e6f2ff;
 }
