@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/style_for_signup_&_login.css" />
+    <link
+      rel="stylesheet"
+      as="style"
+      crossorigin
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"
+    />
+    <title>회원가입</title>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const visibility_toggle =
+          document.querySelectorAll('.visibility_toggle');
+        const password = document.querySelectorAll('.password');
+
+        visibility_toggle.forEach((toggle, index) => {
+          toggle.addEventListener('click', (e) => {
+            if (e.target.classList.contains('on')) {
+              e.target.classList.toggle('on');
+              e.target.src = 'img/for_signup_&_login/visibility_toggle_off.svg';
+              password[index].type = 'password';
+            } else {
+              e.target.classList.toggle('on');
+              e.target.src = 'img/for_signup_&_login/visibility_toggle_on.svg';
+              password[index].type = 'text';
+            }
+          });
+        });
+
+        const button = document.querySelector('button');
+
+        button.addEventListener('click', () => {
+          if (password[0].value !== password[1].value) {
+            alert('비밀번호가 일치하지 않습니다.');
+          }
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div class="container signup">
+      <a href="/"
+        ><img
+          src="/img/for_signup_&_login/panda_market_logo.svg"
+          alt="panda_market_logo"
+          class="panda_market_logo"
+      /></a>
+
+      <form action="" class="form">
+        <div>
+          <label for="email"> 이메일 </label>
+          <input
+            id="email"
+            type="email"
+            placeholder="이메일을 입력해주세요"
+            name="email"
+          />
+        </div>
+        <div>
+          <label for="nickname"> 닉네임 </label>
+          <input
+            id="nickname"
+            type="text"
+            placeholder="닉네임을 입력해주세요"
+            name="nickname"
+          />
+        </div>
+        <div>
+          <label for="password"> 비밀번호 </label>
+          <div class="container_for_password">
+            <input
+              class="password"
+              id="password"
+              type="password"
+              placeholder="비밀번호를 입력해주세요"
+              name="password"
+            />
+            <img
+              class="visibility_toggle"
+              src="img/for_signup_&_login/visibility_toggle_off.svg"
+              alt="visibility_toggle"
+            />
+          </div>
+        </div>
+        <div>
+          <label for="password_check"> 비밀번호 확인 </label>
+          <div class="container_for_password">
+            <input
+              class="password"
+              id="password_check"
+              type="password"
+              placeholder="비밀번호를 다시 한 번 입력해주세요"
+              name="password_check"
+            />
+            <img
+              class="visibility_toggle"
+              src="img/for_signup_&_login/visibility_toggle_off.svg"
+              alt="visibility_toggle"
+            />
+          </div>
+        </div>
+
+        <button>회원가입</button>
+
+        <div class="footer">
+          <div class="footer_container">
+            간편 로그인하기
+            <div class="link_container">
+              <a
+                href="https://accounts.google.com/v3/signin/identifier?continue=https%3A%2F%2Faccounts.google.com%2F&followup=https%3A%2F%2Faccounts.google.com%2F&ifkv=AcMMx-fkun-aUEBfnzJPK6_0ZOFjyPBcVhQmAxgZUj3K0F2iHJkH84yeGyASU2WB0n3-CUMQQL4K4w&passive=1209600&flowName=GlifWebSignIn&flowEntry=ServiceLogin&dsh=S-918843228%3A1730577289412205&ddm=1"
+                ><img
+                  src="/img/for_signup_&_login/google_logo.svg"
+                  alt="Google_login_page"
+              /></a>
+              <a
+                href="https://accounts.kakao.com/login/?continue=https%3A%2F%2Fseller.pay.kakao.com%2Fuser%2Fregister%2Fagreements&talk_login=#login"
+                ><img
+                  src="/img/for_signup_&_login/kakaotalk_logo.svg"
+                  alt="Kakaotalk_login_page"
+              /></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="link_to_login_or_signin">
+          이미 회원이신가요?
+          <a href="/login.html">로그인</a>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
