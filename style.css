@@ -362,7 +362,8 @@ form {
 
 .signup-text {
   margin: 24px 0 0;
-  width: 197px;
+  width: 100%;
+  text-align: center;
   font-size: 14px;
   color: var(--gray800);
 }
