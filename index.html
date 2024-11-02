@@ -1,147 +1,154 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/style.css" />
+    <link rel="stylesheet" href="/css/index.css" />
+    <link
+      rel="stylesheet"
+      as="style"
+      crossorigin
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"
+    />
     <title>판다마켓</title>
   </head>
   <body>
     <header>
       <div class="header">
-        <div class="emp"></div>
-        <div class="headerNav">
-          <a href="/"
-            ><img
-              id="logo_Img"
-              src="/assets/imgs/logoImg.png"
-              alt="로고 이미지"
-          /></a>
-          <a href="/login" id="login" href="">로그인</a>
-        </div>
-        <div class="emp"></div>
-      </div>
-      <div class="headerContainer">
-        <div class="headerContainer_visual">
-          <div class="headerContainer_visual_left">
-            <p class="hc2_text">
-              일상의 모든 물건을<br />
-              거래해 보세요
-            </p>
-            <a href="/items" class="buyBtn">구매하러 가기</a>
-          </div>
-          <img
-            id="home_top_Img"
-            src="/assets/imgs/Img_home_top.png"
-            alt="홈 탑 이미지"
-          />
-        </div>
+        <a href="/">
+          <img src="/assets/images/logoImg.png" alt="로고이미지" />
+        </a>
+        <button class="btn" onclick="location.href='/login.html'">
+          로그인
+        </button>
       </div>
     </header>
-    <main>
-      <section>
-        <img src="/assets/imgs/Img_home_01.png" alt="Img_home_01" />
-        <div class="section1_right">
-          <p class="section_text1">Hot item</p>
-          <p class="section_text2">
-            인기 상품을<br />
-            확인해보세요
+    <div class="main-section-top">
+      <div class="main-section-top-container">
+        <div class="main-section-top-content">
+          <p class="section-title">
+            일상의 모든 물건을<br />
+            거래해 보세요
           </p>
-          <p class="section_text3">
+          <button class="btn" onclick="location.href='/items.html'">
+            구경하러가기
+          </button>
+        </div>
+        <img
+          src="/assets/images/Img_home_top.png"
+          alt="가방을 들고있는 팬더이미지"
+        />
+      </div>
+    </div>
+    <div class="main-section-mid">
+      <div class="main-section-mid-container">
+        <img
+          src="/assets/images/Img_home_01.png"
+          alt="아이템을 찾아보는 이미지"
+        />
+        <div class="main-section-mid-content">
+          <p>Hot item</p>
+          <p>인기 상품을<br />확인해보세요</p>
+          <p>
             가장 HOT한 중고거래 물품을<br />
             판다 마켓에서 확인해 보세요
           </p>
         </div>
-      </section>
-      <section>
-        <div class="section2_left">
-          <p class="section_text1">Search</p>
-          <p class="section_text2">
+      </div>
+    </div>
+    <div class="main-section-mid">
+      <div class="main-section-mid-container">
+        <div class="main-section-mid-content second">
+          <p>Search</p>
+          <p>
             구매를 원하는<br />
             상품을 검색하세요
           </p>
-          <p class="section_text3">
+          <p>
             구매하고 싶은 물품은 검색해서<br />
             쉽게 찾아보세요
           </p>
         </div>
-        <img src="/assets/imgs/Img_home_02.png" alt="Img_home_02" />
-      </section>
-      <section>
-        <img src="/assets/imgs/Img_home_03.png" alt="Img_home_03" />
-        <div class="section3_right">
-          <p class="section_text1">Register</p>
-          <p class="section_text2">
+        <img
+          src="/assets/images/Img_home_02.png"
+          alt="아이템을 검색하는 이미지"
+        />
+      </div>
+    </div>
+    <div class="main-section-mid">
+      <div class="main-section-mid-container">
+        <img
+          src="/assets/images/Img_home_03.png"
+          alt="상품을 판매등록하는 이미지"
+        />
+        <div class="main-section-mid-content">
+          <p>Register</p>
+          <p>
             판매를 원하는<br />
             상품을 등록하세요
           </p>
-          <p class="section_text3">
-            어떤 물거이든 판매하고 싶은 상품을<br />
+          <p>
+            어떤 물건이든 판매하고 싶은 상품을<br />
             쉽게 등록하세요
           </p>
         </div>
-      </section>
-    </main>
-    <footer>
-      <div class="home_bottom">
-        <p>믿을 수 있는<br />판다마켓 중고 거래</p>
-        <img src="/assets/imgs/Img_home_bottom.png" alt="Img_home_bottom" />
       </div>
-      <div class="footer">
-        <div class="footer_info">
-          <p>@codeit - 2024</p>
-          <div class="footer_info_box">
-            <a href="/privacy">Privacy Policy</a>
-            <a href="/faq">FAQ</a>
-          </div>
-          <div class="icon_box">
-            <a
-              href="http://facebook.com"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <img
-                class="icon"
-                src="/assets/imgs/ic_facebook.png"
-                alt="페이스북아이콘"
-              />
-            </a>
-            <a
-              href="http://twitter.com"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <img
-                class="icon"
-                src="/assets/imgs/ic_twitter.png"
-                alt="트위터아이콘"
-              />
-            </a>
-            <a
-              href="http://youtube.com"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <img
-                class="icon"
-                src="/assets/imgs/ic_youtube.png"
-                alt="유투브아이콘"
-              />
-            </a>
-            <a
-              href="http://instagram.com"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <img
-                class="icon"
-                src="/assets/imgs/ic_instagram.png"
-                alt="인스타그램아이콘"
-              />
-            </a>
-          </div>
+    </div>
+    <div class="main-section-bottom">
+      <div class="main-section-bottom-container">
+        <p class="section-title bottom">믿을 수 있는<br />판다마켓 중고 거래</p>
+        <img
+          src="/assets/images/Img_home_bottom.png"
+          alt="판다캐릭터들이 중고거래하는 이미지"
+        />
+      </div>
+    </div>
+    <footer>
+      <div class="footer-var">
+        <p>@codeit - 2024</p>
+        <div class="footer-var-content">
+          <a href="/privacy.html"><p>Privacy Policy</p></a>
+          <a href="/faq.html"><p>FAQ</p></a>
         </div>
+        <ul class="footer-snsIcon">
+          <li>
+            <a
+              href="https://facebook.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img src="/assets/images/ic_facebook.png" />
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://twitter.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img src="/assets/images/ic_twitter.png" />
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://youtube.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img src="/assets/images/ic_youtube.png" />
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://instagram.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img src="/assets/images/ic_instagram.png" />
+            </a>
+          </li>
+        </ul>
       </div>
     </footer>
   </body>
