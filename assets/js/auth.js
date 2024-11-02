@@ -132,18 +132,23 @@ export default class Auth {
   }
 }
 
-export function toggleVisibility() {
-  //강의에서 들었던 이벤트위임 실습
-  document.querySelector(".form").addEventListener("click", (e) => {
+/**
+ * 폼내부 password type 요소의 visibility를 토글하는 함수입니다.
+ *
+ * @param {string} form  - 폼의 선택자 (기본값: "body", 예: ".form").
+ */
+export function toggleVisibility(form = "body") {
+  document.querySelector(form).addEventListener("click", (e) => {
     if (!e.target.classList.contains("visibility-btn")) return;
 
-    const input = e.target.closest(".form-item").querySelector("input");
+    const button = e.target;
+    const input = button.closest(".form-item").querySelector("input");
     const isPasswordType = input.type === "password";
 
     input.type = isPasswordType ? "text" : "password";
-    e.target.querySelector(".a11y").textContent = isPasswordType
+    button.querySelector(".a11y").textContent = isPasswordType
       ? "비밀번호 가리기"
       : "비밀번호 표시";
-    e.target.classList.toggle("on");
+    button.classList.toggle("on");
   });
 }
