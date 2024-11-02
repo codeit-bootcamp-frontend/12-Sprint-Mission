@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>판다마켓</title>
+    <link rel="icon" href="img/favicon.svg" type="image/svg">
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -14,15 +15,16 @@
   </head>
 
   <body>
-    <header>
+    <header class="top-navigation">
       <a href="index.html"
-        ><img src="img/logo.png" alt="이미지를 생성하지 못했습니다." id="logo"
+        ><img src="img/logo.png" alt="이미지를 생성하지 못했습니다." class="logo"
       /></a>
-      <a id="login" href="login.html">로그인</a>
+      <a class="login" href="login.html">로그인</a>
     </header>
+
     <main>
-      <header>
-        <div>
+      <section class="banner top-banner">
+        <div class="top-banner-explain">
           <h1>
             일상의 모든 물건을<br />
             거래해 보세요
@@ -30,56 +32,53 @@
           <a class="browsing" href="items.html">구경하러 가기</a>
         </div>
         <img src="img/Img_home_top.png" alt="이미지를 생성하지 못했습니다." />
-      </header>
 
-      <article>
-        <section>
-          <img src="img/img_home_01.png" alt="이미지를 생성하지 못했습니다." />
-          <div>
-            <span>Hot item</span>
-            <h2>
-              인기 상품을<br />
-              확인해 보세요
-            </h2>
-            <p>
-              가장 HOT한 중고거래 물품을<br />
-              판다 마켓에서 확인해 보세요
-            </p>
-          </div>
-        </section>
+      <section class="home-main-section">
+        <img src="img/img_home_01.png" alt="이미지를 생성하지 못했습니다." />
+        <div class="section-explain">
+          <span>Hot item</span>
+          <h2>
+            인기 상품을<br />
+            확인해 보세요
+          </h2>
+          <p>
+            가장 HOT한 중고거래 물품을<br />
+            판다 마켓에서 확인해 보세요
+          </p>
+        </div>
+      </section>
 
-        <section>
-          <div>
-            <span>Search</span>
-            <h2>
-              구매를 원하는<br />
-              상품을 검색하세요
-            </h2>
-            <p>
-              구매하고 싶은 물품은 검색해서<br />
-              쉽게 찾아보세요
-            </p>
-          </div>
-          <img src="img/img_home_02.png" alt="이미지를 생성하지 못했습니다." />
-        </section>
+      <section class="home-main-section">
+        <div class="section-explain">
+          <span>Search</span>
+          <h2>
+            구매를 원하는<br />
+            상품을 검색하세요
+          </h2>
+          <p>
+            구매하고 싶은 물품은 검색해서<br />
+            쉽게 찾아보세요
+          </p>
+        </div>
+        <img src="img/img_home_02.png" alt="이미지를 생성하지 못했습니다." />
+      </section>
 
-        <section>
-          <img src="img/img_home_03.png" alt="이미지를 생성하지 못했습니다." />
-          <div>
-            <span>Register</span>
-            <h2>
-              판매를 원하는<br />
-              상품을 등록하세요
-            </h2>
-            <p>
-              어떤 물건이든 판매하고 싶은 상품을<br />
-              쉽게 등록하세요
-            </p>
-          </div>
-        </section>
-      </article>
+      <section class="home-main-section">
+        <img src="img/img_home_03.png" alt="이미지를 생성하지 못했습니다." />
+        <div class="section-explain">
+          <span>Register</span>
+          <h2>
+            판매를 원하는<br />
+            상품을 등록하세요
+          </h2>
+          <p>
+            어떤 물건이든 판매하고 싶은 상품을<br />
+            쉽게 등록하세요
+          </p>
+        </div>
+      </section>
 
-      <footer>
+      <section class="banner bottom-banner">
         <p>
           믿을 수 있는<br />
           판다마켓 중고 거래
@@ -88,30 +87,42 @@
           src="img/img_home_bottom.png"
           alt="이미지를 생성하지 못했습니다."
         />
-      </footer>
+      </section>     
     </main>
 
     <footer>
-      <span>©Codeit - 2024</span>
-      <div>
-        <a href="privacy.html" class="privacy">Privacy Policy</a>
-        <a href="faq.html">FAQ</a>
-      </div>
+      <p>©Codeit - 2024</p>
+      <ul class="support-list">
+        <li class="support-list-item">
+          <a href="privacy.html" class="privacy">Privacy Policy</a>
+        </li>
+        <li class="support-list-item"><a href="faq.html">FAQ</a></li>
+      </ul>
 
-      <nav>
-        <a href="https://www.facebook.com" target="_blank"
-          ><img src="img/ic_facebook.png" alt="이미지를 생성하지 못했습니다."
-        /></a>
-        <a href="https://www.x.com" target="_blank"
-          ><img src="img/ic_twitter.png" alt="이미지를 생성하지 못했습니다."
-        /></a>
-        <a href="https://www.youtube.com" target="_blank"
-          ><img src="img/ic_youtube.png" alt="이미지를 생성하지 못했습니다."
-        /></a>
-        <a href="https://www.instagram.com" target="_blank"
-          ><img src="img/ic_instagram.png" alt="이미지를 생성하지 못했습니다."
-        /></a>
-      </nav>
+      <ul class="social-list">
+        <li class="social-list-item">
+          <a href="https://www.facebook.com" target="_blank"
+            ><img src="img/ic_facebook.png" alt="이미지를 생성하지 못했습니다."
+          /></a>
+        </li>
+        <li class="social-list-item">
+          <a href="https://www.x.com" target="_blank"
+            ><img src="img/ic_twitter.png" alt="이미지를 생성하지 못했습니다."
+          /></a>
+        </li>
+        <li class="social-list-item">
+          <a href="https://www.youtube.com" target="_blank"
+            ><img src="img/ic_youtube.png" alt="이미지를 생성하지 못했습니다."
+          /></a>
+        </li>
+        <li class="social-list-item">
+          <a href="https://www.instagram.com" target="_blank"
+            ><img
+              src="img/ic_instagram.png"
+              alt="이미지를 생성하지 못했습니다."
+          /></a>
+        </li>
+      </ul>
     </footer>
   </body>
 </html>
