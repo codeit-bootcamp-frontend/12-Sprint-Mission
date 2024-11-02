@@ -4,10 +4,24 @@
 
 body {
   font-family: "Noto Sans KR", sans-serif;
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  height: 100%;
+}
+
+h1 {
+  visibility: hidden;
+}
+
+h2 {
+  color: #374151;
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 56px;
+}
+
+p {
+  color: #374151;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 32px;
 }
 
 a {
@@ -15,169 +29,142 @@ a {
   cursor: pointer;
 }
 
-#logo {
-  width: 153px;
-  height: 51px;
+.home-main-section {
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-body > header {
+.top-navigation {
   display: flex;
   justify-content: space-around;
+  align-items: center;
   margin-top: 10px;
   margin-bottom: 10px;
 }
 
-#login {
+.logo {
+  width: 153px;
+  height: 51px;
+}
+
+.login {
+  padding: 16px 36px;
+  border-radius: 8px;
   background-color: #3692ff;
   color: #ffffff;
-  display: inline-block;
-  border-radius: 8px;
-  padding: 12px 23px;
+  font-size: 16px;
+  font-weight: 600;
 }
 
-main > header {
+.banner {
   display: flex;
-  background-color: hsl(213, 100%, 91%);
   justify-content: center;
-  align-items: end;
+  align-items: center;
   padding-top: 100px;
+  background-color: #cfe5ff;
 }
 
-main > header div {
-  padding-bottom: 60px;
-}
-
-main > header h1 {
-  margin: 0;
-  font-size: 40px;
-  font-weight: 700;
-  line-height: 56px;
-  color: #374151;
-}
-
-main > header a {
+.browsing {
   display: block;
   width: 357px;
   height: 56px;
-  border-radius: 40px;
+  margin: 16px 0;
   padding: 16px 124px;
-  margin-top: 16px;
+  border-radius: 40px;
   background-color: #3692ff;
   color: #ffffff;
 }
 
-main > header img {
-  width: 746px;
+.top-banner-img {
+  width: 744px;
   height: 340px;
 }
 
-section {
+.home-main-section {
   display: flex;
-  text-align: left;
   justify-content: center;
+  gap: 5%;
   padding: 138px 0;
+  text-align: left;
 }
 
-section:nth-of-type(2) {
+.home-main-section:nth-of-type(3) {
   text-align: right;
 }
 
-section div {
-  padding-left: 40px;
-  width: 409px;
+.section-explain {
   display: flex;
-  justify-content: center;
   flex-direction: column;
+  justify-content: center;
   background-color: #fcfcfc;
 }
 
-section:nth-of-type(2) div {
-  padding-left: 0;
+.home-main-section:nth-of-type(3) .section-explain {
   padding-right: 40px;
+  padding-left: 0;
 }
 
-section img {
+.section-img {
   width: 579px;
   height: 444px;
 }
 
-section span {
-  font-weight: 700;
-  font-size: 18px;
-  line-height: 26px;
+.keyword {
   color: #3692ff;
-}
-
-section h2 {
+  font-size: 18px;
   font-weight: 700;
-  font-size: 40px;
-  line-height: 56px;
-  margin: 20px 0;
-  color: #374151;
+  line-height: 26px;
 }
 
-section p {
-  font-size: 24px;
-  font-weight: 500;
-  line-height: 32px;
-  color: #374151;
+.bottom-banner {
+  margin-top: 36px;
 }
 
-main > footer {
-  background-color: #cfe5ff;
-  margin-top: 138px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding-top: 143px;
-}
-
-main > footer > p {
-  font-size: 40px;
-  line-height: 56px;
-  font-weight: 700;
-  margin: 0;
-  padding-right: 50px;
-  color: #374151;
-}
-
-main > footer > img {
-  width: 746px;
+.bottom-banner-img {
+  width: 744px;
   height: 397px;
 }
 
-body > footer {
-  background-color: #111827;
+footer {
   display: flex;
   justify-content: space-around;
+  align-items: center;
   padding-top: 30px;
   padding-bottom: 90px;
+  background-color: #111827;
 }
 
-body > footer > span {
-  font-size: 16px;
-  font-weight: 400;
+.creater-info {
   color: #9ca3af;
-}
-
-body > footer > div a {
-  display: inline;
   font-size: 16px;
   font-weight: 400;
-  color: #e5e7eb;
 }
 
-body > footer img {
+.support-text {
+  color: #e5e7eb;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.social-img {
   width: 18px;
   height: 18px;
 }
 
-.privacy {
-  padding-right: 30px;
+.support-list,
+.social-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.support-list-item,
+.social-list-item {
+  display: inline-block;
 }
 
 @media (max-width: 1920px) {
-  body > header {
+  .top-navigation {
     justify-content: space-between;
     padding-left: 200px;
     padding-right: 200px;
