@@ -69,12 +69,9 @@ input:focus {
   margin-bottom: 16px;
 }
 
-.auth-btn {
-  text-align: center;
+.button.button-lg.auth-btn {
   background-color: #9ca3af;
-  color: #f3f4f6;
-  border-radius: 40px;
-  padding: 16px 23px;
+  text-align: center;
 }
 
 .password {
@@ -82,14 +79,18 @@ input:focus {
 }
 
 .pw-eye-btn-on,
-.pw-eye-btn-off {
+.pw-eye-btn-off,
+.pw-ck-eye-btn-on,
+.pw-ck-eye-btn-off {
   position: absolute;
   top: 16px;
   right: 16px;
 }
 
 .pw-eye-btn-on:hover,
-.pw-eye-btn-off:hover {
+.pw-eye-btn-off:hover,
+.pw-ck-eye-btn-on:hover,
+.pw-ck-eye-btn-off:hover {
   cursor: pointer;
 }
 
@@ -126,4 +127,8 @@ input:focus {
 .auth-guide-btn {
   color: #3692ff;
   text-decoration: underline;
+}
+
+.button.auth-btn.button-lg.active {
+  background-color: #3692ff;
 }
