@@ -36,10 +36,14 @@ a {
 
 .top-navigation {
   display: flex;
+  position: sticky;
+  top: 0;
+  left: 0;
   justify-content: space-around;
   align-items: center;
-  margin-top: 10px;
   margin-bottom: 10px;
+  padding-top: 10px;
+  background-color: #ffffff;
 }
 
 .logo {
