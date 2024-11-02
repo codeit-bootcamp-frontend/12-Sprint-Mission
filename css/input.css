@@ -1,0 +1,132 @@
+@charset "utf-8";
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css");
+
+* {
+  margin: 0 auto;
+  padding: 0;
+  list-style: none;
+  font-family: "pretendard";
+  box-sizing: border-box;
+}
+
+.body {
+  width: 100%;
+  height: 1080px ;
+}
+
+.logo {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 231px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.logo img {
+  width: 396px;
+}
+
+.login {
+  width: 640px;
+  height: 300px;
+  margin-top: 40px;
+}
+
+.signup {
+  width: 640px;
+  height: 544px;
+  margin-top: 40px;
+}
+
+label {
+  display: block;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 26px;
+  color: #1F2937;
+  margin-bottom: 16px;
+}
+
+input {
+  display: block;
+  width: 640px;
+  height: 56px;
+  border-radius: 12px;
+  background-color: #F3F4F6;
+  border: none;
+  padding: 15px 24px;
+  margin-bottom: 24px;
+  position: relative;
+}
+
+input:focus {
+  border: 3px solid #3692ff;
+  outline: none;
+}
+
+button {
+  background-color: #9CA3AF;
+  border: none;
+  color: #ffffff;
+  display: block;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 32px;
+  width: 640px;
+  height: 56px;
+  border-radius: 40px;
+}
+
+button:hover {
+  background-color: #3692FF;
+  cursor: pointer;
+}
+
+.easy-login {
+  display: flex;
+  justify-content: space-between;
+  width: 640px;
+  height: 74px;
+  border-radius: 8px;
+  background-color: #E6F2FF;
+  padding: 16px 23px;
+  margin-top: 24px;
+}
+
+.easy-login p {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 42px;
+  margin: 0;
+}
+
+.easy-login .link {
+  width: 100px;
+  height: 42px;
+  display: flex;
+  margin: 0;
+}
+
+.easy-login .link img {
+  width: 42px;
+  height: 42px;
+}
+
+.easy-login .link img:first-child {
+  margin-right: 16px;
+}
+
+.description {
+  width: 197px;
+  height: 24px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 24px;
+  color: #1F2937;
+  margin-top: 24px;
+  margin-bottom: 231px;
+}
+
+.description a {
+  color: #3692FF;
+}
