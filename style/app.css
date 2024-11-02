@@ -90,6 +90,7 @@ a {
   border-radius: 40px;
   background-color: var(--blue);
   color: #ffffff;
+  text-align: center;
 }
 
 .top-banner-img {
@@ -180,10 +181,123 @@ footer {
   display: inline-block;
 }
 
+.privacy {
+  padding-right: 16px;
+}
+
 @media (max-width: 1920px) {
   .top-navigation {
     justify-content: space-between;
     padding-left: 200px;
     padding-right: 200px;
+  }
+}
+
+@media (max-width: 1200px) {
+  h2 {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 28px;
+  }
+  .top-banner-img,
+  .bottom-banner-img,
+  .section-img {
+    width: 360px;
+    height: 180px;
+  }
+
+  .banner {
+    padding-top: 30px;
+  }
+  .section-img {
+    width: 280px;
+    height: 200px;
+  }
+  .browsing {
+    width: 180px;
+    height: 40px;
+    margin: 16px 0;
+    padding: 8px 40px;
+    font-size: 16px;
+  }
+  p {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 24px;
+  }
+  .home-main-section {
+    padding-bottom: 0;
+  }
+
+  .bottom-banner {
+    margin-top: 136px;
+  }
+  footer {
+    font-size: 4px;
+  }
+}
+
+@media (max-width: 760px) {
+  .top-navigation {
+    padding-right: 50px;
+    padding-left: 50px;
+  }
+}
+
+@media (max-width: 576px) {
+  .top-navigation {
+    padding-right: 16px;
+    padding-left: 16px;
+  }
+  .logo {
+    width: 96px;
+    height: 32px;
+  }
+  .login {
+    padding: 8px 18px;
+    font-size: 12px;
+  }
+  .bottom-banner-img,
+  .top-banner-img {
+    width: 160px;
+    height: 80px;
+  }
+  h2 {
+    margin: 0;
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  .browsing {
+    width: 80px;
+    height: 24px;
+    padding: 6px 10px;
+    font-size: 8px;
+  }
+  .home-main-section {
+    flex-direction: column;
+    padding-top: 60px;
+  }
+  .home-main-section:nth-of-type(2),
+  .home-main-section:nth-of-type(4) {
+    flex-direction: column-reverse;
+    padding-left: 20px;
+  }
+
+  .home-main-section:nth-of-type(3) {
+    padding-right: 20px;
+  }
+
+  .bottom-banner {
+    margin-top: 60px;
+  }
+  footer {
+    flex-direction: column;
+    padding-bottom: 40px;
+  }
+
+  .support-text,
+  .creater-info {
+    font-size: 8px;
   }
 }
