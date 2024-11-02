@@ -2,6 +2,19 @@
   box-sizing: border-box;
 }
 
+:root {
+  --blue: #3692ff;
+  --gray900: #111827;
+  --gray800: #1f2937;
+  --gray700: #374151;
+  --gray600: #4b5563;
+  --gray500: #6b7280;
+  --gray400: #9ca3af;
+  --gray200: #e5e7eb;
+  --gray100: #f3f4f6;
+  --gray50: #f9fafb;
+}
+
 body {
   font-family: "Noto Sans KR", sans-serif;
 }
@@ -27,7 +40,7 @@ button {
 
 label {
   margin: 16px 0;
-  color: #1f2937;
+  color: var(--gray800);
   font-size: 18px;
   font-weight: 700;
 }
@@ -36,14 +49,14 @@ input {
   width: 640px;
   height: 56px;
   padding: 24px 24px;
-  border: 2px solid #f3f4f6;
+  border: 2px solid var(--gray100);
   border-radius: 14px;
-  background-color: #f3f4f6;
+  background-color: var(--gray100);
   outline: none;
 }
 
 input:focus {
-  border: 2px solid #3692ff;
+  border: 2px solid var(--blue);
   border-radius: 14px;
 }
 
@@ -69,7 +82,7 @@ footer {
 }
 
 input::placeholder {
-  color: #9ca3af;
+  color: var(--gray400);
 }
 
 .input-password,
@@ -86,10 +99,10 @@ input::placeholder {
 
 .login-btn {
   padding: 16px 0;
-  border: 1px solid #3692ff;
+  border: 1px solid var(--blue);
   border-radius: 40px;
-  background-color: #3692ff;
-  color: #f3f4f6;
+  background-color: var(--blue);
+  color: var(--gray100);
   font-size: 20px;
   font-weight: 600;
   line-height: 32px;
