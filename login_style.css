@@ -29,7 +29,7 @@ input {
 }
 
 input:focus {
-  border-color: #3692ff;
+  outline-color: #3692ff;
 }
 
 input::placeholder {
@@ -91,4 +91,8 @@ button {
 
 .login-bottom {
   text-align: center;
+}
+
+.login-link {
+  color: #3691ff;
 }
