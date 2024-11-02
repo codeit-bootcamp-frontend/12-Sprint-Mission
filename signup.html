@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>판다마켓</title>
+    <link rel="icon" href="img/favicon.svg" type="image/svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+    />
+    <link rel="stylesheet" href="style/account.css" />
+  </head>
+  <body>
+    <header>
+      <a href="./index.html"
+        ><img
+          src="img/logo.png"
+          alt="이미지를 생성하지 못했습니다."
+          class="logo"
+      /></a>
+    </header>
+    <main>
+      <form class="login-info">
+        <label for="email" class="email">이메일</label>
+        <div class="input-id">
+          <input type="email" id="email" placeholder="이메일을 입력해주세요" />
+        </div>
+        <label for="nickname" class="nickname">닉네임</label>
+        <div class="input-nickname">
+          <input
+            type="text"
+            id="nickname"
+            placeholder="닉네임을 입력해주세요"
+          />
+        </div>
+
+        <label for="password" class="password">비밀번호</label>
+        <div class="input-password">
+          <input
+            type="password"
+            id="password"
+            placeholder="비밀번호를 입력해주세요"
+          />
+          <img
+            src="img/img_closed_eye.png"
+            alt="이미지를 생성하지 못했습니다."
+            class="toggle-password"
+          />
+        </div>
+        <label for="password-confirm">비밀번호 확인</label>
+        <div class="input-password-confirm">
+          <input
+            type="password"
+            id="password-confirm"
+            placeholder="비밀번호를 다시 한 번 입력해주세요"
+          />
+          <img
+            src="img/img_closed_eye.png"
+            alt="이미지를 생성하지 못했습니다."
+            class="toggle-password"
+          />
+        </div>
+
+        <button class="login-btn">회원가입</button>
+      </form>
+
+      <nav class="simple-login">
+        <span>간편 로그인하기</span>
+        <div class="login-list">
+          <a href="https://www.google.com/" target="_blank"
+            ><img src="img/ic_google.png" alt="이미지를 생성하지 못했습니다."
+          /></a>
+          <a href="https://www.kakaocorp.com/page/" target="_blank"
+            ><img src="img/ic_kakao.png" alt="이미지를 생성하지 못했습니다."
+          /></a>
+        </div>
+      </nav>
+    </main>
+    <footer>
+      <span>이미 회원이신가요? </span>
+      <a href="./login.html">로그인</a>
+    </footer>
+  </body>
+</html>
