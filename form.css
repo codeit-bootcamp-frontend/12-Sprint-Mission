@@ -1,0 +1,108 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Pretendard", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 640px;
+  height: 618px;
+}
+
+.form-container {
+  width: 100%;
+}
+
+.input-group {
+  margin-bottom: 24px;
+}
+
+.form-label {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 26px;
+  color: #1F2937;
+}
+
+#email, #password {
+  display: block;
+  width: 100%;
+  height: 56px;
+  padding: 16px 24px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 12px;
+  background-color: #F3F4F6;
+}
+
+#email::placeholder, #password::placeholder {
+  font-size: 16px;
+  color: #9CA3AF;
+}
+
+input:focus {
+  outline: #3692FF auto 1px;
+}
+
+.button.login {
+  width: 100%;
+  height: 56px;
+  background-color: #9CA3AF;
+  border: none;
+  border-radius: 40px;
+  color: #F3F4F6;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.button.login:hover {
+  background-color: #3692FF;
+}
+
+.social-login {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 74px;
+  margin-top: 25px;
+  margin-bottom: 20px;
+  padding: 16px 23px;
+  border-radius: 8px;
+  font-weight: 500;
+  background-color: #E6F2FF;
+  color: #1F2937;
+}
+
+.social-button {
+  display: flex;
+  gap: 16px;
+}
+
+.social-img {
+  width: 42px;
+  height: 42px;
+}
+
+.signup-prompt {
+  font-size: 14px;
+  font-weight: 500;
+  color: #1F2937;
+}
+
+.signup-link {
+  font-size: 14px;
+  font-weight: 500;
+  color: #3692FF;
+}
