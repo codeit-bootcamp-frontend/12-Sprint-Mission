@@ -23,6 +23,9 @@
     <meta property="og:title" content="판다마켓">
     <meta property="og:description" content="일상의 모든 물건을 거래해보세요">
     <meta property="og:image" content="/assets/img/seo/og_img.png">
+
+    <!-- js -->
+    <script src="/assets/js/auth.js" type="module" defer></script>
   </head>
   <body>
     <div class="skip-nav">
@@ -101,15 +104,5 @@
         </div>
       </main>
     </div>
-    <script type="module">
-      // 자바스크립트 공부하면서 미리 실습해보았습니다.
-      import Auth, { toggleVisibility } from '/assets/js/auth.js';
-
-      const auth = new Auth('.form')
-      auth.init()
-
-      //password 가리기/보이기 실행
-      toggleVisibility('.form')
-    </script>
   </body>
 </html>
