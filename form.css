@@ -1,0 +1,134 @@
+:root {
+  --gray900: #111827;
+  --gray800: #1F2937;
+  --gray700: #374151;
+  --gray600: #4B5563;
+  --gray500: #6B7280;
+  --gray400: #9CA3AF;
+  --gray200: #E5E7EB;
+  --gray100: #F3F4F6;
+  --gray50: #F9FAFB;
+  --blue: #3692FF;
+}
+
+* {
+  box-sizing: border-box;
+  
+}
+
+body {
+  font-family: "Pretendard", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+.login-container,
+.signup-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 640px;
+  height: 618px;
+}
+
+.signup-container {
+  height: 842px;
+}
+
+.form-container {
+  width: 100%;
+}
+
+.input-group {
+  margin-bottom: 24px;
+}
+
+.form-label {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 26px;
+  color: var(--gray800);
+}
+
+#email, #password, #name, #password-check {
+  display: block;
+  width: 100%;
+  height: 56px;
+  padding: 16px 24px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 12px;
+  background-color: var(--gray100);
+}
+
+#email::placeholder, 
+#password::placeholder, 
+#name::placeholder,
+#password-check::placeholder {
+  font-size: 16px;
+  color: var(--gray400);
+}
+
+input:focus {
+  outline: var(--blue) auto 1px;
+}
+
+.button.login,
+.button.signup {
+  width: 100%;
+  height: 56px;
+  background-color: var(--gray400);
+  border: none;
+  border-radius: 40px;
+  color: #F3F4F6;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.button.login:hover,
+.button.signup:hover {
+  background-color: var(--blue);
+}
+
+.social-login {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 74px;
+  margin-top: 25px;
+  margin-bottom: 20px;
+  padding: 16px 23px;
+  border-radius: 8px;
+  font-weight: 500;
+  background-color: #E6F2FF;
+  color: var(--gray800);
+}
+
+.social-button {
+  display: flex;
+  gap: 16px;
+}
+
+.social-img {
+  width: 42px;
+  height: 42px;
+}
+
+.signup-prompt,
+.login-prompt {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--gray800);
+}
+
+.signup-link,
+.login-link {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--blue);
+}
