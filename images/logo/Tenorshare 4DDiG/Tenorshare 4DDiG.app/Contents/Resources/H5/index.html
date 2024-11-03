@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HWP 文件解析器</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .hwpjs-header-control {
+      display: none;
+    }
+  </style>
+  <style>
+    body, html {
+      height: 100%;
+      margin: 0;
+      display: grid;
+      place-items: center; /* 水平垂直居中 */
+      background-color: #f5f5f5;
+    }
+    .container {
+      display: grid;
+      grid-template-columns: auto auto;
+      gap: 0px; /* 控制 div 之间的间距 */
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <div id="file-input-container">
+      <label id="file-input-label" for="file-input"; font-size: 14px; class="custom-file-upload">
+        预览
+      </label>
+      <input id="file-input" type="file" accept=".hwp">
+    </div>
+  
+    <div id="poi">
+      <div id="contentPreview">
+        <pre id="parsedContent"></pre>
+      </div>
+    </div>
+  </div>
+
+  <script src="./script/hwp.js">
+
+  </script>
+
+  <script>
+    function parseHwpFileError() {
+      window.webkit.messageHandlers.parseHwpFileFail.postMessage(null);
+    }
+
+    function parseHwpFileSuccess() {
+      window.webkit.messageHandlers.parseHwpFileSuccess.postMessage(null);
+    }
+
+    function sendFileInputtitle(title) {
+      const fileInput = document.getElementById('file-input-label');
+      fileInput.innerText = title;
+    }
+
+    console.log(HWP.parse);
+    console.log(HWP.Viewer);
+
+    document.addEventListener('DOMContentLoaded', function () {
+      const fileInputContainer = document.getElementById('file-input-container');
+      const fileInput = document.getElementById('file-input');
+      const poiContainer = document.getElementById('poi');
+      const contentPreview = document.getElementById('contentPreview');
+      const parsedContentElement = document.getElementById('parsedContent');
+
+      fileInput.addEventListener('change', function (event) {
+        const file = event.target.files[0];
+        if (!file) return;
+
+        fileInputContainer.style.display = 'none';
+
+        const reader = new FileReader();
+        reader.onloadend = function (e) {
+          try {
+            const arrayBuffer = e.target.result;
+            console.log(reader);
+            console.log(arrayBuffer);
+
+           // 使用 hwp.js 的 Viewer 渲染文件内容
+            new HWP.Viewer(poiContainer, arrayBuffer);
+
+            // 在这里可以将解析内容显示在页面上
+            // parsedContentElement.textContent = '解析内容';
+            contentPreview.style.display = 'block'; // 显示解析内容预览区域
+
+          } catch (error) {
+            console.error('解析 HWP 文件时出错:', error);
+            parseHwpFileError();
+            return
+          }
+          parseHwpFileSuccess();
+        };
+
+        reader.readAsBinaryString(file);
+      });
+    });
+  </script>
+
+
+  <script>
+    console.log(HWP);
+  </script>
+</body>
+
+</html>

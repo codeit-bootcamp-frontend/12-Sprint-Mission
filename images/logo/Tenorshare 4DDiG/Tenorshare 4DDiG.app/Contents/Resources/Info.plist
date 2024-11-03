@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>BugsplatServerURL</key>
+	<string>https://4ddig_Mac.bugsplat.com/</string>
+	<key>CFBundleAllowMixedLocalizations</key>
+	<true/>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>$(DEVELOPMENT_LANGUAGE)</string>
+	<key>CFBundleExecutable</key>
+	<string>$(EXECUTABLE_NAME)</string>
+	<key>CFBundleIconFile</key>
+	<string>TS Mac.icns</string>
+	<key>CFBundleIdentifier</key>
+	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleName</key>
+	<string>$(PRODUCT_NAME)</string>
+	<key>CFBundlePackageType</key>
+	<string>$(PRODUCT_BUNDLE_PACKAGE_TYPE)</string>
+	<key>CFBundleShortVersionString</key>
+	<string>5.3.7</string>
+	<key>CFBundleVersion</key>
+	<string>5.3.7.1</string>
+	<key>ConfigureType</key>
+	<string>4ZY9hB+kvFnE+cMb2WN4v9Wybda9sf+NGxXsCDTbsxBEAbmXMR0LQIsmCpqI9E8KXnplJJGpBJIgS+199/GeZSC/412jfT9TtFdEYO1zMq4dpg7uEyPdh2O58ADid9rQmgSB0CugFiBh1wBa6p8aAMOYp3r+mIbzwhUTNj3H3aRxpO7arI6WRsvyHpRB5poX1/6Xp/RRLNKH5UsYNP6gR9UuH0sK/9rDq6QqwhV/oVDJs91hTvSwveU7WbOCxd4pw9HgiTw5YyIudUkf+Mdbv92rVDjD1gZj0rYYZAERVT9cYFju1nvnXe8JmWMJLC9p/flUhIhabZ5Z81YdBErD2g6RDBlastGYNpPKARnuaB7C2bDJwl4zijL+8IbPSR+UZfTLzxFPkKqxrbcoJD4sPYEKVzR1XLmm9Pq+1jnEiQkI8sBTC1avW2JF1l1GCg4PCxx7xmWJ/uvPpaEa/RjBvVAjWSTwJ6zw9zvFgbeIjfNvZMna6oWFSERCBhp2Dz43MnRBqWJSaQ1uB5kjoOhBS0PiTqedu8mxa2FGFeWT3PSMnzCVjP+rf7J43i32x4cVFiBavfZ3RHvaaxq7J5XZ/l44kmpWSViVYhOuR/iHaZWSLJ9zOS75DsNwBitTiatm/HOB5LLKZR6RKaB4W/xLs1gW8rhROtNV58CHUCigJBTOgyrSKpbOZ82fU/uVgGBN3t3YfclTV8SRF+qDRKp8ooj/xpEpv61lkNT2VdGsG6dq438dPYRrRIAzjhQZbo3/cmwwjXONuC72ItNNNltUERfkkFT9IkvFEcHXovT3NnCy6vgZ3GoKZRiC3BNDu1a5d0fwJCiWqcrKh+V3RojhsvfGBA4y3ucmCIDoHuP4eBj5Xp59uSJgwKPQ+lm/ybFDybEBYg6xWWdJEdrlLyVaheYirrRgzr11K+Go2n5AUD2C8uNmLexCb+YtSX+ARyU01LAIeK9hj7K65iVGGyQhAPN1+XTbjs4PzvNJva9aJu3qKLbW0THOBE82HuTXc/0r3gyKb3JNUCR1QvbOkZw1t7Ci7BKvlRJOhEt7X7Sxa5f1QDJNVsMwIZejSpQR/reNmeEpSMeNeSOLAfgRU7j43A6DWasXf2SKNnxloWZ5yRvrA70PKRP5bb88ImNXmmVy4YZgat8dzlfuDn6taRlIPIcBAoNwJauiRDRVjl1I+XxIQF2QhXIg0BFfPGcFbPfirU5JMsSnhzODTxB5dKwUuYUwbvkryUjk2+4MMmcTFOzR4G4IAoL9dq91uxBcWuwFe9EMs1fpftlUPpjVNZl4g73GxN4W9CkfeeYYDtJYKk777o35AE4SZYkhTuzh+y1fjw2gWhW4R6+CabN9DWucWbsUTx1c8+6ik4zzMEcA8XahjEKXC+SjeipTq9lO4cFa3VgTilK3vYqiTcKcjKopeyfKw3vDimQ7uU6yQrlH2Wpq2dd9riuWNecVryWg69HlIbuuMciEfJy0Lo8uv8qwSfEKK2ytwoTv2uM0kTtcA3YWIw9r+NFPFf7IBHpeeVSmlVvRhg934+ESz+QwRraEihYq0qdpLWoH5TbeaylAcAsfJd8TVQnLZtBVp4/PMcWRZkJTKkF1GSCgwxPwDobtuDHoyW0W5Bi2mIKuQbSIkUxHVXZ9cYgo7Ag1U9IKiiWdNlXbl6jF66ZhdV/15totyC8eZoDzRjYNQnDLcbBconOh/M/7/e4DVyILlAp8NMf28kDsP58Syrwbn/El4UoK0c2n17udkGj2uEpzmELNV7I=</string>
+	<key>LSMinimumSystemVersion</key>
+	<string>$(MACOSX_DEPLOYMENT_TARGET)</string>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
+	<key>NSHumanReadableCopyright</key>
+	<string>Copyright © 2024 TENORSHARE(HONGKONG)LIMITED All Rights Reserved.</string>
+	<key>NSMainNibFile</key>
+	<string>MainMenu</string>
+	<key>NSMainStoryboardFile</key>
+	<string>Main</string>
+	<key>NSPrincipalClass</key>
+	<string>NSApplication</string>
+	<key>NSRequiresAquaSystemAppearance</key>
+	<true/>
+	<key>WebMark</key>
+	<string>4DDiG</string>
+</dict>
+</plist>
