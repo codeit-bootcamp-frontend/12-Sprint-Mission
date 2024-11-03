@@ -3,8 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>로그인</title>
+    <link rel="stylesheet" href="stylesheet.css">
+    <link
+    rel="stylesheet"
+    as="style"
+    crossorigin
+    href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.6/dist/web/static/pretendard.css"
+ >
+    <title>판다마켓 로그인</title>
 </head>
-<body>
+<body class="login-page-body">
+    <div class="login-page-container">
+        <a href="/"><img src="img/logo_3x.png" class="logo3"></a>
+        <form class="login-page-form">
+            <label for="email" class="input-field-label">이메일</label>
+            <input type="email" id="email" class="input-field email-field" placeholder="이메일을 입력해주세요"/><br>
+            <label for="pwd" class="input-field-label">비밀번호</label>
+            <input type="password" id="pwd" class="input-field pwd-field" placeholder="비밀번호를 입력해주세요"/>
+            <input type="submit" value="로그인" class="input-field-submit-btn">
+        </form>
+    </div>
 </body>
 </html>
