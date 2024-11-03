@@ -129,19 +129,22 @@ footer a {
     color: #E5E7EB;
 }
 
-/**로그인 페이지**/
+/**로그인 회원가입 페이지**/
+.signup-page-body , .login-page-body {
+    margin: 231px 0;
+}
 .logo3 {
     width: 396px;
     height: 132px;
 }
-.login-page-container {
+.login-page-container , .signup-page-container {
     width: 640px;
-    height: 618px;
+    max-height: 842px;
     margin: 0 auto;
     padding: 0;
     text-align: center;
  }
-.login-page-form {
+.login-page-form , .signup-page-form {
     text-align:left;
 }
 .input-field {
@@ -155,9 +158,13 @@ footer a {
     margin-bottom: 24px;
     color: #9CA3AF;
 }
+.input-field:focus {
+    outline-color: #3692FF;
+  }
 .input-field-label {
     font-size:18px;
     color:#1F2937;
+    font-weight: 700;
 }
 .input-field-submit-btn {
     width:100%;
@@ -167,4 +174,22 @@ footer a {
     background-color: #9CA3AF;
     color:#ffffff;
     font-size: 20px
+}
+.login-page-container-snslogin {
+    background-color: #E6F2FF;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 24px 0;
+    padding: 16px 23px;
+}
+.login-sns-logo img{
+    width:42px;
+    margin-left:12px;
+}
+.login-page-container-description {
+    color: #1F2937;
+}
+.login-page-container-description a {
+    color: #3692FF;
 }

@@ -12,14 +12,18 @@
  >
     <title>판다마켓 로그인</title>
 </head>
-<body class="login-page-body">
-    <div class="login-page-container">
+<body class="signup-page-body">
+    <div class="signup-page-container">
         <a href="/"><img src="img/logo_3x.png" class="logo3"></a>
-        <form class="login-page-form">
+        <form class="signup-page-form">
             <label for="email" class="input-field-label">이메일</label>
             <input type="email" id="email" class="input-field email-field" placeholder="이메일을 입력해주세요"/><br>
+            <label for="nickname" class="input-field-label">닉네임</label>
+            <input type="name" id="nickname" class="input-field pwd-field" placeholder="닉네임을 입력해주세요"/>
             <label for="pwd" class="input-field-label">비밀번호</label>
             <input type="password" id="pwd" class="input-field pwd-field" placeholder="비밀번호를 입력해주세요"/>
+            <label for="pwdcheck" class="input-field-label">비밀번호 확인</label>
+            <input type="password" id="pwdcheck" class="input-field pwd-field" placeholder="비밀번호를 다시 한 번 입력해주세요"/>
             <input type="submit" value="로그인" class="input-field-submit-btn">
         </form>
         <div class="login-page-container-snslogin">
@@ -29,7 +33,7 @@
                 <a href="https://www.kakaocorp.com/page/"><img src="img/Img_kakao_logo.png" class="kakao-logo"></a>
             </div>
         </div>
-        <p class="login-page-container-description">판다마켓이 처음이신가요? <a href="/signup.html">회원가입</a></p>
+        <p class="login-page-container-description">이미 회원이신가요? <a href="/login.html">로그인</a></p>
     </div>
 </body>
 </html>
