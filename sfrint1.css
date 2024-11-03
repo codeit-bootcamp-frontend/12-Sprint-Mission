@@ -6,6 +6,7 @@
     gap: 10px;
     border: 0px 0px 1px 0px;
     opacity: 0px;
+    position: relative;
     
 }
 .header-in{
