@@ -1,0 +1,37 @@
+/* body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f5f5f5;
+  } */
+  
+  .file-upload {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .custom-file-upload {
+    background: linear-gradient(to bottom, #4f80fd, #2f69ff);
+    color: white;
+    min-width: 78px;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 14px;
+    text-align: center;
+
+    /* transition: background-color 0.3s ease; */
+  }
+  
+  .custom-file-upload:hover {
+    background: linear-gradient(to bottom, #2259e5, #1d55e4);
+  }
+  
+  #file-input {
+    display: none; /* 隐藏实际的文件输入 */
+  }
+  
