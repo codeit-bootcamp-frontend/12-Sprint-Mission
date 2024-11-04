@@ -1,3 +1,5 @@
 [submodule "12-Sprint-Mission"]
-	path = 12-Sprint-Mission
-	url = https://github.com/codeit-bootcamp-frontend/12-Sprint-Mission.git
+    path = 12-Sprint-Mission
+    url = https://github.com/codeit-bootcamp-frontend/12-Sprint-Mission.git
+
+
