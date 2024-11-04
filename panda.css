@@ -1,0 +1,144 @@
+* {
+  box-sizing: border-box;
+  white-space: nowrap;
+}
+
+.button {
+  background-color: #3692FF;
+  color: white;
+  border: none;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.button-sm {
+  border-radius: 8px;
+  padding: 11px 43px;
+  font-size: 16px;
+}
+
+.button-big {
+  border-radius: 40px;
+  padding: 12px 124px;
+  font-size: 20px;
+}
+.button:hover {
+  background-color: #1967D6;
+  text-decoration: none;
+} 
+
+a.button-big.button-sm {
+  cursor: pointer;
+}
+
+.nav {
+  width: 100%;
+  height: 70px;
+  gap: 1050px;
+  position: fixed;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 200px;  /* 양쪽 여백을 기본 200px로 설정 */
+  transition: padding 0.3s ease-in-out;  /* 부드럽게 여백 변화 */
+}
+
+body {
+  width: 100%;
+  max-width: 1920px;
+  margin-top: 70px;
+}
+
+main {
+  position: relative;
+  margin-bottom: 160px;
+}
+
+.main-wrapper, .footer-wrapper {
+  max-width: 1920px;  /* 내부 요소 최대 너비 고정 */
+  margin: 0 auto;     /* 여백을 양쪽에 균등하게 적용 */
+}
+
+.responsive-img.top-bottom-img {
+  max-width: 100%;
+  height: auto;
+  min-width: 521px;  /* 최소 너비 521px로 제한 */
+  min-height: 237px;
+}
+.responsive-img.middle-img {
+  max-width: 100%;
+  height: auto;
+  min-width: 399px;  /* 최소 너비 399px로 제한 */
+  min-height: 301px;
+}
+
+.arranging {
+  margin: 0 auto;
+  gap: 7px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.top-bottom-content {
+  background-color: #CFE5FF;
+  padding: 200px 405px 0;
+}
+
+.middle-content {
+  background-color: #FFF;
+  padding: 138px 466px 0;
+  gap: 64px;
+}
+
+.text-logo {
+  font-size: 18px;
+  font-weight: 700;
+  color: #3692FF;
+}
+
+.text-big {
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 56px;
+  color: #374151;
+}
+
+.text-small {
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 32px;
+  color: #374151;
+}
+
+.footer-tablet {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0;
+  padding: 32px 400px 108px;
+  gap: 270px;
+  position: relative;
+  width: 100%;
+  height: 160px;
+  bottom: 0;
+  right: 0;
+  background: #111827;
+}
+
+/* Privacy Policy, FAQ */
+.footer-middle {
+  font-weight: 400;
+  font-size: 16px;
+  color: #E5E7EB;
+}
+
+/* ©codeit - 2024 */
+.footer-left {
+  font-weight: 400;
+  font-size: 16px;
+  color: #9CA3AF;
+}
+
+
