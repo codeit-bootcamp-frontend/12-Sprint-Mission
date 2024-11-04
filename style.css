@@ -1,0 +1,142 @@
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css");
+
+* {
+    font-family: Pretendard;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 9.5px 400px;
+}
+
+header button { 
+    width: 128px;
+    height: 48px;
+    color: #ffffff;
+    background-color: #3692FF;
+    border-style: none;
+    border-radius: 8px;
+    padding: 12px 23px;
+}
+
+.top {
+    min-height: 540px;
+    width: 100%;
+    background-color: #CFE5FF;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    flex-wrap: wrap;
+    gap: 7px;
+    
+}
+
+.top-content {
+    color: #374151;
+    font-size: 40px;
+    font-weight: 700;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    margin: 40px 0;
+}
+
+#items {
+    font-size: 20px;
+    color: #F9FAFB;
+    background-color: #3692FF;
+    padding: 16px 124px;
+    gap: 8px;
+    border-radius: 40px;
+    border-style: none;
+    margin-top: 20px;
+    margin-bottom: 60px;
+}
+
+.contents {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* gap: 138px 466px; */
+    /* margin: 138px 466px; */
+}
+
+section h2 {
+    color: #3692FF;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+section h3 {
+    color: #374151;
+    font-size: 40px;
+    font-weight: 700;
+}
+section p {
+    color: #374151;
+    font-size: 24px;
+    font-weight: 500;
+}
+
+section{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 103px 23.5px;
+    padding: 138px 466px;
+
+}
+
+.bottom {
+    min-height: 540px;
+    width: 100%;
+    background-color: #CFE5FF;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.bottom p {
+    color: #374151;
+    font-size: 40px;
+    font-weight: 700;
+    padding-bottom: 60px;
+}
+
+
+footer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    background-color: #111827;
+    padding: 32px 400px;
+    gap: 10px;
+}
+
+footer span {
+    /* color: #ffffff; */
+    color: #9CA3AF;
+    font-size: 16px;
+    align-content: center;
+
+}
+
+.corp > a {
+    color: #E5E7EB;
+    font-size: 16px;
+    align-content: center;
+    text-decoration-line: none;
+}
+
+footer img {
+    width: 20px;
+    height: 20px;
+}
