@@ -5,10 +5,18 @@
 }
 
 header {
+    width: 100%;
+}
+
+.nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 9.5px 400px;
+    flex-wrap: wrap;
+
+    max-width: 1120px;
+    margin: auto;
+    padding: 9.5px 200px;
 }
 
 header button { 
@@ -19,9 +27,10 @@ header button {
     border-style: none;
     border-radius: 8px;
     padding: 12px 23px;
+    cursor: pointer;
 }
 
-.top {
+main .top {
     min-height: 540px;
     width: 100%;
     background-color: #CFE5FF;
@@ -43,7 +52,12 @@ header button {
     margin: 40px 0;
 }
 
-#items {
+.top-content > a{
+    margin-top: 20px;
+    margin-bottom: 60px;
+}
+
+.top-content button {
     font-size: 20px;
     color: #F9FAFB;
     background-color: #3692FF;
@@ -51,8 +65,8 @@ header button {
     gap: 8px;
     border-radius: 40px;
     border-style: none;
-    margin-top: 20px;
-    margin-bottom: 60px;
+    cursor: pointer;
+    
 }
 
 .contents {
@@ -60,8 +74,25 @@ header button {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    /* gap: 138px 466px; */
-    /* margin: 138px 466px; */
+    flex-wrap: wrap;
+}
+
+.contents .hot-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contents .search {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contents .register {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 section h2 {
@@ -81,7 +112,7 @@ section p {
     font-weight: 500;
 }
 
-section{
+.contents section{
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -121,12 +152,18 @@ footer {
     gap: 10px;
 }
 
-footer span {
-    /* color: #ffffff; */
+footer .company {
     color: #9CA3AF;
     font-size: 16px;
     align-content: center;
 
+}
+
+footer .sns {
+    display: flex;
+    width: 20px;
+    height: 20px;
+    gap: 12px;
 }
 
 .corp > a {
@@ -134,9 +171,4 @@ footer span {
     font-size: 16px;
     align-content: center;
     text-decoration-line: none;
-}
-
-footer img {
-    width: 20px;
-    height: 20px;
 }
