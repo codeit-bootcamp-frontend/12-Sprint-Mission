@@ -1,4 +1,6 @@
 @charset "utf-8";
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css");
+
 
 * {
   margin: 0 auto;
@@ -9,7 +11,6 @@
 
 body {
   width: 100%;
-  min-width: 1080px;
   background-color: #fff;
 }
 
@@ -20,18 +21,21 @@ a {
 
 /* 헤더 영역 */
 header {
-  width: 1080px;
+  width: 100%;
   height: 70px;
+  display: flex;
+  justify-content: space-between;
+  background: #fff;
+  position: fixed;
+  z-index: 1;
 }
 
 .logo {
-  float: left;
   width: 200px;
   height: 51px;
 }
 
 .logo img {
-  float: left;
   width: 153px;
   height: 51px;
   margin-top: 10px;
@@ -106,17 +110,24 @@ main {
 
 /* 콘텐츠 영역 */
 .contents {
-  width: 100%
+  width: 100%;
+}
+
+.con {
+  display: flex;
+  width: 988px;
+  height: 444px;
+  background-color: #FCFCFC;
 }
 
 /* hot-item */
 .hot-item {
   width: 988px;
   height: 444px;
-  padding: 138px 0 138px 0;
   display: flex;
   justify-content: space-between;
   gap: 64px;
+  padding: 138px 0 138px 0;
 }
 
 .hot-item img {
@@ -128,7 +139,7 @@ main {
   margin-top: 103px;
 }
 
-.hot-item span {
+.htext span {
   font-size: 18px;
   font-weight: 700;
   line-height: 26px;
@@ -136,7 +147,7 @@ main {
   margin-bottom: 12px;
 }
 
-.hot-item h1 {
+.htext .title {
   font-size: 40px;
   font-weight: 700;
   line-height: 56px;
@@ -154,10 +165,11 @@ main {
 .search {
   width: 988px;
   height: 444px;
-  padding: 138px 0 138px 0;
   display: flex;
   justify-content: space-between;
   gap: 64px;
+  padding: 138px 0 138px 0;
+
 }
 
 .stext {
@@ -165,7 +177,7 @@ main {
   text-align: right;
 }
 
-.search span {
+.stext span {
   font-size: 18px;
   font-weight: 700;
   line-height: 26px;
@@ -173,14 +185,14 @@ main {
   margin-bottom: 12px;
 }
 
-.search h1 {
+.stext .title {
   font-size: 40px;
   font-weight: 700;
   line-height: 56px;
   margin-bottom: 24px;
 }
 
-.search p {
+.stext p {
   font-size: 24px;
   font-weight: 500px;
   line-height: 32px;
@@ -201,6 +213,7 @@ main {
   display: flex;
   justify-content: space-between;
   gap: 64px;
+
 }
 
 .register img {
@@ -220,7 +233,7 @@ main {
   margin-bottom: 12px;
 }
 
-.rtext h1 {
+.rtext .title {
   font-size: 40px;
   font-weight: 700;
   line-height: 56px;
@@ -247,7 +260,9 @@ main {
   justify-content: space-between;
 }
 
-.btpanda h1 {
+.btpanda p {
+  width: 295px;
+  height: 112px;
   font-size: 40px;
   font-weight: 700;
   line-height: 56px;
