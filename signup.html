@@ -4,53 +4,73 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/css/login.css" />
+    <link rel="stylesheet" href="/css/signup.css" />
     <link
       rel="stylesheet"
       as="style"
       crossorigin
       href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"
     />
-    <title>로그인</title>
+    <title>Document</title>
   </head>
   <body>
-    <div class="auth-container">
-      <div class="auth-header">
+    <div class="signup-container">
+      <div class="signup-header">
         <a href="/"
-          ><img src="/assets/images/login-logo.png" alt="로그인 로고 이미지"
+          ><img src="/assets/images/login-logo.png" alt="회원가입 로고 이미지"
         /></a>
       </div>
-      <div class="auth-body">
-        <form action="" class="form">
+      <div class="signup-body">
+        <form class="form" action="">
           <div class="form-item">
             <label class="form-label" for="email">이메일</label>
             <input
-              type="email"
-              id="email"
               class="form-input"
+              id="email"
+              type="email"
               placeholder="이메일을 입력해주세요"
               required
+            />
+          </div>
+          <div class="form-item">
+            <label class="form-label" for="name">닉네임</label>
+            <input
+              class="form-input"
+              id="name"
+              type="text"
+              placeholder="닉네임을 입력해주세요"
             />
           </div>
           <div class="form-item">
             <label class="form-label" for="password">비밀번호</label>
             <div class="input-box">
               <input
-                type="password"
-                id="password"
                 class="form-input"
+                id="password"
+                type="password"
                 placeholder="비밀번호를 입력해주세요"
-                required
               />
-              <button class="item-btn" type="button"></button>
+              <button type="button" class="item-btn"></button>
             </div>
           </div>
-          <button class="form-btn" type="submit">로그인</button>
+          <div class="form-item">
+            <label class="form-label" for="password-check">비밀번호 확인</label>
+            <div class="input-box">
+              <input
+                class="form-input"
+                id="password-check"
+                type="password"
+                placeholder="비밀번호를 다시 한 번 입력해주세요"
+              />
+              <button type="button" class="item-btn"></button>
+            </div>
+          </div>
+          <button class="form-btn">회원가입</button>
         </form>
       </div>
-      <div class="auth-footer">
-        <p class="auth-footer-label">간편 로그인하기</p>
-        <ul class="auth-footer-icons">
+      <div class="signup-footer">
+        <p class="signup-footer-label">간편 로그인하기</p>
+        <ul class="signup-footer-icons">
           <li>
             <a
               href="https://www.google.com/"
@@ -77,10 +97,8 @@
           </li>
         </ul>
       </div>
-      <p class="auth-option">
-        판다마켓이 처음이신가요?<a class="footer-signup" href="/signup.html"
-          >회원가입</a
-        >
+      <p class="signup-option">
+        이미 회원이신가요?<a class="footer-login" href="/login.html">로그인</a>
       </p>
     </div>
   </body>

@@ -1,0 +1,149 @@
+:root {
+  --gray900: #111827;
+  --gray800: #1f2937;
+  --gray700: #374151;
+  --gray600: #4b5563;
+  --gray500: #6b7280;
+  --gray400: #9ca3af;
+  --gray200: #e5e7eb;
+  --gray100: #f3f4f6;
+  --gray50: #f9fafb;
+  --blue: #3692ff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+li {
+  list-style-type: none;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo",
+    "Pretendard Variable", Pretendard, Roboto, "Noto Sans KR", "Segoe UI",
+    "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+    sans-serif;
+}
+
+.signup-container {
+  margin: 120px auto;
+  width: 640px;
+}
+
+.signup-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 0 122px 40px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.form-item {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form-label {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 26px;
+  color: var(--gray800);
+}
+
+.form-input {
+  width: 640px;
+  height: 56px;
+  padding: 16px 24px;
+  border: none;
+  border-radius: 12px;
+  background-color: var(--gray100);
+  outline-color: var(--blue);
+}
+
+.form-input::placeholder {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 26px;
+}
+
+.input-box {
+  position: relative;
+}
+
+.item-btn {
+  position: absolute;
+  top: 50%;
+  right: 24px;
+  transform: translateY(-50%);
+  width: 24px;
+  height: 24px;
+  border: none;
+  background-image: url("/assets/images/btn_visibility_on_24px.png");
+}
+
+.form-btn {
+  width: 640px;
+  height: 56px;
+  padding: 16px 124px;
+  border: none;
+  border-radius: 40px;
+  font-size: 20px;
+  font-weight: 600;
+  text-align: center;
+  background-color: var(--gray400);
+  color: var(--gray100);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.form-btn:hover {
+  background-color: var(--blue);
+}
+
+.signup-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 640px;
+  height: 74px;
+  margin-top: 24px;
+  padding: 16px 23px;
+  border-radius: 8px;
+  background-color: #e6f2ff;
+}
+
+.signup-footer-label {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.signup-footer-icons {
+  display: flex;
+  gap: 16px;
+}
+
+.signup-option {
+  margin-top: 24px;
+  font-size: 14px;
+  font-weight: 500;
+  text-align: center;
+  color: var(--gray800);
+}
+
+.footer-login {
+  margin-left: 4px;
+  font-size: 14px;
+  font-weight: 14px;
+  color: var(--blue);
+}
