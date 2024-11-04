@@ -19,6 +19,12 @@ a {
   cursor: pointer;
 }
 
+.header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+}
+
 .header__container {
   display: flex;
   justify-content: space-between;
@@ -52,6 +58,10 @@ a {
   justify-content: center;
   align-items: center;
   line-height: 26px;
+}
+
+.main-banner {
+  margin-top: 67px;
 }
 
 .main-banner,
