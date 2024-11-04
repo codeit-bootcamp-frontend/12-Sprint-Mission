@@ -1,0 +1,477 @@
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css');
+
+body {
+  margin: 0;
+  font-family: pretendard;
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* ----------------------------------------- */
+
+.section1_container_for_fixed {
+}
+
+.section1 {
+  display: flex;
+  align-items: center;
+  height: 70px;
+
+  background-color: #ffffff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.devider {
+  flex-grow: 1;
+}
+
+.middle_container {
+  display: flex;
+  flex-basis: 1120px;
+  height: 51px;
+}
+
+.panda {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.panda_anchor {
+  display: inline-flex;
+}
+
+.panda_market {
+  width: 153px;
+  height: 51px;
+}
+
+.devider_middle {
+  flex-grow: 1;
+}
+
+.login {
+  flex-basis: 128px;
+  flex-shrink: 0;
+
+  cursor: pointer;
+}
+
+.login_button {
+  display: inline-flex;
+  width: 100%;
+  height: 100%;
+
+  color: #f3f4f6;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 26px;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  /* text-align: center;
+  vertical-align: middle; */
+
+  background-color: #3692ff;
+  border-radius: 8px;
+}
+
+@media (width <= 1520px) {
+  /*1920px로 하면 계산이 안맞는데..?*/
+  .section1 {
+    display: flex;
+    align-items: center;
+  }
+
+  .devider {
+    flex-basis: 200px;
+    flex-shrink: 0;
+  }
+
+  .middle_container {
+    display: flex;
+  }
+
+  .panda {
+    flex-shrink: 0;
+  }
+
+  .devider_middle {
+    flex-grow: 1;
+  }
+
+  .login {
+    flex-shrink: 0;
+  }
+}
+
+/* ----------------------------------------- */
+
+.section2 {
+  display: flex;
+  align-items: end;
+  justify-content: center;
+
+  background-color: #cfe5ff;
+
+  height: 540px;
+
+  margin-top: 70px;
+}
+
+.section2_container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  width: 1110px;
+}
+
+.section2_textbox {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+
+  width: 357px;
+  height: 260px;
+}
+
+.section2_textbox > p {
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 56px;
+  color: #374151;
+}
+
+.items_anchor {
+  text-align: center;
+  text-decoration: none;
+  color: #f9fafb;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 32px;
+
+  box-sizing: border-box;
+  width: 100%;
+  height: 56px;
+
+  background-color: #3692ff;
+
+  border-radius: 40px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+}
+
+.items_anchor > p {
+  margin: 0;
+}
+
+.section2_img {
+  height: 340px;
+}
+
+.section2_img > img {
+  width: 746px;
+  /* height: 340px; */
+}
+
+/* ----------------------------------------- */
+
+.section3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 720px;
+}
+
+.section3_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 64px;
+
+  width: 988px;
+  height: 444px;
+
+  background-color: #fcfcfc;
+
+  border-radius: 12px;
+}
+
+.section3_img {
+  height: 444px;
+}
+
+.section3_img > img {
+  width: 579px;
+  height: 444px;
+}
+
+.section3_textbox {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: space-between;
+
+  width: 298px;
+  height: 238px;
+}
+
+.section3_textbox > p:nth-child(1) {
+  color: #3692ff;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 26px;
+}
+
+.section3_textbox > p:nth-child(2) {
+  color: #374151;
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 56px;
+}
+
+.section3_textbox > p:nth-child(3) {
+  color: #374151;
+  font-size: 21px; /*24px하면 넘치는데...?*/
+  font-weight: 500;
+  line-height: 32px;
+}
+
+/* ----------------------------------------- */
+
+.section4 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 720px;
+}
+
+.section4_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 27px; /*64px로 하면 텍스트 줄이 바뀜*/
+
+  width: 988px;
+  height: 444px;
+
+  background-color: #fcfcfc;
+
+  border-radius: 12px;
+}
+
+.section4_textbox {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  justify-content: space-between;
+
+  width: 335px; /*298로하면 텍스트 줄이 바뀜*/
+  height: 238px;
+}
+
+.section4_textbox > p:nth-child(1) {
+  color: #3692ff;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 26px;
+  text-align: right;
+}
+
+.section4_textbox > p:nth-child(2) {
+  color: #374151;
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 56px;
+  text-align: right;
+}
+
+.section4_textbox > p:nth-child(3) {
+  color: #374151;
+  font-size: 21px; /*24px하면 넘치는데...?*/
+  font-weight: 500;
+  line-height: 32px;
+  text-align: right;
+}
+
+.section4_img {
+  height: 444px;
+}
+
+.section4_img > img {
+  width: 579px;
+  height: 444px;
+}
+
+/* ------------------------------------------------- */
+
+.section5 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 720px;
+}
+
+.section5_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 64px;
+
+  width: 988px;
+  height: 444px;
+
+  background-color: #fcfcfc;
+
+  border-radius: 12px;
+
+  /* overflow: hidden; */
+}
+
+.section5_img {
+  height: 444px;
+}
+
+.section5_img > img {
+  width: 579px;
+  height: 444px;
+}
+
+.section5_textbox {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: space-between;
+
+  width: 359px;
+  height: 238px;
+}
+
+.section5_textbox > p:nth-child(1) {
+  color: #3692ff;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 26px;
+}
+
+.section5_textbox > p:nth-child(2) {
+  color: #374151;
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 56px;
+}
+
+.section5_textbox > p:nth-child(3) {
+  color: #374151;
+  font-size: 21px; /*24px하면 넘치는데...?*/
+  font-weight: 500;
+  line-height: 32px;
+}
+
+/* ------------------------------------------------- */
+
+.section6 {
+  height: 100px;
+  background-color: #fcfcfc;
+}
+
+/* ------------------------------------------------- */
+
+.section7 {
+  display: flex;
+  align-items: end;
+  justify-content: center;
+
+  background-color: #cfe5ff;
+
+  height: 540px;
+}
+
+.section7_container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  width: 1110px;
+}
+
+.section7_textbox {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+
+  width: 357px;
+  height: 260px;
+}
+
+.section7_textbox > p {
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 56px;
+  color: #374151;
+}
+
+.section7_img {
+  width: 746px;
+  height: 397px;
+}
+
+.section7_img > img {
+  width: 746px;
+  height: 397px;
+}
+
+/* ------------------------------------------------- */
+
+.section8 {
+  height: 160px;
+  background-color: #111827;
+}
+
+.section8_container {
+  width: 1120px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 30px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.section8_text1 {
+  color: #9ca3af;
+}
+
+.section8_text2 {
+  color: #e5e7eb;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+}
+
+.section8_text2 > a {
+  color: #e5e7eb;
+
+  cursor: pointer;
+}
