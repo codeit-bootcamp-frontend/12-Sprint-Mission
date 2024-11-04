@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>판다마켓</title>
+    <link rel="icon" href="images/logo/favicon.ico" />
+    <link
+      rel="stylesheet"
+      as="style"
+      crossorigin
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"
+    />
+    <link rel="stylesheet" href="/styles/global.css" />
+    <link rel="stylesheet" href="/styles/login.css" />
+  </head>
+  <body>
+    <div class="container">
+      <a href="/html/index.html" class="logo">
+        <img src="/images/logo/panda-market-logo.png" class="logo-img" />
+        판다마켓
+      </a>
+      <div class="content">
+        <form>
+          <div class="label">
+            <label for="email">이메일</label>
+          </div>
+          <input type="email" id="email" placeholder="이메일을 입력해주세요" />
+        </form>
+        <form>
+          <div class="label">
+            <label for="nickname">닉네임</label>
+          </div>
+          <input id="nickname" placeholder="닉네임을 입력해주세요" />
+        </form>
+        <form>
+          <div class="label">
+            <label for="password">비밀번호</label>
+          </div>
+          <div class="password">
+            <input
+              type="password"
+              id="password"
+              placeholder="비밀번호를 입력해주세요"
+            />
+            <img
+              src="/images/login/pw-eye-btn-on.png"
+              class="pw-eye-btn-on done"
+            />
+            <img
+              src="/images/login/pw-eye-btn-off.png"
+              class="pw-eye-btn-off"
+            />
+          </div>
+        </form>
+        <form>
+          <div class="label">
+            <label for="password-check">비밀번호 확인</label>
+          </div>
+          <div class="password">
+            <input
+              type="password"
+              id="password-check"
+              placeholder="비밀번호를 다시 한 번 입력해주세요"
+            />
+            <img
+              src="/images/login/pw-eye-btn-on.png"
+              class="pw-ck-eye-btn-on done"
+            />
+            <img
+              src="/images/login/pw-eye-btn-off.png"
+              class="pw-ck-eye-btn-off"
+            />
+          </div>
+        </form>
+        <a href="#" class="button button-lg auth-btn">회원가입</a>
+        <div class="bottom-menu">
+          간편 로그인하기
+          <div class="sns-icons">
+            <a href="https://www.google.com/">
+              <img src="/images/social/google-logo.png" />
+            </a>
+            <a href="https://www.kakaocorp.com/page/">
+              <img src="/images/social/kakaotalk-logo.png" />
+            </a>
+          </div>
+        </div>
+        <div class="auth-guide">
+          이미 회원이신가요?
+          <a href="/html/login.html" class="auth-guide-btn">로그인</a>
+        </div>
+      </div>
+    </div>
+
+    <script src="/js/signup.js"></script>
+  </body>
+</html>
