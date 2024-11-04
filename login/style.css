@@ -1,0 +1,162 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  height: 1080px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Pretendard Variable", sans-serif;
+}
+
+:root {
+  --blue: #3692ff;
+  --gray900: #111827;
+  --gray800: #1f2937;
+  --gray700: #374151;
+  --gray600: #4b5563;
+  --gray500: #6b7280;
+  --gray400: #9ca3af;
+  --gray200: #e5e7eb;
+  --gray100: #f3f4f6;
+  --gray50: #f9fafb;
+}
+
+.main {
+  height: 618px;
+  width: 640px;
+}
+
+/* 로고, 타이틀 */
+
+.main-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  gap: 20px;
+}
+
+.main-header__logo-img {
+  height: 103px;
+  width: 103px;
+}
+
+.main-header__logo-title {
+  color: #3692FF;
+  font-size: 66px;
+  font-weight: 700;
+}
+
+/* 로그인 폼 */
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+}
+
+.login-form__label {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--gray800);
+  position: relative;
+}
+
+.login-form__input-email,
+.login-form__input-password {
+  height: 56px;
+  background-color: var(--gray100);
+  border: none;
+  border-radius: 12px;
+  padding: 16px 24px;
+  margin: 15px 0 25px;
+}
+
+.login-form__input-email::placeholder,
+.login-form__input-password::placeholder {
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--gray400);
+}
+
+.login-form__input-email:focus,
+.login-form__input-password:focus {
+  outline: 2px solid var(--blue);
+}
+
+
+.login-form__btn {
+  height: 56px;
+  background-color: var(--gray400);
+  border: none;
+  border-radius: 40px;
+  color: var(--gray100);
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.login-form__btn:hover {
+  background-color: var(--blue);
+}
+
+.login-form__input-blind {
+  height: 24px;
+  width: 24px;
+  position: absolute;
+  right: 20px;
+  bottom: -55px;
+}
+
+/* 간편 로그인 */
+
+.login-easy {
+  display: flex;
+  background-color: #E6F2FF;
+  align-items: center;
+  height: 74px;
+  padding: 16px 23px;
+  justify-content: space-between;
+  border-radius: 8px;
+  margin: 25px 0;
+}
+
+.login-easy__title {
+  color: var(--gray800);
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.login-easy__link {
+  display: flex;
+  gap: 10px;
+}
+
+.login-easy__img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 회원가입 페이지 이동 */
+
+.to-signup {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+}
+
+.to-signup__title {
+  color: var(--gray800);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.to-signup__link {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--blue);
+}

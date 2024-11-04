@@ -1,44 +1,57 @@
 * {
   box-sizing: border-box;
   margin: 0;
+}
+
+body {
   font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
 }
 
+:root {
+  --blue: #3692ff;
+  --gray900: #111827;
+  --gray800: #1f2937;
+  --gray700: #374151;
+  --gray600: #4b5563;
+  --gray500: #6b7280;
+  --gray400: #9ca3af;
+  --gray200: #e5e7eb;
+  --gray100: #f3f4f6;
+  --gray50: #f9fafb;
+}
 
 
-.main {
-  width: 100%;
+.banner {
+
   background-color: #CFE5FF;
   height: 540px;
-}
-
-.main-info {
-  width: 80%;
   display: flex;
   justify-content: center;
-  margin: 0 auto;
-  padding-top: 200px;
+  align-items: center;
+  position: relative;
+  padding: 0 200px;
+  margin: 70px 0 0;
 }
 
-.bottom-info {
-  width: 80%;
-  display: flex;
-  justify-content: center;
-  margin: 0 auto;
-  padding-top: 143px;
+
+
+.banner__contents-box {
+  width: 100%;
+  max-width: 1110px;
+  position: relative;
+  z-index: 1;
 }
 
-.main-info img {
-  height: 340px;
-  width: 746px;
+.banner__img {
+  position: absolute;
+  right: 200px;
+  bottom: 0;
 }
 
-.bottomImg {
-  height: 397px;
-  width: 746px;
-}
 
-.main-description p {
+
+
+.banner__contents-box__description {
   font-weight: 700;
   font-size: 40px;
   line-height: 56px;
@@ -47,7 +60,7 @@
 
 }
 
-.main-description a {
+.banner__contents-box__cta {
   font-weight: 400;
   font-size: 20px;
   padding: 16px 124px;
@@ -60,28 +73,42 @@
 
 }
 
-.header-info {
-  /* width: 80%; */
-  margin: 0 auto;
+.main-header {
+  background-color: #ffffff;
+
   padding: 10px 200px;
   display: flex;
   gap: 10px;
   align-items: center;
+  justify-content: space-between;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+
 }
 
-.header-info img {
+.main-header__logo {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.main-header__logo-img {
   width: 50px;
 }
 
-.header-info .logo-title {
+.main-header__logo-title {
   flex-grow: 1;
   color: #3692FF;
   font-weight: 800;
   font-size: 25px;
-  text-decoration: none;
 }
 
-.loginBtn {
+.main-header__login-button {
   text-decoration: none;
   background-color: #3692FF;
   width: 128px;
@@ -99,100 +126,92 @@
 
 .section {
   height: 720px;
-  width: 100%;
   background-color: #ffffff;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.section-info {
+.section__contents-box {
   background-color: #FCFCFC;
   display: flex;
   width: 988px;
   height: 444px;
-
   border-radius: 12px;
   gap: 50px;
 }
 
-.section-description {
+.section__contents-box__description {
   display: flex;
   flex-direction: column;
   justify-content: center;
   flex-grow: 1;
 }
 
-.section-description h2 {
+.section__contents-box__description h2 {
   margin: 20px 0;
   font-size: 40px;
   font-weight: 700;
   color: #374151;
 }
 
-.section-description span {
+.section__contents-box__description span {
   font-size: 18px;
   font-weight: 700;
   color: #3692FF;
 }
 
-.section-description p {
+.section__contents-box__description p {
   font-size: 24px;
   font-weight: 500;
   color: #374151;
 }
 
-.section-description.textright {
+.section__contents-box__description.textright {
   text-align: right;
 }
 
-.section2 {
-  height: 100px;
-  width: 100%;
-  background-color: #FCFCFC;
-}
 
-footer {
+.footer {
   background-color: #111827;
   height: 180px;
-  width: 100%;
   color: white;
   display: flex;
   justify-content: center;
-  padding-top: 30px;
+  padding: 30px 200px 0;
 
 }
 
-.footer-help {
+.footer__help {
   display: flex;
   gap: 20px;
 }
 
-.footer-help a {
+.footer__help a {
   color: #E5E7EB;
   text-decoration: none;
   font-size: 16px;
   font-weight: 400;
 }
 
-.footer-info {
+.footer__contents-box {
   display: flex;
-  width: 80%;
+  width: 100%;
   justify-content: space-between;
 }
 
-.footer-info span {
+.footer__contents-box span {
   color: #9CA3AF;
   font-size: 16px;
   font-weight: 400;
 }
 
-.footer-logo {
+.footer__link {
   display: flex;
   gap: 10px;
 }
 
-.footer-logo img {
+.footer__link img {
   width: 20px;
   height: 20px;
 }
