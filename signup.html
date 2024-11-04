@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>판다마켓 회원가입</title>
+
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css" />
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <article class="form_section">
+        <header class="form_hd"><a href="/"><img src="/img/logo.png" alt="판다마켓 로고 홈으로 바로가기"></a></header>
+        <form action="">
+            <div class="form_box">
+                <ul class="form_inp_list">
+                    <li>
+                        <label class="tit" for="panda_email">이메일</label>
+                        <div class="desc">
+                            <input type="text" name="" id="panda_email" class="inp blue" placeholder="이메일을 입력해주세요">
+                        </div>
+                    </li>
+                    <li>
+                        <label class="tit" for="panda_nick">닉네임</label>
+                        <div class="desc">
+                            <input type="text" name="" id="panda_nick" class="inp blue" placeholder="닉네임을 입력해주세요">
+                        </div>
+                    </li>
+                    <li>
+                        <label class="tit" for="panda_password">비밀번호</label>
+                        <div class="desc">
+                            <input type="password" name="" id="panda_password" class="inp blue" placeholder="비밀번호를 입력해주세요">
+                            <button type="button" class="a_btn btn">
+                                <div class="hidden">비밀번호 확인하기 및 가리기 버튼</div>
+                            </button>
+                        </div>
+                    </li>
+                    <li>
+                        <label class="tit" for="panda_password_ck">비밀번호 확인</label>
+                        <div class="desc">
+                            <input type="password" name="" id="panda_password_ck" class="inp blue" placeholder="비밀번호를 다시 한 번 입력해주세요">
+                            <button type="button" class="a_btn btn">
+                                <div class="hidden">비밀번호 확인하기 및 가리기 버튼</div>
+                            </button>
+                        </div>
+                    </li>
+                </ul>
+                <div class="form_btn">
+                    <button class="a_btn btn_lg w100" type="submit" disabled>회원가입</button>
+                </div>
+                <div class="form_simple">
+                    <p>간편 로그인하기</p>
+                    <ul> 
+                        <li><a href="https://www.google.com/" target="_blank" rel="noopener noreferrer"><img src="/img/login_google.png" alt="구글로 로그인 새 창 열기"></a></li>
+                        <li><a href="https://www.kakaocorp.com/page/" target="_blank" rel="noopener noreferrer"><img src="/img/login_kakao.png" alt="카카오로 로그인 새 창 열기"></a></li> 
+                    </ul>
+                </div>
+                <div class="link">이미 회원이신가요?<a href="/login.html">로그인</a></div>
+            </div>
+        </form>
+    </article>
+    <script src="/script.js"></script>
+</body>
+</html>

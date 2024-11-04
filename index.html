@@ -6,26 +6,27 @@
     <title>판다마켓</title>
 
     <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css" />
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-    <header id="header">
+    <nav class="header">
         <div class="emp"></div>
         <div class="hd_inner">
-            <div class="logo"><a href="/"><img src="img/logo.png" alt=""></a></div>
-            <div class="login_btn"><a class="ab btn_sml" href="/login">로그인</a></div>
+            <div class="logo"><a href="/"><img src="img/logo.png" alt="판다마켓 로고 홈으로 바로가기"></a></div>
+            <div class="login_btn"><a class="a_btn btn_sml" href="/login.html">로그인</a></div>
         </div>
         <div class="emp"></div>
-    </header>
-    <main id="main">
+    </nav>
+    <main class="main">
         <section class="main_bgbox main_visual">
             <div class="bgbox_inner">
                 <div class="cont">
                     <div class="tit">일상의 모든 물건을 <br>거래해 보세요</div>
                     <div class="btn">
-                        <a class="ab btn_lg" href="/items">구경하러 가기</a>
+                        <a class="a_btn btn_lg" href="/items.html">구경하러 가기</a>
                     </div>
                 </div>
+                <div class="thum"><img src="/img/main_obj1.png" alt="판다가 인사하는 이미지"></div>
             </div>
         </section>
         <section class="main_mid">
@@ -33,7 +34,7 @@
                 <ul class="main_list">
                     <li>
                         <div class="box">
-                            <div class="thum"><img src="img/main_img1.png" alt=""></div>
+                            <div class="thum"><img src="/img/main_img1.png" alt="인기 상품 이미지"></div>
                             <div class="cont">
                                 <div class="cate">Hot item</div>
                                 <div class="tit">인기 상품을 확인해 보세요</div>
@@ -43,7 +44,7 @@
                     </li>
                     <li>
                         <div class="box">
-                            <div class="thum"><img src="img/main_img2.png" alt=""></div>
+                            <div class="thum"><img src="/img/main_img2.png" alt="상품 검색 이미지"></div>
                             <div class="cont">
                                 <div class="cate">Search</div>
                                 <div class="tit">구매를 원하는 상품을 검색하세요</div>
@@ -53,7 +54,7 @@
                     </li>
                     <li>
                         <div class="box">
-                            <div class="thum"><img src="img/main_img3.png" alt=""></div>
+                            <div class="thum"><img src="/img/main_img3.png" alt="상품 등록 이미지"></div>
                             <div class="cont">
                                 <div class="cate">Register</div>
                                 <div class="tit">판매를 원하는 상품을 등록하세요</div>
@@ -64,30 +65,31 @@
                 </ul>
             </div>
         </section>
-        <div class="main_line"></div>
         <section class="main_bgbox main_btm">
             <div class="bgbox_inner">
                 <div class="cont">
                     <div class="tit">믿을 수 있는 <br>판다마켓 중고 거래</div>
                 </div>
-                <div class="bg"></div>
+                <div class="thum"><img src="/img/main_obj2.png" alt="판다가 서로 인사하는 이미지"></div>
             </div>
         </section>
     </main>
-    <footer id="footer">
+    <footer class="footer">
         <div class="ft_inner">
             <div class="copy">©codeit - 2024</div>
             <ul class="ft_menu">
-                <li><a href="/privacy">Privacy Policy</a></li>
-                <li><a href="/faq">FAQ</a></li>
+                <li><a href="/privacy.html">Privacy Policy</a></li>
+                <li><a href="/faq.html">FAQ</a></li>
             </ul>
             <ul class="ft_icon">
-                <li><a href="https://www.facebook.com" target="_blank"><img src="img/ic_facebook.svg" alt=""></a></li>
-                <li><a href="https://www.x.com" target="_blank"><img src="img/ic_twitter.svg" alt=""></a></li>
-                <li><a href="https://www.youtube.com" target="_blank"><img src="img/ic_youtube.svg" alt=""></a></li>
-                <li><a href="https://www.instagram.com" target="_blank"><img src="img/ic_instagram.svg" alt=""></a></li>
+                <li><a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer"><img src="/img/ic_facebook.svg" alt="페이스북 바로가기"></a></li>
+                <li><a href="https://www.x.com" target="_blank" rel="noopener noreferrer"><img src="/img/ic_twitter.svg" alt="x 바로가기"></a></li>
+                <li><a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer"><img src="/img/ic_youtube.svg" alt="유튜브 바로가기"></a></li>
+                <li><a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer"><img src="/img/ic_instagram.svg" alt="인스타그램 바로가기"></a></li>
             </ul>
         </div>
     </footer> 
+
+    <script src="/script.js"></script>
 </body>
 </html>

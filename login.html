@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>판다마켓 로그인</title>
+
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css" />
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <article class="form_section">
+        <header class="form_hd"><a href="/"><img src="/img/logo.png" alt="판다마켓 로고 홈으로 바로가기"></a></header>
+        <form action="">
+            <div class="form_box">
+                <ul class="form_inp_list">
+                    <li>
+                        <label class="tit" for="panda_email">이메일</label>
+                        <div class="desc">
+                            <input type="text" name="" id="panda_email" class="inp blue" placeholder="이메일을 입력해주세요">
+                        </div>
+                    </li>
+                    <li>
+                        <label class="tit" for="panda_password">비밀번호</label>
+                        <div class="desc">
+                            <input type="password" name="" id="panda_password" class="inp blue" placeholder="비밀번호를 입력해주세요">
+                            <button type="button" class="a_btn btn">
+                                <div class="hidden">비밀번호 확인하기 및 가리기 버튼</div>
+                            </button>
+                        </div>
+                    </li>
+                </ul>
+                <div class="form_btn">
+                    <button class="a_btn btn_lg w100" type="submit" disabled>로그인</button>
+                </div>
+                <div class="form_simple">
+                    <p>간편 로그인하기</p>
+                    <ul> 
+                        <li><a href="https://www.google.com/" target="_blank" rel="noopener noreferrer"><img src="/img/login_google.png" alt="구글로 로그인 새 창 열기"></a></li>
+                        <li><a href="https://www.kakaocorp.com/page/" target="_blank" rel="noopener noreferrer"><img src="/img/login_kakao.png" alt="카카오로 로그인 새 창 열기"></a></li> 
+                    </ul>
+                </div>
+                <div class="link">판다마켓이 처음이신가요?<a href="/signup.html">회원가입</a></div>
+            </div>
+        </form>
+    </article>
+    <script src="/script.js"></script>
+</body>
+</html>
