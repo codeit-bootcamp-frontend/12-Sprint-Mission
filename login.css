@@ -1,0 +1,110 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.main {
+  width: 640px;
+}
+.main__logo {
+  font-family: "ROKAF";
+  font-size: 65px;
+  color: #3692ff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+/** article__login-wrap **/
+.main__login-wrap {
+  margin-top: 40px;
+}
+/* form */
+.login__form {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+.form__item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  font-size: 16px;
+  line-height: 26px;
+}
+.form__label {
+  font-weight: 700;
+}
+.form__input {
+  font-weight: 400;
+  padding: 16px 24px;
+  border: none;
+  background-color: #f3f4f6;
+  border-radius: 12px;
+}
+.form__input:focus {
+  outline: 2px solid #3692ff;
+}
+.form__password-hidden {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  width: 24px;
+  height: 24px;
+  background: url(img/icon-hidden.png) no-repeat center / contain;
+  border: none;
+  cursor: pointer;
+}
+.form__button {
+  font-size: 20px;
+  color: #f3f4f6;
+  background-color: #9ca3af;
+  border-radius: 40px;
+  border: none;
+  padding: 16px 0;
+  cursor: pointer;
+}
+/* login__quick */
+.login__quick {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 25px;
+  margin-top: 25px;
+  background-color: #e6f2ff;
+  border-radius: 8px;
+}
+.quick__text {
+  font-weight: 500;
+}
+.quick__icon-wrap {
+  display: flex;
+  gap: 20px;
+}
+.quick__icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  font-size: 0;
+}
+.quick__icon-google {
+  background-image: url(img/icon-goggle.png);
+}
+.quick__icon-kakao {
+  background-image: url(img/icon-kakao.png);
+}
+.login__description {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 25px;
+}
+.description__txt {
+}
+.description__link {
+  text-decoration: underline;
+  color: #3692ff;
+}

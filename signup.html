@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>판다마켓 계정</title>
+    <title>판다마켓 회원가입</title>
     <link rel="stylesheet" href="reset.css" />
     <link rel="stylesheet" href="common.css" />
     <link rel="stylesheet" href="login.css" />
@@ -27,10 +27,20 @@
             />
           </div>
           <div class="form__item">
+            <label class="form__label" for="login--nickname">닉네임</label>
+            <input
+              class="form__input"
+              placeholder="이메일을 입력해주세요"
+              type="text"
+              id="login--nickname"
+              name="loginId"
+            />
+          </div>
+          <div class="form__item">
             <label class="form__label" for="login--password">비밀번호</label>
             <input
               class="form__input"
-              placeholder="비밀번호를 입력해주세요."
+              placeholder="비밀번호를 입력해주세요"
               autocomplete="off"
               type="password"
               id="login--password"
@@ -38,8 +48,20 @@
             />
             <button class="form__password-hidden"></button>
           </div>
+          <div class="form__item">
+            <label class="form__label" for="login--password-check">비밀번호 확인</label>
+            <input
+              class="form__input"
+              placeholder="비밀번호를 입력해주세요"
+              autocomplete="off"
+              type="password"
+              id="login--password-check"
+              name="password"
+            />
+            <button class="form__password-hidden"></button>
           </div>
-          <button type="submit" class="form__button">로그인</button>
+          </div>
+          <button type="submit" class="form__button">회원가입</button>
         </form>
         <section class="login__quick">
           <p class="quick__text">간편 로그인하기</p>
@@ -49,8 +71,8 @@
           </div>
         </section>
         <div class="login__description">
-          <p class="description__txt">판다마켓이 처음이신가요?</p>
-          <a class="description__link" href="signup.html">회원가입</a>
+          <p class="description__txt">이미 회원이신가요?</p>
+          <a class="description__link" href="login.html">로그인</a>
         </div>
       </article>
     </main>
