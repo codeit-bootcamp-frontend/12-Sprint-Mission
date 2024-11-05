@@ -50,6 +50,12 @@
                 </div>
               </div>
               <div class="form-item">
+                <label class="item-label" for="username">닉네임</label>
+                <div class="item-field">
+                  <input type="text" id="username" name="username" placeholder="닉네임을 입력해주세요" required>
+                </div>
+              </div>
+              <div class="form-item">
                 <label class="item-label" for="password">비밀번호</label>
                 <div class="item-field">
                   <input type="password" id="password" name="password" placeholder="비밀번호를 입력해주세요" required>
@@ -58,8 +64,18 @@
                   </button>
                 </div>
               </div>
+              <div class="form-item">
+                <label class="item-label" for="password-check">비밀번호 확인</label>
+                <div class="item-field">
+                  <input type="password" id="password-check" name="password-check" placeholder="비밀번호를 다시 한 번 입력해주세요"
+                    required>
+                  <button type="button" class="item-btn visibility-btn">
+                    <span class="a11y">비밀번호 표시</span>
+                  </button>
+                </div>
+              </div>
               <div class="form-control">
-                <button type="submit" class="btn-xl" disabled>로그인</button>
+                <button type="submit" class="btn-xl" disabled>회원가입</button>
               </div>
             </form>
           </div>
@@ -82,7 +98,7 @@
               </ul>
             </div>
             <div class="auth-options">
-              판다마켓이 처음이신가요? <a href="/signup.html">회원가입</a>
+              이미 회원이신가요? <a href="/login.html">로그인</a>
             </div>
           </div>
         </div>
