@@ -115,7 +115,7 @@ header a.main-header__login {
 }
 
 .content-section,
-.content-section__02 {
+.content-section__flex-reverse {
   background-color: #FCFCFC;
   width: 998px;
   height: 444px;
@@ -125,36 +125,30 @@ header a.main-header__login {
   gap: 16px;
 }
 
-.content-section__02 {
+.content-section__flex-reverse {
   flex-direction: row-reverse;
+}
+
+.content-section__img-box {
+  background-image: url('img/Img_home_01.png');
+}
+
+.content-section__img-box__02 {
+  background-image: url('img/Img_home_02.png');
+}
+
+.content-section__img-box__03 {
+  background-image: url('img/Img_home_03.png');
 }
 
 .content-section__img-box,
 .content-section__img-box__02,
 .content-section__img-box__03 {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   width: 559px;
   margin: 0 20px;
-}
-
-.content-section__img-box {
-  background-image: url('img/Img_home_01.png');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-.content-section__img-box__02 {
-  background-image: url('img/Img_home_02.png');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-.content-section__img-box__03 {
-  background-image: url('img/Img_home_03.png');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover; 
 }
 
 .content-section__text-box,
