@@ -1,0 +1,107 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+header {
+  width: 100%;
+  height: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 200px;
+  background-color: #ffffff;
+}
+
+#loginButton {
+  font-size: 20px;
+  border-radius: 10px;
+  padding: 10px 20px;
+}
+
+.picture {
+  max-width: 1000px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+h1 {
+  font-size: 50px;
+}
+
+.button {
+  background-color: #3692ff;
+  color: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
+.click-button {
+  border-radius: 50px;
+  padding: 20px 120px;
+}
+
+.banner {
+  background-color: #cfe5ff;
+  height: 540px;
+  display: flex;
+  align-items: center;
+  background-repeat: no-repeat;
+  background-position: 60% bottom;
+  background-size: 30%;
+}
+
+#tree {
+  background-image: url("Group 33680.png");
+}
+
+#ground {
+  background-image: url("Img_home_bottom.png");
+}
+
+.feature {
+  padding: 138px 0;
+  display: flex;
+  align-items: center;
+  gap: 5%;
+}
+
+.feature-content {
+  display: inline;
+}
+
+.feature-tag {
+  color: #3692ff;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.feature-description {
+  font-size: 22px;
+  margin-top: 25px;
+}
+
+footer {
+  background-color: #111827;
+  color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 50px 200px 100px 200px;
+  font-size: 15px;
+}
+
+#footerMenu {
+  display: flex;
+  gap: 50px;
+}
+
+#socialMedia {
+  display: flex;
+  gap: 12px;
+  
+}
