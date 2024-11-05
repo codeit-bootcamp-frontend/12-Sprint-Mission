@@ -3,10 +3,21 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta property="og:title" content="판다마켓" />
+    <meta
+      property="og:description"
+      content="일상의 모든 물건을 공유해보세요."
+    />
+    <meta property="og:url" content="https://eundoo.netlify.app/" />
+    <meta
+      property="og:image"
+      content="https://eundoo.netlify.app/img/og-image.png"
+    />
+    <link rel="icon" href="img/logo.png" type="image/svg+xml" />
     <title>판다마켓</title>
-    <link rel="stylesheet" href="reset.css" />
-    <link rel="stylesheet" href="common.css" />
-    <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/common.css" />
+    <link rel="stylesheet" href="css/index.css" />
   </head>
   <body>
     <header class="header">
@@ -28,16 +39,17 @@
             <a class="every__link" href="items.html">구경하러가기</a>
           </div>
           <img
+            class="every__img"
             src="img/Img_home_top.png"
             alt="판다 캐릭터가 파란색 가방을 메고 서 있는 그림"
           />
         </div>
       </section>
       <section class="section-goods">
-        <div class="goods__container base-container">
+        <div class="goods__container">
           <div class="goods__container-group">
             <img
-              class="goods__img"
+              class="goods__img-container"
               src="./img/Img_home_01.png"
               alt="초록색 옷을 바라보는 판다 둘 그림"
             />
@@ -57,7 +69,7 @@
           </div>
           <div class="goods__container-group">
             <img
-              class="goods__img"
+              class="goods__img-container"
               src="./img/Img_home_02.png"
               alt="물음표 박스 위에 있는 돋보기 그림"
             />
@@ -77,7 +89,7 @@
           </div>
           <div class="goods__container-group">
             <img
-              class="goods__img"
+              class="goods__img-container"
               src="./img/Img_home_03.png"
               alt="필통과 수첩 그리고 안경 등 상품의 그림"
             />
@@ -98,14 +110,11 @@
         </div>
       </section>
       <section class="section-trust">
-        <div class="trust__container base-container">
-          <div class="trust__text-group">
-            <p>
-              믿을 수 있는<br />
-              판다마켓 중고 거래
-            </p>
-          </div>
-        </div>
+        <p class="trust__text">
+          믿을 수 있는<br />
+          판다마켓 중고 거래
+        </p>
+        <img class="trust__img" src="./img/Img_home_bottom.png" alt="" />
       </section>
     </main>
     <footer class="footer">

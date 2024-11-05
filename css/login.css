@@ -1,0 +1,135 @@
+/* PC view */
+@media screen {
+  .main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  .main-container {
+    width: 640px;
+  }
+  .main__logo {
+    font-family: "ROKAF";
+    font-size: 65px;
+    color: var(--blue1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+  }
+
+  /** main__login-wrap **/
+  .main__login-wrap {
+    margin-top: 40px;
+  }
+  /* form */
+  .login__form {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+  }
+  .form__item {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    font-size: 16px;
+    line-height: 26px;
+  }
+  .form__label {
+    font-weight: 700;
+  }
+  .form__input {
+    font-weight: 400;
+    padding: 16px 24px;
+    border: none;
+    background-color: var(--gray-100);
+    border-radius: 12px;
+  }
+  .form__input:focus {
+    outline: 2px solid var(--blue1);
+  }
+  .form__password-hidden {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    width: 24px;
+    height: 24px;
+    background: url(img/icon-hidden.png) no-repeat center / contain;
+    border: none;
+    cursor: pointer;
+  }
+  .form__button {
+    font-size: 20px;
+    color: var(--gray-50);
+    background-color: var(--gray-400);
+    border-radius: 40px;
+    border: none;
+    padding: 16px 0;
+    cursor: pointer;
+  }
+  .form__button:hover {
+    background-color: var(--blue1);
+  }
+  /* social_login */
+  .social_login {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 25px;
+    margin-top: 25px;
+    background-color: var(--blue5);
+    border-radius: 8px;
+  }
+  .social_login__text {
+    font-weight: 500;
+  }
+  .social_login__icon-wrap {
+    display: flex;
+    gap: 20px;
+  }
+  .social__icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    font-size: 0;
+  }
+  .social__icon-google {
+    background-image: url(../img/icon-goggle.png);
+  }
+  .social__icon-kakao {
+    background-image: url(../img/icon-kakao.png);
+  }
+  .social__description {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 25px;
+  }
+  .description__link {
+    text-decoration: underline;
+    color: var(--blue1);
+  }
+}
+
+/* Tablet view */
+@media (min-width: 768px) and (max-width: 1199px) {
+  .main {
+    margin: 0 50px;
+  }
+  .main-container {
+    width: 100%;
+  }
+}
+
+/* Mobile view */
+@media (min-width: 375px) and (max-width: 767px) {
+  .main-container {
+    margin: 0 16px;
+  }
+  .main__login-wrap {
+    max-width: 400px;
+    margin: 40px auto 0;
+  }
+}

@@ -1,8 +1,8 @@
 /* font */
 @font-face {
   font-family: "ROKAF";
-  src: url("font/ROKAF\ Slab\ Serif\ Medium.ttf") format("truetype");
-  src: url("font/ROKAF\ Slab\ Serif\ Bold.ttf") format("truetype");
+  src: url("../font/ROKAF-Slab-Serif-Medium.ttf") format("truetype");
+  src: url("../font/ROKAF-Slab-Serif-Bold.ttf") format("truetype");
 }
 @font-face {
   font-family: "pretendard";
@@ -54,6 +54,23 @@ body {
   font-family: "pretendard";
 }
 
-.base-container {
-  max-width: 1120px;
+:root {
+  --white: #ffffff;
+
+  --gray-900: #1b1d1f;
+  --gray-800: #26282b;
+  --gray-600: #454c53;
+  --gray-500: #72787f;
+  --gray-400: #9ea4a8;
+  --gray-200: #e5e7eb;
+  --gray-100: #e8ebed;
+  --gray-50: #f7f7f8;
+
+  --blue1: #3692ff;
+  --blue2: #1967d6;
+  --blue3: #1251aa;
+  --blue4: #cfe5ff;
+  --blue5: #e6f2ff;
+
+  --red: #f74747;
 }
