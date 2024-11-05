@@ -14,11 +14,11 @@ main {
 button {
   cursor: pointer;
 }
+
 body {
   margin: 0;
   padding: 0;
-  width: 100vw;
-  overflow-x: hidden; /* 가로 스크롤 방지 */
+  font-family: "Pretendard";
 }
 
 .headerContainer {
@@ -30,7 +30,7 @@ body {
   margin: 0 auto;
 }
 
-.headerLogo img {
+.headerContainer img {
   width: 9.5625rem;
   height: 3.1875rem;
   cursor: pointer;
@@ -43,34 +43,33 @@ body {
   color: white;
 }
 
-.firstMain {
+.banner {
   height: 33.75rem;
   background-color: #cfe5ff;
   display: flex;
   max-width: 120rem;
 }
 
-.firstMainContainer {
+.banner__container {
   width: 69.375rem;
   height: 21.25rem;
   display: flex;
   margin: 12.5rem auto;
 }
 
-.firstMainWriting {
+.banner__container__text {
   height: 16.25rem;
   margin-top: 1.875rem;
 }
 
-.firstMainWriting div {
+.banner__container__text div {
   height: 7rem;
   font-size: 2.5rem;
   font-weight: 700;
   line-height: 3.5rem;
-  font-family: "Pretendard";
 }
 
-.firstMainWriting button {
+.banner__container__text button {
   width: 22.3125rem;
   height: 3.5rem;
   background-color: #3692ff;
@@ -81,16 +80,17 @@ body {
   gap: 0.625rem;
 }
 
-.firstMainContainer img {
+.banner__container img {
   width: 46.625rem;
   height: 21.25rem;
 }
 
-.secondMain {
+.main-section {
   height: 45rem;
+  display: flex;
 }
 
-.secondMainContainer {
+.main-section__container {
   width: 61.75rem;
   height: 27.75rem;
   display: flex;
@@ -98,12 +98,12 @@ body {
   background-color: #fcfcfc;
 }
 
-.secondMainContainer img {
+.main-section__img-box img {
   width: 36.1875rem;
   height: 27.75rem;
 }
 
-.secondMainWriting {
+.main-section__text-box {
   width: 18.625rem;
   height: 14.875rem;
   margin: 6.4375rem auto;
@@ -112,7 +112,7 @@ body {
   gap: 0.75rem;
 }
 
-.secondMainWriting div:nth-child(1) {
+.main-section__title {
   width: 100%;
   height: 1.625rem;
   color: #3692ff;
@@ -121,50 +121,55 @@ body {
   line-height: 1.625rem;
 }
 
-.secondMainWriting div:nth-child(2) {
-  font-family: "Pretendard";
+.main-section__heading {
   font-weight: 700;
   font-size: 2.5rem;
   line-height: 3.5rem;
   color: #374151;
 }
 
-.secondMainWriting div:nth-child(3) {
-  font-family: "Pretendard";
+.main-section__description {
   font-weight: 500;
   font-size: 1.5rem;
   line-height: 2rem;
   color: #374151;
 }
 
-.thirdMain {
+.main-section--search .main-section__container {
+  flex-direction: row-reverse;
+}
+
+.main-section--search .main-section__text-box {
+  text-align: right;
+}
+
+.bottom-banner {
   height: 33.75rem;
   background-color: #cfe5ff;
   display: flex;
   max-width: 120rem;
 }
 
-.thirdMainContainer {
+.bottom-banner__container {
   width: 69.375rem;
   height: 21.25rem;
   display: flex;
   margin: 12.5rem auto;
 }
 
-.thirdMainWriting {
+.bottom-banner__text-box {
   height: 16.25rem;
   margin-top: 1.875rem;
 }
 
-.thirdMainWriting div {
+.bottom-banner__text-box div {
   height: 7rem;
   font-size: 2.5rem;
   font-weight: 700;
   line-height: 3.5rem;
-  font-family: "Pretendard";
 }
 
-.thirdMainContainer img {
+.bottom-banner__img-box img {
   width: 46.625rem;
   height: 21.25rem;
   margin-left: 4.3125rem;
@@ -179,7 +184,6 @@ body {
 }
 
 .footer div:nth-child(1) {
-  font-family: "Pretendard";
   font-weight: 400;
   font-size: 1rem;
   line-height: 1.1931rem;
@@ -193,7 +197,6 @@ body {
 }
 
 .footer a {
-  font-family: "Pretendard";
   font-weight: 400;
   font-size: 1rem;
   line-height: 1.1931rem;
