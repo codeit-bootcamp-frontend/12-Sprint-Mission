@@ -58,37 +58,49 @@ h1 {
   width: 100%;
 }
 
-.input-email__container,
-.input-password__container {
+.form__container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.form__group {
   display: flex;
   flex-direction: column;
   gap: 16px;
   width: 100%;
 }
 
-.input-email,
-.input-password {
+.form__group-input {
   height: 56px;
   border-radius: 12px;
   border: 0px;
   background-color: #f3f4f6;
   padding: 15px 24px;
+  width: 100%;
 }
 
-.input-email,
-.input-password,
-.input-email::placeholder,
-.input-password::placeholder {
+.form__group-input,
+.form__group-input::placeholder {
   font-size: 16px;
   line-height: 26px;
   font-weight: 400;
 }
 
-.input-email__text,
-.input-password__text {
+.form__group-label {
   font-size: 18px;
   font-weight: 700;
   line-height: 26px;
+}
+
+.form__group-input-container {
+  position: relative;
+}
+
+.form__group-img {
+  position: absolute;
+  right: 24px;
+  top: 15px;
 }
 
 .login-button {
@@ -104,9 +116,14 @@ h1 {
   font-size: 20px;
   line-height: 32px;
   font-weight: 600;
+  border: 0;
 }
 
-.sns-login__container {
+.login-button:hover {
+  cursor: pointer;
+}
+
+.social-login__container {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -116,14 +133,14 @@ h1 {
   background-color: #e6f2ff;
 }
 
-.sns-login__icon {
+.social-login__icon {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 16px;
 }
 
-.sns-login__container > p {
+.social-login__container > p {
   font-size: 16px;
   line-height: 26px;
   font-weight: 500;
