@@ -7,69 +7,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="img/panda.png">
     <link rel="stylesheet" href="style.css">
-    <meta property="og:title" content="panda-market">
+    <meta property="og:title" content="판다마켓">
     <meta property="og:url" content="https://panda-market-second-hands.netlify.app/">
     <meta property="og:type" content="website">
-    <meta property="og:image" content="img/Property 1=lg@3x.png">
+    <meta property="og:image" content="img/logo_size_02.png">
     <meta property="og:description" content="1등 중고거래는 역시 판다!">
-    <script>
-      (function(d) {
-        var config = {
-          kitId: 'hud6cvy',
-          scriptTimeout: 3000,
-          async: true
-        },
-        h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
-      })(document);
-    </script>
   </head>
+
+
   <body>
     <!-- header -->
-    <header>
-      <div class="header-logo">
-        <div class="logo-login">
-          <div>
-            <a href="/">
-              <img class="logo-img" src="img/Property 1=lg.png" alt="판다마켓">
-            </a>
-          </div>
-          <div id="login">
-            <a href="/login">로그인</a> 
-          </div>
-        </div>
-      </div>
-
-      <div class="header-info">
-        <div class="go-to-market">
-          <div class="header-article">
-            <h1>
-              일상의 모든 물건을<br>
-              거래해 보세요
-            </h1>
-            <div class="look-around">                
-              <a href="/items">구경하러 가기</a>
-            </div>
-          </div>
-          <div class="header-img">
-            <img src="img/Img_home_top.png">
-          </div>
-        </div>
-      </div>
+    <header class="main-header">
+      <a class="main-header__logo" href="/">
+        <img class="main-header__logo-img" src="img/logo_size_01.png" alt="판다마켓">
+      </a>
+      <a class="main-header__login" href="login/">로그인</a> 
     </header>
+
+    <!-- header banner -->
+    <div class="banner">
+      <div class="banner__contents">
+        <h1 class="banner__contents--title">
+          일상의 모든 물건을<br>
+          거래해 보세요
+        </h1>
+        <a class="banner__contents--cta" href="/items">구경하러 가기</a>
+      </div>
+      <img class="banner__img" src="img/Img_home_top.png">
+    </div>
 
     <!-- main -->
     <main>
       <section class="main-section">
-        <div class="main-info">
-          <div class="main-img"></div>
+        <div class="content-section">
+          <div class="content-section__img-box"></div>
 
-          <div class="main-article">
-            <h2 class="main-name">Hot item</h2>
-            <p class="main-head">
+          <div class="content-section__text-box">
+            <h2 class="content-section__text-box--label">Hot item</h2>
+            <p class="content-section__text-box--title">
               인기 상품을<br>
               확인해 보세요
             </p>
-            <p class="main-head-info">
+            <p class="content-section__text-box--description">
               가장 HOT한 중고거래 물품을
               판다 마켓에서 확인해 보세요
             </p>
@@ -78,34 +57,34 @@
       </section>
 
       <section class="main-section">
-        <div class="main-info">
-          <div class="main-article2">
-            <h2 class="main-name">Hot item</h2>
-            <p class="main-head">
+        <div class="content-section__02">
+          <div class="content-section__img-box__02"></div>
+
+          <div class="content-section__text-box__02">
+            <h2 class="content-section__text-box--label">Hot item</h2>
+            <p class="content-section__text-box--title">
               구매를 원하는<br>
               상품을 검색하세요
             </p>
-            <p class="main-head-info">
+            <p class="content-section__text-box--description">
               구매하고 싶은 물품은 검색해서
               쉽게 찾아보세요
             </p>
           </div>
-
-          <div class="main-img2"></div>
         </div>
       </section>
 
       <section class="main-section">
-        <div class="main-info">
-          <div class="main-img3"></div>
+        <div class="content-section">
+          <div class="content-section__img-box__03"></div>
 
-          <div class="main-article">
-            <h2 class="main-name">Hot item</h2>
-            <p class="main-head">
+          <div class="content-section__text-box">
+            <h2 class="content-section__text-box--label">Hot item</h2>
+            <p class="content-section__text-box--title">
               판매를 원하는<br>
               상품을 등록하세요
             </p>
-            <p class="main-head-info">
+            <p class="content-section__text-box--description">
               어떤 물건이든 판매하고 싶은 상품을
               쉽게 등록하세요
             </p>
@@ -114,39 +93,30 @@
       </section>
     </main>
 
-    <!-- footer -->
-    <footer>
-      <div class="footer-div">
-        <div class="footer-info">
-          <div class="footer-article">
-            <div id="footer-article-div">
-              <h1>
-                믿을 수 있는<br>
-                판다마켓 중고 거래
-              </h1>
-            </div>
-          </div>
-          <div class="footer-img">
-            <img src="img/Img_home_bottom.png">
-          </div>
-        </div>
-      </div>
+    <!-- footer banner -->
+    <div class="banner">
+      <div class="footer-banner__contents">
+        <h1 class="footer-banner__contents--title">
+          믿을 수 있는<br>
+          판다마켓 중고 거래
+        </h1>
+      </div> 
+      <img class="banner__img" src="img/Img_home_bottom.png">
+    </div>
 
-      <div>
-        <div class="footer-logo">
-          <div class="footer-logo-info">
-            <h3>@codeit - 2024</h3>
-            <div class="question-info">
-              <a href="/privacy">Privacy Police</a>
-              <a href="/faq">FAQ</a>
-            </div>
-            <div class="go-to-sns">
-              <a href="https://www.facebook.com/" target="sns"><img src="img/ic_facebook.png"></a>
-              <a href="https://x.com/" target="sns"><img src="img/ic_twitter.png"></a>
-              <a href="https://www.youtube.com/" target="sns"><img src="img/ic_youtube.png"></a>
-              <a href="https://www.instagram.com/" target="sns"><img src="img/ic_instagram.png"></a>
-            </div>
-          </div>
+    <!-- footer -->
+    <footer class="main-footer">
+      <div class="main-footer__logo">
+        <h3>@codeit - 2024</h3>
+        <div class="main-footer__logo--cta">
+          <a href="/privacy">Privacy Police</a>
+          <a href="/faq">FAQ</a>
+        </div>
+        <div class="main-footer__logo--sns">
+          <a href="https://www.facebook.com/" target="sns"><img src="img/ic_facebook.png"></a>
+          <a href="https://x.com/" target="sns"><img src="img/ic_twitter.png"></a>
+          <a href="https://www.youtube.com/" target="sns"><img src="img/ic_youtube.png"></a>
+          <a href="https://www.instagram.com/" target="sns"><img src="img/ic_instagram.png"></a>
         </div>
       </div>
     </footer>

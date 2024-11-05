@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>판다마켓 : 회원가입</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../img/panda.png">
+    <link rel="stylesheet" href="style.css">
+  </head>
+
+  <body>
+    <div class="main-container">
+      <!-- logo -->
+      <a class="logo" href="/">
+       <img class="logo-img" src="../img/logo_size_01.png" alt="판다마켓">
+      </a>
+
+      <form>
+        <!-- email -->
+        <label for="input-email">이메일</label>
+        <input id="input-email" name="email" type="email" placeholder="이메일을 입력해주세요" autocomplete="email" required>
+        <!-- nickname -->
+        <label for="nickname">닉네임</label>
+        <input id="nickname" type="text" placeholder="닉네임을 입력해주세요" required>
+        <!-- password -->
+        <label for="password">비밀번호</label>
+        <input id="password" name="password" type="password" placeholder="비밀번호를 입력해주세요" required>
+        <!-- check password -->
+        <label for="check-password">비밀번호 확인</label>
+        <input id="check-password" name="password" type="password" placeholder="비밀번호를 다시 한 번 입력해주세요" required>
+        <!-- signup button -->
+        <button class="sign-up-button">회원가입</button>
+      </form>
+
+      <!-- easy-login -->
+      <div class="easy-login__text-box">
+        <h1 class="easy-login__text-box--title">간편 로그인하기</h1>
+        <div class="easy-login__text-box--sns">
+          <a href="https://www.google.com/" target="_blank"><img src="../img/google_logo.png"></a>
+          <a href="https://www.kakaocorp.com/page/" target="_blank"><img src="../img/kakao_logo.png"></a>
+        </div>
+      </div>
+      <!-- login -->
+      <p class="login__text-box">이미 회원이신가요?
+        <a class="login__text-box--cta" href="../login/">로그인</a>
+      </p>
+    </div>
+  </body>
+</html>

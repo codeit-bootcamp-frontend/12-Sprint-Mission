@@ -1,0 +1,136 @@
+* {
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: 'Pretendard';
+  src: url('../fonts/Pretendard-Regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Pretendard';
+  src: url('../fonts/Pretendard-Bold.otf') format('opentype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+body {  /* pretendard폰트 가져오는 것을 못하겠음 */
+  font-family: 'Pretendard', sans-serif;  
+  margin: 0;
+  display: flex;
+  align-items: center;
+}
+
+.main-container {
+  width: 640px;
+  padding: 24px 0 36px;
+  margin: auto;
+  line-height: 26px;
+  display: flex;
+  flex-direction: column;
+}
+
+form {
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* logo */
+.logo {
+  width: 396px;
+  margin: 0 auto 40px;
+  display: block;
+}
+
+/* label + input */
+label {
+  font-size: 18px;
+  font-weight: 700;
+  display: block;
+}
+
+input {
+  background-color: #F3F4F6;
+  color: #9CA3AF;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 26px;
+  border: 0;
+  border-radius: 12px;
+  display: block;
+  width: 100%;
+  padding: 16px 24px;
+  margin: 16px auto 24px;
+}
+
+input:focus {
+  color: #1F2937;
+  outline: 2px solid #3692FF;
+}
+
+/* signup button */
+.sign-up-button {
+  background-color: #9CA3AF;
+  color: #F3F4F6;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 32px;
+  text-align: center;
+  width: 100%;
+  margin: 0 auto;
+  padding: 16px;
+  border: 0;
+  border-radius: 40px;
+  display: block;
+}
+
+/* easy login */
+.easy-login__text-box {
+  background-color: #E6F2FF;
+  width: 100%;
+  margin: 24px auto;
+  padding: 16px 23px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.easy-login__text-box--title {
+  color: #1F2937;
+  font-size: 16px;
+  font-weight: 500;
+  margin: 8px 0;
+}
+
+.easy-login__text-box--sns {
+  height: 42px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.easy-login__text-box--sns a,
+.easy-login__text-box--sns a img {
+  width: 42px;
+  height: 42px;
+}
+
+/* login */
+.login__text-box {
+  color: #1F2937;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 24px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.login__text-box .login__text-box--cta {
+  color: #3692FF;
+  line-height: 16px;
+  margin-left: 4px;
+  text-decoration: none;
+}
