@@ -29,6 +29,7 @@
 
 body {
   background-color: #ffffff;
+
   margin: 0 0;
 }
 
@@ -46,10 +47,12 @@ nav {
   ;
   height: 70px;
   align-items: center; 
+
 }
 
 .panda-logo {
   cursor: pointer;  
+
   grid-area: panda_logo;
 }
 
@@ -60,6 +63,7 @@ button {
 .login {  
   grid-area: login;
   display: inline-flex;
+
   width: 128px;
   height: 48px;            
   font-size: 16px;
@@ -78,6 +82,7 @@ button {
 .login:hover {
   background-color: #1682ff ;
   cursor: pointer; 
+
 }
 
 
