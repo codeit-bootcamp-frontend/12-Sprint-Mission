@@ -1,10 +1,9 @@
 <!DOCTYPE html>
-<<<<<<< HEAD
 <html lang="kr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>판다마켓-로그인</title>
+    <title>판다마켓-회원가입</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -14,9 +13,15 @@
                 <img src="img/login-panda-logo.png" class="login-panda-logo" alt="로그인 페이지 판다 로고">
             </a>
             <form>
+
                 <div class="input-email">
                     <label for="email" class="email-label">이메일</label>
                     <input type="email" id="email" name="email" placeholder="이메일을 입력해주세요">
+                </div>
+
+                <div class="input-nickname">
+                    <label for="nickname" class="nickname-label">닉네임</label>
+                    <input type="text" id="nickname" name="nickname" placeholder="닉네임을 입력해주세요">
                 </div>
 
                 <div class="input-password">
@@ -24,7 +29,13 @@
                     <input type="password" id="password" name="password" placeholder="비밀번호를 입력해주세요">
                 </div>
 
-                <button type="submit" class="login-button">로그인</button>
+                <div class="input-password-confirm">
+                    <label for="password-confirm" class="password-confirm-label">비밀번호 확인</label>
+                    <input type="password" id="password-confirm" name="password-confirm" placeholder="비밀번호를 다시 한 번 입력해주세요" required>
+                </div>
+
+                <button type="submit" class="login-button">회원가입</button>
+
             </form>
             <div class="easy-login">
                 <p>간편 로그인하기</p>
@@ -42,21 +53,9 @@
                 </div>
             </div>
             <div class="signup-text">
-                판다마켓이 처음이신가요? <a href="signup.html" class="signup-landing">회원가입</a>
+                이미 회원이신가요? <a href="login.html" class="signup-landing">로그인</a>
             </div>
         </div>
     </div>
 </body>
 </html>
-=======
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <img src="none.jpeg">
-</body>
-</html>
->>>>>>> Basic-이석찬
