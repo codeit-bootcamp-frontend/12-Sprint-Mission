@@ -63,8 +63,7 @@
   position: relative;
 }
 
-.form-item .item-field input[type="text"],
-.form-item .item-field input[type="password"] {
+.form-item .input-box {
   display: block;
   width: 100%;
   height: 5.6rem;
@@ -74,25 +73,22 @@
   background: var(--color-seondary-100);
 }
 
-.form-item .item-field input[type="text"]:focus,
-.form-item .item-field input[type="password"]:focus,
-.form-item .item-field input[type="text"].valid,
-.form-item .item-field input[type="password"].valid {
+.form-item .input-box:focus,
+.form-item .input-box.valid {
   border: 1px solid var(--color-primary-100);
   outline: none;
 }
 
-.form-item:has(.item-error) .item-field input[type="text"],
-.form-item:has(.item-error) .item-field input[type="password"] {
+.form-item:has(.item-error) .input-box {
   border: 1px solid var(--color-error);
   outline: none;
 }
 
-.form-item .item-field input::placeholder {
+.form-item .input-box::placeholder {
   color: var(--color-seondary-400);
 }
 
-.form-item .item-field:has(.item-btn) input {
+.form-item:has(.item-btn) .input-box {
   padding-right: 5rem;
 }
 
