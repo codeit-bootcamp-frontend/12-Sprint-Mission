@@ -7,16 +7,13 @@
  */
 export function toggleVisibility(form = "body") {
   document.querySelector(form).addEventListener("click", (e) => {
-    if (!e.target.classList.contains("visibility-btn")) return;
+    const button = e.target.closest(".visibility-btn");
 
-    const button = e.target;
+    if (!button) return;
     const input = button.closest(".form-item").querySelector("input");
     const isPasswordType = input.type === "password";
 
     input.type = isPasswordType ? "text" : "password";
-    button.querySelector(".a11y").textContent = isPasswordType
-      ? "비밀번호 가리기"
-      : "비밀번호 표시";
     button.classList.toggle("on");
   });
 }

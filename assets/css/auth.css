@@ -96,12 +96,12 @@
   background-position: center;
 }
 
-.form-item .visibility-btn {
-  background-image: url("/assets/img/icon/icon_view_off.svg");
+.form-item .visibility-btn .icon-visibility-off,
+.form-item .visibility-btn.on .icon-visibility-on {
+  display: none;
 }
-
-.form-item .visibility-btn.on {
-  background-image: url("/assets/img/icon/icon_view_on.svg");
+.form-item .visibility-btn.on .icon-visibility-off {
+  display: block;
 }
 
 .oauth-container {
