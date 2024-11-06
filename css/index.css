@@ -13,10 +13,10 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo",
-    "Pretendard Variable", Pretendard, Roboto, "Noto Sans KR", "Segoe UI",
-    "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
-    sans-serif;
+  font-family: "Pretendard Variable", Pretendard, -apple-system,
+    BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI",
+    "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
 }
 
 a {
@@ -36,7 +36,7 @@ header {
 .header {
   display: flex;
   justify-content: space-between;
-  width: 1120px;
+  width: 100%;
   margin: 0 auto;
   padding: 10px 0;
 }
@@ -73,16 +73,17 @@ header {
   height: 540px;
   background-color: #cfe5ff;
 
-  @media (max-width: 1024px) {
+  @media (max-width: 1112px) {
     height: auto;
   }
 }
 
 .main-section-top-container {
   display: flex;
-  width: 1110px;
+  justify-content: center;
+  width: 100%;
 
-  @media (max-width: 1024px) {
+  @media (max-width: 1112px) {
     display: flex;
     flex-direction: column;
   }
@@ -91,7 +92,7 @@ header {
 .main-section-top-content {
   margin: 40px 0;
 
-  @media (max-width: 1024px) {
+  @media (max-width: 1112px) {
     text-align: center;
   }
 }
@@ -108,7 +109,7 @@ header {
   line-height: 32px;
   color: #f9fafb;
 
-  @media (max-width: 1024px) {
+  @media (max-width: 1112px) {
     width: 50%;
   }
 }
@@ -127,7 +128,7 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 1920px;
+  width: 100%;
   padding: 138px 0;
 }
 
@@ -137,7 +138,7 @@ header {
   padding: 0 23.5px;
   background-color: #fcfcfc;
 
-  @media (max-width: 1024px) {
+  @media (max-width: 1112px) {
     flex-direction: column;
   }
 }
@@ -181,7 +182,7 @@ header {
   height: 540px;
   background-color: #cfe5ff;
 
-  @media (max-width: 1024px) {
+  @media (max-width: 1112px) {
     height: auto;
   }
 }
@@ -190,7 +191,7 @@ header {
   display: flex;
   align-items: center;
 
-  @media (max-width: 1024px) {
+  @media (max-width: 1112px) {
     flex-direction: column;
     padding-top: 50px;
   }
@@ -202,7 +203,7 @@ footer {
   padding: 32px 400px;
   background-color: #111827;
 
-  @media (max-width: 1024px) {
+  @media (max-width: 1112px) {
     padding: 32px 10px;
   }
 }
