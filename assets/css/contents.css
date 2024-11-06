@@ -92,7 +92,7 @@
   padding: 0 calc(20rem - var(--gutter));
   background: #cfe5ff;
 
-  @media (max-width: 1200px) {
+  @media (width < 1200px) {
     height: auto;
     padding: 0;
   }
@@ -105,12 +105,12 @@
   justify-content: flex-end;
   height: 100%;
 
-  @media (max-width: 1440px) {
+  @media (width < 1440px) {
     justify-content: flex-start;
     padding-top: 10rem;
   }
 
-  @media (max-width: 1200px) {
+  @media (width < 1200px) {
     align-items: center;
     text-align: center;
   }
@@ -130,7 +130,7 @@
   letter-spacing: 0.08rem;
   color: var(--color-seondary-700);
 
-  @media (max-width: 1200px) {
+  @media (width < 1200px) {
     font-size: 3.4rem;
     letter-spacing: -0.06rem;
   }
@@ -142,7 +142,7 @@
   bottom: 0;
   width: min(55vw, 74.6rem);
 
-  @media (max-width: 1200px) {
+  @media (width < 1200px) {
     position: relative;
     right: auto;
     bottom: auto;
@@ -156,7 +156,7 @@
   padding: 13.8rem 0;
   background: #fff;
 
-  @media (max-width: 1200px) {
+  @media (width < 1200px) {
     padding: 4rem 0 8rem;
   }
 }
@@ -173,7 +173,7 @@
   border-radius: 12px;
   background: #fcfcfc;
 
-  @media (max-width: 1200px) {
+  @media (width < 1200px) {
     display: block;
     height: auto;
     border-radius: 0;
@@ -182,7 +182,7 @@
 }
 
 .feature-card .feature-image {
-  @media (max-width: 1200px) {
+  @media (width < 1200px) {
     overflow: hidden;
     margin-bottom: 4rem;
     border-radius: 12px;
@@ -194,7 +194,7 @@
   height: 100%;
   object-fit: cover;
 
-  @media (max-width: 1200px) {
+  @media (width < 1200px) {
     height: auto;
     object-fit: unset;
   }
@@ -223,7 +223,7 @@
   line-height: 1.4;
   color: var(--color-seondary-700);
 
-  @media (max-width: 1200px) {
+  @media (width < 1200px) {
     margin-bottom: 1.8rem;
     font-size: 3rem;
   }
@@ -234,7 +234,7 @@
   font-weight: 500;
   color: var(--color-seondary-700);
 
-  @media (max-width: 1200px) {
+  @media (width < 1200px) {
     font-size: 2rem;
   }
 }
@@ -253,7 +253,7 @@
 .footer-banner {
   margin-top: 13.8rem;
 
-  @media (max-width: 1200px) {
+  @media (width < 1200px) {
     margin-top: 0;
   }
 }

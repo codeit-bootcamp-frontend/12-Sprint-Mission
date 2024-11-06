@@ -16,7 +16,7 @@
   display: inline-block;
   height: 13.2rem;
 
-  @media (max-width: 768px) {
+  @media (width < 769px) {
     height: 6.6rem;
   }
 }

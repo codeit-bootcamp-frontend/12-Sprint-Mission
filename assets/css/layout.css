@@ -74,7 +74,7 @@ body {
   border-bottom: 1px solid var(--color-grey);
   background: #fff;
 
-  @media (max-width: 1200px) {
+  @media (width < 1200px) {
     padding: 0;
   }
 }
@@ -130,7 +130,7 @@ body {
   background: var(--color-seondary-900);
   color: var(--color-white);
 
-  @media (max-width: 1200px) {
+  @media (width < 1200px) {
     padding: 4rem 0 8rem;
   }
 }
@@ -140,7 +140,7 @@ body {
   justify-content: space-between;
   align-items: center;
 
-  @media (max-width: 1200px) {
+  @media (width < 1200px) {
     flex-direction: column;
     align-items: flex-start;
     gap: 3rem;
