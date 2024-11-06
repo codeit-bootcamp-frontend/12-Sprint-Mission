@@ -5,18 +5,27 @@
   max-width: calc(64rem + var(--gutter) * 2);
   margin: 0 auto;
   padding: 12rem var(--gutter);
+
+  @media (width < 768px) {
+    max-width: calc(40rem + var(--gutter) * 2);
+    padding: 8rem var(--gutter);
+  }
 }
 
 .auth-header {
   margin-bottom: 4rem;
   text-align: center;
+
+  @media (width < 768px) {
+    margin-bottom: 2.4rem;
+  }
 }
 
 .auth-header .auth-logo a {
   display: inline-block;
   height: 13.2rem;
 
-  @media (width < 769px) {
+  @media (width < 768px) {
     height: 6.6rem;
   }
 }
@@ -32,6 +41,10 @@
 
 .form-item {
   margin-bottom: 2.4rem;
+
+  @media (width < 768px) {
+    margin-bottom: 1.6rem;
+  }
 }
 
 .form-item .item-label {
@@ -39,6 +52,11 @@
   margin-bottom: 1.6rem;
   font-size: 1.8rem;
   font-weight: 700;
+
+  @media (width < 768px) {
+    margin-bottom: 0.8rem;
+    font-size: 1.4rem;
+  }
 }
 
 .form-item .item-field {

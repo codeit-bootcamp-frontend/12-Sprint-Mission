@@ -5,6 +5,7 @@ html {
 }
 
 body {
+  min-width: 37.5rem;
   background: #fcfcfc;
   font-family: "Pretendard", sans-serif;
   font-size: 1.6rem;
