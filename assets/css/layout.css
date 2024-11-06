@@ -89,6 +89,10 @@ body {
   display: block;
   height: 5.1rem;
   margin-right: 3.2rem;
+
+  @media (width < 768px) {
+    height: auto;
+  }
 }
 
 .header .logo a {
@@ -99,6 +103,19 @@ body {
 .header .logo img {
   width: auto;
   height: 100%;
+}
+
+.header .logo-pc {
+  @media (width < 768px) {
+    display: none;
+  }
+}
+
+.header .logo-mobile {
+  display: none;
+  @media (width < 768px) {
+    display: block;
+  }
 }
 
 .header .gnb {
@@ -133,16 +150,30 @@ body {
   @media (width < 1200px) {
     padding: 3.2rem calc(10.4rem - var(--gutter)) 10.8rem;
   }
+
+  @media (width < 768px) {
+    padding: 3.2rem calc(3.2rem - var(--gutter));
+  }
 }
 
 .footer .inner {
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  @media (width < 768px) {
+    flex-wrap: wrap;
+    gap: 6rem 0;
+  }
 }
 
 .footer .copyright {
   color: var(--color-seondary-400);
+
+  @media (width < 768px) {
+    order: 3;
+    width: 100%;
+  }
 }
 
 .footer .footer-nav-list {
