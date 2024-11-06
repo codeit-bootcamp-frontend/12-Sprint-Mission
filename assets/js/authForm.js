@@ -67,6 +67,8 @@ export default class AuthForm {
     const formItem = input.closest(".form-item");
     const errorMessage = this.errors[name];
 
+    // valid,error 초기화
+    input.classList.remove("valid");
     let errorBlock = formItem.querySelector(".item-error");
     if (errorBlock) {
       errorBlock.remove();
@@ -77,6 +79,8 @@ export default class AuthForm {
       errorBlock.classList.add("item-error");
       errorBlock.textContent = errorMessage;
       formItem.appendChild(errorBlock);
+    } else {
+      input.classList.add("valid");
     }
   }
 
