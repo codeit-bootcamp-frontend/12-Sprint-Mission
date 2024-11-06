@@ -4,10 +4,10 @@ body{
 margin: 0;
 padding:0;
 width: 100%;
-font-family: pretendard;
+font-family: "pretendard";
 }
 
-#top{
+.top{
  position:fixed;
  top:0;
  left:0;
@@ -67,7 +67,7 @@ font-family: pretendard;
     gap:7px;
     
 }
-#do{
+.do{
     width: 357px;
     height: 260px;
 }
@@ -237,3 +237,122 @@ font-family: pretendard;
     text-decoration: none;
     color: #ffffff;
 }
+/*로그인페이지 스타일*/
+:root{
+    --gray900:#111927;
+    --gray800:#1f2937;
+    --gray700:#374151;
+    --gray600:#4B5563;
+    --gray500:#6B7280;
+    --grat400:#9ca3af;
+    --gary200:#e5e7eB;
+    --gray100:#F3F4F6;
+    --gray50:#f9fafb;
+    --blue:#3692ff;
+ }
+ 
+ html{
+    font-family: "pretendard";
+  
+ }
+ body{
+    display:block;
+ 
+ }
+ .pan_main{
+    display:block;
+    width:640px;
+    height:618px;
+    margin:231px 640px;
+   
+ }
+ .login-title{
+    display:flex;
+    justify-content: center;
+    width: 396px;
+    height: 132px;
+    margin: 0px 122px;
+    margin-bottom: 40px;
+ }
+ form{
+    display:flex;
+    flex-direction: column;
+    margin-top:40px;
+    gap:24px;
+ }
+ 
+ label{
+    display:block;
+    font-size:18px;
+    line-height: 26px;
+    font-weight: 700;
+    gap:10px;
+    text-align:left;
+ }
+ 
+ input{
+    display:block;
+    width:650px;
+    height:56px;
+    border: none;
+    padding: 16px 24px;
+    gap:10px;
+    border-radius: 12px;
+    background-color: var(--gray100);
+ }
+ .login-set{
+    border: none;
+    border-radius: 40px;
+    width:640px;
+    height:56px;
+    padding: 16px 124px;
+    color: var(--gray100);
+    background-color: #9cA3AF;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 600;
+ }
+ .login-easy{
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    width:640px;
+    height:74px;
+    padding:16px 23px;
+    border: none;
+    border-radius:8px;
+    background-color:var(--gary200);
+ }
+ .login-first{
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 24px;
+    text-align: center;
+ }
+ .login-set:hover{
+    background-color: var(--blue);
+ }
+ /*회원가입페이지 스타일*/
+ 
+ .sign_main{
+    display:block;
+    width:640px;
+    
+    margin:231px 640px;         
+ }
+ .signup-set{
+     border: none;
+     border-radius: 40px;
+     width:640px;
+     height:56px;
+     padding: 16px 124px;
+     color: var(--gray100);
+     background-color: #9cA3AF;
+     text-align: center;
+     font-size: 20px;
+     font-weight: 600;
+  }
+ .signup-set:hover{
+     background-color: var(--blue);
+  }
+ 
