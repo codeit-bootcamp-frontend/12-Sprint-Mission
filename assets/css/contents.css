@@ -112,6 +112,7 @@
 
   @media (width < 1200px) {
     align-items: center;
+    padding-top: 8.4rem;
     text-align: center;
   }
 }
@@ -120,6 +121,13 @@
   position: relative;
   z-index: 1;
   margin-bottom: 10rem;
+
+  @media (width < 1200px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 21rem;
+  }
 }
 
 .banner .banner-title {
@@ -129,10 +137,11 @@
   line-height: 1.4;
   letter-spacing: 0.08rem;
   color: var(--color-seondary-700);
+}
 
+.banner .banner-title br {
   @media (width < 1200px) {
-    font-size: 3.4rem;
-    letter-spacing: -0.06rem;
+    display: none;
   }
 }
 
@@ -146,18 +155,32 @@
     position: relative;
     right: auto;
     bottom: auto;
-    width: 100%;
+    width: calc(100% + var(--gutter) * 2);
     margin: 0;
   }
 }
 
 /* feature */
+.features {
+  @media (width < 1200px) {
+    padding: 2.4rem 0 5.6rem;
+  }
+}
+
 .feature {
   padding: 13.8rem 0;
   background: #fff;
 
   @media (width < 1200px) {
-    padding: 4rem 0 8rem;
+    padding: 0;
+    margin-bottom: 5.2rem;
+    background: transparent;
+  }
+}
+
+.feature:last-child {
+  @media (width < 1200px) {
+    margin-bottom: 0;
   }
 }
 
@@ -184,7 +207,7 @@
 .feature-card .feature-image {
   @media (width < 1200px) {
     overflow: hidden;
-    margin-bottom: 4rem;
+    margin-bottom: 2.4rem;
     border-radius: 12px;
   }
 }
@@ -214,6 +237,10 @@
   color: var(--color-primary-100);
   font-size: 1.8rem;
   font-weight: 700;
+
+  @media (width < 1200px) {
+    margin-bottom: 1.6rem;
+  }
 }
 
 .feature-card .feature-title {
@@ -224,8 +251,14 @@
   color: var(--color-seondary-700);
 
   @media (width < 1200px) {
-    margin-bottom: 1.8rem;
-    font-size: 3rem;
+    margin-bottom: 2.4rem;
+    font-size: 3.2rem;
+  }
+}
+
+.feature-card .feature-title br {
+  @media (width < 1200px) {
+    display: none;
   }
 }
 
@@ -235,7 +268,8 @@
   color: var(--color-seondary-700);
 
   @media (width < 1200px) {
-    font-size: 2rem;
+    font-size: 1.8rem;
+    line-height: 1.4;
   }
 }
 
@@ -258,10 +292,25 @@
   }
 }
 
+.footer-banner .inner {
+  @media (width < 1200px) {
+    padding-top: 20.1rem;
+  }
+}
+
 .footer-banner .banner-content {
   margin-bottom: 17.2rem;
+  @media (width < 1200px) {
+    margin-bottom: 21.7rem;
+  }
 }
 
 .footer-banner .banner-title {
   margin-bottom: 0;
+}
+
+.footer-banner .banner-title br {
+  @media (width < 1200px) {
+    display: block;
+  }
 }

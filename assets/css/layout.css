@@ -131,7 +131,7 @@ body {
   color: var(--color-white);
 
   @media (width < 1200px) {
-    padding: 4rem 0 8rem;
+    padding: 3.2rem calc(10.4rem - var(--gutter)) 10.8rem;
   }
 }
 
@@ -139,12 +139,6 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-
-  @media (width < 1200px) {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 3rem;
-  }
 }
 
 .footer .copyright {
