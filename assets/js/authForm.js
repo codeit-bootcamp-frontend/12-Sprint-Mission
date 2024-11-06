@@ -105,6 +105,7 @@ export default class AuthForm {
       return;
     }
 
+    this.password = password;
     delete this.errors.password;
   }
 
@@ -119,7 +120,7 @@ export default class AuthForm {
       return;
     }
 
-    if (passwordCheck !== this.form.querySelector('[name="password"]').value) {
+    if (passwordCheck !== this.password) {
       this.errors["password-check"] = VALIDATION_MESSAGES.PASSWORD_MISMATCH;
       return;
     }
