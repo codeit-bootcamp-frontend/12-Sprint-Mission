@@ -38,7 +38,6 @@ img {
   word-break: keep-all 속성을 사용하면 띄어쓰기를 기준으로 줄바꿈하도록 설정하여 어절 기반의 한국어 특성에 적합한 읽기 편한 레이아웃을 제공할 수 있습니다.
 */
 html,body {
-  color: #374151;
   word-break: keep-all;
   font-family: "Pretendard", sans-serif;
   margin: 0;
@@ -46,7 +45,16 @@ html,body {
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
+  transform: scale(calc(min(100vw / 1920, 100vh / 1080)));
+  transform-origin: top left; /* 축소 기준을 왼쪽 상단으로 설정 */
+  width: 1920px;
+  height: 1080px;
+  background-color: #ffffff;
 }
+
+
+
 
 /* 여러 요소가 나란히 배열되어 있을 때는 티가 나지 않아 보여도 항상 잊지 말고 display: flex; align-items: center;로 세로 중앙 정렬을 맞춰주세요. */
 header {
@@ -135,21 +143,7 @@ h1 {
 }
 
 
-.container {
-  width: 1920px;
-  height: 1080px;
-  background-color: #ffffff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-
-  /* 화면에 맞게 축소/확대 */
-  transform: scale(calc(min(100vw / 1920, 100vh / 1080)));
-  transform-origin: top left; /* 축소 기준을 왼쪽 상단으로 설정 */
-}
-
-.login-box {
+.login {
   width: 640px;
   height: 618px;
   background-color: white;
@@ -168,7 +162,7 @@ h1 {
 }
 
 
-.top {
+.login__header {
   width: 396px;
   height: 132px;
   background-color: white;
@@ -187,7 +181,7 @@ h1 {
 }
 
 
-.top-left {
+.login__logo {
   width: 103.53px;
   height: 103.88px;
   top: 12.98px;
@@ -196,7 +190,7 @@ h1 {
   background-color: white;
  }
 
-.top-right {
+.login__title {
   width: 266px;
   height: 90px;
   top: 23.98px;
@@ -211,7 +205,7 @@ h1 {
   color:#3692FF
 }
 
-.bottom {
+.login__form {
   width: 640px; 
   height: 446px; 
   margin-top: 40px; /* .top과의 간격 설정 */
@@ -238,7 +232,7 @@ h1 {
   margin-top: -100px; 
 }
 
-.bottom-1 {
+.login__form__input {
   width: 640px;
   height: 220px;
   opacity: 0px;
@@ -246,7 +240,7 @@ h1 {
   margin-top: -10px;
 }
 
-.bottom-1-top {
+.login__form__input__email {
   width: 640px;
   height: 98px;
 
@@ -254,7 +248,7 @@ h1 {
   background-color: white;
 }
 
-.bottom-1-bottom {
+.login__form__input__pw {
   width: 640px;
   height: 98px;
   margin-top: 30px;
@@ -262,7 +256,7 @@ h1 {
   background-color: white;
 }
 
-.btm{
+.login__submit{
   width: 640px;
   height: 56px;
   padding: 16px 124px 16px 124px;
@@ -284,7 +278,7 @@ h1 {
   margin-top: 400px;
 }
 
-.btm1{
+.login__social-login{
   width: 640px;
   height: 74px;
   padding: 16px 23px 16px 23px;
@@ -306,7 +300,7 @@ h1 {
   margin-top: 24px;
 }
 
-.btm2 {
+.login__signup-prompt {
   width: 197px;
   height: 24px;
   opacity: 0px;
@@ -330,7 +324,7 @@ h1 {
   margin-left: 35%;
 }
 
-.btm-text {
+.login__submit-text {
 
   font-family: Pretendard;
   font-size: 20px;
@@ -340,7 +334,7 @@ h1 {
   
 }
 
-.id {
+.login__input-wrapper {
   width: 640px;
   height: 56px;
   padding: 16px 24px 16px 24px;
@@ -364,7 +358,7 @@ h1 {
   text-align: left;
 }
 
-.id-top-text {
+.login__label-text {
   width: 47px;
   height: 26px;
   gap: 0px;
@@ -378,7 +372,7 @@ h1 {
   white-space: nowrap;
 }
 
-.btm1-in {
+.login__social-wrapper {
   width: 594px;
   height: 42px;
   gap: 0px;
@@ -389,7 +383,7 @@ h1 {
   justify-content: space-between;
 }
 
-.btm1-in-text {
+.login__social-text {
   font-family: Pretendard;
   font-size: 16px;
   font-weight: 500;
@@ -398,7 +392,7 @@ h1 {
   color: #1F2937;
 }
 
-.btm2-left-text {
+.login__signup-text {
   font-family: Pretendard;
   font-size: 14px;
   font-weight: 500;
@@ -407,7 +401,7 @@ h1 {
   color: #1F2937;
 }
 
-.btm2-right-text {
+.login__signup-link-text {
   font-family: Pretendard;
   font-size: 14px;
   font-weight: 500;
@@ -416,7 +410,7 @@ h1 {
   color: #3692FF;
 }
 
-.btm1-in2 {
+.login__social-icons {
   width: 100px;
   height: 42px;
   display: flex;
@@ -426,7 +420,7 @@ h1 {
 }
 
 /* 기본 설정 */
-.input-field {
+.login__input {
   width: 592px; /* .id-text와 동일한 너비 */
   height: 26px; /* .id-text와 동일한 높이 */
   padding: 8px; /* 내부 여백 */
