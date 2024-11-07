@@ -1,0 +1,118 @@
+.container {
+    display: grid;
+    place-content: center;
+}
+
+.header__logo {
+    width: 396px;
+    height: 132px;
+    display: block;
+    margin: auto;
+    margin-top: 60px;
+    margin-bottom: 40px;
+}
+
+.form__container {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.form__form-group {
+    display: flex;
+    flex-direction: column;
+    width: 640px;
+}
+
+.form__container label {
+    font-size: 18px;
+    font-weight: 700;
+    text-align: left;
+}
+
+.form__container input {
+    background-color: #F3F4F6;
+    padding: 16px 24px;
+    border: none;
+    font-size: 16px;
+    line-height: 24px;
+    border-radius: 12px;
+}
+
+.form__container input::placeholder {
+    color: #9ca3af;
+    font-size: 16px;
+    line-height: 24px;
+  }
+  
+.form__container input:focus {
+    outline-color: var(--main-color);
+  }
+  
+.password-toggle-button {
+    position: absolute;
+    display: flex;
+    right: 100px;
+
+  }
+
+.form__signup-button {
+    background-color: var(--main-color);
+    color: #ffffff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 640px;
+    height: 56px;
+    padding: 16px 124px 16px 124px;
+    gap: 10px;
+    border-radius: 40px;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 24px;
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.form__signup-button:hover {
+    background-color: #1967d6;
+  }
+  
+.form__signup-button:focus {
+    background-color: #1251aa;
+  }
+  
+.form__signup-button:disabled {
+    background-color: #9ca3af;
+    cursor: default;
+    pointer-events: none;
+  }
+
+.section__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 16px;
+    font-weight: 500px;
+    background-color: #E6F2FF;
+    width: 640px;
+    height: 74px;
+    padding-left: 40px;
+    padding-right: 40px;
+    margin-bottom: 24px;
+    border-radius: 8px;
+}
+
+section img {
+    width: 42px;
+    height: 42px;
+}
+
+.section__icon-container {
+    display: flex;
+    gap: 16px;
+}
+
+.footer__container {
+    text-align: center;
+}

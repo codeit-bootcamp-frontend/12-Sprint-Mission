@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>판다마켓</title>
+    <link rel="stylesheet" href="asset.css">
+    <link rel="stylesheet" href="signup.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header__logo">
+          <a href="/">
+            <img src="logo.png" width="396px">
+          </a>
+        </header>
+        <form class="form__container">
+            <div class="form__form-group">
+                <label for="email">이메일</label><br>
+                <input type="text" name="email" placeholder="이메일을 입력해주세요">
+            </div>
+            <div class="form__form-group">
+                <label for="nickname">닉네임</label><br>
+                <input type="text" name="nickname" placeholder="닉네임을 입력해주세요">
+            </div>
+            <div class="form__form-group">
+                <label for="password">비밀번호</label><br>
+                <input type="password" name="userPassword" placeholder="비밀번호를 입력해주세요">
+                    <button type="button" class="password-toggle-button" arialabel="비밀번호 보기">
+                        <img src="passwordDefault.png">
+                    </button>
+            </div>
+            <div class="form__form-group">
+                <label for="passwordCheck">비밀번호 확인</label><br>
+                <input type="password" name="userPassword" placeholder="비밀번호를 다시 한 번 입력해주세요">
+                <button type="button" class="password-toggle-button" arialabel="비밀번호 보기">
+                    <img src="passwordDefault.png">
+                </button>
+            </div>
+            <button type="submit" class="form__signup-button"style="border:0 solid black">회원가입</button>
+        </form>
+        <section class="section__container">
+            <h3>간편 로그인하기</h3>
+            <div class="section__icon-container">
+                <a href="http://www.google.com" target="_blank">
+                    <img src="google-logo.png">
+                </a>
+                <a href="http://www.kakaocorp.com/page" target="_blank">
+                    <img src="kakao-logo.png">
+                </a>
+            </div>
+        </section>
+        <footer class="footer__container">
+            이미 회원이신가요?
+            <a href="login.html">로그인</a>
+        </footer>
+    </div>
+</body>
+</html>

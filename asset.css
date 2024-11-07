@@ -1,0 +1,12 @@
+:root {
+   --main-color: #3692ff;
+   --banner-background: #CFE5FF;
+   --footer-background: #111827;
+
+}
+
+body {
+    font-family: Pretendard;
+    font-size: 16px;
+}
+
