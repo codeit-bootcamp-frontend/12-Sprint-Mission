@@ -1,0 +1,123 @@
+header {
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 200px;
+    margin-right: 200px;
+}
+
+.header__logo img {
+    width: 153px;
+    height: 51px;
+}
+
+.header__btn {
+    background-color: var(--main-color);
+    color: #ffffff;
+    padding: 12px 23px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.main-banner {
+    display:flex;
+    background-color: var(--banner-background);
+    padding-top: 200px;
+    justify-content: center;
+}
+
+.main-banner h1 {
+    color: #374151;
+    font-weight: 700;
+    font-size: 40px;
+}
+
+.main-banner img {
+    width: 746px;
+    height: 340px;
+}
+
+.main__btn {
+    background-color: var(--main-color);
+    border-radius: 40px;
+    padding: 16px 124px;
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.content-section{
+    display: flex;
+    margin-right: 200px;
+    margin-left: 200px;
+    margin-top: 138px;
+    margin-bottom: 138px;
+    background-color: #FCFCFC;
+    border-radius: 12px;
+    justify-content: center;
+}
+
+.content-section__img {
+    width: 588px;
+    height: 444px;
+}
+
+.content-section__container {
+    display: grid;
+    place-content: center;
+}
+
+section h3 {
+    font-weight: 700;
+    color: var(--main-color);
+    font-size: 18px;
+}
+
+section h2 {
+    font-weight: 700;
+    font-size: 40px;
+    color: #374151;
+}
+
+section p {
+    font-weight: 500;
+    font-size: 24px;
+    color: #374151;
+}
+
+.bottom-banner {
+    display: flex;
+    background-color: var(--banner-background);
+    padding-top: 200px;
+    justify-content: center;
+}
+
+.bottom-banner img {
+    width: 746px;
+    height: 397px;
+}
+
+.bottom-banner h2 {
+    color: #374151;
+    font-size: 40px;
+    font-weight: 700;
+}
+
+footer {
+    background-color: var(--footer-background);
+    height: 160px;
+    padding: 32px 200px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer__link {
+    color: #E5E7EB;
+    font-weight: 400;
+}
+
+footer span {
+    color: #9CA3AF;
+}
