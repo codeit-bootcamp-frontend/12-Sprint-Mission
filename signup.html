@@ -9,67 +9,88 @@
   </head>
   <body>
     <section class="signup">
-      <div class="logo__container">
-        <img src="/img/login/큰판다얼굴.png" alt="판다얼굴" class="logo__img" />
+      <header class="logo__container">
+        <a href="/" class="logo-img__link">
+          <img src="/img/큰판다얼굴.png" alt="판다얼굴" class="logo__img" />
+        </a>
         <a href="/" class="logo__link"><h1>판다마켓</h1></a>
-      </div>
+      </header>
       <div class="signup__container">
-        <div class="input-email__container">
-          <p class="input-email__text">이메일</p>
-          <input
-            type="text"
-            placeholder="이메일을 입력해주세요"
-            class="input-email"
-          />
-        </div>
-        <div class="input-nickname__container">
-          <p class="input-nickname__text">닉네임</p>
-          <input
-            type="text"
-            placeholder="닉네임을 입력해주세요"
-            class="input-nickname"
-          />
-        </div>
-        <div class="input-password__container">
-          <p class="input-password__text">비밀번호</p>
-          <input
-            type="password"
-            placeholder="비밀번호를 입력해주세요"
-            class="input-password"
-            id="password"
-          />
-        </div>
-        <div class="input-check-password__container">
-          <p class="input-check-password__text">비밀번호확인</p>
-          <input
-            type="text"
-            placeholder="비밀번호를 다시 한 번 입력해주세요"
-            class="input-check-password"
-          />
-        </div>
-        <a href="/signup" class="signup-button">회원가입</a>
-        <div class="sns-login__container">
+        <form action="/signup" method="POST" class="form__container">
+          <div class="form__group">
+            <label class="form__group-label">이메일</label>
+            <input
+              type="email"
+              placeholder="이메일을 입력해주세요"
+              class="form__group-input"
+              name="email"
+            />
+          </div>
+          <div class="form__group">
+            <label class="form__group-label">닉네임</label>
+            <input
+              type="text"
+              placeholder="닉네임을 입력해주세요"
+              class="form__group-input"
+              name="nickname"
+            />
+          </div>
+          <div class="form__group">
+            <label class="form__group-label">비밀번호</label>
+            <div class="form__group-input-container">
+              <input
+                type="password"
+                placeholder="비밀번호를 입력해주세요"
+                class="form__group-input"
+                id="password"
+              />
+              <img
+                src="/img/btn_visibility_on_24px.png"
+                alt="비밀번호 가림 이미지"
+                class="form__group-img"
+              />
+            </div>
+          </div>
+          <div class="form__group">
+            <label class="form__group-label">비밀번호확인</label>
+            <div class="form__group-input-container">
+              <input
+                type="password"
+                name="password"
+                placeholder="비밀번호를 다시 한 번 입력해주세요"
+                class="form__group-input"
+              />
+              <img
+                src="/img/btn_visibility_on_24px.png"
+                alt="비밀번호 가림 이미지"
+                class="form__group-img"
+              />
+            </div>
+          </div>
+          <button type="submit" class="signup-button">회원가입</button>
+        </form>
+        <div class="social-login__container">
           <p>간편 로그인하기</p>
-          <div class="sns-login__icon">
+          <div class="social-login__icon">
             <a href="https://www.google.com/">
               <img
-                src="/img/signup/google-icon.png"
+                src="/img/google-icon.png"
                 alt="구글 아이콘"
-                class="sns-login__google-icon"
+                class="social-login__google-icon"
               />
             </a>
             <a href="“https://www.kakaocorp.com/page/">
               <img
-                src="/img/signup/kakaotalk-icon.png"
+                src="/img/kakaotalk-icon.png"
                 alt="카카오톡 아이콘"
-                class="sns-login__kakao-icon"
+                class="social-login__kakao-icon"
               />
             </a>
           </div>
         </div>
         <div class="login__container">
           <p>이미 회원이신가요?</p>
-          <a href="/login" class="login__link">로그인</a>
+          <a href="/login.html" class="login__link">로그인</a>
         </div>
       </div>
     </section>

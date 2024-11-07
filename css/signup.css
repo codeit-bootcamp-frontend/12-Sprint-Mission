@@ -58,43 +58,53 @@ h1 {
   width: 100%;
 }
 
-.input-email__container,
-.input-password__container,
-.input-nickname__container,
-.input-check-password__container {
+.form__container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.form__group {
   display: flex;
   flex-direction: column;
   gap: 16px;
   width: 100%;
 }
 
-.input-email,
-.input-password,
-.input-nickname,
-.input-check-password {
+.form__group-input {
   height: 56px;
   border-radius: 12px;
   border: 0px;
   background-color: #f3f4f6;
   padding: 15px 24px;
+  width: 100%;
 }
 
-.input-email::placeholder,
-.input-password::placeholder,
-.input-nickname::placeholder,
-.input-check-password::placeholder {
+.form__group-input:focus {
+  border: 1px solid #3692ff;
+  outline: none;
+}
+
+.form__group-input::placeholder {
   font-size: 16px;
   line-height: 26px;
   font-weight: 400;
 }
 
-.input-email__text,
-.input-password__text,
-.input-nickname__text,
-.input-check-password__text {
+.form__group-label {
   font-size: 18px;
   font-weight: 700;
   line-height: 26px;
+}
+
+.form__group-input-container {
+  position: relative;
+}
+
+.form__group-img {
+  position: absolute;
+  top: 15px;
+  right: 24px;
 }
 
 .signup-button {
@@ -110,9 +120,15 @@ h1 {
   font-size: 20px;
   line-height: 32px;
   font-weight: 600;
+  border: 0;
 }
 
-.sns-login__container {
+.signup-button:hover,
+.form__group-img:hover {
+  cursor: pointer;
+}
+
+.social-login__container {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -122,14 +138,14 @@ h1 {
   background-color: #e6f2ff;
 }
 
-.sns-login__icon {
+.social-login__icon {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 16px;
 }
 
-.sns-login__container > p {
+.social-login__container > p {
   font-size: 16px;
   line-height: 26px;
   font-weight: 500;
