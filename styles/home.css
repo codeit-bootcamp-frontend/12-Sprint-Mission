@@ -6,18 +6,65 @@
   background-repeat: no-repeat;
   background-position: 80% bottom;
   background-size: 55%;
+
+  @media (max-width: 1200px) {
+    align-items: flex-start;
+    height: 80vh;
+    padding-top: 84px;
+    text-align: center;
+    background-size: contain;
+  }
+
+  @media (max-width: 768px) {
+    height: 60vh;
+    padding-top: 48px;
+  }
+
+}
+
+.banner h1 {
+  @media (max-width: 1200px) {
+    font-size: 40px;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 32px;
+    line-height: 1.4;
+  }
 }
 
 #hero {
   background-image: url("../images/home/hero-image.png");
 }
 
+#hero h1 br {
+  @media (max-width: 1200px) {
+    display: none;
+  }
+
+  @media (max-width: 768px) {
+    display: block;
+  }
+}
+
 #features {
-  padding-bottom: 138px;
+  padding: 138px 0;
+
+  @media (max-width: 1200px) {
+    padding: 32px 24px 56px;
+  }
+
+  @media (max-width: 768px) {
+    padding: 52px 15px 83px;
+  }
 }
 
 #bottomBanner {
   background-image: url("../images/home/bottom-banner-image.png");
+
+  @media (max-width: 1200px) {
+    padding-top: 120px;
+  }
 }
 
 #loginLinkButton {
@@ -29,13 +76,37 @@
 
 .banner .pill-button {
   margin-top: 32px;
+
+  @media (max-width: 1200px) {
+    margin-top: 24px;
+  }
+
+  @media (max-width: 768px) {
+    margin-top: 18px;
+  }
 }
 
 .feature {
-  padding: 138px 0;
+  margin-top: 276px;
   display: flex;
   align-items: center;
   gap: 5%;
+
+  @media (max-width: 1200px) {
+    margin-top: 56px;
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+.feature > img {
+  @media (max-width: 1200px) {
+    width: 100%;
+  }
+}
+
+.feature:first-child {
+  margin-top: 0;
 }
 
 .feature:nth-child(2) {
@@ -46,12 +117,35 @@
   flex: 1;
 }
 
+.feature:nth-child(2) .feature-content {
+  @media (max-width: 1200px) {
+    order: 2;
+  }
+}
+
 .feature-tag {
   color: #3692ff;
   font-size: 18px;
   line-height: 25px;
   font-weight: 700;
   margin-bottom: 12px;
+
+  @media (max-width: 1200px) {
+    font-size: 18px;
+    line-height: 1.5;
+    margin-top: 24px;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 16px;
+    margin-bottom: 8px;
+  }
+}
+
+.feature-content h1 br {
+  @media (max-width: 1200px) {
+    display: none;
+  }
 }
 
 .feature-description {
@@ -60,15 +154,15 @@
   line-height: 120%;
   letter-spacing: 0.08em;
   margin-top: 24px;
-}
 
+  @media (max-width: 1200px) {
+    font-size: 18px;
+    line-height: 1.5;
+    margin-top: 24px;
+  }
 
-/* PC */
-@media (max-width: 1200px) {
-
-}
-
-/* Tablet */
-@media (max-width: 768px) {
-
+  @media (max-width: 768px) {
+    font-size: 16px;
+    margin-top: 16px;
+  }
 }
