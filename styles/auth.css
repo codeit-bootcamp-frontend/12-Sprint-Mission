@@ -133,3 +133,41 @@
   text-decoration: underline;
   text-underline-offset: 2px;
 }
+
+/* PC */
+@media (max-width: 1200px) {
+  .auth-container {
+    padding: 48px 16px;
+  }
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+  .auth-container {
+    padding : 24px 16px;
+  }
+
+  .auth-form {
+    margin-top: 24px;
+  }
+
+  .logo-wrapper a {
+    width: 198px;
+  }
+
+  .form-item {
+    margin-bottom: 16px;
+  }
+  
+  .form-item label {
+    font-size: 14px;
+  }
+
+  .form-item input {
+    margin-top: 8px;
+  }
+
+  .form-submit-btn {
+    padding: 14px 124px;
+  }
+}
