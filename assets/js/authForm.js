@@ -11,6 +11,7 @@ export default class AuthForm {
     this.form = document.querySelector(form);
     this.submitButton = this.form.querySelector('[type="submit"]');
     this.errors = {};
+    this.requiredFields = [...this.form.querySelectorAll("[required]")];
   }
 
   init() {
@@ -25,6 +26,13 @@ export default class AuthForm {
 
   handleSubmit(e) {
     e.preventDefault();
+
+    // 마지막 체크(button에 disabled를 지우거나 input에 required를 지우고 양식을 보내는 경우를 체크)
+    if (!this.validateForm()) {
+      alert("다시 한번 확인해주세요. 제출 할 수 없습니다.");
+      this.submitButton.disabled = true;
+      return;
+    }
   }
 
   validate(e) {
@@ -50,16 +58,7 @@ export default class AuthForm {
     }
 
     this.updateError(name);
-    this.updateSumbitButton();
-  }
-
-  updateSumbitButton() {
-    const unfilled = [...this.form.querySelectorAll("input[required]")].filter(
-      (input) => !input.checkValidity()
-    );
-    const errors = Object.keys(this.errors);
-
-    this.submitButton.disabled = unfilled.length || errors.length;
+    this.submitButton.disabled = !this.validateForm();
   }
 
   updateError(name) {
@@ -82,6 +81,13 @@ export default class AuthForm {
     } else {
       input.classList.add("valid");
     }
+  }
+
+  validateForm() {
+    const unfilled = this.requiredFields.filter((input) => !input.value.trim());
+    const errors = Object.keys(this.errors);
+
+    return !unfilled.length && !errors.length;
   }
 
   validateEmail(email) {
