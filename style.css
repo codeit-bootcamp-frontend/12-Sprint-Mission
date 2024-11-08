@@ -57,6 +57,7 @@ body {
   line-height: 56px;
   color: #374151;
   margin: 40px 0;
+  width: 300px;
 
 }
 
@@ -214,4 +215,128 @@ body {
 .footer__link img {
   width: 20px;
   height: 20px;
+}
+
+
+/* Tablet */
+@media (max-width: 1199px) {
+
+  /* header */
+  .main-header {
+    padding: 10px 24px;
+  }
+
+  /* banner */
+  .banner {
+    height: 771px;
+    align-items: start;
+    padding: 0 0;
+  }
+
+  .banner__contents-box {
+    text-align: center;
+    margin-top: 50px;
+  }
+
+  .banner__contents-box__description {
+    text-align: center;
+    margin: 20px 0;
+    width: 100%;
+  }
+
+  .banner__img {
+    right: 0;
+    width: 100%;
+  }
+
+  /* section */
+
+  .section {
+    height: 800px;
+  }
+
+  .section__container {
+    flex-direction: column;
+    width: 696px;
+    height: 740px;
+    gap: 20px;
+    background-color: #ffffff;
+  }
+
+  .section__contents-box__span {
+    font-size: 18px;
+  }
+
+  .section__contents-box__title {
+    font-size: 32px;
+    margin: 20px 0;
+  }
+
+  .section__contents-box__description {
+    font-size: 18px;
+  }
+
+  .justify-reverse {
+    flex-direction: column-reverse;
+  }
+
+  .secondary-banner-height {
+    height: 927px;
+    padding: 150px 0 0;
+  }
+
+  /* footer */
+  .footer {
+    padding: 30px 100px 0;
+  }
+
+
+}
+
+/* Mobile */
+@media (min-width: 375px) and (max-width: 767px) {
+  .banner__contents-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .banner__contents-box__description {
+    width: 240px;
+    font-size: 32px;
+    line-height: 44px;
+  }
+
+  .section {
+    height: 500px;
+  }
+
+  .section__container {
+    width: 344px;
+    height: 417px;
+  }
+
+  .section__contents-box__span {
+    font-size: 16px;
+  }
+
+  .section__contents-box__title {
+    font-size: 24px;
+    margin: 20px 0;
+  }
+
+  .section__contents-box__description {
+    font-size: 16px;
+  }
+
+  .secondary-banner-height {
+    height: 540px;
+    padding: 50px 0 0;
+  }
+
+  /* footer */
+  .footer {
+    padding: 30px 30px 0;
+  }
 }
