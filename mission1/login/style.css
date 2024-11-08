@@ -38,7 +38,7 @@ form {
 }
 
 /* logo */
-.logo {
+.logo-img {
   width: 396px;
   margin: 0 auto 40px;
   display: block;
@@ -152,4 +152,17 @@ input:focus {
 
 .sign-up__text-box--cta:hover {
   text-decoration: underline;
+}
+
+
+/* mobile 사이즈 */
+@media (min-width: 375px) and (max-width: 767px) {
+  body {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .logo-img {
+    width: 198px;
+  }
 }
