@@ -13,13 +13,14 @@
 
 html {
   height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 body {
   font-family: "Pretendard-Regular";
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
 }
 
 .signup {
@@ -171,4 +172,55 @@ h1 {
   line-height: 16px;
   font-weight: 500;
   color: #3692ff;
+}
+
+@media screen and (max-width: 767px) {
+  .signup {
+    padding: 0 16px;
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  .logo__container {
+    width: 100%;
+    height: auto;
+    padding-bottom: 24px;
+  }
+
+  .logo__img {
+    width: 51px;
+    height: auto;
+  }
+
+  .logo__link-header {
+    font-size: 34px;
+    line-height: 44px;
+  }
+
+  .form__container {
+    gap: 16px;
+  }
+
+  .form__group {
+    gap: 8px;
+  }
+
+  .form__group-label {
+    font-size: 14px;
+    line-height: 24px;
+  }
+
+  .signup-button {
+    font-size: 20px;
+    line-height: 32px;
+  }
+
+  .social-login__icon {
+    gap: 16px;
+  }
+
+  .login__container {
+    gap: 4x;
+  }
 }
