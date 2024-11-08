@@ -132,7 +132,7 @@ body {
   align-items: center;
 }
 
-.section__contents-box {
+.section__container {
   background-color: #FCFCFC;
   display: flex;
   width: 988px;
@@ -141,33 +141,33 @@ body {
   gap: 50px;
 }
 
-.section__contents-box__description {
+.section__contents-box {
   display: flex;
   flex-direction: column;
   justify-content: center;
   flex-grow: 1;
 }
 
-.section__contents-box__description h2 {
+.section__contents-box__title {
   margin: 20px 0;
   font-size: 40px;
   font-weight: 700;
   color: #374151;
 }
 
-.section__contents-box__description span {
+.section__contents-box__span {
   font-size: 18px;
   font-weight: 700;
   color: #3692FF;
 }
 
-.section__contents-box__description p {
+.section__contents-box__description {
   font-size: 24px;
   font-weight: 500;
   color: #374151;
 }
 
-.section__contents-box__description.textright {
+.section__contents-box.textright {
   text-align: right;
 }
 

@@ -17,33 +17,40 @@
       </a>
 
       <form class="signup-form" action="">
-        <label class="signup-form__label" for="email">이메일</label>
-        <input id="email" class="signup-form__input-email" type="email" placeholder="이메일을 입력해주세요">
-
-        <label class="signup-form__label" for="name">닉네임</label>
-        <input id="name" class="signup-form__input-name" type="text" placeholder="닉네임을 입력해주세요">
-
-        <label class="signup-form__label" for="password">비밀번호
-          <img class="signup-form__input-blind" src="/img/btn_visibility_off_24px.png" alt="">
-        </label>
-        <input id="password" class="signup-form__input-password" type="password" placeholder="비밀번호를 입력해주세요">
-
-        <label class="signup-form__label" for="confirm-password">비밀번호
-          <img class="signup-form__input-blind" src="/img/btn_visibility_off_24px.png" alt="">
-        </label>
-        <input id="confirm-password" class="signup-form__input-confirmpassword" type="password"
-          placeholder="비밀번호를 다시 한 번 입력해주세요">
-
-        <button class="signup-form__btn">회원가입</button>
+        <div class="signup-form__container">
+          <label class="signup-form__label" for="email">이메일</label>
+          <input name="email" id="email" class="signup-form__input-email" type="email" placeholder="이메일을 입력해주세요">
+        </div>
+        <div class="signup-form__container">
+          <label class="signup-form__label" for="name">닉네임</label>
+          <input name="username" id="name" class="signup-form__input-name" type="text" placeholder="닉네임을 입력해주세요">
+        </div>
+        <div class="signup-form__container">
+          <div class="signup-form__blind-container">
+            <label class="signup-form__label" for="password">비밀번호</label>
+            <img class="signup-form__input-blind" src="/img/btn_visibility_off_24px.png" alt="">
+          </div>
+          <input name="password" id="password" class="signup-form__input-password" type="password"
+            placeholder="비밀번호를 입력해주세요">
+        </div>
+        <div class="signup-form__container">
+          <div class="signup-form__blind-container">
+            <label class="signup-form__label" for="confirm-password">비밀번호</label>
+            <img class="signup-form__input-blind" src="/img/btn_visibility_off_24px.png" alt="">
+          </div>
+          <input name="confirm-password" id="confirm-password" class="signup-form__input-confirmpassword"
+            type="password" placeholder="비밀번호를 다시 한 번 입력해주세요">
+        </div>
+        <button type="submit" class="signup-form__btn">회원가입</button>
       </form>
 
-      <div class="login-easy">
-        <p class="login-easy__title">간편 로그인하기</p>
-        <div class="login-easy__link">
-          <a class="login-easy__img" href="https://www.google.com/">
+      <div class="social-login">
+        <p class="social-login__title">간편 로그인하기</p>
+        <div class="social-login__link">
+          <a class="social-login__img" href="https://www.google.com/">
             <img src="/img/google.png" alt="">
           </a>
-          <a class="login-easy__img" href="https://www.kakaocorp.com/page/">
+          <a class="social-login__img" href="https://www.kakaocorp.com/page/">
             <img src="/img/kakao.png" alt="">
           </a>
         </div>
