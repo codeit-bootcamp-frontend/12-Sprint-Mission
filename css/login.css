@@ -31,7 +31,8 @@ main {
     min-width: 640px;
 }
 
-.login h3 {
+.login label {
+    display: inline-block;
     color: var(--gray800);
     font-size: 18px;
     font-weight: 700;
@@ -48,6 +49,7 @@ main {
     min-height: 26px;
 
     padding: 15px 24px;
+    margin-bottom: 24px;
 }
 
 .signup input:focus{
@@ -86,7 +88,7 @@ main {
     border-radius: 40px;
     border-style: none;
 
-    margin: 16px 0;
+    margin-bottom: 24px;
     cursor: pointer;
 }
 
