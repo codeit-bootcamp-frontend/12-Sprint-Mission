@@ -1,5 +1,19 @@
 @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css");
 
+
+:root {
+    --blue : #3692FF;
+    --gray900: #111827;
+    --gray800: #1F2937;
+    --gray700: #374151;
+    --gray600: #4B5563;
+    --gray500: #6B7289;
+    --gray400: #9CA3AF;
+    --gray200: #E5E7EB;
+    --gray100: #F3F4F6;
+    --gray50: #F9FAFB;
+  }
+
 * {
     font-family: Pretendard;
 }
@@ -28,7 +42,7 @@ header button {
     width: 128px;
     height: 48px;
     color: #ffffff;
-    background-color: #3692FF;
+    background-color: var(--blue);
     border-style: none;
     border-radius: 8px;
     padding: 12px 23px;
@@ -48,7 +62,7 @@ main .top {
 }
 
 .top-content {
-    color: #374151;
+    color: var(--gray700);
     font-size: 40px;
     font-weight: 700;
     display: flex;
@@ -64,8 +78,8 @@ main .top {
 
 .top-content button {
     font-size: 20px;
-    color: #F9FAFB;
-    background-color: #3692FF;
+    color: var(--gray50);
+    background-color: var(--blue);
     padding: 16px 124px;
     gap: 8px;
     border-radius: 40px;
@@ -101,18 +115,18 @@ main .top {
 }
 
 section h2 {
-    color: #3692FF;
+    color: var(--blue);
     font-size: 18px;
     font-weight: 700;
 }
 
 section h3 {
-    color: #374151;
+    color: var(--gray700);
     font-size: 40px;
     font-weight: 700;
 }
 section p {
-    color: #374151;
+    color: var(--gray700);
     font-size: 24px;
     font-weight: 500;
 }
@@ -140,7 +154,7 @@ section p {
 }
 
 .bottom p {
-    color: #374151;
+    color: var(--gray700);
     font-size: 40px;
     font-weight: 700;
     padding-bottom: 60px;
@@ -152,7 +166,7 @@ footer {
     justify-content: space-around;
     align-items: center;
     flex-wrap: wrap;
-    background-color: #111827;
+    background-color: var(--gray900);
     padding: 32px 400px;
     gap: 10px;
 }
@@ -172,7 +186,7 @@ footer .sns {
 }
 
 .corp > a {
-    color: #E5E7EB;
+    color: var(--gray200);
     font-size: 16px;
     align-content: center;
     text-decoration-line: none;
