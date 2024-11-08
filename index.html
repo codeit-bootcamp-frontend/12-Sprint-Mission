@@ -3,105 +3,92 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>"판다 마켓"</title>
+  <title>판다 마켓</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header>
-    <div>
-      <div class="title_bar">
-        <div><a href="/" class="title"><img src="판다 얼굴.png" id="panda">판다마켓</a></div>
-        <div class="login">로그인</div>
-      </div>
-    </div>
-    <div class="background1">
-      <div class="landing_screen">
-        <div>
-          <h1>
-            일상의 모든 물건을<br>
-            거래해 보세요
-          </h1>
-          <p class="go_to_see">
-            <a href="/items">구경하러 가기</a>
-          </p>
-        </div>
-        <div>
-          <img src="Img_home_top.png" class="landing_img">
-        </div>
-      </div>
+    <div class="title-bar">
+      <a href="/" class="title"><img src="panda_face.png" id="title_bar-logo">판다마켓</a>
+      <a href="/login" class="login">로그인</a>
     </div>
   </header>
   <main>
-    <div class="area">
-      <div class="rectangle">
-        <img src="Img_home_01.png">
-        <div class="font_background">
-          <h3>
-            Hot item
-          </h3>
-          <h1>
+    <div class="banner">
+      <div class="bg-primary">
+        <div class="banner__contents">
+          <h2 class="banner__contents--title">일상의 모든 물건을<br/>거래해보세요</h2>
+          <a href="/items" class="banner__contents--cta">구경하러 가기</a>
+        </div>
+        <img src="img_home_top.png" alt="판다마켓" class="banner__img"/>
+      </div>
+    </div>
+    <section class="content-section">
+      <div class="content-section__content-box">
+        <div class="content-section__content-box_img-box">
+          <img class="content-section__content-box_img-box--img" src="Img_home_01.png" alt="판다마켓 인기 상품을 확인해 보세요">
+        </div>
+        <div class="content-section__content-box_text-box">
+          <p class="content-section__content-box_text-box--label">Hot item</p>
+          <h2 class="content-section__content-box_text-box--title">
             인기 상품을<br>
             확인해 보세요
-          </h1>
-          <h2>
+          </h2>
+          <p class="content-section__content-box_text-box--description">
             가장 HOT한 중고거래 물품을
             판다 마켓에서 확인해 보세요
-          </h2>
+          </p>
         </div>
       </div>
-    </div>
-    <div class="area">
-      <div class="rectangle">
-        <div class="font_background search">
-          <h3>
-            Search
-          </h3>
-          <h1>
+      <div class="content-section__content-box">
+        <div class="content-section__content-box_text-box text-right">
+          <p class="content-section__content-box_text-box--label">Search</p>
+          <h2 class="content-section__content-box_text-box--title">
             구매를 원하는<br>
             상품을 검색하세요
-          </h1>
-          <h2>
-            구매하고 싶은 물품은 검색해서 쉽게 찾아보세요
           </h2>
+          <p class="content-section__content-box_text-box--description">
+            구매하고 싶은 물품은 검색해서 쉽게 찾아보세요
+          </p>
         </div>
-        <img src="Img_home_02.png">
+        <div class="content-section__content-box_img-box">
+          <img class="content-section__content-box_img-box--img" src="Img_home_02.png" alt="구매를 원하는 상품을 검색하세요">
+        </div>
       </div>
-    </div>
-    <div class="area">
-      <div class="rectangle">
-        <img src="Img_home_03.png">
-        <div class="font_background">
-          <h3>
-            Register
-          </h3>
-          <h1>
+      <div class="content-section__content-box">
+        <div class="content-section__content-box_img-box">
+          <img class="content-section__content-box_img-box--img" src="Img_home_03.png" alt="판매를 원하는 상품을 등록하세요">
+        </div>
+        <div class="content-section__content-box_text-box">
+          <p class="content-section__content-box_text-box--label">Register</p>
+          <h2 class="content-section__content-box_text-box--title">
             판매를 원하는<br> 
             상품을 등록하세요
-          </h1>
-          <h2>
-            어떤 물건이든 판매하고 싶은 상품을쉽게 등록하세요
           </h2>
+          <p class="content-section__content-box_text-box--description">
+            어떤 물건이든 판매하고 싶은 상품을쉽게 등록하세요
+          </p>
         </div>
       </div>
-    </div>
-    <div class="background2">
-      <div class="Exit_screen">
-        <h1>
+    </section>
+    <div class="banner">
+      <div class="bg-primary">
+        <h2 class="banner__contents">
           믿을 수 있는<br>
           판다마켓 중고 거래
-        </h1>
-        <img src="Img_home_bottom.png">
+        </h2>
+        <img src="Img_home_bottom.png" class="banner__img">
       </div>
     </div>
   </main>
-  <footer>
-    <div class="footer_text">
+  <footer class="footer">
+    <div class="footer__text">
       <div>
         ©codeit - 2024
       </div>
       <div>
-        <a href="/privacy">Privacy Policy</a>
-        <span class="faq"><a href="/faq">FAQ</a></span>
+        <a href="/privacy" class="footer__support">Privacy Policy</a>
+        <span><a href="/faq" class="footer__support">FAQ</a></span>
       </div>
       <div>
         <a href="https://ko-kr.facebook.com/">
