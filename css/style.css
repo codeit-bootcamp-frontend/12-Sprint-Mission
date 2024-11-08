@@ -1,31 +1,31 @@
 * {
-    box-sizing: border-box;
-  }
-
-  :root {
-    --blue: #3692ff ;
-    --gray900: #111827 ;
-    --gray800: #1f2937 ;
-    --gray700: #374151 ;
-    --gray600: #4b5563 ;
-    --gray500: #6b7280 ;
-    --gray400: #9ca3af ;
-    --gray200: #e5e7eb ;
-    --gray100: #f3f4f6 ;
-    --gray50: #f9fafb ;
-  }
-
-  @font-face {
-    font-family: 'Pretendard-Regular';
-    src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
-    font-weight: 400;
-    font-style: normal;
+  box-sizing: border-box;
 }
 
-  html {
-    font-family: Pretendard, sans-serif;
-    word-break: keep-all;
-  }
+:root {
+  --blue: #3692ff;
+  --gray900: #111827;
+  --gray800: #1f2937;
+  --gray700: #374151;
+  --gray600: #4b5563;
+  --gray500: #6b7280;
+  --gray400: #9ca3af;
+  --gray200: #e5e7eb;
+  --gray100: #f3f4f6;
+  --gray50: #f9fafb;
+}
+
+@font-face {
+  font-family: 'Pretendard-Regular';
+  src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+html {
+  font-family: Pretendard, sans-serif;
+  word-break: keep-all;
+}
 
 body {
   background-color: #ffffff;
@@ -34,51 +34,51 @@ body {
 }
 
 nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 10;
-    background-color: #ffffff;
-    display: flex;
-    justify-content: space-between;  
-    padding: 0 200px;  
-    height: 70px;
-    align-items: center; 
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 200px;
+  height: 70px;
+  align-items: center;
+
+  @media (max-width: 1200px)  {
+    padding: 0 24px;
+  }
+  @media (max-width: 768px) {
+    padding: 0 16px;
+  }
 }
 
-.panda-logo {
-  cursor: pointer;  
-
-  grid-area: panda_logo;
+.panda-logo button {
+  cursor: pointer;
 }
 
-button {
-  cursor: pointer;  
-}
-
-.login {  
+.login {
   grid-area: login;
   display: inline-flex;
-
   width: 128px;
-  height: 48px;            
+  height: 48px;
   font-size: 16px;
-  font-weight: 600;           
-  background-color: var(--blue); 
-  color: white;             
-  border: none;             
-  border-radius: 8px;   
+  font-weight: 600;
+  background-color: var(--blue);
+  color: white;
+  border: none;
+  border-radius: 8px;
   font-size: 16px;
   padding: 0;
   text-decoration: none;
-  align-items: center; 
-  justify-content: center; 
+  align-items: center;
+  justify-content: center;
 }
 
 .login:hover {
-  background-color: #1682ff ;
-  cursor: pointer; 
+  background-color: #1682ff;
+  cursor: pointer;
 
 }
 
@@ -89,14 +89,65 @@ button {
   width: 100%;
   height: 540px;
   margin: 70px 0 0;
+  @media (max-width: 1200px) {
+    height: 771px;
+  }
+  
+  @media (max-width: 768px) {
+    height: 540px;
+  }
 }
 
-.banner-text {
+.banner {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @media (max-width: 1200px) {
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-between;
+  }
+  
+  @media (max-width: 768px) {
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-between;
+  }
+}
+
+.banner-text , .bottom-banner-text{
   font-size: 40px;
   font-weight: 700;
-  width: 357px;
+  width: 100%;
   line-height: 1.4;
   color: var(--gray700);
+  margin: 0 0 32px;
+
+  @media (max-width: 1200px) {
+    text-align: center;
+    margin: 84px 0 0;
+  }
+  
+  @media (max-width: 768px) {
+    margin: 48px 0 0;
+    font-size: 32px;
+    text-align: center;
+  }
+}
+
+.banner-text-none {
+  @media (max-width: 1200px) {
+    display: none;
+    width: 100%;
+  }
+  @media (max-width: 768px) {
+    display: inline ;
+  }
 }
 
 .store-button {
@@ -110,28 +161,39 @@ button {
   border: 0px;
   color: var(--gray50);
   text-decoration: none;
-  align-items: center; 
-  justify-content: center; 
+  align-items: center;
+  justify-content: center;
+
+  @media (max-width: 1200px) {
+    margin: 24px 0 0;
+  }
+  @media (max-width: 768px) {
+    height: 48px;
+    width: 240px;
+    margin: 18px 0 0;
+    font-size: 18px;
+    font-weight: 400;
+  }
 }
 
 .store-button:hover {
-  background-color: #1682ff ;
-  cursor: pointer; 
+  background-color: #1682ff;
+  cursor: pointer;
 }
 
-.banner {
-  position: absolute; 
-  left: 50%; 
-  bottom: 0; 
-  transform: translateX(-50%); 
-  display: flex;
-  align-items: center ;
-  justify-content: center;
-}
 
 .banner-top-img {
   width: 746px;
   height: 340px;
+
+  @media (max-width: 768px) {
+    height: 204px;
+    width: 448px;
+  }
+}
+
+main {
+  height: 100%;
 }
 
 .main-container {
@@ -141,27 +203,89 @@ button {
   background-color: #ffffff;
   width: 100%;
   height: 720px;
+  @media (max-width: 1200px) {
+    height: 100%px;
+  }
+  
+  @media (max-width: 768px) {
+    height: 100%;
+  }
 }
 
-.main-item {
+.main-item, .main-item-reverse {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 64px;
-  padding: 0 24px ;
+  padding: 0 24px;
   background-color: #fcfcfc;
   border-radius: 12px;
+
+  @media (max-width: 1200px) {
+    flex-direction: column;
+    height: 700px;
+    width: 100%;
+    margin: 24px 0 52px;
+    gap: 24px;
+  }
+  
+  @media (max-width: 768px) {
+    height: 417px;
+    width: 100%;
+  }
+}
+
+.main-item-reverse {
+  @media (max-width: 1200px) {
+    flex-direction: column-reverse;
+  }
 }
 
 .main-img {
   width: 579px;
   height: 444px;
+
+  @media (max-width: 1200px) {
+    width: 696px;
+    height: 500px;
+  }
+  
+  @media (max-width: 768px) {
+    width: 344px;
+    height: 259px;
+  }
+}
+
+.text {
+  @media (max-width: 1200px) {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  @media (max-width: 768px) {
+    width: 100%;
+  }
+}
+
+.text-none {
+  @media (max-width: 1200px) {
+    display: none;
+    width: 100%;
+  }
 }
 
 .blue-text {
   font-size: 18px;
   color: var(--blue);
   font-weight: 700;
+
+  @media (max-width: 1200px) {
+    margin: 0;
+  }
+  @media (max-width: 768px) {
+    font-size: 16px;
+  }
 }
 
 .main-text {
@@ -169,6 +293,16 @@ button {
   font-size: 40px;
   color: var(--gray700);
   line-height: 1.4;
+
+  @media (max-width: 1200px) {
+    margin: 16px 0 24px;
+    font-size: 32px;
+  }
+  
+  @media (max-width: 768px) {
+    margin: 8px 0 16px;
+    font-size: 24px;
+  }
 }
 
 .content-text {
@@ -176,15 +310,41 @@ button {
   color: var(--gray700);
   line-height: 1.4;
   font-weight: 500;
+
+  @media (max-width: 1200px) {
+    line-height: 1.1;
+    font-size: 18px;
+    margin: 0;
+  }
+  
+  @media (max-width: 768px) {
+  
+  }
 }
 
 .right {
   text-align: right;
+
+  @media (max-width: 1200px) {
+    width: 100%;
+  }
+  
+  @media (max-width: 768px) {
+
+  }
 }
 
 .home-bottom-img {
   width: 746px;
   height: 397px;
+  @media (max-width: 768px) {
+    width: 375px;
+    height: 198px;
+  }
+}
+
+.bottom-banner-text {
+  width: 300px;
 }
 
 footer {
@@ -194,20 +354,36 @@ footer {
 }
 
 .footer-grid {
-  display: grid ;
+  display: grid;
   grid-template-columns: minmax(200px, 400px) 153px 3fr 128px minmax(200px, 400px);
   grid-template-rows: 32px 1fr;
-  grid-template-areas: 
+  grid-template-areas:
     ". . . . ."
     ". code FAQ sns ."
   ;
-  align-items: center; 
+  align-items: center;
+  @media (max-width: 1200px) {
+    grid-template-columns: 104px 1fr 1fr 1fr 104px;
+  }
+  @media (max-width: 768px) {
+    grid-template-columns: 32px 1fr 1fr 32px ;
+    grid-template-row: 32px 1fr 60px 1fr 32px ;
+    grid-template-areas:
+      " . . . . "
+      " . FAQ sns . "
+      " . . . . "
+      ". code . . ";
+  }
 }
 
 .footer-codeit {
+  text-align: center;
   grid-area: code;
   font-size: 16px;
   color: var(--gray400);
+  @media (max-width: 768px) {
+    text-align: left;
+  }
 }
 
 .sup {
@@ -218,29 +394,34 @@ footer {
   font-size: 16px;
   color: var(--gray200);
   font-weight: 400;
+  @media (max-width: 768px) {
+    justify-content: left;
+  }
 }
 
-.privacy a, .FAQ a {
-  color: inherit;            
+.privacy a,
+.FAQ a {
+  color: inherit;
   text-decoration: none;
-  cursor: pointer;       
+  cursor: pointer;
 }
 
 
 .footer-sns {
+  justify-content: center;
   grid-area: sns;
   display: flex;
   gap: 12px;
 }
 
 .facebook {
-  cursor: pointer;  
+  cursor: pointer;
   width: 20px;
   height: 20px;
 }
 
 .footer-sns-icon {
-  cursor: pointer;  
+  cursor: pointer;
   width: 20px;
   height: 20px;
 }
@@ -248,22 +429,35 @@ footer {
 
 /* 로그인 페이지 스타일 */
 
- #login-container {
-  display: flex; 
-  justify-content: center; 
+#login-container {
+  display: flex;
+  justify-content: center;
   margin: 231px 0 100px;
-  height: 100vh; 
+  height: 100vh;
+  @media (max-width: 1200px) {
+    margin: 190px 0 100px;
+  }
+  @media (max-width: 768px) {
+    margin: 80px 0 50px;
+  }
 }
 
 .login-main {
   display: flex;
   flex-direction: column;
   align-items: center;
+  @media (max-width: 768px) {
+
+  }
 }
 
 .login-panda-logo {
   width: 396px;
   height: 132px;
+  @media (max-width: 768px) {
+    width: 198px;
+    height: 66px;
+  }
 }
 
 form {
@@ -271,58 +465,78 @@ form {
   flex-direction: column;
   gap: 24px;
   margin: 40px 0 24px;
+  @media (max-width: 768px) {
+    align-items: center;
+    gap: 16px;
+  }
 }
 
 .input-email {
   display: flex;
   flex-direction: column;
   gap: 16px;
+  @media (max-width: 768px) {
+    width: 343px;
+    gap: 8px;
+  }
 }
 
 .input-email input[type="email"] {
   background-color: var(--gray100);
-  width: 100%; 
+  width: 100%;
   height: 56px;
-  padding: 15px 24px; 
-  border: none ;
-  border-radius: 12px; 
+  padding: 15px 24px;
+  border: none;
+  border-radius: 12px;
   font-size: 16px;
   color: var(--gray800);
 }
 
 .input-email input::placeholder {
-  color: var(--gray400);;
+  color: var(--gray400);
+  ;
 }
 
 .input-password {
   display: flex;
   flex-direction: column;
   gap: 16px;
+  @media (max-width: 768px) {
+    width: 343px;
+    gap: 8px;
+  }
 }
 
 .input-password input[type="password"] {
   background-color: var(--gray100);
-  width: 100%; 
+  width: 100%;
   height: 56px;
-  padding: 15px 24px; 
-  border: none ;
-  border-radius: 12px; 
+  padding: 15px 24px;
+  border: none;
+  border-radius: 12px;
   font-size: 16px;
   color: var(--gray800);
 }
 
 .input-password input::placeholder {
-  color: var(--gray400);;
+  color: var(--gray400);
+  ;
 }
 
 .email-label {
   font-size: 18px;
   font-weight: bold;
+  @media (max-width: 768px) {
+    font-size: 14px;
+  }
 }
 
 .password-label {
   font-size: 18px;
   font-weight: bold;
+  @media (max-width: 768px) {
+    font-size: 14px;
+  }
 }
 
 .login-button {
@@ -333,6 +547,9 @@ form {
   height: 56px;
   font-size: 20px;
   color: var(--gray100);
+  @media (max-width: 768px) {
+    width: 343px;
+  }
 }
 
 .easy-login {
@@ -345,6 +562,10 @@ form {
   padding: 16px 23px;
   width: 640px;
   height: 74px;
+  @media (max-width: 768px) {
+    width: 343px;
+    height: 75px;
+  }
 }
 
 .easy-icon {
@@ -352,12 +573,7 @@ form {
   gap: 16px;
 }
 
-.google-icon {
-  width: 42px;
-  height: 42px;
-}
-
-.kakaotalk-icon {
+.google-icon .kakaotalk-icon {
   width: 42px;
   height: 42px;
 }
@@ -380,52 +596,68 @@ form {
   display: flex;
   flex-direction: column;
   gap: 16px;
+  @media (max-width: 768px) {
+    width: 343px;
+    gap: 8px;
+  }
 }
 
 .input-nickname input[type="text"] {
   background-color: var(--gray100);
-  width: 100%; 
+  width: 100%;
   height: 56px;
-  padding: 15px 24px; 
-  border: none ;
-  border-radius: 12px; 
+  padding: 15px 24px;
+  border: none;
+  border-radius: 12px;
   font-size: 16px;
   color: var(--gray800);
 }
 
 .input-nickname input::placeholder {
-  color: var(--gray400);;
+  color: var(--gray400);
+  ;
 }
 
 .nickname-label {
   font-size: 18px;
   font-weight: bold;
+  @media (max-width: 768px) {
+    font-size: 14px;
+  }
 }
 
 .input-password-confirm {
   display: flex;
   flex-direction: column;
   gap: 16px;
+  @media (max-width: 768px) {
+    width: 343px;
+    gap: 8px;
+  }
 }
 
 .input-password-confirm input[type="password"] {
   background-color: var(--gray100);
-  width: 100%; 
+  width: 100%;
   height: 56px;
-  padding: 15px 24px; 
-  border: none ;
-  border-radius: 12px; 
+  padding: 15px 24px;
+  border: none;
+  border-radius: 12px;
   font-size: 16px;
   color: var(--gray800);
 }
 
 .input-password-confirm input::placeholder {
-  color: var(--gray400);;
+  color: var(--gray400);
+  ;
 }
 
 .password-confirm-label {
   font-size: 18px;
   font-weight: bold;
+  @media (max-width: 768px) {
+    font-size: 14px;
+  }
 }
 
 input:focus {
@@ -436,106 +668,3 @@ input:focus {
   background-color: var(--blue);
 }
 
-/*타블렛 반응형 768px ~ 1199px */
-
-@media (max-width: 1199px) and (min-width: 768px) {
-  nav {
-    padding: 0 24px;
-  }
-
-  .banner-container {
-    position: relative;
-    background-color: #cfe5ff;
-    width: 100%;
-    height: 771px;
-    margin: 70px 0 0;
-  }
-
-  .banner {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-    justify-content: space-between;
-  }
-
-  .banner-text {
-    font-size: 40px;
-    font-weight: 700;
-    width: 100%;
-    line-height: 1.4;
-    color: var(--gray700);
-    text-align: center;
-  }
-  
-  .banner-text-top {
-    width: 100%;
-    white-space: nowrap;
-  }
-
-  .store-button {
-    display: inline-flex;
-    font-size: 20px;
-    font-weight: 400;
-    width: 357px;
-    height: 56px;
-    border-radius: 40px;
-    background-color: var(--blue);
-    border: 0px;
-    color: var(--gray50);
-    text-decoration: none;
-    align-items: center; 
-    justify-content: center; 
-  }
-
-  .main-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #ffffff;
-    width: 100%;
-    height: 708px;
-    margin: 24px 24px 52px;
-  }
-  
-  .main-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    gap: 24px;
-    background-color: #fcfcfc;
-    border-radius: 12px;
-  }
-  
-  .main-img {
-    width: 100%;
-    height: 524px;
-
-  }
-  
-
-  .blue-text {
-    font-size: 18px;
-    color: var(--blue);
-    font-weight: 700;
-  }
-  
-  .main-text {
-    width: 100%;
-    font-weight: 700;
-    font-size: 32px;
-    color: var(--gray700);
-    line-height: 1.4;
-  }
-  
-  .content-text {
-    font-size: 18px;
-    color: var(--gray700);
-    line-height: 1.4;
-    font-weight: 500;
-  }
-
-}
