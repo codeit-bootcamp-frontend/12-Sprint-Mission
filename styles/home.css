@@ -45,14 +45,6 @@ main {
   line-height: 2.6rem;
 }
 
-.button:hover {
-  background-color: var(--primary-200);
-}
-
-.button:focus {
-  background-color: var(--primary-300);
-}
-
 .banner {
   background-color: var(--color-skyblue);
   height: 54rem;
