@@ -6,7 +6,12 @@
 * {
     font-family: pretendard;
 }
-
+header{
+    position: sticky;
+    z-index:1000;
+    top:0;
+    background-color: white;
+}
 .top_logo {
     padding-top: 9.5px;
     padding-bottom: 9.5px;
@@ -118,12 +123,15 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: space-between;
-/* 
+
     margin-left: auto;
     margin-right: auto;
-     */
+    
     padding-top: 138px;
     padding-bottom: 138px;
+    
+    box-sizing: border-box;
+
 }
 
 .section {
@@ -185,11 +193,13 @@
 .foot{
     background-color:var(--gray900) ;
     height:160px;
+    
 }
 
 .foot_con{
     display:flex; 
     flex-wrap: wrap;
+    gap:30px;
     justify-content: space-between;
     align-items: center;
     max-width: 1120px;
@@ -272,7 +282,96 @@
         padding-top: 80px;
     }
 
+    .sen1{
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 22.4px;
+    }
+
+    .sen2{
+        font-size: 24px;
+        font-weight: 700;
+        line-height: 33.6px;
+        letter-spacing: 0.02em;
+       
+    }
+
+    .sen3{
+        font-size: 18px;
+        font-weight: 500;
+        line-height: 25.2px;
+        letter-spacing: 0.08em;
+    }
+
     .sen2>br{
         display: none;
     }
+
+    .section>img{
+        width:100%;
+    }
+
+    .section_reverse>img{
+        width: 100%;
+    }
+
+    .name{
+        order:1;
+    }
+}
+
+
+/* 미디어 쿼리 Tablet: 768px 이상 ~ 1199px 이하 */
+
+@media (max-width: 1199px) and (min-width: 768px){
+    .top_logo{
+        padding-left:24px;
+        padding-right:24px;
+    }
+
+    .top_pad{
+        padding-top:84px;
+    }
+    .banner_sen{
+        font-size: 40px;
+        line-height: 56px;
+        text-align: center;
+    }
+    .banner_sen>br{
+        display: none;
+    }
+
+    .banner{
+        position: relative;
+        height: 771px;
+    }
+
+    .banner_content{
+        gap:18px;
+    }
+
+    .banner_btn{
+        height: 48px;
+        /* width: 357px; */
+    }
+
+    .banner_img{
+        /* width:100%; */
+        position: absolute;
+        bottom:0;
+    }
+
+    .section>img{
+        width:100%;
+    }
+
+    .section_reverse>img{
+        width: 100%;
+    }
+
+    .sen2>br{
+        display: none;
+    }
+
+
 }
