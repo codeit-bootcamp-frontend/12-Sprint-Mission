@@ -28,6 +28,14 @@ header {
   width: 100%;
   padding: 0 200px;
   background-color: #f9fafb;
+
+  @media (width < 1200px) {
+    padding: 10px 24px;
+  }
+
+  @media (width < 767px) {
+    padding: 0 16px;
+  }
 }
 
 .header {
@@ -38,12 +46,12 @@ header {
   padding: 10px 0;
 }
 
-.link {
+a.link {
   background-color: #3692ff;
   color: #ffffff;
 }
 
-.link:hover {
+a.link:hover {
   background-color: #1967d6;
 }
 
@@ -65,6 +73,10 @@ header {
   width: 100%;
   margin-top: 70px;
   background-color: #cfe5ff;
+
+  @media (width < 1200px) {
+    height: auto;
+  }
 }
 
 .main-section-top-container {
@@ -72,6 +84,17 @@ header {
   justify-content: center;
   width: 1120px;
   padding-top: 100px;
+
+  @media (width < 1200px) {
+    display: flex;
+    flex-direction: column;
+    width: auto;
+    padding: 0;
+  }
+
+  @media (width < 767px) {
+    width: 100%;
+  }
 }
 
 .main-section-top-content {
@@ -80,6 +103,11 @@ header {
   align-items: center;
   justify-content: center;
   gap: 32px;
+
+  @media (width < 1200px) {
+    width: 100%;
+    padding: 84px 116px 200px;
+  }
 }
 
 .main-section-top-content .link {
@@ -90,16 +118,35 @@ header {
   font-size: 2rem;
   font-weight: 600;
   color: #f9fafb;
+
+  @media (width < 767px) {
+    height: 48px;
+    padding: 12px 71px;
+    font-size: 1.8rem;
+  }
 }
 
 .section-title {
   font-size: 4rem;
   font-weight: 700;
   line-height: 56px;
+
+  @media (width < 767px) {
+    font-size: 3.2rem;
+    text-align: center;
+  }
 }
 
 .section-title.bottom {
   padding-bottom: 60px;
+
+  @media (width < 1200px) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 100px;
+    text-align: center;
+  }
 }
 
 .main-section-mid {
@@ -108,6 +155,17 @@ header {
   align-items: center;
   width: 100%;
   padding: 138px 0;
+
+  @media (width < 1200px) {
+    width: 696px;
+    margin: 24px 0 52px;
+    padding: 24px;
+  }
+
+  @media (width < 767px) {
+    width: 100%;
+    padding: 40px 15px;
+  }
 }
 
 .main-section-mid-container {
@@ -115,6 +173,11 @@ header {
   gap: 64px;
   padding: 0 23.5px;
   background-color: #fcfcfc;
+
+  @media (width < 1200px) {
+    flex-direction: column;
+    width: 100%;
+  }
 }
 
 .main-section-mid-content p:nth-child(1) {
@@ -129,12 +192,25 @@ header {
   font-size: 4rem;
   font-weight: 700;
   line-height: 56px;
+
+  @media (width < 1200px) {
+    margin: 12px 0px 24px;
+    font-size: 3.2rem;
+    font-weight: 700;
+    line-height: 42px;
+  }
 }
 
 .main-section-mid-content p:nth-child(3) {
   font-size: 2.4rem;
   font-weight: 500;
   line-height: 32px;
+
+  @media (width < 1200px) {
+    font-size: 1.8rem;
+    font-weight: 500;
+    line-height: 26px;
+  }
 }
 
 .main-section-mid-content {
@@ -142,10 +218,20 @@ header {
   flex-direction: column;
   justify-content: center;
   text-align: left;
+
+  @media (width < 1200px) {
+    width: 100%;
+  }
 }
 
 .main-section-mid-content.second {
   text-align: right;
+
+  @media (width < 1200px) {
+    align-items: flex-end;
+    justify-content: flex-end;
+    order: 2;
+  }
 }
 
 .main-section-bottom {
@@ -155,11 +241,20 @@ header {
   width: 100%;
   height: 540px;
   background-color: #cfe5ff;
+
+  @media (width < 1200px) {
+    height: auto;
+  }
 }
 
 .main-section-bottom-container {
   display: flex;
   align-items: center;
+
+  @media (width < 1200px) {
+    flex-direction: column;
+    padding-top: 200px;
+  }
 }
 
 footer {
@@ -167,6 +262,15 @@ footer {
   height: 160px;
   padding: 32px 400px;
   background-color: #111827;
+
+  @media (width < 1200px) {
+    height: 160px;
+    padding: 32px 104px 64px;
+  }
+
+  @media (width < 767px) {
+    padding: 32px 32px 64px;
+  }
 }
 
 .footer-var {
@@ -203,91 +307,35 @@ footer {
 
 /* Tablet 버전 */
 @media (min-width: 768px) and (max-width: 1200px) {
-  header {
-    padding: 10px 24px;
-  }
-
-  .main-section-top {
-    height: auto;
-  }
-
-  .main-section-top-container {
-    display: flex;
-    flex-direction: column;
-    width: auto;
-    padding: 0;
-  }
-
-  .main-section-top-content {
-    width: 100%;
-    padding: 84px 116px 200px;
-  }
-
   .responsive-br {
     display: none;
-  }
-
-  .main-section-mid {
-    width: 696px;
-    margin: 24px 0 52px;
-    padding: 24px;
-  }
-
-  .main-section-mid-container {
-    flex-direction: column;
-    width: 100%;
   }
 
   .main-section-mid-container img {
     object-fit: cover;
   }
 
-  .main-section-mid-content {
-    width: 100%;
-  }
-
-  .main-section-mid-content p:nth-child(2) {
-    margin: 12px 0px 24px;
-    font-size: 3.2rem;
-    font-weight: 700;
-    line-height: 42px;
-  }
-
-  .main-section-mid-content p:nth-child(3) {
-    font-size: 1.8rem;
-    font-weight: 500;
-    line-height: 26px;
-  }
-
-  .main-section-mid-content.second {
-    align-items: flex-end;
-    justify-content: flex-end;
-    order: 2;
+  .main-section-bottom-container img {
+    object-fit: cover;
   }
 
   .main-section-mid img {
     order: 0;
   }
+}
 
-  .main-section-bottom {
-    height: auto;
+/* Mobile 버전 */
+@media (min-width: 375px) and (max-width: 767px) {
+  .responsive-br {
+    display: none;
   }
 
-  .main-section-bottom-container {
-    flex-direction: column;
-    padding-top: 200px;
+  .main-section-mid-container img {
+    object-fit: cover;
   }
 
-  .section-title.bottom {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 100px;
-    text-align: center;
-  }
-
-  footer {
-    height: 160px;
-    padding: 32px 104px 64px;
+  .main-section-bottom-container img {
+    max-width: 100%;
+    object-fit: cover;
   }
 }
