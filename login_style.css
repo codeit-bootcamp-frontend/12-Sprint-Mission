@@ -6,6 +6,8 @@
 
 body {
   font-family: pretendard;
+  word-break: keep-all;
+  color: #374151;
 }
 
 label {
@@ -23,9 +25,7 @@ input {
   border-radius: 12px;
   background-color: #f3f4f6;
   border: none;
-  background-image: url(./image/eyes_cloes.png);
-  background-repeat: no-repeat;
-  background-position: right;
+
 }
 
 input:focus {
@@ -37,9 +37,9 @@ input::placeholder {
 }
 
 .login-container {
-  width: 640px;
-  height: 618px;
-  margin: 231px 640px;
+  max-width: 400px;
+  margin: 0px auto;
+  padding: 0 16px;
 }
 
 .login-container-tap {
@@ -48,10 +48,15 @@ input::placeholder {
 }
 
 .login-title {
-  width: 396px;
-  height: 132px;
-  text-align: center;
-  padding: 0 122px 40px 122px;
+  margin: 0 auto;
+  display: block;
+  margin-top: 24px;
+  margin-bottom: 24px;
+  width: 198px;
+}
+
+.login-title img {
+  width: 100%;
 }
 
 button {
@@ -69,9 +74,17 @@ button {
 }
 
 .password-container {
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.password-toggle {
+  position: absolute;
+  right: 20px;
+  top: 15px;
+  cursor: pointer;
 }
 
 .simple__login {
@@ -95,4 +108,28 @@ button {
 
 .login-link {
   color: #3691ff;
+}
+
+@media (min-width : 768px) {
+  .login-container {
+    max-width: 640px;
+  }
+
+  .login-title {
+    width: 369px;
+    margin-top: 48px;
+    margin-bottom: 40px;
+  }
+}
+
+@media (min-width : 1200px) {
+  .login-container {
+    max-width: 640px;
+  }
+
+  .login-title {
+    margin-top: 60px;
+    margin-bottom: 40px;
+  }
+
 }
