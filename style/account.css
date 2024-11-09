@@ -16,11 +16,12 @@
 }
 
 body {
+  width: 100vw;
   font-family: "Noto Sans KR", sans-serif;
 }
 
 header {
-  margin-top: 80px;
+  margin-top: 40px;
 }
 
 header,
@@ -130,33 +131,47 @@ input::placeholder {
   background-color: #e6f2ff;
 }
 
-@media (max-width: 700px) {
-  div,
-  input,
-  main {
-    width: 300px;
-  }
-  form {
+/* tablet_size(768px~1199px) */
+@media (max-width: 1199px) {
+  /* 현재까진 타블렛과 pc의 요소 사이즈를 동일하게 설계함 */
+}
+/* mobile_size(375px~767px) */
+@media (max-width: 767px) {
+  header,
+  main,
+  footer {
+    max-width: 400px;
+    padding-left: 16px;
+    padding-right: 16px;
     margin: 0 auto;
+    width: 100vw;
   }
-  .logo {
-    width: 200px;
-    height: 80px;
+  form,
+  label,
+  input,
+  nav,
+  .login-btn,
+  .register-btn {
+    max-width: calc(400px - 32px);
+    width: 90vw;
   }
   label {
-    width: 140px;
-    padding-left: 20px;
+    font-size: 14px;
   }
-
-  .login-btn {
-    padding: 8px 0;
+  .logo {
+    max-width: calc(400px - 32px);
+    width: 50vw;
+    margin-top: 5vw;
+  }
+  .login-btn,
+  .register-btn {
     font-size: 16px;
+    padding: 10px 0;
   }
-  .simple-login {
-    text-align: right;
+  .simple-login-text {
+    flex-shrink: 0;
   }
   .login-list {
-    flex-grow: 1;
-    width: 90px;
+    text-align: right;
   }
 }
