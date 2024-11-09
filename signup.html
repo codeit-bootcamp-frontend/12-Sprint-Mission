@@ -20,22 +20,25 @@
   <body>
     <header>
       <a href="./index.html"
-        ><img
-          src="img/logo.png"
-          alt="이미지를 생성하지 못했습니다."
-          class="logo"
+        ><img src="img/logo.png" alt="logo img 생성불가" class="logo"
       /></a>
     </header>
     <main>
       <form class="login-info">
         <label for="email" class="email">이메일</label>
         <div class="input-id">
-          <input type="email" id="email" placeholder="이메일을 입력해주세요" />
+          <input
+            type="email"
+            name="email"
+            id="email"
+            placeholder="이메일을 입력해주세요"
+          />
         </div>
         <label for="nickname" class="nickname">닉네임</label>
         <div class="input-nickname">
           <input
             type="text"
+            name="nickname"
             id="nickname"
             placeholder="닉네임을 입력해주세요"
           />
@@ -45,12 +48,13 @@
         <div class="input-password">
           <input
             type="password"
+            name="password"
             id="password"
             placeholder="비밀번호를 입력해주세요"
           />
           <img
             src="img/img_closed_eye.png"
-            alt="이미지를 생성하지 못했습니다."
+            alt="closed_eye img 생성불가"
             class="toggle-password"
           />
         </div>
@@ -58,27 +62,31 @@
         <div class="input-password-confirm">
           <input
             type="password"
+            name="password-confirm"
             id="password-confirm"
             placeholder="비밀번호를 다시 한 번 입력해주세요"
           />
           <img
             src="img/img_closed_eye.png"
-            alt="이미지를 생성하지 못했습니다."
+            alt="closed_eye img 생성불가"
             class="toggle-password"
           />
         </div>
 
-        <button class="login-btn register-btn">회원가입</button>
+        <button type="submit" class="login-btn register-btn">회원가입</button>
       </form>
 
       <nav class="simple-login">
         <p class="simple-login-text">간편 로그인하기</p>
         <div class="login-list">
-          <a href="https://www.google.com/" target="_blank"
-            ><img src="img/ic_google.png" alt="이미지를 생성하지 못했습니다."
+          <a href="https://www.google.com/" target="_blank" rel="noreferrer"
+            ><img src="img/ic_google.png" alt="google img 생성불가"
           /></a>
-          <a href="https://www.kakaocorp.com/page/" target="_blank"
-            ><img src="img/ic_kakao.png" alt="이미지를 생성하지 못했습니다."
+          <a
+            href="https://www.kakaocorp.com/page/"
+            target="_blank"
+            rel="noreferrer"
+            ><img src="img/ic_kakao.png" alt="kakao img 생성불가"
           /></a>
         </div>
       </nav>
