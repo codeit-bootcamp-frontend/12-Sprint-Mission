@@ -131,12 +131,12 @@ input::placeholder {
   background-color: #e6f2ff;
 }
 
-/* tablet_size(768px~1199px) */
-@media (max-width: 1199px) {
+/* tablet_size*/
+@media (max-width: 1200px) {
   /* 현재까진 타블렛과 pc의 요소 사이즈를 동일하게 설계함 */
 }
-/* mobile_size(375px~767px) */
-@media (max-width: 767px) {
+/* mobile_size */
+@media (max-width: 768px) {
   header,
   main,
   footer {
