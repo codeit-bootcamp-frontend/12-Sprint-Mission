@@ -132,11 +132,11 @@ input::placeholder {
 }
 
 /* tablet_size*/
-@media (max-width: 1200px) {
+@media (max-width: 1199px) {
   /* 현재까진 타블렛과 pc의 요소 사이즈를 동일하게 설계함 */
 }
 /* mobile_size */
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   header,
   main,
   footer {
