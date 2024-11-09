@@ -168,3 +168,30 @@ body {
   font-weight: 500;
   color: var(--blue);
 }
+
+/* Mobile */
+@media (max-width: 767px) {
+  body {
+    height: 812px;
+  }
+
+  .main {
+    padding: 0 16px;
+    max-width: 400px;
+  }
+
+  .main-header {
+    gap: 10px;
+  }
+
+  .main-header__logo-img {
+    width: 51px;
+    height: 51px;
+  }
+
+  .main-header__logo-title {
+    font-size: 34px;
+  }
+
+
+}

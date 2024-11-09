@@ -175,9 +175,28 @@ body {
   color: var(--blue);
 }
 
-
-/* Tablet */
-@media (max-width: 1199px) {}
-
 /* Mobile */
-@media (max-width: 767px) {}
+@media (max-width: 767px) {
+  body {
+    height: 1000px;
+  }
+
+  .main {
+    padding: 0 16px;
+    max-width: 400px;
+  }
+
+  .main-header {
+    gap: 10px;
+  }
+
+  .main-header__logo-img {
+    width: 51px;
+    height: 51px;
+  }
+
+  .main-header__logo-title {
+    font-size: 34px;
+  }
+
+}
