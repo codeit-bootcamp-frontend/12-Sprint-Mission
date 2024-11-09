@@ -1,3 +1,30 @@
+@font-face {
+  font-family: 'ROKAF Sans';
+  font-weight: 700;
+  src: url(/font/ROKAF\ Sans\ Bold.otf) format('otf');
+}
+
+:root {
+  /* Primary color */
+  --blue300: #1251aa;
+  --blue200: #1967d6;
+  --blue100: #3692ff;
+
+  /* Secondary color */
+  --gray900: #111827;
+  --gray800: #1f2937;
+  --gray700: #374151;
+  --gray600: #4b5563;
+  --gray500: #6b7280;
+  --gray400: #9ca3af;
+  --gray200: #e5e7eb;
+  --gray100: #f3f4f6;
+  --gray50: #f9fafb;
+
+  /* Error */
+  --red: #f74747;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -10,29 +37,35 @@ a {
   text-decoration: none;
 }
 
-.button {
-  background-color: #3692ff;
+.logo {
+  font-family: 'ROKAF Sans';
+  font-weight: 700;
+  color: var(--blue100);
+}
+
+.btn {
+  background-color: var(--blue100);
   color: #f3f4f6;
   font-weight: 600;
   white-space: nowrap;
 }
 
-.button:hover {
-  background-color: #1967d6;
+.btn:hover {
+  background-color: var(--blue200);
 }
 
-.button:active {
-  background-color: #1251aa;
+.btn:active {
+  background-color: var(--blue300);
 }
 
-.button.button-sm-40 {
+.btn.btn-sm-48 {
   padding: 12px 23px;
   border-radius: 8px;
   font-size: 16px;
   line-height: 26px;
 }
 
-.button.button-lg {
+.btn.btn-lg {
   padding: 16px 124px;
   border-radius: 40px;
   font-size: 20px;

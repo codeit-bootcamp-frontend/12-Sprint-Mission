@@ -18,7 +18,7 @@ label {
   font-weight: 700;
   font-size: 18px;
   line-height: 26px;
-  color: #1f2937;
+  color: var(--gray800);
 }
 
 input {
@@ -27,22 +27,22 @@ input {
   padding: 16px 24px;
   border-radius: 12px;
   border: none;
-  background-color: #f3f4f6;
+  background-color: var(--gray100);
   font-weight: 400;
   font-size: 16px;
   line-height: 26px;
-  color: #1f2937;
+  color: var(--gray800);
 }
 
 input::placeholder {
   font-weight: 400;
   font-size: 16px;
   line-height: 26px;
-  color: #9ca3af;
+  color: var(--gray400);
 }
 
 input:focus {
-  outline-color: #3692ff;
+  outline-color: var(--blue100);
 }
 
 .logo {
@@ -50,11 +50,10 @@ input:focus {
   margin: 0 auto;
   padding: 12.98px 0 15.14px 0;
   margin-bottom: 40px;
-  font-family: 'ROKAF Sans';
-  font-weight: 700;
   font-size: 66.34px;
   line-height: 89.56px;
-  color: #3692ff;
+  font-weight: 700;
+  color: var(--blue100);
   display: flex;
   align-items: center;
   gap: 22.24px;
@@ -69,8 +68,8 @@ input:focus {
   margin-bottom: 16px;
 }
 
-.button.button-lg.auth-btn {
-  background-color: #9ca3af;
+.btn.btn-lg.auth-btn {
+  background-color: var(--gray400);
   text-align: center;
 }
 
@@ -125,10 +124,21 @@ input:focus {
 }
 
 .auth-guide-btn {
-  color: #3692ff;
+  color: var(--blue100);
   text-decoration: underline;
 }
 
-.button.auth-btn.button-lg.active {
-  background-color: #3692ff;
+.btn.auth-btn.btn-lg.active {
+  background-color: var(--blue100);
+}
+
+@media (max-width: 767px) {
+  body {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .container {
+    max-width: 400px;
+  }
 }

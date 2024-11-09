@@ -2,14 +2,15 @@ h1 {
   font-weight: 700;
   font-size: 40px;
   line-height: 56px;
-  color: #374151;
+  color: var(--gray700);
+  white-space: nowrap;
 }
 
 p {
   font-weight: 500px;
   font-size: 24px;
   line-height: 32px;
-  color: #374151;
+  color: var(--gray700);
 }
 
 .container {
@@ -32,10 +33,8 @@ header > .container {
   display: flex;
   align-items: center;
   gap: 8.59px;
-  font-weight: 700;
   font-size: 25.63px;
   line-height: 34.6px;
-  color: #3692ff;
 }
 
 .logo-img {
@@ -49,25 +48,31 @@ header > .container {
   position: relative;
 }
 
-.banner-top-img {
-  width: 746px;
-  height: 340px;
+.banner-img {
+  width: 100%;
+  max-width: 746px;
+  height: auto;
 }
 
 .banner-content {
+  display: flex;
   position: absolute;
   bottom: 0;
+}
+
+.banner-text-content {
   display: flex;
+  flex-direction: column;
 }
 
 .main-section {
-  height: 720px;
-  padding: 138px 0;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
 
 .card {
+  width: 100%;
   max-width: 988px;
   height: 444px;
   background-color: #fcfcfc;
@@ -75,11 +80,13 @@ header > .container {
   display: flex;
   align-items: center;
   gap: 64px;
+  margin: 138px 466px;
 }
 
-.card > img {
-  width: 579px;
-  height: 444px;
+.card img {
+  width: 100%;
+  max-width: 579px;
+  height: auto;
 }
 
 .title {
@@ -103,19 +110,9 @@ header > .container {
   padding-right: 9px;
 }
 
-.banner-bottom .banner-content {
-  gap: 69px;
-  align-items: center;
-}
-
-.banner-bottom-img {
-  width: 746px;
-  height: 397px;
-}
-
 footer {
   padding: 32px 0;
-  background-color: #111827;
+  background-color: var(--gray900);
   font-weight: 400;
   font-size: 16px;
   line-height: 19.09px;
@@ -126,7 +123,7 @@ footer > .container {
 }
 
 .footer-left {
-  color: #9ca3af;
+  color: var(--gray400);
 }
 
 .footer-center {
@@ -135,12 +132,12 @@ footer > .container {
   gap: 30px;
 }
 
-.footer-center a:hover {
-  text-decoration: underline;
+.footer-center a {
+  color: var(--gray200);
 }
 
-.footer-center > a{
-  color: #e5e7eb;
+.footer-center a:hover {
+  text-decoration: underline;
 }
 
 .footer-right {
@@ -148,5 +145,150 @@ footer > .container {
   gap: 12px;
 }
 
+@media (max-width: 1199px) {
+  header .container {
+    margin: 0 24px;
+  }
 
+  .banner {
+    height: 90vh;
+    position: relative;
+  }
 
+  .banner h1 {
+    margin-bottom: 24px;
+  }
+
+  .banner-top br {
+    display: none;
+  }
+
+  .banner-content {
+    flex-direction: column;
+  }
+
+  .banner-text-content {
+    align-items: center;
+    position: absolute;
+    left: 50%;
+    right: 50%;
+    text-align: center;
+  }
+
+  .banner-top .banner-text-content {
+    bottom: 551px;
+  }
+
+  .banner-bottom .banner-text-content {
+    bottom: 614px;
+  }
+
+  .banner-img {
+    max-width: 9999px;
+  }
+
+  .main-section {
+    padding: 24px 24px 56px;
+  }
+
+  .card {
+    padding: 0;
+    margin: 0;
+    flex-direction: column;
+    height: auto;
+    background-color: #ffffff;
+    gap: 24px;
+  }
+
+  .card img {
+    width: 100%;
+    max-width: 9999px;
+  }
+
+  .card h1 br {
+    display: none;
+  }
+
+  .card1,
+  .card3 {
+    align-items: start;
+  }
+
+  .card2 {
+    align-items: end;
+  }
+
+  .card .title,
+  .card p {
+    font-size: 18px;
+  }
+
+  .card h1 {
+    font-size: 32px;
+    line-height: 42px;
+  }
+
+  footer {
+    padding: 32px 104px 108px;
+  }
+}
+
+@media (max-width: 767px) {
+  header .container {
+    margin: 0 16px;
+  }
+
+  .logo-img {
+    display: none;
+  }
+
+  .banner {
+    height: 60vh;
+  }
+
+  .banner h1 {
+    margin-bottom: 18px;
+    font-size: 32px;
+    line-height: 44.8px;
+  }
+
+  .btn.btn-lg {
+    padding: 12px 71px;
+    font-size: 18px;
+    line-height: 26px;
+  }
+
+  .banner-top .banner-text-content {
+    bottom: 336px;
+  }
+
+  .banner-bottom .banner-text-content {
+    bottom: 329px;
+  }
+
+  .banner-top br {
+    display: block;
+  }
+
+  .banner-text-content {
+    gap: 18px;
+  }
+
+  .card .title,
+  .card p {
+    font-size: 16px;
+  }
+
+  .card h1 {
+    font-size: 24px;
+    line-height: 32px;
+  }
+
+  footer .container {
+    flex-wrap: wrap;
+  }
+
+  .footer-left {
+    order: 1;
+  }
+}
