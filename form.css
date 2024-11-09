@@ -132,3 +132,21 @@ input:focus {
   font-weight: 500;
   color: var(--blue);
 }
+
+@media (max-width: 767px) {
+  .login-container,
+  .signup-container {
+    padding: 16px;
+    max-width: 400px;
+    width: 100%;
+    height: 100%;
+  }
+
+  .logo-img {
+    text-align: center;
+  }
+
+  .logo-img img {
+    width: 57%;
+  }
+}
