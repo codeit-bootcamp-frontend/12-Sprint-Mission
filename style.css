@@ -104,6 +104,7 @@ main .top {
 
 .contents .search {
     display: flex;
+    flex-direction: row-reverse;
     justify-content: center;
     align-items: center;
 }
