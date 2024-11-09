@@ -5,13 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="images/logo/og-image.png" />
-    <meta property="og:title" content="판다마켓-로그인" />
+    <meta property="og:title" content="판다마켓-회원가입" />
     <meta property="og:description" content="일상의 모든 물건을 거래해보세요" />
     <meta
       property="og:url"
-      content="https://codeit-pandamk.netlify.app/signin"
+      content="https://codeit-pandamk.netlify.app/signup"
     />
-    <title>판다마켓 - 로그인</title>
+    <title>판다마켓 - 회원가입</title>
     <link rel="icon" href="images/logo/favicon.ico" />
     <link
       rel="stylesheet"
@@ -40,6 +40,15 @@
           />
         </div>
         <div class="input-item">
+          <label for="nickname">닉네임</label>
+          <input
+            id="nickname"
+            name="nickname"
+            type="text"
+            placeholder="닉네임을 입력해 주세요"
+          />
+        </div>
+        <div class="input-item">
           <label for="password">비밀번호</label>
           <div class="input-wrapper">
             <input
@@ -55,9 +64,25 @@
             />
           </div>
         </div>
+        <div class="input-item">
+          <label for="passwordConfirmation">비밀번호 확인</label>
+          <div class="input-wrapper">
+            <input
+              id="passwordConfirmation"
+              name="passwordConfirmation"
+              type="password"
+              placeholder="비밀번호를 다시 한 번 입력해 주세요"
+            />
+            <img
+              src="images/icons/eye-invisible.svg"
+              alt="비밀번호 숨김"
+              class="toggle-password"
+            />
+          </div>
+        </div>
 
         <button type="submit" class="button pill-button full-width">
-          로그인
+          회원가입
         </button>
       </form>
 
@@ -80,7 +105,7 @@
       </div>
 
       <div class="auth-switch">
-        판다마켓이 처음이신가요? <a href="signup.html">회원가입</a>
+        이미 회원이신가요? <a href="signin.html">로그인</a>
       </div>
     </div>
   </body>
