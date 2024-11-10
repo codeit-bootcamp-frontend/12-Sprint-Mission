@@ -162,30 +162,17 @@ margin-top: 10px;
         margin-bottom: 400px;
     }
 
-
-    /**  .login-text2{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
-
-        position: relative;
-        background-color: #e6f2ff;
-        margin-right: 700px;
-        margin-top: 400px;
-        margin-bottom: 300px;
-        width: 640px;
-        height: 49px;
-
+    @media screen and (min-width:400px), (min-height:400px) {
+        .Tablet-size  body .Pc-size{
+            display: flex;
+            padding:auto;
+        }
+        
+        
     }
-   /** .submit_button3, .submit_button5 { 
-        display: flex; 
-        justify-content: center; 
-        align-items: center; 
-        width: 30px; /* 버튼 컨테이너의 너비 */ 
-       /**  height: 30px; 
-      /**   margin-right: 10px;/* 버튼 컨테이너의 높이 */ 
-      /**   .submit_button3 img, .submit_button5 img 
-        { width: 30px; /* 이미지의 너비 */ 
-        /**     margin-right: 100px;
-       /**      height: 30px;}
+    @media screen and (min-width:400px), (min-height:400px){
+   .Moblet-size{
+            margin-left: 16px;
+            margin-right:16px;
+            padding:auto;
+   }};
