@@ -1,6 +1,4 @@
 
-
-
 .container{
    
     display: flex; 
@@ -163,29 +161,31 @@ margin-top: 10px;
     }
 
 
-    /**  .login-text2{
+
+@media (max-width:1200px) {
+    body .Pc-size{
         display: flex;
-        justify-content: center;
-        align-items: center;
+    };
+    
+    
 
 
-        position: relative;
-        background-color: #e6f2ff;
-        margin-right: 700px;
-        margin-top: 400px;
-        margin-bottom: 300px;
-        width: 640px;
-        height: 49px;
 
+@media (min-width:768px) and (max-width:1199px) {
+    .Tablet-size{
+        margin-left:24px;
     }
-   /** .submit_button3, .submit_button5 { 
-        display: flex; 
-        justify-content: center; 
-        align-items: center; 
-        width: 30px; /* 버튼 컨테이너의 너비 */ 
-       /**  height: 30px; 
-      /**   margin-right: 10px;/* 버튼 컨테이너의 높이 */ 
-      /**   .submit_button3 img, .submit_button5 img 
-        { width: 30px; /* 이미지의 너비 */ 
-        /**     margin-right: 100px;
-       /**      height: 30px;}
+};
+
+
+
+
+@media (min-width:375px) and (max-width:767px) {
+    .Moblet-size{
+        margin-left:24px;
+    }
+};
+
+
+
+};
