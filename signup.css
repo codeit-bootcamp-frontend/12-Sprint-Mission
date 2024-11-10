@@ -7,8 +7,6 @@ label{
 }
 .signup-container{
     width: 640px;
-    
-    
     display: flex;
     justify-content: center; 
     align-items: center;
@@ -24,17 +22,17 @@ label{
 .main{
     width:100%;
     gap: 24px;
-    display: block;
+    display: flex;
+    flex-direction: column;
 }
 .email-box{
     width:100%;
     gap: 16px;
-    display: block;
     margin-bottom: 24px;
 }
 #email{
     width:100%;
-    
+    display: flex;
     border-radius: 9px;
     background: #F3F4F6;
     border: none;
@@ -48,7 +46,6 @@ label{
 .nickname-box{
     width:100%;
     gap: 16px;
-    display: block;
     margin-bottom: 24px;
 }
 #nickname{
@@ -164,4 +161,19 @@ a{
     text-decoration: underline;
     color: #3692FF;
 
+}
+/* mobile 사이즈 */
+@media(max-width: 767px){
+    #fandalogo{
+        width:198px;
+        height: 66px;
+    }
+    .signup-container{
+        width:100%;
+        margin: 80px 16px;
+        max-width: 400px;
+    }
+    .easy-login{
+        width: 100%;
+    }
 }
