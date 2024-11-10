@@ -4,82 +4,98 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta property="og:title" content="판다마켓">
+  <meta property="og:description" content="일상의 모든 물건을 거래해보세요">
+  <meta property="og:image" content="images/og.png">
+  <meta property="og:url" content="pandamarket.com">
   <title>판다마켓</title>
   <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+  <link rel="stylesheet" as="style" crossorigin
+    href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
 </head>
 
 <body>
+  <!-- 헤더 영역 -->
   <header>
-    <div class="logo">
-      <a href="/"><img src="images/logo.svg" alt="로고"></a>
+    <div class="top">
+      <div class="logo">
+        <a href="/">
+          <img class="logo-symbol" src="images/logo-symbol.svg" alt="로고 이미지">
+          <img class="logo-text" src="images/logo-text.svg" alt="로고 텍스트"></a>
+      </div>
+      <div class="login">
+        <a href="/login.html">로그인</a>
+      </div>
     </div>
-
-    <div class="log-in"><a href="/login.html">로그인</a></div>
   </header>
 
+  <!-- 메인 영역 -->
   <main>
-    <div class="main-cut">
-      <h1>
-        일상의 모든 물건을<br>
-        거래해 보세요</h1>
+    <div class="banner">
+      <div id="banner-title">
+        일상의 모든 물건을
+        <span>거래해 보세요</span>
+      </div>
       <div class="shortcut">
         <a href="/items.html">구경하러 가기</a>
       </div>
-      <img src="images/main-panda.svg">
+      <img src="images/banner.svg">
     </div>
   </main>
 
+  <!-- 콘텐츠 영역 -->
   <div class="contents">
-    <div class="hot-item">
-      <div class="con">
-      <img src="images/hot-item.svg">
-      <div class="htext">
-        <span>Hot item</span>
-        <div class="title">
-          인기 상품을<br>
-          확인해 보세요
+    <div class="con">
+      <div class="hot-item">
+        <img src="images/hot-item.svg">
+        <div id="text">
+          <span>Hot item</span>
+          <div id="text-title">
+            인기 상품을
+            <span>확인해 보세요</span>
+          </div>
+          <p>
+            가장 HOT한 중고거래 물품을<br>
+            판다 마켓에서 확인해 보세요
+          </p>
         </div>
-        <p>
-          가장 HOT한 중고거래 물품을<br>
-          판다 마켓에서 확인해 보세요
-        </p>
+      </div>
+    </div>
+
+    <div class="con">
+      <div class="search">
+        <img src="images/search.svg">
+        <div id="text">
+          <span>Search</span>
+          <div id="text-title">
+            구매를 원하는
+            <span>상품을 검색하세요</span>
+          </div>
+          <p>
+            구매하고 싶은 물품은 검색해서<br>
+            쉽게 찾아보세요
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="con">
+      <div class="register">
+        <img src="images/register.svg">
+        <div id="text">
+          <span>Register</span>
+          <div id="text-title">
+            판매를 원하는
+            <span>상품을 등록하세요</span>
+          </div>
+          <p>어떤 물건이든 판매하고 싶은 상품을<br>
+            쉽게 등록하세요</p>
+        </div>
       </div>
     </div>
   </div>
 
-    <div class="search">
-      <div class="con">
-      <div class="stext">
-        <span>Search</span>
-        <div class="title">
-          구매를 원하는<br>
-          상품을 검색하세요
-        </div>
-        <p>
-          구매하고 싶은 물품은 검색해서<br>
-          쉽게 찾아보세요
-        </p>
-      </div>
-      <img src="images/search.svg">
-    </div>
-    </div>
-
-    <div class="register">
-      <div class="con">
-      <img src="images/register.svg">
-      <div class="rtext">
-        <span>Register</span>
-        <div class="title">
-          판매를 원하는<br>
-          상품을 등록하세요</div>
-        <p>어떤 물건이든 판매하고 싶은 상품을<br>
-          쉽게 등록하세요</p>
-      </div>
-    </div>
-  </div>
-  </div>  
-
+  <!-- 하단 영역 -->
   <div class="bottom">
     <div class="btpanda">
       <p>믿을 수 있는<br>
@@ -88,12 +104,17 @@
     </div>
   </div>
 
+  <!-- 푸터 영역 -->
   <footer>
     <div class="container">
-      <p>©codeit - 2024</p>
+      <div class="copyright">©codeit - 2024</div>
       <div class="link">
-        <p><a href="/privacy.html">Privacy Policy</a></p>
-        <p><a href="/faq.html">FAQ</a></p>
+        <div class="pri">
+          <p><a href="/privacy.html">Privacy Policy</a></p>
+        </div>
+        <div class="faq">
+          <p><a href="/faq.html">FAQ</a></p>
+        </div>
       </div>
       <div class="sns">
         <li><a href="https://www.facebook.com/" target="_blank"><img src="images/facebook.png"></a></li>
@@ -101,6 +122,7 @@
         <li><a href="https://www.youtube.com/" target="_blank"><img src="images/youtube.png"></a></li>
         <li><a href="https://www.instagram.com/" target="_blank"><img src="images/instagram.png"></a></li>
       </div>
+    </div>
     </div>
   </footer>
 </body>

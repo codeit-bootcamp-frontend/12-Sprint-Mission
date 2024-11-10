@@ -1,62 +1,86 @@
 @charset "utf-8";
 @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css");
 
+:root {
+  --blue: #3692FF;
+  --gray900: #111827;
+  --gray800: #1F2937;
+  --gray700: #374151;
+  --gray600: #4B5563;
+  --gray500: #6B7289;
+  --gray400: #9CA3AF;
+  --gray200: #E5E7EB;
+  --gray100: #F3F4F6;
+  --gray50: #F9FAFB;
+}
+
 * {
-  margin: 0 auto;
-  padding: 0;
-  list-style: none;
-  font-family: "pretendard";
+  font-family: "pretendard";  
   box-sizing: border-box;
 }
 
-.body {
-  width: 100%;
-  height: 1080px ;
+body {
+  margin: 0 auto;  
+  background-color: #fff;
 }
 
+.login-box {
+  margin-top: 80px;
+  margin-bottom: 150px;
+}
+
+.signup-box {
+  margin-top: 24px;
+  margin-bottom: 150px;
+}
+
+/* 로고 영역 */
 .logo {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 231px;
-  margin-left: auto;
-  margin-right: auto;
+  width: 198px;
+  height: 66px;
+  margin: 0 auto 24px auto;
 }
 
 .logo img {
-  width: 396px;
+  width: 198px;
 }
 
+/* 로그인 영역 */
 .login {
-  width: 640px;
-  height: 300px;
-  margin-top: 40px;
+  padding-left: 16px;
+  padding-right: 16px;
+  max-width: 400px;
+  margin: 0 auto;
 }
 
+/* 회원가입 영역 */
 .signup {
-  width: 640px;
-  height: 544px;
-  margin-top: 40px;
+  padding-left: 16px;
+  padding-right: 16px;
+  max-width: 400px;
+  margin: 0 auto;
 }
 
+/* 레이블 */
 label {
   display: block;
-  font-size: 18px;
+  font-size: 14px;
   font-weight: 700;
-  line-height: 26px;
-  color: #1F2937;
-  margin-bottom: 16px;
+  line-height: 24px;
+  color: var(--gray800);
+  margin-bottom: 8px;
 }
 
+/* 입력 필드 */
 input {
   display: block;
-  width: 640px;
+  width: 100%;
   height: 56px;
   border-radius: 12px;
-  background-color: #F3F4F6;
+  background-color: var(--gray100);
   border: none;
   padding: 15px 24px;
-  margin-bottom: 24px;
-  position: relative;
+  margin-bottom: 16px;
 }
 
 input:focus {
@@ -64,39 +88,56 @@ input:focus {
   outline: none;
 }
 
+.container {
+  position: relative;
+}
+
+.container .eyes {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  top: 55%;
+  right: 24px;
+}
+
+/* 로그인 버튼 */
 button {
-  background-color: #9CA3AF;
+  background-color: var(--gray400);
   border: none;
-  color: #ffffff;
-  display: block;
+  color: #fff;
   font-size: 20px;
   font-weight: 600;
   line-height: 32px;
-  width: 640px;
+  width: 100%;
   height: 56px;
   border-radius: 40px;
+  padding: 0;
 }
 
 button:hover {
-  background-color: #3692FF;
+  background-color: var(--blue);
   cursor: pointer;
 }
 
+/* 간편 로그인 영역 */
 .easy-login {
   display: flex;
   justify-content: space-between;
-  width: 640px;
-  height: 74px;
+  max-width: 365px;
+  width: 93%;
+  height: 75px;
   border-radius: 8px;
   background-color: #E6F2FF;
   padding: 16px 23px;
-  margin-top: 24px;
+  list-style: none;
+  margin: 24px auto;
 }
 
 .easy-login p {
   font-size: 16px;
   font-weight: 500;
   line-height: 42px;
+  color: #1F2937;
   margin: 0;
 }
 
@@ -104,7 +145,6 @@ button:hover {
   width: 100px;
   height: 42px;
   display: flex;
-  margin: 0;
 }
 
 .easy-login .link img {
@@ -116,17 +156,73 @@ button:hover {
   margin-right: 16px;
 }
 
-.description {
-  width: 197px;
-  height: 24px;
+/* 로그인, 회원가입 링크 창 */
+.des {
   font-size: 14px;
   font-weight: 500;
   line-height: 24px;
-  color: #1F2937;
-  margin-top: 24px;
-  margin-bottom: 231px;
+  color: var(--gray800);
+  text-align: center;
 }
 
-.description a {
-  color: #3692FF;
+.des p {
+  margin: 0;
 }
+
+.des a {
+  color: var(--blue);
+}
+
+/* 태블릿, 데스크톱 */
+@media screen and (min-width: 768px) {
+  .login-box {
+    margin-top: 190px;
+  }
+
+  .signup-box {
+    margin-top: 60px;
+  }
+
+  .logo {
+    width: 396px;
+    height: 132px;
+    margin-bottom: 40px;
+  }
+  
+  .logo img {
+    width: 396px;
+  }
+  
+  .login {
+    height: 300px;
+    max-width: 640px;
+    padding: 0;
+  }
+
+  .signup {
+    height: 544px;
+    max-width: 640px;
+    padding: 0;
+  }
+  
+  label {
+    font-size: 18px;
+    line-height: 26px;
+    color: var(--gray800);
+    margin-bottom: 16px;
+  }
+  
+  input {
+    width: 640px;
+    margin-bottom: 24px;
+  }
+  
+  .container .eyes {
+    top: 60%;
+  }
+  
+  .easy-login {
+    max-width: 640px;
+  }
+ }
+ 
