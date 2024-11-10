@@ -99,6 +99,16 @@ input:focus {
   align-items: center;
 }
 
+.error-message {
+  color: var(--error-red);
+  font-weight: 600;
+  font-size: 1.4rem;
+  line-height: 2.4rem;
+  margin-top: 0.8rem;
+  padding-left: 1.6rem;
+  display: none;
+}
+
 .toggle-password {
   position: absolute;
   right: 2.4rem;
@@ -111,7 +121,6 @@ input:focus {
 
 .login-button {
   width: 100%;
-  background-color: var(--secondary-400);
   padding: 1.6rem 12.4rem;
   border-radius: 999px;
   color: var(--secondary-100);
@@ -159,7 +168,6 @@ input:focus {
 
 .signup-button {
   width: 100%;
-  background-color: var(--secondary-400);
   padding: 1.6rem 12.4rem;
   border-radius: 999px;
   color: var(--secondary-100);

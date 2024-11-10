@@ -47,3 +47,17 @@ body {
   font-weight: 600;
   line-height: 3.2rem;
 }
+
+.button:hover {
+  background-color: var(--primary-200);
+}
+
+.button:focus {
+  background-color: var(--primary-300);
+}
+
+.button:disabled {
+  background-color: var(--secondary-400);
+  cursor: default;
+  pointer-events: none;
+}

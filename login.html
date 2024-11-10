@@ -16,7 +16,7 @@
     <div class="logo-home-button-wrapper">
       <a href="/"><img src="/images/logo/logo-panda-market.png" alt="판다마켓 홈"></a>
     </div>
-    <form method="post">
+    <form class="login-form" method="post">
       <div class="auth-input">
         <label for="email">이메일</label>
         <input
@@ -24,23 +24,29 @@
           name="email"
           type="email" 
           placeholder="이메일을 입력해 주세요"
+          required
           >
+        <span class="email-empty-error error-message">이메일을 입력해 주세요</span>
+        <span class="email-invalid-error error-message">잘못된 이메일 형식입니다</span>
       </div>
       <div class="auth-input">
         <label for="password">비밀번호</label>
         <div class="input-wrapper">
           <input
-          id="password" 
-          name="password" 
-          type="password"
-          placeholder="비밀번호를 입력해 주세요"
-          >
+            id="password" 
+            name="password" 
+            type="password"
+            placeholder="비밀번호를 입력해 주세요"
+            required
+            >
           <img
             class="toggle-password"
             src="/images/icons/eye-invisible.svg"
             alt="비밀번호 숨김"
             >
         </div>
+        <span class="password-empty-error error-message">비밀번호를 입력해 주세요</span>
+        <span class="password-invalid-error error-message">비밀번호를 8자 이상 입력해 주세요</span>
       </div>
       <button type="submit" class="button login-button">
         로그인
@@ -61,5 +67,7 @@
       판다마켓이 처음이신가요? <a href="/signup.html">회원가입</a>
     </div>
   </div>
+
+  <script src="/scripts/auth.js"></script>
 </body>
 </html>
