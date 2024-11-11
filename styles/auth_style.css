@@ -13,13 +13,14 @@
     align-items: center;  
     justify-content: center;
     width: 640px;
-    padding: 20px;
+    padding: 16px;
     height: 100vh; 
     margin: 0 auto;
 }
 
 .auth_logo{
     padding-bottom: 40px;
+    
 }
 
 .auth_contents{
@@ -151,4 +152,19 @@ input:focus{
 .auth_first>a{
     color:var(--blue100);
     cursor: pointer;
+}
+
+@media(max-width:767px){
+    *{
+        max-width: 400px;
+    }
+    .body_divider{
+        display:flex;
+        
+    }
+
+}
+
+@media (max-width: 1199px) and (min-width: 768px){
+
 }

@@ -352,11 +352,9 @@ header{
 
     .banner_btn{
         height: 48px;
-        /* width: 357px; */
     }
 
     .banner_img{
-        /* width:100%; */
         position: absolute;
         bottom:0;
     }
