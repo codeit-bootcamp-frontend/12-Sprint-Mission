@@ -1,0 +1,244 @@
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css');
+
+* {
+  box-sizing: border-box;
+}
+
+/* =================== Mobile =================== */
+
+body {
+  font-family: Pretendard, sans-serif;
+
+  margin: 0;
+  padding: 0 16px;
+
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+}
+
+.container {
+  min-width: 343px;
+  max-width: 400px;
+  width: 100%;
+
+  margin-top: 80px;
+  margin-bottom: 211px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+  gap: 24px;
+}
+
+.home_button {
+  height: 66px;
+  text-align: center;
+}
+
+.home_button a {
+  display: inline-block;
+  width: 198px;
+  height: 100%;
+}
+
+.panda_market_logo {
+  width: 100%;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form .input_box {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 8px;
+}
+
+.form label {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 16.71px;
+  text-align: left;
+  display: block;
+}
+
+.form input {
+  height: 56px;
+
+  display: block;
+
+  padding: 16px 24px;
+  border: 0;
+  border-radius: 12px;
+
+  /* margin-top: 16px; */
+
+  background-color: #f3f4f6;
+}
+
+.form input:focus {
+  outline: none;
+  border: 2px solid #3692ff;
+}
+
+::placeholder {
+  color: #9ca3af;
+
+  font-family: Pretendard;
+  font-size: 16px;
+  font-weight: 400;
+
+  line-height: 26px;
+}
+
+.container_for_password {
+  position: relative;
+}
+
+.password {
+  width: 100%;
+}
+
+.visibility_toggle {
+  position: absolute;
+  top: 16px;
+  right: 24px;
+  bottom: 16px;
+}
+
+button {
+  color: #f3f4f6;
+  font-family: Pretendard, sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  text-align: center;
+  line-height: 0;
+
+  height: 56px;
+
+  padding: 16px 124px;
+
+  border: 0;
+  border-radius: 40px;
+
+  background-color: #9ca3af;
+}
+
+button:hover {
+  background-color: #3692ff;
+  cursor: pointer;
+}
+
+.footer {
+  height: 74px;
+
+  background-color: #e6f2ff;
+
+  border-radius: 8px;
+
+  padding: 16px 23px;
+
+  margin: 8px 0;
+}
+
+.footer .footer_container {
+  /* font-family: Pretendard; */
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 0;
+  text-align: left;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.footer_container a {
+  width: 42px;
+  height: 42px;
+
+  display: inline-block;
+}
+
+.footer_container .link_container {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.link_to_login_or_signin {
+  color: #1f2937;
+  font-size: 14px;
+  font-weight: 500;
+  text-align: center;
+}
+
+.link_to_login_or_signin a {
+  color: #3182f6;
+}
+
+/* =================== Tablet =================== */
+
+@media (min-width: 768px) {
+  body {
+    padding: 0;
+  }
+
+  .container {
+    min-width: unset;
+    max-width: unset;
+    width: 640px;
+
+    margin-top: 190px;
+    margin-bottom: 325px;
+
+    gap: 40px;
+  }
+
+  .home_button {
+    height: 132px;
+  }
+
+  .home_button a {
+    width: 396px;
+    height: 100%;
+  }
+
+  .panda_market_logo {
+    width: 100%;
+  }
+
+  .form {
+    gap: 24px;
+  }
+
+  .form .input_box {
+    gap: 16px;
+  }
+
+  .form label {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 26px;
+  }
+}
+
+/* =================== PC =================== */
+
+@media (min-width: 1200px) {
+  body {
+    align-items: center;
+    height: 120vh;
+  }
+
+  .container {
+    margin-top: unset;
+    margin-bottom: unset;
+  }
+}
