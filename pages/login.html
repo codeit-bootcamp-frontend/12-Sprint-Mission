@@ -8,8 +8,7 @@
     <link href="../styles/auth_style.css" rel="stylesheet" type="text/css">
     <title>판다마켓</title>
 </head>
-<body class="body_divider">
-    <div class="divider"></div>
+<body>
     <div class="auth_box">
         <div class="auth_logo">
             <a href="/index.html">
@@ -19,13 +18,13 @@
 
         <form class="auth_contents">
             <div class="auth_content">
-                <label>이메일</label>
-                <input class="info" type="text" name="name" placeholder="이메일을 입력해주세요">
+                <label for="email">이메일</label>
+                <input id="email" class="info" type="text" name="name" placeholder="이메일을 입력해주세요">
             </div>
             <div class="auth_content pw">
-                <label>비밀번호</label>
+                <label for="password">비밀번호</label>
                 <div class="info_pw">
-                    <input class="info"  type="password" name="password" placeholder="비밀번호를 입력해주세요">
+                    <input id="password" class="info"  type="password" name="password" placeholder="비밀번호를 입력해주세요">
                     <div class="eye">
                         <img src="/images/btn_visibility_on_24px.svg">
                     </div>
@@ -53,7 +52,6 @@
             </a>
         </div>
     </div>
-    <div class="divider"></div>
 
 </body>
 <script src="/js/javascript.js"></script>
