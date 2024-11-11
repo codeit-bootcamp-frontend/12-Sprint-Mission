@@ -3,14 +3,12 @@
 
 
 * {
-  margin: 0 auto;
-  padding: 0;
-  list-style: none;
   font-family: "pretendard";
 }
 
 body {
-  width: 100%;
+  margin: 0;
+  color: #374151;
   background-color: #fff;
 }
 
@@ -19,280 +17,224 @@ a {
   display: block;
 }
 
-/* 헤더 영역 */
+/* 모바일 헤더 영역 */
 header {
   width: 100%;
   height: 70px;
-  display: flex;
-  justify-content: space-between;
-  background: #fff;
+  background-color: #fff;
   position: fixed;
   z-index: 1;
 }
 
-.logo {
-  width: 200px;
-  height: 51px;
+.top {
+  display: flex;
+  justify-content: space-between;
 }
 
-.logo img {
-  width: 153px;
-  height: 51px;
+.logo {
+  margin-left: 16px;
+}
+
+.logo .logo-symbol {
+  display: none;
+}
+
+.logo .logo-text {
   margin-top: 10px;
 }
 
-.log-in {
-  float: right;
+.login {
   width: 128px;
   height: 48px;
-  position: center;
   background-color: #3692ff;
   border-radius: 8px;
-  margin-top: 10px;
+  margin-top: 11px;
+  margin-right: 16px;
 }
 
-.log-in>a {
+.login>a {
   font-size: 16px;
   font-weight: 600;
   line-height: 48px;
   text-align: center;
   color: #fff;
-  cursor: pointer;
 }
 
-/* 메인 영역 */
+/* 모바일 메인 영역 */
 main {
   width: 100%;
   height: 540px;
+  top: 70px;
+  position: relative;
   background-color: #cfe5ff;
 }
 
-.main-cut {
-  width: 1110px;
-  height: 540px;
-  position: relative;
+.banner {
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
-.main-cut h1 {
-  float: left;
-  font-size: 40px;
+.banner #banner-title {
+  font-size: 32px;
   font-weight: 700;
-  line-height: 56px;
-  margin-top: 240px;
+  line-height: 44px;
+  text-align: center;
+  margin-top: 48px;
+  position: absolute;
 }
 
-.shortcut {
+.banner #banner-title>span {
+  display: block;
+}
+
+.banner .shortcut {
   position: absolute;
-  float: left;
-  width: 357px;
-  height: 56px;
+  width: 240px;
+  height: 48px;
   background-color: #3692ff;
   border-radius: 40px;
-  bottom: 0;
-  margin-top: 32px;
-  margin-bottom: 100px;
+  top: 156px;
 }
 
-.shortcut>a {
-  font-size: 20px;
+.banner .shortcut>a {
+  font-size: 18px;
   font-weight: 600;
-  line-height: 56px;
+  line-height: 48px;
   text-align: center;
   color: #fff;
 }
 
-.main-cut img {
-  float: right;
-  width: 746px;
-  height: 340px;
-  margin-top: 200px;
+.banner img {
+  width: 100%;
+  bottom: 0;
+  position: absolute;
 }
 
-/* 콘텐츠 영역 */
+/* 모바일 콘텐츠 영역 */
 .contents {
   width: 100%;
+  top: 70px;
+  position: relative;
+  margin-bottom: 83px;
 }
 
 .con {
+  width: 96%;
   display: flex;
-  width: 988px;
-  height: 444px;
-  background-color: #FCFCFC;
+  flex-wrap: wrap;
+  margin: 0 auto;
 }
 
-/* hot-item */
-.hot-item {
-  width: 988px;
-  height: 444px;
-  display: flex;
-  justify-content: space-between;
-  gap: 64px;
-  padding: 138px 0 138px 0;
+.con img {
+  width: 100%;
+  border-radius: 7px;
 }
 
-.hot-item img {
-  width: 579px;
-  height: 444px;
+.con #text {
+  display: block;
+  margin-top: 24px;
 }
 
-.htext {
-  margin-top: 103px;
-}
-
-.htext span {
-  font-size: 18px;
+.con #text span {
+  font-size: 16px;
   font-weight: 700;
   line-height: 26px;
   color: #3692FF;
-  margin-bottom: 12px;
 }
 
-.htext .title {
-  font-size: 40px;
-  font-weight: 700;
-  line-height: 56px;
-  margin-bottom: 24px;
-}
-
-.hot-item p {
+.con #text #text-title {
   font-size: 24px;
-  font-weight: 500px;
+  font-weight: 700;
   line-height: 32px;
+  margin-top: 8px;
+}
+
+.con #text #text-title>span {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 32px;
+  color: #374151;
+}
+
+.con #text p {
+  font-size: 16px;
   font-weight: 500;
+  line-height: 26px;
+  margin: 16px 0 0 0;
 }
 
-/* search */
+.hot-item {
+  padding-top: 52px;
+}
+
 .search {
-  width: 988px;
-  height: 444px;
-  display: flex;
-  justify-content: space-between;
-  gap: 64px;
-  padding: 138px 0 138px 0;
-
+  padding-top: 40px;
 }
 
-.stext {
-  margin-top: 103px;
+.search #text {
+  display: block;
+  margin-top: 24px;
   text-align: right;
 }
 
-.stext span {
-  font-size: 18px;
-  font-weight: 700;
-  line-height: 26px;
-  color: #3692FF;
-  margin-bottom: 12px;
-}
-
-.stext .title {
-  font-size: 40px;
-  font-weight: 700;
-  line-height: 56px;
-  margin-bottom: 24px;
-}
-
-.stext p {
-  font-size: 24px;
-  font-weight: 500px;
-  line-height: 32px;
-  font-weight: 500;
-}
-
-.search img {
-  width: 579px;
-  height: 444px;
-}
-
-/* register */
 .register {
-  width: 988px;
-  height: 444px;
-  padding: 138px 0 138px 0;
-  margin-bottom: 138px;
-  display: flex;
-  justify-content: space-between;
-  gap: 64px;
-
+  padding-top: 40px;
 }
 
-.register img {
-  width: 579px;
-  height: 444px;
-}
-
-.rtext {
-  margin-top: 103px;
-}
-
-.rtext span {
-  font-size: 18px;
-  font-weight: 700;
-  line-height: 26px;
-  color: #3692FF;
-  margin-bottom: 12px;
-}
-
-.rtext .title {
-  font-size: 40px;
-  font-weight: 700;
-  line-height: 56px;
-  margin-bottom: 24px;
-}
-
-.rtext p {
-  font-size: 24px;
-  font-weight: 500px;
-  line-height: 32px;
-  font-weight: 500;
-}
-
-/* 하단부 영역 */
-.bottom {
+/* 모바일 하단 영역 */
+ .bottom {
   width: 100%;
   height: 540px;
+  position: relative;
+  top: 70px;
   background-color: #CFE5FF;
-  display: flex;
 }
 
 .btpanda {
   display: flex;
-  justify-content: space-between;
-}
+  justify-content: center;
+} 
 
 .btpanda p {
-  width: 295px;
-  height: 112px;
-  font-size: 40px;
+  font-size: 32px;
   font-weight: 700;
-  line-height: 56px;
-  margin-top: 255.5px;
+  line-height: 44px;
+  margin: 121px 0 0 0;
+  text-align: center;
 }
 
 .btpanda img {
-  width: 746px;
-  height: 397px;
-  margin-top: 143px;
-}
-
-/* 푸터 영역 */
-footer {
   width: 100%;
+  position: absolute;
+  bottom: 0;
+} 
+
+/* 모바일 푸터 영역 */
+footer {
+  width: 100%; 
   height: 160px;
   background-color: #111827;
+  position: relative;
+  top: 70px;
 }
 
 .container {
-  display: flex;
-  justify-content: space-between;
   font-size: 16px;
-  font-weight: 400px;
-  line-height: 19px;
-  padding-top: 32px;
+  font-weight: 400;
+  line-height: 18px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  column-gap: 30px;
+  row-gap: 44px;
 }
 
-.container p {
+.copyright {
   color: #9CA3AF;
+  order: 1;
+  margin-left: 32px;
+  margin-bottom: 32px;
 }
 
 .link {
@@ -300,19 +242,327 @@ footer {
   gap: 30px;
 }
 
-.link p>a {
+.pri p>a {
   color: #E5E7EB;
+  margin-top: 32px;
+  margin-left: 32px;
+}
+
+.faq p>a {
+  color: #E5E7EB;
+  margin-top: 32px;
 }
 
 .sns {
-  display: flex;
-  width: 20px;
   height: 20px;
-  justify-content: center;
+  display: flex;
   align-items: center;
   gap: 13px;
+  margin-top: 32px;
+  margin-right: 32px;
+  list-style: none;
 }
 
 .sns img {
   width: 20px;
+}
+
+/* 태블릿 */
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  /* 태블릿 헤더 영역 */
+  .top {
+    width: 100%
+  }
+
+  .logo {
+    position: relative;
+    width: 153px;
+    margin-left: 24px;
+  }
+
+  .logo .logo-symbol {
+    display: inline-block;
+    margin-top: 15px;
+    position: absolute;
+  }
+
+  .logo .logo-text {
+    position: absolute;
+    right: 0;
+  }
+
+  .login {
+    margin-right: 24px;
+  }
+
+  /* 태블릿 메인 영역 */
+  main {
+    height: 771px;
+  }
+
+  .banner #banner-title {
+    margin-top: 84px;
+    font-size: 40px;
+    line-height: 56px;
+  }
+
+  .banner #banner-title>span {
+    display: inline-block;
+  }
+
+  .banner .shortcut {
+    top: 164px;
+    width: 357px;
+    height: 56px;
+  }
+
+  .banner .shortcut>a {
+    font-size: 20px;
+    line-height: 56px;
+  }
+
+  /* 태블릿 콘텐츠 영역 */
+  .contents {
+    margin-bottom: 56px;
+  }
+
+  .con {
+    display: block;
+  }
+  
+  .con img {
+    border-radius: 14px;
+  }
+
+  .con #text span {
+    font-size: 18px;
+  }
+
+  .con #text #text-title {
+    font-size: 32px;
+    line-height: 42px;
+    margin-top: 16px;
+  }
+
+  .con #text #text-title>span {
+    font-size: 32px;
+    line-height: 42px;
+  }
+
+  .con #text p {
+    font-size: 18px;
+    margin: 24px 0 0 0;
+  }
+
+  .hot-item {
+    padding-top: 24px;
+  }
+
+  .search {
+    padding-top: 52px;
+  }
+  
+  .register {
+    padding-top: 40px;
+  }
+
+  /* 태블릿 하단 영역 */
+   .bottom {
+    height: 927px;
+  }
+  
+  .btpanda p {
+    font-size: 40px;
+    line-height: 56px;
+    margin-top: 201px;
+  }
+
+  /* 태블릿 푸터 영역 */
+  .copyright {
+    order: 0;
+    margin-left: 104px;
+    margin-top: 32px;
+  }
+  
+  .pri p>a {
+    margin-left: 0;
+  }
+  
+  .sns {
+    margin-right: 104px;
+  }
+}
+
+/* 데스크톱 */
+@media screen and (min-width: 1200px) {
+  /* 데스크톱 헤더 영역 */
+  .top {
+    width: 1120px;
+    margin: 0 auto;
+  }
+
+  .logo {
+    position: relative;
+    width: 153px;
+  }
+
+  .logo .logo-symbol {
+    display: inline-block;
+    margin-top: 15px;
+    position: absolute;
+  }
+
+  .logo .logo-text {
+    position: absolute;
+    right: 0;
+  }
+
+  /* 데스크톱 메인 영역 */
+  main {
+    height: 540px;
+  }
+
+  .banner {
+    width: 1110px;
+    height: 340px;
+    margin: 0 auto;
+    padding-top: 200px;
+    position: relative;
+  }
+
+  .banner #banner-title {
+    font-size: 40px;
+    line-height: 56px;
+    text-align: left;
+    margin-top: 40px;
+    position: absolute;
+    left: 0;
+  }
+
+  .banner .shortcut {
+    width: 357px;
+    height: 56px;
+    top: 384px;
+    position: absolute;
+    left: 0;
+  }
+
+  .banner .shortcut>a {
+    font-size: 20px;
+    line-height: 56px;
+  }
+
+  .banner img {
+    width: 746px;
+    height: 340px;
+    position: absolute;
+    right: 0;
+  }
+
+  /* 데스크톱 콘텐츠 영역 */
+  .contents {
+    margin-bottom: 138px;
+  }
+
+  .con {
+    padding: 138px 0 138px 0;
+  }
+
+  .con img {
+    width: 579px;
+    border-radius: 0;
+  }
+
+  .con #text {
+    margin-top: 103px;
+  }
+
+  .con #text span {
+    font-size: 18px;
+  }
+
+  .con #text #text-title {
+    font-size: 40px;
+    line-height: 56px;
+    margin-top: 12px;
+  }
+
+  .con #text #text-title>span {
+    font-size: 40px;
+    line-height: 56px;
+    display: block;
+  }
+
+  .con #text p {
+    font-size: 24px;
+    line-height: 32px;
+    margin: 24px 0 0 0;
+  }
+
+  .hot-item {
+    display: flex;
+    gap: 64px;
+    margin: 0 auto;
+    padding: 0;
+    width: 988px;
+    height: 444px;
+    background-color: #fcfcfc;
+  }
+
+  .search {
+    display: flex;
+    gap: 64px;
+    width: 988px;
+    height: 444px;
+    margin: 0 auto;
+    padding: 0;
+    flex-direction: row-reverse;
+    background-color: #fcfcfc;
+  }
+
+  .register {
+    display: flex;
+    gap: 64px;
+    width: 988px;
+    height: 444px;
+    margin: 0 auto;
+    padding: 0;
+    background-color: #fcfcfc;
+  }
+
+  /* 데스크톱 하단 영역 */
+  .btpanda {
+    width: 1110px;
+    height: 397px;
+    margin: 0 auto;
+    padding-top: 143px;
+    position: relative;
+  }
+
+  .btpanda p {
+    font-size: 40px;
+    line-height: 56px;
+    text-align: left;
+    margin: 112px 0 0 0;
+    left: 0;
+    position: absolute;
+  }
+
+  .btpanda img {
+    width: 746px;
+    height: 397px;
+    right: 0;
+    position: absolute;
+  }
+
+  /* 데스크톱 푸터 영역 */
+  .container {
+    width: 1120px;
+    margin: 0 auto;
+  }
+
+  .copyright {
+    order: 0;
+    margin-top: 32px;
+  }
 }

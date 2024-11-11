@@ -1,38 +1,46 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/input.css">
-  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+  <link rel="stylesheet" as="style" crossorigin
+    href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
   <title>로그인</title>
 </head>
+
 <body>
-  <div class="logo">
-    <a href="/"><img src="images/logo.svg" alt="로고"></a>
-  </div>
+  <div class="login-box">
+    <div class="logo">
+      <a href="/"><img src="images/logo.svg" alt="로고"></a>
+    </div>
 
-  <form class="login">
-    <label>이메일</label>
-    <input name="email" type="email" placeholder="이메일을 입력해주세요">
+    <form class="login">
+      <label for="email">이메일</label>
+      <input id="email" name="email" type="email" placeholder="이메일을 입력해주세요">
 
-    <label>비밀번호</label>
-    <input name="password" type="password" placeholder="비밀번호를 입력해주세요">
-    
+      <div class="container">
+        <label for="password">비밀번호</label>
+        <input id="password" name="password" type="password" placeholder="비밀번호를 입력해주세요">
+        <img class="eyes" src="images/eyes.png">
+      </div>
 
-    <button>로그인</button>
-  </form>
+      <button>로그인</button>
+    </form>
 
-  <div class="easy-login">
-    <p>간편 로그인하기</p>
-    <div class="link">
-    <li><a href="https://www.google.com/"><img src="images/google.png"></a></li>
-    <li><a href="https://www.kakaocorp.com/page/"><img src="images/kakao.png"></a></li>
-  </div>
-  </div>
+    <div class="easy-login">
+      <p>간편 로그인하기</p>
+      <div class="link">
+        <li><a href="https://www.google.com/"><img src="images/google.png"></a></li>
+        <li><a href="https://www.kakaocorp.com/page/"><img src="images/kakao.png"></a></li>
+      </div>
+    </div>
 
-  <div class="description">
-    <p>판다마켓이 처음이신가요? <a href="signup.html">회원가입</a></p>
+    <div class="des">
+      <p>판다마켓이 처음이신가요? <a href="signup.html">회원가입</a></p>
+    </div>
   </div>
 </body>
+
 </html>
