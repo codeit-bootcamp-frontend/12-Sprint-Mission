@@ -4,46 +4,48 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>로그인</title>
-  <link rel="stylesheet" href="login.css">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/login.css">
 </head>
 <body>
-  <main>
+  <main class="main">
     <section class="login">
-      <div class="logo container">
-        <a class="logo" href="/">
-          <img src="/image_folder/login_logo.png" alt="로그인페이지로고" width="396">
-        </a>
-      </div>
+      <header class="header">
+          <a class="header__logo-link" href="/">
+            <img class="header__logo-image" src="images/login_logo.png" alt="로그인페이지로고" width="396">
+          </a>
+      </header>
 
-      <div class="info__login container">
-  
-        <div class="input-group">
-          <label for="login__id">이메일</label>
-          <input type="email" placeholder="이메일을 입력해 주세요" id="login__id" class="input__box">
+      <form action="login.html" method="POST" class="login-form container">
+        <div class="form__group">
+          <label class="form__label" for="login--email">이메일</label>
+          <input type="email" placeholder="이메일을 입력해 주세요" id="login__email" class="form__input" name="loginId">
         </div>
       
-        <div class="input-group">
-          <label for="login__password">비밀번호</label>
-          <input type="password" placeholder="비밀번호를 입력해주세요" id="login__password" class="input__box">
+        <div class="form__group">
+          <label class="form__label" for="login--password">비밀번호</label>
+          <input type="password" placeholder="비밀번호를 입력해주세요" id="login__password" class="form__input" name="password">
+          <button class="form__password-hidden"></button>
         </div>
-      </div>
+        <button type="submit" class="login__btn">로그인</button>
+      </form>
 
-      <a href="login.html" class="login__btn">로그인</a>
-
-      <div class="simple__login container">
+      <div class="social__login container">
         <p>간편로그인하기</p>
         <div class="social__icons">
           <a href="https://www.google.com/" target="_blank">
-            <img src="/image_folder/google_icon.png" alt="google 로그인 아이콘">
+            <img src="images/google_icon.png" alt="google 로그인 아이콘">
           </a>
           <a href="https://www.kakaocorp.com/page/" target="_blank">
-            <img src="/image_folder/kakao_icon.png" alt="kakao 로그인 아이콘">
+            <img src="images/kakao_icon.png" alt="kakao 로그인 아이콘">
           </a>
         </div>
       </div>
 
-      <div class="signup__container">
-        <p>판다마켓이 처음이신가요? <a href="signup.html">회원가입</a></p>
+      <div class="social__description">
+        <p>판다마켓이 처음이신가요?></p> 
+        <a href="signup.html">회원가입</a>
       </div>
     </section>
   </main>

@@ -1,3 +1,5 @@
+
+
 * {
   margin: 0;
   padding: 0;
@@ -29,8 +31,6 @@ button { /*버튼태그속성*/
   justify-content: center;
 }
     
-
-
 body {
   color: #374151;
   font-family: "Pretendard", sans-serif;
@@ -70,15 +70,15 @@ body {
   align-items: center;
   background-repeat: no-repeat;
   background-position: 80% bottom;
-  background-size: 55%;
+  background-size: 50%;
 }
 
 #banner_top {
-  background-image: url(image_folder/banner_top.png);
+  background-image: url(/images/banner_top.png);
 }
 
 #banner_bottom {
-  background-image: url(image_folder/banner_bottom.png);
+  background-image: url(/images/banner_bottom.png);
 }
 
 .wrapper {
@@ -87,7 +87,7 @@ body {
   width: 100%;
 }
 
-h1 {
+h1  {
   font-size: 40px;
   font-weight: 700;
   line-height: 56px;
@@ -132,27 +132,13 @@ h1 {
   text-align: right;
 }
 
-
-.footer {
-  display: flex;
-  justify-content: space-between; 
-  align-items: center; 
-  padding: 32px 200px;
-  width: 1920px;
-  height: 160px;
-  background: #111827;
-  color: #FFFFFF;
-  position: absolute;
-  left: calc(50% - 1920px / 2);
-}
-
 footer {
   background-color: #111827;
   color: #9ca3af;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 32px 200px 108px 200px;
+  padding: 40px 30px;
   font-size: 16px;
 }
 
@@ -165,4 +151,40 @@ footer {
 #socialMedia {
   display: flex;
   gap: 12px;
+}
+
+/* Tablet 스타일 (768px ~ 1199px) */
+@media screen and (max-width: 1199px) and (min-width: 768px) {
+  .header__navbar {
+    padding: 0 24px; /* 로고 좌측, 버튼 우측 24px 여백 */
+  }
+
+  footer {
+    padding: 30px 20px; /* Footer 여백 조정 */
+  }
+
+  #footerMenu,
+  #socialMedia {
+    gap: 20px; /* Footer 링크와 아이콘 간격 줄이기 */
+  }
+}
+
+/* Mobile 스타일 (375px ~ 767px) */
+@media screen and (max-width: 767px) and (min-width: 375px) {
+  .header__navbar {
+    padding: 0 16px; /* 로고 좌측, 버튼 우측 16px 여백 */
+  }
+
+  .wrapper {
+    padding: 0 16px; /* 내부 요소 좌우 여백 16px */
+  }
+
+  footer {
+    padding: 20px 16px;
+  }
+
+  #footerMenu,
+  #socialMedia {
+    gap: 10px; /* Footer 링크와 아이콘 간격 더 줄이기 */
+  }
 }

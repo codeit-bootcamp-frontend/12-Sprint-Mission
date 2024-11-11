@@ -1,0 +1,122 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.main {
+  width: 640px;
+}
+
+.login-form.container,
+.social__login.container {
+  width: 100%;
+  padding: 0; /* 필요 시 패딩 조정 */
+  margin: 0 auto;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 40px
+}
+
+.login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; 
+}
+
+.login-form.container {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.form__group {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  font-size: 16px;
+  line-height: 26px;
+}
+
+.form__input {
+  font-weight: 400;
+  padding: 16px 24px;
+  border: none;
+  background-color: #f3f4f6;
+  border-radius: 12px;
+}
+
+.form__input:focus {
+  outline: 2px solid #3692ff;
+}
+
+.form__label {
+  font-weight: 700;
+}
+
+.form__password-hidden {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  width: 24px;
+  height: 24px;
+  background: url(images/hidden_pw_btn.png) no-repeat center / contain;
+  border: none;
+  cursor: pointer;
+}
+
+
+.login__btn {
+  background-color: #9CA3AF;
+  color: #F3F4F6;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 32px;
+  text-align: center;
+  text-decoration: none;
+  width: 100%;
+  margin: 24px auto;
+  padding: 16px 124px;
+  border: 0;
+  border-radius: 40px;
+  gap: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+.social__login.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 25px;
+  margin-top: 25px;
+  background: #E6F2FF;
+  border-radius: 8px;
+}
+
+.social__icons {
+  display: flex;
+  gap: 16px;
+}
+
+.social__description {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 25px;
+}
