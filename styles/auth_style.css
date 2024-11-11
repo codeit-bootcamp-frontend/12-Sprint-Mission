@@ -1,34 +1,36 @@
 @charset "utf-8";
 @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css");
+@import url('/styles/color.css');
 
 * {
     font-family: pretendard;
 }
 
 
-.login_box {
+.auth_box {
     display: flex;
     flex-direction: column;
     align-items: center;  
     justify-content: center;
     width: 640px;
-    padding: 20px;
+    padding: 16px;
     height: 100vh; 
     margin: 0 auto;
 }
 
-.login_logo{
+.auth_logo{
     padding-bottom: 40px;
+    
 }
 
-.login_contents{
+.auth_contents{
     display: flex;
     flex-direction: column;
     justify-content: left;
     width:640px;
 }
 
-.login_content > a{
+.auth_content > a{
     font-size: 18px;
     font-weight: 700;
     line-height: 26px;
@@ -39,19 +41,17 @@
     margin-bottom: 16px;
 }
 
-.login_content{
+.auth_content{
     display: flex;
     flex-direction: column;
     gap:16px;
     padding-top:12px;
     padding-bottom:12px;
     width: 640px;
-
-    position: relative;
 }
 
 input:focus{
-    border-color:#3692FF ;
+    border-color:var(--blue100) ;
 }
 
 .info{
@@ -59,23 +59,35 @@ input:focus{
     border-radius: 12px;
     border-style: none;
     gap:10px;
-    background-color: #f3f4f6;
+    background-color:var(--gray100);
 
     font-size: 16px;
     font-weight: 400;
     line-height: 26px;
     text-align: left;
 
+    width:640px;
+    box-sizing: border-box;
+    
+
     padding-left: 24px;
+
 }
 
 .info:placeholder{
     color:#9CA3AF;
 }
 
+.info_pw{
+    
+    position:relative;
+}
+
 .eye {
     position: absolute;
-    top:70px;
+    /* top: 50%;
+    transform: translate(-50%, -50%); */
+    top:16px;
     right:24px;
     cursor: pointer;
 }
@@ -84,7 +96,7 @@ input:focus{
     height: 56px;
     border-radius: 40px;
     border-style: none;
-    background-color: #9CA3AF;
+    background-color: var(--gray400);
     margin-top:12px;
     margin-bottom: 24px;
     
@@ -92,23 +104,23 @@ input:focus{
     font-weight: 600;
     line-height: 32px;
     text-align: center;
-    color:#F3F4F6;
+    color:var(--gray100);
 
     cursor:pointer;
 }
 
 .button:hover{
-    background-color: #3692FF;
+    background-color: var(--blue100);
 }
 
-.lg_easy{
+.at_easy{
     width:640px;
     background-color: #E6F2FF;
     height: 74px;
     border-radius: 8px;
 }
 
-.login_easy{
+.auth_easy{
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -116,20 +128,20 @@ input:focus{
     height:42px;
 }
 
-.login_easy > a{
+.auth_easy > a{
     font-size: 16px;
     font-weight: 500;
     line-height: 26px;
     text-align: left;
-    color: #1F2937;
+    color: var(--gray800);
 }
 
-.login_icons{
+.auth_icons{
     float:right;
     cursor: pointer;
 }
 
-.login_first{
+.auth_first{
     padding-top: 24px;
     font-size: 14px;
     font-weight: 500;
@@ -137,7 +149,27 @@ input:focus{
     text-align: left;
 }
 
-.login_first>a{
-    color:#3692FF;
+.auth_first>a{
+    color:var(--blue100);
     cursor: pointer;
 }
+
+/*Mobile 미디어 쿼리*/
+
+@media(max-width:767px){
+    *{
+        max-width: 400px;
+    }
+    
+    .auth_logo > img{
+        width:198px;
+        height:66px;
+    }
+
+}
+
+
+/* 태블릿 미디어 쿼리는 불필요한 것 같아서 등록 안함,, 맞을까요,,?
+@media (max-width: 1199px) and (min-width: 768px){
+
+} */

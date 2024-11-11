@@ -1,31 +1,34 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8"> 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
     <link rel="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
-    <link href="../styles/login_style.css" rel="stylesheet" type="text/css">
+    <link href="../styles/auth_style.css" rel="stylesheet" type="text/css">
     <title>판다마켓</title>
 </head>
-<body>
-    <div class="login_box">
-        <div class="login_logo">
-            <a href="../index.html">
-                <img src="../images/login_logo.svg">
+<body class="body_divider">
+    <div class="divider"></div>
+    <div class="auth_box">
+        <div class="auth_logo">
+            <a href="/index.html">
+                <img src="/images/login_logo.svg">
             </a>
         </div>
 
-        <form class="login_contents">
-            <div class="login_content">
-                <a>이메일</a>
+        <form class="auth_contents">
+            <div class="auth_content">
+                <label>이메일</label>
                 <input class="info" type="text" name="name" placeholder="이메일을 입력해주세요">
             </div>
-            <div class="login_content pw">
-                <a>비밀번호</a>
-                <input class="info"  type="password" name="password" placeholder="비밀번호를 입력해주세요">
-                <div class="eye">
-                    <img src="../images/btn_visibility_on_24px.svg">
+            <div class="auth_content pw">
+                <label>비밀번호</label>
+                <div class="info_pw">
+                    <input class="info"  type="password" name="password" placeholder="비밀번호를 입력해주세요">
+                    <div class="eye">
+                        <img src="/images/btn_visibility_on_24px.svg">
+                    </div>
                 </div>
             </div>
             <div>
@@ -33,24 +36,25 @@
             </div>
         </form>
 
-        <div class="lg_easy">
-            <div class="login_easy">
+        <div class="at_easy">
+            <div class="auth_easy">
                 <a>간편 로그인하기</a>
-                <div class="login_icons">
-                    <a href="https://www.google.com/" target="_blank"><img src="../images/Component 2.svg"></a>
-                    <a href="https://www.kakaocorp.com/page/" target="_blank"><img src="../images/Component 3.svg"></a>
+                <div class="auth_icons">
+                    <a href="https://www.google.com/" target="_blank"><img src="/images/Component 2.svg"></a>
+                    <a href="https://www.kakaocorp.com/page/" target="_blank"><img src="/images/Component 3.svg"></a>
                 </div>
             </div>
         </div>
 
-        <div class="login_first">
+        <div class="auth_first">
             판다마켓이 처음인가요?
             <a href="signup.html">
                 회원가입
             </a>
         </div>
     </div>
+    <div class="divider"></div>
 
 </body>
-<script src="../js/javascript.js"></script>
+<script src="/js/javascript.js"></script>
 </html>

@@ -1,12 +1,22 @@
 @charset "utf-8";
 @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css");
-
 @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css");
+@import url(/styles/color.css);
 
 * {
     font-family: pretendard;
 }
 
+body{
+    margin:0 0;
+}
+
+header{
+    position: sticky;
+    z-index:1000;
+    top:0;
+    background-color: white;
+}
 .top_logo {
     padding-top: 9.5px;
     padding-bottom: 9.5px;
@@ -23,39 +33,51 @@
     cursor: pointer;
 }
 
+.top_title{
+    color:var(--blue100);
+    font-size: 25.63px;
+    font-weight: 700;
+    line-height: 34.6px;
+    text-align: left;
+    display:flex;
+    align-items: center;
+    gap:8px;
+}
+
 .log_btn {
     width: 128px;
     height: 48px;
-    position: center;
-    background-color: #3692ff;
+    /* position: center; */
+    background-color: var(--blue100);
     border-radius: 8px;
     margin-top: 10px;
     cursor: pointer;
-}
 
-.log_btn>a{
     font-size: 16px;
     font-weight: 600;
     line-height: 48px;
     text-align: center;
     color: #fff;
+}
+
+.top_logo a{
     text-decoration: none;
-    padding-left: 43px;
 }
 
 .banner {
+    display: flex;
     width: 100%;
     height: 540px;
     background-color: #CFE5FF;
+    
 }
 
 .banner_contents {
     max-width: 1110px;
-    height: 340px;
 
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
-    align-items: center;
     gap:15px;
 
     margin-left: auto;
@@ -63,7 +85,9 @@
 }
 
 .top_pad{
+    display: flex;
     padding-top: 200px;
+    height: 340px;
 }
 
 .banner_content{
@@ -78,9 +102,10 @@
     font-weight: 700;
     line-height: 56px;
     text-align: left;
+    color:var(--gray700);
 }
 
-.top_btn {
+.banner_btn {
     float: left;
     font-size: 20px;
     font-weight: 600;
@@ -89,51 +114,67 @@
     border-radius: 40px;
     height: 56px;
     color: #FFF;
-    background-color: #3692FF;
+    background-color: var(--blue100);
     border: none;
     cursor:pointer;
 }
 
 .banner_img {
     float: right;
-
 }
 
 .sections {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
-    align-items: center;
+    align-items: space-between;
 
     margin-left: auto;
     margin-right: auto;
-
+    
     padding-top: 138px;
     padding-bottom: 138px;
+    
+    box-sizing: border-box;
 
 }
 
 .section {
     display: flex;
-    justify-content: center;
+    flex-wrap: wrap;
+    justify-content: flex-start;
     align-items: center;
     gap: 50px;
 
     max-width: 1000px;
-    height: 444px;
-
     background-color: #FCFCFC;
 }
+
+.section_reverse{
+    display: flex;
+    flex-wrap: wrap-reverse;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 50px;
+
+    max-width: 1000px;
+    background-color: #FCFCFC;
+}
+
+
 .sentences{
     padding-right:23.5px;
+    text-align: left;
 }
 .sentences1{
     padding-left:23.5px;
+    text-align: right;
 }
 .sen1{
     font-size: 18px;
     font-weight: 700;
     line-height: 26px;
-    color:#3692FF;
+    color:var(--blue100);
 }
 
 .sen2{
@@ -149,25 +190,21 @@
     line-height: 32px;
 }
 
-.txt{
-    text-align: left;
-}
-
-.txt1{
-    text-align: right;
-}
-
 .btm_pad{
-    padding-top: 170px;
+    height: 400px;
+    padding-top: 143px;
 }
 
 .foot{
-    background-color:#111827 ;
+    background-color:var(--gray900) ;
     height:160px;
+    
 }
 
 .foot_con{
     display:flex; 
+    flex-wrap: wrap;
+    gap:30px;
     justify-content: space-between;
     align-items: center;
     max-width: 1120px;
@@ -192,11 +229,157 @@
 
     cursor: pointer;
 
-    color:#E5E7EB;
+    color:var(--gray300);
 }
 
 .foot_icons{
     float:right;
     cursor: pointer;
     gap:15px;
+}
+
+/* 미디어 쿼리 Mobile: 375px 이상 ~ 767px 이하 */
+
+@media(max-width:767px){
+    .top_title>img{
+        display: none;
+    }
+
+    .top_logo{
+        padding-left:16px;
+        padding-right: 16px;
+    }
+    
+    .top_pad{
+        padding-top:48px;
+    }
+
+    .banner_sen{
+        font-size: 32px;
+        line-height: 44.8px;
+        text-align: center;
+    }
+
+    .banner{
+        position: relative;
+    }
+
+    .banner_content{
+        gap:16px;
+    }
+
+    .banner_btn{
+        height: 48px;
+    }
+
+    .banner_img{
+        width:100%;
+        position: absolute;
+        bottom:0;
+    }
+
+    .sections{
+        padding-top:53px;
+        padding-bottom:53px;
+    }
+
+    .btm_pad{
+        padding-top: 80px;
+    }
+
+    .sen1{
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 22.4px;
+    }
+
+    .sen2{
+        font-size: 24px;
+        font-weight: 700;
+        line-height: 33.6px;
+        letter-spacing: 0.02em;
+       
+    }
+
+    .sen3{
+        font-size: 18px;
+        font-weight: 500;
+        line-height: 25.2px;
+        letter-spacing: 0.08em;
+    }
+
+    .sen2>br{
+        display: none;
+    }
+
+    .section>img{
+        width:100%;
+    }
+
+    .sections
+    {
+        margin:0 15px;
+    }
+
+    .section_reverse>img{
+        width: 100%;
+    }
+
+    .name{
+        order:1;
+    }
+}
+
+
+/* 미디어 쿼리 Tablet: 768px 이상 ~ 1199px 이하 */
+
+@media (max-width: 1199px) and (min-width: 768px){
+    .top_logo{
+        padding-left:24px;
+        padding-right:24px;
+    }
+
+    .top_pad{
+        padding-top:84px;
+    }
+    .banner_sen{
+        font-size: 40px;
+        line-height: 56px;
+        text-align: center;
+    }
+    .banner_sen>br{
+        display: none;
+    }
+
+    .banner{
+        position: relative;
+        height: 771px;
+    }
+
+    .banner_content{
+        gap:18px;
+    }
+
+    .banner_btn{
+        height: 48px;
+    }
+
+    .banner_img{
+        position: absolute;
+        bottom:0;
+    }
+
+    .section>img{
+        width:100%;
+    }
+
+    .section_reverse>img{
+        width: 100%;
+    }
+
+    .sen2>br{
+        display: none;
+    }
+
+
 }
