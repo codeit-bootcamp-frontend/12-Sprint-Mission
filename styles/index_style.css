@@ -6,6 +6,11 @@
 * {
     font-family: pretendard;
 }
+
+body{
+    margin:0 0;
+}
+
 header{
     position: sticky;
     z-index:1000;
@@ -309,6 +314,11 @@ header{
 
     .section>img{
         width:100%;
+    }
+
+    .sections
+    {
+        margin:0 15px;
     }
 
     .section_reverse>img{

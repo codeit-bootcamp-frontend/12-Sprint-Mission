@@ -154,17 +154,22 @@ input:focus{
     cursor: pointer;
 }
 
+/*Mobile 미디어 쿼리*/
+
 @media(max-width:767px){
     *{
         max-width: 400px;
     }
-    .body_divider{
-        display:flex;
-        
+    
+    .auth_logo > img{
+        width:198px;
+        height:66px;
     }
 
 }
 
+
+/* 태블릿 미디어 쿼리는 불필요한 것 같아서 등록 안함,, 맞을까요,,?
 @media (max-width: 1199px) and (min-width: 768px){
 
-}
+} */
