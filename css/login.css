@@ -28,7 +28,7 @@ main {
 }
 
 .loginForm {
-    min-width: 640px;
+    max-width: 640px;
 }
 
 .login label {
@@ -121,4 +121,28 @@ main {
     align-items: center;
 
     /* margin-top: 50px; */
+}
+
+@media (max-width: 767px) {
+    main {
+        margin: 80px 16px 231px;
+    }
+
+    .loginForm {
+        max-width: 400px;
+    }
+
+    .login input{
+        min-width: 352px;
+    }
+
+    .login button {
+        min-width: 400px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1199px) {
+    main {
+        margin: 190px 52px 325px;
+    }
 }
