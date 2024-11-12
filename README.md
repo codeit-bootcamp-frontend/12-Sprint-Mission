@@ -1,6 +1,6 @@
-# Sprint Mission2
+# Sprint Mission
 
-코드잇 스프린트 미션2
+코드잇 스프린트 미션
 
 ## 배포 URL
 
