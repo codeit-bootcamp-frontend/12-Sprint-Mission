@@ -10,36 +10,40 @@
   </head>
 
   <body>
-    <div class="form-div">
+    <div class="main-container">
+      <!-- logo -->
+      <a class="logo" href="/">
+        <img class="logo-img" src="../img/logo_size_01.png" alt="판다마켓">
+      </a>
+
       <form>
-        <!-- logo -->
-        <a class="logo" href="/">
-          <img class="logo-img" src="../img/logo_size_01.png" alt="판다마켓">
-        </a>
         <!-- email -->
-        <label for="input-email">이메일</label>
-        <input id="input-email" name="email" type="email" placeholder="이메일을 입력해주세요" autocomplete="email" required>
+        <label for="email">이메일
+          <input id="email" name="email" type="email" placeholder="이메일을 입력해주세요" autocomplete="email" required>
+        </label>
         <!-- password -->
-        <label for="password">비밀번호</label>
-        <div class="input-password">
-          <input id="password" name="password" type="password" placeholder="비밀번호를 입력해주세요" required>
-          <img class="check-password--img" src="../img/check_password.png" alt="비밀번호 보기">
-        </div>
-        <!-- login-button -->
-        <button class="login-button">로그인</button>
-        <!-- easy-login -->
-        <div class="easy-login__text-box">
-          <h1 class="easy-login__text-box--title">간편 로그인하기</h1>
-          <div class="easy-login__text-box--sns">
-            <a href="https://www.google.com/" target="_blank"><img src="../img/google_logo.png"></a>
-            <a href="https://www.kakaocorp.com/page/" target="_blank"><img src="../img/kakao_logo.png"></a>
+        <label for="password">비밀번호
+          <div class="password-container">
+            <input id="password" name="password" type="password" placeholder="비밀번호를 입력해주세요" required>
+            <img class="check-password--img" src="../img/check_password.png" alt="비밀번호 보기">
           </div>
-        </div>
-        <!-- signup -->
-        <p class="sign-up__text-box">판다마켓이 처음신가요?
-          <a class="sign-up__text-box--cta" href="../signup/">회원가입</a>
-        </p>
+        </label>
+        <!-- login-button -->
+        <button class="login-button" type="submit">로그인</button>
       </form>
+
+      <!-- social-sign-in -->
+      <div class="social-sign-in__text-box">
+        <p class="social-sign-in__text-box--title">간편 로그인하기</p>
+        <div class="social-sign-in__text-box--sns">
+          <a href="https://www.google.com/" target="_blank"><img src="../img/google_logo.png"></a>
+          <a href="https://www.kakaocorp.com/page/" target="_blank"><img src="../img/kakao_logo.png"></a>
+        </div>
+      </div>
+      <!-- signup -->
+      <p class="sign-up__text-box">판다마켓이 처음신가요?
+        <a class="sign-up__text-box--cta" href="../signup/">회원가입</a>
+      </p>
     </div>
   </body>
 </html>

@@ -38,7 +38,7 @@ form {
 }
 
 /* logo */
-.logo {
+.logo-img {
   width: 396px;
   margin: 0 auto 40px;
   display: block;
@@ -65,12 +65,22 @@ input {
   margin: 16px auto 24px;
 }
 
+.password-container {
+  position: relative;
+}
+
+.check-password--img {
+  position: absolute;
+  bottom: 16px;
+  right: 24px;
+}
+
 input:focus {
   color: #1F2937;
   outline: 2px solid #3692FF;
 }
 
-/* signup button */
+/* button */
 .sign-up-button {
   background-color: #9CA3AF;
   color: #F3F4F6;
@@ -86,8 +96,13 @@ input:focus {
   display: block;
 }
 
+.sign-up-button:hover {
+  background-color: #3692FF;
+  color: #ffffff;
+}
+
 /* easy login */
-.easy-login__text-box {
+.social-sign-in__text-box {
   background-color: #E6F2FF;
   width: 100%;
   margin: 24px auto;
@@ -98,22 +113,22 @@ input:focus {
   align-items: center;
 }
 
-.easy-login__text-box--title {
+.social-sign-in__text-box--title {
   color: #1F2937;
   font-size: 16px;
   font-weight: 500;
   margin: 8px 0;
 }
 
-.easy-login__text-box--sns {
+.social-sign-in__text-box--sns {
   height: 42px;
   display: flex;
   align-items: center;
   gap: 16px;
 }
 
-.easy-login__text-box--sns a,
-.easy-login__text-box--sns a img {
+.social-sign-in__text-box--sns a,
+.social-sign-in__text-box--sns a img {
   width: 42px;
   height: 42px;
 }
@@ -128,9 +143,26 @@ input:focus {
   text-align: center;
 }
 
-.login__text-box .login__text-box--cta {
+.login__text-box--cta {
   color: #3692FF;
   line-height: 16px;
   margin-left: 4px;
   text-decoration: none;
+}
+
+.login__text-box--cta:hover {
+  text-decoration: underline;
+}
+
+
+/* mobile 사이즈 */
+@media (min-width: 375px) and (max-width: 767px) {
+  body {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .logo-img {
+    width: 198px;
+  }
 }

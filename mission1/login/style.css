@@ -19,71 +19,63 @@
 body {  /* pretendard폰트 가져오는 것을 못하겠음 */
   font-family: 'Pretendard', sans-serif;  
   margin: 0;
-}
-
-.form-div {
-  padding: 24px 0 36px;
   display: flex;
   align-items: center;
 }
 
-form {
+.main-container {
   width: 640px;
+  padding: 24px 0 36px;
   margin: auto;
   line-height: 26px;
+  display: flex;
+  flex-direction: column;
+}
+
+form {
+  width: 100%;
+  margin: 0 auto;
 }
 
 /* logo */
-.logo {
+.logo-img {
   width: 396px;
   margin: 0 auto 40px;
   display: block;
 }
 
-/* email + password */
+/* label + input */
 label {
   font-size: 18px;
   font-weight: 700;
   display: block;
 }
 
-#input-email,
-.input-password {
+input {
   background-color: #F3F4F6;
-  border-radius: 12px;
-  display: block;
-  width: 100%;
-  margin: 16px auto 24px;
-}
-
-#input-email,
-#password {
   color: #9CA3AF;
   font-size: 16px;
   font-weight: 400;
   line-height: 26px;
   border: 0;
   border-radius: 12px;
-  padding: 16px 24px;
-}
-
-.input-password {
-  display: flex;
-  align-items: center;
-}
-
-#password {
-  background-color: #F3F4F6;
+  display: block;
   width: 100%;
+  padding: 16px 24px;
+  margin: 16px auto 24px;
 }
 
-.input-password .check-password--img {  /* input태그 안에서 표시되게 해야 함 */
-  height: 26px;
-  margin-right: 24px;
+.password-container {
+  position: relative;
 }
 
-#input-email:focus, 
-#password:focus {
+.check-password--img {
+  position: absolute;
+  bottom: 16px;
+  right: 24px;
+}
+
+input:focus {
   color: #1F2937;
   outline: 2px solid #3692FF;
 }
@@ -104,8 +96,13 @@ label {
   display: block;
 }
 
+.login-button:hover {
+  background-color: #3692FF;
+  color: #ffffff;
+}
+
 /* easy login */
-.easy-login__text-box {
+.social-sign-in__text-box {
   background-color: #E6F2FF;
   width: 100%;
   margin: 24px auto;
@@ -116,22 +113,22 @@ label {
   align-items: center;
 }
 
-.easy-login__text-box--title {
+.social-sign-in__text-box--title {
   color: #1F2937;
   font-size: 16px;
   font-weight: 500;
   margin: 8px 0;
 }
 
-.easy-login__text-box--sns {
+.social-sign-in__text-box--sns {
   height: 42px;
   display: flex;
   align-items: center;
   gap: 16px;
 }
 
-.easy-login__text-box--sns a,
-.easy-login__text-box--sns a img {
+.social-sign-in__text-box--sns a,
+.social-sign-in__text-box--sns a img {
   width: 42px;
   height: 42px;
 }
@@ -146,9 +143,26 @@ label {
   text-align: center;
 }
 
-.sign-up__text-box .sign-up__text-box--cta {
+.sign-up__text-box--cta {
   color: #3692FF;
   line-height: 16px;
   margin-left: 4px;
   text-decoration: none;
+}
+
+.sign-up__text-box--cta:hover {
+  text-decoration: underline;
+}
+
+
+/* mobile 사이즈 */
+@media (min-width: 375px) and (max-width: 767px) {
+  body {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .logo-img {
+    width: 198px;
+  }
 }

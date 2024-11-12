@@ -37,7 +37,7 @@ header.main-header {
 } 
 
 .main-header__logo {
-  display: inline-block;
+  display: block;
 }
 
 .main-header__logo-img {
@@ -59,16 +59,29 @@ header a.main-header__login {
   flex-shrink: 0;
 }
 
+.main-header__login:hover,
+.banner__contents--cta:hover {
+  background-color: #217ded;
+}
+
 /* header + footer banner */
-.banner {
+.banner,
+.footer-banner {
   background-color: #CFE5FF;
   width: 100%;
   max-width: 1920px;
-  height: 612px;
   padding: 0 200px;
   margin: 0 auto;
   display: flex;
   align-items: flex-end;
+}
+
+.banner {
+  height: 612px;
+}
+
+.footer-banner {
+  height: 540px;
 }
 
 .banner__contents {
@@ -86,10 +99,14 @@ header a.main-header__login {
 
 .banner__contents--title,
 .footer-banner__contents--title {
-  font-size: 38px;
+  font-size: 40px;
   font-weight: 700;
   line-height: 56px;
   margin: 0;
+}
+
+.banner__contents--title {
+  width: 300px;
 }
 
 .banner__contents--cta {
@@ -98,6 +115,7 @@ header a.main-header__login {
   font-size: 18px;
   font-weight: 600;
   line-height: 32px;
+  width: 357px;
   padding: 12px 71px;
   border-radius: 40px;
   text-align: center;
@@ -115,51 +133,52 @@ header a.main-header__login {
 }
 
 .content-section,
-.content-section__02 {
+.content-section__flex-reverse {
   background-color: #FCFCFC;
   width: 998px;
   height: 444px;
   border-radius: 12px;
   margin: 0 auto;
   display: flex;
-  gap: 16px;
+  gap: 44px;
 }
 
-.content-section__02 {
+.content-section__flex-reverse {
   flex-direction: row-reverse;
+}
+
+.content-section__img-box {
+  background-image: url('img/Img_home_01.png');
+}
+
+.content-section__img-box__02 {
+  background-image: url('img/Img_home_02.png');
+}
+
+.content-section__img-box__03 {
+  background-image: url('img/Img_home_03.png');
 }
 
 .content-section__img-box,
 .content-section__img-box__02,
 .content-section__img-box__03 {
-  width: 559px;
-  margin: 0 20px;
-}
-
-.content-section__img-box {
-  background-image: url('img/Img_home_01.png');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  width: 559px;
+}
+
+.content-section__img-box,
+.content-section__img-box__03 {
+  margin-left: 20px;
 }
 
 .content-section__img-box__02 {
-  background-image: url('img/Img_home_02.png');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-.content-section__img-box__03 {
-  background-image: url('img/Img_home_03.png');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover; 
+  margin-right: 20px;
 }
 
 .content-section__text-box,
 .content-section__text-box__02 {
-  padding: 0 24px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -190,6 +209,10 @@ header a.main-header__login {
   font-size: 24px;
   font-weight: 500;
   line-height: 32px;
+}
+
+.text-box--title__line {
+  display: block;
 }
 
 /* footer */
@@ -230,8 +253,200 @@ header a.main-header__login {
   flex-shrink: 0;
 }
 
+.main-footer__logo--cta a:hover {
+  color: #aaa8ad;
+}
+
 .main-footer__logo--sns {
   display: flex;
   gap: 12px;
   flex-shrink: 0;
+}
+
+
+/* tablet사이즈 */
+@media (max-width: 1199px) {
+  /* header logo + login */
+  header.main-header {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  /* header + footer banner */
+  .banner,
+  .footer-banner {
+    padding: 0;
+    height: 843px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  .banner__contents {
+    width: 100%;
+    align-items: center;
+    gap: 18px;
+  }
+
+  .banner__contents--title,
+  .footer-banner__contents--title {
+    text-align: center;
+  }
+
+  .banner__contents--title {
+    width: 100%;
+  }
+
+  /* main */
+  .main-section {
+    padding:0 24px;
+    margin: 24px auto 44px;
+  }
+
+  .content-section,
+  .content-section__flex-reverse {
+    width: 696px;
+    height: 708px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .content-section__img-box,
+  .content-section__img-box__02,
+  .content-section__img-box__03 {
+    width: 100%;
+    height: 524px;
+    border-radius: 12px;
+    margin: 0;
+  }
+
+  .content-section__text-box,
+  .content-section__text-box__02 {
+    padding: 0 24px;
+    gap: 16px;
+}
+
+  .content-section__text-box--label {
+    margin: 0;
+  }
+
+  .content-section__text-box--title {
+    font-size: 32px;
+    line-height: 42px;
+  }
+
+  .content-section__text-box--description {
+    font-size: 18px;
+    line-height: 26px;
+    margin-top: 8px;
+  }
+
+  .text-box--title__line {
+    display: inline;
+  }
+}
+
+
+/* mobile 사이즈 */
+@media (min-width: 375px) and (max-width: 767px) {
+  /* header logo + login */
+  header.main-header {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  /* header + footer banner */
+  .banner {
+    height: 612px;
+  }
+
+  .footer-banner {
+    height: 540px;
+  }
+
+  .banner__contents,
+  .footer-banner__contents {
+    margin-bottom: 100px;
+  }
+
+  .banner__contents{
+    width: 240px;
+  }
+
+  .banner__contents--title,
+  .footer-banner__contents--title {
+    text-align: center;
+    font-size: 32px;
+    line-height: 44px;
+  }
+
+  .banner__contents--cta {
+    padding-top: 8px;
+    padding-bottom: 8px;
+    width: 100%;
+    height: 48px;
+  }
+
+  .banner__img {
+    width: 448px;
+  }
+
+  /* main */
+  .main-section {
+    padding:0 16px;
+    margin: 44px auto;
+  }
+
+  .content-section,
+  .content-section__flex-reverse {
+    width: 344px;
+    height: 417px;
+    gap: 24px;
+  }
+
+  .content-section__img-box,
+  .content-section__img-box__02,
+  .content-section__img-box__03 {
+    width: 100%;
+    height: 259px;
+    border-radius: 7px;
+  }
+
+  .content-section__text-box,
+  .content-section__text-box__02 {
+    padding: 0 10px;
+    gap: 8px;
+  }
+  
+  .content-section__text-box--label {
+    font-size: 16px;
+  }
+
+  .content-section__text-box--title {
+    font-size: 24px;
+    line-height: 32px;
+  }
+
+  .content-section__text-box--description {
+    font-size: 16px;
+    margin-top: 8px;
+  }
+
+  /* footer */
+  .main-footer {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+
+  .main-footer {
+    position: relative;
+  }
+
+  .main-footer__logo h3 {
+    position: absolute;
+    left: 32px;
+    bottom: 32px;
+  }
 }

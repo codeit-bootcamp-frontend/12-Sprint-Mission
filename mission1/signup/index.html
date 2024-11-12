@@ -18,25 +18,35 @@
 
       <form>
         <!-- email -->
-        <label for="input-email">이메일</label>
-        <input id="input-email" name="email" type="email" placeholder="이메일을 입력해주세요" autocomplete="email" required>
+        <label for="email">이메일
+          <input id="email" name="email" type="email" placeholder="이메일을 입력해주세요" autocomplete="email" required>
+        </label>
         <!-- nickname -->
-        <label for="nickname">닉네임</label>
-        <input id="nickname" type="text" placeholder="닉네임을 입력해주세요" required>
+        <label for="nickname">닉네임
+          <input id="nickname" type="text" placeholder="닉네임을 입력해주세요" required>
+        </label>
         <!-- password -->
-        <label for="password">비밀번호</label>
-        <input id="password" name="password" type="password" placeholder="비밀번호를 입력해주세요" required>
+        <label for="password">비밀번호
+          <div class="password-container">
+            <input id="password" name="password" type="password" placeholder="비밀번호를 입력해주세요" required>
+            <img class="check-password--img" src="../img/check_password.png" alt="비밀번호 보기">
+          </div>
+        </label>
         <!-- check password -->
-        <label for="check-password">비밀번호 확인</label>
-        <input id="check-password" name="password" type="password" placeholder="비밀번호를 다시 한 번 입력해주세요" required>
+        <label for="check-password">비밀번호 확인
+          <div class="password-container">
+            <input id="check-password" name="password" type="password" placeholder="비밀번호를 다시 한 번 입력해주세요" required>
+            <img class="check-password--img" src="../img/check_password.png" alt="비밀번호 보기">
+          </div>
+        </label>
         <!-- signup button -->
-        <button class="sign-up-button">회원가입</button>
+        <button class="sign-up-button" type="submit">회원가입</button>
       </form>
 
-      <!-- easy-login -->
-      <div class="easy-login__text-box">
-        <h1 class="easy-login__text-box--title">간편 로그인하기</h1>
-        <div class="easy-login__text-box--sns">
+      <!-- social-sign-in -->
+      <div class="social-sign-in__text-box">
+        <p class="social-sign-in__text-box--title">간편 로그인하기</p>
+        <div class="social-sign-in__text-box--sns">
           <a href="https://www.google.com/" target="_blank"><img src="../img/google_logo.png"></a>
           <a href="https://www.kakaocorp.com/page/" target="_blank"><img src="../img/kakao_logo.png"></a>
         </div>
