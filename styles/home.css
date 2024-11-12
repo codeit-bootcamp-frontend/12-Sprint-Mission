@@ -1,0 +1,421 @@
+.banner {
+  background-color: #cfe5ff;
+  height: 540px;
+  display: flex;
+  align-items: center;
+  background-repeat: no-repeat;
+  background-position: 80% bottom;
+  background-size: 55%;
+}
+
+@media (min-width: 375px) and (max-width: 767px) {
+  #hero {
+    background-position: center bottom;
+    background-size: 448px 204px;
+  }
+
+  .banner {
+    height: 540px;
+    display: flex;
+  }
+  
+  .banner .pill-button {
+    margin-top: 0px !important;
+  }
+
+  #bottomBanner {
+    background-position: center bottom;
+    background-size: auto 198px;
+    position: relative; /* #bottomBanner를 위치 기준으로 설정 */
+  }
+  
+  #features {
+    width: calc(100% - 31px);
+    height: 1445px; /* 원래 크기 */
+    overflow: visible; /* hidden을 제거하거나 visible로 설정 */
+  }
+  
+  .feature { 
+    padding: 0 !important;
+
+  }
+  
+  
+  #features> :first-child { 
+    height: 472px !important;
+    align-items: unset; /* 또는 initial */
+    display: flex;
+    flex-direction: column;
+  }
+
+  #features> :nth-child(2) { 
+    height: 472px !important;
+    align-items: unset; /* 또는 initial */
+    display: flex;
+    flex-direction: column;
+  }
+
+  #features> :nth-child(3) { 
+    height: 472px !important;
+    align-items: unset; /* 또는 initial */
+    display: flex;
+    flex-direction: column;
+  }
+
+  #features > :last-child {
+    margin-bottom: 83px; /* 아래쪽 여백 */
+}
+  
+  #features> :first-child> :first-child { 
+    height: 259px !important;
+    width: 100% !important;
+    padding-top: 52px; /* margin-top 대신 padding-top 사용 */
+    
+  }
+
+  #features > .feature:first-child .feature-content  { 
+    width: 100% !important;
+    z-index: 1; /* 이미지보다 높은 레이어에 배치 */
+  }
+  
+  #features > .feature:nth-child(2) {
+    display: flex;
+    flex-direction: column-reverse; /* 자식 요소의 순서를 뒤집음 */
+}
+
+  #features > :nth-child(2) .feature-content {
+    height: 259px !important;
+    width: 100% !important;
+}
+
+#features > :nth-child(3) .feature-content {
+  height: 259px !important;
+  width: 100% !important;
+}
+
+
+  #features > .feature:first-child .feature-content h2 { 
+    font-size: 16px;
+    line-height: 26px;
+    text-align: left;
+    height: 26px;
+}
+  
+  #features > :nth-child(2) .feature-content h2{
+    font-size: 16px;
+    line-height: 26px;
+    text-align: right;
+    height: 26px;
+  }
+
+  #features > :nth-child(3) .feature-content h2 {
+    font-size: 16px;
+    line-height: 26px;
+    text-align: left;
+    height: 26px;
+  }
+
+  #features > .feature:first-child .feature-content h1 { 
+    font-size: 24px;
+    line-height: 32px;
+    text-align: left;
+    white-space: nowrap !important; /* 줄바꿈 방지 */
+  }
+  
+  #features > :nth-child(2) .feature-content h1{
+    font-size: 24px;
+    line-height: 32px;
+    text-align: right;
+    white-space: nowrap !important; /* 줄바꿈 방지 */
+  }
+
+  #features > :nth-child(3) .feature-content h1 {
+    font-size: 24px;
+    line-height: 32px;
+    text-align: left;
+    white-space: nowrap !important; /* 줄바꿈 방지 */
+  }
+
+
+  #features > .feature:first-child .feature-content p { 
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 26px;
+    text-align: left;
+    height: 52px;
+    width: 48.8%;
+    display: inline; /* 한 줄로 표시 */
+  }
+
+  #features > :nth-child(2) .feature-content p{
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 26px;
+    text-align: right;
+    height: 52px;
+    width: 48.8%;
+    display: inline; /* 한 줄로 표시 */
+  }
+
+  
+  #features > :nth-child(3) .feature-content p {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 26px;
+    text-align: left;
+    height: 52px;
+    width: 48.8%;
+    display: inline; /* 한 줄로 표시 */
+  }
+
+  #features > :nth-child(2) >:nth-child(2){
+    height: 259px !important;
+    width: 100% !important;
+ } 
+
+ #features > :nth-child(3) >:nth-child(1){
+  height: 259px !important;
+  width: 100% !important;
+}
+
+
+}
+
+  
+@media (min-width: 768px) and (max-width: 1199px) {
+  #hero {
+    background-position: center bottom;
+    background-size: 100% 340px;
+  }
+
+  .banner {
+    height: 771px;
+    display: flex;
+    
+  }
+  
+  .banner .pill-button {
+    margin-top: 0px !important;
+  }
+
+  #bottomBanner {
+    background-position: center bottom;
+    background-size: 100% 397px;
+    position: relative; /* position을 유지 */
+    height: auto; /* 높이를 auto로 설정하여 내용에 따라 동적으로 조절 */
+    margin-bottom: 0px; /* footer와의 간격 추가 */
+    height: 927px;
+  }
+  
+  #features {
+    width: calc(100% - 31px);
+    height: 2228px; /* 원래 크기 */
+    overflow: visible; /* hidden을 제거하거나 visible로 설정 */
+    display: flex;
+    flex-direction: column;
+    gap:40px;
+  }
+  
+  .feature { 
+    padding: 0 !important;
+    gap: 20px !important;
+  }
+  
+  
+  #features> :first-child { 
+    height: 708px !important;
+    align-items: unset; /* 또는 initial */
+    display: flex;
+    flex-direction: column;
+  }
+
+  #features> :nth-child(2) { 
+    height: 708px !important;
+    align-items: unset; /* 또는 initial */
+    display: flex;
+    flex-direction: column;
+  }
+
+  #features> :nth-child(3) { 
+    height: 708px !important;
+    align-items: unset; /* 또는 initial */
+    display: flex;
+    flex-direction: column;
+  }
+
+  #features > :last-child {
+    margin-bottom: 10px; /* 아래쪽 여백 */
+}
+  
+  #features> :first-child> :first-child { 
+    height: 524px !important;
+    width: 100% !important;
+    padding-top: 20px; /* margin-top 대신 padding-top 사용 */
+    
+  }
+
+  #features > .feature:first-child .feature-content  { 
+    height: 160px;
+    width: 100% !important;
+    z-index: 1; /* 이미지보다 높은 레이어에 배치 */
+  }
+  
+  #features > .feature:nth-child(2) {
+    display: flex;
+    flex-direction: column-reverse; /* 자식 요소의 순서를 뒤집음 */
+}
+
+  #features > :nth-child(2) .feature-content {
+    height: 160px !important;
+    width: 100% !important;
+}
+
+
+#features > :nth-child(3) .feature-content {
+  height: 160px !important;
+  width: 100% !important;
+}
+
+
+  #features > .feature:first-child .feature-content h2 { 
+    font-size: 16px;
+    line-height: 26px;
+    text-align: left;
+    height: 26px;
+}
+  
+  #features > :nth-child(2) .feature-content h2{
+    font-size: 16px;
+    line-height: 26px;
+    text-align: right;
+    height: 26px;
+  }
+
+  #features > :nth-child(3) .feature-content h2 {
+    font-size: 16px;
+    line-height: 26px;
+    text-align: left;
+    height: 26px;
+  }
+
+  #features > .feature:first-child .feature-content h1 { 
+    font-size: 24px;
+    line-height: 32px;
+    text-align: left;
+    white-space: nowrap !important; /* 줄바꿈 방지 */
+  }
+  
+  #features > :nth-child(2) .feature-content h1{
+    font-size: 24px;
+    line-height: 32px;
+    text-align: right;
+    white-space: nowrap !important; /* 줄바꿈 방지 */
+  }
+
+  #features > :nth-child(3) .feature-content h1 {
+    font-size: 24px;
+    line-height: 32px;
+    text-align: left;
+    white-space: nowrap !important; /* 줄바꿈 방지 */
+  }
+
+
+  #features > .feature:first-child .feature-content p { 
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 26px;
+    text-align: left;
+    height: 52px;
+    width: 48.8%;
+    display: inline; /* 한 줄로 표시 */
+  }
+
+  #features > :nth-child(2) .feature-content p{
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 26px;
+    text-align: right;
+    height: 52px;
+    width: 48.8%;
+    display: inline; /* 한 줄로 표시 */
+  }
+
+  
+  #features > :nth-child(3) .feature-content p {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 26px;
+    text-align: left;
+    height: 52px;
+    width: 48.8%;
+    display: inline; /* 한 줄로 표시 */
+  }
+
+  #features > :nth-child(2) >:nth-child(2){
+    height: 524px !important;
+    width: 100% !important;
+ } 
+
+ #features > :nth-child(3) >:nth-child(1){
+  height: 524px !important;
+  width: 100% !important;
+}
+
+
+}
+
+  
+
+#hero {
+  background-image: url("../images/home/hero-image.png");
+}
+
+#features {
+  padding-bottom: 138px;
+}
+
+#bottomBanner {
+  background-image: url("../images/home/bottom-banner-image.png");
+}
+
+#signinLinkButton {
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 8px;
+  padding: 14.5px 43px;
+}
+
+.banner .pill-button {
+  margin-top: 32px;
+}
+
+.feature {
+  padding: 138px 0;
+  display: flex;
+  align-items: center;
+  gap: 5%;
+}
+
+.feature:nth-child(2) {
+  text-align: right;
+}
+
+.feature-content {
+  flex: 1;
+}
+
+.feature-tag {
+  color: var(--blue);
+  font-size: 18px;
+  line-height: 25px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.feature-description {
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 120%;
+  letter-spacing: 0.08em;
+  margin-top: 24px;
+}
