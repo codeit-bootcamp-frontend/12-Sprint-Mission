@@ -34,123 +34,283 @@ body {
   font-family: "Pretendard";
 }
 
-.login {
-  width: 40rem;
-  height: 38.625rem;
-  margin: 0 auto;
+
+
+/* Tablet 부터 desktop 사이즈까지*/
+@media screen and (min-width: 768px) {
+  .login {
+    height: 38.625rem;
+    margin: 0 auto;
+  }
+  
+  input {
+    border: 0;
+  }
+  
+  input:focus {
+    border: 1px solid var(--blue);
+  }
+  
+  .login__header {
+    margin-top: 10.4375rem;
+    text-align: center;
+  }
+  
+  .login__header img {
+    width: 24.75rem;
+    height: 8.25rem;
+  }
+  
+  .login__form{
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  .login__form-field {
+    width: 40rem;
+    height: 6.125rem;
+    margin-bottom: 1.25rem;
+  }
+  
+  .login__form-field label {
+    font-weight: 700;
+    font-size: 1.125rem;
+    line-height: 1.625rem;
+    display: block;
+    margin: 1rem 0;
+  }
+  
+  .login__form-field input {
+    width: 40rem;
+    height: 3.5rem;
+    background-color: var(--gray100);
+    border-radius: 0.75rem;
+    
+  }
+  
+  .login__label__container {
+    position: relative;
+    display: flex;
+  }
+  
+  .login__form-field img {
+    position: absolute;
+    width: 1.5rem;
+    height: 1.5rem;
+    top: 1.125rem;
+    right: 0.625rem;
+  }
+  
+  .login__button {
+    width: 40rem;
+    height: 3.5rem;
+    background-color: var(--blue);
+    color: white;
+    padding: 1rem 7.75rem;
+    border-radius: 2.5rem;
+    margin: 2rem 0px;
+  }
+  
+  .social-login {
+    width: 40rem;
+    height: 4.625rem;
+    background-color: #e6f2ff;
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    padding: 1rem 1.4375rem;
+    gap: 0.625rem;
+    border-radius: 0.5rem;
+  }
+  
+  .social-login__title {
+    height: 1.625rem;
+    font-weight: 500;
+    font-size: 1rem;
+    line-height: 1.625rem;
+    margin-top: 0.625rem;
+  }
+  
+  .social-login__img-box {
+    width: 6.25rem;
+    height: 42px;
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .social-login__img-box img {
+    width: 2.625rem;
+    height: 2.625rem;
+  }
+  
+  .signup__text-box {
+    height: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.25rem;
+    margin-top: 1.25rem;
+  }
+  
+  .signup__question {
+    font-weight: 500;
+    font-size: 0.875rem;
+    line-height: 1.5rem;
+  }
+  
+  .signup__text-box a {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.0444rem;
+    color: var(--blue);
+  }
 }
 
-input {
-  border: 0;
-}
 
-input:focus {
-  border: 1px solid var(--blue);
-}
+/* Mobile 스타일 375px 이상 767px 이하*/
+@media screen and (min-width: 375px) and (max-width: 767px){
 
-.login__header {
-  margin-top: 10.4375rem;
-  text-align: center;
-}
+  .login {
+    height: 38.625rem;
+    margin: 0 auto;
+  }
 
-.login__header img {
-  width: 24.75rem;
-  height: 8.25rem;
-}
+  header{
+    padding: 0 1rem;
+    width: 100%;
+  }
+  
+  input {
+    border: 0;
+  }
+  
+  input:focus {
+    border: 1px solid var(--blue);
+  }
 
-.login__form-field {
-  width: 40rem;
-  height: 6.125rem;
-}
+  .login{
+    max-width: 25rem;
+    width: 100%;
+    margin: 0 auto;
+  }
+  
+  .login__header {
+    margin-top: 10.4375rem;
+    text-align: center;
+    width: 100%;
+  }
+  
+  .login__header img {
+    width: 12.375rem;
+    height: 4.125rem;
+  }
+  
+  .login__form{
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
 
-.login__form-field label {
-  font-weight: 700;
-  font-size: 1.125rem;
-  line-height: 1.625rem;
-  display: block;
-  margin: 1rem 0;
-}
-
-.login__form-field input {
-  width: 40rem;
-  height: 3.5rem;
-  background-color: var(--gray100);
-  border-radius: 0.75rem;
-}
-
-.login__label__container {
-  position: relative;
-  display: flex;
-}
-
-.login__form-field img {
-  position: absolute;
-  width: 1.5rem;
-  height: 1.5rem;
-  top: 1.125rem;
-  right: 0.625rem;
-}
-
-.login__button {
-  width: 40rem;
-  height: 3.5rem;
-  background-color: var(--blue);
-  color: white;
-  padding: 1rem 7.75rem;
-  border-radius: 2.5rem;
-  margin: 2rem 0px;
-}
-
-.social-login {
-  width: 40rem;
-  height: 4.625rem;
-  background-color: #e6f2ff;
-  display: flex;
-  justify-content: space-between;
-  text-align: center;
-  padding: 1rem 1.4375rem;
-  gap: 0.625rem;
-  border-radius: 0.5rem;
-}
-
-.social-login__title {
-  height: 1.625rem;
-  font-weight: 500;
-  font-size: 1rem;
-  line-height: 1.625rem;
-  margin-top: 0.625rem;
-}
-
-.social-login__img-box {
-  width: 6.25rem;
-  height: 42px;
-  display: flex;
-  gap: 1rem;
-}
-
-.social-login__img-box img {
-  width: 2.625rem;
-  height: 2.625rem;
-}
-
-.signup__text-box {
-  height: 1.5rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 0.25rem;
-  margin-top: 1.25rem;
-}
-
-.signup__question {
-  font-weight: 500;
-  font-size: 0.875rem;
-  line-height: 1.5rem;
-}
-
-.signup__text-box a {
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 1.0444rem;
-  color: var(--blue);
+  .login__form-field {
+    width: 100%;
+    height: 5.5rem;
+    margin-bottom: 1.25rem;
+  }
+  
+  .login__form-field label {
+    font-weight: 700;
+    font-size: 1.125rem;
+    line-height: 1.625rem;
+    display: block;
+    margin: 1rem 0;
+  }
+  
+  .login__form-field input {
+    width: 100%;
+    height: 3.5rem;
+    background-color: var(--gray100);
+    border-radius: 0.75rem;
+  }
+  
+  .login__label__container {
+    position: relative;
+    display: flex;
+  }
+  
+  .login__form-field img {
+    position: absolute;
+    width: 1.5rem;
+    height: 1.5rem;
+    top: 1.125rem;
+    right: 0.625rem;
+  }
+  
+  .login__button {
+    width: 100%;
+    height: 3.5rem;
+    background-color: var(--blue);
+    color: white;
+    padding: 1rem 7.75rem;
+    border-radius: 2.5rem;
+    margin: 2rem 0px;
+  }
+  
+  .social-login {
+    width: 100%;
+    height: 4.625rem;
+    background-color: #e6f2ff;
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    padding: 1rem 1.4375rem;
+    gap: 0.625rem;
+    border-radius: 0.5rem;
+  }
+  
+  .social-login__title {
+    height: 1.625rem;
+    font-weight: 500;
+    font-size: 1rem;
+    line-height: 1.625rem;
+    margin-top: 0.625rem;
+  }
+  
+  .social-login__img-box {
+    width: 6.25rem;
+    height: 42px;
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .social-login__img-box img {
+    width: 2.625rem;
+    height: 2.625rem;
+  }
+  
+  .signup__text-box {
+    height: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.25rem;
+    margin-top: 1.25rem;
+  }
+  
+  .signup__question {
+    font-weight: 500;
+    font-size: 0.875rem;
+    line-height: 1.5rem;
+  }
+  
+  .signup__text-box a {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.0444rem;
+    color: var(--blue);
+  }
 }
