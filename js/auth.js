@@ -146,3 +146,27 @@ if (passwordInput) {
 if (passwordReInput) {
   passwordReInput.addEventListener('input', checkPasswordConfirmValidate);
 }
+
+// 비밀번호 보기, 숨김 기능
+const pwToggleButton = document.querySelectorAll('.password-blind-btn');
+
+function passwordToggle (e) {
+  const target = e.currentTarget;
+  const inputElement = target.previousElementSibling;
+  const inputType = inputElement.type;
+  const buttonImage = target.firstElementChild;
+  
+  if (inputType === 'password') {
+    target.classList.add('show');
+    inputElement.type = 'text';
+    buttonImage.alt = '비밀번호 보기 아이콘';
+  } else {
+    target.classList.remove('show');
+    inputElement.type = 'password';
+    buttonImage.alt = '비밀번호 숨김 아이콘';
+  }
+}
+
+pwToggleButton.forEach((el) =>
+  el.addEventListener("click", passwordToggle)
+);

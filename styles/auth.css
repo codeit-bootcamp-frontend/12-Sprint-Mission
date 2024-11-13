@@ -101,6 +101,11 @@
   width: 24px;
 }
 
+
+.password-blind-btn.show img {
+  content: url('../images/icon/password_show_btn.png');
+}
+
 .social-wrapper {
   display: flex;
   justify-content: space-between;
