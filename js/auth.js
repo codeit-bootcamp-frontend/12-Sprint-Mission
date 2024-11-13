@@ -1,10 +1,15 @@
 const loginForm = document.querySelector('#loginForm');
+const signupForm = document.querySelector('#signupForm');
 const emailInput = document.querySelector('#email');
+const nicknameInput = document.querySelector('#nickname');
 const passwordInput = document.querySelector('#password');
+const passwordReInput = document.querySelector('#passwordRe');
 const submitButton = document.querySelector('#submitBtn');
 
 let isEmail = false;
+let isNickname = false;
 let isPassword = false;
+let isPasswordRe = false;
 
 const errorMsg = {
   email: {
@@ -16,7 +21,7 @@ const errorMsg = {
   },
   password: {
     empty: "비밀번호를 입력해주세요.",
-    invalid: "비밀번호를 8자 이상 입력해주세요.",
+    invalid: "영문 숫자 조합 8자 이상 입력해주세요.",
     fail: "비밀번호가 일치하지 않습니다.",
   },
 }
@@ -59,12 +64,27 @@ function checkEmailValidate () {
   formValidate();
 }
 
+function checkNicknameValidate () {
+  const nicknameValue = nicknameInput.value.trim();
+  
+  isNickname = false;
+  
+  if (!nicknameValue) {
+    showErrorMsg(nicknameInput, 'nickname', 'empty');
+  } else {
+    isNickname = true;
+    hideErrorMsg(nicknameInput, 'nickname');
+  }
+
+  formValidate();
+}
+
 function validatePassword (value) {
   const passwordRegex = /^(?=.*[a-zA-Z])(?=.*[0-9]).{8,25}$/; // 영문 숫자 조합 8자리 이상
   return passwordRegex.test(value);
 }
 
-function checkPasswordValidate () {
+function checkPasswordValidate (type) {
   const passwordValue = passwordInput.value.trim();
   
   isPassword = false;
@@ -81,19 +101,48 @@ function checkPasswordValidate () {
   formValidate();
 }
 
+function checkPasswordConfirmValidate () {
+  const passwordValue = passwordInput.value.trim();
+  const passwordReValue = passwordReInput.value.trim();
+  
+  isPasswordRe = false;
+
+  if (!passwordReValue) {
+    showErrorMsg(passwordReInput, 'password', 'empty');
+  } else if (!validatePassword(passwordReValue)) {
+    showErrorMsg(passwordReInput, 'password', 'invalid');
+  } else if (passwordValue !== passwordReValue) {
+    showErrorMsg(passwordReInput, 'password', 'fail');
+  } else {
+    isPasswordRe = true;
+    hideErrorMsg(passwordReInput, 'password');
+  }
+
+  formValidate();
+}
+
 function formValidate () {
   if (loginForm && isEmail && isPassword) {
+    submitButton.disabled = false;
+  } else if (signupForm && isEmail && isNickname && isPassword && isPasswordRe) {
     submitButton.disabled = false;
   } else {
     submitButton.disabled = true;
   }
 }
 
-
 if (emailInput) {
   emailInput.addEventListener('focusout', checkEmailValidate);
 }
 
+if (nicknameInput) {
+  nicknameInput.addEventListener('focusout', checkNicknameValidate);
+}
+
 if (passwordInput) {
-  passwordInput.addEventListener('focusout', checkPasswordValidate);
+  passwordInput.addEventListener('input', checkPasswordValidate);
+}
+
+if (passwordReInput) {
+  passwordReInput.addEventListener('input', checkPasswordConfirmValidate);
 }
