@@ -33,6 +33,8 @@ export default class AuthForm {
       this.submitButton.disabled = true;
       return;
     }
+
+    window.location.href = this.submitButton.dataset.url;
   }
 
   validate(e) {
