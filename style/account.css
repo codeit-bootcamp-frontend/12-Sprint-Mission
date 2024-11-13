@@ -110,14 +110,15 @@ input::placeholder {
   cursor: pointer;
 }
 
-.login-btn:hover {
-  background-color: #1967d6;
-  border-color: #1967d6;
+.login-btn:disabled {
+  background-color: #9ca3af;
+  border-color: #9ca3af;
 }
 
-.login-btn:focus {
-  background-color: #134d9e;
-  border-color: #134d9e;
+.login-btn:enabled:hover,
+.login-btn:enabled:focus {
+  background-color: #1967d6;
+  border-color: #1967d6;
 }
 
 .simple-login {
