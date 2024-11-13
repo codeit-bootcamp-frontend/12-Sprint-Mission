@@ -29,15 +29,17 @@
         </a>
       </div>
 
-      <form method="post" action="signup.html" accept-charset="UTF-8" class="auth-form">
+      <form method="post" action="signup.html" accept-charset="UTF-8" id="signupForm" class="auth-form">
         <h2 class="blind">일반 로그인하기</h2>
         <div class="form-item">
           <label for="email">이메일</label>
           <input type="email" id="email" placeholder="이메일을 입력해주세요" required/>
+          <span id="errorMsg" class="error-msg"></span>
         </div>
         <div class="form-item">
           <label for="email">닉네임</label>
           <input type="text" id="nickname" placeholder="닉네임을 입력해주세요" required/>
+          <span id="errorMsg" class="error-msg"></span>
         </div>
         <!-- 
           TODO: [password/js] 비밀번호 보기/숨기기 기능 
@@ -52,6 +54,7 @@
               <img src="images/icon/password_hide_btn.png" alt="비밀번호 숨기기 아이콘"/>
             </button>
           </div>
+          <span id="errorMsg" class="error-msg"></span>
         </div>
         <div class="form-item">
           <label for="password2">비밀번호 확인</label>
@@ -61,13 +64,14 @@
               <img src="images/icon/password_show_btn.png" alt="비밀번호 확인 숨기기 아이콘"/>
             </button>
           </div>
+          <span id="errorMsg" class="error-msg"></span>
         </div>
         <!-- 
           TODO: [submit button/js] 유효성 검사 후 상태값 변경
           1) .valid(활성화) 추가
           2) disabled = false
         -->
-        <button type="submit" class="button form-submit-btn" disabled>회원가입</button>
+        <button type="submit" id="submitBtn" class="button form-submit-btn" disabled>회원가입</button>
       </form>
       
       <div class="social-wrapper">
