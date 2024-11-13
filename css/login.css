@@ -11,12 +11,8 @@
   font-style: normal;
 }
 
-html {
-  height: 100%;
-}
-
 body {
-  font-family: "Pretendard-Regular";
+  font-family: "Pretendard-Regular", "Noto Sans KR", Arial, sans-serif;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -46,7 +42,7 @@ body {
   color: #3692ff;
 }
 
-.logo__link-header {
+.logo__title {
   font-size: 66px;
   font-weight: 700;
   line-height: 89.56px;
@@ -188,7 +184,7 @@ body {
     height: auto;
   }
 
-  .logo__link-header {
+  .logo__title {
     font-size: 34px;
     line-height: 44px;
   }

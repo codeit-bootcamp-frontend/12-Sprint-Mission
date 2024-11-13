@@ -99,6 +99,7 @@ a {
 }
 
 .main-banner__title,
+.sub-banner__title,
 .feature-section__content-box__title {
   font-size: 40px;
   font-weight: 700;
@@ -107,7 +108,7 @@ a {
   white-space: nowrap;
 }
 
-.main-banner__click-button {
+.main-banner__cta {
   width: 357px;
   color: #f9fafb;
   background-color: #3692ff;
@@ -327,12 +328,13 @@ a {
     padding-bottom: 132px;
   }
 
-  .main-banner__title {
+  .main-banner__title,
+  .sub-banner__title {
     font-size: 32px;
     line-height: 44.8px;
   }
 
-  .main-banner__click-button {
+  .main-banner__cta {
     width: 240px;
     font-size: 18px;
     line-height: 26px;
