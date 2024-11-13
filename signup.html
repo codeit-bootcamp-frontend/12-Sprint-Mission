@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./css/form.css" />
-    <title>Document</title>
+    <title>판다마켓-회원가입</title>
   </head>
 
   <body>
@@ -18,7 +18,9 @@
             id="email"
             name="email"
             placeholder="이메일을 입력해주세요"
+            class="emailInput"
           />
+          <div class="emailInput inputError"></div>
         </div>
         <div class="input-group">
           <label for="name" class="form-label">닉네임</label>
@@ -36,7 +38,9 @@
             id="password"
             name="password"
             placeholder="비밀번호를 입력해주세요"
+            class="passwordInput"
           />
+          <div class="passwordInput inputError"></div>
         </div>
         <div class="input-group">
           <label for="password-check" class="form-label">비밀번호 확인</label>
@@ -73,4 +77,5 @@
       </p>
     </div>
   </body>
+  <script src="js/auth.js" defer></script>
 </html>

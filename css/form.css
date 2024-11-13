@@ -9,6 +9,7 @@
   --gray100: #F3F4F6;
   --gray50: #F9FAFB;
   --blue: #3692FF;
+  --error: #F74747;
 }
 
 * {
@@ -131,6 +132,27 @@ input:focus {
   font-size: 14px;
   font-weight: 500;
   color: var(--blue);
+}
+
+#email.invalid {
+  border: 1px solid var(--error);
+}
+
+.emailInput.inputError {
+  padding-left: 16px;
+ margin-top: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--error);
+
+}
+
+.passwordInput.inputError {
+  padding-left: 16px;
+  margin-top: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--error);
 }
 
 @media (max-width: 767px) {
