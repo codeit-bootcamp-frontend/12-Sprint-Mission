@@ -24,7 +24,11 @@
       /></a>
     </header>
     <main>
-      <form class="login-info auth-form">
+      <form
+        class="login-info auth-form signup-info"
+        method="post"
+        action="./signup.html"
+      >
         <label for="email" class="email">이메일</label>
         <div class="input-id">
           <input
@@ -55,7 +59,7 @@
             name="password"
             id="password"
             placeholder="비밀번호를 입력해주세요"
-            class="password"
+            class="password-field"
             required
             aria-required="true"
           />
@@ -72,7 +76,7 @@
             name="password-confirm"
             id="password-confirm"
             placeholder="비밀번호를 다시 한 번 입력해주세요"
-            class="password"
+            class="password-field"
             required
             aria-required="true"
           />
