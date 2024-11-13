@@ -13,10 +13,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo",
-    "Pretendard Variable", Pretendard, Roboto, "Noto Sans KR", "Segoe UI",
-    "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
-    sans-serif;
+  font-family: "Pretendard";
 }
 
 a {
@@ -30,7 +27,15 @@ header {
   align-items: center;
   width: 100%;
   padding: 0 200px;
-  background-color: #ffffff;
+  background-color: #f9fafb;
+
+  @media (width < 1200px) {
+    padding: 10px 24px;
+  }
+
+  @media (width < 767px) {
+    padding: 0 16px;
+  }
 }
 
 .header {
@@ -41,75 +46,83 @@ header {
   padding: 10px 0;
 }
 
-.btn {
-  border: none;
+a.link {
   background-color: #3692ff;
-  color: #f3f4f6;
-  transition: all 0.2s;
-  cursor: pointer;
+  color: #ffffff;
 }
 
-.btn:hover {
-  background-color: #1251aa;
+a.link:hover {
+  background-color: #1967d6;
 }
 
-.header button {
+.header .link {
   width: 128px;
   height: 48px;
   padding: 12px 23px;
-  border: none;
   border-radius: 8px;
-  font-size: 1.6rem;
+  font-size: 16px;
   font-weight: 600;
   line-height: 26px;
+  text-align: center;
 }
 
 .main-section-top {
   display: flex;
   align-items: flex-end;
   justify-content: center;
-  margin-top: 72px;
   width: 100%;
-  height: 540px;
+  margin-top: 70px;
   background-color: #cfe5ff;
 
-  @media (max-width: 1024px) {
+  @media (width < 1200px) {
     height: auto;
   }
 }
 
 .main-section-top-container {
   display: flex;
-  width: 1110px;
+  justify-content: center;
+  width: 1120px;
+  padding-top: 100px;
 
-  @media (max-width: 1024px) {
+  @media (width < 1200px) {
     display: flex;
     flex-direction: column;
+    width: auto;
+    padding: 0;
+  }
+
+  @media (width < 767px) {
+    width: 100%;
   }
 }
 
 .main-section-top-content {
-  margin: 40px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
 
-  @media (max-width: 1024px) {
-    text-align: center;
+  @media (width < 1200px) {
+    width: 100%;
+    padding: 84px 116px 200px;
   }
 }
 
-.main-section-top-content > button {
-  width: 100%;
+.main-section-top-content .link {
   height: 56px;
-  margin: 40px 0;
-  padding: 12px 124px;
+  padding: 16px 124px;
   border-radius: 40px;
   text-align: center;
   font-size: 2rem;
   font-weight: 600;
-  line-height: 32px;
   color: #f9fafb;
 
-  @media (max-width: 1024px) {
-    width: 50%;
+  @media (width < 767px) {
+    height: 48px;
+    padding: 12px 71px;
+    font-size: 1.8rem;
   }
 }
 
@@ -117,18 +130,42 @@ header {
   font-size: 4rem;
   font-weight: 700;
   line-height: 56px;
+
+  @media (width < 767px) {
+    font-size: 3.2rem;
+    text-align: center;
+  }
 }
 
 .section-title.bottom {
   padding-bottom: 60px;
+
+  @media (width < 1200px) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 100px;
+    text-align: center;
+  }
 }
 
 .main-section-mid {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 1920px;
+  width: 100%;
   padding: 138px 0;
+
+  @media (width < 1200px) {
+    width: 696px;
+    margin: 24px 0 52px;
+    padding: 24px;
+  }
+
+  @media (width < 767px) {
+    width: 100%;
+    padding: 40px 15px;
+  }
 }
 
 .main-section-mid-container {
@@ -137,8 +174,9 @@ header {
   padding: 0 23.5px;
   background-color: #fcfcfc;
 
-  @media (max-width: 1024px) {
+  @media (width < 1200px) {
     flex-direction: column;
+    width: 100%;
   }
 }
 
@@ -154,12 +192,25 @@ header {
   font-size: 4rem;
   font-weight: 700;
   line-height: 56px;
+
+  @media (width < 1200px) {
+    margin: 12px 0px 24px;
+    font-size: 3.2rem;
+    font-weight: 700;
+    line-height: 42px;
+  }
 }
 
 .main-section-mid-content p:nth-child(3) {
   font-size: 2.4rem;
   font-weight: 500;
   line-height: 32px;
+
+  @media (width < 1200px) {
+    font-size: 1.8rem;
+    font-weight: 500;
+    line-height: 26px;
+  }
 }
 
 .main-section-mid-content {
@@ -167,10 +218,20 @@ header {
   flex-direction: column;
   justify-content: center;
   text-align: left;
+
+  @media (width < 1200px) {
+    width: 100%;
+  }
 }
 
 .main-section-mid-content.second {
   text-align: right;
+
+  @media (width < 1200px) {
+    align-items: flex-end;
+    justify-content: flex-end;
+    order: 2;
+  }
 }
 
 .main-section-bottom {
@@ -181,7 +242,7 @@ header {
   height: 540px;
   background-color: #cfe5ff;
 
-  @media (max-width: 1024px) {
+  @media (width < 1200px) {
     height: auto;
   }
 }
@@ -190,9 +251,9 @@ header {
   display: flex;
   align-items: center;
 
-  @media (max-width: 1024px) {
+  @media (width < 1200px) {
     flex-direction: column;
-    padding-top: 50px;
+    padding-top: 200px;
   }
 }
 
@@ -202,8 +263,13 @@ footer {
   padding: 32px 400px;
   background-color: #111827;
 
-  @media (max-width: 1024px) {
-    padding: 32px 10px;
+  @media (width < 1200px) {
+    height: 160px;
+    padding: 32px 104px 64px;
+  }
+
+  @media (width < 767px) {
+    padding: 32px 32px 64px;
   }
 }
 
@@ -237,4 +303,39 @@ footer {
   gap: 12px;
   width: 116px;
   list-style-type: none;
+}
+
+/* Tablet 버전 */
+@media (min-width: 768px) and (max-width: 1200px) {
+  .responsive-br {
+    display: none;
+  }
+
+  .main-section-mid-container img {
+    object-fit: cover;
+  }
+
+  .main-section-bottom-container img {
+    object-fit: cover;
+  }
+
+  .main-section-mid img {
+    order: 0;
+  }
+}
+
+/* Mobile 버전 */
+@media (min-width: 375px) and (max-width: 767px) {
+  .responsive-br {
+    display: none;
+  }
+
+  .main-section-mid-container img {
+    object-fit: cover;
+  }
+
+  .main-section-bottom-container img {
+    max-width: 100%;
+    object-fit: cover;
+  }
 }

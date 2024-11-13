@@ -22,17 +22,27 @@ li {
 }
 
 body {
-  width: 100vw;
-  height: 100vh;
-  font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo",
-    "Pretendard Variable", Pretendard, Roboto, "Noto Sans KR", "Segoe UI",
-    "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
-    sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  font-family: "Pretendard";
 }
 
 .signup-container {
   margin: 120px auto;
   width: 640px;
+
+  @media (width < 767px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 400px;
+    margin: 24px 16px;
+  }
 }
 
 .signup-header {
@@ -40,12 +50,35 @@ body {
   align-items: flex-start;
   justify-content: center;
   padding: 0 122px 40px;
+
+  @media (width < 767px) {
+    padding: 0 auto;
+  }
+}
+
+.signup-header a img {
+  @media (width < 767px) {
+    width: 200px;
+    height: auto;
+  }
+}
+
+.signup-body {
+  @media (width < 767px) {
+    width: 100%;
+    max-width: 400px;
+  }
 }
 
 .form {
   display: flex;
   flex-direction: column;
   gap: 24px;
+
+  @media (width < 767px) {
+    width: 100%;
+    max-width: 400px;
+  }
 }
 
 .form-item {
@@ -69,6 +102,11 @@ body {
   border-radius: 12px;
   background-color: var(--gray100);
   outline-color: var(--blue);
+
+  @media (width < 767px) {
+    width: 100%;
+    max-width: 400px;
+  }
 }
 
 .form-input::placeholder {
@@ -105,6 +143,11 @@ body {
   color: var(--gray100);
   cursor: pointer;
   transition: all 0.2s;
+
+  @media (width < 767px) {
+    width: 100%;
+    max-width: 400px;
+  }
 }
 
 .form-btn:hover {
@@ -121,9 +164,14 @@ body {
   padding: 16px 23px;
   border-radius: 8px;
   background-color: #e6f2ff;
+
+  @media (width < 767px) {
+    width: 100%;
+    max-width: 400px;
+  }
 }
 
-.signup-footer-label {
+.signup-footer-social-login {
   font-size: 1rem;
   font-weight: 500;
 }
