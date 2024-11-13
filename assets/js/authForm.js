@@ -34,6 +34,11 @@ export default class AuthForm {
       return;
     }
 
+    const nextURL = this.submitButton.dataset.url;
+    const message = nextURL.includes("login")
+      ? "회원가입을 성공했습니다.\n로그인 페이지로 이동합니다."
+      : "로그인에 성공했습니다.";
+    alert(message);
     window.location.href = this.submitButton.dataset.url;
   }
 
