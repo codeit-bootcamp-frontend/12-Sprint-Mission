@@ -32,6 +32,8 @@
             name="email"
             id="email"
             placeholder="이메일을 입력해주세요"
+            required
+            aria-required="true"
           />
         </div>
         <label for="nickname" class="nickname">닉네임</label>
@@ -41,6 +43,8 @@
             name="nickname"
             id="nickname"
             placeholder="닉네임을 입력해주세요"
+            required
+            aria-required="true"
           />
         </div>
 
@@ -51,6 +55,9 @@
             name="password"
             id="password"
             placeholder="비밀번호를 입력해주세요"
+            class="password"
+            required
+            aria-required="true"
           />
           <img
             src="img/img_closed_eye.png"
@@ -65,6 +72,9 @@
             name="password-confirm"
             id="password-confirm"
             placeholder="비밀번호를 다시 한 번 입력해주세요"
+            class="password"
+            required
+            aria-required="true"
           />
           <img
             src="img/img_closed_eye.png"
@@ -73,7 +83,11 @@
           />
         </div>
 
-        <button type="submit" class="login-btn register-btn" disabled>
+        <button
+          type="submit"
+          class="login-btn register-btn submitButton"
+          disabled
+        >
           회원가입
         </button>
       </form>

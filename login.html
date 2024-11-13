@@ -34,6 +34,8 @@
             name="email"
             id="email"
             placeholder="이메일을 입력해주세요"
+            required
+            aria-required="true"
           />
         </div>
 
@@ -44,6 +46,8 @@
             name="password"
             id="password"
             placeholder="비밀번호를 입력해주세요"
+            required
+            aria-required="true"
           />
           <img
             src="img/img_closed_eye.png"
@@ -52,7 +56,9 @@
           />
         </div>
 
-        <button type="submit" class="login-btn" disabled>로그인</button>
+        <button type="submit" class="login-btn submitButton" disabled>
+          로그인
+        </button>
       </form>
 
       <nav class="simple-login">
