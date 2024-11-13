@@ -33,7 +33,7 @@ header {
     padding: 10px 24px;
   }
 
-  @media (width < 767px) {
+  @media (width < 768px) {
     padding: 0 16px;
   }
 }
@@ -108,6 +108,10 @@ a.link:hover {
     width: 100%;
     padding: 84px 116px 200px;
   }
+
+  @media (width < 768px) {
+    padding: 48px 68px;
+  }
 }
 
 .main-section-top-content .link {
@@ -119,7 +123,7 @@ a.link:hover {
   font-weight: 600;
   color: #f9fafb;
 
-  @media (width < 767px) {
+  @media (width < 768px) {
     height: 48px;
     padding: 12px 71px;
     font-size: 1.8rem;
@@ -131,7 +135,7 @@ a.link:hover {
   font-weight: 700;
   line-height: 56px;
 
-  @media (width < 767px) {
+  @media (width < 768px) {
     font-size: 3.2rem;
     text-align: center;
   }
@@ -162,7 +166,7 @@ a.link:hover {
     padding: 24px;
   }
 
-  @media (width < 767px) {
+  @media (width < 768px) {
     width: 100%;
     padding: 40px 15px;
   }
@@ -268,7 +272,7 @@ footer {
     padding: 32px 104px 64px;
   }
 
-  @media (width < 767px) {
+  @media (width < 768px) {
     padding: 32px 32px 64px;
   }
 }
@@ -325,9 +329,9 @@ footer {
 }
 
 /* Mobile 버전 */
-@media (min-width: 375px) and (max-width: 767px) {
+@media (min-width: 375px) and (max-width: 768px) {
   .responsive-br {
-    display: none;
+    display: inline;
   }
 
   .main-section-mid-container img {

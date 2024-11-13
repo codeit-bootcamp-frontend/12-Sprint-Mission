@@ -34,7 +34,7 @@ body {
   margin: 120px auto;
   width: 640px;
 
-  @media (width < 767px) {
+  @media (width < 768px) {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -51,20 +51,20 @@ body {
   justify-content: center;
   padding: 0 122px 40px;
 
-  @media (width < 767px) {
+  @media (width < 768px) {
     padding: 0 auto;
   }
 }
 
 .signup-header a img {
-  @media (width < 767px) {
+  @media (width < 768px) {
     width: 200px;
     height: auto;
   }
 }
 
 .signup-body {
-  @media (width < 767px) {
+  @media (width < 768px) {
     width: 100%;
     max-width: 400px;
   }
@@ -75,7 +75,7 @@ body {
   flex-direction: column;
   gap: 24px;
 
-  @media (width < 767px) {
+  @media (width < 768px) {
     width: 100%;
     max-width: 400px;
   }
@@ -103,7 +103,7 @@ body {
   background-color: var(--gray100);
   outline-color: var(--blue);
 
-  @media (width < 767px) {
+  @media (width < 768px) {
     width: 100%;
     max-width: 400px;
   }
@@ -144,7 +144,7 @@ body {
   cursor: pointer;
   transition: all 0.2s;
 
-  @media (width < 767px) {
+  @media (width < 768px) {
     width: 100%;
     max-width: 400px;
   }
@@ -165,7 +165,7 @@ body {
   border-radius: 8px;
   background-color: #e6f2ff;
 
-  @media (width < 767px) {
+  @media (width < 768px) {
     width: 100%;
     max-width: 400px;
   }
