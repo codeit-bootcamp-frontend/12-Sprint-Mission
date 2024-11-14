@@ -6,13 +6,13 @@ document.addEventListener("DOMContentLoaded", () => {
   
   const emailRegex = /^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/;
 
-  const loginForm = document.querySelector('.login-form');
-  const signupForm = document.querySelector('.signup-form');
-  const emailInput = document.querySelector('#email');
-  const nicknameInput = document.querySelector('#nickname');
-  const passwordInput = document.querySelector('#password');
-  const passwordConfirmationInput = document.querySelector('#passwordConfirmation');
-  const submitButton = document.querySelector('button[type="submit"]');
+  const loginForm = document.querySelector(".login-form");
+  const signupForm = document.querySelector(".signup-form");
+  const emailInput = document.querySelector("#email");
+  const nicknameInput = document.querySelector("#nickname");
+  const passwordInput = document.querySelector("#password");
+  const passwordConfirmationInput = document.querySelector("#passwordConfirmation");
+  const submitButton = document.querySelector("button[type='submit']");
 
   // 오류 메세지 노출 함수
   function showError(input, errorClass) {
@@ -127,6 +127,25 @@ document.addEventListener("DOMContentLoaded", () => {
     submitButton.disabled = !isFormValid;
   }
 
+  // 비밀번호 토글 버튼 동작
+  function togglePasswordVisibility(event) {
+    const button = event.currentTarget;
+    const inputField = button.parentElement.querySelector("input");
+    const toggleIcon = button.querySelector(".password-toggle-icon");
+
+    // 비밀번호가 표시된 상태인지 확인
+    const isPasswordVisible = inputField.type === "text";
+
+    inputField.type = isPasswordVisible ? "password" : "text";
+    toggleIcon.src = isPasswordVisible ? "/images/icons/eye-invisible.svg" : "/images/icons/eye-visible.svg"
+    toggleIcon.alt = isPasswordVisible ? "비밀번호 숨김 상태 아이콘" : "비밀번호 표시 상태 아이콘";
+  }
+
+  // 비밀번호 토글 버튼에 이벤트 리스너 추가
+  const toggleButtons = document.querySelectorAll(".password-toggle-button");
+  toggleButtons.forEach((button) =>
+    button.addEventListener("click", togglePasswordVisibility)
+  );  
 
   // 입력 필드에 이벤트 리스너 추가
   if (emailInput) {
@@ -160,6 +179,11 @@ document.addEventListener("DOMContentLoaded", () => {
       passwordConfirmationInput.removeEventListener("focusout", checkPasswordConfirmationValidity);
       passwordConfirmationInput.removeEventListener("input", checkPasswordConfirmationValidity);
     }
+
+    // 비밀번호 토글 버튼의 이벤트 리스너 제거
+    toggleButtons.forEach((button) =>
+      button.removeEventListener("click", togglePasswordVisibility)
+    );
   }
 
   // 이후 기능 추가 후 수정 (현재는 단순히 특정 페이지로 이동)
