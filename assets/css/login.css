@@ -79,7 +79,7 @@ body {
 .form-item {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 12px;
 }
 
 .form-label {
@@ -112,6 +112,18 @@ body {
 
 .input-box {
   position: relative;
+}
+
+.error-message {
+  padding-left: 16px;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 24px;
+  color: #f74747;
+}
+
+.error-border {
+  border: 1px #f74747 solid;
 }
 
 .item-btn {
