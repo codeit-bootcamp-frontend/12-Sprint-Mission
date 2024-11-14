@@ -1,0 +1,132 @@
+:root {
+    --gray900: #111927;
+    --gray800: #1f2937;
+    --gray700: #374151;
+    --gray600: #4B5563;
+    --gray500: #6B7280;
+    --grat400: #9ca3af;
+    --gary200: #e5e7eB;
+    --gray100: #F3F4F6;
+    --gray50: #f9fafb;
+    --blue: #3692ff;
+}
+
+.sign_main {
+    display: block;
+    width: 640px;
+
+    margin: 231px auto;
+}
+
+
+.login-title {
+    display: flex;
+    justify-content: center;
+    width: 396px;
+    height: 132px;
+    margin: 0px 122px;
+    margin-bottom: 40px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+    gap: 24px;
+}
+
+label {
+    display: block;
+    font-size: 18px;
+    line-height: 26px;
+    font-weight: 700;
+    gap: 10px;
+    text-align: left;
+}
+
+input {
+    display: block;
+    width: 640px;
+    height: 56px;
+    border: none;
+    padding: 16px 24px;
+    gap: 10px;
+    border-radius: 12px;
+    background-color: var(--gray100);
+}
+
+
+.signup-set {
+    border: none;
+    border-radius: 40px;
+    width: 640px;
+    height: 56px;
+    padding: 16px 124px;
+    color: var(--gray100);
+    background-color: #9cA3AF;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.login-easy {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 640px;
+    height: 74px;
+    padding: 16px 23px;
+    border: none;
+    border-radius: 8px;
+    background-color: var(--gary200);
+}
+
+.login-first {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 24px;
+    text-align: center;
+}
+
+.signup-set:hover {
+    background-color: var(--blue);
+}
+
+@media (min-width: 375px) and (max-width: 767px) {
+    body {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+    .sign_main{
+    width: 100%;
+    max-width: 400px;
+    }
+    .login-title{
+        width: 200px;
+        height: auto;
+    }
+    form {
+        width: 100%;
+        max-width: 400px;
+    }
+    label{
+        width: 100%;
+        max-width: 400px;
+    }
+    input{
+        width: 100%;
+        max-width: 400px;
+    }
+    .signup-set{
+        width: 100%;
+        max-width: 400px;
+    }
+    .login-easy{
+        width: 100%;
+        max-width: 400px;
+    }
+    .login-first{
+        width: 100%;
+        max-width: 400px;
+    }
+}
