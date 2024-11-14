@@ -134,13 +134,16 @@ input:focus {
   color: var(--blue);
 }
 
-#email.invalid {
+#email.invalid, 
+#password.invalid, 
+#name.invalid, 
+#password-check.invalid {
   border: 1px solid var(--error);
 }
 
 .emailInput.inputError {
   padding-left: 16px;
- margin-top: 10px;
+  margin-top: 10px;
   font-size: 14px;
   font-weight: 600;
   color: var(--error);
@@ -148,6 +151,22 @@ input:focus {
 }
 
 .passwordInput.inputError {
+  padding-left: 16px;
+  margin-top: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--error);
+}
+
+.nickNameInput.inputError {
+  padding-left: 16px;
+  margin-top: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--error);
+}
+
+.confirmPassword.inputError {
   padding-left: 16px;
   margin-top: 10px;
   font-size: 14px;
