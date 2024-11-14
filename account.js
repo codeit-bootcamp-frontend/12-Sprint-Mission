@@ -35,6 +35,19 @@ const changePasswordType = () => {
   });
 };
 
+const togglePassword = (target) => {
+  target.classList.toggle("visible");
+  if (target.classList.contains("visible")) {
+    target.src = "./img/img_opend_eye.png";
+    target.alt = "opend eye";
+    target.parentNode.children[0].type = "text";
+  } else {
+    target.src = "./img/img_closed_eye.png";
+    target.alt = "closed eye";
+    target.parentNode.children[0].type = "password";
+  }
+};
+
 const validCheck = {
   email: (target) => {
     const emailRegex = /^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/;
@@ -88,9 +101,7 @@ const validCheck = {
   },
 };
 
-const togglePassword = () => {};
-
-authForm.addEventListener("focusout", ({ target }) => {
+const focusoutHandler = ({ target }) => {
   if (validCheck[target.name]) {
     addErrorMessage(target, validCheck[target.name](target));
   }
@@ -104,12 +115,23 @@ authForm.addEventListener("focusout", ({ target }) => {
     const submitButton = document.querySelector(".submitButton");
     submitButton.disabled = false;
   }
-});
+};
 
-authForm.addEventListener("submit", (event) => {
-  event.preventDefault();
-  //sumbit 전처리 : 비밀번호 타입 text인 것들 password로 바꾸기
-  changePasswordType();
-  authForm.submit();
-});
-authForm.addEventListener("click", ({ target }) => {});
+const clickHandler = ({ target }) => {
+  if (target.classList.contains("toggle-password")) togglePassword(target);
+};
+
+authForm.addEventListener("focusout", focusoutHandler);
+authForm.addEventListener("click", clickHandler);
+authForm.addEventListener(
+  "submit",
+  (event) => {
+    event.preventDefault();
+    //sumbit 전처리 : 비밀번호 타입 text인 것들 password로 바꾸기
+    changePasswordType();
+    authForm.removeEventListener("focusout", focusoutHandler);
+    authForm.removeEventListener("click", clickHandler);
+    authForm.submit();
+  },
+  { once: true }
+);
