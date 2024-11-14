@@ -51,32 +51,19 @@ const togglePassword = (target) => {
 const validCheck = {
   email: (target) => {
     const emailRegex = /^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/;
-    if (target.value.length === 0) {
-      const errorMessage = "이메일을 입력해 주세요";
-      return errorMessage;
-    } else if (!emailRegex.test(target.value)) {
-      const errorMessage = "잘못된 이메일입니다.";
-      return errorMessage;
-    }
+    if (target.value.length === 0) return "이메일을 입력해 주세요";
+    if (!emailRegex.test(target.value)) return "잘못된 이메일입니다.";
     if (target.nextElementSibling) removeErrorMessage(target);
     return null;
   },
   nickname: (target) => {
-    if (target.value.length === 0) {
-      const errorMessage = "닉네임을 입력해 주세요";
-      return errorMessage;
-    }
+    if (target.value.length === 0) return "닉네임을 입력해 주세요";
     if (target.nextElementSibling) removeErrorMessage(target);
     return null;
   },
   password: (target) => {
-    if (target.value.length === 0) {
-      const errorMessage = "비밀번호를 입력해 주세요";
-      return errorMessage;
-    } else if (target.value.length < 8) {
-      const errorMessage = "비밀번호를 8자리 이상 입력해 주세요";
-      return errorMessage;
-    }
+    if (target.value.length === 0) return "비밀번호를 입력해 주세요";
+    if (target.value.length < 8) return "비밀번호를 8자리 이상 입력해 주세요";
     if (document.querySelector("#password-confirm"))
       validCheck["password-confirm"](
         document.querySelector("#password-confirm")
@@ -85,17 +72,9 @@ const validCheck = {
     return null;
   },
   "password-confirm": (target) => {
-    if (target.value.length === 0) {
-      const errorMessage = "비밀번호를 입력해 주세요";
-      return errorMessage;
-    } else if (target.value.length < 8) {
-      const errorMessage = "비밀번호를 8자리 이상 입력해 주세요";
-      return errorMessage;
-    }
-    if (!comparePassword(target)) {
-      const errorMessage = "비밀번호가 일치하지 않습니다.";
-      return errorMessage;
-    }
+    if (target.value.length === 0) return "비밀번호를 입력해 주세요";
+    if (target.value.length < 8) return "비밀번호를 8자리 이상 입력해 주세요";
+    if (!comparePassword(target)) return "비밀번호가 일치하지 않습니다.";
     if (target.nextElementSibling) removeErrorMessage(target);
     return null;
   },
@@ -105,6 +84,7 @@ const focusoutHandler = ({ target }) => {
   if (validCheck[target.name]) {
     addErrorMessage(target, validCheck[target.name](target));
   }
+
   const result = Object.values(validCheck).map((validFunc) => {
     const element = document.querySelector(`#${validFunc.name}`);
     if (element === null) return null;
@@ -127,7 +107,6 @@ authForm.addEventListener(
   "submit",
   (event) => {
     event.preventDefault();
-    //sumbit 전처리 : 비밀번호 타입 text인 것들 password로 바꾸기
     changePasswordType();
     authForm.removeEventListener("focusout", focusoutHandler);
     authForm.removeEventListener("click", clickHandler);
