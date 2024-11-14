@@ -29,6 +29,12 @@ const comparePassword = (target) => {
   return prevPassword.value === target.value;
 };
 
+const changePasswordType = () => {
+  document.querySelectorAll(".password-field").forEach((element) => {
+    element.type = "password";
+  });
+};
+
 const validCheck = {
   email: (target) => {
     const emailRegex = /^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/;
@@ -100,4 +106,10 @@ authForm.addEventListener("focusout", ({ target }) => {
   }
 });
 
+authForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+  //sumbit 전처리 : 비밀번호 타입 text인 것들 password로 바꾸기
+  changePasswordType();
+  authForm.submit();
+});
 authForm.addEventListener("click", ({ target }) => {});
