@@ -224,7 +224,7 @@ footer {
 
   .top-banner-img,
   .bottom-banner-img {
-    margin-top: 10vw;
+    margin-top: 100px;
     width: 100%;
     height: 60%;
   }
@@ -262,7 +262,7 @@ footer {
   }
   .section-img {
     width: 100%;
-    height: 70vw;
+    height: 70%;
   }
   .section-title {
     font-size: 32px;
