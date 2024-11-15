@@ -211,5 +211,6 @@ input:focus {
 /* 버튼 활성화되면 사용 */
 .abled-btn { 
   background-color: #3692ff;
+  color: #ffffff;
   cursor: pointer;
 }

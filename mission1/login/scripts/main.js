@@ -65,12 +65,3 @@ checkPasswordBtn.addEventListener('click', updatePasswordtype);
 // login-botton 활성화
 emailInput.addEventListener('input', checkInputInLogin);
 passwordInput.addEventListener('input', checkInputInLogin);
-
-
-// 페이지 이동 (미완성)
-const loginBtn = document.querySelector('.login-button');
-loginBtn.addEventListener('click', () => {
-  if (!loginBtn.disabled) {
-    window.location.href = '/items';
-  }
-});

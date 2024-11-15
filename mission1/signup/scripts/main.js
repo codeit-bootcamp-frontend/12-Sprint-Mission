@@ -117,12 +117,3 @@ emailInput.addEventListener('input', checkInputInSignUp);
 nicknameInput.addEventListener('input', checkInputInSignUp);
 passwordInput.addEventListener('input', checkInputInSignUp);
 checkPasswordInput.addEventListener('input', checkInputInSignUp);
-
-
-// 페이지 이동 미완성
-const signUpBtn = document.querySelector('.sign-up-button');
-signUpBtn.addEventListener('click', () => {
-  if (!signUpBtn.disabled) {
-    window.location.href = '/signin';
-  }
-});
