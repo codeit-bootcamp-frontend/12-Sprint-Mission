@@ -5,6 +5,7 @@ import { showInputError, hideErrorMessage, updatePasswordtype, updateCheckPasswo
 const emailInput = document.querySelector('#email');
 const errorEmail = document.querySelector('#email-error');
 const nicknameInput = document.querySelector('#nickname');
+const errorNickname = document.querySelector('#nickname-error');
 const passwordInput = document.querySelector('#password');
 const errorPassword = document.querySelector('#password-error');
 const checkPasswordInput = document.querySelector('#check-password');
@@ -33,6 +34,27 @@ emailInput.addEventListener('input', () => {  // 이메일 형식에 적합하�
     hideErrorMessage(emailInput, errorEmail);
   }
 });
+
+// 에러체크(nickname)
+nicknameInput.addEventListener('input', () => {
+  const nicknameValue = nicknameInput.value.trim();
+
+  if(nicknameValue === '') {
+    showInputError(nicknameInput, errorNickname);
+    errorNickname.textContent = '닉네임을 입력해주세요.';
+  } else {
+    hideErrorMessage(nicknameInput, errorNickname);
+  }
+});
+
+nicknameInput.addEventListener('focusout', () => {
+  const nicknameValue = nicknameInput.value.trim();
+  
+  if(nicknameValue === '') {
+    showInputError(nicknameInput, errorNickname);
+    errorNickname.textContent = '닉네임을 입력해주세요.';
+  }
+})
 
 
 // 에러체크(password)

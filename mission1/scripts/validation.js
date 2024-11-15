@@ -34,16 +34,19 @@ export function checkInputInLogin() {
 
 
 // 회원가입 버튼 활성 & 비활성 함수
+const nicknameInput = document.querySelector('#nickname');
 const checkPasswordInput = document.querySelector('#check-password');
 const signUpBtn = document.querySelector('.sign-up-button');
 
 export function checkInputInSignUp() {
   const emailValue = emailInput.value.trim();
+  const nicknameValue = nicknameInput.value.trim() === '';
   const passwordValue = passwordInput.value.trim();
   const checkValue = passwordValue === checkPasswordInput.value.trim();
 
   const isValid = (
     isValidemail(emailValue) === true 
+    && nicknameValue === false
     && isValidpassword(passwordValue) === false
     && checkValue === true
   );
