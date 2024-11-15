@@ -19,6 +19,7 @@
             name="email"
             placeholder="이메일을 입력해주세요"
             class="emailInput"
+            required
           />
           <div class="emailInput inputError"></div>
         </div>
@@ -30,6 +31,7 @@
             name="name"
             placeholder="닉네임을 입력해주세요"
             class="nickNameInput"
+            required
           />
           <div class="nickNameInput inputError"></div>
         </div>
@@ -41,6 +43,8 @@
             name="password"
             placeholder="비밀번호를 입력해주세요"
             class="passwordInput"
+            required
+            minlength="8"
           />
           <div class="passwordInput inputError"></div>
         </div>
@@ -52,10 +56,12 @@
             name="password-check"
             placeholder="비밀번호를 다시 한 번 입력해주세요"
             class="confirmPassword"
+            required
+            minlength="8"
           />
           <div class="confirmPassword inputError"></div>
         </div>
-        <button type="submit" class="signup button">회원가입</button>
+        <button type="submit" class="signup button" disabled>회원가입</button>
       </form>
 
       <div class="social-login">

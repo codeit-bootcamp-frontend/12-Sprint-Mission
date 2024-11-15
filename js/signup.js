@@ -1,4 +1,4 @@
-import { validateEmail, validatePassword } from './validationUtils.js';
+import { validateEmail, validatePassword, validateNickName, validateConfirmPw } from './validationUtils.js';
 
 const email = document.querySelector('.emailInput');
 const emailError = document.querySelector('.emailInput.inputError');
@@ -48,9 +48,10 @@ password.addEventListener('blur', () => {
 })
 
 nickName.addEventListener('blur', () => {
-  if (nickName.value === '') {
+  const errorMsg = validateNickName(nickName.value);
+  if (errorMsg) {
     nickName.classList.add('invalid');
-    nameError.textContent = '닉네임을 입력해주세요';
+    nameError.textContent = errorMsg;
   } else {
     nickName.classList.remove('invalid');
     nameError.textContent = '';
@@ -59,12 +60,10 @@ nickName.addEventListener('blur', () => {
 })
 
 confirmPw.addEventListener('blur', () => {
-  if (confirmPw.value === '') {
+  const errorMsg = validateConfirmPw(password.value, confirmPw.value);
+  if (errorMsg) {
     confirmPw.classList.add('invalid');
-    confirmPwError.textContent = '비밀번호를 한번 더 입력해주세요';
-  } else if (confirmPw.value !== password.value) {
-    confirmPw.classList.add('invalid');
-    confirmPwError.textContent = '비밀번호가 일치하지 않습니다';
+    confirmPwError.textContent = errorMsg;
   } else {
     confirmPw.classList.remove('invalid');
     confirmPwError.textContent = '';

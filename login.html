@@ -18,6 +18,7 @@
             name="email"
             placeholder="이메일을 입력해주세요"
             class="emailInput"
+            required
           />
           <div class="emailInput inputError"></div>
         </div>
@@ -29,10 +30,12 @@
             name="password"
             placeholder="비밀번호를 입력해주세요"
             class="passwordInput"
+            required
+            minlength="8"
           />
           <div class="passwordInput inputError"></div>
         </div>
-        <button type="submit" class="login button">로그인</button>
+        <button type="submit" class="login button" disabled>로그인</button>
       </form>
       <div class="social-login">
         <p>간편 로그인 하기</p>
