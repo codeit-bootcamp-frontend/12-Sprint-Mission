@@ -1,3 +1,5 @@
+import { ERROR_MESSAGE, VAILD_REGEX } from "./ACCOUNT_CONST.js";
+
 const authForm = document.querySelector(".auth-form");
 
 const addErrorMessage = (target, errorMessage) => {
@@ -50,20 +52,20 @@ const togglePassword = (target) => {
 
 const validCheck = {
   email: (target) => {
-    const emailRegex = /^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/;
-    if (target.value.length === 0) return "이메일을 입력해 주세요";
-    if (!emailRegex.test(target.value)) return "잘못된 이메일입니다.";
+    const emailRegex = VAILD_REGEX.EMAIL_REGEX;
+    if (target.value.length === 0) return ERROR_MESSAGE.NOT_INPUT_EMAIL;
+    if (!emailRegex.test(target.value)) return ERROR_MESSAGE.INVALID_EMAIL;
     if (target.nextElementSibling) removeErrorMessage(target);
     return null;
   },
   nickname: (target) => {
-    if (target.value.length === 0) return "닉네임을 입력해 주세요";
+    if (target.value.length === 0) return ERROR_MESSAGE.NOT_INPUT_NICKNAME;
     if (target.nextElementSibling) removeErrorMessage(target);
     return null;
   },
   password: (target) => {
-    if (target.value.length === 0) return "비밀번호를 입력해 주세요";
-    if (target.value.length < 8) return "비밀번호를 8자리 이상 입력해 주세요";
+    if (target.value.length === 0) return ERROR_MESSAGE.NOT_INPUT_PASSWORD;
+    if (target.value.length < 8) return ERROR_MESSAGE.MORE_THEN_8DIGIT;
     if (document.querySelector("#password-confirm"))
       validCheck["password-confirm"](
         document.querySelector("#password-confirm")
@@ -72,9 +74,9 @@ const validCheck = {
     return null;
   },
   "password-confirm": (target) => {
-    if (target.value.length === 0) return "비밀번호를 입력해 주세요";
-    if (target.value.length < 8) return "비밀번호를 8자리 이상 입력해 주세요";
-    if (!comparePassword(target)) return "비밀번호가 일치하지 않습니다.";
+    if (target.value.length === 0) return ERROR_MESSAGE.NOT_INPUT_PASSWORD;
+    if (target.value.length < 8) return ERROR_MESSAGE.MORE_THEN_8DIGIT;
+    if (!comparePassword(target)) return ERROR_MESSAGE.NOT_MATCH_PASSWORD;
     if (target.nextElementSibling) removeErrorMessage(target);
     return null;
   },
