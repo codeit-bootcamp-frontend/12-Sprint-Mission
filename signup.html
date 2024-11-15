@@ -26,7 +26,9 @@
               placeholder="이메일을 입력해주세요"
               class="form__group-input"
               name="email"
+              id="email"
             />
+            <span class="email__error-message"></span>
           </div>
           <div class="form__group">
             <label class="form__group-label">닉네임</label>
@@ -35,7 +37,9 @@
               placeholder="닉네임을 입력해주세요"
               class="form__group-input"
               name="nickname"
+              id="nickname"
             />
+            <span class="nickname__error-message"></span>
           </div>
           <div class="form__group">
             <label class="form__group-label">비밀번호</label>
@@ -47,11 +51,12 @@
                 id="password"
               />
               <img
-                src="/img/btn_visibility_on_24px.png"
+                src="/img/close-eyes.png"
                 alt="비밀번호 가림 이미지"
                 class="form__group-img"
               />
             </div>
+            <span class="password__error-message"></span>
           </div>
           <div class="form__group">
             <label class="form__group-label">비밀번호확인</label>
@@ -61,15 +66,17 @@
                 name="password"
                 placeholder="비밀번호를 다시 한 번 입력해주세요"
                 class="form__group-input"
+                id="checked-password"
               />
               <img
-                src="/img/btn_visibility_on_24px.png"
+                src="/img/close-eyes.png"
                 alt="비밀번호 가림 이미지"
                 class="form__group-img"
               />
             </div>
+            <span class="checked-password__error-message"></span>
           </div>
-          <button type="submit" class="signup-button">회원가입</button>
+          <button type="button" class="signup-button">회원가입</button>
         </form>
         <div class="social-login__container">
           <p>간편 로그인하기</p>
@@ -97,4 +104,5 @@
       </div>
     </section>
   </body>
+  <script src="/js/signup.js"></script>
 </html>

@@ -23,8 +23,10 @@
               type="email"
               placeholder="이메일을 입력해주세요"
               class="form__group-input"
+              id="email"
               name="email"
             />
+            <span class="email__error-message"></span>
           </div>
           <div class="form__group">
             <label class="form__group-label" for="focus">비밀번호</label>
@@ -37,13 +39,14 @@
                 class="form__group-input"
               />
               <img
-                src="/img/btn_visibility_on_24px.png"
+                src="/img/close-eyes.png"
                 alt="비밀번호 가림 이미지"
                 class="form__group-img"
               />
             </div>
+            <span class="password__error-message"></span>
           </div>
-          <button type="submit" class="login-button">로그인</button>
+          <button type="button" class="login-button">로그인</button>
         </form>
         <div class="social-login__container">
           <p>간편 로그인하기</p>
@@ -71,4 +74,5 @@
       </div>
     </section>
   </body>
+  <script src="/js/inputFocus.js"></script>
 </html>

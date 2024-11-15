@@ -84,6 +84,21 @@ body {
   font-weight: 400;
 }
 
+.error {
+  border: 2px solid red;
+}
+
+.email__error-message,
+.password__error-message {
+  color: red;
+  padding: 0px 16px;
+  display: none;
+  font-size: 14px;
+  line-height: 24px;
+  font-weight: 600;
+  transform: translateY(-8px);
+}
+
 .form__group-label {
   font-size: 18px;
   font-weight: 700;
