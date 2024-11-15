@@ -26,12 +26,21 @@
             <label for="email">이메일</label>
           </div>
           <input type="email" id="email" placeholder="이메일을 입력해주세요" />
+          <span id="emailEmptyError" class="error-message">
+            이메일을 입력해주세요.
+          </span>
+          <span id="emailInvalidError" class="error-message">
+            잘못된 이메일 형식입니다.
+          </span>
         </form>
         <form>
           <div class="label">
             <label for="nickname">닉네임</label>
           </div>
           <input id="nickname" placeholder="닉네임을 입력해주세요" />
+          <span id="nicknameEmptyError" class="error-message">
+            닉네임을 입력해주세요.
+          </span>
         </form>
         <form>
           <div class="label">
@@ -43,35 +52,30 @@
               id="password"
               placeholder="비밀번호를 입력해주세요"
             />
-            <img
-              src="/images/login/pw-eye-btn-on.png"
-              class="pw-eye-btn-on done"
-            />
-            <img
-              src="/images/login/pw-eye-btn-off.png"
-              class="pw-eye-btn-off"
-            />
+            <img src="/images/login/pw-eye-btn-off.png" class="pw-eye-btn" />
           </div>
+          <span id="passwordEmptyError" class="error-message">
+            비밀번호를 입력해주세요.
+          </span>
+          <span id="passwordLengthError" class="error-message">
+            비밀번호를 8자 이상 입력해주세요.
+          </span>
         </form>
         <form>
           <div class="label">
-            <label for="password-check">비밀번호 확인</label>
+            <label for="passwordCheck">비밀번호 확인</label>
           </div>
           <div class="password">
             <input
               type="password"
-              id="password-check"
+              id="passwordCheck"
               placeholder="비밀번호를 다시 한 번 입력해주세요"
             />
-            <img
-              src="/images/login/pw-eye-btn-on.png"
-              class="pw-ck-eye-btn-on done"
-            />
-            <img
-              src="/images/login/pw-eye-btn-off.png"
-              class="pw-ck-eye-btn-off"
-            />
+            <img src="/images/login/pw-eye-btn-off.png" class="pw-ck-eye-btn" />
           </div>
+          <span id="passwordCheckError" class="error-message">
+            비밀번호가 일치하지 않습니다.
+          </span>
         </form>
         <a href="#" class="btn btn-lg auth-btn">회원가입</a>
         <div class="bottom-menu">
@@ -87,11 +91,11 @@
         </div>
         <div class="auth-guide">
           이미 회원이신가요?
-          <a href="/html/login.html" class="auth-guide-btn">로그인</a>
+          <a href="/html/signin.html" class="auth-guide-btn">로그인</a>
         </div>
       </div>
     </div>
 
-    <script src="/js/signup.js"></script>
+    <script src="/js/auth.js"></script>
   </body>
 </html>

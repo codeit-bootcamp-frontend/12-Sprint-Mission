@@ -77,23 +77,29 @@ input:focus {
   position: relative;
 }
 
-.pw-eye-btn-on,
-.pw-eye-btn-off,
-.pw-ck-eye-btn-on,
-.pw-ck-eye-btn-off {
+.pw-eye-btn,
+.pw-ck-eye-btn {
   position: absolute;
   top: 16px;
   right: 16px;
 }
 
-.pw-eye-btn-on:hover,
-.pw-eye-btn-off:hover,
-.pw-ck-eye-btn-on:hover,
-.pw-ck-eye-btn-off:hover {
+.pw-eye-btn,
+.pw-ck-eye-btn {
   cursor: pointer;
 }
 
-.done {
+.error-message {
+  padding-left: 16px;
+  margin-top: 8px;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 24px;
+  color: var(--red);
+  display: none;
+}
+
+.hide {
   display: none;
 }
 
@@ -132,6 +138,7 @@ input:focus {
   background-color: var(--blue100);
 }
 
+/* 모바일 화면 */
 @media (max-width: 767px) {
   body {
     padding-left: 16px;

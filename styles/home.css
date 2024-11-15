@@ -145,6 +145,7 @@ footer > .container {
   gap: 12px;
 }
 
+/* 태블릿 화면 */
 @media (max-width: 1199px) {
   header .container {
     margin: 0 24px;
@@ -233,6 +234,7 @@ footer > .container {
   }
 }
 
+/* 모바일 화면 */
 @media (max-width: 767px) {
   header .container {
     margin: 0 16px;
