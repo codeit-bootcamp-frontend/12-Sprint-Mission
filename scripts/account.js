@@ -29,6 +29,7 @@ const removeErrorMessage = (target) => {
 
 const comparePassword = (target) => {
   const prevPassword = document.querySelector("#password");
+  console.log(prevPassword.value === target.value);
   return prevPassword.value === target.value;
 };
 
@@ -85,9 +86,11 @@ const validCheckInput = {
     if (target.value.length === 0) return ERROR_MESSAGE.NOT_INPUT_PASSWORD;
     if (target.value.length < 8) return ERROR_MESSAGE.MORE_THEN_8DIGIT;
     //비밀번호 확인을 기준으로 비밀번호 란을 채울 경우 고려
-    if (document.querySelector("#password-confirm"))
-      validCheckInput["password-confirm"](
-        document.querySelector("#password-confirm")
+    const passwordConfirm = document.querySelector("#password-confirm");
+    if (passwordConfirm)
+      addErrorMessage(
+        passwordConfirm,
+        validCheckInput[passwordConfirm.name](passwordConfirm)
       );
     removeErrorMessage(target);
     return true;
