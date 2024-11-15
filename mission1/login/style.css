@@ -16,7 +16,7 @@
   font-style: normal;
 }
 
-body {  /* pretendard폰트 가져오는 것을 못하겠음 */
+body { 
   font-family: 'Pretendard', sans-serif;  
   margin: 0;
   display: flex;
@@ -40,7 +40,7 @@ form {
 /* logo */
 .logo-img {
   width: 396px;
-  margin: 0 auto 40px;
+  margin: 0 auto 16px;
   display: block;
 }
 
@@ -48,6 +48,7 @@ form {
 label {
   font-size: 18px;
   font-weight: 700;
+  margin-top: 24px;
   display: block;
 }
 
@@ -62,17 +63,39 @@ input {
   display: block;
   width: 100%;
   padding: 16px 24px;
-  margin: 16px auto 24px;
+  margin: 16px auto 0;
 }
 
 .password-container {
   position: relative;
 }
 
-.check-password--img {
+.check-password--img__button {
+  background-image: url('../img/check_password.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 24px;
+  width: 24px;
+  height: 24px;
+  border: 0;
   position: absolute;
   bottom: 16px;
   right: 24px;
+  cursor: pointer;
+}
+
+.show-password {  /* 이미지 클릭시 변경될 값 */
+  background-image: url('../img/show_password.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 24px;
+  width: 24px;
+  height: 24px;
+  border: 0;
+  position: absolute;
+  bottom: 16px;
+  right: 24px;
+  cursor: pointer;
 }
 
 input:focus {
@@ -89,16 +112,11 @@ input:focus {
   line-height: 32px;
   text-align: center;
   width: 100%;
-  margin: 24px auto;
+  margin: 24px auto 0;
   padding: 16px;
   border: 0;
   border-radius: 40px;
   display: block;
-}
-
-.login-button:hover {
-  background-color: #3692FF;
-  color: #ffffff;
 }
 
 /* easy login */
@@ -162,7 +180,36 @@ input:focus {
     padding-right: 16px;
   }
 
+  label {
+    font-size: 14px;
+    line-height: 16px;
+  }
+
   .logo-img {
     width: 198px;
   }
+}
+
+
+
+/* error 발생시 선택자css(in JS) */
+.error-message-box {
+  color: red;
+  font-size: 14px;
+  margin-top: 8px;
+  display: none; /* 초기에는 숨김 */
+}
+
+.error {
+  border: 1.5px solid red; /* 오류가 있을 때 빨간색 테두리 */
+}
+
+.error:focus {
+  outline: 0;
+}
+
+/* 버튼 활성화되면 사용 */
+.abled-btn { 
+  background-color: #3692ff;
+  cursor: pointer;
 }

@@ -18,29 +18,52 @@
 
       <form>
         <!-- email -->
-        <label for="email">이메일
-          <input id="email" name="email" type="email" placeholder="이메일을 입력해주세요" autocomplete="email" required>
-        </label>
+         <div class="form-group">
+          <label for="email">이메일</label>
+          <input 
+            id="email" name="email" type="email" 
+            placeholder="이메일을 입력해주세요" autocomplete="email" required
+          >
+          <span id="email-error" class="error-message-box"></span>
+        </div>
+
         <!-- nickname -->
-        <label for="nickname">닉네임
-          <input id="nickname" type="text" placeholder="닉네임을 입력해주세요" required>
-        </label>
+        <div class="form-group">
+          <label for="nickname">닉네임</label>
+          <input 
+            id="nickname" type="text" 
+            placeholder="닉네임을 입력해주세요" required
+          >
+        </div>
+
         <!-- password -->
-        <label for="password">비밀번호
+        <div class="form-group">
+          <label for="password">비밀번호</label>
           <div class="password-container">
-            <input id="password" name="password" type="password" placeholder="비밀번호를 입력해주세요" required>
-            <img class="check-password--img" src="../img/check_password.png" alt="비밀번호 보기">
+            <input 
+              id="password" name="password" type="password" 
+              placeholder="비밀번호를 입력해주세요" required
+            >
+            <button class="check-password--img__button" type="button"></button>
           </div>
-        </label>
+          <span id="password-error" class="error-message-box"></span>
+        </div>
+
         <!-- check password -->
-        <label for="check-password">비밀번호 확인
+        <div class="form-group">
+          <label for="check-password">비밀번호 확인</label>
           <div class="password-container">
-            <input id="check-password" name="password" type="password" placeholder="비밀번호를 다시 한 번 입력해주세요" required>
-            <img class="check-password--img" src="../img/check_password.png" alt="비밀번호 보기">
+            <input 
+              id="check-password" name="password" type="password" 
+              placeholder="비밀번호를 다시 한 번 입력해주세요" required
+            >
+            <button class="check-password--img__button" type="button"></button>
           </div>
-        </label>
+          <span id="check-password-error" class="error-message-box"></span>
+        </div>
+
         <!-- signup button -->
-        <button class="sign-up-button" type="submit">회원가입</button>
+        <button class="sign-up-button" type="submit" disabled>회원가입</button>
       </form>
 
       <!-- social-sign-in -->
@@ -56,5 +79,6 @@
         <a class="login__text-box--cta" href="../login/">로그인</a>
       </p>
     </div>
+    <script type="module" src="scripts/main.js"></script>
   </body>
 </html>
