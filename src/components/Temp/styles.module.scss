@@ -1,0 +1,23 @@
+.temp-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 6rem;
+  height: 100vh;
+
+  .page-content {
+    text-align: center;
+  }
+
+  .page-title {
+    margin-bottom: 0.3em;
+    font-size: 4rem;
+    font-weight: 700;
+    color: var(--color-seondary-700);
+  }
+
+  .page-description {
+    color: var(--color-seondary-400);
+  }
+}
