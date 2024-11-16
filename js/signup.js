@@ -23,7 +23,7 @@
   }
 
   // 이메일 체크
-  emailInput.addEventListener("input", () => {
+  emailInput.addEventListener("focusout", () => {
     const email = emailInput.value.trim();
 
     if (email === "") {
@@ -39,7 +39,7 @@
   });
 
   //닉네임 체크
-  nicknameInput.addEventListener('input', () => {
+  nicknameInput.addEventListener('focusout', () => {
     const nickname = nicknameInput.value.trim();
     if (nickname === "") {
       nicknameError.textContent = "닉네임을 입력해주세요.";
@@ -53,7 +53,7 @@
   });
 
   //비밀번호 체크
-  passwordInput.addEventListener('input', () => {
+  passwordInput.addEventListener('focusout', () => {
     const password = passwordInput.value.trim();
     if (password === "") {
       passwordError.textContent = "비밀번호를 입력해주세요.";
@@ -72,7 +72,7 @@
   });
 
   // 비밀번호 확인
-  passwordcheckInput.addEventListener('input', () => {
+  passwordcheckInput.addEventListener('focusout', () => {
     const password = passwordInput.value.trim();
     const passwordcheck = passwordcheckInput.value.trim();
     if (passwordcheck !== password) {

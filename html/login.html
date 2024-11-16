@@ -1,76 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" href="img/logo.png" type="image/svg+xml" />
-    <title>판다마켓 계정</title>
-    <link rel="stylesheet" href="/css/reset.css" />
-    <link rel="stylesheet" href="/css/common.css" />
-    <link rel="stylesheet" href="/css/login.css" />
-  </head>
-  <body>
-    <main class="main">
-      <div class="main-container">
-        <a href="/" class="main__logo">
-          <img src="/assets/img/logo.svg" alt="판다마켓 로고" />
-          판다마켓
-        </a>
-        <div class="main__login-wrap">
-          <form class="login__form">
-            <div class="form__item">
-              <label class="form__label" for="email">이메일</label>
-              <input
-                class="form__input"
-                placeholder="이메일을 입력해주세요"
-                type="text"
-                id="login--id"
-                name="email"
-              />
-              <p class="form__email-error"></p>
-            </div>
-            <div class="form__item">
-              <label class="form__label" for="password">비밀번호</label>
-              <input
-                class="form__input"
-                placeholder="비밀번호를 입력해주세요."
-                autocomplete="off"
-                type="password"
-                id="login--password"
-                name="password"
-              />
-              <p class="form__password-error"></p>
-              <button
-                class="form__password-hidden"
-                aria-label="비밀번호 숨기기"
-              ></button>
-            </div>
-            <button type="submit" class="form__button">로그인</button>
-          </form>
-          <section class="social_login">
-            <p class="social_login__text">간편 로그인하기</p>
-            <div class="social_login__icon-wrap">
-              <a
-                class="social__icon social__icon-google"
-                target="_blank"
-                href="https://www.google.com"
-                >구글</a
-              >
-              <a
-                class="social__icon social__icon-kakao"
-                target="_blank"
-                href="https://www.kakaocorp.com/page"
-                >카카오</a
-              >
-            </div>
-          </section>
-          <div class="social__description">
-            <p class="description__txt">판다마켓이 처음이신가요?</p>
-            <a class="description__link" href="signup.html">회원가입</a>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta property="og:title" content="판다마켓" />
+  <meta property="og:description" content="일상의 모든 물건을 공유해보세요." />
+  <meta property="og:url" content="https://eundoo.netlify.app/" />
+  <meta property="og:image" content="https://eundoo.netlify.app/assets/img/og-image.png" />
+  <link rel="icon" href="/assets/img/logo.png" type="image/svg+xml" />
+  <title>판다마켓 계정</title>
+  <link rel="stylesheet" href="/css/reset.css" />
+  <link rel="stylesheet" href="/css/common.css" />
+  <link rel="stylesheet" href="/css/login.css" />
+</head>
+
+<body>
+  <main class="main">
+    <div class="main-container">
+      <a href="/" class="main__logo">
+        <img src="/assets/img/logo.svg" alt="판다마켓 로고" />
+        판다마켓
+      </a>
+      <div class="main__login-wrap">
+        <form class="login__form">
+          <div class="form__item">
+            <label class="form__label" for="email">이메일</label>
+            <input class="form__input" placeholder="이메일을 입력해주세요" type="text" id="login--id" name="email" />
+            <p class="form__email-error"></p>
           </div>
+          <div class="form__item">
+            <label class="form__label" for="password">비밀번호</label>
+            <input class="form__input" placeholder="비밀번호를 입력해주세요." autocomplete="off" type="password"
+              id="login--password" name="password" />
+            <p class="form__password-error"></p>
+            <button class="form__password-hidden" aria-label="비밀번호 숨기기"></button>
+          </div>
+          <button type="submit" class="form__button">로그인</button>
+        </form>
+        <section class="social_login">
+          <p class="social_login__text">간편 로그인하기</p>
+          <div class="social_login__icon-wrap">
+            <a class="social__icon social__icon-google" target="_blank" href="https://www.google.com">구글</a>
+            <a class="social__icon social__icon-kakao" target="_blank" href="https://www.kakaocorp.com/page">카카오</a>
+          </div>
+        </section>
+        <div class="social__description">
+          <p class="description__txt">판다마켓이 처음이신가요?</p>
+          <a class="description__link" href="signup.html">회원가입</a>
         </div>
       </div>
-    </main>
-  </body>
+    </div>
+  </main>
+</body>
+
 </html>
 <script src="/js/login.js"></script>

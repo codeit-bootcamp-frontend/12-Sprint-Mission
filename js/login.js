@@ -16,7 +16,7 @@
   }
 
   // 이메일 체크
-  emailInput.addEventListener("input", () => {
+  emailInput.addEventListener("focusout", () => {
     const email = emailInput.value.trim();
 
     if (email === "") {
@@ -33,7 +33,7 @@
 
 
   //비밀번호 체크
-  passwordInput.addEventListener('input', () => {
+  passwordInput.addEventListener("focusout", () => {
     const password = passwordInput.value.trim();
     if (password === "") {
       passwordError.textContent = "비밀번호를 입력해주세요.";
