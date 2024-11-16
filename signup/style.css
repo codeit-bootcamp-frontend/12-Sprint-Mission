@@ -61,6 +61,7 @@ body {
 .signup-form__group {
   display: flex;
   flex-direction: column;
+  margin-bottom: 25px;
 }
 
 .signup-form__label {
@@ -78,7 +79,7 @@ body {
   border: none;
   border-radius: 12px;
   padding: 16px 24px;
-  margin: 15px 0 25px;
+  margin: 15px 0 0;
 }
 
 .signup-form__input-email::placeholder,
