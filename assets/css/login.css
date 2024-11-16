@@ -79,7 +79,7 @@ body {
 .form-item {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 6px;
 }
 
 .form-label {
@@ -126,7 +126,8 @@ body {
   border: 1px #f74747 solid;
 }
 
-.item-btn {
+.visible-btn {
+  display: block;
   position: absolute;
   top: 50%;
   right: 24px;
@@ -135,6 +136,22 @@ body {
   height: 24px;
   border: none;
   background-image: url("/assets/images/btn_visibility_on_24px.png");
+  background-size: cover;
+  cursor: pointer;
+}
+
+.invisible-btn {
+  display: none;
+  position: absolute;
+  top: 50%;
+  right: 24px;
+  transform: translateY(-50%);
+  width: 24px;
+  height: 24px;
+  border: none;
+  background-image: url("/assets/images/btn_invisibility_on_24px.png");
+  background-size: cover;
+  cursor: pointer;
 }
 
 .form-btn {
@@ -159,6 +176,11 @@ body {
 
 .form-btn:hover {
   background-color: var(--blue);
+}
+
+.login-btn.disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
 }
 
 .auth-footer {

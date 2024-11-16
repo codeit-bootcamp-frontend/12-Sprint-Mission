@@ -119,7 +119,19 @@ body {
   position: relative;
 }
 
-.item-btn {
+.error-message {
+  padding-left: 16px;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 24px;
+  color: #f74747;
+}
+
+.error-border {
+  border: 1px #f74747 solid;
+}
+
+.visible-btn {
   position: absolute;
   top: 50%;
   right: 24px;
@@ -128,6 +140,22 @@ body {
   height: 24px;
   border: none;
   background-image: url("/assets/images/btn_visibility_on_24px.png");
+  background-size: cover;
+  cursor: pointer;
+}
+
+.invisible-btn {
+  display: none;
+  position: absolute;
+  top: 50%;
+  right: 24px;
+  transform: translateY(-50%);
+  width: 24px;
+  height: 24px;
+  border: none;
+  background-image: url("/assets/images/btn_invisibility_on_24px.png");
+  background-size: cover;
+  cursor: pointer;
 }
 
 .form-btn {
@@ -152,6 +180,11 @@ body {
 
 .form-btn:hover {
   background-color: var(--blue);
+}
+
+.signup-btn.disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
 }
 
 .signup-footer {
