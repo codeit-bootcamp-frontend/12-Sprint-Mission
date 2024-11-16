@@ -87,3 +87,14 @@ input:focus {
   text-decoration: underline;
   text-underline-offset: 2px;
 }
+
+.input-item input.error {
+  border: 1px solid red;
+}
+
+.error-message {
+  color: red;
+  display: none;
+  font-size: 12px;
+  margin-top: 4px;
+}
