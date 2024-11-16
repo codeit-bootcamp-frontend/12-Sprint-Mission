@@ -227,5 +227,24 @@ confirmPasswordInput.addEventListener('focusout', function () {
   signupBtnState()
 });
 
+const blindImgFirst = document.querySelectorAll('.signup-form__input-blind')[0];
+blindImgFirst.addEventListener('click', function () {
+  if (blindImgFirst.getAttribute('src') == '/img/btn_visibility_off_24px.png') {
+    blindImgFirst.setAttribute('src', '/img/btn_visibility_on_24px.png');
+    passwordInput.setAttribute('type', 'text');
+  } else {
+    blindImgFirst.setAttribute('src', '/img/btn_visibility_off_24px.png');
+    passwordInput.setAttribute('type', 'password');
+  }
+})
 
-
+const blindImgSecond = document.querySelectorAll('.signup-form__input-blind')[1];
+blindImgSecond.addEventListener('click', function () {
+  if (blindImgSecond.getAttribute('src') == '/img/btn_visibility_off_24px.png') {
+    blindImgSecond.setAttribute('src', '/img/btn_visibility_on_24px.png');
+    confirmPasswordInput.setAttribute('type', 'text');
+  } else {
+    blindImgSecond.setAttribute('src', '/img/btn_visibility_off_24px.png');
+    confirmPasswordInput.setAttribute('type', 'password');
+  }
+})

@@ -126,6 +126,15 @@ passwordInput.addEventListener('focusout', function () {
 })
 
 
-
+const blindImg = document.querySelectorAll('.login-form__input-blind')[0];
+blindImg.addEventListener('click', function () {
+  if (blindImg.getAttribute('src') == '/img/btn_visibility_off_24px.png') {
+    blindImg.setAttribute('src', '/img/btn_visibility_on_24px.png');
+    passwordInput.setAttribute('type', 'text');
+  } else {
+    blindImg.setAttribute('src', '/img/btn_visibility_off_24px.png');
+    passwordInput.setAttribute('type', 'password');
+  }
+})
 
 
