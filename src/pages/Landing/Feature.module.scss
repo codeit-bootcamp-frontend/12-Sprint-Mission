@@ -1,0 +1,146 @@
+@use "../../assets/scss/base/mixins";
+
+.features {
+  @include mixins.tablet {
+    padding: 2.4rem 0 5.6rem;
+  }
+  @include mixins.mobile {
+    padding: 5.2rem 0 8.3rem;
+  }
+}
+
+.feature {
+  padding: 13.8rem 0;
+  background: #fff;
+
+  @include mixins.tablet {
+    padding: 0;
+    margin-bottom: 5.2rem;
+    background: transparent;
+  }
+
+  @include mixins.mobile {
+    margin-bottom: 4rem;
+  }
+
+  &:last-child {
+    @include mixins.tablet {
+      margin-bottom: 0;
+    }
+  }
+
+  .inner {
+    @include mixins.inner;
+    max-width: calc(98.8rem + var(--gutter) * 2);
+  }
+
+  .feature-card {
+    overflow: hidden;
+    display: flex;
+    gap: 6.4rem;
+    height: 44.4rem;
+    border-radius: 12px;
+    background: #fcfcfc;
+
+    @include mixins.tablet {
+      display: block;
+      height: auto;
+      border-radius: 0;
+      background: none;
+    }
+
+    .feature-image {
+      @include mixins.tablet {
+        overflow: hidden;
+        margin-bottom: 2.4rem;
+        border-radius: 12px;
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+
+        @include mixins.tablet {
+          height: auto;
+          object-fit: unset;
+        }
+      }
+    }
+
+    .feature-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      flex: 0 0 34.5rem;
+      padding-right: 4rem;
+      word-break: keep-all;
+
+      .feature-keyword {
+        margin-bottom: 1.2rem;
+        color: var(--color-primary-100);
+        font-size: 1.8rem;
+        font-weight: 700;
+
+        @include mixins.tablet {
+          margin-bottom: 1.6rem;
+        }
+
+        @include mixins.mobile {
+          margin-bottom: 0.8rem;
+          font-size: 1.6rem;
+        }
+      }
+
+      .feature-title {
+        margin-bottom: 2.4rem;
+        font-size: 4rem;
+        font-weight: 700;
+        line-height: 1.4;
+        color: var(--color-seondary-700);
+        white-space: pre-wrap;
+
+        @include mixins.tablet {
+          margin-bottom: 2.4rem;
+          font-size: 3.2rem;
+          white-space: normal;
+        }
+
+        @include mixins.mobile {
+          margin-bottom: 1.6rem;
+          font-size: 2.4rem;
+          line-height: 1.3;
+        }
+      }
+
+      .feature-description {
+        font-size: 2.4rem;
+        font-weight: 500;
+        color: var(--color-seondary-700);
+        white-space: pre-wrap;
+
+        @include mixins.tablet {
+          font-size: 1.8rem;
+          line-height: 1.4;
+        }
+
+        @include mixins.mobile {
+          font-size: 1.6rem;
+          line-height: 1.6;
+        }
+      }
+    }
+  }
+
+  &.reverse {
+    .feature-card {
+      flex-direction: row-reverse;
+      text-align: right;
+    }
+
+    .feature-content {
+      padding-left: 4rem;
+      padding-right: 0;
+    }
+  }
+}
