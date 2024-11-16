@@ -110,7 +110,11 @@ body {
   line-height: 1;
 }
 
-.signup-form__btn:hover {
+/* .signup-form__btn:hover {
+  background-color: var(--blue);
+} */
+
+.signup-form__btn-hover {
   background-color: var(--blue);
 }
 
@@ -124,6 +128,17 @@ body {
 
 .signup-form__blind-container {
   position: relative;
+}
+
+.signup-form__msg {
+  color: red;
+  margin-left: 20px;
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+.signup-form__error {
+  border: 1px solid red;
 }
 
 /* 간편 로그인 */
