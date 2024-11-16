@@ -17,26 +17,28 @@
       </a>
 
       <form class="signup-form" action="">
-        <div class="signup-form__container">
+        <div class="signup-form__group">
           <label class="signup-form__label" for="email">이메일</label>
           <input name="email" id="email" class="signup-form__input-email" type="email" placeholder="이메일을 입력해주세요">
         </div>
-        <div class="signup-form__container">
+        <div class="signup-form__group">
           <label class="signup-form__label" for="name">닉네임</label>
           <input name="username" id="name" class="signup-form__input-name" type="text" placeholder="닉네임을 입력해주세요">
         </div>
-        <div class="signup-form__container">
+        <div class="signup-form__group">
           <div class="signup-form__blind-container">
             <label class="signup-form__label" for="password">비밀번호</label>
-            <img class="signup-form__input-blind" src="/img/btn_visibility_off_24px.png" alt="">
+            <img class="signup-form__input-blind" src="/img/btn_visibility_off_24px.png" alt="비밀번호 표시 버튼"
+              aria-label="비밀번호 표시 전환">
           </div>
           <input name="password" id="password" class="signup-form__input-password" type="password"
             placeholder="비밀번호를 입력해주세요">
         </div>
-        <div class="signup-form__container">
+        <div class="signup-form__group">
           <div class="signup-form__blind-container">
             <label class="signup-form__label" for="confirm-password">비밀번호</label>
-            <img class="signup-form__input-blind" src="/img/btn_visibility_off_24px.png" alt="">
+            <img class="signup-form__input-blind" src="/img/btn_visibility_off_24px.png" alt="비밀번호 표시 버튼"
+              aria-label="비밀번호 표시 전환">
           </div>
           <input name="confirm-password" id="confirm-password" class="signup-form__input-confirmpassword"
             type="password" placeholder="비밀번호를 다시 한 번 입력해주세요">
@@ -48,10 +50,10 @@
         <p class="social-login__title">간편 로그인하기</p>
         <div class="social-login__link">
           <a class="social-login__img" href="https://www.google.com/">
-            <img src="/img/google.png" alt="">
+            <img src="/img/google.png" alt="구글 로고">
           </a>
           <a class="social-login__img" href="https://www.kakaocorp.com/page/">
-            <img src="/img/kakao.png" alt="">
+            <img src="/img/kakao.png" alt="카카오 로고">
           </a>
         </div>
       </div>

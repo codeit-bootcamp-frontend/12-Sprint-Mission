@@ -51,7 +51,7 @@ body {
 
 
 
-.banner__contents-box__description {
+.banner__description {
   font-weight: 700;
   font-size: 40px;
   line-height: 56px;
@@ -156,7 +156,7 @@ body {
   color: #374151;
 }
 
-.section__contents-box__span {
+.section__contents-box__label {
   font-size: 18px;
   font-weight: 700;
   color: #3692FF;
@@ -246,7 +246,7 @@ body {
     margin-top: 50px;
   }
 
-  .banner__contents-box__description {
+  .banner__description {
     text-align: center;
     margin: 20px 0;
     width: 100%;
@@ -271,7 +271,7 @@ body {
     background-color: #ffffff;
   }
 
-  .section__contents-box__span {
+  .section__contents-box__label {
     font-size: 18px;
   }
 
@@ -312,7 +312,7 @@ body {
     align-items: center;
   }
 
-  .banner__contents-box__description {
+  .banner__description {
     width: 240px;
     font-size: 32px;
     line-height: 44px;
@@ -328,7 +328,7 @@ body {
     height: 417px;
   }
 
-  .section__contents-box__span {
+  .section__contents-box__label {
     font-size: 16px;
   }
 
