@@ -7,12 +7,27 @@
   box-sizing: border-box;
 }
 
+:root {
+  --blue: #3692ff;
+  --gray900: #111827;
+  --gray800: #1f2937;
+  --gray700: #374151;
+  --gray600: #4b5563;
+  --gray500: #6b7289;
+  --gray400: #9ca3af;
+  --gray200: #e5e7eb;
+  --gray100: #f3f4f6;
+  --gray50: #f9fafb;
+}
+
 body {
   font-family: Pretendard, sans-serif;
 
   margin: 0;
 
   min-width: 375px;
+
+  overflow-x: auto;
 }
 
 a {
@@ -756,7 +771,9 @@ a {
   }
 }
 
-@media (min-width: 1500px) {
+/* 아래 코드가 제대로 동작하지 않아서 주석처리 하였습니다. */
+
+/* @media (min-width: 1500px) {
   .nav .space {
     flex-grow: 1;
   }
@@ -765,4 +782,4 @@ a {
     min-width: 1100px;
     flex-grow: 0;
   }
-}
+} */

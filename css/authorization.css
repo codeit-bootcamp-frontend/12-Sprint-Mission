@@ -4,6 +4,22 @@
   box-sizing: border-box;
 }
 
+:root {
+  --alert: #f74747;
+  --darkerBlue: #3182f6;
+  --blue: #3692ff;
+  --skyBlue: #e6f2ff;
+  --gray900: #111827;
+  --gray800: #1f2937;
+  --gray700: #374151;
+  --gray600: #4b5563;
+  --gray500: #6b7289;
+  --gray400: #9ca3af;
+  --gray200: #e5e7eb;
+  --gray100: #f3f4f6;
+  --gray50: #f9fafb;
+}
+
 /* =================== Mobile =================== */
 
 body {
@@ -21,6 +37,8 @@ body {
   min-width: 343px;
   max-width: 400px;
   width: 100%;
+
+  overflow-x: auto;
 
   margin-top: 80px;
   margin-bottom: 211px;
@@ -57,7 +75,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: stretch;
-  gap: 8px;
+  /* gap: 8px; */
 }
 
 .form label {
@@ -71,24 +89,28 @@ body {
 .form input {
   height: 56px;
 
+  width: 100%;
+
+  margin-top: 8px;
+
   display: block;
 
   padding: 16px 24px;
   border: 0;
   border-radius: 12px;
 
-  /* margin-top: 16px; */
+  /* margin-top: 8px; */
 
-  background-color: #f3f4f6;
+  background-color: var(--gray100);
 }
 
 .form input:focus {
   outline: none;
-  border: 2px solid #3692ff;
+  border: 2px solid var(--blue);
 }
 
 ::placeholder {
-  color: #9ca3af;
+  color: var(--gray400);
 
   font-family: Pretendard;
   font-size: 16px;
@@ -107,13 +129,13 @@ body {
 
 .visibility_toggle {
   position: absolute;
-  top: 16px;
+  /* top: 16px; */
   right: 24px;
   bottom: 16px;
 }
 
 button {
-  color: #f3f4f6;
+  color: var(--gray100);
   font-family: Pretendard, sans-serif;
   font-size: 20px;
   font-weight: 600;
@@ -127,18 +149,18 @@ button {
   border: 0;
   border-radius: 40px;
 
-  background-color: #9ca3af;
+  background-color: var(--gray400);
 }
 
 button:hover {
-  background-color: #3692ff;
+  /* background-color: var(--blue); */
   cursor: pointer;
 }
 
 .footer {
   height: 74px;
 
-  background-color: #e6f2ff;
+  background-color: var(--skyBlue);
 
   border-radius: 8px;
 
@@ -173,14 +195,14 @@ button:hover {
 }
 
 .link_to_login_or_signin {
-  color: #1f2937;
+  color: var(--gray800);
   font-size: 14px;
   font-weight: 500;
   text-align: center;
 }
 
 .link_to_login_or_signin a {
-  color: #3182f6;
+  color: var(--darkerBlue);
 }
 
 /* =================== Tablet =================== */
@@ -219,7 +241,11 @@ button:hover {
   }
 
   .form .input_box {
-    gap: 16px;
+    /* gap: 16px; */
+  }
+
+  .form input {
+    margin-top: 16px;
   }
 
   .form label {
@@ -242,3 +268,16 @@ button:hover {
     margin-bottom: unset;
   }
 }
+
+/* Sprint 4 회원가입, 로그인 입력창 경고문구 만들기 */
+
+.alert {
+  color: var(--alert);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 24px;
+
+  display: none;
+}
+
+/* border: 2px solid var(--blue); */
