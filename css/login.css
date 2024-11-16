@@ -69,10 +69,31 @@ body {
   outline: none
 }
 
-.login-form__input--password-icon {
+.login-form__input--error{
+  border: 2px solid #F74747;
+  outline: none
+}
+
+.login-form__input--error:focus {
+  border: 2px solid #F74747;
+  outline: none
+}
+
+.login-form__input--error-message {
+  font-size: 14px;
+  line-height: 24px;
+  font-weight: 600;
+  padding-left: 16px;
+  color: #F74747;
+}
+
+.login-form__input--eye-icon {
   position: absolute;
   padding-top: 20px;
   margin-left: -40px;
+  width: 21px;
+  height: auto;
+  cursor: pointer;
 }
 
 .login-form__button {
@@ -88,12 +109,10 @@ body {
   color: #F3F4F6;
 }
 
-/*
-.login-form__button {
+.login-form__button--Enable {
   background-color: #3692FF;
   cursor: pointer;
 }
-*/
 
 
 .login-form__easy-login {
