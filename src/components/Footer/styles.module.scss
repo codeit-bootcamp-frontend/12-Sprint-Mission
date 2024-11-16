@@ -1,0 +1,64 @@
+@use "../../assets/scss/base/mixins";
+
+.footer {
+  padding: 3.2rem calc(20rem - var(--gutter)) 10.8rem;
+  background: var(--color-seondary-900);
+  color: var(--color-white);
+
+  @include mixins.tablet {
+    padding: 3.2rem calc(10.4rem - var(--gutter)) 10.8rem;
+  }
+
+  @include mixins.mobile {
+    padding: 3.2rem calc(3.2rem - var(--gutter));
+  }
+
+  .inner {
+    @include mixins.inner;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @include mixins.mobile {
+      flex-wrap: wrap;
+      gap: 6rem 0;
+    }
+  }
+
+  .copyright {
+    color: var(--color-seondary-400);
+
+    @include mixins.mobile {
+      order: 3;
+      width: 100%;
+    }
+  }
+
+  .footer-nav-list {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+
+    .nav-item {
+      color: var(--color-seondary-200);
+    }
+  }
+
+  .sns-list {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+
+    .sns-item {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 2rem;
+      height: 2rem;
+
+      img {
+        width: 100%;
+      }
+    }
+  }
+}
