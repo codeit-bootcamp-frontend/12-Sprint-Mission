@@ -74,6 +74,10 @@ input:focus {
   outline-color: var(--blue);
 }
 
+.error-border {
+  border: 1px solid #f74747;
+}
+
 .input-wrapper {
   position: relative;
   display: flex;
@@ -117,4 +121,11 @@ input:focus {
   color: #3182f6;
   text-decoration: underline;
   text-underline-offset: 2px;
+}
+
+.error {
+  color: #f74747;
+  font-size: 14px;
+  line-height: 24px;
+  font-weight: 600;
 }
