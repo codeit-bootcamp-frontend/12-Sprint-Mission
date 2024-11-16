@@ -23,7 +23,11 @@
         /></a>
       </div>
 
+
       <form method="post" id="signin-form">
+
+      <form method="post">
+
         <div class="input-item">
           <label for="email">이메일</label>
           <input
@@ -32,8 +36,10 @@
             type="email"
             placeholder="이메일을 입력해 주세요"
           />
+
           <span id="email-empty-error" class="error-message">이메일을 입력해 주세요.</span> 
           <span id="email-format-error" class="error-message">잘못된 이메일 형식입니다.</span>
+
         </div>
         <div class="input-item">
           <label for="password">비밀번호</label>
@@ -50,12 +56,19 @@
               class="toggle-password"
             />
           </div>
+
           <span id="password-empty-error" class="error-message">비밀번호를 입력해 주세요.</span>
           <span id="password-format-error" class="error-message">8자리 이상 입력하세요</span>  
         </div>
 
         <button type="submit" class="button pill-button full-width" id = "login-submit-button">
           <a href="signin.html">로그인</a> 
+
+        </div>
+
+        <button type="submit" class="button pill-button full-width">
+          로그인
+
         </button>
       </form>
 
@@ -83,4 +96,6 @@
     </div>
   </body>
 </html>
+
 <script src="js/signin.js"></script>
+

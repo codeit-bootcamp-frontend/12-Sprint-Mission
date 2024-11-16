@@ -23,7 +23,11 @@
         /></a>
       </div>
 
+
       <form method="post" id="signup-form"> <!-- 빈칸일때 안눌리는 js에서 id 필요-->
+
+      <form method="post">
+
         <div class="input-item">
           <label for="email">이메일</label>
           <input
@@ -32,8 +36,12 @@
             type="email"
             placeholder="이메일을 입력해 주세요"
           />
+
           <span id="email-empty-error" class="error-message">이메일을 입력해 주세요.</span> 
           <span id="email-format-error" class="error-message">잘못된 이메일 형식입니다.</span>
+        </div>
+
+
         </div>
 
         <div class="input-item">
@@ -44,9 +52,13 @@
             type="text"
             placeholder="닉네임을 입력해 주세요"
           />
+
           <span id="nickname-empty-error" class="error-message">닉네임을 입력해 주세요.</span> 
         </div>
         
+
+        </div>
+
         <div class="input-item">
           <label for="password">비밀번호</label>
           <div class="input-wrapper">
@@ -57,16 +69,21 @@
               placeholder="비밀번호를 입력해 주세요"
             />
 
+
             <img
               src="images/icons/eye-invisible.svg"
               alt="비밀번호 숨김"
               class="toggle-password"
             />
+
             
           </div>
           <span id="password-empty-error" class="error-message">비밀번호를 입력해 주세요.</span>
           <span id="password-format-error" class="error-message">영문 대소문자,숫자,특수문자를 포함 8자리 이상</span>  
           
+        </div>
+
+          </div>
         </div>
 
         <div class="input-item">
@@ -79,18 +96,26 @@
               placeholder="비밀번호를 다시 한 번 입력해 주세요"
             />
 
+
             <img
               src="images/icons/eye-invisible.svg"
               alt="비밀번호 숨김"
               class="toggle-password"
             />
           </div>
+
         <span id="re_password-empty-error" class="error-message">비밀번호를 입력해 주세요.</span>
         <span id="re_password-eqaul-error" class="error-message">비밀번호가 일치하지가 않습니다..</span>
         </div>
 
         <button type="submit" class="button pill-button full-width" id="submit-button">
           <a href="signin.html">회원가입</a>
+
+        </div>
+
+        <button type="submit" class="button pill-button full-width">
+          회원가입
+
         </button>
       </form>
 
@@ -119,4 +144,6 @@
   </body>
 </html>
 
+
 <script src="js/signup.js"></script>
+

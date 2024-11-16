@@ -88,6 +88,7 @@ input:focus {
   text-underline-offset: 2px;
 }
 
+
 .input-item input.error {
   border: 1px solid red;
 }
@@ -98,3 +99,4 @@ input:focus {
   font-size: 12px;
   margin-top: 4px;
 }
+
