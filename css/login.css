@@ -33,7 +33,7 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 10px;
     font-size: 16px;
     line-height: 26px;
   }
@@ -52,11 +52,11 @@
   }
   .form__password-hidden {
     position: absolute;
-    bottom: 10px;
+    top: 50px;
     right: 10px;
     width: 24px;
     height: 24px;
-    background: url(img/icon-hidden.png) no-repeat center / contain;
+    background: url(../assets/img/icon-hidden.png) no-repeat center / contain;
     border: none;
     cursor: pointer;
   }
@@ -69,7 +69,7 @@
     padding: 16px 0;
     cursor: pointer;
   }
-  .form__button:hover {
+  .form__button.active {
     background-color: var(--blue1);
   }
   /* social_login */
@@ -96,10 +96,10 @@
     font-size: 0;
   }
   .social__icon-google {
-    background-image: url(../img/icon-goggle.png);
+    background-image: url(../assets/img/icon-goggle.png);
   }
   .social__icon-kakao {
-    background-image: url(../img/icon-kakao.png);
+    background-image: url(../assets/img/icon-kakao.png);
   }
   .social__description {
     display: flex;

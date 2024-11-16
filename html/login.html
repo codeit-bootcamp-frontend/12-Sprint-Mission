@@ -5,15 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="img/logo.png" type="image/svg+xml" />
     <title>판다마켓 계정</title>
-    <link rel="stylesheet" href="css/reset.css" />
-    <link rel="stylesheet" href="css/common.css" />
-    <link rel="stylesheet" href="css/login.css" />
+    <link rel="stylesheet" href="/css/reset.css" />
+    <link rel="stylesheet" href="/css/common.css" />
+    <link rel="stylesheet" href="/css/login.css" />
   </head>
   <body>
     <main class="main">
       <div class="main-container">
         <a href="/" class="main__logo">
-          <img src="img/logo.svg" alt="판다마켓 로고" />
+          <img src="/assets/img/logo.svg" alt="판다마켓 로고" />
           판다마켓
         </a>
         <div class="main__login-wrap">
@@ -24,9 +24,10 @@
                 class="form__input"
                 placeholder="이메일을 입력해주세요"
                 type="text"
-                id="email"
+                id="login--id"
                 name="email"
               />
+              <p class="form__email-error"></p>
             </div>
             <div class="form__item">
               <label class="form__label" for="password">비밀번호</label>
@@ -35,9 +36,10 @@
                 placeholder="비밀번호를 입력해주세요."
                 autocomplete="off"
                 type="password"
-                id="password"
+                id="login--password"
                 name="password"
               />
+              <p class="form__password-error"></p>
               <button
                 class="form__password-hidden"
                 aria-label="비밀번호 숨기기"
@@ -71,3 +73,4 @@
     </main>
   </body>
 </html>
+<script src="/js/login.js"></script>
