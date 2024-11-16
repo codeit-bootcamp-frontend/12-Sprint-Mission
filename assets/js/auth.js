@@ -1,12 +1,12 @@
 const emailInput = document.querySelector("#email");
 const passwordInput = document.querySelector("#password");
-const passwordChkInput = document.querySelector("#password-check");
+const passwordInputChk = document.querySelector("#password-check");
 const nameInput = document.querySelector("#name");
 const loginButton = document.querySelector(".login-btn");
 const signupButton = document.querySelector(".signup-btn");
 
-const visibleButton = document.querySelector(".visible-btn");
-const invisibleButton = document.querySelector(".invisible-btn");
+const visibleButton = document.querySelectorAll(".visible-btn");
+const invisibleButton = document.querySelectorAll(".invisible-btn");
 
 // 에레메시지 생성,삭제 함수
 const setError = (inputElement, message) => {
@@ -54,7 +54,7 @@ const signupButtonState = () => {
   const isEmailValid = isValidEmail(emailInput.value);
   const isPasswordValid = isValidPassword(passwordInput.value);
   const isNameValid = isValidName(nameInput.value);
-  const isPasswordValidChk = isValidPasswordChk(passwordInput.value, passwordChkInput.value);
+  const isPasswordValidChk = isValidPasswordChk(passwordInput.value, passwordInputChk.value);
 
   toggleButtonState(signupButton, isEmailValid && isPasswordValid && isNameValid && isPasswordValidChk);
 };
@@ -89,6 +89,29 @@ passwordInput.addEventListener("focusout", () => {
   if (signupButton) signupButtonState();
 });
 
+// 비밀번호 가리기 버튼 활성화 비활성화
+visibleButton.forEach((button, index) => {
+  button.addEventListener("click", () => {
+    passwordInput.type = "text";
+    if (index === 1) {
+      passwordInputChk.type = "text";
+    }
+    button.style.display = "none";
+    invisibleButton[index].style.display = "block";
+  });
+});
+
+invisibleButton.forEach((button, index) => {
+  button.addEventListener("click", () => {
+    passwordInput.type = "password";
+    if (index === 1) {
+      passwordInputChk.type = "password";
+    }
+    button.style.display = "none";
+    visibleButton[index].style.display = "block";
+  });
+});
+
 nameInput.addEventListener("focusout", () => {
   if (!nameInput.value) {
     setError(nameInput, "닉네임을 입력해주세요");
@@ -98,11 +121,11 @@ nameInput.addEventListener("focusout", () => {
   signupButtonState();
 });
 
-passwordChkInput.addEventListener("focusout", () => {
-  if (passwordInput.value !== passwordChkInput.value) {
-    setError(passwordChkInput, "비밀번호가 일치하지 않습니다");
+passwordInputChk.addEventListener("focusout", () => {
+  if (passwordInput.value !== passwordInputChk.value) {
+    setError(passwordInputChk, "비밀번호가 일치하지 않습니다");
   } else {
-    setError(passwordChkInput, null);
+    setError(passwordInputChk, null);
   }
   signupButtonState();
 });
@@ -110,17 +133,3 @@ passwordChkInput.addEventListener("focusout", () => {
 // 초기 로그인버튼 비활성화
 if (loginButton) toggleButtonState(loginButton, false);
 if (signupButton) toggleButtonState(signupButton, false);
-
-// 비밀번호 가리기 버튼 활성화 비활성화
-
-visibleButton.addEventListener("click", () => {
-  passwordInput.type = "text";
-  visibleButton.style.display = "none";
-  invisibleButton.style.display = "block";
-});
-
-invisibleButton.addEventListener("click", () => {
-  passwordInput.type = "password";
-  visibleButton.style.display = "block";
-  invisibleButton.style.display = "none";
-});

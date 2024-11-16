@@ -142,6 +142,7 @@ body {
   background-image: url("/assets/images/btn_visibility_on_24px.png");
   background-size: cover;
   cursor: pointer;
+  z-index: 2;
 }
 
 .invisible-btn {
@@ -156,6 +157,7 @@ body {
   background-image: url("/assets/images/btn_invisibility_on_24px.png");
   background-size: cover;
   cursor: pointer;
+  z-index: 2;
 }
 
 .form-btn {
