@@ -1,4 +1,4 @@
-import { validateEmail, validatePassword, validateNickName, validateConfirmPw } from './validationUtils.js';
+import { validateEmail, validatePassword, validateNickName, validateConfirmPw, togglePasswordVisibility } from './validationUtils.js';
 
 const email = document.querySelector('.emailInput');
 const emailError = document.querySelector('.emailInput.inputError');
@@ -9,6 +9,18 @@ const nameError = document.querySelector('.nickNameInput.inputError');
 const confirmPw = document.querySelector('.confirmPassword');
 const confirmPwError = document.querySelector('.confirmPassword.inputError');
 const signupBtn = document.querySelector('.signup.button');
+const passwordToggleBtnSignup = document.querySelector('.password-wrapper .toggle-visibility');
+const passwordFieldSignup = document.querySelector('.password-wrapper .passwordInput');
+const confirmPasswordToggleBtn = document.querySelectorAll('.password-wrapper .toggle-visibility')[1];
+const confirmPasswordField = document.querySelector('.password-wrapper .confirmPassword');
+
+if (passwordToggleBtnSignup && passwordFieldSignup) {
+  togglePasswordVisibility(passwordToggleBtnSignup, passwordFieldSignup);
+}
+
+if (confirmPasswordToggleBtn && confirmPasswordField) {
+  togglePasswordVisibility(confirmPasswordToggleBtn, confirmPasswordField);
+}
 
 function updateSignupButtonState() {
   if (!email.value || !password.value ||

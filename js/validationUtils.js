@@ -37,3 +37,20 @@ export function validateConfirmPw(passwordValue, confirmPwValue) {
   }
   return '';
 }
+
+export function togglePasswordVisibility(toggleButton, passwordField) {
+  const eyeSlashIcon = 'img/btn_visibility_on.png';
+  const eyeIcon = 'img/btn_visibility_off.png';
+
+  toggleButton.addEventListener('click', () => {
+    if (passwordField.type === 'password') {
+      passwordField.type = 'text';
+      toggleButton.querySelector('img').src = eyeIcon;
+      toggleButton.querySelector('img').alt = '비밀번호 숨기기';
+    } else {
+      passwordField.type = 'password';
+      toggleButton.querySelector('img').src = eyeSlashIcon;
+      toggleButton.querySelector('img').alt = '비밀번호 보이기';
+    }
+  })
+}

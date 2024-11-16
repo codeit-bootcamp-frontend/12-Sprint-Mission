@@ -1,10 +1,16 @@
-import { validateEmail, validatePassword } from './validationUtils.js';
+import { validateEmail, validatePassword, togglePasswordVisibility } from './validationUtils.js';
 
 const email = document.querySelector('.emailInput');
 const emailError = document.querySelector('.emailInput.inputError');
 const password = document.querySelector('.passwordInput');
 const passwordError = document.querySelector('.passwordInput.inputError');
 const loginBtn = document.querySelector('.login.button');
+const passwordToggleBtn = document.querySelector('.password-wrapper .toggle-visibility');
+const passwordField = document.querySelector('.password-wrapper .passwordInput');
+
+if (passwordToggleBtn && passwordField) {
+  togglePasswordVisibility(passwordToggleBtn, passwordField);
+}
 
 function updateLoginButtonState() {
   if (!email.value || !password.value ||

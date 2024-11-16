@@ -37,28 +37,38 @@
         </div>
         <div class="input-group">
           <label for="password" class="form-label">비밀번호</label>
-          <input
-            type="password"
-            id="password"
-            name="password"
-            placeholder="비밀번호를 입력해주세요"
-            class="passwordInput"
-            required
-            minlength="8"
-          />
+          <div class="password-wrapper">
+            <input
+              type="password"
+              id="password"
+              name="password"
+              placeholder="비밀번호를 입력해주세요"
+              class="passwordInput"
+              required
+              minlength="8"
+            />
+            <button type="button" class="toggle-visibility">
+              <img src="img/btn_visibility_on.png" alt="비밀번호 보기 토글" />
+            </button>
+          </div>
           <div class="passwordInput inputError"></div>
         </div>
         <div class="input-group">
           <label for="password-check" class="form-label">비밀번호 확인</label>
-          <input
-            type="password"
-            id="password-check"
-            name="password-check"
-            placeholder="비밀번호를 다시 한 번 입력해주세요"
-            class="confirmPassword"
-            required
-            minlength="8"
-          />
+          <div class="password-wrapper">
+            <input
+              type="password"
+              id="password-check"
+              name="password-check"
+              placeholder="비밀번호를 다시 한 번 입력해주세요"
+              class="confirmPassword"
+              required
+              minlength="8"
+            />
+            <button type="button" class="toggle-visibility">
+              <img src="img/btn_visibility_on.png" alt="비밀번호 보기 토글" />
+            </button>
+          </div>
           <div class="confirmPassword inputError"></div>
         </div>
         <button type="submit" class="signup button" disabled>회원가입</button>
