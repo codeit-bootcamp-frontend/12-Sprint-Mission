@@ -10,6 +10,7 @@ body {
   margin: 0;
   color: #374151;
   background-color: #fff;
+  min-width: 376px;
 }
 
 a {
@@ -75,7 +76,7 @@ main {
   justify-content: center;
 }
 
-.banner #banner-title {
+.banner .banner-title {
   font-size: 32px;
   font-weight: 700;
   line-height: 44px;
@@ -84,7 +85,7 @@ main {
   position: absolute;
 }
 
-.banner #banner-title>span {
+.banner .banner-title>span {
   display: block;
 }
 
@@ -123,6 +124,7 @@ main {
   width: 96%;
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   margin: 0 auto;
 }
 
@@ -131,33 +133,33 @@ main {
   border-radius: 7px;
 }
 
-.con #text {
+.con .text {
   display: block;
   margin-top: 24px;
 }
 
-.con #text span {
+.con .text span {
   font-size: 16px;
   font-weight: 700;
   line-height: 26px;
   color: #3692FF;
 }
 
-.con #text #text-title {
+.con .text .text-title {
   font-size: 24px;
   font-weight: 700;
   line-height: 32px;
   margin-top: 8px;
 }
 
-.con #text #text-title>span {
+.con .text .text-title>span {
   font-size: 24px;
   font-weight: 700;
   line-height: 32px;
   color: #374151;
 }
 
-.con #text p {
+.con .text p {
   font-size: 16px;
   font-weight: 500;
   line-height: 26px;
@@ -172,7 +174,7 @@ main {
   padding-top: 40px;
 }
 
-.search #text {
+.search .text {
   display: block;
   margin-top: 24px;
   text-align: right;
@@ -206,6 +208,7 @@ main {
 
 .btpanda img {
   width: 100%;
+  max-width: 375px;
   position: absolute;
   bottom: 0;
 } 
@@ -300,13 +303,13 @@ footer {
     height: 771px;
   }
 
-  .banner #banner-title {
+  .banner .banner-title {
     margin-top: 84px;
     font-size: 40px;
     line-height: 56px;
   }
 
-  .banner #banner-title>span {
+  .banner .banner-title>span {
     display: inline-block;
   }
 
@@ -334,22 +337,22 @@ footer {
     border-radius: 14px;
   }
 
-  .con #text span {
+  .con .text span {
     font-size: 18px;
   }
 
-  .con #text #text-title {
+  .con .text .text-title {
     font-size: 32px;
     line-height: 42px;
     margin-top: 16px;
   }
 
-  .con #text #text-title>span {
+  .con .text .text-title>span {
     font-size: 32px;
     line-height: 42px;
   }
 
-  .con #text p {
+  .con .text p {
     font-size: 18px;
     margin: 24px 0 0 0;
   }
@@ -375,6 +378,10 @@ footer {
     font-size: 40px;
     line-height: 56px;
     margin-top: 201px;
+  }
+
+  .btpanda img {
+    max-width: none;
   }
 
   /* 태블릿 푸터 영역 */
@@ -430,7 +437,7 @@ footer {
     position: relative;
   }
 
-  .banner #banner-title {
+  .banner .banner-title {
     font-size: 40px;
     line-height: 56px;
     text-align: left;
@@ -473,27 +480,27 @@ footer {
     border-radius: 0;
   }
 
-  .con #text {
+  .con .text {
     margin-top: 103px;
   }
 
-  .con #text span {
+  .con .text span {
     font-size: 18px;
   }
 
-  .con #text #text-title {
+  .con .text .text-title {
     font-size: 40px;
     line-height: 56px;
     margin-top: 12px;
   }
 
-  .con #text #text-title>span {
+  .con .text .text-title>span {
     font-size: 40px;
     line-height: 56px;
     display: block;
   }
 
-  .con #text p {
+  .con .text p {
     font-size: 24px;
     line-height: 32px;
     margin: 24px 0 0 0;
@@ -549,7 +556,7 @@ footer {
   }
 
   .btpanda img {
-    width: 746px;
+    max-width: 746px;
     height: 397px;
     right: 0;
     position: absolute;
