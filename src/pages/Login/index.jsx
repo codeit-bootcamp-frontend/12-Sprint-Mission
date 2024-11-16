@@ -1,3 +1,5 @@
+import AuthContainer from "../../components/Auth";
+
 export default function Login() {
-  return <div>Login</div>;
+  return <AuthContainer>로그인폼</AuthContainer>;
 }
