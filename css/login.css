@@ -1,0 +1,232 @@
+/* 모든 요소의 크기를 테두리 포함하도록 설정 */
+* {
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: "Pretendard-Regular";
+  src: url("https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff")
+    format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+
+body {
+  font-family: "Pretendard-Regular", "Noto Sans KR", Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.login {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 640px;
+}
+
+.logo__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 396px;
+  height: 132px;
+  gap: 8px;
+  padding-bottom: 40px;
+}
+
+.logo__link {
+  text-decoration: none;
+  color: #3692ff;
+}
+
+.logo__title {
+  font-size: 66px;
+  font-weight: 700;
+  line-height: 89.56px;
+}
+
+.login__container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+}
+
+.form__container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.form__group {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+}
+
+.form__group-input {
+  height: 56px;
+  border-radius: 12px;
+  border: 0px;
+  background-color: #f3f4f6;
+  padding: 15px 24px;
+  width: 100%;
+}
+
+.form__group-input,
+.form__group-input::placeholder {
+  font-size: 16px;
+  line-height: 26px;
+  font-weight: 400;
+}
+
+.error {
+  border: 2px solid red;
+}
+
+.email__error-message,
+.password__error-message {
+  color: red;
+  padding: 0px 16px;
+  display: none;
+  font-size: 14px;
+  line-height: 24px;
+  font-weight: 600;
+  transform: translateY(-8px);
+}
+
+.form__group-label {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 26px;
+}
+
+.form__group-input-container {
+  position: relative;
+}
+
+.form__group-img {
+  position: absolute;
+  right: 24px;
+  top: 15px;
+}
+
+.login-button {
+  width: 100%;
+  height: 56px;
+  border-radius: 40px;
+  background-color: #9ca3af;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  color: #f3f4f6;
+  font-size: 20px;
+  line-height: 32px;
+  font-weight: 600;
+  border: 0;
+}
+
+.login-button:hover {
+  cursor: pointer;
+}
+
+.social-login__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 23px;
+  width: 100%;
+  border-radius: 8px;
+  background-color: #e6f2ff;
+}
+
+.social-login__icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+}
+
+.social-login__container > p {
+  font-size: 16px;
+  line-height: 26px;
+  font-weight: 500;
+  color: #1f2937;
+}
+
+.sign-up__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+}
+
+.sign-up__container > p {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 24px;
+  color: #1f2937;
+}
+
+.sign-up__link {
+  font-size: 14px;
+  line-height: 16px;
+  font-weight: 500;
+  color: #3692ff;
+}
+
+@media screen and (max-width: 767px) {
+  .login {
+    padding: 0 16px;
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  .logo__container {
+    width: 100%;
+    height: auto;
+    padding-bottom: 24px;
+  }
+
+  .logo__img {
+    width: 51px;
+    height: auto;
+  }
+
+  .logo__title {
+    font-size: 34px;
+    line-height: 44px;
+  }
+
+  .form__container {
+    gap: 16px;
+  }
+
+  .form__group {
+    gap: 8px;
+  }
+
+  .form__group-label {
+    font-size: 14px;
+    line-height: 24px;
+  }
+
+  .login-button {
+    font-size: 20px;
+    line-height: 32px;
+  }
+
+  .social-login__icon {
+    gap: 16px;
+  }
+
+  .sign-up__container {
+    gap: 4x;
+  }
+}
