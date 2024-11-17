@@ -5,12 +5,12 @@
 }
 
 body {
-  font-family: pretendard;
+  font-family: "pretendard", sans-serif;
   word-break: keep-all;
   color: #374151;
 }
 
-label {
+.login-form__label {
   margin-bottom: 16px;
   font-size: 18px;
   font-weight: 700;
@@ -18,21 +18,20 @@ label {
   color: #1f2937;
 }
 
-input {
+.login-form__input {
   padding: 15px 24px;
   width: 100%;
   margin-bottom: 24px;
   border-radius: 12px;
   background-color: #f3f4f6;
   border: none;
-
 }
 
-input:focus {
+.login-form__input:focus {
   outline-color: #3692ff;
 }
 
-input::placeholder {
+.login-form__input::placeholder {
   color: #9ca3af;
 }
 
@@ -42,7 +41,7 @@ input::placeholder {
   padding: 0 16px;
 }
 
-.login-container-tap {
+.login-form {
   display: flex;
   flex-direction: column;
 }
@@ -59,8 +58,8 @@ input::placeholder {
   width: 100%;
 }
 
-button {
-  background-color: #3691ff;
+#login-button {
+  background-color: #3692ff;
   border-radius: 40px;
   padding: 16px 124px;
   text-align: center;
@@ -73,6 +72,10 @@ button {
   line-height: 32px;
 }
 
+#login-button:hover {
+  background-color: #1967d6;  
+}
+
 .password-container {
   position: relative;
   display: flex;
@@ -82,12 +85,18 @@ button {
 
 .password-toggle {
   position: absolute;
-  right: 20px;
+  right: 25px;
   top: 15px;
+  background: none;
+  border: none;
+  outline: none;
+  box-shadow: none;
   cursor: pointer;
+  padding: 0px;
+  display: block;
 }
 
-.simple__login {
+.sns-login {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -97,7 +106,7 @@ button {
   margin: 24px 0;
 }
 
-.simple__icon {
+.sns-login-icon {
   display: flex;
   gap: 16px;
 }
@@ -108,6 +117,17 @@ button {
 
 .login-link {
   color: #3691ff;
+}
+
+.error-message {
+  color: #f74747;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 24px;
+}
+
+.login-form__input.error {
+  border: 1px solid red
 }
 
 @media (min-width : 768px) {

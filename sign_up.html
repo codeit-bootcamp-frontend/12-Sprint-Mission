@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="login_style.css">
+  <link rel="stylesheet" href="/style/login_style.css">
   <link rel="stylesheet" as="style" crossorigin
     href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
   <title>회원가입</title>
@@ -13,36 +13,51 @@
 <body>
   <div class="login-container">
     <a class="login-title" href="index.html"><img src="./image/panda_logo.png" alt="홈으로 가기"></a>
+
     <form>
-      <div class="login-container-tap">
-        <label for="email">이메일</label>
-        <input id="email" name="email" type="email" placeholder="이메일을 입력해주세요">
-        <label for="nick-name">닉네임</label>
-        <input id="nick-name" name="nick-nmae" type="text" placeholder="닉네임을 입력해주세요">
+      <div class="login-form">
+        <label class="login-form__label" for="email">이메일</label>
+        <input id="email" class="login-form__input" name="email" type="email" placeholder="이메일을 입력해주세요" required
+        oninput="emailCheck()">
+        <p id="email-error-message" class="error-message"></p>
+
+        <label class="login-form__label" for="nick-name">닉네임</label>
+        <input id="nick-name" class="login-form__input" name="nick-nmae" type="text" placeholder="닉네임을 입력해주세요" required oninput="nickNameCheck()">
+        <p id="nickname-error-message" class="error-message"></p>
       </div>
-      <div class="login-container-tap">
-        <label for="password">비밀번호</label>
+
+      <div class="login-form">
+        <label class="login-form__label" for="password">비밀번호</label>
         <div class="password-container">
-          <input id="password" name="password" type="password" placeholder="비밀번호를 입력해주세요">
-          <img class="password-toggle" src="./image/eyes_cloes.png" alt="눈">
+          <input id="password" class="login-form__input" name="password" type="password" placeholder="비밀번호를 입력해주세요" required
+          oninput="pwdCheck()">        
+          <button class="password-toggle" type="button">
+            <img class="password-toggle-img" src="./image/eyes_cloes.png" alt="비밀번호 보이는 버튼">
+          </button>
         </div>
-        <div class="login-container-tap">
-          <label for="password">비밀번호 확인</label>
+        <p id="pwd-error-message" class="error-message"></p>  
+
+        <div class="login-form">
+          <label class="login-form__label" for="password">비밀번호 확인</label>
           <div class="password-container">
-            <input id="password" name="password" type="password" placeholder="비밀번호를 다시 한 번 입력해주세요">
-            <img class="password-toggle" src="./image/eyes_cloes.png" alt="눈">
+            <input id="password-check" class="login-form__input" name="password" type="password" placeholder="비밀번호를 다시 한 번 입력해주세요" required oninput="pwdCrossCheck()">       
+            <button class="password-toggle" type="button">
+              <img class="password-toggle-img" src="./image/eyes_cloes.png" alt="비밀번호 보이는 버튼">
+            </button>
           </div>
+          <p id="pwdd-error-message" class="error-message"></p>   
         </div>
-        <button>회원가입</button>
+        <button id="login-button" type=submit onclick="location.href='login.html'">회원가입</button>
     </form>
-    <div class="simple__login">
-      <p class="simple__text">간편 로그인하기</p>
-      <div class="simple__icon">
+    <div class="sns-login">
+      <p class="sns-login-text">간편 로그인하기</p>
+      <div class="sns-login-icon">
         <a href="https://www.google.com"><img src="./image/ic_google.png" alt="구글"></a>
         <a href="https://www.kakaocorp.com/page/"><img src="./image/ic_kakao.png" alt="카카오"></a>
       </div>
     </div>
     <p class="login-bottom">이미 회원이신가요? <a class="login-link" href="login.html">로그인</a></p>
+<script src="./javascript/login-signup.js"></script>
 </body>
 
 </html>

@@ -5,7 +5,7 @@
 }
 
 body {
-  font-family: "pretendard";
+  font-family: "pretendard", sans-serif;
 }
 
 header {
@@ -80,7 +80,7 @@ footer {
   justify-content: center;
   align-items: center;
   background-color: #cfe5ff;
-  background-image: url(./image/banner1.png);
+  background-image: url(/image/banner1.png);
   background-repeat: no-repeat;
   background-position: 60% bottom;
   height: 540px;
@@ -91,7 +91,7 @@ footer {
   justify-content: center;
   align-items: center;
   background-color: #cfe5ff;
-  background-image: url(./image/banner2.png);
+  background-image: url(/image/banner2.png);
   background-repeat: no-repeat;
   background-position: 60% bottom;
   height: 540px;
@@ -287,7 +287,11 @@ footer {
     font-size: 40px;
   }
 
-  .banner-container h2 br {
+  .banner-top__container h2 br {
+    display: inline;
+  }
+
+  .banner-bottom__container h2 br {
     display: inline;
   }
 
