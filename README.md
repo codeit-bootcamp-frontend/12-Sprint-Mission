@@ -4,4 +4,4 @@
 
 ## 배포 URL
 
-[판다마켓 : https://sprint-mission-chanki.netlify.app/](https://sprint-mission-chanki.netlify.app/)
+[판다마켓 : https://sprint-mission-chanki-react.netlify.app/](https://sprint-mission-chanki-react.netlify.app/)
