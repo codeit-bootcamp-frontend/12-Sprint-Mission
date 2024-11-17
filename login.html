@@ -3,31 +3,36 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/css/style_for_signup_&_login.css" />
+    <link rel="stylesheet" href="/css/authorization.css" />
     <title>로그인</title>
-    <script src="/js/signup_&_login.js"></script>
+    <script src="/js/authorization.js"></script>
   </head>
   <body>
     <div class="container login">
       <div class="home_button">
         <a href="/">
           <img
-            src="/img/for_signup_&_login/panda_market_logo.svg"
+            src="/img/authorization/panda_market_logo.svg"
             alt="panda_market_logo"
             class="panda_market_logo"
           />
         </a>
       </div>
 
-      <form action="" class="form">
+      <form action="" class="form" novalidate>
         <div class="input_box">
           <label for="email"> 이메일 </label>
-          <input
-            id="email"
-            type="email"
-            placeholder="이메일을 입력해주세요"
-            name="email"
-          />
+          <div>
+            <input
+              id="email"
+              type="email"
+              placeholder="이메일을 입력해주세요"
+              name="email"
+            />
+          </div>
+
+          <div class="alert common">이메일을 입력해주세요.</div>
+          <div class="alert wrong_email">잘못된 이메일 형식입니다.</div>
         </div>
 
         <div class="input_box">
@@ -42,28 +47,35 @@
             />
             <img
               class="visibility_toggle"
-              src="img/for_signup_&_login/visibility_toggle_off.svg"
+              src="img/authorization/visibility_toggle_off.svg"
               alt="visibility_toggle"
             />
           </div>
+
+          <div class="alert common">비밀번호를 입력해주세요.</div>
+          <div class="alert pw_not_long_enough">
+            비밀번호를 8자 이상 입력해주세요.
+          </div>
         </div>
 
-        <button>로그인</button>
+        <button class="loginBtn" disabled>로그인</button>
 
         <div class="footer">
           <div class="footer_container">
             간편 로그인하기
             <div class="link_container">
               <a
+                target="_blank"
                 href="https://accounts.google.com/v3/signin/identifier?continue=https%3A%2F%2Faccounts.google.com%2F&followup=https%3A%2F%2Faccounts.google.com%2F&ifkv=AcMMx-fkun-aUEBfnzJPK6_0ZOFjyPBcVhQmAxgZUj3K0F2iHJkH84yeGyASU2WB0n3-CUMQQL4K4w&passive=1209600&flowName=GlifWebSignIn&flowEntry=ServiceLogin&dsh=S-918843228%3A1730577289412205&ddm=1"
                 ><img
-                  src="/img/for_signup_&_login/google_logo.svg"
+                  src="/img/authorization/google_logo.svg"
                   alt="Google_login_page"
               /></a>
               <a
+                target="_blank"
                 href="https://accounts.kakao.com/login/?continue=https%3A%2F%2Fseller.pay.kakao.com%2Fuser%2Fregister%2Fagreements&talk_login=#login"
                 ><img
-                  src="/img/for_signup_&_login/kakaotalk_logo.svg"
+                  src="/img/authorization/kakaotalk_logo.svg"
                   alt="Kakaotalk_login_page"
               /></a>
             </div>
