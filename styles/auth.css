@@ -1,26 +1,6 @@
 .auth-container {
   max-width: 64rem;
   margin: 0 auto;
-
-  @media (max-width: 767px) {
-    max-width: 40rem;
-    padding: 0 1.6rem;
-  }
-}
-
-.auth-container.login {
-  margin-top: 15rem;
-
-  @media (max-width: 1199px) {
-    margin-top: 12rem;
-  }
-
-  @media (max-width: 767px) {
-    margin-top: 8rem;
-  }
-}
-
-.auth-container.signup {
   margin-top: 6rem;
 
   @media (max-width: 1199px) {
@@ -28,7 +8,9 @@
   }
 
   @media (max-width: 767px) {
+    max-width: 40rem;
     margin-top: 2.4rem;
+    padding: 0 1.6rem;
   }
 }
 
@@ -109,7 +91,7 @@ input:focus {
   display: none;
 }
 
-.toggle-password {
+.password-toggle-button {
   position: absolute;
   right: 2.4rem;
   cursor: pointer;

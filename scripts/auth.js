@@ -3,14 +3,16 @@ document.addEventListener("DOMContentLoaded", () => {
   let isNicknameValid = false;
   let isPasswordValid = false;
   let isPasswordConfirmationValid = false;
+  
+  const emailRegex = /^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/;
 
-  const loginForm = document.querySelector('.login-form');
-  const signupForm = document.querySelector('.signup-form');
-  const emailInput = document.querySelector('#email');
-  const nicknameInput = document.querySelector('#nickname');
-  const passwordInput = document.querySelector('#password');
-  const passwordConfirmationInput = document.querySelector('#passwordConfirmation');
-  const submitButton = document.querySelector('button[type="submit"]');
+  const loginForm = document.querySelector(".login-form");
+  const signupForm = document.querySelector(".signup-form");
+  const emailInput = document.querySelector("#email");
+  const nicknameInput = document.querySelector("#nickname");
+  const passwordInput = document.querySelector("#password");
+  const passwordConfirmationInput = document.querySelector("#passwordConfirmation");
+  const submitButton = document.querySelector("button[type='submit']");
 
   // 오류 메세지 노출 함수
   function showError(input, errorClass) {
@@ -27,14 +29,12 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // 이메일 형식 유효성 검사
-  function validateEmailString(email) {
-    const emailRegex = /^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/;
+  function isEmailValidFormat(email) {
     return emailRegex.test(email);
   }
   
   // 이메일 필드 유효성 검사
   function checkEmailValidity() {
-    // 입력 필드 선택 후 아무것도 입력 안 하고 필드 focus out하는 경우 걸러내기 위함
     const emailValue = emailInput.value.trim();
 
     // 오류 메세지 및 입력 필드 상태 초기화
@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (!emailValue) {
       showError(emailInput, "email-empty-error");
-    } else if (!validateEmailString(emailValue)) {
+    } else if (!isEmailValidFormat(emailValue)) {
       showError(emailInput, "email-invalid-error");
     } else {
       isEmailValid = true;
@@ -127,6 +127,25 @@ document.addEventListener("DOMContentLoaded", () => {
     submitButton.disabled = !isFormValid;
   }
 
+  // 비밀번호 토글 버튼 동작
+  function togglePasswordVisibility(event) {
+    const button = event.currentTarget;
+    const inputField = button.parentElement.querySelector("input");
+    const toggleIcon = button.querySelector(".password-toggle-icon");
+
+    // 비밀번호가 표시된 상태인지 확인
+    const isPasswordVisible = inputField.type === "text";
+
+    inputField.type = isPasswordVisible ? "password" : "text";
+    toggleIcon.src = isPasswordVisible ? "/images/icons/eye-invisible.svg" : "/images/icons/eye-visible.svg"
+    toggleIcon.alt = isPasswordVisible ? "비밀번호 숨김 상태 아이콘" : "비밀번호 표시 상태 아이콘";
+  }
+
+  // 비밀번호 토글 버튼에 이벤트 리스너 추가
+  const toggleButtons = document.querySelectorAll(".password-toggle-button");
+  toggleButtons.forEach((button) =>
+    button.addEventListener("click", togglePasswordVisibility)
+  );  
 
   // 입력 필드에 이벤트 리스너 추가
   if (emailInput) {
@@ -144,11 +163,35 @@ document.addEventListener("DOMContentLoaded", () => {
     passwordConfirmationInput.addEventListener("input", checkPasswordConfirmationValidity);
   }
 
+  // 폼 제출 전 이벤트 리스너 제거
+  function removeEventListeners() {
+    if (emailInput) {
+      emailInput.removeEventListener("focusout", checkEmailValidity);
+    }
+    if (nicknameInput) {
+      nicknameInput.removeEventListener("focusout", checkNicknameValidity);
+    }
+    if (passwordInput) {
+      passwordInput.removeEventListener("focusout", checkPasswordValidity);
+      passwordInput.removeEventListener("input", checkPasswordValidity);
+    }
+    if (passwordConfirmationInput) {
+      passwordConfirmationInput.removeEventListener("focusout", checkPasswordConfirmationValidity);
+      passwordConfirmationInput.removeEventListener("input", checkPasswordConfirmationValidity);
+    }
+
+    // 비밀번호 토글 버튼의 이벤트 리스너 제거
+    toggleButtons.forEach((button) =>
+      button.removeEventListener("click", togglePasswordVisibility)
+    );
+  }
+
   // 이후 기능 추가 후 수정 (현재는 단순히 특정 페이지로 이동)
   // 로그인 폼 처리
   if (loginForm) {
     loginForm.addEventListener("submit", (event) => {
       event.preventDefault();
+      removeEventListeners();  // 폼 제출 시 이벤트 제거
       window.location.href = "/index.html";
     });
   }
@@ -156,6 +199,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (signupForm) {
     signupForm.addEventListener("submit", (event) => {
       event.preventDefault();
+      removeEventListeners();  // 폼 제출 시 이벤트 제거
       window.location.href = "/login.html";
     });
   }

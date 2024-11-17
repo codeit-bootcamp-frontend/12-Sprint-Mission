@@ -22,11 +22,12 @@ nav {
   border-bottom: 0.1rem solid var(--color-grey);
 
   @media (max-width: 1199px) {
-    max-width: 70rem;
+    padding: 0 5rem;
+    margin: 0;
   }
 
   @media (max-width: 767px) {
-    max-width: 40rem;
+    padding: 0 2rem;
   }
 }
 
@@ -62,11 +63,11 @@ main {
   width: 100%;
 
   @media (max-width: 1199px) {
-    max-width: 70rem;
+    max-width: 100rem;
   }
 
   @media (max-width: 767px) {
-    max-width: 40rem;
+    max-width: 70rem;
   }
 }
 
@@ -156,12 +157,11 @@ main {
   width: 100%;
 
   @media (max-width: 1199px) {
-    max-width: 69.6rem;
-    padding: 0 2.5rem;
+    padding: 0 3rem;
   }
 
   @media (max-width: 767px) {
-    max-width: 344rem;
+    padding: 0 2rem;
   }
 }
 
@@ -271,12 +271,11 @@ footer {
   font-size: 1.6rem;
 
   @media (max-width: 1199px) {
-    max-width: 70rem;
-    padding: 3.2rem 0 10.8rem;
+    padding: 3.2rem 5rem 10.8rem;
   }
 
   @media (max-width: 767px) {
-    max-width: 40rem;
+    padding: 3.2rem 2rem 6.5rem;
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto auto;
@@ -284,7 +283,6 @@ footer {
       "footer-menu socialMedia"
       "copyright .";
     gap: 2.5rem;
-    padding: 3.2rem 0 6.5rem;
   }
 }
 
