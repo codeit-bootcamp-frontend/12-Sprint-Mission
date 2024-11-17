@@ -20,32 +20,36 @@
         <form class="auth_contents">
             <div class="auth_content">
                 <label>이메일</label>
-                <input class="info" type="text" name="name" placeholder="이메일을 입력해주세요">
+                <input id="email" class="info" type="text" name="name" placeholder="이메일을 입력해주세요" onblur="emailChange()">
+                <div id="emailError"></div>
             </div>
             <div class="auth_content">
                 <label>닉네임</label>
-                <input class="info" type="text" name="name" placeholder="닉네임을 입력해주세요">
+                <input id='nickname' class="info" type="text" name="name" placeholder="닉네임을 입력해주세요" onblur="nicknameChange()">
             </div>
             <div class="auth_content">
-                <label>비밀번호</label>
+                <label for="password">비밀번호</label>
                 <div class="info_pw">
-                    <input class="info"  type="password" name="password" placeholder="비밀번호를 입력해주세요">
-                    <div class="eye">
-                        <img src="/images/btn_visibility_on_24px.svg">
+                    <input id="password" class="info"  type="password" name="password" placeholder="비밀번호를 입력해주세요" onblur="passwordChange()">
+                    <div class="eye" onclick="onEyecliked()">
+                        <img id="eye_img" onclick="onImgcliked()" src="/images/btn_visibility_on_24px.svg">
                     </div>
+                    <div id="passwordError"></div>
                 </div>
             </div>
             <div class="auth_content">
                 <label>비밀번호 확인</label>
                 <div class="info_pw">
-                    <input class="info"  type="password" name="password" placeholder="비밀번호를 다시 한 번 입력해주세요">
-                    <div class="eye">
+                    <input id="confirm_password" class="info" type="password" name="confirm_password" placeholder="비밀번호를 다시 한 번 입력해주세요" onblur="passwordConfirm()">
+                    <div class="eye" onclick="onEyecliked()">
                         <img src="/images/btn_visibility_on_24px.svg">
                     </div>
+                    <div id="confirm_password_Error"></div>
                 </div>
+                <span></span>
             </div>
             <div>
-                <input class="button" type="submit" value="회원가입">
+                <input class="button" type="button" value="회원가입"  onclick="location.href='/pages/login.html';">
             </div>
         </form>
 
@@ -66,6 +70,7 @@
         </div>
 
     </div>
+<script src="/js/login_js.js"></script>
 <script src="/js/signup_js.js"></script>
 </body>
 </html>

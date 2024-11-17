@@ -168,8 +168,16 @@ input:focus{
 
 #passwordError {
     color: red;
-    /* font-size: 12px; */
     margin-top: 15px; /* 입력란과 메시지 간의 간격 */
+}
+
+#nicknameError{
+    color:red;
+}
+
+#confirm_password_Error{
+    color: red;
+    margin-top: 15px;
 }
 
 
