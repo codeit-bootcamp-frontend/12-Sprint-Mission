@@ -1,58 +1,73 @@
-import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../../context/useAuth";
+import useForm from "../../hooks/useForm";
 import AuthContainer from "../../components/Auth";
 import Input from "../../components/Input";
 import Button from "../../components/Button";
-import { useAuthForm } from "../../hooks/useAuthForm";
-import { useAuth } from "../../context/useAuth";
+import { VALIDATION_MESSAGES, VALIDATION_REGEX } from "../../util/validation";
+
+const formSchema = {
+  email: {
+    value: "",
+    rule: {
+      required: VALIDATION_MESSAGES.EMAIL_REQUIRED,
+      patterns: [
+        {
+          regex: VALIDATION_REGEX.EMAIL,
+          message: VALIDATION_MESSAGES.INVALID_EMAIL,
+        },
+      ],
+    },
+  },
+  password: {
+    value: "",
+    rule: {
+      required: VALIDATION_MESSAGES.PASSWORD_REQUIRED,
+      patterns: [
+        {
+          regex: VALIDATION_REGEX.PASSWORD,
+          message: VALIDATION_MESSAGES.PASSWORD_MIN_LENGTH,
+        },
+      ],
+    },
+  },
+};
 
 export default function Login() {
   const navigate = useNavigate();
-  const [isLoading, setIsLoading] = useState(false);
   const { handleLogin } = useAuth();
-  const { formData, isFormValid, handleChange } = useAuthForm({
-    email: { value: "", error: null },
-    password: { value: "", error: null },
-  });
+  const {
+    formState,
+    isFormValid,
+    isLoading,
+    handleChange,
+    handleSubmit,
+    getValues,
+  } = useForm(formSchema);
 
-  async function handleSubmit(e) {
-    e.preventDefault();
-
-    if (!isFormValid) {
-      alert("다시 한번 확인해주세요. 제출 할 수 없습니다.");
-      return;
-    }
-
+  async function onSubmit() {
     try {
-      setIsLoading(true);
-      const res = await handleLogin({
-        email: formData.email.value,
-        password: formData.password.value,
-      });
-      if (res) {
-        alert("로그인에 성공했습니다.");
-        navigate("/items");
-      }
+      await handleLogin(getValues());
+      alert("로그인에 성공했습니다.");
+      navigate("/items");
     } catch (err) {
       console.log(err);
       alert("로그인에 실패했습니다.");
-    } finally {
-      setIsLoading(false);
     }
   }
 
   return (
     <AuthContainer isLoading={isLoading}>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit(onSubmit)}>
         <Input
           type="email"
           label="이메일"
           id="email"
           name="email"
           placeholder="이메일을 입력해주세요"
-          value={formData["email"].value}
+          value={formState["email"].value}
           onChange={handleChange}
-          error={formData["email"].error}
+          error={formState["email"].error}
           required
         />
         <Input
@@ -61,9 +76,9 @@ export default function Login() {
           id="password"
           name="password"
           placeholder="비밀번호를 입력해주세요"
-          value={formData["password"].value}
+          value={formState["password"].value}
           onChange={handleChange}
-          error={formData["password"].error}
+          error={formState["password"].error}
           required
         />
         <Button type="submit" size="xl" disabled={!isFormValid}>
