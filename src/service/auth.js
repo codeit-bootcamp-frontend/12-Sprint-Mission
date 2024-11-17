@@ -1,8 +1,8 @@
-const API_URL = "https://panda-market-api.vercel.app";
+const { VITE_API_URL } = import.meta.env;
 
 export async function login({ email, password }) {
   try {
-    const res = await fetch(`${API_URL}/auth/signIn`, {
+    const res = await fetch(`${VITE_API_URL}/auth/signIn`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -32,7 +32,7 @@ export async function signUp({
   passwordConfirmation,
 }) {
   try {
-    const res = await fetch(`${API_URL}/auth/signUp`, {
+    const res = await fetch(`${VITE_API_URL}/auth/signUp`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -59,7 +59,7 @@ export async function signUp({
 
 export async function refreshAccessToken(refreshToken) {
   try {
-    const res = await fetch(`${API_URL}/auth/refresh-token`, {
+    const res = await fetch(`${VITE_API_URL}/auth/refresh-token`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -83,7 +83,7 @@ export async function refreshAccessToken(refreshToken) {
 
 export async function getUser(accessToken) {
   try {
-    const res = await fetch(`${API_URL}/users/me`, {
+    const res = await fetch(`${VITE_API_URL}/users/me`, {
       headers: {
         Authorization: `Bearer ${accessToken}`,
       },
