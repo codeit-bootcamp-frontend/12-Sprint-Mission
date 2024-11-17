@@ -18,21 +18,26 @@
 
         <form class="auth_contents">
             <div class="auth_content">
-                <label for="email">이메일</label>
-                <input id="email" class="info" type="text" name="name" placeholder="이메일을 입력해주세요">
+                <label>이메일</label>
+                <input id="email" class="info" type="text" name="name" placeholder="이메일을 입력해주세요" onblur="emailChange()">
+                <div id="emailError"></div>
             </div>
-            <div class="auth_content pw">
+            <div class="auth_content">
                 <label for="password">비밀번호</label>
                 <div class="info_pw">
-                    <input id="password" class="info"  type="password" name="password" placeholder="비밀번호를 입력해주세요">
-                    <div class="eye">
-                        <img src="/images/btn_visibility_on_24px.svg">
+                    <input id="password" class="info"  type="password" name="password" placeholder="비밀번호를 입력해주세요" onblur="passwordChange()">
+                    <div class="eye" onclick="onEyecliked()">
+                        <img id="eye_img" onclick="onImgcliked()" src="/images/btn_visibility_on_24px.svg">
                     </div>
+                    <div id="passwordError"></div>
+                    <span></span> 
                 </div>
             </div>
             <div>
-                <input class="button" type="submit" value="로그인">
+                <input class="button" type="button" value="로그인" onclick="location.href='/pages/items.html';">
             </div>
+            <!-- 여기서 type을 submit에서 button으로 바꾸면 나중에 서버와 연동 할때 안되지 않나요,..
+            그러면 ,, -->
         </form>
 
         <div class="at_easy">
@@ -53,6 +58,6 @@
         </div>
     </div>
 
+    <script src="/js/login_js.js"></script>
 </body>
-<script src="/js/javascript.js"></script>
 </html>

@@ -49,6 +49,7 @@
     width: 100%;
 }
 
+
 input:focus{
     border-color:var(--blue100) ;
 }
@@ -108,9 +109,9 @@ input:focus{
     cursor:pointer;
 }
 
-.button:hover{
+/* .button:hover{
     background-color: var(--blue100);
-}
+} */
 
 .at_easy{
     width:100%;
@@ -152,6 +153,26 @@ input:focus{
     color:var(--blue100);
     cursor: pointer;
 }
+
+
+
+/* js에서 필요한 css */
+.error{
+    border: 1px, solid, red;
+    display: block;
+}
+
+#emailError{
+    color:red;
+}
+
+#passwordError {
+    color: red;
+    /* font-size: 12px; */
+    margin-top: 15px; /* 입력란과 메시지 간의 간격 */
+}
+
+
 
 /*Mobile 미디어 쿼리*/
  
