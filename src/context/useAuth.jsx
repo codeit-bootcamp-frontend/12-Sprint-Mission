@@ -1,5 +1,4 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import { redirect } from "react-router-dom";
 import { getUser, login } from "../service/auth";
 
 const AuthContext = createContext();
@@ -57,7 +56,7 @@ export function AuthProvider({ children }) {
       user: null,
     });
 
-    redirect("/");
+    window.location.replace("/");
   }
 
   const value = {
