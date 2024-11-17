@@ -62,10 +62,10 @@ export default function Signup() {
     formState,
     isFormValid,
     isLoading,
-    handleChange,
     trigger,
     handleSubmit,
     getValues,
+    register,
   } = useForm(formSchema);
 
   //비밀번호 변경시 비밀번호확인 필드 trigger
@@ -92,46 +92,26 @@ export default function Signup() {
         <Input
           type="email"
           label="이메일"
-          id="email"
-          name="email"
           placeholder="이메일을 입력해주세요"
-          value={formState.email.value}
-          onChange={handleChange}
-          error={formState.email.error}
-          required
+          {...register("email")}
         />
         <Input
           type="text"
           label="닉네임"
-          id="nickname"
-          name="nickname"
           placeholder="닉네임을 입력해주세요"
-          value={formState.nickname.value}
-          onChange={handleChange}
-          error={formState.nickname.error}
-          required
+          {...register("nickname")}
         />
         <Input
           type="password"
           label="비밀번호"
-          id="password"
-          name="password"
           placeholder="비밀번호를 입력해주세요"
-          value={formState.password.value}
-          onChange={handleChange}
-          error={formState.password.error}
-          required
+          {...register("password")}
         />
         <Input
           type="password"
           label="비밀번호 확인"
-          id="passwordConfirmation"
-          name="passwordConfirmation"
           placeholder="비밀번호를 다시 한 번 입력해주세요"
-          value={formState.passwordConfirmation.value}
-          onChange={handleChange}
-          error={formState.passwordConfirmation.error}
-          required
+          {...register("passwordConfirmation")}
         />
         <Button type="submit" size="xl" disabled={!isFormValid}>
           회원가입

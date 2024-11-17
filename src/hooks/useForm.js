@@ -106,6 +106,17 @@ export default function useForm(formSchema) {
     );
   }
 
+  function register(name) {
+    return {
+      id: name,
+      name,
+      value: formState[name].value,
+      error: formState[name].error,
+      onChange: handleChange,
+      required: rules[name].required ? true : false,
+    };
+  }
+
   return {
     formState,
     isFormValid,
@@ -114,5 +125,6 @@ export default function useForm(formSchema) {
     trigger,
     handleSubmit,
     getValues,
+    register,
   };
 }

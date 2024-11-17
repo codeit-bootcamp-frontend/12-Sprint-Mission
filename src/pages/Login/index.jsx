@@ -36,14 +36,8 @@ const formSchema = {
 export default function Login() {
   const navigate = useNavigate();
   const { handleLogin } = useAuth();
-  const {
-    formState,
-    isFormValid,
-    isLoading,
-    handleChange,
-    handleSubmit,
-    getValues,
-  } = useForm(formSchema);
+  const { isFormValid, isLoading, handleSubmit, getValues, register } =
+    useForm(formSchema);
 
   async function onSubmit() {
     try {
@@ -62,24 +56,14 @@ export default function Login() {
         <Input
           type="email"
           label="이메일"
-          id="email"
-          name="email"
           placeholder="이메일을 입력해주세요"
-          value={formState["email"].value}
-          onChange={handleChange}
-          error={formState["email"].error}
-          required
+          {...register("email")}
         />
         <Input
           type="password"
           label="비밀번호"
-          id="password"
-          name="password"
           placeholder="비밀번호를 입력해주세요"
-          value={formState["password"].value}
-          onChange={handleChange}
-          error={formState["password"].error}
-          required
+          {...register("password")}
         />
         <Button type="submit" size="xl" disabled={!isFormValid}>
           로그인
