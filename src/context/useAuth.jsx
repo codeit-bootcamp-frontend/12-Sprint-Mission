@@ -1,6 +1,6 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import { redirect } from "react-router-dom";
-import { login } from "../service/auth";
+import { getUser, login } from "../service/auth";
 
 const AuthContext = createContext();
 
@@ -8,8 +8,23 @@ export function AuthProvider({ children }) {
   const [auth, setAuth] = useState(() => ({
     accessToken: localStorage.getItem("accessToken") || null,
     refreshToken: localStorage.getItem("refreshToken") || null,
-    user: JSON.parse(localStorage.getItem("user")) || null,
+    user: null,
   }));
+
+  useEffect(() => {
+    //마운트시 토큰으로 유저정보 가져오기 (실패하면 로그아웃 처리)
+    (async function getUserData() {
+      if (auth.accessToken) {
+        try {
+          const userData = await getUser(auth.accessToken);
+          setAuth((prev) => ({ ...prev, user: userData }));
+        } catch (err) {
+          console.log(err);
+          handleLogout();
+        }
+      }
+    })();
+  }, []);
 
   async function handleLogin({ email, password }) {
     try {
@@ -23,7 +38,6 @@ export function AuthProvider({ children }) {
 
       localStorage.setItem("accessToken", data.accessToken);
       localStorage.setItem("refreshToken", data.refreshToken);
-      localStorage.setItem("user", JSON.stringify(data.user));
 
       return true;
     } catch (err) {
@@ -36,7 +50,6 @@ export function AuthProvider({ children }) {
   function handleLogout() {
     localStorage.removeItem("accessToken");
     localStorage.removeItem("refreshToken");
-    localStorage.removeItem("user");
 
     setAuth({
       accessToken: null,

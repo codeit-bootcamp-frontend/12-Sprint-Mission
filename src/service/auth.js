@@ -80,3 +80,23 @@ export async function refreshAccessToken(refreshToken) {
     throw error;
   }
 }
+
+export async function getUser(accessToken) {
+  try {
+    const res = await fetch(`${API_URL}/users/me`, {
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+      },
+    });
+
+    const data = await res.json();
+    if (!res.ok) {
+      throw new Error(data.message || "에러가 발생했습니다.");
+    }
+
+    return data;
+  } catch (error) {
+    console.log(error);
+    throw error;
+  }
+}
