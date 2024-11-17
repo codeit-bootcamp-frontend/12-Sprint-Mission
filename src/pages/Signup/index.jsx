@@ -58,15 +58,8 @@ const formSchema = {
 
 export default function Signup() {
   const navigate = useNavigate();
-  const {
-    formState,
-    isFormValid,
-    isLoading,
-    trigger,
-    handleSubmit,
-    getValues,
-    register,
-  } = useForm(formSchema);
+  const { formState, isFormValid, isLoading, trigger, handleSubmit, register } =
+    useForm(formSchema);
 
   //비밀번호 변경시 비밀번호확인 필드 trigger
   useEffect(() => {
@@ -76,9 +69,9 @@ export default function Signup() {
     trigger("passwordConfirmation");
   }, [formState.password.value, formState.passwordConfirmation.value]);
 
-  async function onSubmit(e) {
+  async function onSubmit(data) {
     try {
-      await signUp(getValues());
+      await signUp(data);
       alert("회원가입에 성공했습니다. \n로그인 페이지로 이동합니다.");
       navigate("/login");
     } catch (error) {

@@ -36,12 +36,12 @@ const formSchema = {
 export default function Login() {
   const navigate = useNavigate();
   const { handleLogin } = useAuth();
-  const { isFormValid, isLoading, handleSubmit, getValues, register } =
+  const { isFormValid, isLoading, handleSubmit, register } =
     useForm(formSchema);
 
-  async function onSubmit() {
+  async function onSubmit(data) {
     try {
-      await handleLogin(getValues());
+      await handleLogin(data);
       alert("로그인에 성공했습니다.");
       navigate("/items");
     } catch (err) {

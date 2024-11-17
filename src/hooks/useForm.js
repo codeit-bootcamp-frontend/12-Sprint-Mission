@@ -91,7 +91,7 @@ export default function useForm(formSchema) {
       setIsLoading(true);
 
       try {
-        await onSubmit(e);
+        await onSubmit(getValues());
       } catch (error) {
         console.log(error);
       } finally {
