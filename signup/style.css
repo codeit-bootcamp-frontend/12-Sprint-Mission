@@ -58,9 +58,10 @@ body {
   margin-top: 50px;
 }
 
-.signup-form__container {
+.signup-form__group {
   display: flex;
   flex-direction: column;
+  margin-bottom: 25px;
 }
 
 .signup-form__label {
@@ -78,7 +79,7 @@ body {
   border: none;
   border-radius: 12px;
   padding: 16px 24px;
-  margin: 15px 0 25px;
+  margin: 15px 0 0;
 }
 
 .signup-form__input-email::placeholder,
@@ -109,7 +110,11 @@ body {
   line-height: 1;
 }
 
-.signup-form__btn:hover {
+/* .signup-form__btn:hover {
+  background-color: var(--blue);
+} */
+
+.signup-form__btn-hover {
   background-color: var(--blue);
 }
 
@@ -123,6 +128,17 @@ body {
 
 .signup-form__blind-container {
   position: relative;
+}
+
+.signup-form__msg {
+  color: red;
+  margin-left: 20px;
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+.signup-form__error {
+  border: 1px solid red;
 }
 
 /* 간편 로그인 */
