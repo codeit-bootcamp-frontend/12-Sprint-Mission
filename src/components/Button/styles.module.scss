@@ -52,8 +52,9 @@
 }
 
 .btn-sm {
-  width: 8.8rem;
+  min-width: 8.8rem;
   height: 4.2rem;
+  padding: 0 2.4rem;
   border-radius: 8px;
   font-size: 1.6rem;
   font-weight: 600;
