@@ -1,117 +1,129 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!--sns 메타태그-->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://sprint-yuseop.netlify.app/">
-    <meta property="og:title" content="판다마켓">
-    <meta property="og:image" content="images/og-image.png">
-    <meta property="og:description" content="일상의 모든 물건을 거래해 보세요">
+        <!--sns 메타태그-->
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="https://sprint-yuseop.netlify.app/">
+        <meta property="og:title" content="판다마켓">
+        <meta property="og:image" content="images/og-image.png">
+        <meta property="og:description" content="일상의 모든 물건을 거래해 보세요">
 
-    <title>판다마켓</title>
-    <link rel="icon" href="images/favicon.ico">
-    <link
-      rel="stylesheet"
-      as="style"
-      crossorigin
-      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"
-    />
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/styles.css">
-</head>
+        <title>판다마켓</title>
+        <link rel="icon" href="images/favicon.ico">
+        <link
+        rel="stylesheet"
+        as="style"
+        crossorigin
+        href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"
+        />
+        <link rel="stylesheet" href="css/reset.css">
+        <link rel="stylesheet" href="css/global.css">
+        <link rel="stylesheet" href="css/styles.css">
+    </head>
 
-<body>
-    <header class="header">
-        <nav class="header__navbar">
-            <a href="index.html" class="header__logo">
-                <img src="images/navbar_logo.png" alt="판다마켓 로고" width="153">
+    <body>
+        <header>
+            <a href="index.html" aria-label="홈으로 이동">
+                <img src="images/logo.svg" alt="판다마켓 로고" width="153">
             </a>
-            <a href="login.html" id="navbar__login-button" class="button">로그인</a>  
-        </nav>  
-    </header>
+            <a href="login.html" id="loginLink" class="button">로그인</a>       
+        </header>
 
-    <main>
-        <section id="banner_top" class="banner__container">
-            <div class="wrapper">
-                <h1>일상의 모든 물건을<br />
-                    거래해 보세요</h1>
-                <a href="items.html" class="button etc-button">구경하러 가기</a>   
+        <main class="with-header">
+            <section id="banner_top" class="banner">
+                <div class="wrapper">
+                    <h1>
+                    일상의 모든 물건을<br />
+                    거래해 보세요
+                    </h1>
+                    <a href="items.html" class="button pill-button">구경하러 가기</a>   
+                </div>
+            </section>
+
+            <section id="features" class="wrapper">
+                <div class="feature">
+                    <img src="images/Img_home_01.png" alt="인기상품">
+                    <div class="feature-content">
+                        <h2>Hot item</h2>
+                        <h1>
+                        인기 상품을 <span class="break-on-desktop"><br /></span>확인해
+                        보세요
+                        </h1>
+                        <p class="feature-description">
+                        가장 HOT한 중고거래 물품을<br />판다마켓에서 확인해 보세요
+                        </p>
+                    </div>
+                </div>
+
+                <div class="feature">
+                    <img src="images/Img_home_02.png" alt="상품검색">
+                    <div class="feature-content">
+                        <h2>Search</h2>
+                        <h1>
+                        구매를 원하는 <span class="break-on-desktop"><br /></span>상품을
+                        검색하세요
+                        </h1>
+                        <p class="feature-description">
+                        구매하고 싶은 물품은 검색해서
+                        <br />쉽게 찾아보세요
+                        </p>
+                    </div>
+                </div>
+
+                <div class="feature">
+                    <img src="images/Img_home_03.png" alt="상품등록">
+                    <div class="feature-content">
+                        <h2>Register</h2>
+                        <h1>
+                        판매를 원하는 <span class="break-on-desktop"><br /></span>상품을
+                        등록하세요
+                        </h1>
+                        <p class="feature-description">
+                        어떤 물건이든 판매하고 싶은 상품을
+                        <br />쉽게 등록하세요
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="banner_bottom" class="banner">
+                <div class="wrapper">
+                    <h1>
+                        믿을 수 있는
+                        <br>
+                        판다마켓 중고거래
+                    </h1>
+                </div>
+            </section>
+        </main>
+    
+
+        <footer>
+            <div id="copyright">©codeit - 2024</div>
+            <div id="footerMenu">
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="faq.html">FAQ</a>
             </div>
             
-        </section>
-        <section class="wrapper info__wrapper">
-            <div class="info__box">
-                <img src="images/Img_home_01.png" alt="인기상품" width="50%">
-                <div class="info__content">
-                    <h2 class="info__tag">Hot item</h2>
-                    <h1>인기 상품을<br>확인해 보세요</h1>
-                    <p class="info__description">
-                        가장 HOT한 중고거래 물품을<br />판다마켓에서 확인해 보세요
-                    </p>
-                </div>
+            <div id="socialMedia">
+            <a href="https://www.facebook.com" target="_blank">
+                <img src="images/ic_facebook.png" alt="Facebook" width="20" />
+            </a>
+            <a href="https://www.twitter.com" target="_blank">
+                <img src="images/ic_twitter.png" alt="Twitter" width="20" />
+            </a>
+            <a href="https://www.youtube.com" target="_blank">
+                <img src="images/ic_youtube.png" alt="YouTube" width="20" />
+            </a>
+            <a href="https://www.instagram.com" target="_blank">
+                <img src="images/ic_instagram.png" alt="Instagram" width="20" />
+            </a>
             </div>
-
-            <div class="info__box">
-                <div class="info__content">
-                    <h2 class="info__tag">Search</h2>
-                    <h1>구매를 원하는<br />상품을 검색하세요</h1>
-                    <p class="info__description">
-                        구매하고 싶은 물품은 검색해서<br />쉽게 찾아보세요
-                    </p>
-                </div>
-                <img src="images/Img_home_02.png" alt="상품검색" width="50%">
-            </div>
-
-            <div class="info__box">
-                <img src="images/Img_home_03.png" alt="상품등록" width="50%">
-                <div class="info__content">
-                    <h2 class="info__tag">Register</h2>
-                    <h1>판매를 원하는<br />상품을 등록하세요</h1>
-                    <p class="info__description">
-                        어떤 물건이든 판매하고 싶은 상품을<br />쉽게 등록하세요
-                    </p>
-                </div>
-            </div>
-        </section>
-        <section id="banner_bottom" class="banner__container">
-            <div class="wrapper">
-                <h1>
-                    믿을 수 있는
-                    <br>
-                    판다마켓 중고거래
-                </h1>
-            </div>
-        </section>
-    </main>
-   
-
-    <footer>
-        <div>&copy; codeit - 2024</div>
-        
-        <div id="footerMenu">
-          <a href="privacy.html">Privacy Policy</a>
-          <a href="faq.html">FAQ</a>
-        </div>
-        
-        <div id="socialMedia">
-          <a href="https://www.facebook.com" target="_blank">
-            <img src="images/ic_facebook.png" alt="Facebook" width="20" />
-          </a>
-          <a href="https://www.twitter.com" target="_blank">
-            <img src="images/ic_twitter.png" alt="Twitter" width="20" />
-          </a>
-          <a href="https://www.youtube.com" target="_blank">
-            <img src="images/ic_youtube.png" alt="YouTube" width="20" />
-          </a>
-          <a href="https://www.instagram.com" target="_blank">
-            <img src="images/ic_instagram.png" alt="Instagram" width="20" />
-          </a>
-        </div>
-    </footer>   
-</body>
+        </footer>   
+    </body>
 </html>
 
 

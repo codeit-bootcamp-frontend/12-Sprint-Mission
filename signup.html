@@ -3,63 +3,127 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>회원가입</title>
+
+  <!--sns 메타태그-->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://sprint-yuseop.netlify.app/">
+  <meta property="og:title" content="판다마켓">
+  <meta property="og:image" content="images/og-image.png">
+  <meta property="og:description" content="일상의 모든 물건을 거래해 보세요">
+
+  <title>판다마켓-회원가입</title>
+  <link rel="icon" href="images/favicon.ico">
+
+  <link
+    rel="stylesheet"
+    as="style"
+    crossorigin
+    href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"
+  />
   <link rel="stylesheet" href="css/reset.css" />
-  <link rel="stylesheet" href="css/common.css">
-  <link rel="stylesheet" href="css/signup.css">
-  
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/auth.css">
 </head>
+
 <body>
-  <main class="main">
-    <section class="signup">
-      <header class="header">
-        <a class="header__logo-link" href="/">
-          <img class="header__logo-image" src="images/login_logo.png" alt="로그인페이지로고">
+  <main class="auth-container">
+    <a class="header__logo-link" href="/">
+      <img class="header__logo-image" src="images/logo.svg" alt="로그인페이지로고">
+    </a>
+     
+    <form id="signupForm" method="post" action="signup.html">
+      <div class="form-group">
+        <label class="form__label" for="email">이메일</label>
+        <input
+          type="email" 
+          placeholder="이메일을 입력해주세요" 
+          id="email" 
+          name="email" 
+          required
+        />
+        <span class="error--msg"></span>
+      </div>
+
+      <div class="form-group">
+        <label class="form__label" for="nickname">닉네임</label>
+        <input
+          type="text" 
+          placeholder="닉네임을 입력해주세요" 
+          id="nickname"  
+          name="nickname" 
+          required
+        />
+        <span class="error--msg"></span>
+      </div>
+
+      <div class="form-group">
+        <label class="form__label" for="password">비밀번호</label>
+        <div class="input-wrapper">
+          <input
+            type="password" 
+            placeholder="비밀번호를 입력해주세요" 
+            id="password"  
+            name="password" 
+            required
+          />
+          <button
+            class="form__password-hidden" 
+            type="button" 
+            aria-label="비밀번호 보기"
+          >
+            <img
+              class="form__password-icon"
+              src="images/eye-invisible.svg"
+              alt="비밀번호 숨김 상태 아이콘"
+            />
+          </button>
+        </div>
+        <span class="error--msg"></span>
+      </div>
+
+      <div class="form-group">
+        <label class="form__label" for="password-check">비밀번호확인</label>
+        <div class="input-wrapper">
+          <input
+            type="password" 
+            placeholder="비밀번호를 다시 한 번 입력해주세요" 
+            id="password-check" 
+            name="password-check" 
+            required
+          />
+          <button
+            class="form__password-hidden" 
+            type="button" 
+            aria-label="비밀번호 보기"
+          >
+            <img
+              class="form__password-icon"
+              src="images/eye-invisible.svg"
+              alt="비밀번호 숨김 상태 아이콘"
+            />
+          </button>
+        </div>
+        <span class="error--msg"></span>
+      </div>
+      <button type="submit" id="submit-btn" class="button pill-button full-width" disabled>회원가입</button>
+    </form>
+
+    <div class="social-login__container">
+      <p>간편로그인하기</p>
+      <div class="social__icons">
+        <a href="https://www.google.com/" target="_blank">
+          <img src="images/google_icon.png" alt="google 로그인 아이콘">
         </a>
-      </header>
-
-      <form action="signup.html" method="POST" class="signup-form container">
-        <div class="form__group">
-          <label class="form__label" for="login--email">이메일</label>
-          <input type="email" placeholder="이메일을 입력해주세요" id="login__email" class="form__input" name="loginId">
-        </div>
-
-        <div class="form__group">
-          <label class="form__label" for="login--nickname">닉네임</label>
-          <input type="text" placeholder="닉네임을 입력해주세요" id="login__nickname" class="form__input" name="loginId">
-        </div>
-
-        <div class="form__group">
-          <label class="form__label" for="login--password">비밀번호</label>
-          <input type="password" placeholder="비밀번호를 입력해주세요" id="login__password" class="form__input" name="password">
-          <button class="form__password-hidden"></button>
-        </div>
-
-        <div class="form__group">
-          <label class="form__label" for="login--password-check">비밀번호확인</label>
-          <input type="password" placeholder="비밀번호를 다시 한 번 입력해주세요" id="login__password-check" class="form__input" name="password">
-          <button class="form__password-hidden"></button>
-        </div>
-        <button type="submit" class="login__btn">회원가입</button>
-      </form>
-
-      <div class="social__login container">
-        <p>간편로그인하기</p>
-        <div class="social__icons">
-          <a href="https://www.google.com/" target="_blank">
-            <img src="images/google_icon.png" alt="google 로그인 아이콘">
-          </a>
-          <a href="https://www.kakaocorp.com/page/" target="_blank">
-            <img src="images/kakao_icon.png" alt="kakao 로그인 아이콘">
-          </a>
-        </div>
+        <a href="https://www.kakaocorp.com/page/" target="_blank">
+          <img src="images/kakao_icon.png" alt="kakao 로그인 아이콘">
+        </a>
       </div>
+    </div>
 
-      <div class="social__description">
-        <p>이미 회원이신가요?></p> 
-        <a href="login.html">로그인</a>
-      </div>
-    </section>
+    <div class="social__description">
+      이미 회원이신가요? <a href="login.html">로그인</a>
+    </div>
   </main>
+  <script src="script/auth.js"></script>
 </body>
 </html>
