@@ -18,18 +18,32 @@
 
       <form>
         <!-- email -->
-        <label for="email">이메일
-          <input id="email" name="email" type="email" placeholder="이메일을 입력해주세요" autocomplete="email" required>
-        </label>
+         <div class="form-group">
+          <label for="email">이메일</label>
+          <input 
+            id="email" name="email" type="email" 
+            placeholder="이메일을 입력해주세요" autocomplete="email" required
+          >
+          <span id="email-error" class="error-message-box"></span>
+        </div>
+        
         <!-- password -->
-        <label for="password">비밀번호
+         <div class="form-group">
+          <label for="password">비밀번호</label>
           <div class="password-container">
-            <input id="password" name="password" type="password" placeholder="비밀번호를 입력해주세요" required>
-            <img class="check-password--img" src="../img/check_password.png" alt="비밀번호 보기">
+            <input 
+              id="password" name="password" type="password" 
+              placeholder="비밀번호를 입력해주세요" required
+            >
+            <button class="check-password--img__button" type="button"></button>
           </div>
-        </label>
+          <span id="password-error" class="error-message-box"></span>
+        </div>
+
         <!-- login-button -->
-        <button class="login-button" type="submit">로그인</button>
+        <button class="login-button" type="button" disabled onclick="location.href='/items'">
+          로그인
+        </button>
       </form>
 
       <!-- social-sign-in -->
@@ -40,10 +54,12 @@
           <a href="https://www.kakaocorp.com/page/" target="_blank"><img src="../img/kakao_logo.png"></a>
         </div>
       </div>
+      
       <!-- signup -->
       <p class="sign-up__text-box">판다마켓이 처음신가요?
         <a class="sign-up__text-box--cta" href="../signup/">회원가입</a>
       </p>
     </div>
+    <script type="module" src="scripts/main.js"></script>
   </body>
 </html>
