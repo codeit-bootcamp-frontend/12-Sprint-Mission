@@ -45,7 +45,7 @@ export default function Login() {
       alert("로그인에 성공했습니다.");
       navigate("/items");
     } catch (err) {
-      console.log(err);
+      console.error(err);
       alert("로그인에 실패했습니다.");
     }
   }

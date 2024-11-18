@@ -18,7 +18,7 @@ export function AuthProvider({ children }) {
           const userData = await getUser(auth.accessToken);
           setAuth((prev) => ({ ...prev, user: userData }));
         } catch (err) {
-          console.log(err);
+          console.error(err);
           handleLogout();
         }
       }
@@ -40,7 +40,7 @@ export function AuthProvider({ children }) {
 
       return true;
     } catch (err) {
-      console.log(err);
+      console.error(err);
       throw err;
     }
   }

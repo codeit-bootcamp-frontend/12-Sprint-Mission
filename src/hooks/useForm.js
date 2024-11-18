@@ -93,7 +93,7 @@ export default function useForm(formSchema) {
       try {
         await onSubmit(getValues());
       } catch (error) {
-        console.log(error);
+        console.error(error);
       } finally {
         setIsLoading(false);
       }
