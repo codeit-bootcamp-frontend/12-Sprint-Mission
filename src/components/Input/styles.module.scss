@@ -30,7 +30,7 @@
     padding: 0 2.4rem;
     border: 1px solid transparent;
     border-radius: 12px;
-    background: var(--color-seondary-100);
+    background: var(--color-secondary-100);
   }
 
   .input-box:focus,
@@ -45,7 +45,7 @@
   }
 
   .input-box::placeholder {
-    color: var(--color-seondary-400);
+    color: var(--color-secondary-400);
   }
 
   &:has(.item-btn) .input-box {

@@ -2,7 +2,7 @@
 
 .footer {
   padding: 3.2rem calc(20rem - var(--gutter)) 10.8rem;
-  background: var(--color-seondary-900);
+  background: var(--color-secondary-900);
   color: var(--color-white);
 
   @include mixins.tablet {
@@ -26,7 +26,7 @@
   }
 
   .copyright {
-    color: var(--color-seondary-400);
+    color: var(--color-secondary-400);
 
     @include mixins.mobile {
       order: 3;
@@ -40,7 +40,7 @@
     gap: 3rem;
 
     .nav-item {
-      color: var(--color-seondary-200);
+      color: var(--color-secondary-200);
     }
   }
 

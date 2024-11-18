@@ -69,7 +69,7 @@
       padding: 0 1.5rem;
       font-size: 1.8rem;
       font-weight: 700;
-      color: var(--color-seondary-600);
+      color: var(--color-secondary-600);
 
       @include mixins.mobile {
         padding: 00.4rem;
@@ -79,12 +79,12 @@
 
     .active {
       position: relative;
-      color: var(--color-seondary-300);
+      color: var(--color-secondary-300);
       &:after {
         content: "";
         width: 100%;
         height: 2px;
-        background: var(--color-seondary-600);
+        background: var(--color-secondary-600);
         position: absolute;
         bottom: -1px;
         left: 0;

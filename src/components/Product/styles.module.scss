@@ -58,7 +58,7 @@
     overflow: hidden;
     margin-bottom: 1.6rem;
     border-radius: 1.6rem;
-    background: var(--color-seondary-100);
+    background: var(--color-secondary-100);
     transition: all 0.2s;
 
     img {
@@ -78,14 +78,14 @@
     overflow: hidden;
     font-size: 1.4rem;
     font-weight: 500;
-    color: var(--color-seondary-800);
+    color: var(--color-secondary-800);
     white-space: nowrap;
     text-overflow: ellipsis;
   }
 
   .price {
     font-weight: 700;
-    color: var(--color-seondary-800);
+    color: var(--color-secondary-800);
   }
 
   .action {

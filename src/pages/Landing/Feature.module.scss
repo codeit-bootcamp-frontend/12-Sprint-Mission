@@ -97,7 +97,7 @@
         font-size: 4rem;
         font-weight: 700;
         line-height: 1.4;
-        color: var(--color-seondary-700);
+        color: var(--color-secondary-700);
         white-space: pre-wrap;
 
         @include mixins.tablet {
@@ -116,7 +116,7 @@
       .feature-description {
         font-size: 2.4rem;
         font-weight: 500;
-        color: var(--color-seondary-700);
+        color: var(--color-secondary-700);
         white-space: pre-wrap;
 
         @include mixins.tablet {

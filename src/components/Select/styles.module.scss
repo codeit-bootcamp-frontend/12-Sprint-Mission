@@ -3,7 +3,7 @@
 .select {
   gap: 1rem;
   position: relative;
-  color: var(--color-seondary-800);
+  color: var(--color-secondary-800);
 
   .button {
     display: flex;
@@ -13,7 +13,7 @@
     height: 4.2rem;
     padding: 0 2rem;
     border-radius: 1.2rem;
-    border: 1px solid var(--color-seondary-200);
+    border: 1px solid var(--color-secondary-200);
 
     @include mixins.mobile {
       overflow: hidden;
@@ -51,11 +51,11 @@
     top: 5rem;
     width: 13rem;
     border-radius: 1.2rem;
-    border: 1px solid var(--color-seondary-200);
+    border: 1px solid var(--color-secondary-200);
     background: #fff;
 
     li + li {
-      border-top: 1px solid var(--color-seondary-200);
+      border-top: 1px solid var(--color-secondary-200);
     }
 
     .item {
