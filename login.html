@@ -7,6 +7,7 @@
 
     <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css" />
     <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 </head>
 <body>
     <article class="form_section">
@@ -19,6 +20,7 @@
                         <div class="desc">
                             <input type="text" name="" id="panda_email" class="inp blue" placeholder="이메일을 입력해주세요">
                         </div>
+                        <div class="err_box"></div>
                     </li>
                     <li>
                         <label class="tit" for="panda_password">비밀번호</label>
@@ -28,10 +30,11 @@
                                 <div class="hidden">비밀번호 확인하기 및 가리기 버튼</div>
                             </button>
                         </div>
+                        <div class="err_box"></div>
                     </li>
                 </ul>
                 <div class="form_btn">
-                    <button class="a_btn btn_lg w100" type="submit" disabled>로그인</button>
+                    <button data-link="/items.html" class="a_btn btn_lg w100" type="submit" disabled>로그인</button>
                 </div>
                 <div class="form_simple">
                     <p>간편 로그인하기</p>

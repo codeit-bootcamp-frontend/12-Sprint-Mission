@@ -641,6 +641,7 @@ img {
 }
 .form_box .form_inp_list > li .desc {
   position: relative;
+  z-index: 2;
 }
 .form_box .form_inp_list > li .desc .btn {
   position: absolute;
@@ -653,6 +654,28 @@ img {
 }
 .form_box .form_inp_list > li .desc .btn.active {
   background: url(/img/btn_visibility_on.svg) no-repeat 50% 50%/24px;
+}
+.form_box .form_inp_list > li .err_box {
+  position: relative;
+  height: 32px;
+  margin-top: -32px;
+  padding: 8px 16px 0px;
+  color: #F74747;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.7142;
+  transition: all 0.2s;
+  opacity: 0;
+}
+.form_box .form_inp_list > li.err .desc > .inp {
+  border-color: #F74747;
+}
+.form_box .form_inp_list > li.err .err_box {
+  margin-top: 0px;
+  opacity: 1;
+}
+.form_box .form_inp_list > li.suc .desc > .inp {
+  border-color: var(--blue);
 }
 .form_box .form_inp_list > li + li {
   margin-top: 24px;

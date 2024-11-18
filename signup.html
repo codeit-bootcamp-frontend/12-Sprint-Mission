@@ -19,12 +19,14 @@
                         <div class="desc">
                             <input type="text" name="" id="panda_email" class="inp blue" placeholder="이메일을 입력해주세요">
                         </div>
+                        <div class="err_box"></div>
                     </li>
                     <li>
                         <label class="tit" for="panda_nick">닉네임</label>
                         <div class="desc">
                             <input type="text" name="" id="panda_nick" class="inp blue" placeholder="닉네임을 입력해주세요">
                         </div>
+                        <div class="err_box"></div>
                     </li>
                     <li>
                         <label class="tit" for="panda_password">비밀번호</label>
@@ -34,6 +36,7 @@
                                 <div class="hidden">비밀번호 확인하기 및 가리기 버튼</div>
                             </button>
                         </div>
+                        <div class="err_box"></div>
                     </li>
                     <li>
                         <label class="tit" for="panda_password_ck">비밀번호 확인</label>
@@ -43,10 +46,11 @@
                                 <div class="hidden">비밀번호 확인하기 및 가리기 버튼</div>
                             </button>
                         </div>
+                        <div class="err_box"></div>
                     </li>
                 </ul>
                 <div class="form_btn">
-                    <button class="a_btn btn_lg w100" type="submit" disabled>회원가입</button>
+                    <button data-link="/signin.html" class="a_btn btn_lg w100" type="submit" disabled>회원가입</button>
                 </div>
                 <div class="form_simple">
                     <p>간편 로그인하기</p>

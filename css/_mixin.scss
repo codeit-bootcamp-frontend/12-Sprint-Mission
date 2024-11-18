@@ -1,24 +1,24 @@
 @import "./variable";
 
-@mixin mobile {
+@mixin mini {
     @media screen and (max-width: #{$breakpoint-mobile - 1px}) {
         @content;
     }
 }
 
-@mixin tablet {
+@mixin mobile {
     @media screen and (max-width: #{$breakpoint-tablet - 1px}) {
         @content;
     }
 }
 
-@mixin pc {
+@mixin tablet {
     @media screen and (max-width: #{$breakpoint-pc - 1px}) {
         @content;
     }
 }
 
-@mixin desktop {
+@mixin pc {
     @media screen and (max-width: #{$breakpoint-desktop - 1px}) {
         @content;
     }
