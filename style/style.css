@@ -1,0 +1,357 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "pretendard", sans-serif;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 70px;
+  padding: 0 16px;
+  background-color: #ffffff;
+  position: fixed;
+}
+
+span {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 26px;
+  color: #3692ff;
+}
+
+p {
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 32px;
+  color: #374151;
+}
+
+footer {
+  background-color: #111827;
+  padding: 32px;
+  height: 160px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 16px;
+}
+
+.header__logo {
+  width: 153px;
+}
+
+.header__login-button {
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 8px;
+  padding: 11.5px 23px;
+  align-items: center;
+  justify-content: center;
+  background-color: #3691ff;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.banner-top__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 16px;
+}
+
+.banner-container h2 {
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 56px;
+  color: #374151;
+  padding-bottom: 32px;
+}
+
+.banner-top {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #cfe5ff;
+  background-image: url(/image/banner1.png);
+  background-repeat: no-repeat;
+  background-position: 60% bottom;
+  height: 540px;
+}
+
+.banner-bottom {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #cfe5ff;
+  background-image: url(/image/banner2.png);
+  background-repeat: no-repeat;
+  background-position: 60% bottom;
+  height: 540px;
+}
+
+.banner-bottom h2 {
+  text-align: center;
+}
+
+.banner-button {
+  font-size: 18px;
+  line-height: 26px;
+  font-weight: 600;
+  border-radius: 40px;
+  padding: 12px 71px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #3691ff;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.banner-img {
+  width: 746px;
+  height: 340px;
+}
+
+.merit__container {
+  margin-bottom: 64px;
+  padding: 16px;
+}
+
+.merit__container:nth-child(2) {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.merit__container-text:nth-child(1) {
+  text-align: right;
+}
+
+.merit__container-text h2 {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 32px;
+  color: #374151;
+  padding-bottom: 32px;
+}
+
+.merit__container-text h2 br {
+  display: none;
+}
+
+.merit__container-text span {
+  font-size: 16px;
+  line-height: 26px;
+  font-weight: 700;
+}
+
+.merit__container-text p {
+  font-size: 16px;
+  line-height: 26px;
+  font-weight: 500;
+}
+
+.merit__container-text {
+  display: flex;
+  flex-direction: column;
+}
+
+#footer-text {
+   color: #9ca9af;
+   font-size: 16px;
+   line-height: 19.09px;
+   font-weight: 400;
+}
+
+#footer-url {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+  text-decoration: none;
+  color: #e5e7eb;
+  line-height: 19.09px;
+  font-weight: 400;
+}
+
+.footer-url {
+  text-decoration: none;
+  color: #e5e7eb;
+  line-height: 19.09px;
+  font-weight: 400;
+}
+
+.SNS-icon {
+  display: flex;
+  gap: 12px;
+}
+
+.merit__container img {
+  width: 100%;
+  margin-bottom: 0;
+}
+
+@media (min-width: 768px) {
+  header {
+    padding: 0 24px;
+  }
+
+  footer {
+    padding: 32px 104px 108px;
+  }
+
+  .banner-button {
+    font-size: 20px;
+    line-height: 32px;
+    font-weight: 600;
+    padding: 16px 124px;
+  }
+
+  .banner-container {
+    padding: 0 24px;
+  }
+
+  .banner-container h2 {
+    font-size: 40px;
+  }
+
+  .banner-top h2 br {
+    display: none;
+  }
+
+  .banner-top {
+    height: 771px;
+  }
+
+  .banner-bottom h2 {
+    text-align: center;
+  }
+
+  .merit__container {
+    margin-bottom: 64px;
+    padding: 16px;
+  }
+
+  .merit__container-text h2 {
+    font-size: 32px;
+    line-height: 42px;
+    font-weight: 700;
+  }
+  
+  .merit__container-text span {
+    font-size: 18px;
+    line-height: 26px;
+    font-weight: 700;
+  }
+  
+  .merit__container-text p {
+    font-size: 18px;
+    line-height: 26px;
+    font-weight: 500;
+  }
+  
+  h2 {
+    font-size: 32px;
+    line-height: 44.8px;
+  }
+
+  span {
+    font-size: 18px;
+  }
+}
+
+@media (min-width: 1200px) {
+  header {
+    padding: 0 200px;
+  }
+
+  footer {
+    padding: 32px 200px 108px;
+  }
+
+  .banner-button {
+    font-size: 20px;
+    line-height: 32px;
+    font-weight: 600;
+    padding: 16px 124px;
+  }
+
+  .banner-container h2 {
+    font-size: 40px;
+  }
+
+  .banner-top__container h2 br {
+    display: inline;
+  }
+
+  .banner-bottom__container h2 br {
+    display: inline;
+  }
+
+  .banner-bottom h2 {
+    text-align: left;
+  }
+
+  .banner-top {
+    text-align: left;
+    display: flex;
+    align-items: center;
+    height: 540px;
+  }
+
+  .merit__container {
+    display: flex;
+    align-items: center;
+    gap: 64px;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    padding: 138px 0;
+  }
+
+  .merit__container:nth-child(2) {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .merit__container-text h2 {
+    font-size: 40px;
+    line-height: 56px;
+    font-weight: 700;
+  }
+
+  .merit__container-text h2 br {
+    display: inline;
+  }
+  
+  .merit__container-text span {
+    font-size: 18px;
+    line-height: 26px;
+    font-weight: 700;
+  }
+  
+  .merit__container-text p {
+    font-size: 24px;
+    line-height: 32px;
+    font-weight: 500;
+  }
+
+  h2 {
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 56px;
+    padding-bottom: 32px;
+  }
+
+  .merit__container img {
+    width: 50%;
+    margin-bottom: 0;
+  }
+}
