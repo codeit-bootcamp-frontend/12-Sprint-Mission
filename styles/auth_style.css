@@ -20,14 +20,13 @@
 
 .auth_logo{
     padding-bottom: 40px;
-    
 }
 
 .auth_contents{
     display: flex;
     flex-direction: column;
     justify-content: left;
-    width:640px;
+    width:100%;
 }
 
 .auth_content > a{
@@ -47,8 +46,9 @@
     gap:16px;
     padding-top:12px;
     padding-bottom:12px;
-    width: 640px;
+    width: 100%;
 }
+
 
 input:focus{
     border-color:var(--blue100) ;
@@ -66,7 +66,7 @@ input:focus{
     line-height: 26px;
     text-align: left;
 
-    width:640px;
+    width:100%;
     box-sizing: border-box;
     
 
@@ -92,7 +92,7 @@ input:focus{
     cursor: pointer;
 }
 .button{
-    width: 640px;
+    width: 100%;
     height: 56px;
     border-radius: 40px;
     border-style: none;
@@ -109,12 +109,12 @@ input:focus{
     cursor:pointer;
 }
 
-.button:hover{
+/* .button:hover{
     background-color: var(--blue100);
-}
+} */
 
 .at_easy{
-    width:640px;
+    width:100%;
     background-color: #E6F2FF;
     height: 74px;
     border-radius: 8px;
@@ -154,22 +154,44 @@ input:focus{
     cursor: pointer;
 }
 
-/*Mobile 미디어 쿼리*/
 
+
+/* js에서 필요한 css */
+.error{
+    border: 1px, solid, red;
+    display: block;
+}
+
+#emailError{
+    color:red;
+}
+
+#passwordError {
+    color: red;
+    margin-top: 15px; /* 입력란과 메시지 간의 간격 */
+}
+
+#nicknameError{
+    color:red;
+}
+
+#confirm_password_Error{
+    color: red;
+    margin-top: 15px;
+}
+
+
+
+/*Mobile 미디어 쿼리*/
+ 
 @media(max-width:767px){
-    *{
+    .auth_box {
         max-width: 400px;
-    }
+    } 
     
-    .auth_logo > img{
+    .auth_logo > a > img{
         width:198px;
         height:66px;
     }
 
 }
-
-
-/* 태블릿 미디어 쿼리는 불필요한 것 같아서 등록 안함,, 맞을까요,,?
-@media (max-width: 1199px) and (min-width: 768px){
-
-} */

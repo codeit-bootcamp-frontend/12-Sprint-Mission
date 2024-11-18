@@ -219,6 +219,11 @@ header{
     line-height: 19.09px;
 }
 
+.pf>a{
+    text-decoration: none;
+    color:var(--gray300);
+}
+
 .name{
     color:#9CA3AF;
 }
@@ -353,7 +358,7 @@ header{
 
     .banner{
         position: relative;
-        height: 771px;
+        padding-bottom:160px;
     }
 
     .banner_content{
