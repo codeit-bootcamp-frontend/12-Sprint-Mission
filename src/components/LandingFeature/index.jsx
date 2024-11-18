@@ -1,4 +1,4 @@
-import styles from "./Feature.module.scss";
+import styles from "./styles.module.scss";
 
 export default function Feature({ list }) {
   return (

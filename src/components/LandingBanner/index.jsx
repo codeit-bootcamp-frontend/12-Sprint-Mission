@@ -1,5 +1,5 @@
 import Button from "../../components/Button";
-import styles from "./Banner.module.scss";
+import styles from "./styles.module.scss";
 
 export default function Banner({
   title,
