@@ -1,0 +1,6 @@
+@use "../../assets/scss/base/mixins";
+
+.container {
+  @include mixins.inner;
+  margin: 2.4rem auto 10rem;
+}
