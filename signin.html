@@ -28,25 +28,26 @@
       <div class="logo-home-button-wrapper">
         <a href="/"><img src="images/logo/logo.svg" alt="판다마켓 홈" /></a>
       </div>
-
-      <form method="post">
+      <form method="post" id="signinForm">
         <div class="input-item">
-          <label for="email">이메일</label>
+          <label for="loginEmail">이메일</label>
           <input
-            id="email"
+            id="loginEmail"
             name="email"
             type="email"
             placeholder="이메일을 입력해 주세요"
           />
         </div>
+        <div id="loginEmailError" class="error"></div>
         <div class="input-item">
-          <label for="password">비밀번호</label>
+          <label for="loginPassword">비밀번호</label>
           <div class="input-wrapper">
             <input
-              id="password"
+              id="loginPassword"
               name="password"
               type="password"
               placeholder="비밀번호를 입력해 주세요"
+              required
             />
             <img
               src="images/icons/eye-invisible.svg"
@@ -54,13 +55,12 @@
               class="toggle-password"
             />
           </div>
+          <div id="loginPasswordError" class="error"></div>
         </div>
-
         <button type="submit" class="button pill-button full-width">
           로그인
         </button>
       </form>
-
       <div class="social-login-container">
         <h3>간편 로그인하기</h3>
         <div class="social-login-buttons-container">
@@ -78,10 +78,10 @@
           /></a>
         </div>
       </div>
-
       <div class="auth-switch">
         판다마켓이 처음이신가요? <a href="signup.html">회원가입</a>
       </div>
     </div>
+    <script src="scripts/auth.js"></script>
   </body>
 </html>
