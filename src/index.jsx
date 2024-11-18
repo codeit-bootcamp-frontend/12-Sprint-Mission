@@ -10,6 +10,8 @@ import Signup from "./pages/Signup";
 import Privacy from "./pages/Privacy";
 import Faq from "./pages/Faq";
 import Items from "./pages/Items";
+import ItemDetail from "./pages/Items/ItemDetail";
+import ItemAdd from "./pages/Items/ItemAdd";
 import Boards from "./pages/Boards";
 import "./assets/scss/style.scss";
 
@@ -51,7 +53,14 @@ const router = createBrowserRouter([
         children: [
           {
             path: "items",
-            element: <Items />,
+            children: [
+              { path: "", element: <Items /> },
+              { path: ":id", element: <ItemDetail /> },
+            ],
+          },
+          {
+            path: "addItem",
+            element: <ItemAdd />,
           },
           {
             path: "boards",
