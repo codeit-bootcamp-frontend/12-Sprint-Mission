@@ -67,7 +67,7 @@ export default function Signup() {
       return;
 
     trigger("passwordConfirmation");
-  }, [formState.password.value, formState.passwordConfirmation.value]);
+  }, [formState.password.value]);
 
   async function onSubmit(data) {
     try {
