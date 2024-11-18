@@ -29,6 +29,7 @@
 
     @include mixins.mobile {
       height: auto;
+      margin-right: 1rem;
     }
 
     a {
@@ -58,15 +59,22 @@
 
   .gnb {
     display: flex;
+    height: 100%;
 
     .gnb-item {
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 2.1rem 1.5rem;
+      height: 100%;
+      padding: 0 1.5rem;
       font-size: 1.8rem;
       font-weight: 700;
       color: var(--color-seondary-600);
+
+      @include mixins.mobile {
+        padding: 00.4rem;
+        font-size: 1.6rem;
+      }
     }
 
     .active {
@@ -78,7 +86,7 @@
         height: 2px;
         background: var(--color-seondary-600);
         position: absolute;
-        bottom: -2px;
+        bottom: -1px;
         left: 0;
       }
     }
