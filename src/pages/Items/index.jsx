@@ -8,6 +8,7 @@ import Select from "../../components/Select";
 import { getBestProducts, getProducts } from "../../service/product";
 import { useParams } from "react-router-dom";
 import useProduct from "../../hooks/useProduct";
+import Pagination from "../../components/Pagination";
 
 const sortOptions = [
   { value: "recent", label: "최신순" },
@@ -15,8 +16,18 @@ const sortOptions = [
 ];
 
 export default function Items() {
-  const { items, orderBy, keyword, handleOrderBy, handleKeyword } =
-    useProduct(getProducts);
+  const {
+    isLoading,
+    totalCount,
+    page,
+    pageSize,
+    handlePage,
+    items,
+    orderBy,
+    keyword,
+    handleOrderBy,
+    handleKeyword,
+  } = useProduct(getProducts);
   const { items: bestItems } = useProduct(getBestProducts);
 
   return (
@@ -44,6 +55,12 @@ export default function Items() {
         }
       >
         <ProductList items={items} keyword={keyword} />
+        <Pagination
+          totalCount={totalCount}
+          page={page}
+          pageSize={pageSize}
+          onChangePage={handlePage}
+        />
       </Section>
     </Container>
   );

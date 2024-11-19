@@ -38,10 +38,12 @@ export default function useProduct(fetchFn) {
   }
 
   function handleOrderBy(value) {
+    setPage(1);
     setOrderBy(value);
   }
 
   function handleKeyword(value) {
+    setPage(1);
     setKeyword(value);
   }
 
