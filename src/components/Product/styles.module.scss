@@ -38,10 +38,18 @@
 
     @include mixins.tablet {
       width: calc(50% - (1.6rem * 1) / 2);
+
+      &:nth-child(n + 3) {
+        display: none;
+      }
     }
 
     @include mixins.mobile {
       width: 100%;
+
+      &:nth-child(n + 2) {
+        display: none;
+      }
     }
   }
 }
