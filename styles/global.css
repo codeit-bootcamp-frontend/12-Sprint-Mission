@@ -13,6 +13,9 @@
 
   /* blue */
   --blue: #3692FF;
+
+  /* error */
+  --error: #F74747;
 }
 
 * {
@@ -32,6 +35,16 @@ button {
   outline: none;
   box-shadow: none;
   cursor: pointer;
+}
+
+button:disabled {
+  background-color: #9ca3af;
+  cursor: default;
+  pointer-events: none;
+}
+
+.valid-button {
+  background-color: var(--blue);
 }
 
 img {

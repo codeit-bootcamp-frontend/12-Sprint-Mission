@@ -32,11 +32,6 @@
   font-size: 20px;
   font-weight: 600;
   border-radius: 9999px;
-  background-color: var(--gray-400);
-}
-
-.form-submit-btn.valid {
-  background-color: var(--blue);
 }
 
 .form-item {
@@ -77,6 +72,20 @@
   color: var(--gray-400);
 }
 
+.form-item input.error {
+  border: 1px solid var(--error);
+}
+
+.form-item .error-msg {
+  display: none;
+  margin-top: 8px;
+  padding-left: 16px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--error);
+  line-height: 1.7;
+}
+
 .input-box {
   position: relative;
 }
@@ -90,6 +99,11 @@
 
 .password-blind-btn img {
   width: 24px;
+}
+
+
+.password-blind-btn.show img {
+  content: url('../images/icon/password_show_btn.png');
 }
 
 .social-wrapper {
