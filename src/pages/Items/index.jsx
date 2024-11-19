@@ -9,6 +9,7 @@ import { getBestProducts, getProducts } from "../../service/product";
 import { useParams } from "react-router-dom";
 import useProduct from "../../hooks/useProduct";
 import Pagination from "../../components/Pagination";
+import LoadingSpinner from "../../components/LoadingSpinner";
 
 const sortOptions = [
   { value: "recent", label: "최신순" },
@@ -29,7 +30,7 @@ const itemsResponsive = {
 
 export default function Items() {
   const {
-    isLoading,
+    isLoading: isItemsLoading,
     totalCount,
     page,
     pageSize,
@@ -39,11 +40,17 @@ export default function Items() {
     keyword,
     handleOrderBy,
     handleKeyword,
-  } = useProduct(getProducts);
-  const { items: bestItems } = useProduct(getBestProducts);
+  } = useProduct(getProducts, itemsResponsive);
+  const { isLoading: isBestItemsLoading, items: bestItems } = useProduct(
+    getBestProducts,
+    bestItemsResponsive
+  );
+
+  const isLoading = isItemsLoading || isBestItemsLoading;
 
   return (
     <Container>
+      {isLoading && <LoadingSpinner />}
       <Section title="베스트 상품">
         <ProductList items={bestItems} mode="best" />
       </Section>
