@@ -4,17 +4,26 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
     <link rel="stylesheet" href="style.css">
-    <title>판다마켓</title>
+    <title>판다마켓 로그인</title>
   </head>
   <body>
     <form class="form-container">
       <div class="box">
         <header class="logo"><a href="../index.html"><img src="../img/Property 1=lg.png" alt="로그인 페이지 판다마켓 로고"></a></header>
-        <label>이메일</label>
-        <input name="username" type="text" placeholder="이메일을 입력해주세요">
-        <label>비밀번호</label>
-        <input class="icon" name="password" type="password" placeholder="비밀번호를 입력해주세요">
-        <div class="button"><a href="/login">로그인</a></div>
+        <div id="email-field">
+          <label class="label-title">이메일</label>
+          <input class="btn-email" name="username" type="text" placeholder="이메일을 입력해주세요">
+          <div class="error-message"></div>
+        </div>
+        <div id="password-field">
+          <label class="label-title">비밀번호</label>
+          <input class="btn-password" name="password" type="password" placeholder="비밀번호를 입력해주세요">
+          <div class="btn-toggle-field">
+            <i class="btn-toggle"><img class="icon-toggle" src="/img/btn_visibility_off.png" alt="password-text-off"></i>
+          </div>
+          <div class="error-message"></div>
+        </div>
+        <button disabled class="button" type="button"><a href="/items/index.html">로그인</a></button>
         <div class="easy-login">
           <p class="easy-login-text">간편 로그인하기</p>
           <div class="easy-login-sns">
@@ -25,5 +34,6 @@
         <div class="join">판다마켓이 처음이신가요? <a class="join-page" href="../signup/signup.html">회원가입</a></div>
       </div>
     </form>
+    <script src="script.js"></script>
   </body>
 </html>

@@ -33,8 +33,26 @@ input {
   padding: 16px 24px;
   border: 0;
   border-radius: 12px;
+  height: 56px;
+}
+
+#password-field, #password-repeat-field {
+  position: relative;
+}
+
+.btn1-toggle-field, .btn2-toggle-field {
+  position: absolute;
+  right: 24px;
+  top: 53px;
+  cursor: pointer;
+  width: 24px;
+  height: 24px;
+}
+
+#email-field, #nikname-field, #password-field, #password-repeat-field {
   margin-bottom: 24px;
 }
+
 
 input:focus {
   outline:1px solid #3692ff;
@@ -75,13 +93,15 @@ input:focus {
 
 .join {
   width: 100%;
-  background-color: #9ca3af;
+  background-color: #3692ff;
+  color: #f3f4f6;
+  border: none;
   border-radius: 40px;
   font-size: 20px;
   font-weight: 600;
   line-height: 24px;
   padding: 16px 124px;
-  text-align: center;
+  cursor: pointer;
 }
 
 a:link {
@@ -122,4 +142,24 @@ a:link {
 .login-page:link {
   text-decoration: underline;
   color: #3182f6;
+}
+
+.warning {
+  color: #f74747;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 24px;
+}
+
+.label-title {
+  color: #1f2937;
+}
+
+.warning > input {
+  border: 1px solid #f74747;
+}
+
+.box > :disabled {
+  background-color: #9ca3af;
+  color: #f3f4f6;
 }

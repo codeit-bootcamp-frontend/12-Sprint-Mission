@@ -4,21 +4,39 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
     <link rel="stylesheet" href="style.css">
-    <title>판다마켓</title>
+    <title>판다마켓 회원가입</title>
   </head>
   <body>
     <form class="form-container">
       <div class="box">
         <header class="logo"><a href="../index.html"><img src="../img/Property 1=lg.png" alt="로그인 페이지 판다마켓 로고"></a></header>
-        <label>이메일</label>
-        <input name="emain" type="text" placeholder="이메일을 입력해주세요">
-        <label>닉네임</label>
-        <input name="nikname" type="text" placeholder="닉네임을 입력해주세요">
-        <label>비밀번호</label>
-        <input name="password" type="password" placeholder="비밀번호를 입력해주세요">
-        <label>비밀번호 확인</label>
-        <input name="password" type="password" placeholder="비밀번호를 다시 한 번 입력해주세요">
-        <div class="join"><a href="/">회원가입</a></div>
+        <div id="email-field">
+          <label class="label-title">이메일</label>
+          <input class="btn-email" name="email" type="text" placeholder="이메일을 입력해주세요">
+          <div class="error-message"></div>
+        </div>
+        <div id="nikname-field">
+          <label class="label-title">닉네임</label>
+          <input class="btn-nikname" name="nikname" type="text" placeholder="닉네임을 입력해주세요">
+          <div class="error-message"></div>
+        </div>
+        <div id="password-field">
+          <label class="label-title">비밀번호</label>
+          <input class="btn-password" name="password" type="password" placeholder="비밀번호를 입력해주세요">
+          <div class="btn1-toggle-field">
+            <i class="btn1-toggle"><img class="icon1-toggle" src="/img/btn_visibility_off.png" alt="password-text-off"></i>
+          </div>
+          <div class="error-message"></div>
+        </div>
+        <div id="password-repeat-field">
+          <label class="label-title">비밀번호 확인</label>
+          <input class="btn-password-repeat" name="password-repeat" type="password" placeholder="비밀번호를 다시 한 번 입력해주세요">
+          <div class="btn2-toggle-field">
+            <i class="btn2-toggle"><img class="icon2-toggle" src="/img/btn_visibility_off.png" alt="password-text-off"></i>
+          </div>
+          <div class="error-message"></div>
+        </div>
+        <button disabled class="join" type="button"><a href="/signin/index.html">회원가입</a></button>
         <div class="easy-login">
           <p class="easy-login-text">간편 로그인하기</p>
           <div class="easy-login-sns">
@@ -29,5 +47,6 @@
         <div class="login-check">이미 회원이신가요? <a class="lognin-page" href="../loginpage/login.html">로그인</a></div>
       </div>
     </form>
+    <script src="script.js"></script>
   </body>
 </html>

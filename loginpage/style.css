@@ -14,11 +14,11 @@ body {
   word-break: keep-all;
 }
 
-label {
+.label-title {
   display: block;
   font-weight: 700;
   font-size: 18px;
-  line-height: 26px;
+  line-height: 21px;
   margin-bottom: 16px;
 }
 
@@ -32,6 +32,23 @@ input {
   line-height: 26px;
   width: 100%;
   padding: 15px 24px;
+  height: 56px;
+}
+
+#password-field {
+  position: relative;
+}
+
+.btn-toggle-field {
+  position: absolute;
+  right: 24px;
+  top: 53px;
+  cursor: pointer;
+  width: 24px;
+  height: 24px;
+}
+
+#email-field, #password-field {
   margin-bottom: 24px;
 }
 
@@ -77,10 +94,12 @@ input:focus {
   font-weight: 600;
   line-height: 32px;
   width: 100%;
-  background-color: #9ca3af;
-  text-align: center;
+  background-color: #3692ff;
+  color: #f3f4f6;
   border-radius: 40px;
+  border: none;
   padding: 16px 124px;
+  cursor: pointer;
 }
 
 a:link {
@@ -109,6 +128,7 @@ a:link {
 .easy-login-sns {
   display: flex;
   gap: 16px;
+  cursor: pointer;
 }
 
 .join {
@@ -121,4 +141,24 @@ a:link {
 .join-page:link {
   text-decoration: underline;
   color: #3692ff;
+}
+
+.warning {
+  color: #f74747;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 24px;
+}
+
+.label-title {
+  color: #1f2937;
+}
+
+.warning > input {
+  border: 1px solid #f74747;
+}
+
+.box > :disabled {
+  background-color: #9ca3af;
+  color: #f3f4f6;
 }
