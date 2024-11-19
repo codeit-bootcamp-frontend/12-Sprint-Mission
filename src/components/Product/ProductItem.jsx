@@ -27,11 +27,20 @@ function HighLightWithKeyword({ content, keyword }) {
 
 export default function ProductItem({ item, keyword }) {
   const { id, images, name, price, favoriteCount } = item;
+
+  function handleImgError(e) {
+    e.target.src = defaultImg;
+  }
+
   return (
     <li className={styles.item}>
       <Link to={`/items/${id}`}>
         <figure className={styles.cover}>
-          <img src={images[0] ?? defaultImg} alt={name} />
+          <img
+            src={images[0] ?? defaultImg}
+            alt={name}
+            onError={handleImgError}
+          />
         </figure>
         <div className={styles.content}>
           <div className={styles.title}>
