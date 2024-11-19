@@ -1,9 +1,6 @@
 *{
     box-sizing: border-box;
 }
-
-
-
 input:focus {
     outline: 2px solid #3692FF;
   }
@@ -31,7 +28,6 @@ label{
     gap: 24px;
     display: flex;
     flex-direction: column;
-    
 }
 .email-box{
     width:100%;
@@ -150,4 +146,5 @@ a{
     .easy-login{
         width: 100%;
     }
+
 }

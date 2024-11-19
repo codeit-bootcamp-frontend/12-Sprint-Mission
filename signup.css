@@ -163,7 +163,6 @@ h3{
 a{
     text-decoration: underline;
     color: #3692FF;
-
 }
 /* mobile 사이즈 */
 @media(max-width: 767px){
