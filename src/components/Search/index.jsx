@@ -1,13 +1,23 @@
-import { useRef } from "react";
+import { useState } from "react";
 import searchIcon from "../../assets/img/icon/icon_search.svg";
+import clearIcon from "../../assets/img/icon/icon_clear.svg";
 import styles from "./styles.module.scss";
 
 export default function Search({ onSubmit, placeholder }) {
-  const inputRef = useRef(null);
+  const [value, setValue] = useState();
 
   function handleSubmit(e) {
     e.preventDefault();
-    onSubmit(inputRef.current.value);
+    onSubmit(value);
+  }
+
+  function handleChange(e) {
+    setValue(e.target.value);
+  }
+
+  function handleClear() {
+    setValue("");
+    onSubmit("");
   }
 
   return (
@@ -17,8 +27,14 @@ export default function Search({ onSubmit, placeholder }) {
         className={styles.input}
         type="text"
         placeholder={placeholder}
-        ref={inputRef}
+        value={value}
+        onChange={handleChange}
       />
+      {value && (
+        <button type="button" className={styles.clear} onClick={handleClear}>
+          <img src={clearIcon} alt="검색 초기화" />
+        </button>
+      )}
     </form>
   );
 }
