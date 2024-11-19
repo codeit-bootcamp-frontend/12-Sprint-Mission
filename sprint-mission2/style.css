@@ -1,0 +1,153 @@
+* {
+  box-sizing: border-box;
+}
+
+body, html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.login-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100vh;
+  gap: 40px;
+}
+
+h2 {
+  font-family: "ROKAF Sans";
+}
+
+label {
+  font-family: Pretendard;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 26px;
+  text-align: left;
+  display: block;
+  margin-bottom: 24px;
+}
+
+input {
+  width: 640px;
+  height: 56px;
+  padding: 16px 24px 16px 24px;
+  gap: 10px;
+  border-radius: 12px;
+  border: none;
+  background-color: #F3F4F6;
+}
+
+input:focus {
+  border: 2px solid #3692FF;
+  outline: none
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+}
+
+.button {
+  width: 640px;
+  height: 56px;
+  padding: 16px 124px 16px 124px;
+  border: none;
+  border-radius: 40px;
+  background: #9CA3AF;
+  font-family: Pretendard;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 32px;
+  color: #F3F4F6;
+}
+
+/*
+.button {
+  background-color: #3692FF;
+  cursor: pointer;
+}
+*/
+
+.title-logo {
+  width: 104px;
+  height: 104px;
+  margin-right: 14px;
+}
+
+.login-page_title {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-page_title_word {
+  font-size: 66px;
+  font-weight: 700;
+  line-height: 90px;
+  color: #3692FF;
+  text-decoration: none;
+}
+
+
+.easy-login {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 640px;
+  height: 74px;
+  padding: 16px 23px 16px 23px;
+  gap: 10px;
+  border-radius: 8px;
+  background-color: #E6F2FF;
+  }
+
+.easy-login_sentence {
+  font-family: Pretendard;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 26px;
+  }
+
+.signup-sentence {
+  font-family: Pretendard;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 24px;
+  color: #1F2937;
+}
+
+.signup-link {
+  color: #3692FF;
+}
+
+.login-sentence {
+  font-family: Pretendard;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 24px;
+  color: #1F2937;
+}
+
+.login-link {
+  color: #3692FF;
+}
+
+.password_icon {
+  position: absolute;
+  padding-top: 20px;
+  margin-left: -40px;
+}
+
+.easy-login_logo {
+  width: 42px;
+  height: 42px;
+}

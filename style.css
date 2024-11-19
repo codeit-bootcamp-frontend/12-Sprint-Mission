@@ -1,0 +1,214 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 0.83vw;
+  margin: 0;
+}
+
+header {
+  background: #FFFFFF;
+  border-bottom: .0625rem solid #DFDFDF;
+}
+
+.title_bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 10.4167vw;
+  padding-right: 10.4167vw;
+  padding-top: 0.4688vw;
+  max-width: 100.0000vw;
+  height: 3.6458vw;
+  gap: 0.5208vw;
+  margin: 0 auto;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-family: "ROKAF Sans";
+  font-size: 1.3349vw;
+  font-weight: 700;
+  line-height: 28.8333vw;
+  text-align: left;
+  color: #3692FF;
+}
+
+#panda {
+  width: 2.5vw;
+}
+
+.login {
+  background: #3692FF;
+  border-radius: 0.4167vw;
+  color: #FFFFFF;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 0.6250vw 1.1979vw;
+  cursor: pointer;
+}
+
+.landing_screen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 57.8125vw;
+  max-height: 20.6771vw;
+  margin-top: auto;
+}
+
+.landing_img {
+  width: 100%;
+  height: auto;
+  max-width: 38.8542vw;
+  max-height: 17.7083vw;
+}
+
+h1 {
+  font-family: Pretendard;
+  font-size: 2.0833vw;
+  font-weight: 700;
+  line-height: 2.9167vw;
+  color: #374151;
+  margin-top: 0.5208vw;
+}
+
+.area {
+  background-color: #FFFFFF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 7.1875vw;
+  padding-bottom: 7.1875vw;
+  margin: 0 auto;
+}
+
+h2 {
+  font-family: Pretendard;
+  font-size: 1.2500vw;
+  font-weight: 500;
+  line-height: 1.6667vw;
+  color: #374151;
+  margin: 0;
+}
+
+h3 {
+  font-family: Pretendard;
+  font-size: 0.9375vw;
+  font-weight: 700;
+  line-height: 1.3542vw;
+  color: #3692FF;
+  margin: 0;
+}
+
+.font_background {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding-right: 1.2500vw;
+  gap: 1.2500vw;
+}
+
+.search.font_background {
+  text-align: right;
+  padding-right: 0;
+  padding-left: 1.2500vw;
+}
+
+.rectangle {
+  display: flex;
+  width: 100%;
+  height: auto;
+  max-width: 51.4583vw;
+  max-height: 23.1250vw;
+  gap: 3.1250vw;
+  background-color: #FCFCFC;
+}
+
+main img {
+  width: 100%;
+  height: auto;
+  max-width: 30.6250vw;
+  max-height: 23.1250vw;
+}
+
+.background1 {
+  background-color: #CFE5FF;
+  display: flex;
+  justify-content: center;
+  height: 28.1250vw;
+}
+
+.background2 {
+  background-color: #CFE5FF;
+  display: flex;
+  justify-content: center;
+  height: 28.1250vw;
+  margin-top: 10.4167vw;
+}
+
+.Exit_screen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 57.8125vw;
+  max-height: 20.6771vw;
+  margin-top: auto;
+}
+
+footer {
+  background-color: #111827;
+  height: 8.3333vw;
+  padding: 1.6667vw 1.6667vw;
+  margin: 0 auto;
+}
+
+.footer_text {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 58.3333vw;
+  margin: 0 auto;
+  color: #9CA3AF;
+  font-family: Pretendard;
+  font-size: 0.8333vw;
+  font-weight: 400;
+  line-height: 0.9943vw;
+  text-align: center;
+}
+
+a {
+  text-decoration: none;
+}
+
+.footer_text a {
+  color: #9CA3AF;
+  cursor: pointer;
+}
+
+.faq {
+  margin-left: 1.3021vw;
+}
+
+.go_to_see {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.8333vw 6.4583vw;
+  max-width: 18.5938vw;
+  height: 2.9167vw;
+  background-color: #3692FF;
+  border-radius: 2.0833vw;
+  flex: none;
+  flex-grow: 0;
+  cursor: pointer;
+}
+
+.go_to_see a {
+  color: #FFFFFF;
+}
