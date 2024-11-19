@@ -21,7 +21,10 @@ export default function Filter({ value, options, onChange }) {
       </Dropdown.Toggle>
       <Dropdown.Menu>
         {options.map((option) => (
-          <Dropdown.Item onClick={() => handleClick(option.value)}>
+          <Dropdown.Item
+            key={option.value}
+            onClick={() => handleClick(option.value)}
+          >
             {option.label}
           </Dropdown.Item>
         ))}
