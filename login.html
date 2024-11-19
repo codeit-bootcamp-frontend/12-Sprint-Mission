@@ -10,23 +10,32 @@
 </head>
 
 <body>
-    <div id="login-container">
+    <div id="login-container" class="login-section">
         <div class="login-main">
             <a href="./">
                 <img src="img/login-panda-logo.png" class="login-panda-logo" alt="로그인 페이지 판다 로고">
             </a>
             <form>
-                <div class="input-email">
+                <div class="input-box input-email">
                     <label for="email" class="email-label">이메일</label>
                     <input type="email" id="email" name="email" placeholder="이메일을 입력해주세요">
+                    <div class="input-error email-error">이메일을 입력해주세요.</div>
+                    <div class="input-error emailform-error">잘못된 이메일 형식입니다</div>
                 </div>
 
-                <div class="input-password">
+                <div class="input-box input-password">
                     <label for="password" class="password-label">비밀번호</label>
-                    <input type="password" id="password" name="password" placeholder="비밀번호를 입력해주세요">
+                    <div class="password-wrapper">
+                        <input type="password" id="password" name="password" placeholder="비밀번호를 입력해주세요">
+                        <button type="button" id="toggle-password-visibility" class="eye-icon">
+                            <img src="./img/eye-icon-close.png" alt="비밀번호 표시 눈 모양" id="eye-icon">
+                        </button>
+                    </div>
+                    <div class="input-error password-error">비밀번호를 입력해주세요.</div>
+                    <div class="input-error password-error8">비밀번호를 8자이상 입력해주세요.</div>
                 </div>
 
-                <button type="submit" class="login-button">로그인</button>
+                <button type="button" class="login-button" disabled>로그인</button>
             </form>
             <div class="easy-login">
                 <p>간편 로그인하기</p>
@@ -44,6 +53,7 @@
             </div>
         </div>
     </div>
+    <script src="./js/loginform.js"></script>
 </body>
 
 </html>

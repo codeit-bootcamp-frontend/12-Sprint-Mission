@@ -447,7 +447,8 @@ footer {
   flex-direction: column;
   align-items: center;
   @media (max-width: 768px) {
-
+    padding: 0 16px;
+    width: 100%;
   }
 }
 
@@ -474,12 +475,52 @@ form {
 .input-email {
   display: flex;
   flex-direction: column;
-  gap: 16px;
   @media (max-width: 768px) {
     width: 343px;
-    gap: 8px;
   }
 }
+
+.input-box .input-error {
+  display: none;
+  color: red;
+  padding: 8px 0 0 16px;
+  font-size: 14px;
+}
+
+.input-email.error .email-error  {
+  display: block;
+}
+
+.input-email.errorform .emailform-error {
+  display: block;
+}
+
+.input-password.error .password-error{
+  display: block;
+}
+
+.input-password.error8 .password-error8 {
+  display: block;
+}
+
+.input-nickname.error .nickname-error  {
+  display: block;
+}
+
+.input-password-confirm.error .password-confirm-error  {
+  display: block;
+}
+
+.input-box.error input[type="email"], 
+.input-box.error input[type="password"],
+.input-box.error input[type="text"],
+.input-box.error8 input[type="password"],
+.input-box.error8 input[type="text"],
+.input-box.errorform input[type="email"],
+.input-box.error input[type="text"] {
+  outline: 2px solid red;
+}
+
 
 .input-email input[type="email"] {
   background-color: var(--gray100);
@@ -500,14 +541,23 @@ form {
 .input-password {
   display: flex;
   flex-direction: column;
-  gap: 16px;
   @media (max-width: 768px) {
     width: 343px;
-    gap: 8px;
   }
 }
 
 .input-password input[type="password"] {
+  background-color: var(--gray100);
+  width: 100%;
+  height: 56px;
+  padding: 15px 24px;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  color: var(--gray800);
+}
+
+.input-password input[type="text"] {
   background-color: var(--gray100);
   width: 100%;
   height: 56px;
@@ -526,30 +576,66 @@ form {
 .email-label {
   font-size: 18px;
   font-weight: bold;
+  margin: 0 0 16px;
   @media (max-width: 768px) {
     font-size: 14px;
+    margin: 0 0 8px;
   }
 }
 
 .password-label {
   font-size: 18px;
   font-weight: bold;
+  margin: 0 0 16px;
   @media (max-width: 768px) {
     font-size: 14px;
+    margin: 0 0 8px;
   }
 }
 
 .login-button {
-  background-color: var(--gray400);
+  background-color: var(--blue);
   border: none;
   border-radius: 40px;
   width: 640px;
   height: 56px;
   font-size: 20px;
   color: var(--gray100);
+  cursor: pointer;
   @media (max-width: 768px) {
     width: 343px;
   }
+}
+
+.login-button:hover {
+  background-color: var(--blue);
+}
+
+.login-button:disabled {
+  background-color: var(--gray400);
+}
+
+
+.signup-login-button {
+  background-color: var(--blue);
+  border: none;
+  border-radius: 40px;
+  width: 640px;
+  height: 56px;
+  font-size: 20px;
+  color: var(--gray100);
+  cursor: pointer;
+  @media (max-width: 768px) {
+    width: 343px;
+  }
+}
+
+.signup-login-button:hover {
+  background-color: var(--blue);
+}
+
+.signup-login-button:disabled {
+  background-color: var(--gray400);
 }
 
 .easy-login {
@@ -595,10 +681,8 @@ form {
 .input-nickname {
   display: flex;
   flex-direction: column;
-  gap: 16px;
   @media (max-width: 768px) {
     width: 343px;
-    gap: 8px;
   }
 }
 
@@ -621,22 +705,33 @@ form {
 .nickname-label {
   font-size: 18px;
   font-weight: bold;
+  margin: 0 0 16px;
   @media (max-width: 768px) {
     font-size: 14px;
+    margin: 0 0 8px;
   }
 }
 
 .input-password-confirm {
   display: flex;
   flex-direction: column;
-  gap: 16px;
   @media (max-width: 768px) {
     width: 343px;
-    gap: 8px;
   }
 }
 
 .input-password-confirm input[type="password"] {
+  background-color: var(--gray100);
+  width: 100%;
+  height: 56px;
+  padding: 15px 24px;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  color: var(--gray800);
+}
+
+.input-password-confirm input[type="text"] {
   background-color: var(--gray100);
   width: 100%;
   height: 56px;
@@ -655,8 +750,10 @@ form {
 .password-confirm-label {
   font-size: 18px;
   font-weight: bold;
+  margin: 0 0 16px;
   @media (max-width: 768px) {
     font-size: 14px;
+    margin: 0 0 8px;
   }
 }
 
@@ -664,7 +761,38 @@ input:focus {
   outline: 2px solid var(--blue);
 }
 
-.login-button:hover {
-  background-color: var(--blue);
+.input-box {
+  position: relative;
+  width: 100%;
 }
 
+.password-wrapper {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+#password {
+  width: 100%;
+}
+
+.eye-icon {
+  position: absolute;
+  right: 24px; 
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.confirm-eye-icon {
+  position: absolute;
+  right: 24px; 
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+#eye-icon {
+  width: 24px;
+  height: 24px;
+}
