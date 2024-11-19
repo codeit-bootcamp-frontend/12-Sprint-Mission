@@ -1,4 +1,4 @@
-import { Fragment } from "react";
+import { Fragment, useState } from "react";
 import { Link } from "react-router-dom";
 import defaultImg from "../../assets/img/icon/icon_placeholder.svg";
 import iconHeart from "../../assets/img/icon/icon_heart.svg";
@@ -27,9 +27,20 @@ function HighLightWithKeyword({ content, keyword }) {
 
 export default function ProductItem({ item, keyword }) {
   const { id, images, name, price, favoriteCount } = item;
+  const [error, setError] = useState(false);
 
   function handleImgError(e) {
-    e.target.src = defaultImg;
+    setError(true);
+  }
+
+  let imgSrc = defaultImg;
+  if (images.length) {
+    imgSrc = error ? defaultImg : images[0];
+  }
+
+  let imgCss = styles.default;
+  if (images.length) {
+    imgCss = error ? styles.default : "";
   }
 
   return (
@@ -37,9 +48,10 @@ export default function ProductItem({ item, keyword }) {
       <Link to={`/items/${id}`}>
         <figure className={styles.cover}>
           <img
-            src={images[0] ?? defaultImg}
+            src={imgSrc}
             alt={name}
             onError={handleImgError}
+            className={imgCss}
           />
         </figure>
         <div className={styles.content}>
