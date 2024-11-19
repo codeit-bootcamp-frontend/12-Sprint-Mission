@@ -1,36 +1,28 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Button from "../../components/Button";
 import Container from "../../components/Container";
 import ProductList from "../../components/Product/ProductList";
 import Search from "../../components/Search";
 import Section from "../../components/Section";
 import Select from "../../components/Select";
-import mockData from "./mockData.json";
+import { getBestProducts, getProducts } from "../../service/product";
+import { useParams } from "react-router-dom";
+import useProduct from "../../hooks/useProduct";
 
-const { list } = mockData;
 const sortOptions = [
   { value: "recent", label: "최신순" },
   { value: "favorite", label: "좋아요순" },
 ];
 
 export default function Items() {
-  const [items, setItems] = useState(list);
-  const [size, setSize] = useState(10);
-  const [orderBy, setOrderBy] = useState("recent");
-  const [keyword, setKeyword] = useState("keyword");
-
-  function handleKeyword(value) {
-    setKeyword(value);
-  }
-
-  function handleOrder(value) {
-    setOrderBy(value);
-  }
+  const { items, orderBy, keyword, handleOrderBy, handleKeyword } =
+    useProduct(getProducts);
+  const { items: bestItems } = useProduct(getBestProducts);
 
   return (
     <Container>
       <Section title="베스트 상품">
-        <ProductList items={list.slice(0, 4)} mode="best" />
+        <ProductList items={bestItems} mode="best" />
       </Section>
       <Section
         title="전체 상품"
@@ -45,13 +37,13 @@ export default function Items() {
             </Button>
             <Select
               value={orderBy}
-              onChange={handleOrder}
+              onChange={handleOrderBy}
               options={sortOptions}
             />
           </>
         }
       >
-        <ProductList items={list} />
+        <ProductList items={items} keyword={keyword} />
       </Section>
     </Container>
   );
