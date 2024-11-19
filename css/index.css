@@ -33,7 +33,7 @@
     transform: translateY(-50%);
     width: 40px;
     height: 41px;
-    background: url("../img/logo.png") no-repeat center / contain;
+    background: url("../assets/img/logo.png") no-repeat center / contain;
   }
   .header__login--login-text {
     padding: 15px 30px;
@@ -206,16 +206,16 @@
     opacity: 0.5;
   }
   .footer__sns-group--facebook {
-    background-image: url("../img/ic_facebook.png");
+    background-image: url("../assets/img/ic_facebook.png");
   }
   .footer__sns-group--twitter {
-    background-image: url("../img/ic_twitter.png");
+    background-image: url("../assets/img/ic_twitter.png");
   }
   .footer__sns-group--youtube {
-    background-image: url("../img/ic_youtube.png");
+    background-image: url("../assets/img/ic_youtube.png");
   }
   .footer__sns-group--instagram {
-    background-image: url("../img/ic_instagram.png");
+    background-image: url("../assets/img/ic_instagram.png");
   }
 }
 
