@@ -47,29 +47,30 @@ export default function Items() {
     <Container>
       {isLoading && <LoadingSpinner />}
       <Section title="베스트 상품">
-        <ProductList items={bestItems} mode="best" />
+        <Section.Header title="베스트 상품" />
+        <Section.Content>
+          <ProductList items={bestItems} mode="best" />
+        </Section.Content>
       </Section>
-      <Section
-        title="전체 상품"
-        filter={
-          <>
-            <Search
-              onSubmit={handleKeyword}
-              placeholder="검색할 상품을 입력해주세요"
-            />
-            <Button to="/addItem" size="sm">
-              상품 등록하기
-            </Button>
-            <Filter
-              value={orderBy}
-              onChange={handleOrderBy}
-              options={sortOptions}
-            />
-          </>
-        }
-      >
-        <ProductList items={items} keyword={keyword} />
-        <Pagination {...pagination} />
+      <Section>
+        <Section.Header title="전체 상품">
+          <Search
+            onSubmit={handleKeyword}
+            placeholder="검색할 상품을 입력해주세요"
+          />
+          <Button to="/addItem" size="sm">
+            상품 등록하기
+          </Button>
+          <Filter
+            value={orderBy}
+            onChange={handleOrderBy}
+            options={sortOptions}
+          />
+        </Section.Header>
+        <Section.Content>
+          <ProductList items={items} keyword={keyword} />
+          <Pagination {...pagination} />
+        </Section.Content>
       </Section>
     </Container>
   );
