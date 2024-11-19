@@ -36,7 +36,7 @@ const formSchema = {
 export default function Login() {
   const navigate = useNavigate();
   const { handleLogin } = useAuth();
-  const { isFormValid, isLoading, handleSubmit, register } =
+  const { formError, isFormValid, isLoading, handleSubmit, register } =
     useForm(formSchema);
 
   async function onSubmit(data) {
@@ -45,13 +45,12 @@ export default function Login() {
       alert("로그인에 성공했습니다.");
       navigate("/items");
     } catch (err) {
-      console.error(err);
-      alert("로그인에 실패했습니다.");
+      throw err;
     }
   }
 
   return (
-    <AuthContainer isLoading={isLoading}>
+    <AuthContainer isLoading={isLoading} error={formError}>
       <form onSubmit={handleSubmit(onSubmit)}>
         <Input
           type="email"

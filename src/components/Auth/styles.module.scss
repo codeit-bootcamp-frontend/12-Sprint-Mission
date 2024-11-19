@@ -38,6 +38,12 @@
   .auth-body {
     margin-bottom: 2.4rem;
   }
+
+  .error {
+    padding: 2rem 0 1rem;
+    color: var(--color-error);
+    text-align: center;
+  }
 }
 
 .auth-options {

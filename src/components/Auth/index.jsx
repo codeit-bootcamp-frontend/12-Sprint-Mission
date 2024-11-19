@@ -4,7 +4,12 @@ import styles from "./styles.module.scss";
 import { Link } from "react-router-dom";
 import LoadingSpinner from "../LoadingSpinner";
 
-export default function AuthContainer({ children, mode = "login", isLoading }) {
+export default function AuthContainer({
+  children,
+  mode = "login",
+  isLoading,
+  error,
+}) {
   return (
     <>
       {isLoading && <LoadingSpinner />}
@@ -16,7 +21,14 @@ export default function AuthContainer({ children, mode = "login", isLoading }) {
             </Link>
           </div>
         </div>
-        <div className={styles["auth-body"]}>{children}</div>
+        <div className={styles["auth-body"]}>
+          {children}
+          {error && (
+            <div className={styles.error}>
+              {error.message || "오류가 발생했습니다."}
+            </div>
+          )}
+        </div>
         <div className={styles["auth-footer"]}>
           <Oauth />
           <div className={styles["auth-options"]}>

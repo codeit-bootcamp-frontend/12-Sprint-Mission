@@ -27,18 +27,21 @@ export function AuthProvider({ children }) {
 
   async function handleLogin({ email, password }) {
     try {
-      const data = await login({ email, password });
-
-      setAuth({
-        accessToken: data.accessToken,
-        refreshToken: data.refreshToken,
-        user: data.user,
+      const { user, accessToken, refreshToken } = await login({
+        email,
+        password,
       });
 
-      localStorage.setItem("accessToken", data.accessToken);
-      localStorage.setItem("refreshToken", data.refreshToken);
+      setAuth({
+        accessToken: accessToken,
+        refreshToken: refreshToken,
+        user: user,
+      });
 
-      return true;
+      localStorage.setItem("accessToken", accessToken);
+      localStorage.setItem("refreshToken", refreshToken);
+
+      return user;
     } catch (err) {
       console.error(err);
       throw err;

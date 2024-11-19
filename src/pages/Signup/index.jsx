@@ -58,8 +58,15 @@ const formSchema = {
 
 export default function Signup() {
   const navigate = useNavigate();
-  const { formState, isFormValid, isLoading, trigger, handleSubmit, register } =
-    useForm(formSchema);
+  const {
+    formState,
+    formError,
+    isFormValid,
+    isLoading,
+    trigger,
+    handleSubmit,
+    register,
+  } = useForm(formSchema);
 
   //비밀번호 변경시 비밀번호확인 필드 trigger
   useEffect(() => {
@@ -74,13 +81,13 @@ export default function Signup() {
       await signUp(data);
       alert("회원가입에 성공했습니다. \n로그인 페이지로 이동합니다.");
       navigate("/login");
-    } catch (error) {
-      console.error(error);
+    } catch (err) {
+      throw err;
     }
   }
 
   return (
-    <AuthContainer mode="signup" isLoading={isLoading}>
+    <AuthContainer mode="signup" isLoading={isLoading} error={formError}>
       <form onSubmit={handleSubmit(onSubmit)}>
         <Input
           type="email"

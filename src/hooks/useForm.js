@@ -18,6 +18,7 @@ export default function useForm(formSchema) {
 
   const [formState, setFormState] = useState(initialState);
   const [isLoading, setIsLoading] = useState(false);
+  const [formError, setFormError] = useState(null);
   const isFormValid = Object.values(formState).every(
     (item) => item.error === null && item.value.length
   );
@@ -75,7 +76,7 @@ export default function useForm(formSchema) {
     return { isValid: true, message: null };
   }
 
-  function handleSubmit(onSubmit) {
+  function handleSubmit(submitFn) {
     //다른곳에서 submit과 관련된 비동기코드만 넣으면 되도록
     //공통적으로 사용되는 코드를 모아두기
     return async function (e) {
@@ -88,12 +89,14 @@ export default function useForm(formSchema) {
         alert("제출할 수 없습니다. 확인을 해주세요.");
         return;
       }
+
+      setFormError(null);
       setIsLoading(true);
 
       try {
-        await onSubmit(getValues());
-      } catch (error) {
-        console.error(error);
+        return await submitFn(getValues());
+      } catch (err) {
+        setFormError(err);
       } finally {
         setIsLoading(false);
       }
@@ -119,6 +122,7 @@ export default function useForm(formSchema) {
 
   return {
     formState,
+    formError,
     isFormValid,
     isLoading,
     handleChange,
