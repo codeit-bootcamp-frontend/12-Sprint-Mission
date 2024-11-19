@@ -4,7 +4,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/input.css">
+  <meta property="og:title" content="판다마켓">
+  <meta property="og:description" content="일상의 모든 물건을 거래해보세요">
+  <meta property="og:image" content="images/og.png">
+  <meta property="og:url" content="https://qpalkim-sprint4.netlify.app">
+  <link rel="stylesheet" href="css/signup.css">
   <link rel="stylesheet" as="style" crossorigin
     href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
   <title>회원가입</title>
@@ -17,25 +21,45 @@
     </div>
 
     <form class="signup">
-      <label for="email">이메일</label>
-      <input id="email" name="email" type="email" placeholder="이메일을 입력해주세요">
+      <div class="email-input">
+        <label for="email">이메일</label>
+        <input id="email" name="email" type="email" placeholder="이메일을 입력해주세요" onblur="validateEmail()" required>
+        <div id="emailError" class="error-message"></div>
+      </div>
 
-      <label for="name">닉네임</label>
-      <input id="name" name="name" type="name" placeholder="닉네임을 입력해주세요">
+      <div class="nickname-input">
+      <label for="nickname">닉네임</label>
+      <input id="nickname" name="name" type="name" placeholder="닉네임을 입력해주세요" onblur="validateNickname()" required>
+      <div id="nicknameError" class="error-message"></div>
+    </div>
 
+    <div class="password-input">
       <div class="container">
         <label for="password">비밀번호</label>
-        <input id="password" name="password" type="password" placeholder="비밀번호를 입력해주세요">
-        <img class="eyes" src="images/eyes.png">
+        <input id="password" class="input-action" name="password" type="password" placeholder="비밀번호를 입력해주세요" minlength="8" onblur="validatePassword()" required>
+        <button type="button" class="password-btn">
+          <img src="images/hiddeneyes.png">
+        </button>
       </div>
+      <div id="passwordError" class="error-message">
+      </div>
+    </div>
 
+    <div class="passwordcheck-input">
       <div class="container">
-        <label for="password-check">비밀번호 확인</label>
-        <input id="password-check" name="password" type="password" placeholder="비밀번호를 다시 한 번 입력해주세요">
-        <img class="eyes" src="images/eyes.png">
+        <label for="password">비밀번호 확인</label>
+        <input id="password-check" class="input-action" name="password-check" type="password" placeholder="비밀번호를 입력해주세요" minlength="8" onblur="validatePasswordCheck()" required>
+        <button type="button" class="password-btn">
+          <img src="images/hiddeneyes.png">
+        </button>
       </div>
+      <div id="passwordCheckError" class="error-message">
+      </div>
+    </div>
 
-      <button>회원가입</button>
+    <div class="signup-button">
+      <button type="button" id="submitButton" class="disabled-button" onclick="submitForm()" disabled>회원가입</button>
+    </div>
     </form>
 
     <div class="easy-login">
@@ -50,6 +74,7 @@
       <p>이미 회원이신가요? <a href="login.html">로그인</a></p>
     </div>
   </div>
+  <script src="JS/signup.js"></script>
 </body>
 
 </html>

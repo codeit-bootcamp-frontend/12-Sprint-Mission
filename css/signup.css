@@ -1,0 +1,261 @@
+@charset "utf-8";
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css");
+
+:root {
+  --blue: #3692FF;
+  --gray900: #111827;
+  --gray800: #1F2937;
+  --gray700: #374151;
+  --gray600: #4B5563;
+  --gray500: #6B7289;
+  --gray400: #9CA3AF;
+  --gray200: #E5E7EB;
+  --gray100: #F3F4F6;
+  --gray50: #F9FAFB;
+  --error: #F74747;
+}
+
+* {
+  font-family: "pretendard";  
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0 auto;  
+  background-color: #fff;
+  min-width: 376px;
+}
+
+.signup-box {
+  margin-top: 24px;
+  margin-bottom: 150px;
+}
+
+/* 로고 영역 */
+.logo {
+  width: 198px;
+  height: 66px;
+  margin: 0 auto 24px auto;
+}
+
+.logo img {
+  width: 198px;
+}
+
+/* 회원가입 영역 */
+.signup {
+  padding-left: 16px;
+  padding-right: 16px;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+/* 레이블 */
+label {
+  display: block;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 24px;
+  color: var(--gray800);
+  margin-bottom: 8px;
+}
+
+/* 입력 필드 */
+input {
+  display: block;
+  width: 100%;
+  height: 56px;
+  border-radius: 12px;
+  background-color: var(--gray100);
+  border: none;
+  padding: 15px 24px;
+}
+
+.email-input {
+  margin-bottom: 16px;
+}
+
+.nickname-input {
+  margin-bottom: 16px;
+}
+
+.password-input {
+  margin-bottom: 16px;
+}
+
+.passwordcheck-input {
+  margin-bottom: 16px;
+}
+
+input:focus {
+  border: 3px solid #3692ff;
+  outline: none;
+}
+
+.container {
+  position: relative;
+}
+
+.password-btn {
+  position: absolute;
+  top: 55%;
+  right: 24px;
+  border: none;
+  padding: 0;
+}
+
+.password-btn img {
+  width: 24px;
+}
+
+.password-btn.show img {
+  content: url('../images/openeyes.png');
+  width: 24px;
+  padding-top: 5px;
+}
+
+/* 에러 발생 */
+.error-message {
+  padding-left: 16px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--error);
+  line-height: 24px;
+  margin-top: 8px;
+}
+
+.input-error {
+  border: 2px solid red;
+}
+
+/* 회원가입 버튼 */
+button {
+  margin: 0;
+}
+
+.disabled-button {
+  background-color: var(--gray400);
+  border: none;
+  color: #fff;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 32px;
+  width: 100%;
+  height: 56px;
+  border-radius: 40px;
+  padding: 0;
+}
+
+.abled-button {
+  background-color: var(--blue);
+  cursor: pointer;
+  border: none;
+  color: #fff;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 32px;
+  width: 100%;
+  height: 56px;
+  border-radius: 40px;
+  padding: 0;
+}
+
+
+/* 간편 로그인 영역 */
+.easy-login {
+  display: flex;
+  justify-content: space-between;
+  max-width: 365px;
+  width: 93%;
+  height: 75px;
+  border-radius: 8px;
+  background-color: #E6F2FF;
+  padding: 16px 23px;
+  list-style: none;
+  margin: 24px auto;
+}
+
+.easy-login p {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 42px;
+  color: #1F2937;
+  margin: 0;
+}
+
+.easy-login .link {
+  width: 100px;
+  height: 42px;
+  display: flex;
+}
+
+.easy-login .link img {
+  width: 42px;
+  height: 42px;
+}
+
+.easy-login .link img:first-child {
+  margin-right: 16px;
+}
+
+/* 로그인 링크 */
+.des {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 24px;
+  color: var(--gray800);
+  text-align: center;
+}
+
+.des p {
+  margin: 0;
+}
+
+.des a {
+  color: var(--blue);
+}
+
+/* 태블릿, 데스크톱 */
+@media screen and (min-width: 768px) {
+  .signup-box {
+    margin-top: 60px;
+  }
+
+  .logo {
+    width: 396px;
+    height: 132px;
+    margin-bottom: 40px;
+  }
+  
+  .logo img {
+    width: 396px;
+  }
+
+  .signup {
+    max-width: 640px;
+    padding: 0;
+  }
+  
+  label {
+    font-size: 18px;
+    line-height: 26px;
+    color: var(--gray800);
+    margin-bottom: 16px;
+  }
+  
+  input {
+    width: 640px;
+  }
+
+  .password-btn img {
+    padding-top: 5px;
+  }
+
+  .password-btn.show img {
+    padding-top: 7px;
+  }
+  
+  .easy-login {
+    max-width: 640px;
+  }
+ }
