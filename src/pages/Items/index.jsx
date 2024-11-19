@@ -4,7 +4,7 @@ import Container from "../../components/Container";
 import ProductList from "../../components/Product/ProductList";
 import Search from "../../components/Search";
 import Section from "../../components/Section";
-import Select from "../../components/Select";
+import Filter from "../../components/Filter";
 import { getBestProducts, getProducts } from "../../service/product";
 import { useParams } from "react-router-dom";
 import useProduct from "../../hooks/useProduct";
@@ -65,7 +65,7 @@ export default function Items() {
             <Button to="/addItem" size="sm">
               상품 등록하기
             </Button>
-            <Select
+            <Filter
               value={orderBy}
               onChange={handleOrderBy}
               options={sortOptions}
