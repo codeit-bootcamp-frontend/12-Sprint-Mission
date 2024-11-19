@@ -27,6 +27,8 @@ export default function Pagination({
     onChangePage(number);
   }
 
+  if (!pageNumbers.length) return null;
+
   return (
     <ul className={styles.list}>
       <li>
