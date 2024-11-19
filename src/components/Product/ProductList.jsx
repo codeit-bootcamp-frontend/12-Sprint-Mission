@@ -1,11 +1,11 @@
 import ProductItem from "./ProductItem";
 import styles from "./styles.module.scss";
 
-export default function ProductList({ mode = "", items }) {
+export default function ProductList({ mode = "", items, keyword }) {
   return (
     <ul className={`${styles.items} ${styles[mode]}`}>
       {items.map((item) => (
-        <ProductItem key={item.id} item={item} />
+        <ProductItem key={item.id} item={item} keyword={keyword} />
       ))}
     </ul>
   );

@@ -81,6 +81,11 @@
     color: var(--color-secondary-800);
     white-space: nowrap;
     text-overflow: ellipsis;
+
+    em {
+      color: var(--color-primary-200);
+      font-weight: 700;
+    }
   }
 
   .price {
