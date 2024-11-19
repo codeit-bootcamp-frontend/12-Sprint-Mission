@@ -78,17 +78,7 @@
     }
 
     .active {
-      position: relative;
-      color: var(--color-secondary-300);
-      &:after {
-        content: "";
-        width: 100%;
-        height: 2px;
-        background: var(--color-secondary-600);
-        position: absolute;
-        bottom: -1px;
-        left: 0;
-      }
+      color: var(--color-primary-100);
     }
   }
 
