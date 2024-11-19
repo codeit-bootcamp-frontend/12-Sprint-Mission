@@ -8,7 +8,9 @@ export default function Button({
   size = "",
   ...props
 }) {
-  const css = `${styles.btn} ${size && styles[`btn-${size}`]} ${className}`;
+  const css = `${styles.btn} ${size ? styles[`btn-${size}`] : ""} ${
+    className ?? ""
+  }`;
 
   if (to) {
     return (
