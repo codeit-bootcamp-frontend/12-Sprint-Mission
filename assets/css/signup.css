@@ -22,45 +22,49 @@ li {
 }
 
 body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 100%;
   height: 100%;
   font-family: "Pretendard";
 }
 
-.auth-container {
+.signup-container {
   margin: 120px auto;
   width: 640px;
 
-  @media (width < 767px) {
+  @media (width < 768px) {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     width: 100%;
-    margin: 80px 16px;
+    max-width: 400px;
+    margin: 24px 16px;
   }
 }
 
-.auth-header {
+.signup-header {
   display: flex;
   align-items: flex-start;
   justify-content: center;
-  margin-bottom: 40px;
+  padding: 0 122px 40px;
 
-  @media (width < 767px) {
-    width: 100%;
-    max-width: 400px;
+  @media (width < 768px) {
+    padding: 0 auto;
   }
 }
 
-.auth-header a img {
-  @media (width < 767px) {
+.signup-header a img {
+  @media (width < 768px) {
     width: 200px;
+    height: auto;
   }
 }
 
-.auth-body {
-  @media (width < 767px) {
+.signup-body {
+  @media (width < 768px) {
     width: 100%;
     max-width: 400px;
   }
@@ -71,8 +75,9 @@ body {
   flex-direction: column;
   gap: 24px;
 
-  @media (width < 767px) {
+  @media (width < 768px) {
     width: 100%;
+    max-width: 400px;
   }
 }
 
@@ -98,7 +103,7 @@ body {
   background-color: var(--gray100);
   outline-color: var(--blue);
 
-  @media (width < 767px) {
+  @media (width < 768px) {
     width: 100%;
     max-width: 400px;
   }
@@ -114,7 +119,19 @@ body {
   position: relative;
 }
 
-.item-btn {
+.error-message {
+  padding-left: 16px;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 24px;
+  color: #f74747;
+}
+
+.error-border {
+  border: 1px #f74747 solid;
+}
+
+.visible-btn {
   position: absolute;
   top: 50%;
   right: 24px;
@@ -123,6 +140,24 @@ body {
   height: 24px;
   border: none;
   background-image: url("/assets/images/btn_visibility_on_24px.png");
+  background-size: cover;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.invisible-btn {
+  display: none;
+  position: absolute;
+  top: 50%;
+  right: 24px;
+  transform: translateY(-50%);
+  width: 24px;
+  height: 24px;
+  border: none;
+  background-image: url("/assets/images/btn_invisibility_on_24px.png");
+  background-size: cover;
+  cursor: pointer;
+  z-index: 2;
 }
 
 .form-btn {
@@ -139,7 +174,7 @@ body {
   cursor: pointer;
   transition: all 0.2s;
 
-  @media (width < 767px) {
+  @media (width < 768px) {
     width: 100%;
     max-width: 400px;
   }
@@ -149,7 +184,12 @@ body {
   background-color: var(--blue);
 }
 
-.auth-footer {
+.signup-btn.disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.signup-footer {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -160,23 +200,23 @@ body {
   border-radius: 8px;
   background-color: #e6f2ff;
 
-  @media (width < 767px) {
+  @media (width < 768px) {
     width: 100%;
     max-width: 400px;
   }
 }
 
-.auth-footer-label {
+.signup-footer-social-login {
   font-size: 1rem;
   font-weight: 500;
 }
 
-.auth-footer-icons {
+.signup-footer-icons {
   display: flex;
   gap: 16px;
 }
 
-.auth-option {
+.signup-option {
   margin-top: 24px;
   font-size: 14px;
   font-weight: 500;
@@ -184,7 +224,7 @@ body {
   color: var(--gray800);
 }
 
-.footer-signup {
+.footer-login {
   margin-left: 4px;
   font-size: 14px;
   font-weight: 14px;
