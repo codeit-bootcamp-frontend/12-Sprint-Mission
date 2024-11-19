@@ -7,17 +7,25 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
     <link rel="stylesheet" href="login.css">
-  </head>
+    </head>
   <body>
     <main class="pan_main">
       <form>
         <div class="login-title">
           <a href="/"><img src="Property 1=sm@3x.png" alt="판다마켓"></a>
         </div>
-        <label for="이메일">이메일</label>
-        <input id="이메일" name="email" placeholder="이메일을 입력해주세요 ">
-        <label for="비밀번호">비밀번호</label>
-        <input id="비밀번호" name="password" type="password" placeholder="비밀번호를 입력해주세요">
+        <div class="input-box input-email">
+          <label for="email">이메일</label>
+          <input type="email" id="email" name="email" placeholder="이메일을 입력해주세요 ">
+          <div class="input-error">이메일을 입력해주세요.</div>
+          <div class="input-error2">잘못된 이메일 형식입니다.</div>
+        </div>
+        <div class="input-box input-password">
+          <label for="password">비밀번호</label>
+          <input id="password" name="password" type="password" placeholder="비밀번호를 입력해주세요">
+          <div class="input-password-error">비밀번호를 입력해주세요.</div>
+          <div class="input-password-error2">비밀번호를 8자 이상 입력해주세요.</div>
+        </div>        
         <button type="submit" class="login-set">로그인</button>
         <div class="login-easy">간편 로그인하기
           <div>
@@ -28,5 +36,6 @@
         <div class="login-first">판다 마켓이 처음이신가요? <a href="/signup.html">회원가입</a></div>
       </form>            
     </main>
+    <script src="loginform.js"></script>
   </body>
 </HTML>  

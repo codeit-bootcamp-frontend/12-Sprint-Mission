@@ -65,6 +65,50 @@ input {
     background-color: var(--gray100);
 }
 
+.input-box .input-error{
+    display : none;
+    color: red;
+    padding:8px 0 0 16px;
+    font-size:14px;
+}
+
+.input-error2{
+    display : none;
+    color: red;
+    padding:8px 0 0 16px;
+    font-size:14px;
+}
+
+.input-email.error .input-error{
+    display: block;
+}
+
+.input-email.error input[type="email"]{
+    outline:1px solid red;
+}
+
+.input-box .input-password-error{
+    display : none;
+    color: red;
+    padding:8px 0 0 16px;
+    font-size:14px;
+}
+
+.input-password.error .input-password-error{
+    display: block;
+}
+
+.input-password.error input[type="password"]{
+    outline:1px solid red;
+}
+.input-password-error2{
+    display : none;
+    color: red;
+    padding:8px 0 0 16px;
+    font-size:14px;
+}
+
+
 .login-set {
     border: none;
     border-radius: 40px;
