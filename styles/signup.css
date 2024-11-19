@@ -1,9 +1,3 @@
-/* ROKAF Sans 폰트 */
-@font-face {
-  font-family: 'ROKAF Sans';
-  src: url(/sprint_mission/12-Sprint-Mission/fonts/ROKAF_SANS_MEDIUM.ttf) format('truetype');
-}
-
 :root {
   --blue: #3692FF;
   --gray900: #111827;
@@ -17,22 +11,27 @@
   --gray50: #F9FAFB;
 }
 
-/* LOGIN CSS FILE */
+/* SIGNUP CSS FILE */
 body {
-  margin: 0;
-  font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
 
 /* flex 지정 */
-.container nav, .logo, .loginForm, .otherLogin, .site {
+.container .signup-nav, .logo, .signupForm, .otherLogin, .site {
   display: flex;
 }
 
 .container {
-  padding: 231px 640px;
+  width: 640px;
+  height: 842px;
+  padding-top: 48px;
+  padding-bottom: 145px;
 }
 
-.container nav {
+.container .signup-nav {
   gap: 40px;
   box-sizing: border-box;
   flex-direction: column;
@@ -57,21 +56,21 @@ body {
   text-align: left;
 }
 
-/* 로그인 폼 */
-.loginForm {
+/* 회원가입 폼 */
+.signupForm {
   width: 100%;
   flex-direction: column;
   gap: 24px;
 }
 
-.loginForm label {
+.signupForm label {
   color: var(--gray800);
   font-size: 18px;
   line-height: 26px;
   font-weight: 700;
 }
 
-.loginForm input {
+.signupForm input {
   color: var(--gray800);
   font-weight: 400;
   border: 0;
@@ -83,50 +82,62 @@ body {
   height: 26px;
 }
 
-.loginForm input::placeholder {
+.signupForm input::placeholder {
   color: var(--gray400);
   opacity: 0.7;
 }
 
-.loginForm input:focus {
+.signupForm input:focus {
   outline: 1px solid var(--blue);
 }
 
-#submit {
+.button {
   height: 56px;
   font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
   border-radius: 40px;
-  padding: 16px 124px;
+  padding: 16px auto;
   width: 100%;
   border: 0;
   background-color: var(--gray400);
   color: var(--gray100);
   font-size: 20px;
-  font-weight: 600;
   line-height: 24px;
-  cursor: pointer;
-  /*cursor: not-allowed;*/
-}
-
-/* 로그인 버튼 이벤트 리스너 부분 (스크립트 작성시 사용)
-#submit.active {
-  background-color: var(--blue);
+  font-weight: 600;
   cursor: pointer;
 }
-*/
 
-.emailInput, .passwordInput {
+.button[disabled] {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+input.error {
+  border: 1px solid red;
+}
+
+input.valid {
+  outline: 1px solid var(--blue);
+}
+
+.error-message {
+  color: red;
+  font-size: 14px;
+  padding-left: 16px;
+  font-weight: 600;
+}
+
+.emailInput, .passwordInput, .nicknameInput, .pwCheckInput {
   display: flex;
   flex-direction: column;
   gap: 16px;
   padding-bottom: 24px;
 }
 
-.passwordInput {
+.passwordInput, .pwCheckInput {
   position: relative;
 }
 
-.passwordInput i {
+.passwordInput i, .pwCheckInput i{
   position: absolute;
   margin: 58px 0 16px;
   right: 24px;
@@ -160,15 +171,63 @@ body {
   width: 42px;
 }
 
-/* 회원가입 페이지 이동 */
-
-.signupPage {
+/* 로그인 페이지 이동 */
+.loginPage {
   text-align: center;
   font-size: 14px;
   font-weight: 500;
   color: var(--gray800);
+  margin: 0;
 }
 
-.signupPage a {
+.loginPage a {
   color: var(--blue);
+}
+
+/* moblie */
+@media screen and (max-width: 767px) {
+  .container {
+    padding-top: 24px;
+    width: calc(100% - 32px);
+    max-width: 400px;
+    height: 681px;
+  }
+
+  .container .signup-nav {
+    gap: 24px;
+  }
+  
+  /* 상단 로고 */
+  .logo {
+    gap: 11px;
+  }
+
+  .logoTitle a {
+    font-size: 33px;
+    line-height: 44px;
+  }
+
+  .logo > img {
+    width: 51px;
+    height: 51px;
+  }
+
+  .signupForm label {
+    font-size: 14px;
+    line-height: 24px;
+  }
+
+  .emailInput, .passwordInput, .nicknameInput, .pwCheckInput {
+    gap: 8px;
+    padding-bottom: 16px;
+  }
+
+  .passwordInput i, .pwCheckInput i {
+    position: absolute;
+    margin: 0;
+    top: 48px;
+    right: 24px;
+    font-size: 24px;
+    cursor: pointer;
+  }
 }

@@ -1,9 +1,3 @@
-/* ROKAF Sans 폰트 */
-@font-face {
-  font-family: 'ROKAF Sans';
-  src: url(/sprint_mission/12-Sprint-Mission/fonts/ROKAF_SANS_MEDIUM.ttf) format('truetype');
-}
-
 :root {
   --blue: #3692FF;
   --gray900: #111827;
@@ -17,37 +11,46 @@
   --gray50: #F9FAFB;
 }
 
-/* SIGNUP CSS FILE */
+/* LOGIN CSS FILE */
 body {
-  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button { 
   font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+  white-space: nowrap;
+  border: 0;
 }
 
 /* flex 지정 */
-.container nav, .logo, .signupForm, .otherLogin, .site {
+.container .login-nav, .logo, .loginForm, .otherLogin, .site {
   display: flex;
 }
 
-.container {
-  padding: 231px 640px;
+/* desktop */
+.container {  
+  width: 640px;
+  height: 618px;
 }
 
-.container nav {
+.container .login-nav {
   gap: 40px;
   box-sizing: border-box;
   flex-direction: column;
   align-items: center;
 }
 
-/* 상단 로고 */
-.logo {
+.logo { /* 상단 로고 */
   box-sizing: border-box;
   flex-direction: row;
   align-items: center;
   gap: 22px;
 }
 
-.logoTitle a {
+.logoTitle a {  /* 로고 글자 스타일 */
   font-family: 'ROKAF Sans', sans-serif;
   text-decoration: none;
   color: var(--blue);
@@ -57,21 +60,20 @@ body {
   text-align: left;
 }
 
-/* 회원가입 폼 */
-.signupForm {
+.loginForm { /* 로그인 폼 */
   width: 100%;
   flex-direction: column;
   gap: 24px;
 }
 
-.signupForm label {
+.loginForm label {  /* 폼 label 스타일 */
   color: var(--gray800);
   font-size: 18px;
   line-height: 26px;
   font-weight: 700;
 }
 
-.signupForm input {
+.loginForm input { /* 폼 input 스타일 */
   color: var(--gray800);
   font-weight: 400;
   border: 0;
@@ -83,50 +85,27 @@ body {
   height: 26px;
 }
 
-.signupForm input::placeholder {
+.loginForm input::placeholder {
   color: var(--gray400);
   opacity: 0.7;
 }
 
-.signupForm input:focus {
+.loginForm input:focus { /* 폼 input focusin */
   outline: 1px solid var(--blue);
 }
 
-#submit {
-  height: 56px;
-  font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
-  border-radius: 40px;
-  padding: 16px 285px;
-  width: 100%;
-  border: 0;
-  background-color: var(--gray400);
-  color: var(--gray100);
-  font-size: 20px;
-  line-height: 24px;
-  font-weight: 600;
-  cursor: pointer;
-  /*cursor: not-allowed;*/
-}
-
-/* 로그인 버튼 이벤트 리스너 부분 (스크립트 작성시 사용)
-#submit.active {
-  background-color: var(--blue);
-  cursor: pointer;
-}
-*/
-
-.emailInput, .passwordInput, .nicknameInput, .pwCheckInput {
+.emailInput, .passwordInput {
   display: flex;
   flex-direction: column;
   gap: 16px;
   padding-bottom: 24px;
 }
 
-.passwordInput, .pwCheckInput {
+.passwordInput {
   position: relative;
 }
 
-.passwordInput i, .pwCheckInput i{
+.passwordInput i {  /* password favicon */
   position: absolute;
   margin: 58px 0 16px;
   right: 24px;
@@ -134,8 +113,39 @@ body {
   cursor: pointer;
 }
 
-/* 간편로그인 */
-.otherLogin {
+.button { /* loginButton 스타일 */
+  height: 56px;
+  border-radius: 40px;
+  width: 100%;
+  background-color: var(--gray400);
+  color: var(--gray100);
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 32px;
+  cursor: pointer;
+}
+
+.button[disabled] {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+input.error {
+  border: 1px solid red;
+}
+
+input.valid {
+  outline: 1px solid var(--blue);
+}
+
+.error-message {
+  color: red;
+  font-size: 14px;
+  padding-left: 16px;
+  font-weight: 600;
+}
+
+.otherLogin { /* 간편로그인 */
   height: 74px;
   flex-direction: row;
   justify-content: space-between;
@@ -160,15 +170,55 @@ body {
   width: 42px;
 }
 
-/* 로그인 페이지 이동 */
-
-.loginPage {
+.signupPage { /* 회원가입 페이지 이동 */
   text-align: center;
   font-size: 14px;
   font-weight: 500;
   color: var(--gray800);
+  margin: 0;
 }
 
-.loginPage a {
+.signupPage a {
   color: var(--blue);
+}
+
+/* moblie */
+@media screen and (max-width: 767px) {
+  .container {
+    width: calc(100% - 32px);
+    max-width: 400px;
+    height: 501px;
+  }
+
+  .container .login-nav {
+    gap: 24px;
+  }
+  
+  .logo {  /* 상단 로고 */
+    gap: 11px;
+  }
+
+  .logoTitle a {
+    font-size: 33px;
+    line-height: 44px;
+  }
+
+  .logo > img {
+    width: 51px;
+    height: 51px;
+  }
+
+  .loginForm label {
+    font-size: 14px;
+  }
+
+  .emailInput, .passwordInput {
+    gap: 8px;
+    padding-bottom: 16px;
+  }
+
+  .passwordInput i {
+    margin: 0;
+    top: 48px;
+  }
 }

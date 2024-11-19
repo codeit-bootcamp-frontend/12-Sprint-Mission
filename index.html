@@ -1,129 +1,191 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko_KR">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="description" content="일상의 모든 물건을 거래해보세요">
+
+  <meta property="og:title" content="판다 마켓">
+  <meta property="og:description" content="일상의 모든 물건을 거래해보세요">
+  <meta property="og:url" content="https://fe-12-kimkyungki.netlify.app"> <!-- 랜딩 페이지 URL을 넣으세요 -->
+  <meta property="og:image" content="https://fe-12-kimkyungki.netlify.app/images/Img_home_01.png"> <!-- 공유될 이미지 URL을 넣으세요 -->
+  <meta property="og:type" content="website">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="판다 마켓">
+  <meta name="twitter:description" content="일상의 모든 물건을 거래해보세요">
+  <meta name="twitter:image" content="https://fe-12-kimkyungki.netlify.app/images/Img_home_01.png">
+
   <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css" />
-  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="/styles/global.css">
+  <link rel="stylesheet" href="/styles/main.css">
+
   <title>판다마켓</title>
 </head>
 <body>
-<!---------- header ---------->
+<!--           header           -->
   <header>
     <nav class="header-bar">
       <!-- 로고 -->
       <div class="logo">
-        <img src="images/logo.png" alt="로고이미지">
+        <img src="images/logo.png" class="logoImg" alt="로고이미지">
         <h1 class="logoTitle">
-          <a href="/">판다마켓</a>
+          <a href="/">
+            판다마켓
+          </a>
         </h1>
       </div>
       <!-- 로그인 -->
-      <button type="button" 
-              onclick="location.href='/login'">
-              로그인
-      </button>
+      <!-- 수정 사항 button => a 태그 사용 -->
+      <div class="login">
+        <a href="/login">
+          로그인
+        </a>
+      </div>
     </nav>
   </header>
-<!---------- main ---------->
+<!--           main           -->
   <main>
     <!-- 구경하러 가기 -->
-    <nav class="section_1">
-      <div class="sec1_frame">
+    <div class="section_1">
+      <nav class="sec1_frame">
         <div class="sec1_sentence_flex">
           <div class="sec1_sentence">
-            <h1>일상의 모든 물건을 거래해 보세요</h1>
+            <h2>
+              일상의 모든 물건을 거래해 보세요
+            </h2>
           </div>
-          <button type="button" 
-                  onclick="location.href='/items'">
-                  구경하러 가기
-          </button>
+          <div class="goItems">
+            <a href="/items">구경하러 가기</a>
+          </div>
         </div>
         <div class="sec1_img">
           <img src="images/section_1.png" alt="구경하러가기이미지">
         </div>
-      </div>
-    </nav>
+      </nav>
+    </div>
     <!-- 인기 상품 -->
-    <nav class="section_2">
+    <div class="section_2">
       <div class="sec2_1">
-        <div class="sec2_1frame">
+        <nav class="sec2_1frame">
           <div class="imgSize">
             <img src="images/Img_home_01.png" alt="인기상품이미지">
           </div>
           <div class="sec2_hotItem_flex">
-            <h1>Hot item</h1>
+            <h3>
+              Hot item
+            </h3>
             <div class="hotItem">
-              <h2>인기 상품을<br> 확인해 보세요</h2>
-              <h3>가장 HOT한 중고거래 물품을<br>
-                  판다 마켓에서확인해 보세요</h3>
+              <span class="sec2_sentence" id="hotItemText">
+                인기 상품을 확인해 보세요
+              </span>
+              <span class="sec2_sentence_2">
+                가장 HOT한 중고거래 물품을<br>판다 마켓에서확인해 보세요
+              </span>
             </div>
           </div>
-        </div>
+        </nav>
       </div>
       <!-- 상품 검색 -->
       <div class="sec2_2">
-        <div class="sec2_2frame">
+        <nav class="sec2_2frame">
           <div class="sec2_search_flex">
-            <h1>Search</h1>
+            <h3>
+              Search
+            </h3>
             <div class="search">
-              <h2>구매를 원하는<br> 상품을 검색하세요</h2>
-              <h3>구매하고 싶은 물품은 검색해서
-                  <br> 쉽게 찾아보세요</h3>
+              <span class="sec2_sentence" id="searchText">
+                구매를 원하는 상품을 검색하세요
+              </span>
+              <span class="sec2_sentence_2">
+                구매하고 싶은 물품은 검색해서<br>쉽게 찾아보세요
+              </span>
             </div>
           </div>
           <div class="imgSize">
             <img src="images/Img_home_02.png" alt="상품검색이미지">
           </div>
-        </div>
+        </nav>
       </div>
       <!-- 상품 등록 -->
       <div class="sec2_3">
-        <div class="sec2_3frame">
+        <nav class="sec2_3frame">
           <div class="imgSize">
             <img src="images/Img_home_03.png" alt="상품등록이미지">
           </div>
           <div class="sec2_register_flex">
-            <h1>Register</h1>
+            <h3>
+              Register
+            </h3>
             <div class="register">
-              <h2>판매를 원하는<br> 상품을 등록하세요</h2>
-              <h3>어떤 물건이든 판매하고 싶은 상품을
-                  <br>쉽게 등록하세요</h3>
+              <span class="sec2_sentence" id="registerText">
+                판매를 원하는 상품을 등록하세요
+              </span>
+              <span class="sec2_sentence_2">
+                어떤 물건이든 판매하고 싶은 상품을<br>쉽게 등록하세요
+              </span>
             </div>
           </div>
         </div>
-      </div>
-    </nav>
+      </nav>
+    </div>
     <!-- 메인 하단 -->
-    <nav class="section_3">
-      <div class="sec3_frame">
+    <div class="section_3">
+      <nav class="sec3_frame">
         <div class="sec3_sentence">
-          <h1>믿을 수 있는<br>판다마켓 중고 거래</h1>
+          <h2>
+            믿을 수 있는<br>판다마켓 중고 거래
+          </h2>
         </div>
         <div class="sec3_img">
           <img src="images/panda2.png" alt="메인하단이미지">
         </div>
-      </div>
-    </nav>
+      </nav>
+    </div>
   </main>
-<!---------- footer ---------->
+<!--           footer           -->
   <footer class="footer">
     <nav class="footer-bar">
       <div class="copyRight">
-        <p>@codeit - 2024</p>
+        <p>
+          @codeit - 2024
+        </p>
       </div>
       <div class="privacyNfaq">
-        <a href="/privacy">Privacy Policy</a>
-        <a href="/faq">FAQ</a>
+        <a href="/privacy">
+          Privacy Policy
+        </a>
+        <a href="/faq">
+          FAQ
+          </a>
       </div>
       <!-- 소셜사이트 페이지 이동 -->
-      <div class="socialNetwork">
-        <div class="facebook"><a href="https://www.facebook.com/?locale=ko_KR" target="_blank"><img src="images/ic_facebook.png"></a></div>
-        <div class="twitter"><a href="https://www.twitter.com" target="_blank"><img src="images/ic_twitter.png"></a></div>
-        <div class="youtube"><a href="https://www.youtube.com/" target="_blank"><img src="images/ic_youtube.png"></a></div>
-        <div class="instagram"><a href="https://www.instagram.com" target="_blank"><img src="images/ic_instagram.png"></a></div>
-      </div>
+      <!-- 리스트 형식으로 수정 -->
+      <ul class="socialNetwork">
+        <ol class="facebook">
+          <a href="https://www.facebook.com/?locale=ko_KR" target="_blank">
+            <img src="images/ic_facebook.png">
+          </a>
+        </ol>
+        <ol class="twitter">
+          <a href="https://www.twitter.com" target="_blank">
+            <img src="images/ic_twitter.png">
+          </a>
+        </ol>
+        <ol class="youtube">
+          <a href="https://www.youtube.com/" target="_blank">
+            <img src="images/ic_youtube.png">
+          </a>
+        </ol>
+        <ol class="instagram">
+          <a href="https://www.instagram.com" target="_blank">
+            <img src="images/ic_instagram.png">
+          </a>
+        </ol>
+      </ul>
     </nav>
   </footer>
+  <script src="js/screen.js"></script>
 </body>
 </html>

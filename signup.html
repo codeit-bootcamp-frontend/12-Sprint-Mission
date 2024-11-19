@@ -1,15 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko_KR">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/signup.css">
+  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css" />
+  <link rel="stylesheet" href="/styles/global.css">
+  <link rel="stylesheet" href="/styles/signup.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <title>판다마켓</title>
 </head>
 <body>
   <div class="container">
-    <nav>
+    <nav class="signup-nav">
       <!-- 로고 -->
       <div class="logo">
         <img src="images/logo.png" alt="로고이미지">
@@ -22,23 +24,27 @@
         <form method="post">
           <div class="emailInput">
             <label for="email">이메일</label>
-            <input type="email" name="email" placeholder="이메일을 입력해주세요">
+            <input type="email" id="email" name="email" placeholder="이메일을 입력해주세요">
+            <span id="emailError" class="error-message"></span>
           </div>
           <div class="nicknameInput">
             <label for="nickname">닉네임</label>
-            <input type="text" name="text" placeholder="닉네임을 입력해주세요">
+            <input type="text" id="nickname" name="text" placeholder="닉네임을 입력해주세요">
+            <span id="nicknameError" class="error-message"></span>
           </div>
           <div class="passwordInput">
             <label for="password">비밀번호</label>
-            <input type="password" name="password" placeholder="비밀번호를 입력해주세요">
-            <i class="fa-regular fa-eye-slash"></i>
+            <input type="password" id="password" name="password" placeholder="비밀번호를 입력해주세요">
+            <i class="fa-regular fa-eye-slash" id="favicon"></i>
+            <span id="passwordError" class="error-message"></span>
           </div>
           <div class="pwCheckInput">
-            <label for="password">비밀번호 확인</label>
-            <input type="password" name="passwordCheck" placeholder="비밀번호를 다시 한 번 입력해주세요">
-            <i class="fa-regular fa-eye-slash"></i>
+            <label for="passwordCheck">비밀번호 확인</label>
+            <input type="password" id="passwordCheck" name="passwordCheck" placeholder="비밀번호를 다시 한 번 입력해주세요">
+            <i class="fa-regular fa-eye-slash" id="checkFavicon"></i>
+            <span id="passwordCheckError" class="error-message"></span>
           </div>
-          <input type="submit" name="joinButton" id="submit" value="회원가입">
+          <button type="submit" id="signupButton" name="signupButton" class="button" disabled>회원가입</button>
         </form>
         <div class="otherLogin">
           <div class="site_sentence">
@@ -51,10 +57,11 @@
         </div>
         <!-- 로그인 페이지 이동 -->
         <div class="loginPage">
-          <p>이미 회원이신가요? <a href="/login">로그인</a></p>
+          <span>이미 회원이신가요? <a href="/login">로그인</a></span>
         </div>
       </div>
     </nav>
   </div>
+  <script src="js/authJs/signupForm.js"></script>
 </body>
 </html>

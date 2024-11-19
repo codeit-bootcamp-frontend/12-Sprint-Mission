@@ -1,15 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko_KR">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/login.css">
+  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css" />
+  <link rel="stylesheet" href="/styles/global.css">
+  <link rel="stylesheet" href="/styles/login.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <title>판다마켓</title>
 </head>
 <body>
   <div class="container">
-    <nav>
+    <nav class="login-nav">
       <!-- 로고 -->
       <div class="logo">
         <img src="images/logo.png" alt="로고이미지">
@@ -22,14 +24,16 @@
         <form method="post">
           <div class="emailInput">
             <label for="email">이메일</label>
-            <input type="email" name="email" placeholder="이메일을 입력해주세요">
+            <input type="email" id="email" name="email" placeholder="이메일을 입력해주세요">
+            <span id="emailError" class="error-message"></span>
           </div>
           <div class="passwordInput">
             <label for="password">비밀번호</label>
-            <input type="password" name="password" placeholder="비밀번호를 입력해주세요">
-            <i class="fa-regular fa-eye-slash"></i>
+            <input type="password" id="password" name="password" placeholder="비밀번호를 입력해주세요">
+            <i class="fa-regular fa-eye-slash" id="favicon"></i>
+            <span id="passwordError" class="error-message"></span>
           </div>
-          <input type="submit" name="loginButton" id="submit" value="로그인">
+          <button type="submit" id="loginButton" name="loginButton" class="button" disabled>로그인</button>
         </form>
         <div class="otherLogin">
           <div class="site_sentence">
@@ -42,10 +46,11 @@
         </div>
         <!-- 회원가입 페이지 이동 -->
         <div class="signupPage">
-          <p>판다마켓이 처음이신가요? <a href="/signup">회원가입</a></p>
+          <span>판다마켓이 처음이신가요? <a href="/signup">회원가입</a></span>
         </div>
       </div>
     </nav>
   </div>
+  <script src="js/authJs/loginForm.js"></script>
 </body>
 </html>
