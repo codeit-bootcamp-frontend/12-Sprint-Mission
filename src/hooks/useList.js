@@ -1,50 +1,53 @@
 import { useEffect, useState } from "react";
 import { debounce } from "../util/debounce";
 import { getDeviceType } from "../util/breakpoints";
+import useAsync from "./useAsync";
 
-const INITIAL_RESPONSIVE_SIZE = {
+const DEFAULT_RESPONSIVE_SIZE = {
   pc: 10,
   tablet: 6,
   mobile: 4,
 };
 
-export default function useProduct(
+export default function useList(
   fetchFn,
-  responsiveOption = INITIAL_RESPONSIVE_SIZE
+  {
+    initialOrderBy = "recent",
+    initialKeyword = "",
+    responsive = DEFAULT_RESPONSIVE_SIZE,
+  }
 ) {
-  const [isLoading, setLoading] = useState(false);
+  const { isLoading, error, wrappedFn: getData } = useAsync(fetchFn);
   const [items, setItems] = useState([]);
   const [totalCount, setTotalCount] = useState(0);
   const [page, setPage] = useState(1);
-  const [pageSize, setPageSize] = useState(
-    () => responsiveOption[getDeviceType(window.innerWidth)]
-  );
-  const [orderBy, setOrderBy] = useState("recent");
-  const [keyword, setKeyword] = useState("");
+  const [pageSize, setPageSize] = useState(() => responsive[getDeviceType()]);
+  const [orderBy, setOrderBy] = useState(initialOrderBy);
+  const [keyword, setKeyword] = useState(initialKeyword);
 
+  // 데이터 패칭
   useEffect(() => {
     (async function fetchData() {
-      try {
-        setLoading(true);
-        const { list, totalCount } = await fetchFn({
-          page,
-          pageSize,
-          orderBy,
-          keyword,
-        });
-        setItems(list);
-        setTotalCount(totalCount);
-      } catch (err) {
-        console.error(err);
-      } finally {
-        setLoading(false);
-      }
+      const result = await getData({
+        page,
+        pageSize,
+        orderBy,
+        keyword,
+      });
+
+      if (!result) return;
+
+      const { list, totalCount } = result;
+
+      setItems(list);
+      setTotalCount(totalCount);
     })();
   }, [page, pageSize, orderBy, keyword]);
 
+  // 반응형 pageSize 업데이트
   useEffect(() => {
     const debounceHandleResize = debounce(function () {
-      const targetSize = responsiveOption[getDeviceType(window.innerWidth)];
+      const targetSize = responsive[getDeviceType()];
       setPage(1);
       setPageSize(targetSize);
     }, 100);
@@ -74,17 +77,22 @@ export default function useProduct(
     setKeyword(value);
   }
 
-  return {
-    isLoading,
-    items,
+  const pagination = {
     totalCount,
     page,
     pageSize,
+    onChangePage: handlePage,
+    onChangePageSize: handlePageSize,
+  };
+
+  return {
+    isLoading,
+    error,
+    items,
     orderBy,
     keyword,
-    handlePage,
-    handlePageSize,
     handleOrderBy,
     handleKeyword,
+    pagination,
   };
 }

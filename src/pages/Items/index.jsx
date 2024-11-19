@@ -1,5 +1,5 @@
 import { getBestProducts, getProducts } from "../../service/product";
-import useProduct from "../../hooks/useProduct";
+import useList from "../../hooks/useList";
 import Button from "../../components/Button";
 import Container from "../../components/Container";
 import ProductList from "../../components/Product/ProductList";
@@ -29,19 +29,16 @@ const itemsResponsive = {
 export default function Items() {
   const {
     isLoading: isItemsLoading,
-    totalCount,
-    page,
-    pageSize,
-    handlePage,
+    pagination,
     items,
     orderBy,
     keyword,
     handleOrderBy,
     handleKeyword,
-  } = useProduct(getProducts, itemsResponsive);
-  const { isLoading: isBestItemsLoading, items: bestItems } = useProduct(
+  } = useList(getProducts, { responsive: itemsResponsive });
+  const { isLoading: isBestItemsLoading, items: bestItems } = useList(
     getBestProducts,
-    bestItemsResponsive
+    { responsive: bestItemsResponsive }
   );
 
   const isLoading = isItemsLoading || isBestItemsLoading;
@@ -72,12 +69,7 @@ export default function Items() {
         }
       >
         <ProductList items={items} keyword={keyword} />
-        <Pagination
-          totalCount={totalCount}
-          page={page}
-          pageSize={pageSize}
-          onChangePage={handlePage}
-        />
+        <Pagination {...pagination} />
       </Section>
     </Container>
   );
