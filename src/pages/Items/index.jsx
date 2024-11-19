@@ -1,13 +1,11 @@
-import { useEffect, useState } from "react";
+import { getBestProducts, getProducts } from "../../service/product";
+import useProduct from "../../hooks/useProduct";
 import Button from "../../components/Button";
 import Container from "../../components/Container";
 import ProductList from "../../components/Product/ProductList";
 import Search from "../../components/Search";
 import Section from "../../components/Section";
 import Filter from "../../components/Filter";
-import { getBestProducts, getProducts } from "../../service/product";
-import { useParams } from "react-router-dom";
-import useProduct from "../../hooks/useProduct";
 import Pagination from "../../components/Pagination";
 import LoadingSpinner from "../../components/LoadingSpinner";
 
