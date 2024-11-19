@@ -17,6 +17,10 @@
     font-weight: 600;
     color: var(--color-secondary-500);
 
+    &:hover {
+      background: var(--color-secondary-100);
+    }
+
     &.active {
       border-color: var(--color-primary-200);
       background: var(--color-primary-200);
