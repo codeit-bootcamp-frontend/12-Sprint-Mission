@@ -1,0 +1,83 @@
+@use "../base/mixins";
+
+.auth-container {
+  max-width: calc(64rem + var(--gutter) * 2);
+  margin: 0 auto;
+  padding: 12rem var(--gutter);
+
+  @include mixins.mobile {
+    max-width: calc(40rem + var(--gutter) * 2);
+    padding: 8rem var(--gutter);
+  }
+
+  .auth-header {
+    margin-bottom: 4rem;
+    text-align: center;
+
+    @include mixins.mobile {
+      margin-bottom: 2.4rem;
+    }
+
+    .auth-logo {
+      a {
+        display: inline-block;
+        height: 13.2rem;
+
+        @include mixins.mobile {
+          height: 6.6rem;
+        }
+      }
+
+      img {
+        width: auto;
+        height: 100%;
+      }
+    }
+  }
+
+  .auth-body {
+    margin-bottom: 2.4rem;
+  }
+}
+
+.oauth-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2.4rem;
+  padding: 1.6rem 2.3rem;
+  border-radius: 8px;
+  background: #e6f2ff;
+
+  .oauth-label {
+    font-weight: 500;
+  }
+
+  .oauth-providers {
+    display: flex;
+    align-items: center;
+    gap: 1.6rem;
+
+    .oauth-provider {
+      display: block;
+      width: 4.2rem;
+      height: 4.2rem;
+      border-radius: 50%;
+
+      img {
+        width: 100%;
+        height: auto;
+      }
+    }
+  }
+}
+
+.auth-options {
+  text-align: center;
+  font-size: 1.4rem;
+
+  a {
+    color: var(--color-primary-100);
+    text-decoration: underline;
+  }
+}

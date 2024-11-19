@@ -1,0 +1,9 @@
+.root:has(.header) {
+  padding-top: 7rem;
+}
+
+.inner {
+  max-width: calc(112rem + var(--gutter) * 2);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
