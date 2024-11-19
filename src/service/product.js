@@ -18,8 +18,8 @@ export async function getProducts({
   return data;
 }
 
-export async function getBestProducts() {
-  const query = `page=1&pageSize=4&orderBy=favorite`;
+export async function getBestProducts({ pageSize }) {
+  const query = `page=1&pageSize=${pageSize}&orderBy=favorite`;
   const res = await fetch(`${VITE_API_URL}/products?${query}`);
 
   const data = await res.json();

@@ -15,6 +15,18 @@ const sortOptions = [
   { value: "favorite", label: "좋아요순" },
 ];
 
+const bestItemsResponsive = {
+  pc: 4,
+  tablet: 2,
+  mobile: 1,
+};
+
+const itemsResponsive = {
+  pc: 10,
+  tablet: 6,
+  mobile: 4,
+};
+
 export default function Items() {
   const {
     isLoading,
