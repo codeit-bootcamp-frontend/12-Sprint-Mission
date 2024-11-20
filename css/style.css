@@ -54,14 +54,14 @@ header {
   width: 100%;
   height: 540px;
   background-color: #CFE5FF ;
-  background-image: url("img/Img_home_top.png");
+  background-image: url("../img/Img_home_top.png");
   background-repeat: no-repeat;
   background-position: 80% bottom;
   background-size: 45%;
 }
 
 .banner.bottom {
-  background-image: url("img/Img_home_bottom.png");
+  background-image: url("../img/Img_home_bottom.png");
 }
 
 .banner span {
