@@ -24,7 +24,7 @@ export default function useList(fetchFn, { pageSize: size = 10, params = {} }) {
       setItems(list);
       setTotalCount(totalCount);
     })();
-  }, [page, pageSize, JSON.stringify(params)]);
+  }, [page, pageSize, ...Object.values(params)]);
 
   useEffect(() => {
     setPage(1);
