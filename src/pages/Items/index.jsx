@@ -8,6 +8,7 @@ import Section from "../../components/Section";
 import Filter from "../../components/Filter";
 import Pagination from "../../components/Pagination";
 import LoadingSpinner from "../../components/LoadingSpinner";
+import { useSearchParams } from "react-router-dom";
 
 const sortOptions = [
   { value: "recent", label: "최신순" },
@@ -27,6 +28,8 @@ const itemsResponsive = {
 };
 
 export default function Items() {
+  const [searchParams, setSearchParams] = useSearchParams();
+  const initialKeyword = searchParams.get("keyword") || "";
   const {
     isLoading: isItemsLoading,
     pagination,
@@ -35,11 +38,16 @@ export default function Items() {
     keyword,
     handleOrderBy,
     handleKeyword,
-  } = useList(getProducts, { responsive: itemsResponsive });
+  } = useList(getProducts, { initialKeyword, responsive: itemsResponsive });
   const { isLoading: isBestItemsLoading, items: bestItems } = useList(
     getBestProducts,
     { responsive: bestItemsResponsive }
   );
+
+  function handleSubmit(keyword) {
+    setSearchParams(keyword ? { keyword } : {});
+    handleKeyword(keyword);
+  }
 
   const isLoading = isItemsLoading || isBestItemsLoading;
 
@@ -55,7 +63,8 @@ export default function Items() {
       <Section>
         <Section.Header title="전체 상품">
           <Search
-            onSubmit={handleKeyword}
+            keyword={keyword}
+            onSubmit={handleSubmit}
             placeholder="검색할 상품을 입력해주세요"
           />
           <Button to="/addItem" size="sm">

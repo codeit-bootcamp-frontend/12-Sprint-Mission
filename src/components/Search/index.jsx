@@ -3,8 +3,8 @@ import searchIcon from "../../assets/img/icon/icon_search.svg";
 import clearIcon from "../../assets/img/icon/icon_clear.svg";
 import styles from "./styles.module.scss";
 
-export default function Search({ onSubmit, placeholder }) {
-  const [value, setValue] = useState();
+export default function Search({ keyword, onSubmit, placeholder }) {
+  const [value, setValue] = useState(keyword);
 
   function handleSubmit(e) {
     e.preventDefault();

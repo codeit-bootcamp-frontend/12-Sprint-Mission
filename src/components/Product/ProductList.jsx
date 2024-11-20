@@ -4,7 +4,7 @@ import styles from "./styles.module.scss";
 
 export default function ProductList({ mode = "", items, keyword }) {
   if (!items.length) {
-    return <ProductItemEmpty />;
+    return <ProductItemEmpty keyword={keyword} />;
   }
   return (
     <ul className={`${styles.items} ${styles[mode]}`}>
