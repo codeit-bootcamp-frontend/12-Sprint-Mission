@@ -27,16 +27,16 @@ main {
     margin: 231px 640px;
 }
 
-.signupForm {
+.signup-area {
     min-width: 640px;
 }
 
-.signup div {
+.signup-form div {
     display: flex;
     flex-direction: column;
 }
 
-.signup label {
+.signup-form label {
     /* display: inline-block; */
     color: var(--gray800);
     font-size: 18px;
@@ -44,7 +44,7 @@ main {
     margin-bottom: 16px;
 }
 
-.signup input{
+.signup-form input{
     background-color: var(--gray100);
     
     border-radius: 12px;
@@ -57,28 +57,43 @@ main {
     margin-bottom: 24px
 }
 
-.signup input:focus{
+.signup-form input:focus{
     border: 2px solid var(--blue);
     outline: none;
 }
 
-.signup input::placeholder {
+.signup-form input::placeholder {
     color: var(--gray400);
     font-size: 16px;
     font-weight: 400;
 }
 
-.pw, .confirmPw {
+.signup-form input.error {
+    border: 1px #F74747 solid;
+    margin-bottom: 8px;
+}
+
+.signup-form .error-msg {
+    color: #F74747;
+    font-size: 14px;
+    font-weight: 600;
+
+    padding-left: 16px;
+    margin-bottom: 18px;
+    margin-top: 0px;
+}
+
+.password-form, .confirmPassword-form {
     position: relative;
 }
 
-.pw img, .confirmPw img {
+.password-form .visibility, .confirmPassword-form .visibility {
     position: absolute;
     top: 53px;
     right: 24px;
 }
 
-.signup button {
+.signup-form button {
     font-size: 20px;
     font-weight: 600;
     text-align: center;
@@ -97,7 +112,11 @@ main {
     cursor: pointer;
 }
 
-.easyLogin {
+.signup.disabled {
+    pointer-events: none;
+}
+
+.easyLogin-area {
     background-color: #E6F2FF;
     height: 74px;
 }
@@ -116,10 +135,6 @@ main {
     font-weight: 500;
 }
 
-.loginType {
-    /* padding: 16px 23px; */
-}
-
 .login {
     display: flex;
     justify-content: center;
@@ -134,22 +149,22 @@ main {
         margin: 80px 16px 231px;
     }
 
-    .signupForm {
+    .signup-area {
         min-width: 352px;
     }
 
-    .signup > div{
+    .signup-form > div{
         min-width: 352px;
     }
-    .signup input {
+    .signup-form input {
         min-width: 352px;
     }
 
-    .signup button {
+    .signup-form button {
         min-width: 400px;
     }
 
-    .easyLogin, .login {
+    .easyLogin-area, .login {
         width: 400px;
     }
 }
