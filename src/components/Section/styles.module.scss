@@ -1,6 +1,7 @@
 @use "../../assets/scss/base/mixins";
 
 .section {
+  position: relative;
   margin-bottom: 4rem;
 
   .header {

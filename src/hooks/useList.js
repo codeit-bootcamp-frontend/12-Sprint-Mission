@@ -1,38 +1,20 @@
 import { useEffect, useState } from "react";
-import { debounce } from "../util/debounce";
-import { getDeviceType } from "../util/breakpoints";
 import useAsync from "./useAsync";
+import usePageSize from "./usePageSize";
 
-const DEFAULT_RESPONSIVE_SIZE = {
-  pc: 10,
-  tablet: 6,
-  mobile: 4,
-};
-
-export default function useList(
-  fetchFn,
-  {
-    initialOrderBy = "recent",
-    initialKeyword = "",
-    responsive = DEFAULT_RESPONSIVE_SIZE,
-  }
-) {
+export default function useList(fetchFn, { pageSize: size = 10, params = {} }) {
   const { isLoading, error, wrappedFn: getData } = useAsync(fetchFn);
   const [items, setItems] = useState([]);
   const [totalCount, setTotalCount] = useState(0);
   const [page, setPage] = useState(1);
-  const [pageSize, setPageSize] = useState(() => responsive[getDeviceType()]);
-  const [orderBy, setOrderBy] = useState(initialOrderBy);
-  const [keyword, setKeyword] = useState(initialKeyword);
+  const { pageSize } = usePageSize(size);
 
-  // 데이터 패칭
   useEffect(() => {
     (async function fetchData() {
       const result = await getData({
         page,
         pageSize,
-        orderBy,
-        keyword,
+        ...params,
       });
 
       if (!result) return;
@@ -42,39 +24,14 @@ export default function useList(
       setItems(list);
       setTotalCount(totalCount);
     })();
-  }, [page, pageSize, orderBy, keyword]);
+  }, [page, pageSize, JSON.stringify(params)]);
 
-  // 반응형 pageSize 업데이트
   useEffect(() => {
-    const debounceHandleResize = debounce(function () {
-      const targetSize = responsive[getDeviceType()];
-      setPage(1);
-      setPageSize(targetSize);
-    }, 100);
-
-    window.addEventListener("resize", debounceHandleResize);
-
-    return () => {
-      window.removeEventListener("resize", debounceHandleResize);
-    };
-  }, []);
+    setPage(1);
+  }, [pageSize]);
 
   function handlePage(number) {
     setPage(number);
-  }
-
-  function handlePageSize(number) {
-    setPageSize(number);
-  }
-
-  function handleOrderBy(value) {
-    setPage(1);
-    setOrderBy(value);
-  }
-
-  function handleKeyword(value) {
-    setPage(1);
-    setKeyword(value);
   }
 
   const pagination = {
@@ -82,17 +39,12 @@ export default function useList(
     page,
     pageSize,
     onChangePage: handlePage,
-    onChangePageSize: handlePageSize,
   };
 
   return {
     isLoading,
     error,
     items,
-    orderBy,
-    keyword,
-    handleOrderBy,
-    handleKeyword,
     pagination,
   };
 }
