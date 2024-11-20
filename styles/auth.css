@@ -45,6 +45,10 @@ input:focus {
   outline-color: var(--blue100);
 }
 
+.input-error {
+  border: 1px solid var(--red);
+}
+
 .logo {
   width: 396px;
   margin: 0 auto;
@@ -96,11 +100,6 @@ input:focus {
   font-size: 14px;
   line-height: 24px;
   color: var(--red);
-  display: none;
-}
-
-.hide {
-  display: none;
 }
 
 .bottom-menu {
