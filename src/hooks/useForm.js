@@ -54,14 +54,21 @@ export default function useForm(formSchema) {
       return { isValid: true, message: null };
     }
 
-    if (!value.trim()) {
-      return { isValid: false, message: rule.required };
+    if (rule.required && !value.trim()) {
+      return {
+        isValid: false,
+        message:
+          typeof rule.required === "string" ? rule.required : "필수값입니다.",
+      };
     }
 
     if (rule.patterns) {
       for (const pattern of rule.patterns) {
         if (!pattern.regex.test(value)) {
-          return { isValid: false, message: pattern.message };
+          return {
+            isValid: false,
+            message: pattern.message || "유효하지 않은 형식입니다.",
+          };
         }
       }
     }
@@ -69,7 +76,10 @@ export default function useForm(formSchema) {
     if (rule.match) {
       const targetValue = formState[rule.match.field].value || "";
       if (value !== targetValue) {
-        return { isValid: false, message: rule.match.message };
+        return {
+          isValid: false,
+          message: rule.match.message || "값이 일치하지 않습니다.",
+        };
       }
     }
 
