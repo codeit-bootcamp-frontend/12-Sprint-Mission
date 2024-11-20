@@ -1,4 +1,5 @@
-import { useRef, useState } from "react";
+import { useState } from "react";
+import clsx from "clsx";
 import iconViewOn from "../../assets/img/icon/icon_view_on.svg";
 import iconViewOff from "../../assets/img/icon/icon_view_off.svg";
 import styles from "./styles.module.scss";
@@ -26,14 +27,14 @@ export default function Input({
       <div className={styles["item-field"]}>
         <input
           type={currentType}
-          className={`${styles["input-box"]} ${valid ? styles.valid : ""}`}
+          className={clsx(styles["input-box"], valid && styles.valid)}
           value={value}
           {...props}
         />
         {type === "password" && (
           <button
             type="button"
-            className={`${styles["item-btn"]} ${styles["visibility-btn"]}`}
+            className={clsx(styles["item-btn"], styles["visibility-btn"])}
             onClick={handleVisibility}
           >
             <img
