@@ -20,7 +20,7 @@ export default function BestItems() {
       {isLoading && <LoadingSpinner position="absolute" light />}
       <Section.Header title="베스트 상품" />
       <Section.Content>
-        <ProductList items={items} mode="best" />
+        <ProductList items={items} mode="best" isLoading={isLoading} />
       </Section.Content>
     </Section>
   );

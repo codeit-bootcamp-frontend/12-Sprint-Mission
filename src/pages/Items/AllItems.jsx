@@ -52,7 +52,7 @@ export default function AllItems() {
         <Filter value={orderBy} onChange={setOrderBy} options={sortOptions} />
       </Section.Header>
       <Section.Content>
-        <ProductList items={items} keyword={keyword} />
+        <ProductList items={items} keyword={keyword} isLoading={isLoading} />
         <Pagination {...pagination} />
       </Section.Content>
     </Section>

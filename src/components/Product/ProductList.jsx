@@ -3,8 +3,8 @@ import ProductItem from "./ProductItem";
 import ProductItemEmpty from "./ProductItemEmpty";
 import styles from "./styles.module.scss";
 
-export default function ProductList({ mode = "", items, keyword }) {
-  if (!items.length) {
+export default function ProductList({ mode = "", items, keyword, isLoading }) {
+  if (!items.length && !isLoading) {
     return <ProductItemEmpty keyword={keyword} />;
   }
   return (
