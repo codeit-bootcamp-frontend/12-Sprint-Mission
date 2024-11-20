@@ -10,10 +10,12 @@ import Items from "./pages/Items";
 import ItemDetail from "./pages/Items/ItemDetail";
 import ItemAdd from "./pages/Items/ItemAdd";
 import Boards from "./pages/Boards";
+import ErrorPage from "./pages/Error";
 
 export const router = createBrowserRouter([
   {
     element: <App />,
+    errorElement: <ErrorPage />,
     children: [
       {
         element: <Layout hasFooter />,
