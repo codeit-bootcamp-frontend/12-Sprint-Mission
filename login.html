@@ -3,49 +3,92 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>로그인</title>
-  <link rel="stylesheet" href="login.css">
+
+  <!--sns 메타태그-->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://sprint-yuseop.netlify.app/">
+  <meta property="og:title" content="판다마켓">
+  <meta property="og:image" content="images/og-image.png">
+  <meta property="og:description" content="일상의 모든 물건을 거래해 보세요">
+
+  <title>판다마켓-로그인</title>
+  <link rel="icon" href="images/favicon.ico">
+  
+  <link
+    rel="stylesheet"
+    as="style"
+    crossorigin
+    href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"
+  />
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/auth.css">
 </head>
+
+
 <body>
-  <main>
-    <section class="login">
-      <div class="logo container">
-        <a class="logo" href="/">
-          <img src="/image_folder/login_logo.png" alt="로그인페이지로고" width="396">
+  <main class="auth-container">
+    <a class="header__logo-link" href="/">
+      <img class="header__logo-image" src="images/logo.svg" alt="로그인페이지로고">
+    </a>
+    
+    <form id="loginForm" method="post" action="items.html">
+      <div class="form-group">
+        <label class="form__label" for="email">이메일</label>
+        <input
+          type="email" 
+          placeholder="이메일을 입력해 주세요" 
+          id="email"  
+          name="email" 
+          required
+        />
+        <span class="error--msg"></span>
+      </div>
+    
+      <div class="form-group">
+        <label class="form__label" for="password">비밀번호</label>
+        <div class="input-wrapper">
+          <input
+            type="password" 
+            placeholder="비밀번호를 입력해주세요" 
+            id="password" 
+            name="password" 
+            required
+          />
+          <button
+            class="form__password-hidden" 
+            type="button" 
+            aria-label="비밀번호 보기"
+          >
+            <img
+              class="form__password-icon"
+              src="images/eye-invisible.svg"
+              alt="비밀번호 숨김 상태 아이콘"
+            />
+        </button>
+        </div>
+        <span class="error--msg"></span>
+      </div>
+      <button type="submit" id="submit-btn" class="button pill-button full-width" disabled>로그인</button>
+    </form>
+
+    <div class="social-login__container">
+      <p>간편로그인하기</p>
+      <div class="social__icons">
+        <a href="https://www.google.com/" target="_blank">
+          <img src="images/google_icon.png" alt="google 로그인 아이콘">
+        </a>
+        <a href="https://www.kakaocorp.com/page/" target="_blank">
+          <img src="images/kakao_icon.png" alt="kakao 로그인 아이콘">
         </a>
       </div>
+    </div>
 
-      <div class="info__login container">
-  
-        <div class="input-group">
-          <label for="login__id">이메일</label>
-          <input type="email" placeholder="이메일을 입력해 주세요" id="login__id" class="input__box">
-        </div>
-      
-        <div class="input-group">
-          <label for="login__password">비밀번호</label>
-          <input type="password" placeholder="비밀번호를 입력해주세요" id="login__password" class="input__box">
-        </div>
-      </div>
-
-      <a href="login.html" class="login__btn">로그인</a>
-
-      <div class="simple__login container">
-        <p>간편로그인하기</p>
-        <div class="social__icons">
-          <a href="https://www.google.com/" target="_blank">
-            <img src="/image_folder/google_icon.png" alt="google 로그인 아이콘">
-          </a>
-          <a href="https://www.kakaocorp.com/page/" target="_blank">
-            <img src="/image_folder/kakao_icon.png" alt="kakao 로그인 아이콘">
-          </a>
-        </div>
-      </div>
-
-      <div class="signup__container">
-        <p>판다마켓이 처음이신가요? <a href="signup.html">회원가입</a></p>
-      </div>
-    </section>
+    <div class="social__description">
+      판다마켓이 처음이신가요?> <a href="signup.html">회원가입</a>
+    </div>
+    
   </main>
+  <script src="script/auth.js"></script>
 </body>
 </html>

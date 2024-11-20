@@ -1,0 +1,133 @@
+/* Mobile styles */
+
+.auth-container {
+  padding: 24px 16px;
+  max-width: 432px;
+  margin: 0 auto;
+}
+
+.header__logo-link {
+  display: block;
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.header__logo-link img {
+  width: 198px;
+}
+
+
+.form-group {
+  margin-bottom: 24px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 700;
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.form-group input {
+  padding: 16px 24px;
+  background-color: #f3f4f6;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  line-height: 24px;
+  width: 100%;
+}
+
+.form-group input::placeholder {
+  color: #9ca3af;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.form-group input:focus {
+  outline-color: var(--blue);
+}
+
+.input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.error--msg {
+  color: #f74747;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 18px;
+  margin-top: 8px;
+  display: none;
+  padding-left: 16px;
+}
+
+.form__password-hidden {
+  position: absolute;
+  right: 24px;
+}
+
+.social-login__container {
+  background-color: #e6f2ff;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 23px;
+  margin: 24px 0;
+}
+
+.social-login__container p {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.social__icons {
+  display: flex;
+  gap: 16px;
+}
+
+.social__description {
+  font-weight: 500;
+  font-size: 15px;
+  text-align: center;
+}
+
+.social__description a {
+  color: #3182f6;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* Tablet styles */
+
+@media (min-width: 768px) {
+  .auth-container {
+    max-width: 640px;
+    padding: 48px 0;
+  }
+
+  .header__logo-link {
+    margin-bottom: 40px;
+  }
+
+  .header__logo-link img {
+    width: 396px;
+  }
+
+  .form-group label {
+    font-size: 18px;
+    margin-bottom: 16px;
+  }
+}
+
+/* Desktop styles */
+
+@media (min-width: 1280px) {
+  .auth-container {
+    padding: 60px 0;
+  }
+}
