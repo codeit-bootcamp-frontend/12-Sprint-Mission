@@ -1,27 +1,16 @@
 import { Link } from "react-router-dom";
+import clsx from "clsx";
 import styles from "./styles.module.scss";
 
-export default function Button({
-  to,
-  className,
-  children,
-  size = "",
-  ...props
-}) {
-  const css = `${styles.btn} ${size ? styles[`btn-${size}`] : ""} ${
-    className ?? ""
-  }`;
+export default function Button({ to, className, children, size, ...props }) {
+  const css = clsx(styles.btn, size && styles[`btn-${size}`], className);
+  const Component = to ? Link : "button";
+  const ComponentProps = {
+    className: css,
+    ...(to && { to }),
+    ...(Component === "button" && { type: "button" }),
+    ...props,
+  };
 
-  if (to) {
-    return (
-      <Link to={to} className={css} {...props}>
-        {children}
-      </Link>
-    );
-  }
-  return (
-    <button className={css} {...props}>
-      {children}
-    </button>
-  );
+  return <Component {...ComponentProps}>{children}</Component>;
 }
