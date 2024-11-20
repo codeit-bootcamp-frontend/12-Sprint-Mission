@@ -1,5 +1,6 @@
 import { Fragment, useState } from "react";
 import { Link } from "react-router-dom";
+import clsx from "clsx";
 import defaultImg from "../../assets/img/icon/icon_placeholder.svg";
 import iconHeart from "../../assets/img/icon/icon_heart.svg";
 import styles from "./styles.module.scss";
@@ -38,10 +39,9 @@ export default function ProductItem({ item, keyword }) {
     imgSrc = error ? defaultImg : images[0];
   }
 
-  let imgCss = styles.default;
-  if (images.length) {
-    imgCss = error ? styles.default : "";
-  }
+  let imgCss = clsx({
+    [styles.default]: !images.length || error,
+  });
 
   return (
     <li className={styles.item}>

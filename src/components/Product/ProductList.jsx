@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import ProductItem from "./ProductItem";
 import ProductItemEmpty from "./ProductItemEmpty";
 import styles from "./styles.module.scss";
@@ -7,7 +8,7 @@ export default function ProductList({ mode = "", items, keyword }) {
     return <ProductItemEmpty keyword={keyword} />;
   }
   return (
-    <ul className={`${styles.items} ${styles[mode]}`}>
+    <ul className={clsx(styles.items, styles[mode])}>
       {items.map((item) => (
         <ProductItem key={item.id} item={item} keyword={keyword} />
       ))}
