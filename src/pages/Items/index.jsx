@@ -1,4 +1,4 @@
-import Container from "../../components/Container";
+import Container from "@components/Container";
 import BestItems from "./BestItems";
 import AllItems from "./AllItems";
 

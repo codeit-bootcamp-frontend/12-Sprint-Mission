@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import useAsync from "./useAsync";
-import usePageSize from "./usePageSize";
+import useAsync from "@hooks/useAsync";
+import usePageSize from "@hooks/usePageSize";
 
 export default function useList(fetchFn, { pageSize: size = 10, params = {} }) {
   const { isLoading, error, wrappedFn: getData } = useAsync(fetchFn);

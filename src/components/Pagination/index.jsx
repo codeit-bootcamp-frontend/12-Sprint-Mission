@@ -1,6 +1,6 @@
 import clsx from "clsx";
-import arrowLeft from "../../assets/img/icon/icon_arrow_left.svg";
-import arrowRight from "../../assets/img/icon/icon_arrow_right.svg";
+import arrowLeft from "@assets/img/icon/icon_arrow_left.svg";
+import arrowRight from "@assets/img/icon/icon_arrow_right.svg";
 import styles from "./styles.module.scss";
 
 export default function Pagination({

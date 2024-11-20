@@ -1,10 +1,10 @@
 import { useNavigate } from "react-router-dom";
-import { useAuth } from "../../context/useAuth";
-import useForm from "../../hooks/useForm";
-import AuthContainer from "../../components/Auth";
-import Input from "../../components/Input";
-import Button from "../../components/Button";
-import { VALIDATION_MESSAGES, VALIDATION_REGEX } from "../../util/validation";
+import { useAuth } from "@context/useAuth";
+import useForm from "@hooks/useForm";
+import AuthContainer from "@components/Auth";
+import Input from "@components/Input";
+import Button from "@components/Button";
+import { VALIDATION_MESSAGES, VALIDATION_REGEX } from "@util/validation";
 
 const formSchema = {
   email: {

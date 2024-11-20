@@ -1,8 +1,8 @@
-import heroBannerImg from "../../assets/img/landing/banner_img_hero.svg";
-import bottomBannerImg from "../../assets/img/landing/banner_img_bottom.svg";
-import featureImg1 from "../../assets/img/landing/landing_content_01.svg";
-import featureImg2 from "../../assets/img/landing/landing_content_02.svg";
-import featureImg3 from "../../assets/img/landing/landing_content_03.svg";
+import heroBannerImg from "@assets/img/landing/banner_img_hero.svg";
+import bottomBannerImg from "@assets/img/landing/banner_img_bottom.svg";
+import featureImg1 from "@assets/img/landing/landing_content_01.svg";
+import featureImg2 from "@assets/img/landing/landing_content_02.svg";
+import featureImg3 from "@assets/img/landing/landing_content_03.svg";
 
 export const heroBannerData = {
   bannerType: "hero",

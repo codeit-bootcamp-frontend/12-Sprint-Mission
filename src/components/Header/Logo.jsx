@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import logoPC from "../../assets/img/common/logo_full.svg";
-import logoMobile from "../../assets/img/common/logo_text.svg";
+import logoPC from "@assets/img/common/logo_full.svg";
+import logoMobile from "@assets/img/common/logo_text.svg";
 import styles from "./styles.module.scss";
 
 export default function Logo() {

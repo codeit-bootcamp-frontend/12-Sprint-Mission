@@ -1,14 +1,14 @@
 import { useState } from "react";
 import { useSearchParams } from "react-router-dom";
-import useList from "../../hooks/useList";
-import { getProducts } from "../../service/product";
-import Filter from "../../components/Filter";
-import ProductList from "../../components/Product/ProductList";
-import Search from "../../components/Search";
-import Section from "../../components/Section";
-import Button from "../../components/Button";
-import Pagination from "../../components/Pagination";
-import LoadingSpinner from "../../components/LoadingSpinner";
+import useList from "@hooks/useList";
+import { getProducts } from "@service/product";
+import Filter from "@components/Filter";
+import ProductList from "@components/Product/ProductList";
+import Search from "@components/Search";
+import Section from "@components/Section";
+import Button from "@components/Button";
+import Pagination from "@components/Pagination";
+import LoadingSpinner from "@components/LoadingSpinner";
 
 const itemsResponsive = {
   pc: 10,

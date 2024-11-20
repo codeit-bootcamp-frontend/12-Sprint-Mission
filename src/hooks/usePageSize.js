@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { getDeviceType } from "../util/breakpoints";
-import { debounce } from "../util/debounce";
+import { getDeviceType } from "@util/breakpoints";
+import { debounce } from "@util/debounce";
 
 export default function usePageSize(initialPageSize) {
   const isResponse = typeof initialPageSize === "object";

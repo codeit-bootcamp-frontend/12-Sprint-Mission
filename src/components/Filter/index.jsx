@@ -1,7 +1,7 @@
-import arrowIcon from "../../assets/img/icon/icon_arrow_down.svg";
-import sortIcon from "../../assets/img/icon/icon_sort.svg";
+import arrowIcon from "@assets/img/icon/icon_arrow_down.svg";
+import sortIcon from "@assets/img/icon/icon_sort.svg";
 import styles from "./styles.module.scss";
-import Dropdown from "../Dropdown";
+import Dropdown from "@components/Dropdown";
 
 export default function Filter({ value, options, onChange }) {
   const selectedLabel = options.find((option) => option.value === value).label;

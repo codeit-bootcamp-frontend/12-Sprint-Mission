@@ -1,6 +1,6 @@
 import { useState } from "react";
-import searchIcon from "../../assets/img/icon/icon_search.svg";
-import clearIcon from "../../assets/img/icon/icon_clear.svg";
+import searchIcon from "@assets/img/icon/icon_search.svg";
+import clearIcon from "@assets/img/icon/icon_clear.svg";
 import styles from "./styles.module.scss";
 
 export default function Search({ keyword, onSubmit, placeholder }) {

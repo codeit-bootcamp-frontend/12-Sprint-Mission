@@ -1,8 +1,8 @@
 import { Fragment, useState } from "react";
 import { Link } from "react-router-dom";
 import clsx from "clsx";
-import defaultImg from "../../assets/img/icon/icon_placeholder.svg";
-import iconHeart from "../../assets/img/icon/icon_heart.svg";
+import defaultImg from "@assets/img/icon/icon_placeholder.svg";
+import iconHeart from "@assets/img/icon/icon_heart.svg";
 import styles from "./styles.module.scss";
 
 function formatToWon(price) {

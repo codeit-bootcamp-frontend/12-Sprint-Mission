@@ -1,5 +1,5 @@
-import { useAuth } from "../../context/useAuth";
-import Button from "../Button";
+import { useAuth } from "@context/useAuth";
+import Button from "@components/Button";
 import Logo from "./Logo";
 import Nav from "./Nav";
 import Profile from "./Profile";

@@ -1,5 +1,5 @@
-import Banner from "../../components/LandingBanner";
-import Feature from "../../components/LandingFeature";
+import Banner from "./components/LandingBanner";
+import Feature from "./components/LandingFeature";
 import {
   heroBannerData,
   footerBannerData,

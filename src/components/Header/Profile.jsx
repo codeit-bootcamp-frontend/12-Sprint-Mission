@@ -1,5 +1,5 @@
-import defaultAvatar from "../../assets/img/icon/icon_avatar.svg";
-import Dropdown from "../Dropdown";
+import defaultAvatar from "@assets/img/icon/icon_avatar.svg";
+import Dropdown from "@components/Dropdown";
 import styles from "./styles.module.scss";
 
 export default function Profile({ user, onLogout }) {

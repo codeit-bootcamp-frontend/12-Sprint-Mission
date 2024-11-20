@@ -1,4 +1,4 @@
-import Temporary from "../../components/Temp";
+import Temporary from "@components/Temp";
 
 export default function Privacy() {
   return (

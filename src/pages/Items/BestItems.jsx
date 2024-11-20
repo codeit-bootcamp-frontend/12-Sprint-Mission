@@ -1,8 +1,8 @@
-import useList from "../../hooks/useList";
-import LoadingSpinner from "../../components/LoadingSpinner";
-import ProductList from "../../components/Product/ProductList";
-import Section from "../../components/Section";
-import { getBestProducts } from "../../service/product";
+import useList from "@hooks/useList";
+import LoadingSpinner from "@components/LoadingSpinner";
+import ProductList from "@components/Product/ProductList";
+import Section from "@components/Section";
+import { getBestProducts } from "@service/product";
 
 const itemsResponsive = {
   pc: 4,

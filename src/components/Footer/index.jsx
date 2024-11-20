@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
 import styles from "./styles.module.scss";
 
-import facebookIcon from "../../assets/img/icon/icon_facebook.svg";
-import twitterIcon from "../../assets/img/icon/icon_twitter.svg";
-import youtubeIcon from "../../assets/img/icon/icon_youtube.svg";
-import instagramIcon from "../../assets/img/icon/icon_instagram.svg";
+import facebookIcon from "@assets/img/icon/icon_facebook.svg";
+import twitterIcon from "@assets/img/icon/icon_twitter.svg";
+import youtubeIcon from "@assets/img/icon/icon_youtube.svg";
+import instagramIcon from "@assets/img/icon/icon_instagram.svg";
 
 export default function Footer() {
   return (
