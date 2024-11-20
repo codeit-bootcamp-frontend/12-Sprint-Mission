@@ -19,7 +19,7 @@ export const router = createBrowserRouter([
         element: <Layout hasFooter />,
         children: [
           {
-            path: "",
+            index: true,
             element: <Landing />,
           },
         ],
@@ -50,7 +50,7 @@ export const router = createBrowserRouter([
           {
             path: "items",
             children: [
-              { path: "", element: <Items /> },
+              { index: true, element: <Items /> },
               { path: ":id", element: <ItemDetail /> },
             ],
           },
