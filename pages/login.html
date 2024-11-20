@@ -14,26 +14,29 @@
                 <img src="/images/login/logo_large.png" alt="로고 이미지">
             </a>
         </div>
-        <div class="loginForm">
-            <div class="login">
-                <div class="email">
+        <div class="login-area">
+            <div class="login-form">
+                <div class="email-form">
                     <label for="email">이메일</label>
                     <input id="email" class="email-input" placeholder="이메일을 입력해주세요." type="email">
                 </div>
-                <div class="pw">
+                <div class="password-form">
                     <label for="passowrd">비밀번호</label>
-                    <input id="password" class="pw-input" placeholder="비밀번호를 입력해주세요." type="password">
-                    <img src="/images/login/visibility_btn.png" >
+                    <input id="password" class="password-input" placeholder="비밀번호를 입력해주세요." type="password">
+                    <a class="visibility">
+                        <img src="/images/login/visibility_off_btn.png" >
+                    </a>
                 </div>
-                <button>로그인</button>
-
+                <a class="login disabled">
+                    <button class="loginButton">로그인</button>    
+                </a>
             </div>
-            <div class="easyLogin">
+            <div class="easyLogin-area">
                 <div class="easyLogin-form">
                     <div class="easyLogin-title">
                         <p>간편 로그인하기</p>
                     </div>
-                    <div class="loginType">
+                    <div class="easyLogin-type">
                         <a class="googleLogin" href="">
                             <img src="/images/login/google_Icon.png" alt="구글 아이콘">
                         </a>
@@ -42,16 +45,12 @@
                         </a>
                     </div>
                 </div>
-
-
             </div>
             <div class="signup">
                 <p>판다마켓이 처음이신가요? <a class="signup-link" href="/pages/signup.html">회원가입</a></p>
             </div>
-
         </div>
-
     </main>
-    
+    <script type="module" src="/js/loginController.js"></script>
 </body>
 </html>

@@ -14,36 +14,40 @@
                 <img src="/images/login/logo_large.png" alt="로고 이미지">
             </a>
         </div>
-        <div class="signupForm">
-            <div class="signup">
-                <div class="email">
+        <div class="signup-area">
+            <div class="signup-form">
+                <div class="email-form">
                     <label for="email">이메일</label>
                     <input id="email" class="email-input" placeholder="이메일을 입력해주세요." type="email">
                 </div>
-                <div class="nickName">
+                <div class="nickName-form">
                     <label for="nickName">닉네임</label>
                     <input id="nickName" class="nickName-input" placeholder="닉네임을 입력해주세요." type="nickName">
                 </div>
-                <div class="pw">
-                    <label for="passowrd">비밀번호</label>
-                    <input id="passowrd" class="pw-input" placeholder="비밀번호를 입력해주세요." type="Password">
-                    <img src="/images/login/visibility_btn.png" >
+                <div class="password-form">
+                    <label for="password">비밀번호</label>
+                    <input id="password" class="password-input" placeholder="비밀번호를 입력해주세요." type="Password">
+                    <a class="visibility">
+                        <img src="/images/login/visibility_off_btn.png" >
+                    </a>
                 </div>
-                <div class="confirmPw">
+                <div class="confirmPassword-form">
                     <label for="confirmPassword">비밀번호 확인</label>
-                    <input id="confirmPassword" class="confirmPw-input" placeholder="비밀번호를 다시 한 번 입력해주세요." type="Password">
-                    <img src="/images/login/visibility_btn.png" >
+                    <input id="confirmPassword" class="confirmPassword-input" placeholder="비밀번호를 다시 한 번 입력해주세요." type="Password">
+                    <a class="visibility">
+                        <img src="/images/login/visibility_off_btn.png">
+                    </a>
                 </div>
-                <button>회원가입</button>
-
+                <a class="signup disabled">
+                    <button class="signupButton">회원가입</button>
+                </a>
             </div>
-
-            <div class="easyLogin">
+            <div class="easyLogin-area">
                 <div class="easyLogin-form">
                     <div class="easyLogin-title">
                         <p>간편 로그인하기</p>
                     </div>
-                    <div class="loginType">
+                    <div class="easyLoginType">
                         <a class="googleLogin" href="https://google.com">
                             <img src="/images/login/google_Icon.png" alt="구글 아이콘">
                         </a>
@@ -52,16 +56,12 @@
                         </a>
                     </div>
                 </div>
-
-
             </div>
             <div class="login">
                 <p>이미 회원이신가요? <a class="login-link" href="/pages/login.html">로그인</a></p>
             </div>
-
         </div>
-
     </main>
-    
+    <script type="module" src="/js/signupController.js"></script>
 </body>
 </html>

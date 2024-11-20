@@ -27,11 +27,11 @@ main {
     margin: 231px 640px;
 }
 
-.loginForm {
+.login-area {
     max-width: 640px;
 }
 
-.login label {
+.login-form label {
     display: inline-block;
     color: var(--gray800);
     font-size: 18px;
@@ -39,7 +39,7 @@ main {
     margin-bottom: 16px;
 }
 
-.login input{
+.login-form input{
     background-color: var(--gray100);
     
     border-radius: 12px;
@@ -52,28 +52,46 @@ main {
     margin-bottom: 24px;
 }
 
+.login-form input.error {
+    border: 1px #F74747 solid;
+    margin-bottom: 8px;
+}
+
+.login-form .error-msg {
+    color: #F74747;
+    font-size: 14px;
+    font-weight: 600;
+
+    padding-left: 16px;
+    margin-top: 0px;
+    margin-bottom: 18px;
+}
+
 .signup input:focus{
     border: 2px solid var(--blue);
     outline: none;
 }
 
-.login input::placeholder {
+.login-form input::placeholder {
     color: var(--gray400);
     font-size: 16px;
     font-weight: 400;
 }
 
-.pw {
+.password-form {
     position: relative;
 }
 
-.pw img {
+.password-form .visibility {
     position: absolute;
     top: 53px;
     right: 24px;
 }
+.password-form .visibility {
+    cursor: pointer;
+}
 
-.login button {
+.login-form button {
     font-size: 20px;
     font-weight: 600;
     text-align: center;
@@ -92,7 +110,11 @@ main {
     cursor: pointer;
 }
 
-.easyLogin {
+.login.disabled {
+    pointer-events: none;
+}
+
+.easyLogin-area {
     background-color: #E6F2FF;
     height: 74px;
 }
@@ -111,7 +133,7 @@ main {
     font-weight: 500;
 }
 
-.loginType {
+.easyLogin-type {
     /* padding: 16px 23px; */
 }
 
@@ -128,15 +150,15 @@ main {
         margin: 80px 16px 231px;
     }
 
-    .loginForm {
+    .login-form {
         max-width: 400px;
     }
 
-    .login input{
+    .login-form input{
         min-width: 352px;
     }
 
-    .login button {
+    .login-form button {
         min-width: 400px;
     }
 }
