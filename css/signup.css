@@ -31,7 +31,13 @@ main {
     min-width: 640px;
 }
 
-.signup h3 {
+.signup div {
+    display: flex;
+    flex-direction: column;
+}
+
+.signup label {
+    /* display: inline-block; */
     color: var(--gray800);
     font-size: 18px;
     font-weight: 700;
@@ -48,6 +54,7 @@ main {
     min-height: 26px;
 
     padding: 15px 24px;
+    margin-bottom: 24px
 }
 
 .signup input:focus{
@@ -86,7 +93,7 @@ main {
     border-radius: 40px;
     border-style: none;
 
-    margin: 16px 0;
+    margin-bottom: 24px;
     cursor: pointer;
 }
 
@@ -119,4 +126,36 @@ main {
     align-items: center;
 
     /* margin-top: 50px; */
+}
+
+
+@media (max-width: 767px) {
+    main {
+        margin: 80px 16px 231px;
+    }
+
+    .signupForm {
+        min-width: 352px;
+    }
+
+    .signup > div{
+        min-width: 352px;
+    }
+    .signup input {
+        min-width: 352px;
+    }
+
+    .signup button {
+        min-width: 400px;
+    }
+
+    .easyLogin, .login {
+        width: 400px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1199px) {
+    main {
+        margin: 48px 53px 243px 51px;
+    }
 }

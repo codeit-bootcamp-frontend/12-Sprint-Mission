@@ -28,10 +28,11 @@ main {
 }
 
 .loginForm {
-    min-width: 640px;
+    max-width: 640px;
 }
 
-.login h3 {
+.login label {
+    display: inline-block;
     color: var(--gray800);
     font-size: 18px;
     font-weight: 700;
@@ -48,6 +49,7 @@ main {
     min-height: 26px;
 
     padding: 15px 24px;
+    margin-bottom: 24px;
 }
 
 .signup input:focus{
@@ -86,7 +88,7 @@ main {
     border-radius: 40px;
     border-style: none;
 
-    margin: 16px 0;
+    margin-bottom: 24px;
     cursor: pointer;
 }
 
@@ -119,4 +121,28 @@ main {
     align-items: center;
 
     /* margin-top: 50px; */
+}
+
+@media (max-width: 767px) {
+    main {
+        margin: 80px 16px 231px;
+    }
+
+    .loginForm {
+        max-width: 400px;
+    }
+
+    .login input{
+        min-width: 352px;
+    }
+
+    .login button {
+        min-width: 400px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1199px) {
+    main {
+        margin: 190px 52px 325px;
+    }
 }
