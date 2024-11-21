@@ -1,5 +1,4 @@
-import { useEffect, useState } from "react";
-import { useSearchParams } from "react-router-dom";
+import useFilteredSearchParams from "@hooks/useFilteredSearchParams";
 import useList from "@hooks/useList";
 import { getProducts } from "@service/product";
 import Filter from "@components/Filter";
@@ -22,13 +21,11 @@ const sortOptions = [
 ];
 
 export default function AllItems() {
-  const [searchParams, setSearchParams] = useSearchParams();
-  const initialParams = {
-    keyword: searchParams.get("keyword") || "",
-    orderBy: searchParams.get("orderBy") || "recent",
-    page: parseInt(searchParams.get("page")) || 1,
-  };
-  const [params, setParams] = useState(initialParams);
+  const [params, setParams] = useFilteredSearchParams({
+    keyword: "",
+    orderBy: "recent",
+    page: 1,
+  });
   const { isLoading, totalCount, pageSize, items } = useList(
     getProducts,
     rspnSize,
@@ -36,31 +33,13 @@ export default function AllItems() {
   );
   const { keyword, orderBy, page } = params;
 
-  function handleKeyword(keyword) {
-    setParams((prev) => ({ ...prev, keyword }));
-  }
-
-  function handleOrderBy(orderBy) {
-    setParams((prev) => ({ ...prev, orderBy }));
+  function handleParams(key, value) {
+    setParams((prev) => ({ ...prev, [key]: value }));
   }
 
   function handlePage(page) {
-    setParams((prev) => ({ ...prev, page }));
+    handleParams("page", page);
   }
-
-  useEffect(() => {
-    // 값이 없는 쿼리는 URL에 표시안되게 필터링
-    const filteredParams = Object.entries(params).reduce(
-      (acc, [key, value]) => {
-        if (value) {
-          acc[key] = value;
-        }
-        return acc;
-      },
-      {}
-    );
-    setSearchParams(filteredParams);
-  }, [params]);
 
   const pagination = { totalCount, page, pageSize, handlePage };
 
@@ -70,7 +49,7 @@ export default function AllItems() {
       <Section.Header title="전체 상품">
         <Search
           keyword={keyword}
-          onSubmit={handleKeyword}
+          onSubmit={() => handleParams("keyword", keyword)}
           placeholder="검색할 상품을 입력해주세요"
         />
         <Button to="/addItem" size="sm">
@@ -78,7 +57,7 @@ export default function AllItems() {
         </Button>
         <Filter
           value={orderBy}
-          onChange={handleOrderBy}
+          onChange={() => handleParams("orderBy", orderBy)}
           options={sortOptions}
         />
       </Section.Header>
