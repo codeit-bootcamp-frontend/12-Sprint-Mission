@@ -36,10 +36,18 @@ export default function Pagination({
 
   if (!pageNumbers.length) return null;
 
+  const isPrevDisabeld = page === 1;
+  const isNextDisabled = totalPage === page;
+
   return (
     <ul className={styles.list}>
       <li>
-        <button type="button" className={styles.item} onClick={handlePrevClick}>
+        <button
+          type="button"
+          className={styles.item}
+          onClick={handlePrevClick}
+          disabled={isPrevDisabeld}
+        >
           <img src={arrowLeft} alt="이전 페이지" />
         </button>
       </li>
@@ -55,7 +63,12 @@ export default function Pagination({
         </li>
       ))}
       <li>
-        <button type="button" className={styles.item} onClick={handleNextClick}>
+        <button
+          type="button"
+          className={styles.item}
+          onClick={handleNextClick}
+          disabled={isNextDisabled}
+        >
           <img src={arrowRight} alt="다음 페이지" />
         </button>
       </li>

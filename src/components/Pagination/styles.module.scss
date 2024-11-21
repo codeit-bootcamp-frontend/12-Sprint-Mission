@@ -26,5 +26,9 @@
       background: var(--color-primary-200);
       color: var(--color-white);
     }
+
+    &:disabled {
+      opacity: 0.3;
+    }
   }
 }
