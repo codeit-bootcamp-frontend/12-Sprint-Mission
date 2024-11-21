@@ -33,12 +33,16 @@ export default function AllItems() {
   );
   const { keyword, orderBy, page } = params;
 
-  function handleParams(key, value) {
-    setParams((prev) => ({ ...prev, [key]: value }));
+  function handleKeyword(keyword) {
+    setParams((prev) => ({ ...prev, page: 1, keyword }));
+  }
+
+  function handleOrderBy(orderBy) {
+    setParams((prev) => ({ ...prev, orderBy }));
   }
 
   function handlePage(page) {
-    handleParams("page", page);
+    setParams((prev) => ({ ...prev, page }));
   }
 
   const pagination = { totalCount, page: Number(page), pageSize, handlePage };
@@ -49,7 +53,7 @@ export default function AllItems() {
       <Section.Header title="전체 상품">
         <Search
           keyword={keyword}
-          onSubmit={() => handleParams("keyword", keyword)}
+          onSubmit={handleKeyword}
           placeholder="검색할 상품을 입력해주세요"
         />
         <Button to="/addItem" size="sm">
@@ -57,7 +61,7 @@ export default function AllItems() {
         </Button>
         <Filter
           value={orderBy}
-          onChange={() => handleParams("orderBy", orderBy)}
+          onChange={handleOrderBy}
           options={sortOptions}
         />
       </Section.Header>
