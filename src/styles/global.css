@@ -1,0 +1,73 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button,
+input,
+textarea,
+select {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+button {
+  background: none;
+  border: none;
+  outline: none;
+  box-shadow: none;
+  cursor: pointer;
+}
+
+img,
+svg {
+  vertical-align: bottom;
+}
+
+body {
+  color: var(--secondary-700);
+  word-break: keep-all;
+  font-family: "Pretendard", sans-serif;
+}
+
+.button {
+  background-color: var(--primary-100);
+  color: var(--secondary-100);
+  text-align: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pill-button {
+  padding: 1.2rem 12.4rem;
+  border-radius: 999px;
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 3.2rem;
+}
+
+.button:hover {
+  background-color: var(--primary-200);
+}
+
+.button:focus {
+  background-color: var(--primary-300);
+}
+
+.button:disabled {
+  background-color: var(--secondary-400);
+  cursor: default;
+  pointer-events: none;
+}
