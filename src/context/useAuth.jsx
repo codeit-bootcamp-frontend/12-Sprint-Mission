@@ -19,7 +19,7 @@ export function AuthProvider({ children }) {
           setAuth((prev) => ({ ...prev, user: userData }));
         } catch (err) {
           console.error(err);
-          handleLogout();
+          clear();
         }
       }
     })();
@@ -48,7 +48,7 @@ export function AuthProvider({ children }) {
     }
   }
 
-  function handleLogout() {
+  function clear() {
     localStorage.removeItem("accessToken");
     localStorage.removeItem("refreshToken");
 
@@ -57,7 +57,10 @@ export function AuthProvider({ children }) {
       refreshToken: null,
       user: null,
     });
+  }
 
+  function handleLogout() {
+    clear();
     window.location.replace("/");
   }
 
