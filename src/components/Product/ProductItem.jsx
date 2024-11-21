@@ -44,27 +44,25 @@ export default function ProductItem({ item, keyword }) {
   });
 
   return (
-    <li className={styles.item}>
-      <Link to={`/items/${id}`}>
-        <figure className={styles.cover}>
-          <img
-            src={imgSrc}
-            alt={name}
-            onError={handleImgError}
-            className={imgCss}
-          />
-        </figure>
-        <div className={styles.content}>
-          <div className={styles.title}>
-            <HighLightWithKeyword content={name} keyword={keyword} />
-          </div>
-          <div className={styles.price}>{formatToWon(price)}</div>
-          <div className={styles.action}>
-            <img className={styles.icon} src={iconHeart} alt="좋아요" />
-            <span className={styles.count}>{favoriteCount}</span>
-          </div>
+    <Link to={`/items/${id}`}>
+      <figure className={styles.cover}>
+        <img
+          src={imgSrc}
+          alt={name}
+          onError={handleImgError}
+          className={imgCss}
+        />
+      </figure>
+      <div className={styles.content}>
+        <div className={styles.title}>
+          <HighLightWithKeyword content={name} keyword={keyword} />
         </div>
-      </Link>
-    </li>
+        <div className={styles.price}>{formatToWon(price)}</div>
+        <div className={styles.action}>
+          <img className={styles.icon} src={iconHeart} alt="좋아요" />
+          <span className={styles.count}>{favoriteCount}</span>
+        </div>
+      </div>
+    </Link>
   );
 }

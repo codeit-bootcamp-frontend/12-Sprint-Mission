@@ -13,29 +13,21 @@
     gap: 3.2rem 0.8rem;
   }
 
-  .item {
-    width: calc(20% - (2.4rem * 4) / 5);
-
-    @include mixins.tablet {
-      width: calc(33.333% - (1.6rem * 2) / 3);
+  @for $i from 1 through 12 {
+    .mobile-col-#{$i} {
+      width: calc(100% / #{$i} - (0.8rem * (#{$i} - 1)) / #{$i});
     }
 
-    @include mixins.mobile {
-      width: calc(50% - (0.8rem * 1) / 2);
-    }
-  }
-}
-
-.best {
-  .item {
-    width: calc(25% - (2.4rem * 3) / 4);
-
-    @include mixins.tablet {
-      width: calc(50% - (1.6rem * 1) / 2);
+    @include mixins.tabletOnly {
+      .tablet-col-#{$i} {
+        width: calc(100% / #{$i} - (1.6rem * (#{$i} - 1)) / #{$i});
+      }
     }
 
-    @include mixins.mobile {
-      width: 100%;
+    @include mixins.pcOnly {
+      .pc-col-#{$i} {
+        width: calc(100% / #{$i} - (2.4rem * (#{$i} - 1)) / #{$i});
+      }
     }
   }
 }

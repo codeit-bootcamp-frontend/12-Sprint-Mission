@@ -10,6 +10,12 @@ const rspnSize = {
   mobile: 1,
 };
 
+const rspnCol = {
+  pc: 4,
+  tablet: 2,
+  mobile: 1,
+};
+
 export default function BestItems() {
   const { isLoading, items } = useList(getBestProducts, rspnSize);
 
@@ -18,7 +24,7 @@ export default function BestItems() {
       {isLoading && <LoadingSpinner position="absolute" light />}
       <Section.Header title="베스트 상품" />
       <Section.Content>
-        <ProductList items={items} mode="best" isLoading={isLoading} />
+        <ProductList items={items} isLoading={isLoading} rspnCol={rspnCol} />
       </Section.Content>
     </Section>
   );

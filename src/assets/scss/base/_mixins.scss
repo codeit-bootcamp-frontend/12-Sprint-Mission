@@ -18,3 +18,15 @@ $breakpoint-tablet: 1200px;
   margin: 0 auto;
   padding: 0 var(--gutter);
 }
+
+@mixin tabletOnly {
+  @media ($breakpoint-mobile <= width <= $breakpoint-tablet) {
+    @content;
+  }
+}
+
+@mixin pcOnly {
+  @media (width >= $breakpoint-tablet) {
+    @content;
+  }
+}

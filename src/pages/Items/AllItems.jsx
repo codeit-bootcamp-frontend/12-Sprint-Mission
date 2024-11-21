@@ -15,6 +15,12 @@ const rspnSize = {
   mobile: 4,
 };
 
+const rspnCol = {
+  pc: 5,
+  tablet: 3,
+  mobile: 2,
+};
+
 const sortOptions = [
   { value: "recent", label: "최신순" },
   { value: "favorite", label: "좋아요순" },
@@ -66,7 +72,12 @@ export default function AllItems() {
         />
       </Section.Header>
       <Section.Content>
-        <ProductList items={items} keyword={keyword} isLoading={isLoading} />
+        <ProductList
+          items={items}
+          keyword={keyword}
+          isLoading={isLoading}
+          rspnCol={rspnCol}
+        />
         <Pagination {...pagination} />
       </Section.Content>
     </Section>
