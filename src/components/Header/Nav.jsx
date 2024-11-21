@@ -9,6 +9,7 @@ const MENU = [
   },
   {
     path: "/items",
+    reload: true,
     title: "중고마켓",
     activePath: ["/items", "/addItem"],
   },
@@ -28,6 +29,7 @@ export default function Nav() {
           <li key={item.path}>
             <NavLink
               to={item.path}
+              reloadDocument={item.reload}
               className={({ isActive }) =>
                 clsx(
                   styles["gnb-item"],
