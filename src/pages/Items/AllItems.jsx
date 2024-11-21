@@ -41,7 +41,7 @@ export default function AllItems() {
     handleParams("page", page);
   }
 
-  const pagination = { totalCount, page, pageSize, handlePage };
+  const pagination = { totalCount, page: Number(page), pageSize, handlePage };
 
   return (
     <Section>
