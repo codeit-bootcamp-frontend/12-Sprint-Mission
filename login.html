@@ -26,7 +26,7 @@
       /></a>
     </header>
     <main>
-      <form class="login-info">
+      <form class="login-info auth-form" method="post" action="./items.html">
         <label for="email" class="email">이메일</label>
         <div class="input-id">
           <input
@@ -34,6 +34,8 @@
             name="email"
             id="email"
             placeholder="이메일을 입력해주세요"
+            required
+            aria-required="true"
           />
         </div>
 
@@ -44,6 +46,8 @@
             name="password"
             id="password"
             placeholder="비밀번호를 입력해주세요"
+            required
+            aria-required="true"
           />
           <img
             src="img/img_closed_eye.png"
@@ -52,7 +56,9 @@
           />
         </div>
 
-        <button type="submit" class="login-btn">로그인</button>
+        <button type="submit" class="login-btn submitButton" disabled>
+          로그인
+        </button>
       </form>
 
       <nav class="simple-login">
@@ -74,5 +80,6 @@
       <span>판다마켓이 처음이신가요? </span>
       <a href="./signup.html">회원가입</a>
     </footer>
+    <script src="./scripts/account.js" type="module"></script>
   </body>
 </html>
