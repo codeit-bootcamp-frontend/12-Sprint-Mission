@@ -17,4 +17,8 @@
   --color-grey: #dfdfdf;
   --color-black: #4b5563;
   --color-skyblue: #cfe5ff;
+
+  --header-height: 70px;
+
+  font-size: 62.5%;
 }
