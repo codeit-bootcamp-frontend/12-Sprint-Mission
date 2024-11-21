@@ -2,19 +2,20 @@ import { useEffect, useState } from "react";
 import useAsync from "@hooks/useAsync";
 import usePageSize from "@hooks/usePageSize";
 
-export default function useList(fetchFn, { pageSize: size = 10, params = {} }) {
+export default function useList(
+  fetchFn,
+  { pageSize: sizeOption, ...restParams }
+) {
   const { isLoading, error, wrappedFn: getData } = useAsync(fetchFn);
   const [items, setItems] = useState([]);
   const [totalCount, setTotalCount] = useState(0);
-  const [page, setPage] = useState(1);
-  const { pageSize } = usePageSize(size);
+  const { pageSize } = usePageSize(sizeOption);
 
   useEffect(() => {
     (async function fetchData() {
       const result = await getData({
-        page,
         pageSize,
-        ...params,
+        ...restParams,
       });
 
       if (!result) return;
@@ -24,27 +25,13 @@ export default function useList(fetchFn, { pageSize: size = 10, params = {} }) {
       setItems(list);
       setTotalCount(totalCount);
     })();
-  }, [page, pageSize, ...Object.values(params)]);
-
-  useEffect(() => {
-    setPage(1);
-  }, [pageSize]);
-
-  function handlePage(number) {
-    setPage(number);
-  }
-
-  const pagination = {
-    totalCount,
-    page,
-    pageSize,
-    onChangePage: handlePage,
-  };
+  }, [pageSize, ...Object.values(restParams)]);
 
   return {
     isLoading,
+    totalCount,
+    pageSize,
     error,
     items,
-    pagination,
   };
 }

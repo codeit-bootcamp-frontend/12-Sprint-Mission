@@ -7,7 +7,7 @@ export default function Pagination({
   totalCount,
   page,
   pageSize,
-  onChangePage,
+  handlePage,
   visibleCount = 5,
 }) {
   const totalPage = Math.ceil(totalCount / pageSize);
@@ -22,16 +22,16 @@ export default function Pagination({
 
   function handlePrevClick() {
     if (page <= 1) return;
-    onChangePage(page - 1);
+    handlePage(page - 1);
   }
 
   function handleNextClick() {
     if (page >= totalPage) return;
-    onChangePage(page + 1);
+    handlePage(page + 1);
   }
 
   function handleClick(number) {
-    onChangePage(number);
+    handlePage(number);
   }
 
   if (!pageNumbers.length) return null;
