@@ -4,16 +4,14 @@ import ProductList from "@components/Product/ProductList";
 import Section from "@components/Section";
 import { getBestProducts } from "@service/product";
 
-const itemsResponsive = {
+const rspnSize = {
   pc: 4,
   tablet: 2,
   mobile: 1,
 };
 
 export default function BestItems() {
-  const { isLoading, items } = useList(getBestProducts, {
-    pageSize: itemsResponsive,
-  });
+  const { isLoading, items } = useList(getBestProducts, rspnSize);
 
   return (
     <Section title="베스트 상품">

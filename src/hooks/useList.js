@@ -2,10 +2,7 @@ import { useEffect, useState } from "react";
 import useAsync from "@hooks/useAsync";
 import usePageSize from "@hooks/usePageSize";
 
-export default function useList(
-  fetchFn,
-  { pageSize: sizeOption, ...restParams }
-) {
+export default function useList(fetchFn, sizeOption = 10, params) {
   const { isLoading, error, wrappedFn: getData } = useAsync(fetchFn);
   const [items, setItems] = useState([]);
   const [totalCount, setTotalCount] = useState(0);
@@ -15,7 +12,7 @@ export default function useList(
     (async function fetchData() {
       const result = await getData({
         pageSize,
-        ...restParams,
+        ...params,
       });
 
       if (!result) return;
@@ -25,7 +22,7 @@ export default function useList(
       setItems(list);
       setTotalCount(totalCount);
     })();
-  }, [pageSize, ...Object.values(restParams)]);
+  }, [pageSize, params]);
 
   return {
     isLoading,

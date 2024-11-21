@@ -10,7 +10,7 @@ import Button from "@components/Button";
 import Pagination from "@components/Pagination";
 import LoadingSpinner from "@components/LoadingSpinner";
 
-const itemsResponsive = {
+const rspnSize = {
   pc: 10,
   tablet: 6,
   mobile: 4,
@@ -29,14 +29,12 @@ export default function AllItems() {
     page: parseInt(searchParams.get("page")) || 1,
   };
   const [params, setParams] = useState(initialParams);
+  const { isLoading, totalCount, pageSize, items } = useList(
+    getProducts,
+    rspnSize,
+    params
+  );
   const { keyword, orderBy, page } = params;
-
-  const { isLoading, totalCount, pageSize, items } = useList(getProducts, {
-    pageSize: itemsResponsive,
-    keyword,
-    orderBy,
-    page,
-  });
 
   function handleKeyword(keyword) {
     setParams((prev) => ({ ...prev, keyword }));
