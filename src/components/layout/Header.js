@@ -1,8 +1,16 @@
+import { useMediaQuery } from "@mui/material";
 import { ReactComponent as Logo } from "../../assets/images/logo/logo.svg";
+import { ReactComponent as TextLogo } from "../../assets/images/logo/logo-text.svg";
 import { ReactComponent as User } from "../../assets/images/icons/ic_user.svg";
 import "./Header.css";
 
 function Header() {
+  const ResponsiveIcon = () => {
+    const isMobile = useMediaQuery("(max-width:600px)");
+
+    return isMobile ? <TextLogo /> : <Logo />;
+  };
+
   return (
     <header class="header">
       <div className="header-left">

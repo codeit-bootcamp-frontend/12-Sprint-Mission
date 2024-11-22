@@ -112,6 +112,10 @@
 .img-box {
   border-radius: 16px;
   background-color: var(--gray-100);
+  background-image: url("../../assets/images/logo/no-image.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 50%;
   aspect-ratio: 1;
   overflow: hidden;
 }
