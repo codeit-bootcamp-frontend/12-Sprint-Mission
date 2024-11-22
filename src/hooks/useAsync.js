@@ -10,7 +10,9 @@ export default function useAsync(asyncFn) {
       setLoading(true);
       return await asyncFn(...args);
     } catch (err) {
-      setError(err);
+      if (err.name !== "AbortError") {
+        setError(err);
+      }
     } finally {
       setLoading(false);
     }

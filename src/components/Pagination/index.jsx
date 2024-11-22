@@ -26,7 +26,7 @@ export default function Pagination({
     if (totalPage > 0 && page > totalPage) {
       handlePage(totalPage);
     }
-  }, [page, totalCount, totalPage]);
+  }, [page, totalPage]);
 
   function handlePrevClick() {
     if (page <= 1) return;
