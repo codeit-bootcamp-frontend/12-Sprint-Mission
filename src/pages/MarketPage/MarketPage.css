@@ -128,6 +128,23 @@
   line-height: 2.6rem;
 }
 
+.sortButtonWrapper {
+  position: relative;
+}
+
+.sortDropdownArrowDownButton {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+  width: 13rem;
+  height: 4.2rem;
+  border: 0.1rem solid var(--secondary-200);
+  border-radius: 1.2rem;
+  font-size: 1.6rem;
+  color: var(--secondary-800);
+}
+
 .allItemsCardSection {
   display: grid;
   grid-template-columns: repeat(5, 1fr);

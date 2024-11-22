@@ -4,6 +4,8 @@ import { getProducts } from "../../../api/itemApi";
 import defaultImage from "../../../assets/images/image/img_default.png";
 import { ReactComponent as HeartIcon } from "../../../assets/images/icons/ic_heart.svg";
 import { ReactComponent as SearchIcon } from "../../../assets/images/icons/ic_search.svg";
+import { ReactComponent as ArrowDownIcon } from "../../../assets/images/icons/ic_arrow_down.svg";
+import DropdownList from "../../../components/UI/DropdownList";
 
 const getPageSize = () => {
   const width = window.innerWidth;
@@ -19,10 +21,21 @@ const getPageSize = () => {
 function AllItemsSection() {
   const [itemList, setItemList] = useState([]);
   const [pageSize, setPageSize] = useState(getPageSize());
+  const [orderBy, setOrderBy] = useState("recent");
+  const [isDropdownVisible, setIsDropdownVisible] = useState(false);
 
   const fetchSortedItems = async ({ orderBy, pageSize }) => {
     const products = await getProducts({ orderBy, pageSize });
     setItemList(products.list);
+  };
+
+  const handleSortSelection = (sortOption) => {
+    setOrderBy(sortOption);
+    setIsDropdownVisible(false);
+  };
+
+  const toggleDropdown = () => {
+    setIsDropdownVisible(!isDropdownVisible);
   };
 
   useEffect(() => {
@@ -31,12 +44,12 @@ function AllItemsSection() {
     };
 
     window.addEventListener("resize", handleResize);
-    fetchSortedItems({ orderBy: "favorite", pageSize });
+    fetchSortedItems({ orderBy, pageSize });
 
     return () => {
       window.removeEventListener("resize", handleResize);
     };
-  }, [pageSize]);
+  }, [orderBy, pageSize]);
 
   return (
     <div className="allItemsContainer">
@@ -53,6 +66,18 @@ function AllItemsSection() {
           <Link to="/additem" className="addItemLinkButton button">
             상품 등록하기
           </Link>
+          <div className="sortButtonWrapper">
+            <button
+              className="sortDropdownArrowDownButton"
+              onClick={toggleDropdown}
+            >
+              <span>{orderBy === "recent" ? "최신순" : "좋아요순"}</span>
+              <ArrowDownIcon />
+            </button>
+            {isDropdownVisible && (
+              <DropdownList onSortSelection={handleSortSelection} />
+            )}
+          </div>
         </div>
       </div>
 

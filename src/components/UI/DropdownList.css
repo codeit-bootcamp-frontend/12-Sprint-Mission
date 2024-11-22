@@ -1,0 +1,23 @@
+.dropdownList {
+  position: absolute;
+  top: 120%;
+  width: 13rem;
+  height: 8.4rem;
+  background-color: var(--color-white);
+  border: 0.1rem solid var(--secondary-200);
+  border-radius: 1.2rem;
+  z-index: 99;
+}
+
+.dropdownItem {
+  padding: 1.2rem;
+  text-align: center;
+  border-bottom: 0.1rem solid var(--secondary-200);
+  font-size: 1.6rem;
+  color: var(--secondary-800);
+  cursor: pointer;
+}
+
+.dropdownItem:last-child {
+  border-bottom: none;
+}
