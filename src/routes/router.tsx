@@ -2,6 +2,7 @@ import { createBrowserRouter } from 'react-router-dom';
 import React from 'react';
 import Layout from '../pages/Layout';
 import Home from '../pages/Home/Home';
+import Community from '../pages/Community/Community';
 import Login from '../pages/Login/Login';
 import Signup from '../pages/Signup/Signup';
 import AddItem from '../pages/AddItem/AddItem';
@@ -16,6 +17,7 @@ const router = createBrowserRouter([
     element: <Layout />,
     children: [
       { index: true, element: <Home /> },
+      { path: 'community', element: <Community /> },
       { path: 'login', element: <Login /> },
       { path: 'signup', element: <Signup /> },
       { path: 'addItem', element: <AddItem /> },
