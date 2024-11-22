@@ -37,7 +37,7 @@ function BestItemsSection() {
       <div className="title-container">
         <h1>베스트 상품</h1>
       </div>
-      <ul className="item-container">
+      <ul className="item-container col4">
         {items.map((item) => (
           <ItemCard items={item} key={item.id} />
         ))}

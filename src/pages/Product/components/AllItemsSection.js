@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import { getProducts } from "../../../api/itemsApi";
-import ItemCard from "./ItemCard";
 import { ReactComponent as SearchIcon } from "../../../assets/images/icons/ic_search.svg";
 import { ReactComponent as SortIcon } from "../../../assets/images/icons/ic_sort.svg";
+import Dropdown from "../../../components/util/Dropdown";
+import ItemCard from "./ItemCard";
 import Pagination from "../../../components/util/Pagination";
 
 function AllItemsSection() {
@@ -10,11 +11,13 @@ function AllItemsSection() {
   const [searchTerm, setSearchTerm] = useState("");
   const [searchType, setSearchType] = useState("all");
   const [page, setPage] = useState(1);
-  const [pageSize] = useState(6);
+  const [pageSize] = useState(10);
   const [items, setItems] = useState([]);
+  const [dropdownState, setDropdownState] = useState();
 
   const handleSortChange = (sortValue) => {
     setOrderBy(sortValue);
+    setDropdownState(false);
   };
 
   const handleSearchChange = (e) => {
@@ -41,6 +44,10 @@ function AllItemsSection() {
     handleLoad();
   }, [orderBy, searchTerm, searchType, page]);
 
+  const toggleDropdown = () => {
+    setDropdownState(!dropdownState);
+  };
+
   return (
     <section className="all-items">
       <div className="title-container">
@@ -49,7 +56,7 @@ function AllItemsSection() {
           <div className="search-box">
             <SearchIcon />
             <input
-              className="searchInput"
+              className="search-input"
               placeholder="검색할 상품을 입력해 주세요"
               value={searchTerm}
               onChange={handleSearchChange}
@@ -58,20 +65,22 @@ function AllItemsSection() {
               }}
             />
           </div>
-          <a href="#">상품 등록하기</a>
+          <a href="#" className="button round-button">
+            상품 등록하기
+          </a>
           <div className="sort-box">
-            <button type="button">
-              <strong>{orderBy === "recent" ? "최신순" : "좋아요순"}</strong>
+            <button type="button" onClick={toggleDropdown}>
+              {orderBy === "recent" ? "최신순" : "인기순"}
               <SortIcon />
             </button>
-            <div>
-              <span onClick={() => handleSortChange("recent")}>최신순</span>
-              <span onClick={() => handleSortChange("favorite")}>좋아요순</span>
-            </div>
+            <Dropdown
+              onSortChange={handleSortChange}
+              dropdownState={dropdownState}
+            />
           </div>
         </div>
       </div>
-      <ul className="item-container">
+      <ul className="item-container col5">
         {items.map((item) => (
           <ItemCard items={item} key={item.id} />
         ))}

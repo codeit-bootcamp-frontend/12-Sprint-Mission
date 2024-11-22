@@ -1,5 +1,6 @@
 import { ReactComponent as ArrowLeftIcon } from "../../assets/images/icons/arrow_left.svg";
 import { ReactComponent as ArrowRightIcon } from "../../assets/images/icons/arrow_right.svg";
+import "./Pagination.css";
 
 function Pagination() {
   return (
@@ -10,33 +11,23 @@ function Pagination() {
             <ArrowLeftIcon />
           </button>
         </li>
-        <li>
-          <button type="button" disabled>
-            1
-          </button>
+        <li className="active">
+          <button type="button">1</button>
         </li>
         <li>
-          <button type="button" disabled>
-            2
-          </button>
+          <button type="button">2</button>
         </li>
         <li>
-          <button type="button" disabled>
-            3
-          </button>
+          <button type="button">3</button>
         </li>
         <li>
-          <button type="button" disabled>
-            4
-          </button>
+          <button type="button">4</button>
         </li>
         <li>
-          <button type="button" disabled>
-            5
-          </button>
+          <button type="button">5</button>
         </li>
         <li>
-          <button type="button" disabled>
+          <button type="button">
             <ArrowRightIcon />
           </button>
         </li>

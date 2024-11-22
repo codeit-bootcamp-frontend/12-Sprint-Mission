@@ -4,12 +4,12 @@ function ItemCard({ items }) {
   return (
     <li className="item-wrapper">
       <div className="img-box">
-        <img src={items.images[0]} alt={items.name} />
+        {items.images[0] && <img src={items.images[0]} alt={items.name} />}
       </div>
       <div className="info-box">
         <strong>
-          <span>{items.name}</span>
-          <em>{items.price.toLocaleString()}원</em>
+          <span className="item-name">{items.name}</span>
+          <em className="item-price">{items.price.toLocaleString()}원</em>
         </strong>
       </div>
       {/* 
@@ -17,7 +17,7 @@ function ItemCard({ items }) {
       */}
       <div className="like-box">
         <HeartIcon />
-        <b>{items.favoriteCount}</b>
+        {items.favoriteCount}
       </div>
     </li>
   );

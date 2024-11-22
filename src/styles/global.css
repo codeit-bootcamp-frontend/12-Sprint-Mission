@@ -38,7 +38,7 @@ button {
 }
 
 button:disabled {
-  background-color: #9ca3af;
+  background-color: var(--gray-400);
   cursor: default;
   pointer-events: none;
 }
@@ -47,7 +47,8 @@ button:disabled {
   background-color: var(--blue);
 }
 
-img {
+img,
+svg {
   vertical-align: bottom;
 }
 
@@ -79,7 +80,7 @@ footer {
 #copyright {
   flex-basis: 100%;
   order: 3;
-  color: #9ca3af;
+  color: var(--gray-400);
 
   @media (min-width: 768px) {
     flex-basis: auto;
@@ -128,6 +129,13 @@ h1 {
   }
 }
 
+ul,
+ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
 .button {
   background-color: #3692ff;
   color: #ffffff;
@@ -145,7 +153,7 @@ h1 {
 }
 
 .button:disabled {
-  background-color: #9ca3af;
+  background-color: var(--gray-400);
   cursor: default;
   pointer-events: none;
 }
@@ -160,6 +168,26 @@ h1 {
     padding: 12px 66px;
     font-size: 18px;
   }
+}
+
+.pill-button {
+  font-size: 20px;
+  font-weight: 700;
+  border-radius: 999px;
+  padding: 16px 124px;
+
+  @media (max-width: 1200px) {
+    padding: 12px 66px;
+    font-size: 18px;
+  }
+}
+
+.round-button {
+  padding: 8px 23px;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 26px;
+  border-radius: 8px;
 }
 
 /* 접근성 요소 숨기기 */
