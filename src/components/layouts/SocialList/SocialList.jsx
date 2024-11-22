@@ -15,7 +15,7 @@ const SocialList = () => {
           />
         </a>
       </li>
-      <li class="social-list-item">
+      <li className="social-list-item">
         <a href="https://www.x.com" target="_blank" rel="noreferrer">
           <img
             src={IcTwitter}
@@ -24,7 +24,7 @@ const SocialList = () => {
           />
         </a>
       </li>
-      <li class="social-list-item">
+      <li className="social-list-item">
         <a href="https://www.youtube.com" target="_blank" rel="noreferrer">
           <img
             src={IcYoutube}
@@ -33,7 +33,7 @@ const SocialList = () => {
           />
         </a>
       </li>
-      <li class="social-list-item">
+      <li className="social-list-item">
         <a href="https://www.instagram.com" target="_blank" rel="noreferrer">
           <img
             src={IcInstagram}
