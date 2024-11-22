@@ -99,6 +99,7 @@ p {
   background-color: var(--blue);
   color: #ffffff;
   text-align: center;
+  text-decoration: none;
 }
 
 .top-banner-img {
