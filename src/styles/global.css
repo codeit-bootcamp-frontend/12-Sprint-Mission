@@ -75,3 +75,17 @@ body {
   cursor: default;
   pointer-events: none;
 }
+
+.wrapper {
+  max-width: 120rem;
+  margin: 0 auto;
+  width: 100%;
+
+  @media (max-width: 1199px) {
+    padding: 0 3rem;
+  }
+
+  @media (max-width: 767px) {
+    padding: 0 1.5rem;
+  }
+}
