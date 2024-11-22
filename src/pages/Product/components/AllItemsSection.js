@@ -6,12 +6,23 @@ import Dropdown from "../../../components/util/Dropdown";
 import ItemCard from "./ItemCard";
 import Pagination from "../../../components/util/Pagination";
 
+const getPageSize = () => {
+  const width = window.innerWidth;
+  if (width < 768) {
+    return 4;
+  } else if (width < 1200) {
+    return 6;
+  } else {
+    return 10;
+  }
+};
+
 function AllItemsSection() {
   const [orderBy, setOrderBy] = useState("recent");
   const [searchTerm, setSearchTerm] = useState("");
   const [searchType, setSearchType] = useState("all");
   const [page, setPage] = useState(1);
-  const [pageSize] = useState(10);
+  const [pageSize, setPageSize] = useState(getPageSize());
   const [items, setItems] = useState([]);
   const [dropdownState, setDropdownState] = useState();
 
@@ -41,12 +52,25 @@ function AllItemsSection() {
   };
 
   useEffect(() => {
+    const handleResize = () => {
+      setPageSize(getPageSize());
+    };
+
+    window.addEventListener("resize", handleResize);
+
     handleLoad();
-  }, [orderBy, searchTerm, searchType, page]);
+
+    // Cleanup
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, [orderBy, searchTerm, searchType, page, pageSize]);
 
   const toggleDropdown = () => {
     setDropdownState(!dropdownState);
   };
+
+  const itemClassName = `item-container col-${getPageSize() / 2}`;
 
   return (
     <section className="all-items">
@@ -80,7 +104,7 @@ function AllItemsSection() {
           </div>
         </div>
       </div>
-      <ul className="item-container col5">
+      <ul className={itemClassName}>
         {items.map((item) => (
           <ItemCard items={item} key={item.id} />
         ))}

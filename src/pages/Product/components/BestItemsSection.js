@@ -2,20 +2,23 @@ import { useEffect, useState } from "react";
 import { getProducts } from "../../../api/itemsApi";
 import ItemCard from "./ItemCard";
 
+const getPageSize = () => {
+  const width = window.innerWidth;
+  if (width < 768) {
+    return 1;
+  } else if (width < 1200) {
+    return 2;
+  } else {
+    return 4;
+  }
+};
+
 function BestItemsSection() {
   const [orderBy, setOrderBy] = useState("favorite");
   const [searchType, setSearchType] = useState("all");
   const [page, setPage] = useState(1);
-  const [pageSize] = useState(4);
+  const [pageSize, setPageSize] = useState(getPageSize());
   const [items, setItems] = useState([]);
-
-  const handleSortChange = (sortValue) => {
-    setOrderBy(sortValue);
-  };
-
-  const handleSearchSubmit = () => {
-    handleLoad();
-  };
 
   const handleLoad = async () => {
     const params = {};
@@ -29,15 +32,28 @@ function BestItemsSection() {
   };
 
   useEffect(() => {
+    const handleResize = () => {
+      setPageSize(getPageSize());
+    };
+
+    window.addEventListener("resize", handleResize);
+
     handleLoad();
-  }, [orderBy, searchType, page]);
+
+    // Cleanup
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, [orderBy, searchType, page, pageSize]);
+
+  const itemClassName = `item-container col-${getPageSize()}`;
 
   return (
     <section className="best-items">
       <div className="title-container">
         <h1>베스트 상품</h1>
       </div>
-      <ul className="item-container col4">
+      <ul className={itemClassName}>
         {items.map((item) => (
           <ItemCard items={item} key={item.id} />
         ))}
