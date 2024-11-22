@@ -22,83 +22,12 @@
     height: 100%;
   }
 
-  .logo {
-    display: block;
-    height: 5.1rem;
-    margin-right: 3.2rem;
-
-    @include mixins.mobile {
-      height: auto;
-      margin-right: 1rem;
-    }
-
-    a {
-      display: block;
-      height: 100%;
-    }
-
-    img {
-      width: auto;
-      height: 100%;
-
-      &.logo-pc {
-        @include mixins.mobile {
-          display: none;
-        }
-      }
-
-      &.logo-mobile {
-        display: none;
-
-        @include mixins.mobile {
-          display: block;
-        }
-      }
-    }
-  }
-
-  .gnb {
-    display: flex;
-    height: 100%;
-
-    .gnb-item {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100%;
-      padding: 0 1.5rem;
-      font-size: 1.8rem;
-      font-weight: 700;
-      color: var(--color-secondary-600);
-
-      @include mixins.mobile {
-        padding: 00.4rem;
-        font-size: 1.6rem;
-      }
-    }
-
-    .active {
-      color: var(--color-primary-100);
-    }
-  }
-
   .util {
     flex: none;
     margin-left: auto;
 
     .login-btn {
       width: 12.8rem;
-    }
-  }
-
-  .avatar {
-    width: 4rem;
-    height: 4rem;
-    border-radius: 50%;
-    overflow: hidden;
-
-    &:hover {
-      outline: 2px solid var(--color-secondary-100);
     }
   }
 }

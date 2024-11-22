@@ -1,5 +1,5 @@
 import Dropdown from "@components/Dropdown";
-import Avatar from "./Avatar";
+import Avatar from "@components/Avatar";
 
 export default function Profile({ user, onLogout }) {
   function handleLogout() {
