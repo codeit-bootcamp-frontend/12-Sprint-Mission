@@ -26,17 +26,13 @@ export default function useList(fetchFn, pageSize = 10, params) {
      * (리사이징때문에 연속적으로 요청을 보낼때에도 해당 방법이 도와줄것 같다.)
      */
 
-    const controller = new AbortController();
-    const signal = controller.signal;
+    // abortcontroller를 useAsync훅으로 옮김 (모든 통신에 사용하기 위해서)
 
     (async function fetchData() {
-      const result = await getData(
-        {
-          pageSize,
-          ...params,
-        },
-        signal
-      );
+      const result = await getData({
+        pageSize,
+        ...params,
+      });
 
       if (!result) return;
 
@@ -45,10 +41,6 @@ export default function useList(fetchFn, pageSize = 10, params) {
       setItems(list);
       setTotalCount(totalCount);
     })();
-
-    return () => {
-      controller.abort();
-    };
   }, [pageSize, params]);
 
   return {
