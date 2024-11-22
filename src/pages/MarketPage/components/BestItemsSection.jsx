@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { getProducts } from "../../../api/itemApi";
 import defaultImage from "../../../assets/images/image/img_default.png";
+import { ReactComponent as HeartIcon } from "../../../assets/images/icons/ic_heart.svg";
 
 const getPageSize = () => {
   const width = window.innerWidth;
@@ -48,6 +49,10 @@ function BestItemsSection() {
             )}
             <h3 className="itemName">{item.name}</h3>
             <p className="itemPrice">{item.price.toLocaleString()}원</p>
+            <div className="favoriteCount">
+              <HeartIcon />
+              {item.favoriteCount}
+            </div>
           </div>
         ))}
       </div>

@@ -45,6 +45,16 @@
   margin: 0.6rem 0;
 }
 
+.favoriteCount {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--color-black);
+  font-weight: 500;
+  font-size: 1.2rem;
+  line-height: 1.8rem;
+}
+
 .bestItemsContainer {
   padding-top: 2.4rem;
   padding-bottom: 4rem;
