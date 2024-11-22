@@ -3,24 +3,26 @@ import clsx from "clsx";
 import defaultImg from "@assets/img/icon/icon_placeholder.svg";
 import styles from "./styles.module.scss";
 
-export default function ProductThumbnail({ src = defaultImg, alt = "" }) {
-  const [isDefault, setIsDefault] = useState(src === defaultImg);
-
-  function handleImgError() {
-    setIsDefault(true);
-  }
+export default function ProductThumbnail({
+  src: initialSrc = defaultImg,
+  alt = "",
+}) {
+  const [src, setSrc] = useState(initialSrc);
+  const [isLoaded, setIsLoaded] = useState(false);
 
   let imgCss = clsx({
-    [styles.default]: isDefault,
+    [styles.default]: src === defaultImg,
+    [styles.loaded]: isLoaded,
   });
 
   return (
     <figure className={styles.cover}>
       <img
-        src={!isDefault ? src : defaultImg}
+        src={src}
         className={imgCss}
         alt={alt}
-        onError={handleImgError}
+        onError={() => setSrc(defaultImg)}
+        onLoad={() => setIsLoaded(true)}
       />
     </figure>
   );
