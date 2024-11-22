@@ -5,11 +5,12 @@ import styles from "./styles.module.scss";
 const DropdownContext = createContext();
 const useDropdown = () => useContext(DropdownContext);
 
-function Dropdown({ children }) {
+function Dropdown({ onChange = () => {}, children }) {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
 
   const value = {
+    onChange,
     isOpen,
     setIsOpen,
   };
@@ -54,11 +55,12 @@ function Menu({ children }) {
   return <ul className={styles.list}>{children}</ul>;
 }
 
-function Item({ onClick, children }) {
-  const { setIsOpen } = useDropdown();
+function Item({ value, onClick = () => {}, children }) {
+  const { setIsOpen, onChange } = useDropdown();
 
   function handleClick() {
     setIsOpen(false);
+    onChange(value);
     onClick();
   }
 
