@@ -2,6 +2,7 @@ import clsx from "clsx";
 import arrowLeft from "@assets/img/icon/icon_arrow_left.svg";
 import arrowRight from "@assets/img/icon/icon_arrow_right.svg";
 import styles from "./styles.module.scss";
+import { useEffect } from "react";
 
 export default function Pagination({
   totalCount,
@@ -19,6 +20,13 @@ export default function Pagination({
     { length: pageLengthInGroup },
     (item, index) => firstPageInGroup + index
   );
+
+  useEffect(() => {
+    //모바일에서 뒷페이지로 이동후 pc로 돌아올때 페이지번호가 전체페이지를 넘칠때 마지막 페이지로 이동하기
+    if (totalPage > 0 && page > totalPage) {
+      handlePage(totalPage);
+    }
+  }, [page, totalCount, totalPage]);
 
   function handlePrevClick() {
     if (page <= 1) return;
