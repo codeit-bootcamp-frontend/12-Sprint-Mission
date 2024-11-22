@@ -17,6 +17,7 @@
 
 body {
   font-family: 'Noto Sans KR', sans-serif;
+  margin: 0;
 }
 
 h1 {
@@ -58,6 +59,8 @@ p {
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 20px;
+  font-weight: 700;
 }
 
 .logo {
@@ -68,6 +71,7 @@ p {
 .login {
   padding: 16px 36px;
   border-radius: 8px;
+  border: 1px solid var(--blue);
   background-color: var(--blue);
   color: #ffffff;
   font-size: 16px;
@@ -136,6 +140,10 @@ p {
   height: 444px;
 }
 
+.section-title {
+  padding: 0;
+}
+
 .keyword {
   color: var(--blue);
   font-size: 18px;
@@ -171,6 +179,7 @@ footer {
   color: var(--gray200);
   font-size: 16px;
   font-weight: 400;
+  text-decoration: none;
 }
 
 .social-img {
@@ -293,6 +302,7 @@ footer {
   }
   h2 {
     font-size: 32px;
+    padding: 0 32px;
   }
   p {
     margin: 0 0 40px;
@@ -328,5 +338,14 @@ footer {
   }
   .social-list-item {
     padding-right: 10px;
+  }
+}
+
+@media (max-width: 500px) {
+  .top-navigation {
+    flex-direction: column;
+  }
+  .header-left {
+    gap: 8px;
   }
 }

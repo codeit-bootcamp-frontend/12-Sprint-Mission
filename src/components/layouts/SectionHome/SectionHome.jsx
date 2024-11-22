@@ -2,7 +2,9 @@ const SectionHome = ({ sectionProp }) => {
   const { number, src, keyword, subtitle1, subtitle2, paragraph1, paragraph2 } =
     sectionProp;
 
-  const imgElement = <img src={src} alt={`${keyword} 이미지입니다.`} />;
+  const imgElement = (
+    <img src={src} alt={`${keyword} 이미지입니다.`} className="section-img" />
+  );
 
   const makeSectionExplain = () => {
     return (
