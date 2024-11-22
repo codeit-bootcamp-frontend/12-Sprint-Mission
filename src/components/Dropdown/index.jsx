@@ -1,4 +1,11 @@
-import { createContext, useContext, useEffect, useRef, useState } from "react";
+import {
+  cloneElement,
+  createContext,
+  useContext,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import styles from "./styles.module.scss";
 
 /** compound pattern + context api 복습 (mui dropdown 참고) */
@@ -44,7 +51,7 @@ function Toggle({ children }) {
     setIsOpen((prev) => !prev);
   }
 
-  return <button onClick={handleClick}>{children}</button>;
+  return cloneElement(children, { onClick: handleClick });
 }
 
 function Menu({ children }) {

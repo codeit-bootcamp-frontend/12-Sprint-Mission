@@ -11,7 +11,9 @@ export default function Profile({ user, onLogout }) {
   return (
     <Dropdown>
       <Dropdown.Toggle>
-        <Avatar nickname={user.nickname} img={user.image} />
+        <button type="button">
+          <Avatar nickname={user.nickname} img={user.image} />
+        </button>
       </Dropdown.Toggle>
       <Dropdown.Menu>
         <Dropdown.Item onClick={handleLogout}>로그아웃</Dropdown.Item>

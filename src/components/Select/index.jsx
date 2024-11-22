@@ -8,11 +8,12 @@ export default function Select({ value, options, onChange }) {
   return (
     <Dropdown onChange={onChange}>
       <Dropdown.Toggle>
-        <div className={styles.button}>
+        {/* TODO: (재사용을 높여야한다면) select 컴포넌트가 trigger프롭으로 버튼 컴포넌트를 받기 */}
+        <button type="button" className={styles.button}>
           <span className={styles.label}>{selectedLabel}</span>
           <img className={styles.arrow} src={arrowIcon} alt="선택하기" />
           <img className={styles.sort} src={sortIcon} alt="선택하기" />
-        </div>
+        </button>
       </Dropdown.Toggle>
       <Dropdown.Menu>
         {options.map((option) => (
