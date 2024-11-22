@@ -1,7 +1,6 @@
 import usePageSize from "@hooks/usePageSize";
 import useList from "@hooks/useList";
 import { getBestProducts } from "@service/product";
-import LoadingSpinner from "@components/LoadingSpinner";
 import ProductList from "@components/Product";
 import Section from "@components/Section";
 
@@ -19,14 +18,18 @@ const rspnCol = {
 
 export default function BestItems() {
   const { pageSize } = usePageSize(rspnSize);
-  const { isLoading, items } = useList(getBestProducts, pageSize);
+  const { isLoading, error, items } = useList(getBestProducts, pageSize);
 
   return (
     <Section title="베스트 상품">
-      {isLoading && <LoadingSpinner position="absolute" light />}
       <Section.Header title="베스트 상품" />
       <Section.Content>
-        <ProductList items={items} isLoading={isLoading} rspnCol={rspnCol} />
+        <ProductList
+          items={items}
+          isLoading={isLoading}
+          error={error}
+          rspnCol={rspnCol}
+        />
       </Section.Content>
     </Section>
   );

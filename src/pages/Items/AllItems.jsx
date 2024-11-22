@@ -9,7 +9,6 @@ import Search from "@components/Search";
 import Section from "@components/Section";
 import Button from "@components/Button";
 import Pagination from "@components/Pagination";
-import LoadingSpinner from "@components/LoadingSpinner";
 
 const rspnSize = {
   pc: 10,
@@ -35,7 +34,7 @@ export default function AllItems() {
     page: 1,
   });
   const { pageSize } = usePageSize(rspnSize);
-  const { isLoading, items, totalCount } = useList(
+  const { isLoading, error, items, totalCount } = useList(
     getProducts,
     pageSize,
     params
@@ -58,7 +57,6 @@ export default function AllItems() {
 
   return (
     <Section>
-      {isLoading && <LoadingSpinner position="absolute" light />}
       <Section.Header title="전체 상품">
         <Search
           keyword={keyword}
@@ -79,6 +77,7 @@ export default function AllItems() {
           items={items}
           keyword={keyword}
           isLoading={isLoading}
+          error={error}
           rspnCol={rspnCol}
         />
         <Pagination {...pagination} />
