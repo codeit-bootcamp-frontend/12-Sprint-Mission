@@ -1,6 +1,5 @@
-import defaultAvatar from "@assets/img/icon/icon_avatar.svg";
 import Dropdown from "@components/Dropdown";
-import styles from "./styles.module.scss";
+import Avatar from "./Avatar";
 
 export default function Profile({ user, onLogout }) {
   function handleLogout() {
@@ -9,14 +8,10 @@ export default function Profile({ user, onLogout }) {
     }
   }
 
-  const avatarImg = user.image || defaultAvatar;
-
   return (
     <Dropdown>
       <Dropdown.Toggle>
-        <figure className={styles.avatar}>
-          <img src={avatarImg} alt={user.nickname} />
-        </figure>
+        <Avatar nickname={user.nickname} img={user.image} />
       </Dropdown.Toggle>
       <Dropdown.Menu>
         <Dropdown.Item onClick={handleLogout}>로그아웃</Dropdown.Item>
