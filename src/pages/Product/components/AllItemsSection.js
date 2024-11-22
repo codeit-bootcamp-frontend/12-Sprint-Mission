@@ -3,8 +3,7 @@ import { getProducts } from "../../../api/itemsApi";
 import ItemCard from "./ItemCard";
 import { ReactComponent as SearchIcon } from "../../../assets/images/icons/ic_search.svg";
 import { ReactComponent as SortIcon } from "../../../assets/images/icons/ic_sort.svg";
-import { ReactComponent as ArrowLeftIcon } from "../../../assets/images/icons/arrow_left.svg";
-import { ReactComponent as ArrowRightIcon } from "../../../assets/images/icons/arrow_right.svg";
+import Pagination from "../../../components/util/Pagination";
 
 function AllItemsSection() {
   const [orderBy, setOrderBy] = useState("recent");
@@ -77,6 +76,10 @@ function AllItemsSection() {
           <ItemCard items={item} key={item.id} />
         ))}
       </ul>
+      {/* 
+        TODO : 페이지네이션 기능 구현
+      */}
+      <Pagination />
     </section>
   );
 }

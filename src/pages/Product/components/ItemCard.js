@@ -12,6 +12,9 @@ function ItemCard({ items }) {
           <em>{items.price.toLocaleString()}원</em>
         </strong>
       </div>
+      {/* 
+        TODO : 좋아요 기능 구현
+      */}
       <div className="like-box">
         <HeartIcon />
         <b>{items.favoriteCount}</b>
