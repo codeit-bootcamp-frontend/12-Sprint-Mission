@@ -1,7 +1,7 @@
 import useFilteredSearchParams from "@hooks/useFilteredSearchParams";
 import useList from "@hooks/useList";
 import { getProducts } from "@service/product";
-import Filter from "@components/Filter";
+import Select from "@components/Select";
 import ProductList from "@components/Product/ProductList";
 import Search from "@components/Search";
 import Section from "@components/Section";
@@ -65,7 +65,7 @@ export default function AllItems() {
         <Button to="/addItem" size="sm">
           상품 등록하기
         </Button>
-        <Filter
+        <Select
           value={orderBy}
           onChange={handleOrderBy}
           options={sortOptions}

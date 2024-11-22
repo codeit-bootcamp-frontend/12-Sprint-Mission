@@ -3,15 +3,10 @@ import sortIcon from "@assets/img/icon/icon_sort.svg";
 import styles from "./styles.module.scss";
 import Dropdown from "@components/Dropdown";
 
-export default function Filter({ value, options, onChange }) {
+export default function Select({ value, options, onChange }) {
   const selectedLabel = options.find((option) => option.value === value).label;
-
-  function handleClick(value) {
-    onChange(value);
-  }
-
   return (
-    <Dropdown>
+    <Dropdown onChange={onChange}>
       <Dropdown.Toggle>
         <div className={styles.button}>
           <span className={styles.label}>{selectedLabel}</span>
@@ -21,10 +16,7 @@ export default function Filter({ value, options, onChange }) {
       </Dropdown.Toggle>
       <Dropdown.Menu>
         {options.map((option) => (
-          <Dropdown.Item
-            key={option.value}
-            onClick={() => handleClick(option.value)}
-          >
+          <Dropdown.Item key={option.value} value={option.value}>
             {option.label}
           </Dropdown.Item>
         ))}
