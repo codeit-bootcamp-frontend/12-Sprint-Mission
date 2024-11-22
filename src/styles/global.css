@@ -41,6 +41,10 @@ body {
   font-family: "Pretendard", sans-serif;
 }
 
+.withHeader {
+  margin-top: var(--header-height);
+}
+
 .button {
   background-color: var(--primary-100);
   color: var(--secondary-100);

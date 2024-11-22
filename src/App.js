@@ -9,7 +9,7 @@ function App() {
     <BrowserRouter>
       <Reset />
       <Header />
-      <div>
+      <div className="withHeader">
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="items" element={<MarketPage />} />
