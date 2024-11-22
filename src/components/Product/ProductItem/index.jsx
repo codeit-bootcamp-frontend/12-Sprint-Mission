@@ -1,13 +1,9 @@
-import { Fragment, useState } from "react";
+import { Fragment } from "react";
 import { Link } from "react-router-dom";
-import clsx from "clsx";
-import defaultImg from "@assets/img/icon/icon_placeholder.svg";
+import ProductThumbnail from "@components/Product/ProductThumbnail";
+import { toWon } from "@util/formatter";
 import iconHeart from "@assets/img/icon/icon_heart.svg";
 import styles from "./styles.module.scss";
-
-function formatToWon(price) {
-  return Number(price).toLocaleString() + "원";
-}
 
 function HighLightWithKeyword({ content, keyword }) {
   if (!keyword) return <>{content}</>;
@@ -28,36 +24,15 @@ function HighLightWithKeyword({ content, keyword }) {
 
 export default function ProductItem({ item, keyword }) {
   const { id, images, name, price, favoriteCount } = item;
-  const [error, setError] = useState(false);
-
-  function handleImgError(e) {
-    setError(true);
-  }
-
-  let imgSrc = defaultImg;
-  if (images.length) {
-    imgSrc = error ? defaultImg : images[0];
-  }
-
-  let imgCss = clsx({
-    [styles.default]: !images.length || error,
-  });
 
   return (
-    <Link to={`/items/${id}`}>
-      <figure className={styles.cover}>
-        <img
-          src={imgSrc}
-          alt={name}
-          onError={handleImgError}
-          className={imgCss}
-        />
-      </figure>
+    <Link to={`/items/${id}`} className={styles.item}>
+      <ProductThumbnail src={images[0]} alt={name} />
       <div className={styles.content}>
         <div className={styles.title}>
           <HighLightWithKeyword content={name} keyword={keyword} />
         </div>
-        <div className={styles.price}>{formatToWon(price)}</div>
+        <div className={styles.price}>{toWon(price)}</div>
         <div className={styles.action}>
           <img className={styles.icon} src={iconHeart} alt="좋아요" />
           <span className={styles.count}>{favoriteCount}</span>

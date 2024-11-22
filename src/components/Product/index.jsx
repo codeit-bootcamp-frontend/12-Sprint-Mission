@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import ProductItem from "./ProductItem";
-import ProductItemEmpty from "./ProductItemEmpty";
+import ProductEmpty from "./ProductEmpty";
 import styles from "./styles.module.scss";
 
 export default function ProductList({
@@ -14,13 +14,13 @@ export default function ProductList({
   );
 
   if (!items.length && !isLoading) {
-    return <ProductItemEmpty keyword={keyword} />;
+    return <ProductEmpty keyword={keyword} />;
   }
 
   return (
-    <ul className={styles.items}>
+    <ul className={clsx(styles.items, col)}>
       {items.map((item) => (
-        <li key={item.id} className={clsx(styles.item, col)}>
+        <li key={item.id} className={styles.item}>
           <ProductItem item={item} keyword={keyword} />
         </li>
       ))}

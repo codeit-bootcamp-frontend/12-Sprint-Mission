@@ -1,6 +1,6 @@
 import useList from "@hooks/useList";
 import LoadingSpinner from "@components/LoadingSpinner";
-import ProductList from "@components/Product/ProductList";
+import ProductList from "@components/Product";
 import Section from "@components/Section";
 import { getBestProducts } from "@service/product";
 

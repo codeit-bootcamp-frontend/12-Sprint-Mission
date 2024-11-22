@@ -2,7 +2,7 @@ import useFilteredSearchParams from "@hooks/useFilteredSearchParams";
 import useList from "@hooks/useList";
 import { getProducts } from "@service/product";
 import Select from "@components/Select";
-import ProductList from "@components/Product/ProductList";
+import ProductList from "@components/Product";
 import Search from "@components/Search";
 import Section from "@components/Section";
 import Button from "@components/Button";
