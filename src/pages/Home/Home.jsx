@@ -1,5 +1,6 @@
 import Header from '../../components/layouts/Header/Header';
 import HomeMain from '../../components/layouts/HomeMain/HomeMain';
+import Footer from '../../components/layouts/Footer/Footer';
 
 import './Home.css';
 
@@ -8,6 +9,7 @@ const Home = () => {
     <>
       <Header />
       <HomeMain />
+      <Footer />
     </>
   );
 };
