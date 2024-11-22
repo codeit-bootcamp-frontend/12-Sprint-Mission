@@ -1,8 +1,9 @@
+import usePageSize from "@hooks/usePageSize";
 import useList from "@hooks/useList";
+import { getBestProducts } from "@service/product";
 import LoadingSpinner from "@components/LoadingSpinner";
 import ProductList from "@components/Product";
 import Section from "@components/Section";
-import { getBestProducts } from "@service/product";
 
 const rspnSize = {
   pc: 4,
@@ -17,7 +18,8 @@ const rspnCol = {
 };
 
 export default function BestItems() {
-  const { isLoading, items } = useList(getBestProducts, rspnSize);
+  const { pageSize } = usePageSize(rspnSize);
+  const { isLoading, items } = useList(getBestProducts, pageSize);
 
   return (
     <Section title="베스트 상품">

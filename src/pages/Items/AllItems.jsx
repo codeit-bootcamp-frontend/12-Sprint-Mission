@@ -1,5 +1,7 @@
 import useFilteredSearchParams from "@hooks/useFilteredSearchParams";
+import usePageSize from "@hooks/usePageSize";
 import useList from "@hooks/useList";
+import usePagination from "@hooks/usePagination";
 import { getProducts } from "@service/product";
 import Select from "@components/Select";
 import ProductList from "@components/Product";
@@ -32,12 +34,19 @@ export default function AllItems() {
     orderBy: "recent",
     page: 1,
   });
-  const { isLoading, totalCount, pageSize, items } = useList(
+  const { pageSize } = usePageSize(rspnSize);
+  const { isLoading, items, totalCount } = useList(
     getProducts,
-    rspnSize,
+    pageSize,
     params
   );
   const { keyword, orderBy, page } = params;
+  const pagination = usePagination({
+    totalCount,
+    pageSize,
+    page: Number(page),
+    onChange: (page) => setParams((prev) => ({ ...prev, page })),
+  });
 
   function handleKeyword(keyword) {
     setParams((prev) => ({ ...prev, page: 1, keyword }));
@@ -46,12 +55,6 @@ export default function AllItems() {
   function handleOrderBy(orderBy) {
     setParams((prev) => ({ ...prev, orderBy }));
   }
-
-  function handlePage(page) {
-    setParams((prev) => ({ ...prev, page }));
-  }
-
-  const pagination = { totalCount, page: Number(page), pageSize, handlePage };
 
   return (
     <Section>

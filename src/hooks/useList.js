@@ -1,12 +1,10 @@
 import { useEffect, useState } from "react";
 import useAsync from "@hooks/useAsync";
-import usePageSize from "@hooks/usePageSize";
 
-export default function useList(fetchFn, sizeOption = 10, params) {
+export default function useList(fetchFn, pageSize = 10, params) {
   const { isLoading, error, wrappedFn: getData } = useAsync(fetchFn);
   const [items, setItems] = useState([]);
   const [totalCount, setTotalCount] = useState(0);
-  const { pageSize } = usePageSize(sizeOption);
 
   useEffect(() => {
     /**
@@ -30,12 +28,6 @@ export default function useList(fetchFn, sizeOption = 10, params) {
 
     const controller = new AbortController();
     const signal = controller.signal;
-
-    if (params && totalCount > 0) {
-      if (params.page > Math.ceil(totalCount / pageSize)) {
-        return;
-      }
-    }
 
     (async function fetchData() {
       const result = await getData(
@@ -61,9 +53,8 @@ export default function useList(fetchFn, sizeOption = 10, params) {
 
   return {
     isLoading,
-    totalCount,
-    pageSize,
     error,
     items,
+    totalCount,
   };
 }
