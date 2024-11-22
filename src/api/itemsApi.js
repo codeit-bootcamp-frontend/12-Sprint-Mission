@@ -1,5 +1,7 @@
-export async function getProducts(order = "recent") {
-  const query = `orderBy=${order}`;
+export async function getProducts(params = {}) {
+  //const query = `orderBy=${order}`;
+  const query = new URLSearchParams(params).toString();
+
   try {
     const response = await fetch(
       `https://panda-market-api.vercel.app/products?${query}`
