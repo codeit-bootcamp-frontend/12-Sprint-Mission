@@ -3,7 +3,7 @@
 }
 
 input:focus {
-    background-color: #3692FF;
+    outline: 2px solid #3692FF;
   }
 label{
     display: block;
@@ -16,7 +16,7 @@ label{
     align-items: center;
     flex-direction: column;
     position: relative;
-    margin: 60px auto;
+    margin: 48px auto 0px;
    
 }
 #fandalogo{
@@ -133,22 +133,21 @@ label{
     align-items: center;
     background: #9CA3AF;
     border-radius: 40px;
+    border: none;
     font-family: Pretendard;
     font-size: 20px;
     font-weight: 600;
     line-height: 32px;
     text-align: center;
+    cursor: pointer;
 }
 .easy-login{
-    width: 594px;
-    height: 42px;
     padding: 16px 23px;
     border-radius: 8px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     background: #E6F2FF;
-    margin:24px 0;
 }
 h3{
     margin : 0;
@@ -173,7 +172,7 @@ a{
     }
     .signup-container{
         width:100%;
-        margin: 80px 16px;
+        margin: 24px auto;
         max-width: 400px;
     }
     .easy-login{

@@ -12,7 +12,9 @@
     <meta property="og:url" content="https://www.codeit.kr">
 
     <title>판다마켓 로그인</title>
-    <link rel="stylesheet" href="/login.css">
+    <link rel="stylesheet" href="login.css">
+    <script src="sprint4.js"></script>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-3.3.1.js"></script>
 </head>
 <body>
     <div class="login-container">
@@ -22,38 +24,40 @@
             </a>
         </header>
         <div class="main">
-            <form action="" method="post">
-                
+            <form id="loginForm" method="post">
                 <div class="email-box">
                     <label for="email">이메일</label>
-                    <input type="email" id="email"  name="email" placeholder="이메일을 입력해주세요" required>
+                    <input type="email" id="email"  name="email" placeholder="이메일을 입력해주세요" required oninput="EmailCheck()">
+                    <p class="email-error-message" style="color:red"></p>
                 </div>
-                
-                <div class="pwd-box">
+                <div class="pwd-box"> 
                     <label for="pwd">비밀번호</label>
                     <div class="input-box">
-                        <input type="password" id="pwd" name="pwd" placeholder="비밀번호를 입력해 주세요" required>
-                        <img src="/images/eyes.png" id="eyes" alt="비밀번호 숨기기/표시">
+                        <input type="password" id="pwd" name="pwd" placeholder="비밀번호를 입력해 주세요" required oninput="PasswordCheck()">
+                        <img src="images/eyes.png" id="eyes" alt="비밀번호 숨기기/표시">
                     </div>
+                    <p class="password-error-message" style="color:red"></p>
                 </div>
+            
+            <button class="button" type="submit">로그인</button>
             </form>
-            <buttton class="button" type="submit">로그인</buttton>
             <div class="easy-login">
                 <h3>간편 로그인하기</h3>
                 <div class="social">
                     <a href="https://accounts.google.com/?hl=id">
-                        <img src="/images/google.png" alt="구글">
+                        <img src="images/google.png" alt="구글">
                     </a>
                     <a href="https://www.kakaocorp.com/page/">
-                        <img src="/images/kakaotalk.png" alt="카카오톡">
+                        <img src="images/kakaotalk.png" alt="카카오톡">
                     </a>
                 </div>
             </div>
             <div class="signup-box">
                 <h4>판다마켓이 처음이신가요? </h4>
-                <a href="/signup">회원가입</a>
+                <a href="signup.html">회원가입</a>
             </div>
         </div>
     </div>
+    
 </body>
 </html>
