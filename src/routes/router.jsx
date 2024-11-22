@@ -17,15 +17,15 @@ const router = createBrowserRouter([
     element: <Layout />,
     children: [
       { index: true, element: <Home /> },
-      { path: 'community', element: <Community /> },
-      { path: 'login', element: <Login /> },
-      { path: 'signup', element: <Signup /> },
-      { path: 'addItem', element: <AddItem /> },
-      { path: 'items', element: <Items /> },
-      { path: 'privacy', element: <Privacy /> },
-      { path: 'faq', element: <Faq /> },
+      // { path: 'community', element: <Community /> },
+      // { path: 'login', element: <Login /> },
+      // { path: 'signup', element: <Signup /> },
+      // { path: 'addItem', element: <AddItem /> },
+      // { path: 'items', element: <Items /> },
+      // { path: 'privacy', element: <Privacy /> },
+      // { path: 'faq', element: <Faq /> },
     ],
-    errorElement: <ErrorPage />,
+    // errorElement: <ErrorPage />,
   },
 ]);
 

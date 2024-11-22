@@ -1,5 +1,15 @@
+import React from 'react';
+
+import Header from '../../components/layouts/Header/Header';
+
+import './Home.css';
+
 const Home = () => {
-  return <h1></h1>;
+  return (
+    <>
+      <Header />
+    </>
+  );
 };
 
 export default Home;

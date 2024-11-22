@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import Logo from '../../assets/images/logo.png';
+import Logo from '../../../assets/images/logo.png';
 
 const Header = () => {
   const [activeMenu, setActiveMenu] = useState('');
@@ -32,15 +32,28 @@ const Header = () => {
   }, []);
 
   return (
-    <header>
-      <img
-        src={Logo}
-        alt="로고이미지 입니다."
-        onClick={() => onClickMenu('home')}
-      />
-      <span onClick={() => onClickMenu('community')}>자유게시판</span>
-      <span onClick={() => onClickMenu('items')}>중고마켓</span>
-      <button onClick={() => onClickMenu('login')}>로그인</button>
+    <header className="top-navigation">
+      <div className="header-left">
+        <img
+          src={Logo}
+          alt="로고이미지 입니다."
+          className="logo"
+          onClick={() => onClickMenu('home')}
+        />
+        <span
+          className="community-tab"
+          onClick={() => onClickMenu('community')}
+        >
+          자유게시판
+        </span>
+        <span className="items-tab" onClick={() => onClickMenu('items')}>
+          중고마켓
+        </span>
+      </div>
+
+      <button className="login" onClick={() => onClickMenu('login')}>
+        로그인
+      </button>
     </header>
   );
 };
