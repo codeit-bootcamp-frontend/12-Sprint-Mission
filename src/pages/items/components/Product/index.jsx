@@ -21,7 +21,9 @@ export default function ProductList({
       error={error}
       message={{
         errorMessage: "상품을 가져오는데 문제가 생겼습니다.",
-        emptyMessage: `${keyword && `'${keyword}'로 검색된`} 상품이 없습니다.`,
+        emptyMessage: `${
+          keyword ? `'${keyword}'로 검색된` : ""
+        } 상품이 없습니다.`,
       }}
       className={clsx(styles.items, col)}
       itemClassName={styles.item}
