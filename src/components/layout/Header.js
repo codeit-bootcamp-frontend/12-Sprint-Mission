@@ -5,17 +5,17 @@ import { ReactComponent as User } from "../../assets/images/icons/ic_user.svg";
 import "./Header.css";
 
 function Header() {
-  const ResponsiveIcon = () => {
-    const isMobile = useMediaQuery("(max-width:600px)");
-
-    return isMobile ? <TextLogo /> : <Logo />;
-  };
+  const isMobile = useMediaQuery("(max-width: 768px)");
 
   return (
-    <header class="header">
+    <header className="header">
       <div className="header-left">
         <a href="/">
-          <Logo width="153" height="70" />
+          {!isMobile ? (
+            <Logo width="153" height="70" />
+          ) : (
+            <TextLogo width="81" />
+          )}
         </a>
         <nav>
           <ul>
