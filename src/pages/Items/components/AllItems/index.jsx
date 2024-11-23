@@ -59,9 +59,9 @@ export default function AllItems() {
     <Section>
       <Section.Header title="전체 상품">
         <Search
-          keyword={keyword}
           onSubmit={handleKeyword}
           placeholder="검색할 상품을 입력해주세요"
+          maxWidth="32.5rem"
         />
         <Button to="/addItem" size="sm">
           상품 등록하기
