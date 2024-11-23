@@ -18,7 +18,7 @@ const BannerHome = ({
       {subtitle2}
     </>
   );
-
+  const bannerPosition = title ? 'top' : 'bottom';
   return (
     <section className={`${styles.banner} ${styles[className]}`}>
       <div className={styles['banner-explain']}>
@@ -34,7 +34,7 @@ const BannerHome = ({
         <img
           src={imageSrc}
           alt={`${className} 이미지입니다.`}
-          className={styles['banner-img']}
+          className={styles[`${bannerPosition}-banner-img`]}
         />
       )}
     </section>

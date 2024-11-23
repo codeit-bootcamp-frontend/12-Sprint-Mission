@@ -1,17 +1,23 @@
+import styles from './SectionHome.module.css';
+
 const SectionHome = ({ sectionProp }) => {
   const { number, src, keyword, subtitle1, subtitle2, paragraph1, paragraph2 } =
     sectionProp;
 
   const imgElement = (
-    <img src={src} alt={`${keyword} 이미지입니다.`} className="section-img" />
+    <img
+      src={src}
+      alt={`${keyword} 이미지입니다.`}
+      className={styles['section-img']}
+    />
   );
 
   const makeSectionExplain = () => {
     return (
-      <div className="section-explain">
-        <span className="keyword">{keyword}</span>
-        <h2 className="section-title">
-          {subtitle1} <br className="section-title-next-line" />
+      <div className={styles['section-explain']}>
+        <span className={styles['keyword']}>{keyword}</span>
+        <h2 className={styles['section-title']}>
+          {subtitle1} <br className={styles['section-title-next-line']} />
           {subtitle2}
         </h2>
         <p>
@@ -21,15 +27,16 @@ const SectionHome = ({ sectionProp }) => {
       </div>
     );
   };
+
   if (number % 2 === 0)
     return (
-      <section className="home-main-section">
+      <section className={styles['home-main-section']}>
         {makeSectionExplain()}
         {imgElement}
       </section>
     );
   return (
-    <section className="home-main-section">
+    <section className={styles['home-main-section']}>
       {imgElement}
       {makeSectionExplain()}
     </section>
