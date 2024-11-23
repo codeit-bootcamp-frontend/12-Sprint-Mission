@@ -1,12 +1,5 @@
 @use "@assets/scss/base/mixins";
 
-.nav {
-  @include mixins.inner;
-  display: flex;
-  align-items: center;
-  height: 100%;
-}
-
 .gnb {
   display: flex;
   height: 100%;
