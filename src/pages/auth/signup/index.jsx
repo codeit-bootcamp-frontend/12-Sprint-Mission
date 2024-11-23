@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import useForm from "@hooks/useForm";
-import AuthContainer from "@components/Auth";
+import AuthContainer from "../components/AuthContainer";
 import Input from "@components/Input";
 import Button from "@components/Button";
 import { signUp } from "@service/auth";

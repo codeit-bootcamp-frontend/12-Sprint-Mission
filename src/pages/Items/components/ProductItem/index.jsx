@@ -1,6 +1,6 @@
 import { Fragment } from "react";
 import { Link } from "react-router-dom";
-import ProductThumbnail from "@components/Product/ProductThumbnail";
+import ProductThumbnail from "../ProductThumbnail";
 import { toWon } from "@util/formatter";
 import iconHeart from "@assets/img/icon/icon_heart.svg";
 import styles from "./styles.module.scss";

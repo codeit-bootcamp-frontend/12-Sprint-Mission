@@ -1,6 +1,6 @@
-import googleIcon from "../../assets/img/icon/icon_google.svg";
-import kakaoIcon from "../../assets/img/icon/icon_kakao.svg";
-import styles from "./Oauth.module.scss";
+import googleIcon from "@assets/img/icon/icon_google.svg";
+import kakaoIcon from "@assets/img/icon/icon_kakao.svg";
+import styles from "./styles.module.scss";
 
 export default function Oauth() {
   return (

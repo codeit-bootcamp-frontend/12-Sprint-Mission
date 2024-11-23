@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import logo from "@assets/img/common/logo_full.svg";
 import LoadingSpinner from "@components/LoadingSpinner";
-import Oauth from "./Oauth";
+import Oauth from "../Oauth";
 import styles from "./styles.module.scss";
 
 export default function AuthContainer({

@@ -4,11 +4,11 @@ import useList from "@hooks/useList";
 import usePagination from "@hooks/usePagination";
 import { getProducts } from "@service/product";
 import Select from "@components/Select";
-import ProductList from "@components/Product";
 import Search from "@components/Search";
 import Section from "@components/Section";
 import Button from "@components/Button";
 import Pagination from "@components/Pagination";
+import ProductList from "../Product";
 
 const rspnSize = {
   pc: 10,

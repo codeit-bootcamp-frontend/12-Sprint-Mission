@@ -1,6 +1,6 @@
 import clsx from "clsx";
-import List from "../List";
-import ProductItem from "./ProductItem";
+import List from "@components/List";
+import ProductItem from "../ProductItem";
 import styles from "./styles.module.scss";
 
 export default function ProductList({
