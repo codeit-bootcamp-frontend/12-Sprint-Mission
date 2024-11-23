@@ -1,0 +1,13 @@
+.best-item {
+  margin: 20px auto;
+  max-width: 1100px;
+}
+
+.best-item-list {
+  display: flex;
+  gap: 16px;
+}
+.sub-title {
+  font-size: 20px;
+  font-weight: 700;
+}

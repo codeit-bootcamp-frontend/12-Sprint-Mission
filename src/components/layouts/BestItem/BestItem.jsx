@@ -2,6 +2,7 @@ import { useMediaQuery } from 'react-responsive';
 import ItemCard from '../ItemCard/ItemCard';
 import getItems from '../../../api/productGet';
 import { useEffect, useState } from 'react';
+import styles from './BestItem.module.css';
 
 const BestItem = () => {
   const mobileWidth = useMediaQuery({ query: '(max-width:768px)' });
@@ -29,12 +30,14 @@ const BestItem = () => {
   }, [cardCnt]);
 
   return (
-    <section className={`best-items${cardCnt}`}>
-      <p className="sub-title">베스트 상품</p>
-      {Array.isArray(cards) &&
-        cards.map((value, index) => {
-          return <ItemCard key={`${index}`} value={value} category="best" />;
-        })}
+    <section className={styles['best-item']}>
+      <p className={styles['sub-title']}>베스트 상품</p>
+      <div className={styles['best-item-list']}>
+        {Array.isArray(cards) &&
+          cards.map((value, index) => {
+            return <ItemCard key={`${index}`} value={value} category="best" />;
+          })}
+      </div>
     </section>
   );
 };

@@ -1,0 +1,50 @@
+.total-item-title {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.total-item-title-keyword {
+  flex: 1;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  border-radius: 12px;
+  padding-left: 10px;
+  width: 30%;
+  height: 42px;
+  background-color: #f3f4f6;
+}
+
+.search-icon {
+  display: block;
+}
+
+.search-text {
+  flex: 1;
+  border: none;
+  font-size: 16px;
+  font-weight: 400;
+  color: #9ca3af;
+  background-color: #f3f4f6;
+}
+
+.search-text:focus {
+  outline: none;
+}
+
+.register-item {
+  border-radius: 8px;
+  height: 42px;
+  padding: 8px 20px;
+  text-decoration: none;
+  color: #ffffff;
+  background-color: var(--blue);
+  text-align: center;
+  font-size: 16px;
+  font-weight: 600;
+}

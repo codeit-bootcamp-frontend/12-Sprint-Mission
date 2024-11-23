@@ -1,0 +1,42 @@
+.dropdown-container {
+  position: relative;
+}
+
+.dropdown-btn {
+  height: 42px;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 8px 20px;
+  background-color: #ffffff;
+  cursor: pointer;
+}
+
+.dropdown-list {
+  position: absolute;
+  right: 0;
+  top: 50px;
+  width: 130px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+.newest-sort,
+.favorite-sort {
+  border: 1px solid #e5e7eb;
+  background-color: #ffffff;
+
+  padding: 8px 20px;
+  font-size: 16px;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.newest-sort {
+  border-radius: 12px 12px 0 0;
+}
+
+.favorite-sort {
+  border-radius: 0 0 12px 12px;
+}

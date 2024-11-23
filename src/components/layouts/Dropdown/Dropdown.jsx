@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import DropIcon from '../DropIcon/DropIcon';
+import styles from './Dropdown.module.css';
+
 const Dropdown = ({ onClick }) => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -8,14 +10,14 @@ const Dropdown = ({ onClick }) => {
   };
 
   return (
-    <div className="dropdown-container">
-      <button onClick={toggleDropdown}>
+    <div className={styles['dropdown-container']}>
+      <button onClick={toggleDropdown} className={styles['dropdown-btn']}>
         <DropIcon />
       </button>
       {isOpen && (
-        <ul className="dropdown-list">
-          <li>최신순</li>
-          <li>좋아요순</li>
+        <ul className={styles['dropdown-list']}>
+          <li className={styles['newest-sort']}>최신순</li>
+          <li className={styles['favorite-sort']}>좋아요순</li>
         </ul>
       )}
     </div>

@@ -4,6 +4,7 @@ import getItems from '../../../api/productGet';
 import TotalItemTitle from '../TotalItemTitle/TotalItemTitle';
 import ItemCard from '../ItemCard/ItemCard';
 // import PaginationBar from '../PaginationBar/PaginationBar';
+import styles from './TotalItem.module.css';
 
 const TotalItem = () => {
   const mobileWidth = useMediaQuery({ query: '(max-width:768px)' });
@@ -31,12 +32,15 @@ const TotalItem = () => {
   }, [cardCnt]);
 
   return (
-    <section className={`total-items${cardCnt}`}>
+    <section className={styles[`total-items`]}>
       <TotalItemTitle />
-      {Array.isArray(cards) &&
-        cards.map((value, index) => {
-          return <ItemCard key={`${index}`} value={value} category="total" />;
-        })}
+      <div className={styles['total-item-list']}>
+        {Array.isArray(cards) &&
+          cards.map((value, index) => {
+            return <ItemCard key={`${index}`} value={value} category="total" />;
+          })}
+      </div>
+
       {/* <PaginationBar /> */}
     </section>
   );
