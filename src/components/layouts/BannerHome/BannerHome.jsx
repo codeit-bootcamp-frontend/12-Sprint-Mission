@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import styles from './BannerHome.module.css';
 
 const BannerHome = ({
   className,
@@ -17,13 +18,14 @@ const BannerHome = ({
       {subtitle2}
     </>
   );
+
   return (
-    <section className={`banner ${className}`}>
-      <div className="banner-explain">
+    <section className={`${styles.banner} ${styles[className]}`}>
+      <div className={styles['banner-explain']}>
         {title && <h1>{title}</h1>}
         <h2>{subtitle}</h2>
         {linkText && (
-          <Link to="/items" className={linkClass}>
+          <Link to="/items" className={styles[linkClass]}>
             {linkText}
           </Link>
         )}
@@ -32,7 +34,7 @@ const BannerHome = ({
         <img
           src={imageSrc}
           alt={`${className} 이미지입니다.`}
-          className={`${className}-img`}
+          className={styles['banner-img']}
         />
       )}
     </section>
