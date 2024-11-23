@@ -1,12 +1,9 @@
-import React from 'react';
-import { useState, useEffect } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import Logo from '../../../assets/images/logo.png';
+import styles from './Header.module.css';
 
 const Header = () => {
-  const [activeMenu, setActiveMenu] = useState('');
   const navigate = useNavigate();
-  const { pathname: pathName } = useLocation();
 
   const onClickMenu = (menu) => {
     switch (menu) {
@@ -22,36 +19,35 @@ const Header = () => {
       case 'community':
         navigate('/community');
         break;
+      default:
+        break;
     }
   };
 
-  useEffect(() => {
-    setActiveMenu(
-      pathName.replace('/', '') === '' ? 'home' : pathName.replace('/', '')
-    );
-  }, []);
-
   return (
-    <header className="top-navigation">
-      <div className="header-left">
+    <header className={styles['top-navigation']}>
+      <div className={styles['header-left']}>
         <img
           src={Logo}
           alt="로고이미지 입니다."
-          className="logo"
+          className={styles['logo']}
           onClick={() => onClickMenu('home')}
         />
         <span
-          className="community-tab"
+          className={styles['community-tab']}
           onClick={() => onClickMenu('community')}
         >
           자유게시판
         </span>
-        <span className="items-tab" onClick={() => onClickMenu('items')}>
+        <span
+          className={styles['items-tab']}
+          onClick={() => onClickMenu('items')}
+        >
           중고마켓
         </span>
       </div>
 
-      <button className="login" onClick={() => onClickMenu('login')}>
+      <button className={styles['login']} onClick={() => onClickMenu('login')}>
         로그인
       </button>
     </header>
