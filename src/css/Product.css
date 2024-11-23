@@ -1,4 +1,11 @@
 .product {
   display: flex;
   flex-direction: column;
+  gap: 16px;
+}
+
+.product-img {
+  width: 287px;
+  height: auto;
+  border-radius: 16px;
 }
