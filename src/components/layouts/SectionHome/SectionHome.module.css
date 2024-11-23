@@ -1,4 +1,4 @@
-p {
+.home-main-section p {
   color: var(--gray700);
   font-size: 24px;
   font-weight: 500;
@@ -52,14 +52,14 @@ p {
 
 /* Tablet_screen */
 @media (max-width: 1199px) {
-  h2 {
+  .home-main-section h2 {
     width: 100%;
     font-size: 40px;
     font-weight: 700;
     line-height: 40px;
     text-align: center;
   }
-  p {
+  .home-main-section p {
     font-size: 14px;
     font-weight: 500;
     line-height: 24px;
@@ -102,11 +102,11 @@ p {
 
 /* mobile_size */
 @media (max-width: 767px) {
-  h2 {
+  .home-main-section h2 {
     font-size: 32px;
     padding: 0 32px;
   }
-  p {
+  .home-main-section p {
     margin: 0 0 40px;
   }
   .home-main-section {
