@@ -1,14 +1,3 @@
-<!-- 
-    <VS Code에서 HTML 기본구조 자동생성하기>
-
-    - `!` 입력 후 tab 키를 누르면 HTML 기본 양식이 입력됩니다.
-
-    - 이때, <html lang="en"> 부분을 매번 lang="ko"로 바꾸는 것이 번거로우니 양식을 바꿔봅시다.
-      command/ctrl + 쉼표 를 눌러 VS Code 설정창을 열고 emmet을 검색해 주세요. 
-      스크롤을 내려 Emmet: Variables 섹션에 Add Item을 누르고 lang Item의 Value를 ko로 바꿔 입력해 주세요. 
-      마지막으로 Add Item 버튼을 눌러 저장하면 끝!
--->
-
 <!DOCTYPE html>
 <html lang="ko">
   <head>
@@ -23,51 +12,66 @@
       crossorigin
       href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"
     />
-    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="./login.css" />
     <link rel="stylesheet" href="styles/global.css" />
+    <script src="login.js" defer></script>
   </head>
 
   <body>
-      
-      <div class="container">
-        <img src="images/logo/panda-market-logo.png" alt="판다마켓 로고">
+    <header class="container">
+      <div>
+        <img src="images/logo/panda-market-logo.png" alt="판다마켓 로고" />
       </div>
-   
-      <h2 class="input-group">이메일</h2>
-      <form method="post" action="" id="">
+    </header>
+
+    <main>
+      <section class="login-container">
+        <h2 class="input-group">이메일</h2>
         <div class="login-input">
-          <input type="text" name="이메일" placeholder="이메일을 입력해주세요"/>
-          <P></P>
+          <form action="/submit-url">
+            <input
+              type="text"
+              class="inputPush"
+              name="email"
+              placeholder="이메일을 입력해주세요"
+            />
+          </form>
+        </div>
+
         <h2 class="input-group">비밀번호</h2>
-          <input type="password" name="" placeholder="비밀번호를 입력해주세요"/>
-        </div>
-       <div class="login-input2">
-        <div class="submit_button">
-          <a href="nicknames.html">
-            <img src="images/logo/btn_large.png" alt="로그인 버튼">
-          </a>
+        <div class="login-input">
+          <form action="/submit-url">
+            <input
+              type="password"
+              class="inputPush"
+              name="password"
+              placeholder="비밀번호를 입력해주세요"
+            />
+          </form>
         </div>
 
-       
-
-      <!--- <div>
-            <h3 class="login-text2">간편 로그인</h3>  
-            <div class="submit_button3">
-                <a href="https://www.google.com/">
-                  <img src="images/logo/component.png" alt="">
-                </a>
-              </div>
-            
-            <div class="submit_button5">
-               <a href="https://kakaocorp.com/page/">
-               <img src="images/logo/component2.png" alt="">
+        <div class="login-input2">
+          <div class="submit_button">
+            <a href="nicknames.html">
+              <img src="images/logo/btn_large.png" alt="로그인 버튼" />
             </a>
-           </div> 
-          
-        </div>-->
-      </form> 
-    </body>
-    </html>
-    
+          </div>
+        </div>
 
- 
+        <div class="login-input3">
+          <h3 class="login-text2">간편 로그인</h3>
+          <div class="submit_button3">
+            <a href="https://www.google.com/">
+              <img src="images/logo/component.png" alt="구글" />
+            </a>
+          </div>
+          <div class="submit_button5">
+            <a href="https://kakaocorp.com/page/">
+              <img src="images/logo/component2.png" alt="카카오톡" />
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

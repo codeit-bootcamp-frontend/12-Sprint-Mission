@@ -1,191 +1,195 @@
-
-.container{
-   
-    display: flex; 
-    justify-content: center; 
-    align-items: center;
-    margin-bottom: 10px;
-    margin-top: 80px;
-    
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.img { 
-    display: flex; 
-    text-align: center; 
-
+.img {
+  display: flex;
+  text-align: center;
 }
 .login-input {
-    display: flex;  
-    flex-direction: column; 
-    align-items: center;
-    text-align: center; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 
-    align-items: center;
-   
- 
-    
- 
+  align-items: center;
 }
-.h{
-display: flex; 
-flex-direction: column;
-font-family: pretendard;
-font-weight: 700px;
-font-size:18px;
-line-height: 26px;
-margin-right: 1000px;
-
+.h {
+  display: flex;
+  flex-direction: column;
+  font-family: pretendard;
+  font-weight: 700px;
+  font-size: 18px;
+  line-height: 26px;
+  margin-right: 1000px;
 }
-.h3{
-    font-family: pretendard;
-    font-weight: 500px;
-    font-size: 16px;
-    
+.h3 {
+  font-family: pretendard;
+  font-weight: 500px;
+  font-size: 16px;
 }
-.input-group h2{
-    padding-right: 10px; 
-    font-family: pretendard;
-font-weight: 700px;
-font-size:18px;
-line-height: 26px;
-
+.input-group h2 {
+  padding-right: 10px;
+  font-family: pretendard;
+  font-weight: 700px;
+  font-size: 18px;
+  line-height: 26px;
 }
-.input-group{
+.input-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 30px;
+  justify-content: flex-start;
+  text-align: center;
 
-
-display: flex; 
-flex-direction: column;
-align-items: center; 
-margin-bottom: 30px;
-justify-content: flex-start;
-text-align: center;
-
-font-family: pretendard;
-font-weight: 700px;
-font-size:18px;
-line-height: 26px;
-margin-right: 570px;
-margin-top: 10px;
+  font-family: pretendard;
+  font-weight: 700px;
+  font-size: 18px;
+  line-height: 26px;
+  margin-right: 570px;
+  margin-top: 10px;
 }
 
-.login-input input{
-    display: block;
-    text-align: center;
-    border-radius: 8px;
-    background-color: #f3f4f6;
-    margin-bottom: 30px;
-    width: 640px;
-    height: 56px;
-   
-
+.login-input input {
+  display: block;
+  text-align: center;
+  border-radius: 8px;
+  background-color: #f3f4f6;
+  margin-bottom: 30px;
+  width: 640px;
+  height: 56px;
 }
-.submit_button{
+.submit_button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  width: 640px;
+  height: 56px;
+}
+.submit_button img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-left: 800px;
+  margin-top: 150px;
+
+  width: 640px;
+  height: 56px;
+}
+
+.button_container {
+  display: inline-block;
+  position: relative;
+}
+
+.submit_button3 {
+  margin-left: 480px;
+
+  margin-top: -35px;
+}
+.submit_button4 {
+  gap: 10px;
+
+  margin-top: -35px;
+  margin-left: 570px;
+}
+.submit_button3 img,
+.submit_button4 img {
+  position: absolute;
+  align-items: center;
+  width: 35px;
+  height: 35px;
+}
+
+.inputPush:focus {
+  background-color: pink;
+}
+.login-text {
+  display: flex;
+
+  position: relative;
+  margin-top: 15px;
+  background-color: #e6f2ff;
+  padding-left: 30px;
+  align-items: center;
+  width: 640px;
+  height: 49px;
+}
+.login-text2 {
+  margin-bottom: 10px;
+  align-items: center;
+  justify-content: space-between;
+}
+.login-input2 {
+  display: flexbox;
+
+  position: relative;
+  margin-right: 300px;
+  margin-top: 40px;
+}
+.login-input3 {
+  display: flexbox;
+  flex-direction: row;
+  justify-content: space-between;
+  text-align: center;
+  gap: 20px;
+  padding-right: 40px;
+  padding-bottom: 100px;
+}
+
+.login-input4 {
+  display: flexbox;
+  flex-direction: row;
+  justify-content: space-between;
+  text-align: center;
+  gap: 20px;
+  padding-right: 40px;
+  margin-bottom: 600px;
+}
+
+.input-group {
+  display: flexbox;
+}
+.submit_button3,
+.submit_button5 {
+  display: flexbox;
+  justify-content: space-between; /* 공간을 균등 분배 */
+  align-items: center; /* 세로 축 정렬 */
+}
+.submit_button3 {
+  margin-left: 800px;
+  padding-bottom: 40px;
+}
+.submit_button5 {
+  margin-left: 800px;
+  padding-bottom: 90px;
+}
+.bule-login {
+  display: flexbox;
+  justify-content: space-between; /* 공간을 균등 분배 */
+  align-items: center; /* 세로 축 정렬 */
+
+  margin-bottom: 200px;
+}
+@media (max-width: 1200px) {
+  body .Pc-size {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+  }
 
-   
-    width: 640px;
-    height: 56px;
+  @media (min-width: 768px) and (max-width: 1199px) {
+    .Tablet-size {
+      margin-left: 24px;
+    }
+  }
+
+  @media (min-width: 375px) and (max-width: 767px) {
+    .Moblet-size {
+      margin-left: 24px;
+    }
+  }
 }
-.submit_button img{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    margin-left: 800px;
-    margin-top: 150px;
-
-
-    width: 640px;
-    height: 56px;
-}
-
-.button_container{
-        display: inline-block;
-        position: relative;
-        
-    }
-
-
-    .submit_button3{
-        
-    
-        margin-left: 480px;
-    
-        margin-top: -35px;
-    }   
-    .submit_button4{
-
-        gap: 10px;
-
-        margin-top: -35px;
-        margin-left: 570px;
-    }
-    .submit_button3 img, .submit_button4 img {
-      position: absolute;   
-       align-items: center;  
-        width: 35px; 
-        height: 35px; 
-         }
-
-
-    input:focus {
-        background-color: #3692ff;
-      }
-      
-      select:focus {
-        background-color: #3692ff;
-      }
-
-
-    .login-text{
-        display: flex;
-     
-        position: relative;
-        margin-top: 15px;
-        background-color: #e6f2ff;
-        padding-left:30px ;
-        align-items: center;
-        width: 640px;
-        height: 49px;
-    }
-
-    .login-input2{
-        display: flex;
-      
-        position: relative;
-        margin-right: 300px;
-        margin-top: 10px;
-        margin-bottom: 400px;
-    }
-
-
-
-@media (max-width:1200px) {
-    body .Pc-size{
-        display: flex;
-    };
-    
-    
-
-
-
-@media (min-width:768px) and (max-width:1199px) {
-    .Tablet-size{
-        margin-left:24px;
-    }
-};
-
-
-
-
-@media (min-width:375px) and (max-width:767px) {
-    .Moblet-size{
-        margin-left:24px;
-    }
-};
-
-
-
-};
