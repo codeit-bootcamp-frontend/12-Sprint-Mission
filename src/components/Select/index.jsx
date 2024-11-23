@@ -7,8 +7,7 @@ export default function Select({ value, options, onChange }) {
   const selectedLabel = options.find((option) => option.value === value).label;
   return (
     <Dropdown onChange={onChange}>
-      <Dropdown.Toggle>
-        {/* TODO: (재사용을 높여야한다면) select 컴포넌트가 trigger프롭으로 버튼 컴포넌트를 받기 */}
+      <Dropdown.Toggle asChild>
         <button type="button" className={styles.button}>
           <span className={styles.label}>{selectedLabel}</span>
           <img className={styles.arrow} src={arrowIcon} alt="선택하기" />

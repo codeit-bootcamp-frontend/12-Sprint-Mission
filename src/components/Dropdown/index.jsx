@@ -44,14 +44,22 @@ function Dropdown({ onChange = () => {}, children }) {
   );
 }
 
-function Toggle({ children }) {
+function Toggle({ children, asChild = false }) {
   const { setIsOpen } = useDropdown();
 
   function handleClick() {
     setIsOpen((prev) => !prev);
   }
 
-  return cloneElement(children, { onClick: handleClick });
+  if (asChild) {
+    return cloneElement(children, { onClick: handleClick });
+  }
+
+  return (
+    <button type="button" onClick={handleClick}>
+      {children}
+    </button>
+  );
 }
 
 function Menu({ children }) {
