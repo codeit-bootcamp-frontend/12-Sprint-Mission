@@ -1,0 +1,9 @@
+# Ignore macOS .DS_Store files
+.DS_Store
+
+# Ignore VSCode directory
+.vscode/
+
+# Ignore 12-Sprint-Mission directory
+12-Sprint-Mission/
+
