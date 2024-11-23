@@ -5,6 +5,7 @@
   left: 0;
   justify-content: space-around;
   align-items: center;
+  border-bottom: 1px solid #dfdfdf;
   padding: 10px 0;
   background-color: #ffffff;
 }

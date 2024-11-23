@@ -1,5 +1,11 @@
+import Header from '../../components/layouts/Header/Header';
+
 const Items = () => {
-  return <h1>아이템 페이지입니다.</h1>;
+  return (
+    <>
+      <Header />
+    </>
+  );
 };
 
 export default Items;

@@ -1,5 +1,11 @@
+import Header from '../../components/layouts/Header/Header';
+
 const Community = () => {
-  return <h1>Community 페이지입니다.</h1>;
+  return (
+    <>
+      <Header />
+    </>
+  );
 };
 
 export default Community;
