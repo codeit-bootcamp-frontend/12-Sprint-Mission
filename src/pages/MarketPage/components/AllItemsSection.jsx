@@ -6,6 +6,7 @@ import { ReactComponent as HeartIcon } from "../../../assets/images/icons/ic_hea
 import { ReactComponent as SearchIcon } from "../../../assets/images/icons/ic_search.svg";
 import { ReactComponent as ArrowDownIcon } from "../../../assets/images/icons/ic_arrow_down.svg";
 import DropdownList from "../../../components/UI/DropdownList";
+import PaginationBar from "../../../components/UI/PaginationBar";
 
 const getPageSize = () => {
   const width = window.innerWidth;
@@ -14,7 +15,7 @@ const getPageSize = () => {
   } else if (width < 1200) {
     return 6; // 태블릿
   } else {
-    return 10; // 데스크`탑
+    return 10; // 데스크탑
   }
 };
 
@@ -23,10 +24,13 @@ function AllItemsSection() {
   const [pageSize, setPageSize] = useState(getPageSize());
   const [orderBy, setOrderBy] = useState("recent");
   const [isDropdownVisible, setIsDropdownVisible] = useState(false);
+  const [page, setPage] = useState(1);
+  const [totalPageNum, setTotalPageNum] = useState();
 
-  const fetchSortedItems = async ({ orderBy, pageSize }) => {
-    const products = await getProducts({ orderBy, pageSize });
+  const fetchSortedItems = async ({ orderBy, page, pageSize }) => {
+    const products = await getProducts({ orderBy, page, pageSize });
     setItemList(products.list);
+    setTotalPageNum(Math.ceil(products.totalCount / pageSize));
   };
 
   const handleSortSelection = (sortOption) => {
@@ -38,18 +42,22 @@ function AllItemsSection() {
     setIsDropdownVisible(!isDropdownVisible);
   };
 
+  const onPageChange = (pageNumber) => {
+    setPage(pageNumber);
+  };
+
   useEffect(() => {
     const handleResize = () => {
       setPageSize(getPageSize());
     };
 
     window.addEventListener("resize", handleResize);
-    fetchSortedItems({ orderBy, pageSize });
+    fetchSortedItems({ orderBy, page, pageSize });
 
     return () => {
       window.removeEventListener("resize", handleResize);
     };
-  }, [orderBy, pageSize]);
+  }, [orderBy, page, pageSize]);
 
   return (
     <div className="allItemsContainer">
@@ -97,6 +105,14 @@ function AllItemsSection() {
             </div>
           </div>
         ))}
+      </div>
+
+      <div className="paginationBarWrapper">
+        <PaginationBar
+          totalPageNum={totalPageNum}
+          activePageNum={page}
+          onPageChange={onPageChange}
+        />
       </div>
     </div>
   );

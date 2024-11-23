@@ -160,3 +160,18 @@
     gap: 3.2rem 0.8rem;
   }
 }
+
+.paginationBarWrapper {
+  padding-top: 4.3rem;
+  padding-bottom: 5.8rem;
+
+  @media (max-width: 1199px) {
+    padding-top: 4rem;
+    padding-bottom: 7.2rem;
+  }
+
+  @media (max-width: 767px) {
+    padding-top: 4rem;
+    padding-bottom: 3.5rem;
+  }
+}
