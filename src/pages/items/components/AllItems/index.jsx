@@ -27,12 +27,14 @@ const sortOptions = [
   { value: "favorite", label: "좋아요순" },
 ];
 
+const defaultParams = {
+  keyword: "",
+  orderBy: "recent",
+  page: 1,
+};
+
 export default function AllItems() {
-  const [params, setParams] = useFilteredSearchParams({
-    keyword: "",
-    orderBy: "recent",
-    page: 1,
-  });
+  const [params, setParams] = useFilteredSearchParams(defaultParams);
   const { pageSize } = usePageSize(rspnSize);
   const { isLoading, error, items, totalCount } = useList(
     getProducts,
