@@ -13,7 +13,7 @@ const ItemCard = ({ value, category }) => {
         className={styles[`${category}-img`]}
       />
       <p className={styles['card-name']}>{name}</p>
-      <p className={styles['card-price']}>{price}</p>
+      <p className={styles['card-price']}>{`${price.toLocaleString()}원`}</p>
       <div className={styles['card-favorite']}>
         <img
           src={heartEmptyImg}

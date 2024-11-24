@@ -1,12 +1,13 @@
 .total-items {
   margin: 0 auto;
+  padding: 0 24px;
   max-width: 1100px;
 }
 
 .total-item-list {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  gap: 16px;
+  gap: 32px 16px;
 }
 
 @media (max-width: 1200px) {

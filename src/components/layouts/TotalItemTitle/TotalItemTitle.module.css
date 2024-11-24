@@ -1,11 +1,12 @@
 .total-item-title {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 4px 16px;
+  margin: 32px 0 16px;
 }
 
 .total-item-title-keyword {
-  flex: 1;
+  margin-right: auto;
   font-size: 20px;
   font-weight: 700;
 }
@@ -15,7 +16,8 @@
   align-items: center;
   border-radius: 12px;
   padding-left: 10px;
-  width: 30%;
+  width: 40%;
+  max-width: 320px;
   height: 42px;
   background-color: #f3f4f6;
 }
@@ -29,7 +31,6 @@
   border: none;
   font-size: 16px;
   font-weight: 400;
-  color: #9ca3af;
   background-color: #f3f4f6;
 }
 
@@ -47,4 +48,24 @@
   text-align: center;
   font-size: 16px;
   font-weight: 600;
+}
+@media (max-width: 768px) {
+  .total-item-title {
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 4px 4px;
+  }
+
+  .register-item {
+    margin: 0 8px;
+  }
+  .search-bar {
+    order: 2;
+    flex-grow: 1;
+    min-width: 220px;
+  }
+  .search-text {
+    font-size: 14px;
+    width: 100%;
+  }
 }

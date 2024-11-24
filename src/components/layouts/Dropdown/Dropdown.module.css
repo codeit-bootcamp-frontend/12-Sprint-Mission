@@ -40,3 +40,9 @@
 .favorite-sort {
   border-radius: 0 0 12px 12px;
 }
+
+@media (max-width: 768px) {
+  .dropdown-container {
+    order: 3;
+  }
+}

@@ -5,6 +5,7 @@
   left: 0;
   right: 0;
   z-index: 1;
+  height: 70px;
   justify-content: space-around;
   align-items: center;
   border-bottom: 1px solid #dfdfdf;
@@ -69,8 +70,14 @@
 @media (max-width: 500px) {
   .top-navigation {
     flex-direction: column;
+    height: 130px;
   }
   .header-left {
     gap: 8px;
+  }
+  .login {
+    padding: 8px 24px;
+    font-size: 12px;
+    font-weight: 600;
   }
 }
