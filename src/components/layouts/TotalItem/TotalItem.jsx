@@ -3,7 +3,7 @@ import { useMediaQuery } from 'react-responsive';
 import getItems from '../../../api/productGet';
 import TotalItemTitle from '../TotalItemTitle/TotalItemTitle';
 import ItemCard from '../ItemCard/ItemCard';
-// import PaginationBar from '../PaginationBar/PaginationBar';
+import PaginationBar from '../PaginationBar/PaginationBar';
 import styles from './TotalItem.module.css';
 
 const TotalItem = () => {
@@ -46,7 +46,7 @@ const TotalItem = () => {
           })}
       </div>
 
-      {/* <PaginationBar /> */}
+      <PaginationBar />
     </section>
   );
 };

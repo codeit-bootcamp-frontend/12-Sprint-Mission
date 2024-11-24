@@ -16,6 +16,10 @@
 }
 
 body {
-  font-family: 'Noto Sans KR', sans-serif;
+  font-family: Pretendard, sans-serif;
   margin: 0;
+}
+
+input::placeholder {
+  font-family: Pretendard, sans-serif;
 }
