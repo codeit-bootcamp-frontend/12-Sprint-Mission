@@ -1,0 +1,142 @@
+@import "../../styles/global.css";
+
+@media screen and (min-width: 1200px) {
+  .main-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 70px;
+    margin-left: 200px;
+  }
+  .nav-container {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+  }
+
+  .brand-logo {
+    width: 153px;
+    height: 51px;
+    background-image: url("../../assets/images/logo.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 30px;
+  }
+
+  .nav-links a {
+    text-decoration: none;
+    color: #4b5563;
+    font-size: 18px;
+    font-weight: 700;
+    padding: 21px 15px;
+    line-height: 26px;
+  }
+
+  .user-profile img {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    background-color: gray;
+    border-radius: 50%;
+    margin-right: 100px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  .main-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 70px;
+    margin-left: 24px;
+  }
+  .nav-container {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+  }
+
+  .brand-logo {
+    width: 153px;
+    height: 51px;
+    background-image: url("../../assets/images/logo.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 30px;
+  }
+
+  .nav-links a {
+    text-decoration: none;
+    color: #4b5563;
+    font-size: 18px;
+    font-weight: 700;
+    padding: 21px 15px;
+    line-height: 26px;
+  }
+
+  .user-profile img {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    background-color: gray;
+    border-radius: 50%;
+    margin-right: 24px;
+  }
+}
+
+@media screen and (min-width: 375px) and (max-width: 767px) {
+  .main-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 70px;
+    margin-left: 24px;
+  }
+  .nav-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .brand-logo {
+    width: 81px;
+    height: 40px;
+    background-image: url("../../assets/images/logoInscription.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 8px;
+  }
+
+  .nav-links a {
+    text-decoration: none;
+    color: #4b5563;
+    font-size: 16px;
+    font-weight: 700;
+    padding: 25px 0px;
+    line-height: 26px;
+  }
+
+  .user-profile img {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    background-color: gray;
+    border-radius: 50%;
+    margin-right: 24px;
+  }
+}
