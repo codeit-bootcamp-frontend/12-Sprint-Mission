@@ -11,21 +11,36 @@ const TotalItem = () => {
   const tabletWidth = useMediaQuery({
     query: '(min-width: 769px) and (max-width: 1200px)',
   });
-  const [cardCnt, setCardCnt] = useState(10);
+  const [cardCnt, setCardCnt] = useState(
+    mobileWidth ? 4 : tabletWidth ? 6 : 10
+  );
   const [cards, setCards] = useState([]);
   const [order, setOrder] = useState('recent');
+  const [page, setPage] = useState(1);
+  const [totalPageNum, setTotalPageNum] = useState();
 
   const getProduct = async () => {
     try {
-      const items = await getItems({ pageSize: cardCnt, orderBy: order });
+      const items = await getItems({
+        pageSize: cardCnt,
+        orderBy: order,
+        page: page,
+      });
       setCards(items.list);
+      setTotalPageNum(Math.ceil(items.totalCount / cardCnt));
     } catch (error) {
       console.error('아이템 가져오기 실패:', error);
+    } finally {
     }
   };
 
   const orderSelect = (orderQuery) => {
     setOrder(orderQuery);
+    setPage(1);
+  };
+
+  const changePage = (num) => {
+    setPage(num);
   };
 
   useEffect(() => {
@@ -34,7 +49,7 @@ const TotalItem = () => {
 
   useEffect(() => {
     getProduct();
-  }, [cardCnt, order]);
+  }, [cardCnt, order, page]);
 
   return (
     <section className={styles[`total-items`]}>
@@ -46,7 +61,12 @@ const TotalItem = () => {
           })}
       </div>
 
-      <PaginationBar />
+      <PaginationBar
+        onClick={changePage}
+        order={order}
+        totalPageNum={totalPageNum}
+        cardCnt={cardCnt}
+      />
     </section>
   );
 };

@@ -1,4 +1,5 @@
 .total-items {
+  position: relative;
   margin: 0 auto;
   padding: 0 24px;
   max-width: 1100px;
