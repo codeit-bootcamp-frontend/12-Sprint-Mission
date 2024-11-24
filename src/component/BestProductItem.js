@@ -1,4 +1,3 @@
-import ProductImg from "../asset/b8940cd215848aaa5d9cffb7d122f74c.png";
 import HeartIcon from "../asset/ic_heart.png";
 import "./BestProductItem.css";
 

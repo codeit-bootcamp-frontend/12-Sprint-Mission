@@ -5,15 +5,14 @@ import { useEffect, useState } from "react";
 
 function BestProductList() {
   const [items, setItems] = useState([]);
-  const handleLoad = async () => {
-    let result = await getProduct();
+  const handleLoad = async (value) => {
+    let result = await getProduct(value);
     const { list } = result;
     setItems(list);
   };
   useEffect(() => {
-    handleLoad();
+    handleLoad({ pageSize: 4, orderBy: "favorite" });
   }, []);
-  console.log(items);
 
   return (
     <div className="bestsection">
@@ -21,7 +20,7 @@ function BestProductList() {
         <h1>베스트 상품</h1>
         <div className="bestproduct-list">
           {items.map((item) => {
-            return <BestProductItem item={item} />;
+            return <BestProductItem key={item.id} item={item} />;
           })}
         </div>
       </div>
