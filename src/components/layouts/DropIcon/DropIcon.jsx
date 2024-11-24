@@ -3,7 +3,7 @@ import underArrowImg from '../../../assets/images/underArrowImg.png';
 import sortIcon from '../../../assets/images/sortIcon.png';
 import styles from './DropIcon.module.css';
 
-const DropIcon = () => {
+const DropIcon = ({ order }) => {
   const mobileWidth = useMediaQuery({ query: '(max-width:768px)' });
   if (mobileWidth) {
     return (
@@ -12,7 +12,7 @@ const DropIcon = () => {
   }
   return (
     <div className={styles['wide-sort-icon']}>
-      <span className={styles['wide-sort-icon-title']}>최신순</span>
+      <span className={styles['wide-sort-icon-title']}>{order}</span>
       <img
         src={underArrowImg}
         alt="아래쪽 화살표 이미지"

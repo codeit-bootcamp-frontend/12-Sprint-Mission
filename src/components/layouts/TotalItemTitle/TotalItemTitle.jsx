@@ -3,7 +3,7 @@ import Dropdown from '../Dropdown/Dropdown';
 import searchIcon from '../../../assets/images/ic_search.png';
 import styles from './TotalItemTitle.module.css';
 
-const TotalItemTitle = () => {
+const TotalItemTitle = ({ onClick }) => {
   const searchBar = (
     <div className={styles['search-bar']}>
       <label htmlFor="search-content">
@@ -25,7 +25,7 @@ const TotalItemTitle = () => {
       <Link to="/addItem" className={styles['register-item']}>
         상품 등록하기
       </Link>
-      <Dropdown />
+      <Dropdown onClick={onClick} />
     </div>
   );
 };

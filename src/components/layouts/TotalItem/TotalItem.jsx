@@ -13,14 +13,19 @@ const TotalItem = () => {
   });
   const [cardCnt, setCardCnt] = useState(10);
   const [cards, setCards] = useState([]);
+  const [order, setOrder] = useState('recent');
 
   const getProduct = async () => {
     try {
-      const items = await getItems({ pageSize: cardCnt, orderBy: 'favorite' });
+      const items = await getItems({ pageSize: cardCnt, orderBy: order });
       setCards(items.list);
     } catch (error) {
       console.error('아이템 가져오기 실패:', error);
     }
+  };
+
+  const orderSelect = (orderQuery) => {
+    setOrder(orderQuery);
   };
 
   useEffect(() => {
@@ -29,11 +34,11 @@ const TotalItem = () => {
 
   useEffect(() => {
     getProduct();
-  }, [cardCnt]);
+  }, [cardCnt, order]);
 
   return (
     <section className={styles[`total-items`]}>
-      <TotalItemTitle />
+      <TotalItemTitle onClick={orderSelect} />
       <div className={styles['total-item-list']}>
         {Array.isArray(cards) &&
           cards.map((value, index) => {
