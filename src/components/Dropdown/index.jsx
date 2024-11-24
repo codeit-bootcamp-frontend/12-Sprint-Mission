@@ -70,13 +70,16 @@ function Menu({ children }) {
   return <ul className={styles.list}>{children}</ul>;
 }
 
-function Item({ value, onClick = () => {}, children }) {
+function Item({ value, onClick, children }) {
   const { setIsOpen, onChange } = useDropdown();
 
   function handleClick() {
     setIsOpen(false);
     onChange(value);
-    onClick();
+
+    if (onClick) {
+      onClick();
+    }
   }
 
   return (
