@@ -1,0 +1,160 @@
+/* 네비게이션바 */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  background-color: #ffffff;
+  display: flex;
+  padding: 0 200px;
+  height: 70px;
+  align-items: center;
+  border-bottom: 1px solid #dfdfdf;
+  @media (max-width: 1200px) {
+    padding: 0 24px;
+  }
+  @media (max-width: 768px) {
+    padding: 0 16px;
+  }
+}
+
+.menu {
+  font-size: 18px;
+  font-weight: bold;
+
+  gap: 30px;
+  display: flex;
+  margin-left: 32px;
+}
+
+.menu a {
+  text-decoration: none;
+  color: #4b5563;
+}
+
+.profile_ic {
+  margin-left: auto;
+}
+
+/*상품 페이지*/
+
+.itemPage {
+  display: flex;
+  margin-top: 70px;
+  width: 100%;
+  justify-content: center;
+}
+
+.itemPage-container {
+  width: 1201px;
+}
+
+.allList,
+.bestList {
+  display: flex;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: bold;
+  color: #111827;
+  margin-bottom: 24px;
+}
+
+/*아이템 카드*/
+
+.itemName {
+  font-size: 14px;
+  margin-top: 16px;
+  color: #1f2937;
+}
+
+.itemPrice {
+  margin-top: 6px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #1f2937;
+}
+
+.favorit {
+  display: flex;
+  gap: 4px;
+  margin-top: 6px;
+}
+
+.heartIcon {
+  width: 16px;
+  height: 16px;
+}
+
+.itemFavoritCount {
+  font-size: 12px;
+  color: #4b5563;
+}
+
+/*베스트 상품*/
+
+.bestList-container {
+  margin-bottom: 40px;
+}
+
+.itemImg {
+  width: 282px;
+  height: 282px;
+  border-radius: 16px;
+}
+
+.bestList {
+  gap: 24px;
+}
+
+/*전체 상품*/
+
+.allList {
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.allImg {
+  width: 221px;
+  height: 221px;
+}
+
+.titleList {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.titleOption {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.search-input {
+  width: 325px;
+  height: 42px;
+  background-color: #f3f4f6;
+  border-radius: 12px;
+  border: none;
+}
+
+.search-input > input::placeholder {
+  color: #9ca3af;
+  font-size: 16px;
+}
+
+.additem-btn {
+  display: flex;
+  background-color: #3692ff;
+  font-size: 16px;
+  color: #ffffff;
+  border-radius: 8px;
+  width: 133px;
+  height: 42px;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
