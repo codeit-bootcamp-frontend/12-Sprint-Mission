@@ -6,6 +6,7 @@ import styles from "./styles.module.scss";
 
 export default function Input({
   type = "text",
+  as = "input",
   id,
   label,
   error,
@@ -14,6 +15,7 @@ export default function Input({
 }) {
   const [currentType, setCurrentType] = useState(type);
   const valid = value && !error;
+  const Component = as;
 
   function handleVisibility() {
     setCurrentType((prev) => (prev === "password" ? "text" : "password"));
@@ -25,9 +27,13 @@ export default function Input({
         {label}
       </label>
       <div className={styles["item-field"]}>
-        <input
+        <Component
           type={currentType}
-          className={clsx(styles["input-box"], valid && styles.valid)}
+          className={clsx(
+            styles["item-box"],
+            styles[`${as}-box`],
+            valid && styles.valid
+          )}
           value={value}
           {...props}
         />
