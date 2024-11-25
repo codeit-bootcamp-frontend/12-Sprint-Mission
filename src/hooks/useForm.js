@@ -19,23 +19,29 @@ export default function useForm(formSchema) {
   const [formState, setFormState] = useState(initialState);
   const [isLoading, setIsLoading] = useState(false);
   const [formError, setFormError] = useState(null);
-  const isFormValid = Object.values(formState).every(
-    (item) => item.error === null && item.value.length
+  const isFormValid = Object.entries(formState).every(
+    ([key, item]) =>
+      item.error === null &&
+      (rules[key]?.required
+        ? typeof item.value === "string"
+          ? item.value.trim().length > 0
+          : item.value
+        : true)
   );
 
-  function handleChange(e) {
+  function handleInputChange(e) {
     const name = e.target.name;
     const value = e.target.value;
 
-    updateFormFieldState(name, value);
+    handleChange(name, value);
   }
 
   function trigger(name) {
     const value = formState[name].value || "";
-    updateFormFieldState(name, value);
+    handleChange(name, value);
   }
 
-  function updateFormFieldState(name, value) {
+  function handleChange(name, value) {
     const { isValid, message } = validate(name, value);
 
     setFormState((prev) => ({
@@ -54,12 +60,17 @@ export default function useForm(formSchema) {
       return { isValid: true, message: null };
     }
 
-    if (rule.required && !value.trim()) {
-      return {
-        isValid: false,
-        message:
-          typeof rule.required === "string" ? rule.required : "필수값입니다.",
-      };
+    if (rule.required) {
+      const isEmpty =
+        value === null || (typeof value === "string" && !value.trim());
+
+      if (isEmpty) {
+        return {
+          isValid: false,
+          message:
+            typeof rule.required === "string" ? rule.required : "필수값입니다.",
+        };
+      }
     }
 
     if (rule.patterns) {
@@ -125,8 +136,8 @@ export default function useForm(formSchema) {
       name,
       value: formState[name].value,
       error: formState[name].error,
-      onChange: handleChange,
-      required: rules[name].required ? true : false,
+      onChange: handleInputChange,
+      required: rules[name]?.required ? true : false,
     };
   }
 
