@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import Layout from "./components/Layout";
 import App from "./App";
+import ProtectedRoute from "./pages/ProtectedRoute";
 import Landing from "./pages/landing";
 import Login from "./pages/auth/login";
 import Signup from "./pages/auth/signup";
@@ -58,7 +59,11 @@ export const router = createBrowserRouter([
           },
           {
             path: "addItem",
-            element: <ItemAdd />,
+            element: (
+              <ProtectedRoute>
+                <ItemAdd />
+              </ProtectedRoute>
+            ),
           },
           {
             path: "boards",
