@@ -8,10 +8,22 @@
 }
 
 :root {
-  --color01: #3692FF;
-  --color02: #1F2937;
-  --color03: #9CA3AF;
-  --color04: #F3F4F6;
+  --gray03: #1F2937;
+  --gray02: #9CA3AF;
+  --gray01: #F3F4F6;
+  --blue: #3692FF;
+  --white: #ffffff;
+  --red: #F74747
+}
+
+/* 에러메세지 */
+.errorText {
+  display: none;
+  margin: 8px 0 0 16px;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.7;
+  color: var(--red);
 }
 
 /* 로그인 */
@@ -25,8 +37,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 0 20px;
-  max-width: 680px;
+  max-width: 640px;
   width: 100%;
   margin: auto;
 }
@@ -52,16 +63,32 @@
   margin-bottom: 16px;
   display: block;
   font-size: 18px;
-  color: var(--color02);
+  color: var(--gray03);
   font-weight: 700;
   line-height: 1.4;
+}
+
+.loginBox form .inputBox.error {
+  margin-bottom: 18px;
+}
+
+.loginBox form .inputBox.error input {
+  border: 1px solid var(--red);
+}
+
+.loginBox form .inputBox.error input:focus {
+  border: 1px solid var(--red);
+}
+
+.loginBox form .inputBox.error .errorText {
+  display: block;
 }
 
 .loginBox form .inputBox input {
   width: 100%;
   padding: 0 0 0 24px;
   height: 56px;
-  background-color: var(--color04);
+  background-color: var(--gray01);
   border-radius: 12px;
 }
 
@@ -84,21 +111,27 @@
 }
 
 .loginBox form .inputBox input::placeholder {
-  color: var(--color03);
+  color: var(--gray02);
   font-size: 16px;
 }
 
 .loginBox form .loginBtn {
   margin-bottom: 24px;
   display: block;
+  background-color: var(--blue);
+  color: var(--white);
   width: 100%;
   height: 56px;
   line-height: 56px;
-  background-color: var(--color03);
-  color: #fff;
   font-size: 20px;
   font-weight: 600;
   border-radius: 40px;
+}
+
+.loginBox form .loginBtn:disabled {
+  background-color: var(--gray02);
+  color: var(--white);
+  cursor: auto;
 }
 
 .loginBox .snsLinkBox {
@@ -114,7 +147,7 @@
 
 .loginBox .snsLinkBox span {
   padding-top: 3.5px;
-  color: var(--color02);
+  color: var(--gray03);
   font-weight: 500;
 }
 
@@ -131,41 +164,31 @@
 .loginBox .infoLink {
   font-size: 14px;
   font-weight: 500;
-  color: var(--color02);
+  color: var(--gray03);
   line-height: 1.7;
   text-align: center;
 }
 
 .loginBox .infoLink a {
-  color: var(--color01);
+  color: var(--blue);
   text-decoration: underline;
 }
 
 /* 로그인-포커스 */
 .loginBox form .inputBox input:focus {
-  outline-color: var(--color01);
+  outline: none;
+  border: 1px solid var(--blue);
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 767px) {
+
+  .loginBox {
+    max-width: 432px;
+    padding: 0 16px;
+  }
 
   .loginBox h1 a img {
     width: 200px;
   }
 
-  .loginBox form .inputBox label {
-    margin-bottom: 13px;
-    font-size: 16px;
-  }
-
-  .loginBox form .inputBox input::placeholder {
-    font-size: 14px;
-  }
-
-  .loginBox form .loginBtn {
-    font-size: 18px;
-  }
-
 }
-
-
-
