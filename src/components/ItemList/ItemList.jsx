@@ -1,12 +1,11 @@
 import React from "react";
-import Products from "./Products";
-import "../css/ItemList.css";
+import Products from "../Products/Products.jsx";
+import "./ItemList.css";
 
-export default function ItemList({ items }) {
+export default function ItemList({ items, layoutType }) {
   return (
-    <ul className="ItemList-ul">
+    <ul className={`ItemList-ul ${layoutType}`}>
       {items.map((item) => {
-        console.log(item);
         return (
           <li key={item.id}>
             <Products item={item}></Products>

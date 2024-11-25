@@ -1,7 +1,7 @@
 import React from "react";
-import PandaImg from "../img/pandaLogo__header.png";
-import UserImg from "../img/userImg.png";
-import "../css/Header.css";
+import PandaImg from "../../img/pandaLogo__header.png";
+import UserImg from "../../img/userImg.png";
+import "./Header.css";
 
 export default function Header() {
   return (

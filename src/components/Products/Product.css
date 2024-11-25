@@ -6,6 +6,7 @@
 
 .product-img {
   width: 287px;
-  height: auto;
+  height: 287px;
   border-radius: 16px;
+  object-fit: cover;
 }

@@ -1,11 +1,9 @@
 import { useEffect, useState } from "react";
-import productList from "../Api";
-import ItemList from "./ItemList";
-import Header from "./Header";
-import "../css/Reset.css";
-import "../css/App.css";
+import productList from "../../Api.js";
+import ItemList from "../../components/ItemList/ItemList.jsx";
+import "./Home.css";
 
-function App() {
+function Home() {
   const [allItems, setAllItems] = useState([]);
   const [bestItems, setBestItems] = useState([]);
 
@@ -20,11 +18,8 @@ function App() {
 
   const loadBestItems = async () => {
     try {
-      const { list } = await productList({ orderBy: "favorite" });
-      const sortBestItems = [...list]
-        .sort((a, b) => b.favoriteCount - a.favoriteCount)
-        .slice(0, 4);
-      setBestItems(sortBestItems);
+      const { list } = await productList({ orderBy: "favorite", pageSize: 4 });
+      setBestItems(list);
     } catch (error) {
       console.error(
         "베스트 상품 데이터를 불러오는 중 오류 발생:",
@@ -45,20 +40,18 @@ function App() {
   };
 
   return (
-    <div className="App">
-      <Header></Header>
-      <section className="products__section">
-        <div className="favorite-products__container">
-          <h2>베스트 상품</h2>
-          <ItemList items={bestItems}></ItemList>
-        </div>
-        <div className="all-products__container">
-          <h2>전체 상품</h2>
-          <ItemList items={allItems}></ItemList>
-        </div>
-      </section>
-    </div>
+    <section className="products__section">
+      <div className="favorite-products__container">
+        <h1>베스트 상품</h1>
+        <ItemList items={bestItems} layoutType="flex"></ItemList>
+      </div>
+      <div className="all-products__container">
+        <div className=""></div>
+        <h1>전체 상품</h1>
+        <ItemList items={allItems} layoutType="grid"></ItemList>
+      </div>
+    </section>
   );
 }
 
-export default App;
+export default Home;

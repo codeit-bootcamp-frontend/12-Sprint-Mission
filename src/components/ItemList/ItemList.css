@@ -1,0 +1,11 @@
+.ItemList-ul.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+}
+
+.ItemList-ul.grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+}
