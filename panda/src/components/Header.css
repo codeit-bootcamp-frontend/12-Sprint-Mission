@@ -1,0 +1,64 @@
+.header {
+  max-width: 1920px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70px;
+  background-color: #fff;
+  border-bottom: 1px solid #ddd;
+}
+
+.headerLogo {
+  width: 153px;
+  height: 51px;
+}
+
+.navbar-link.active {
+  color: #3692ff; /* "중고마켓" 버튼이 선택된 경우 색상 */
+}
+
+.headerContainer {
+  width: calc(100% - 400px);
+  background-color: FFFFFF;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav {
+  height: 68px;
+  width: 201px;
+  display: flex;
+  align-items: center;
+  position: absolute;
+  left: 385px;
+}
+
+.navBoard {
+  width: 108px;
+  text-decoration: none;
+}
+
+.navMarket {
+  width: 108px;
+  text-decoration: none;
+  font-family: Pretendard;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 26px;
+  text-align: center;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  color: #4b5563;
+}
+
+.navBoardText {
+  font-family: Pretendard;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 26px;
+  text-align: center;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  color: #4b5563;
+}
