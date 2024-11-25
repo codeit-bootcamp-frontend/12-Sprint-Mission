@@ -42,6 +42,7 @@ label {
     font-weight: 700;
     gap: 10px;
     text-align: left;
+    
 }
 
 input {
@@ -54,8 +55,91 @@ input {
     border-radius: 12px;
     background-color: var(--gray100);
 }
-
-
+/*email*/
+.input-box .input-error{
+    display : none;
+    color: red;
+    padding:8px 0 0 16px;
+    font-size:14px;
+}
+.input-email.error .input-error{
+    display:block;
+}
+.input-email.error input[type="email"]{
+    outline:1px solid red;
+}
+.input-error2{
+    display : none;
+    color: red;
+    padding:8px 0 0 16px;
+    font-size:14px;
+}
+/*nickname*/
+.input-box .input-NickName-error{
+    display : none;
+    color: red;
+    padding:8px 0 0 16px;
+    font-size:14px;
+}
+.input-NickName.error .input-NickName-error{
+    display:block;
+}
+.input-NickName.error input[type="NickName"]{
+    outline:1px solid red;
+}
+/*password*/
+.input-box .input-password-error{
+    display : none;
+    color: red;
+    padding:8px 0 0 16px;
+    font-size:14px;
+}
+.input-password.error .input-password-error{
+    display:block;
+}
+.input-password.error input[type="password"]{
+    outline:1px solid red;
+}
+.input-password-error2{
+    display : none;
+    color: red;
+    padding:8px 0 0 16px;
+    font-size:14px;
+}
+.input-box {
+    position:relative;
+}
+.input-password-eye{
+    position:absolute;
+    right: 0;
+    bottom: 2px;
+    border: none;
+}
+.input-password-eye2{
+    position:absolute;
+    right: 0;
+    bottom:2px;
+    border: none;
+    
+}
+.password-eye{
+    position:absolute;
+    right: 0;
+    bottom: 25px;
+}
+/*passwordCheck*/
+.input-box .input-password-check-error{
+    display : none;
+    color: red;
+    padding:8px 0 0 16px;
+    font-size:14px;
+}
+.input-password-check.error .input-password-check-error{
+    display:block;
+}
+.input-password-check.error input[type="password"]{
+    outline:1px solid red;
+}
 .signup-set {
     border: none;
     border-radius: 40px;
