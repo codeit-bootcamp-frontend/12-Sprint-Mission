@@ -33,7 +33,7 @@ export default function Recent({
 
   return (
     <div className={styles.container} ref={modalRef}>
-      <div onClick={() => setIsOpen(true)}>{cloneElement(children)}</div>
+      {cloneElement(children, { setIsOpen })}
       {isOpen && (
         <div className={styles.modal}>
           <header className={styles.header}>

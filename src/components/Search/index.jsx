@@ -3,24 +3,23 @@ import searchIcon from "@assets/img/icon/icon_search.svg";
 import clearIcon from "@assets/img/icon/icon_clear.svg";
 import styles from "./styles.module.scss";
 
-export default function Search({ value: initialValue, onSubmit, placeholder }) {
-  const [value, setValue] = useState(initialValue);
+export default function Search({ value, onSubmit, placeholder, setIsOpen }) {
   const inputRef = useRef(null);
 
   function handleSubmit(e) {
     e.preventDefault();
-    onSubmit(value);
-    setValue("");
+    onSubmit(inputRef.current.value);
+    setIsOpen && setIsOpen(false);
     inputRef.current.blur();
   }
 
-  function handleChange(e) {
-    setValue(e.target.value);
+  function handleClear() {
+    inputRef.current.value = "";
+    onSubmit("");
   }
 
-  function handleClear() {
-    setValue("");
-    onSubmit("");
+  function handleFocus() {
+    setIsOpen && setIsOpen(true);
   }
 
   return (
@@ -32,8 +31,8 @@ export default function Search({ value: initialValue, onSubmit, placeholder }) {
           type="text"
           placeholder={placeholder}
           ref={inputRef}
-          value={value}
-          onChange={handleChange}
+          defaultValue={value}
+          onFocus={handleFocus}
         />
         {value && (
           <button type="button" className={styles.clear} onClick={handleClear}>
