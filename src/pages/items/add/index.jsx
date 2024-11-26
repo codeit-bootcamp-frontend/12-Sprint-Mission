@@ -2,14 +2,12 @@ import { useNavigate } from "react-router-dom";
 import { useAuth } from "@/context/useAuth";
 import Button from "@/components/Button";
 import Container from "@/components/Container";
-import Input from "@/components/Input";
-import TagsInput from "@/components/TagsInput";
+import { Input, Textarea, TagsInput, FileInput } from "@/components/Field";
 import Section from "@/components/Section";
 import useForm from "@/hooks/useForm";
-import FileInput from "@/components/FileInput";
-import { addProduct, uploadProductImage } from "@/service/product";
 import LoadingSpinner from "@/components/LoadingSpinner";
 import Alert from "@/components/Alert";
+import { addProduct, uploadProductImage } from "@/service/product";
 
 const formSchema = {
   images: {
@@ -116,8 +114,7 @@ export default function ItemAdd() {
               placeholder="상품명 입력해주세요"
               {...register("name")}
             />
-            <Input
-              as="textarea"
+            <Textarea
               label="상품명"
               placeholder="상품명 입력해주세요"
               {...register("description")}

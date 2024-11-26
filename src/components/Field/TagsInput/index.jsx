@@ -1,7 +1,8 @@
 import { useRef } from "react";
 import clsx from "clsx";
-import styles from "./styles.module.scss";
-import Tags from "../Tags";
+import Container from "../Container";
+import Tags from "../../Tags";
+import styles from "../styles.module.scss";
 
 export default function TagsInput({
   id,
@@ -38,23 +39,21 @@ export default function TagsInput({
   const tags = value.length ? value.split(" ") : [];
 
   return (
-    <div className={styles["form-item"]}>
-      <label className={styles["item-label"]} htmlFor={id}>
-        {label}
-      </label>
-      <div className={styles["item-field"]}>
-        <input
-          ref={inputRef}
-          id={id}
-          type="text"
-          className={clsx(styles["item-box"], valid && styles.valid)}
-          onKeyDown={handleKeyDown}
-          name={name}
-          placeholder={placeholder}
-        />
-      </div>
+    <Container id={id} label={label} error={error}>
+      <input
+        ref={inputRef}
+        id={id}
+        type="text"
+        className={clsx(
+          styles["item-box"],
+          valid && styles.valid,
+          error && styles.error
+        )}
+        onKeyDown={handleKeyDown}
+        name={name}
+        placeholder={placeholder}
+      />
       <Tags tags={tags} onRemoveItem={handleRemove} />
-      {error && <div className={styles["item-error"]}>{error}</div>}
-    </div>
+    </Container>
   );
 }
