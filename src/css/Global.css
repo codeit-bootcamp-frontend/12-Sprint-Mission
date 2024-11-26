@@ -1,5 +1,6 @@
 .App {
   background-color: #fcfcfc;
+  font-family: "Pretendard-Regular";
 }
 
 * {
@@ -12,4 +13,8 @@
     format("woff");
   font-weight: 400;
   font-style: normal;
+}
+
+p {
+  color: #1f2937;
 }

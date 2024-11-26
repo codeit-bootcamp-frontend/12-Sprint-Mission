@@ -1,7 +1,6 @@
 .header {
-  width: 100vw;
   height: 70px;
-  border: 1px solid #dfdfdf;
+  border-bottom: 1px solid #dfdfdf;
 }
 
 .header-nav__container {

@@ -8,4 +8,7 @@
 .ItemList-ul.grid {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
 }

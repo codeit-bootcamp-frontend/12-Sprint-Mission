@@ -8,7 +8,7 @@ export default function ItemList({ items, layoutType }) {
       {items.map((item) => {
         return (
           <li key={item.id}>
-            <Products item={item}></Products>
+            <Products item={item} layoutType={layoutType}></Products>
           </li>
         );
       })}
