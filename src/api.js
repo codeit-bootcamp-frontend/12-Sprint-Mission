@@ -10,5 +10,3 @@ export async function getProduct({
   const data = await response.json();
   return data;
 }
-
-//{ pageSize = 4, orderBy = "favorite" }

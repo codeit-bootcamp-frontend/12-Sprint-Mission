@@ -17,7 +17,7 @@ function BestProductList() {
   return (
     <div className="bestsection">
       <div className="bestsection-container">
-        <h1>베스트 상품</h1>
+        <h1 className="bestsection-title">베스트 상품</h1>
         <div className="bestproduct-list">
           {items.map((item) => {
             return <BestProductItem key={item.id} item={item} />;

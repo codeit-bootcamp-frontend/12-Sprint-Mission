@@ -5,7 +5,7 @@ function ProductItem({ item }) {
   return (
     <div>
       <img className="bestproduct-img" src={item.images[0]} alt="상품 이미지" />
-      <h2>{item.name}</h2>
+      <h2 className="bestproduct-title">{item.name}</h2>
       <p>{item.price}</p>
       <div>
         <img

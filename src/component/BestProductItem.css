@@ -10,6 +10,11 @@
   object-fit: cover;
 }
 
+.bestproduct-title {
+  font-size: 14px;
+  font-weight: 500;
+}
+
 .bestproduct-popularity {
   width: 16px;
   height: 16px;
