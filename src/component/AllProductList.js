@@ -2,6 +2,8 @@ import AllProductItem from "./AllProductItem";
 import "./AllProductList.css";
 import { getProduct } from "../api";
 import { useEffect, useState } from "react";
+import NavBar from "./NavBar";
+import PageButton from "./PageButton";
 
 function AllProductList() {
   const [items, setItems] = useState([]);
@@ -14,17 +16,22 @@ function AllProductList() {
   };
   useEffect(() => {
     handleLoad({ pageSize, orderBy });
-  }, []);
+  }, [orderBy]);
+
+  const handleOrder = (value) => {
+    setOrderBy(value);
+  };
 
   return (
     <div className="allsection">
       <div className="allsection-container">
-        <h1>전체상품</h1>
+        <NavBar handleOrder={handleOrder} />
         <div className="allproduct-list">
           {items.map((item) => {
             return <AllProductItem key={item.id} item={item} />;
           })}
         </div>
+        <PageButton />
       </div>
     </div>
   );
