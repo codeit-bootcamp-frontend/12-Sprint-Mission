@@ -11,7 +11,7 @@ const MENU = [
     path: "/items",
     reload: true,
     title: "중고마켓",
-    activePath: ["/items", "/addItem"],
+    activePathList: ["/items", "/addItem"],
   },
 ];
 
@@ -34,7 +34,7 @@ export default function Nav() {
                 clsx(
                   styles["gnb-item"],
                   isActive && styles.active,
-                  isInclude(pathname, item.activePath) && styles.active
+                  isInclude(pathname, item.activePathList) && styles.active
                 )
               }
             >
