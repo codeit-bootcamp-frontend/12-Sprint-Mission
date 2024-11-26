@@ -19,25 +19,45 @@ export default function useForm(formSchema) {
   const [formState, setFormState] = useState(initialState);
   const [isLoading, setIsLoading] = useState(false);
   const [formError, setFormError] = useState(null);
-  const isFormValid = Object.entries(formState).every(
-    ([key, item]) =>
-      item.error === null &&
-      (rules[key]?.required
-        ? typeof item.value === "string"
-          ? item.value.trim().length > 0
-          : item.value
-        : true)
+  const isFormValid = Object.entries(formState).every(([key, item]) =>
+    isValidField(rules[key], item)
   );
 
-  function handleInputChange(e) {
-    const name = e.target.name;
-    const value = e.target.value;
+  function isValidField(rule, item) {
+    if (item.error !== null) return false;
 
-    handleChange(name, value);
+    if (rule?.required) {
+      const value = item.value;
+
+      if (typeof value === "string" && value.trim().length === 0) {
+        return false;
+      }
+
+      if (typeof value === "number" && isNaN(value)) {
+        return false;
+      }
+
+      if (value === null || value === undefined) return false;
+    }
+
+    return true;
+  }
+
+  function handleInputChange(e) {
+    const { type, name, value } = e.target;
+    let nextValue;
+
+    if (type === "number") {
+      nextValue = value === "" ? "" : Number(value);
+    } else {
+      nextValue = value;
+    }
+
+    handleChange(name, nextValue);
   }
 
   function trigger(name) {
-    const value = formState[name].value || "";
+    const value = formState[name].value;
     handleChange(name, value);
   }
 
