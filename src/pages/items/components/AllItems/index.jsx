@@ -10,7 +10,7 @@ import Section from "@components/Section";
 import Button from "@components/Button";
 import Pagination from "@components/Pagination";
 import Recent from "@/components/Search/Recent";
-import ProductList from "../Product";
+import ProductList from "../ProductList";
 import styles from "./styles.module.scss";
 
 const rspnSize = {
