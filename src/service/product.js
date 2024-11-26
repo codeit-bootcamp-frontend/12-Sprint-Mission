@@ -10,7 +10,10 @@ export async function getProducts(
   const data = await res.json();
 
   if (!res.ok) {
-    throw new Error(data.message || "에러가 발생했습니다.");
+    throw {
+      status: res.status,
+      message: data.message || "에러가 발생했습니다.",
+    };
   }
 
   return data;
@@ -23,7 +26,10 @@ export async function getBestProducts({ pageSize }, { signal }) {
   const data = await res.json();
 
   if (!res.ok) {
-    throw new Error(data.message || "에러가 발생했습니다.");
+    throw {
+      status: res.status,
+      message: data.message || "에러가 발생했습니다.",
+    };
   }
 
   return data;
@@ -42,7 +48,10 @@ export async function uploadProductImage(formData, accessToken) {
   const data = await res.json();
 
   if (!res.ok) {
-    throw new Error(data.message || "에러가 발생했습니다.");
+    throw {
+      status: res.status,
+      message: data.message || "에러가 발생했습니다.",
+    };
   }
 
   return data;
@@ -61,7 +70,10 @@ export async function addProduct(productData, accessToken) {
   const data = await res.json();
 
   if (!res.ok) {
-    throw new Error(data.message || "에러가 발생했습니다.");
+    throw {
+      status: res.status,
+      message: data.message || "에러가 발생했습니다.",
+    };
   }
 
   return data;
@@ -79,7 +91,10 @@ export async function deleteProduct(productId, accessToken) {
   const data = await res.json();
 
   if (!res.ok) {
-    throw new Error(data.message || "에러가 발생했습니다.");
+    throw {
+      status: res.status,
+      message: data.message || "에러가 발생했습니다.",
+    };
   }
 
   return data;
