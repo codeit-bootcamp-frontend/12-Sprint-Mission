@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "@/context/useAuth";
 import Button from "@/components/Button";
-import Container from "@/components/Container";
+import PageContainer from "@/components/PageContainer";
 import { Input, Textarea, TagsInput, FileInput } from "@/components/Field";
 import Section from "@/components/Section";
 import useForm from "@/hooks/useForm";
@@ -89,7 +89,7 @@ export default function ItemAdd() {
   }
 
   return (
-    <Container>
+    <PageContainer>
       <Section>
         {isLoading && <LoadingSpinner />}
         {formError && (
@@ -135,6 +135,6 @@ export default function ItemAdd() {
           </Section.Content>
         </form>
       </Section>
-    </Container>
+    </PageContainer>
   );
 }

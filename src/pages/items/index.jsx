@@ -1,12 +1,12 @@
-import Container from "@components/Container";
+import PageContainer from "@/components/PageContainer";
 import BestItems from "./components/BestItems";
 import AllItems from "./components/AllItems";
 
 export default function Items() {
   return (
-    <Container>
+    <PageContainer>
       <BestItems />
       <AllItems />
-    </Container>
+    </PageContainer>
   );
 }

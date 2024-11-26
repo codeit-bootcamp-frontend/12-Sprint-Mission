@@ -1,5 +1,5 @@
 import styles from "./styles.module.scss";
 
-export default function Container({ children }) {
+export default function PageContainer({ children }) {
   return <div className={styles.container}>{children}</div>;
 }
