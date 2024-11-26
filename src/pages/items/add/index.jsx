@@ -57,9 +57,7 @@ const formSchema = {
 export default function ItemAdd() {
   const { register, isFormValid, handleChange, handleSubmit } =
     useForm(formSchema);
-  const {
-    auth: { accessToken },
-  } = useAuth();
+  const { asyncWithAuth } = useAuth();
   const navigate = useNavigate();
 
   async function onSubmit(data) {
@@ -67,7 +65,7 @@ export default function ItemAdd() {
       if (data.images) {
         const imgFormData = new FormData();
         imgFormData.append("image", data.images);
-        const { url } = await uploadProductImage(imgFormData, accessToken);
+        const { url } = await asyncWithAuth(uploadProductImage, imgFormData);
         data.images = [url];
       }
 
@@ -75,7 +73,7 @@ export default function ItemAdd() {
         data.tags = data.tags.split(" ");
       }
 
-      const res = await addProduct(data, accessToken);
+      const res = await asyncWithAuth(addProduct, data);
       alert("성공적으로 작성했습니다.");
       navigate("/items");
     } catch (err) {
