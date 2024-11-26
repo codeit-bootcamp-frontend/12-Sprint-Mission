@@ -19,3 +19,16 @@
   border: none;
   padding-left: 20px;
 }
+
+.nav__post {
+  background-color: #3692ff;
+  border-radius: 8px;
+  height: 42px;
+  width: 133px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  text-decoration: none;
+}

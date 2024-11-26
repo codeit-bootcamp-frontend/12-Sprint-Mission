@@ -6,7 +6,7 @@ function AllProductItem({ item }) {
   const onErrorImg = (e) => {
     e.target.src = noPhotoImg;
   };
-  //이미지 링크가 잘못된 링크일 때
+  //이미지 링크가 잘못된 링크일 때, 기본 이미지 출력
   return (
     <div>
       {item.images[0] ? (

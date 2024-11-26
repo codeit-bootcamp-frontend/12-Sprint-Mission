@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./NavBar.css";
 
 function NavBar({ handleOrder }) {
@@ -12,7 +13,9 @@ function NavBar({ handleOrder }) {
         className="nav__search"
         placeholder="검색할 상품을 입력해주세요"
       ></input>
-      <button className="nav__post">상품 등록하기</button>
+      <Link to="/additem" className="nav__post">
+        상품 등록하기
+      </Link>
       <select className="nav__select" onChange={onClickOption}>
         <option value="recent">최신순</option>
         <option value="favorite">좋아요순</option>
