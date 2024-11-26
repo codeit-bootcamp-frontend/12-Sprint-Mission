@@ -1,0 +1,88 @@
+/* font */
+@font-face {
+    font-family: "pretendard";
+    src: url("../assets/font/Pretendard-Black.woff") format("woff");
+    font-weight: 900;
+}
+
+@font-face {
+    font-family: "pretendard";
+    src: url("../assets/font/Pretendard-Bold.woff") format("woff");
+    font-weight: 800;
+}
+
+@font-face {
+    font-family: "pretendard";
+    src: url("../assets/font/Pretendard-ExtraBold.woff") format("woff");
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: "pretendard";
+    src: url("../assets/font/Pretendard-ExtraLight.woff") format("woff");
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: "pretendard";
+    src: url("../assets/font/Pretendard-Light.woff") format("woff");
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: "pretendard";
+    src: url("../assets/font/Pretendard-Medium.woff") format("woff");
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: "pretendard";
+    src: url("../assets/font/Pretendard-Regular.woff") format("woff");
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: "pretendard";
+    src: url("../assets/font/Pretendard-SemiBold.woff") format("woff");
+    font-weight: 200;
+}
+
+@font-face {
+    font-family: "pretendard";
+    src: url("../assets/font/Pretendard-Thin.woff ") format("woff");
+    font-weight: 100;
+}
+
+:root {
+    --white: #ffffff;
+
+    --gray-900: #1b1d1f;
+    --gray-800: #26282b;
+    --gray-600: #454c53;
+    --gray-500: #72787f;
+    --gray-400: #9ea4a8;
+    --gray-200: #e5e7eb;
+    --gray-100: #e8ebed;
+    --gray-50: #f7f7f8;
+
+    --blue1: #3692ff;
+    --blue2: #1967d6;
+    --blue3: #1251aa;
+    --blue4: #cfe5ff;
+    --blue5: #e6f2ff;
+
+    --red: #f74747;
+}
+
+body {
+    font-family: "pretendard";
+}
+
+.form-error .form__input {
+    border: 1px solid var(--red);
+}
+
+.form-error p {
+    color: var(--red);
+    padding-left: 25px;
+}
