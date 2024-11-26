@@ -8,13 +8,15 @@ import Section from "@/components/Section";
 import useForm from "@/hooks/useForm";
 import FileInput from "@/components/FileInput";
 import { addProduct, uploadProductImage } from "@/service/product";
+import LoadingSpinner from "@/components/LoadingSpinner";
+import Alert from "@/components/Alert";
 
 const formSchema = {
   images: {
     value: undefined,
-    // rule: {
-    //   required: "이미지를 업로드해주세요",
-    // },
+    rule: {
+      required: "이미지를 업로드해주세요",
+    },
   },
   tags: {
     value: "",
@@ -55,8 +57,14 @@ const formSchema = {
 };
 
 export default function ItemAdd() {
-  const { register, isFormValid, handleChange, handleSubmit } =
-    useForm(formSchema);
+  const {
+    formError,
+    isFormValid,
+    isLoading,
+    handleChange,
+    handleSubmit,
+    register,
+  } = useForm(formSchema);
   const { asyncWithAuth } = useAuth();
   const navigate = useNavigate();
 
@@ -84,6 +92,12 @@ export default function ItemAdd() {
   return (
     <Container>
       <Section>
+        {isLoading && <LoadingSpinner />}
+        {formError && (
+          <Alert mode="error">
+            {formError.message || "오류가 발생했습니다."}
+          </Alert>
+        )}
         <form onSubmit={handleSubmit(onSubmit)}>
           <Section.Header title="상품 등록하기">
             <Button type="submit" size="sm" disabled={!isFormValid}>
