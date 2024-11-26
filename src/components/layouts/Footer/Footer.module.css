@@ -1,0 +1,29 @@
+.home-footer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding-top: 30px;
+  padding-bottom: 90px;
+  background-color: var(--gray900);
+}
+
+.creater-info {
+  color: var(--gray400);
+  font-size: 16px;
+  font-weight: 400;
+}
+
+/* mobile_size */
+@media (max-width: 767px) {
+  .home-footer {
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 32px;
+    gap: 60px;
+  }
+  .creater-info {
+    flex-basis: 100%;
+    order: 3;
+  }
+}

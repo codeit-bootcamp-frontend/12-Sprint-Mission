@@ -1,0 +1,21 @@
+.social-img {
+  width: 18px;
+  height: 18px;
+}
+
+.social-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.social-list-item {
+  display: inline-block;
+}
+
+/* mobile_size */
+@media (max-width: 767px) {
+  .social-list-item {
+    padding-right: 10px;
+  }
+}
