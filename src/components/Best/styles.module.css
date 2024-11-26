@@ -1,0 +1,96 @@
+:root {
+  --blue: #3692ff;
+  --gray900: #111827;
+  --gray800: #1f2937;
+  --gray700: #374151;
+  --gray600: #4b5563;
+  --gray500: #6b7280;
+  --gray400: #9ca3af;
+  --gray200: #e5e7eb;
+  --gray100: #f3f4f6;
+  --gray50: #f9fafb;
+}
+
+body {
+  box-sizing: border-box;
+  margin: 0;
+  font-family: "Pretendard Variable", Pretendard, -apple-system,
+    BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI",
+    "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+}
+
+.best-Container {
+  padding-top: 94px;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  flex-wrap: wrap;
+}
+
+.title {
+  font-weight: 700;
+  color: var(--gray900);
+  font-size: 20px;
+}
+
+.best-list {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  list-style-type: none;
+  height: 378px;
+  gap: 24px;
+}
+
+.product-image-box {
+  position: relative;
+  width: 282px;
+  height: 282px;
+  margin-bottom: 16px;
+}
+
+.product-image {
+  position: absolute;
+  width: 100%;
+}
+
+.product-name {
+  margin: 0;
+  margin-bottom: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--gray800);
+  line-height: 24px;
+}
+
+.product-price {
+  margin: 0;
+  margin-bottom: 6px;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--gray800);
+  line-height: 26px;
+}
+
+.heart-line {
+  height: 18px;
+}
+
+.heart-image {
+  width: 16px;
+  height: 16px;
+  vertical-align: middle;
+}
+
+.heart-num {
+  padding: 1px 0 1px 4px;
+  font-size: 12px;
+  line-height: 18px;
+  font-weight: 500;
+  color: var(--gray600);
+  text-align: left;
+  top: 2px;
+}

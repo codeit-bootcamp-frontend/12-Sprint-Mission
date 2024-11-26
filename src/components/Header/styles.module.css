@@ -1,0 +1,137 @@
+/* body 공통 스타일 */
+body {
+  box-sizing: border-box;
+  margin: 0;
+  font-family: "Pretendard Variable", Pretendard, -apple-system,
+    BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI",
+    "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+}
+
+/* ROKAF Sans 폰트 */
+@font-face {
+  font-family: "ROKAF Sans";
+  src: url(/src/assets/fonts/ROKAF_SANS_MEDIUM.TTF) format("truetype");
+}
+
+:root {
+  --blue: #3692ff;
+  --gray900: #111827;
+  --gray800: #1f2937;
+  --gray700: #374151;
+  --gray600: #4b5563;
+  --gray500: #6b7280;
+  --gray400: #9ca3af;
+  --gray200: #e5e7eb;
+  --gray100: #f3f4f6;
+  --gray50: #f9fafb;
+}
+
+/***************** header ******************/
+header {
+  box-sizing: border-box;
+  position: fixed;
+  z-index: 1;
+  width: 100%;
+  height: 70px;
+}
+
+.header-bar,
+.logo {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  gap: 10px;
+}
+
+.header-bar {
+  margin: auto;
+  padding: 0 200px;
+  background-color: #ffffff;
+  border: 1px solid #dfdfdf;
+  width: 100%;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.menu {
+  margin-left: 32px;
+}
+
+.menuText {
+  font-weight: 700;
+  color: var(--gray600);
+  font-size: 18px;
+  text-decoration: none;
+  padding: 21px 15px;
+  line-height: 26px;
+}
+
+/* tablet */
+@media screen and (max-width: 1199px) {
+  .header-bar {
+    padding: 0 24px;
+  }
+
+  .menu {
+    margin-left: 20px;
+  }
+}
+
+/* mobile */
+@media screen and (max-width: 767px) and (min-width: 375px) {
+  .header-bar {
+    padding: 0 16px;
+    min-width: 375px;
+    max-width: 767px;
+    margin: 0;
+  }
+
+  .menu {
+    margin-left: 8px;
+  }
+}
+
+.header-bar img {
+  width: 40px;
+  height: 40px;
+}
+
+.header-bar .login {
+  position: relative;
+  border-radius: 8px;
+  background-color: var(--blue);
+  width: 128px;
+  height: 48px;
+}
+
+.login a {
+  position: absolute;
+  width: 82px;
+  height: 24px;
+  padding: 12px 23px;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 26px;
+  color: #ffffff;
+  text-decoration: none;
+  text-align: center;
+}
+
+.header-bar > .login:hover {
+  cursor: pointer;
+  background: #1967d6;
+}
+
+.logo-title a {
+  font-family: "ROKAF Sans";
+  text-decoration: none;
+  color: var(--blue);
+  font-weight: 800;
+  font-size: 25px;
+  line-height: 36px;
+  text-align: left;
+}

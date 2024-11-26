@@ -1,0 +1,261 @@
+:root {
+  --blue: #3692ff;
+  --gray900: #111827;
+  --gray800: #1f2937;
+  --gray700: #374151;
+  --gray600: #4b5563;
+  --gray500: #6b7280;
+  --gray400: #9ca3af;
+  --gray200: #e5e7eb;
+  --gray100: #f3f4f6;
+  --gray50: #f9fafb;
+}
+
+body {
+  box-sizing: border-box;
+  margin: 0;
+  font-family: "Pretendard Variable", Pretendard, -apple-system,
+    BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI",
+    "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+}
+
+.all-Container {
+  padding-top: 40px;
+  min-width: 1200px;
+  min-height: 740px;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  flex-wrap: wrap;
+}
+
+.title {
+  font-weight: 700;
+  color: var(--gray900);
+  font-size: 20px;
+}
+
+.all-list {
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template:
+    "a b c d e"
+    "f g h i j";
+  list-style-type: none;
+  min-height: 674px;
+  gap: 24px;
+}
+
+@media screen and (max-width: 1199px) {
+  .all-list {
+    grid-template:
+      "a b c"
+      "d e f";
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .all-list {
+    grid-template:
+      "a b"
+      "c d";
+  }
+}
+
+.product-image-box {
+  position: relative;
+  width: 221px;
+  height: 221px;
+  margin-bottom: 16px;
+}
+
+.product-image {
+  position: absolute;
+  width: 100%;
+}
+
+.product-name {
+  margin: 0;
+  margin-bottom: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--gray800);
+  line-height: 24px;
+}
+
+.product-price {
+  margin: 0;
+  margin-bottom: 6px;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--gray800);
+  line-height: 26px;
+}
+
+.heart-line {
+  height: 18px;
+}
+
+.heart-image {
+  width: 16px;
+  height: 16px;
+  vertical-align: middle;
+}
+
+.heart-num {
+  padding: 1px 0 1px 4px;
+  font-size: 12px;
+  line-height: 18px;
+  font-weight: 500;
+  color: var(--gray600);
+  text-align: left;
+  top: 2px;
+}
+
+.all-Container-bar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.all-Container-bar-more {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.search-icon {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 24px;
+  height: 24px;
+}
+
+.search-input {
+  font-family: Pretendard;
+  padding: 9px 20px 9px 44px;
+  border-radius: 12px;
+  border: none;
+  width: 289px;
+  height: 24px;
+  gap: 10px;
+  background-color: var(--gray100);
+}
+
+.register-button {
+  font-family: Pretendard;
+  background-color: var(--blue);
+  border-radius: 8px;
+  border: 0px;
+  height: 42px;
+  padding: 12px 23px;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 16px;
+  cursor: pointer;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-btn {
+  font-family: Pretendard;
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 12px 20px;
+  font-size: 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 130px;
+  height: 42px;
+}
+
+.dropdown-btn .arrow {
+  margin-left: 10px;
+}
+
+.dropdown-list {
+  position: absolute;
+  top: 75%;
+  left: 80%;
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  margin-top: 5px;
+  padding: 0;
+  list-style: none;
+  width: 130px;
+  height: 82px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 1;
+}
+
+.dropdown-item {
+  padding: 0;
+  height: 26px;
+  color: var(--gray800);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+  cursor: pointer;
+  text-align: center;
+}
+
+#dropdown-item-new {
+  padding: 9px 44px 7px 44px;
+}
+
+#dropdown-item-favorite {
+  padding: 9px 37px 7px 37px;
+}
+
+.dropdown-item:not(:last-child) {
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.dropdown-item:hover {
+  background-color: #f1f1f1;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.page-btn {
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 50%;
+  background-color: #fff;
+  color: #666;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s;
+}
+
+.page-btn.active {
+  background-color: #007bff;
+  color: white;
+}
+
+.page-btn:disabled {
+  background-color: #f5f5f5;
+  color: #ccc;
+  cursor: not-allowed;
+}
