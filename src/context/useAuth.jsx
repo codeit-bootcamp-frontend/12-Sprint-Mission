@@ -82,31 +82,33 @@ export function AuthProvider({ children }) {
     window.location.replace("/");
   }
 
-  async function asyncWithAuth(asyncFn, data) {
-    try {
-      return await asyncFn(data, auth.accessToken);
-    } catch (err) {
-      if (err.status === 401 && auth.refreshToken) {
-        try {
-          const newAccessToken = await handleRefreshToken();
-          return await asyncFn(data, newAccessToken);
-        } catch (refreshErr) {
-          console.error("리프레시 요청 실패");
-          clear();
-          throw refreshErr;
+  function withAuth(asyncFn) {
+    return async function (...args) {
+      try {
+        return await asyncFn(...args, auth.accessToken);
+      } catch (err) {
+        if (err.status === 401 && auth.refreshToken) {
+          try {
+            const newAccessToken = await handleRefreshToken();
+            return await asyncFn(...args, newAccessToken);
+          } catch (refreshErr) {
+            console.error("리프레시 요청 실패");
+            clear();
+            throw refreshErr;
+          }
+        } else {
+          console.error(err);
+          throw err;
         }
-      } else {
-        console.error(err);
-        throw err;
       }
-    }
+    };
   }
 
   const value = {
     auth,
     handleLogin,
     handleLogout,
-    asyncWithAuth,
+    withAuth,
   };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
