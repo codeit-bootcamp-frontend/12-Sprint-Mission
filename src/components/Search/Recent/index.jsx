@@ -26,6 +26,11 @@ export default function Recent({
     };
   }, []);
 
+  function handleClick(value) {
+    onItemClick(value);
+    setIsOpen(false);
+  }
+
   function handleRemove(e, id) {
     e.stopPropagation();
     onItemRemove(id);
@@ -52,7 +57,7 @@ export default function Recent({
           <ul className={styles.list}>
             {data?.map(({ id, value }) => (
               <li key={id}>
-                <div className={styles.item} onClick={() => onItemClick(value)}>
+                <div className={styles.item} onClick={() => handleClick(value)}>
                   <img src={searchIcon} alt="검색어" />
                   <div className={styles.content}>{value}</div>
                   <button

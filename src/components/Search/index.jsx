@@ -1,21 +1,28 @@
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import searchIcon from "@assets/img/icon/icon_search.svg";
 import clearIcon from "@assets/img/icon/icon_clear.svg";
 import styles from "./styles.module.scss";
 
-export default function Search({ value, onSubmit, placeholder, setIsOpen }) {
+export default function Search({
+  value,
+  onChange,
+  onSubmit,
+  onClear,
+  placeholder,
+  setIsOpen,
+}) {
   const inputRef = useRef(null);
 
   function handleSubmit(e) {
     e.preventDefault();
-    onSubmit(inputRef.current.value);
-    setIsOpen && setIsOpen(false);
+    onSubmit(value);
     inputRef.current.blur();
+    setIsOpen && setIsOpen(false);
   }
 
   function handleClear() {
-    inputRef.current.value = "";
-    onSubmit("");
+    onClear();
+    inputRef.current.blur();
   }
 
   function handleFocus() {
@@ -27,11 +34,12 @@ export default function Search({ value, onSubmit, placeholder, setIsOpen }) {
       <form className={styles.search} onSubmit={handleSubmit}>
         <img src={searchIcon} alt="검색" />
         <input
-          className={styles.input}
           type="text"
-          placeholder={placeholder}
           ref={inputRef}
-          defaultValue={value}
+          className={styles.input}
+          value={value}
+          onChange={onChange}
+          placeholder={placeholder}
           onFocus={handleFocus}
         />
         {value && (

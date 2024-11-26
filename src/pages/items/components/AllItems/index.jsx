@@ -1,3 +1,4 @@
+import { useState } from "react";
 import useFilteredSearchParams from "@hooks/useFilteredSearchParams";
 import usePageSize from "@hooks/usePageSize";
 import useList from "@hooks/useList";
@@ -38,6 +39,7 @@ const defaultParams = {
 
 export default function AllItems() {
   const [params, setParams] = useFilteredSearchParams(defaultParams);
+  const [searchInput, setSearchInput] = useState(params.keyword || "");
   const { pageSize } = usePageSize(rspnSize);
   const { isLoading, error, items, totalCount } = useList(
     getProducts,
@@ -58,13 +60,27 @@ export default function AllItems() {
     clearData: clearKeyword,
   } = useLocalArray("keyword");
 
-  function handleKeyword(keyword) {
-    keyword && saveKeyword(keyword);
-    setParams((prev) => ({ ...prev, page: 1, keyword }));
+  function handleKeywordSubmit() {
+    searchInput && saveKeyword(searchInput);
+    setParams((prev) => ({ ...prev, page: 1, keyword: searchInput }));
   }
 
   function handleOrderBy(orderBy) {
     setParams((prev) => ({ ...prev, orderBy }));
+  }
+
+  function handleSearchInputChange(e) {
+    setSearchInput(e.target.value);
+  }
+
+  function handleSearchInputClear() {
+    setSearchInput("");
+    setParams((prev) => ({ ...prev, page: 1, keyword: "" }));
+  }
+
+  function handleRecentKeywordClick(keyword) {
+    setSearchInput(keyword);
+    setParams((prev) => ({ ...prev, page: 1, keyword }));
   }
 
   return (
@@ -76,12 +92,14 @@ export default function AllItems() {
             storageKey="keyword"
             data={recentKeywords}
             onItemClear={clearKeyword}
-            onItemClick={handleKeyword}
+            onItemClick={handleRecentKeywordClick}
             onItemRemove={removeKeyword}
           >
             <Search
-              value={keyword}
-              onSubmit={handleKeyword}
+              value={searchInput}
+              onChange={handleSearchInputChange}
+              onSubmit={handleKeywordSubmit}
+              onClear={handleSearchInputClear}
               placeholder="검색할 상품을 입력해주세요"
             />
           </Recent>
