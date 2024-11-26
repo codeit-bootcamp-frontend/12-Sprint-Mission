@@ -1,0 +1,104 @@
+.bestProducusContainer {
+  width: 1200px;
+  margin-top: 70px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.allProducusContainer {
+  width: 1200px;
+  margin-top: 70px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.sectionTitle {
+  font-family: Pretendard;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 32px;
+  justify-content: flex-start;
+}
+
+.bestItemsCardSection {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin: 0;
+}
+
+.allItemsCardSection {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 24px;
+  margin: 0;
+}
+
+.itemCard {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.itemCardImg {
+  width: 282px;
+  height: 282px;
+  border-radius: 16px;
+}
+
+.itemCardTextBox {
+  width: 282px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.itemCardName {
+  font-family: Pretendard;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 24px;
+  margin: 0;
+}
+
+.itemCardPrice {
+  font-family: Pretendard;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 26px;
+  margin: 0;
+}
+
+.itemCardFavorite {
+  font-family: Pretendard;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+  margin: 0;
+}
+
+.itemCardFavoriteIcon {
+  width: 13x;
+  height: 11px;
+  margin-right: 3px;
+  gap: 0px;
+  border: 1.2px 0px 0px;
+  color: #4b5563;
+}
+
+.ItemsCardSection {
+  display: flex;
+  flex-direction: row;
+}
+
+.allSectionBar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.findItems {
+  display: flex;
+}
