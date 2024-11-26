@@ -1,3 +1,5 @@
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "@/context/useAuth";
 import Button from "@/components/Button";
 import Container from "@/components/Container";
 import Input from "@/components/Input";
@@ -5,6 +7,7 @@ import TagsInput from "@/components/TagsInput";
 import Section from "@/components/Section";
 import useForm from "@/hooks/useForm";
 import FileInput from "@/components/FileInput";
+import { addProduct, uploadProductImage } from "@/service/product";
 
 const formSchema = {
   images: {
@@ -54,14 +57,30 @@ const formSchema = {
 export default function ItemAdd() {
   const { register, isFormValid, handleChange, handleSubmit } =
     useForm(formSchema);
+  const {
+    auth: { accessToken },
+  } = useAuth();
+  const navigate = useNavigate();
 
-  function onSubmit(data) {
-    const formattedData = {
-      ...data,
-      images: data.images && [data.images],
-      tags: data.tags.split(" "),
-    };
-    console.log(formattedData);
+  async function onSubmit(data) {
+    try {
+      if (data.images) {
+        const imgFormData = new FormData();
+        imgFormData.append("image", data.images);
+        const { url } = await uploadProductImage(imgFormData, accessToken);
+        data.images = [url];
+      }
+
+      if (tags) {
+        data.tags = data.tags.split(" ");
+      }
+
+      const res = await addProduct(data, accessToken);
+      alert("성공적으로 작성했습니다.");
+      navigate("/items");
+    } catch (err) {
+      throw err;
+    }
   }
 
   return (
