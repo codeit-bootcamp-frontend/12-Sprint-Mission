@@ -1,0 +1,26 @@
+@use "@assets/scss/base/mixins";
+
+.gnb {
+  display: flex;
+  height: 100%;
+
+  .gnb-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding: 0 1.5rem;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--color-secondary-600);
+
+    @include mixins.mobile {
+      padding: 00.4rem;
+      font-size: 1.6rem;
+    }
+  }
+
+  .active {
+    color: var(--color-primary-100);
+  }
+}

@@ -1,0 +1,69 @@
+@use "@assets/scss/base/mixins";
+
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--color-primary-100);
+  color: var(--color-white);
+
+  &:hover {
+    background: var(--color-primary-200);
+  }
+
+  &:active {
+    background: var(--color-primary-300);
+  }
+
+  &:disabled {
+    background: var(--color-secondary-400);
+    cursor: not-allowed;
+  }
+}
+
+.btn-xl {
+  width: 100%;
+  height: 5.6rem;
+  border-radius: 9999px;
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.btn-lg {
+  width: 35.7rem;
+  height: 5.6rem;
+  border-radius: 9999px;
+  font-size: 2rem;
+  font-weight: 600;
+
+  @include mixins.mobile {
+    width: 24rem;
+    height: 4.8rem;
+    font-size: 1.8rem;
+  }
+}
+
+.btn-md {
+  width: 24rem;
+  height: 4.8rem;
+  border-radius: 9999px;
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+.btn-sm {
+  min-width: 8.8rem;
+  height: 4.2rem;
+  padding: 0 2.4rem;
+  border-radius: 8px;
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+
+.btn-sm-48 {
+  width: 8.8rem;
+  height: 4.8rem;
+  border-radius: 8px;
+  font-size: 1.6rem;
+  font-weight: 600;
+}

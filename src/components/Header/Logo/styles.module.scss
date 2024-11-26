@@ -1,0 +1,36 @@
+@use "@assets/scss/base/mixins";
+
+.logo {
+  display: block;
+  height: 5.1rem;
+  margin-right: 3.2rem;
+
+  @include mixins.mobile {
+    height: auto;
+    margin-right: 1rem;
+  }
+
+  a {
+    display: block;
+    height: 100%;
+  }
+
+  img {
+    width: auto;
+    height: 100%;
+
+    &.logo-pc {
+      @include mixins.mobile {
+        display: none;
+      }
+    }
+
+    &.logo-mobile {
+      display: none;
+
+      @include mixins.mobile {
+        display: block;
+      }
+    }
+  }
+}
