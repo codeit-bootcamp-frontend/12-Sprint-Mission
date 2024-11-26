@@ -15,7 +15,7 @@
     color: var(--color-secondary-600);
 
     @include mixins.mobile {
-      padding: 00.4rem;
+      padding: 0.4rem;
       font-size: 1.6rem;
     }
   }
