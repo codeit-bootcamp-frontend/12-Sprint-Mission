@@ -8,18 +8,23 @@ import PageButton from "./PageButton";
 function AllProductList() {
   const [items, setItems] = useState([]);
   const [orderBy, setOrderBy] = useState("recent");
-  const [pageSize, setPageSize] = useState(10);
+  const [page, setPage] = useState(1);
   const handleLoad = async (value) => {
     let result = await getProduct(value);
     const { list } = result;
     setItems(list);
   };
   useEffect(() => {
-    handleLoad({ pageSize, orderBy });
-  }, [orderBy]);
+    handleLoad({ page, pageSize: 10, orderBy });
+  }, [page, orderBy]);
 
   const handleOrder = (value) => {
     setOrderBy(value);
+    setPage(1);
+  };
+
+  const handlePage = (value) => {
+    setPage(value);
   };
 
   return (
@@ -31,7 +36,7 @@ function AllProductList() {
             return <AllProductItem key={item.id} item={item} />;
           })}
         </div>
-        <PageButton />
+        <PageButton handlePage={handlePage} page={page} />
       </div>
     </div>
   );
