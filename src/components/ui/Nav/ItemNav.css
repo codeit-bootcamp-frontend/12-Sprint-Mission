@@ -1,0 +1,137 @@
+.item-nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.item-nav-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  margin: 20px auto;
+}
+
+.item-nav-title {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 32px;
+  color: #111827;
+}
+
+.item-nav-action {
+  display: flex;
+  gap: 10px;
+}
+
+.search-container {
+  position: relative;
+  width: 325px;
+  flex: 1;
+}
+
+.item-nav-search {
+  width: 100%;
+  padding: 9px 20px 9px 40px;
+  background-color: #f3f4f6;
+  border: none;
+  border-radius: 12px;
+  width: 325px;
+  height: 42px;
+}
+
+.search-container::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 16px;
+  transform: translateY(-50%);
+  width: 15px;
+  height: 15px;
+  background-image: url("../../../../src/assets/icons/search-icon.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  pointer-events: none;
+}
+
+.add-product-link {
+  max-width: 134px;
+  width: 100%;
+  height: 42px;
+  border-radius: 8px;
+  padding: 12px 23px;
+  background-color: #3692ff;
+  font-weight: 600;
+  text-decoration: none;
+  color: #f3f4f6;
+  flex-shrink: 0;
+}
+
+.add-product-link:hover {
+  background-color: #1967d6;
+}
+
+.dropdown-container {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-btn {
+  width: 130px;
+  height: 42px;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  padding: 12px 20px;
+  background-color: #ffffff;
+  color: #1f2937;
+  cursor: pointer;
+}
+
+.dropdown-btn img {
+  margin-left: 30px;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 130px;
+  height: 84px;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  padding: 12px 20px;
+  background-color: #ffffff;
+  color: #1f2937;
+  list-style: none;
+  padding: 0;
+  text-align: center;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+.dropdown-item {
+  padding: 12px 20px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.dropdown-item:last-child {
+  border-top: 1px solid #e5e7eb;
+}
+
+@media (max-width: 1199px) {
+  .item-nav {
+    padding: 0 25px;
+  }
+
+  .search-container {
+    width: 242px;
+  }
+
+  .item-nav-search {
+    width: 100%;
+  }
+}
