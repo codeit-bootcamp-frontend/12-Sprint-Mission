@@ -6,7 +6,7 @@ import {
   Input,
   Textarea,
   TagsInput,
-  FileInput,
+  ImageUpload,
   NumberInput,
 } from "@/components/Field";
 import Section from "@/components/Section";
@@ -111,7 +111,7 @@ export default function ItemAdd() {
             </Button>
           </Section.Header>
           <Section.Content>
-            <FileInput
+            <ImageUpload
               label="상품 이미지"
               {...register("images")}
               onChange={handleChange}
