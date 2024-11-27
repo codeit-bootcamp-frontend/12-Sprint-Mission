@@ -1,0 +1,21 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+.allsection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.allsection-container {
+  width: 1200px;
+}
+
+.allproduct-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 23px;
+  justify-content: center;
+}
