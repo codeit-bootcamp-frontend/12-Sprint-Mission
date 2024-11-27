@@ -7,7 +7,7 @@ export default function Tags({ tags, onRemoveItem }) {
       {tags?.map((tag) => (
         <Chip
           key={tag}
-          text={tag}
+          text={`#${tag}`}
           onClick={() => onRemoveItem(tag)}
           removable
         />
