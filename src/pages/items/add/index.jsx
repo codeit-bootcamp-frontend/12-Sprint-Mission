@@ -14,6 +14,7 @@ import useForm from "@/hooks/useForm";
 import LoadingSpinner from "@/components/LoadingSpinner";
 import Alert from "@/components/Alert";
 import { addProduct, uploadProductImage } from "@/service/product";
+import { toWon } from "@/util/formatter";
 
 const formSchema = {
   images: {
@@ -131,6 +132,7 @@ export default function ItemAdd() {
               label="판매 가격"
               placeholder="판매 가격을 입력해주세요"
               step="100"
+              formatter={toWon}
               {...register("price")}
             />
             <TagsInput

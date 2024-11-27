@@ -9,14 +9,16 @@ export default function NumberInput({
   label,
   error,
   value,
+  formatter,
   ...props
 }) {
   const [currentType, setCurrentType] = useState(type);
   const valid = value && !error;
-  const formattedValueForText = value
-    ? Number(value).toLocaleString() + "원"
-    : "";
-  const formattedValueForNumber = value ? value : "";
+  const formattedValue = formatter
+    ? currentType === "text"
+      ? formatter(value)
+      : value
+    : value;
 
   return (
     <FieldContainer id={id} label={label} error={error}>
@@ -27,11 +29,7 @@ export default function NumberInput({
           valid && styles.valid,
           error && styles.error
         )}
-        value={
-          currentType === "text"
-            ? formattedValueForText
-            : formattedValueForNumber
-        }
+        value={formattedValue}
         onFocus={() => setCurrentType("number")}
         onBlur={() => setCurrentType("text")}
         {...props}
