@@ -6,6 +6,7 @@ import { toWon } from "@util/formatter";
 import Button from "@components/Button";
 import PageContainer from "@components/PageContainer";
 import {
+  Form,
   FieldItem,
   Input,
   Textarea,
@@ -14,8 +15,6 @@ import {
   NumberInput,
 } from "@components/Field";
 import Section from "@components/Section";
-import LoadingSpinner from "@components/LoadingSpinner";
-import Alert from "@components/Alert";
 import { formSchema } from "./formSchema";
 
 export default function ItemAdd() {
@@ -51,13 +50,11 @@ export default function ItemAdd() {
   return (
     <PageContainer>
       <Section>
-        {isLoading && <LoadingSpinner />}
-        {formError && (
-          <Alert mode="error">
-            {formError.message || "오류가 발생했습니다."}
-          </Alert>
-        )}
-        <form onSubmit={handleSubmit(onSubmit)}>
+        <Form
+          isLoading={isLoading}
+          error={formError}
+          onSubmit={handleSubmit(onSubmit)}
+        >
           <Section.Header title="상품 등록하기">
             <Button type="submit" size="sm" disabled={!isFormValid}>
               등록
@@ -98,7 +95,7 @@ export default function ItemAdd() {
               />
             </FieldItem>
           </Section.Content>
-        </form>
+        </Form>
       </Section>
     </PageContainer>
   );

@@ -4,16 +4,9 @@ import LoadingSpinner from "@components/LoadingSpinner";
 import Oauth from "../Oauth";
 import styles from "./styles.module.scss";
 
-export default function AuthContainer({
-  children,
-  mode = "login",
-  isLoading,
-  error,
-  onSubmit,
-}) {
+export default function AuthContainer({ children, mode = "login" }) {
   return (
     <>
-      {isLoading && <LoadingSpinner />}
       <div className={styles["auth-container"]}>
         <div className={styles["auth-header"]}>
           <div className={styles["auth-logo"]}>
@@ -22,14 +15,7 @@ export default function AuthContainer({
             </Link>
           </div>
         </div>
-        <div className={styles["auth-body"]}>
-          <form onSubmit={onSubmit}>{children}</form>
-          {error && (
-            <div className={styles.error}>
-              {error.message || "오류가 발생했습니다."}
-            </div>
-          )}
-        </div>
+        <div className={styles["auth-body"]}>{children}</div>
         <div className={styles["auth-footer"]}>
           <Oauth />
           <div className={styles["auth-options"]}>
