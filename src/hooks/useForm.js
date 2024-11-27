@@ -37,6 +37,10 @@ export default function useForm(formSchema) {
         return false;
       }
 
+      if (Array.isArray(value) && value.length === 0) {
+        return false;
+      }
+
       if (value === null || value === undefined) return false;
     }
 
@@ -76,13 +80,18 @@ export default function useForm(formSchema) {
 
   function validate(name, value) {
     const rule = rules[name];
+
     if (!rule) {
       return { isValid: true, message: null };
     }
 
     if (rule.required) {
       const isEmpty =
-        value === null || (typeof value === "string" && !value.trim());
+        value === null ||
+        value === undefined ||
+        (typeof value === "string" && !value.trim()) ||
+        (typeof value === "number" && isNaN(value)) ||
+        (Array.isArray(value) && value.length === 0);
 
       if (isEmpty) {
         return {
@@ -95,11 +104,22 @@ export default function useForm(formSchema) {
 
     if (rule.patterns) {
       for (const pattern of rule.patterns) {
-        if (!pattern.regex.test(value)) {
-          return {
-            isValid: false,
-            message: pattern.message || "유효하지 않은 형식입니다.",
-          };
+        if (Array.isArray(value)) {
+          const isArrayValid = value.every((item) => pattern.regex.test(item));
+          if (!isArrayValid) {
+            return {
+              isValid: false,
+              message:
+                pattern.message || "배열 요소에 유효하지 않은 형식이 있습니다.",
+            };
+          }
+        } else {
+          if (!pattern.regex.test(value)) {
+            return {
+              isValid: false,
+              message: pattern.message || "유효하지 않은 형식입니다.",
+            };
+          }
         }
       }
     }
