@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import Container from "../Container";
+import FieldContainer from "../FieldContainer";
 import Preview from "../Preview";
 import iconPlus from "@assets/img/icon/icon_plus.svg";
 import styles from "./styles.module.scss";
@@ -56,7 +56,7 @@ export default function FileInput({ id, label, error, value, name, onChange }) {
   const fileInputError = [fileError, error].filter((err) => err).join(" / ");
 
   return (
-    <Container id={id} label={label} error={fileInputError}>
+    <FieldContainer id={id} label={label} error={fileInputError}>
       <div className={styles["thumbnail-list"]}>
         <label className={styles["upload-button"]}>
           <span className={styles["upload-label"]}>
@@ -74,6 +74,6 @@ export default function FileInput({ id, label, error, value, name, onChange }) {
         </label>
         {preview && <Preview src={preview} onReset={handleReset} />}
       </div>
-    </Container>
+    </FieldContainer>
   );
 }

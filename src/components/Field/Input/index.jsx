@@ -1,6 +1,6 @@
 import { useState } from "react";
 import clsx from "clsx";
-import Container from "../Container";
+import FieldContainer from "../FieldContainer";
 import iconViewOn from "@assets/img/icon/icon_view_on.svg";
 import iconViewOff from "@assets/img/icon/icon_view_off.svg";
 import styles from "../styles.module.scss";
@@ -21,7 +21,7 @@ export default function Input({
   }
 
   return (
-    <Container id={id} label={label} error={error}>
+    <FieldContainer id={id} label={label} error={error}>
       <input
         type={currentType}
         className={clsx(
@@ -48,6 +48,6 @@ export default function Input({
           />
         </button>
       )}
-    </Container>
+    </FieldContainer>
   );
 }

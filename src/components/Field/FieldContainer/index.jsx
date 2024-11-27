@@ -1,6 +1,6 @@
 import styles from "./styles.module.scss";
 
-export default function FormField({ id, label, error, children }) {
+export default function FieldContainer({ id, label, error, children }) {
   return (
     <div className={styles["form-item"]}>
       <label className={styles["item-label"]} htmlFor={id}>

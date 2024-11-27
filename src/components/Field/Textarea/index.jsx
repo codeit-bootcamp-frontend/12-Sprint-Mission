@@ -1,6 +1,6 @@
 import { useState } from "react";
 import clsx from "clsx";
-import Container from "../Container";
+import FieldContainer from "../FieldContainer";
 import styles from "../styles.module.scss";
 
 export default function Textarea({
@@ -15,7 +15,7 @@ export default function Textarea({
   const valid = value && !error;
 
   return (
-    <Container id={id} label={label} error={error}>
+    <FieldContainer id={id} label={label} error={error}>
       <textarea
         type={currentType}
         className={clsx(
@@ -26,6 +26,6 @@ export default function Textarea({
         value={value}
         {...props}
       />
-    </Container>
+    </FieldContainer>
   );
 }
