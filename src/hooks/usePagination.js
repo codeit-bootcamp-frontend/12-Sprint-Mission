@@ -20,6 +20,18 @@ export default function usePagination({
   const isPrevDisabled = page === 1;
   const isNextDisabled = totalPage === page;
 
+  function handleNextClick() {
+    onChange(page + 1);
+  }
+
+  function handlePrevClick() {
+    onChange(page - 1);
+  }
+
+  function handlePageClick(e) {
+    onChange(Number(e.target.dataset.number));
+  }
+
   useEffect(() => {
     //모바일에서 뒷페이지로 이동후 pc로 돌아올때 페이지번호가 전체페이지를 넘칠때 마지막 페이지로 이동하기
     if (totalPage > 0 && page > totalPage) {
@@ -33,6 +45,8 @@ export default function usePagination({
     pageNumbers,
     isPrevDisabled,
     isNextDisabled,
-    onChange,
+    handlePrevClick,
+    handleNextClick,
+    handlePageClick,
   };
 }

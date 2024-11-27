@@ -8,7 +8,9 @@ export default function Pagination({
   pageNumbers,
   isPrevDisabled,
   isNextDisabled,
-  onChange,
+  handlePrevClick,
+  handleNextClick,
+  handlePageClick,
 }) {
   if (!pageNumbers.length) return null;
 
@@ -18,7 +20,7 @@ export default function Pagination({
         <button
           type="button"
           className={styles.item}
-          onClick={() => onChange(page - 1)}
+          onClick={handlePrevClick}
           disabled={isPrevDisabled}
         >
           <img src={arrowLeft} alt="이전 페이지" />
@@ -29,7 +31,8 @@ export default function Pagination({
           <button
             type="button"
             className={clsx(styles.item, page === number && styles.active)}
-            onClick={() => onChange(number)}
+            data-number={number}
+            onClick={handlePageClick}
           >
             {number}
           </button>
@@ -39,7 +42,7 @@ export default function Pagination({
         <button
           type="button"
           className={styles.item}
-          onClick={() => onChange(page + 1)}
+          onClick={handleNextClick}
           disabled={isNextDisabled}
         >
           <img src={arrowRight} alt="다음 페이지" />
