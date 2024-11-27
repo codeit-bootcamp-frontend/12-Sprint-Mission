@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { useAuth } from "@context/useAuth";
+import { useAuth } from "@context/AuthContext";
 import useForm from "@hooks/useForm";
 import { addProduct, uploadProductImage } from "@service/product";
 import { toWon } from "@util/formatter";

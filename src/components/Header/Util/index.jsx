@@ -1,4 +1,4 @@
-import { useAuth } from "@context/useAuth";
+import { useAuth } from "@context/AuthContext";
 import Button from "@components/Button";
 import Profile from "@components/Header/Profile";
 import styles from "./styles.module.scss";

@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { useAuth } from "@context/useAuth";
+import { useAuth } from "@context/AuthContext";
 import useForm from "@hooks/useForm";
 import AuthContainer from "../components/AuthContainer";
 import { Form, FieldItem, Input } from "@components/Field";
