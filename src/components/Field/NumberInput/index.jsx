@@ -1,12 +1,9 @@
 import { useState } from "react";
 import clsx from "clsx";
-import FieldContainer from "../FieldContainer";
-import styles from "../styles.module.scss";
+import Error from "../Error";
 
 export default function NumberInput({
   type = "number",
-  id,
-  label,
   error,
   value,
   formatter,
@@ -21,19 +18,18 @@ export default function NumberInput({
     : value;
 
   return (
-    <FieldContainer id={id} label={label} error={error}>
-      <input
-        type={currentType}
-        className={clsx(
-          styles["item-box"],
-          valid && styles.valid,
-          error && styles.error
-        )}
-        value={formattedValue}
-        onFocus={() => setCurrentType("number")}
-        onBlur={() => setCurrentType("text")}
-        {...props}
-      />
-    </FieldContainer>
+    <>
+      <div className="field">
+        <input
+          type={currentType}
+          className={clsx("field-box", valid && "valid", error && "error")}
+          value={formattedValue}
+          onFocus={() => setCurrentType("number")}
+          onBlur={() => setCurrentType("text")}
+          {...props}
+        />
+      </div>
+      <Error error={error} />
+    </>
   );
 }

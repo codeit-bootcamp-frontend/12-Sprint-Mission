@@ -1,18 +1,11 @@
 import { useState } from "react";
 import clsx from "clsx";
-import FieldContainer from "../FieldContainer";
+import Error from "../Error";
 import iconViewOn from "@assets/img/icon/icon_view_on.svg";
 import iconViewOff from "@assets/img/icon/icon_view_off.svg";
-import styles from "../styles.module.scss";
+import styles from "./styles.module.scss";
 
-export default function Input({
-  type = "text",
-  id,
-  label,
-  error,
-  value,
-  ...props
-}) {
+export default function Input({ type = "text", error, value, ...props }) {
   const [currentType, setCurrentType] = useState(type);
   const valid = value && !error;
 
@@ -21,33 +14,32 @@ export default function Input({
   }
 
   return (
-    <FieldContainer id={id} label={label} error={error}>
-      <input
-        type={currentType}
-        className={clsx(
-          styles["item-box"],
-          valid && styles.valid,
-          error && styles.error
+    <>
+      <div className="field">
+        <input
+          type={currentType}
+          className={clsx("field-box", valid && "valid", error && "error")}
+          value={value}
+          {...props}
+        />
+        {type === "password" && (
+          <button
+            type="button"
+            className={clsx(styles["item-btn"], styles["visibility-btn"])}
+            onClick={handleVisibility}
+          >
+            <img
+              src={currentType === "password" ? iconViewOff : iconViewOn}
+              alt={
+                currentType === "password"
+                  ? "비밀번호 표시하기"
+                  : "비밀번호 가리기"
+              }
+            />
+          </button>
         )}
-        value={value}
-        {...props}
-      />
-      {type === "password" && (
-        <button
-          type="button"
-          className={clsx(styles["item-btn"], styles["visibility-btn"])}
-          onClick={handleVisibility}
-        >
-          <img
-            src={currentType === "password" ? iconViewOff : iconViewOn}
-            alt={
-              currentType === "password"
-                ? "비밀번호 표시하기"
-                : "비밀번호 가리기"
-            }
-          />
-        </button>
-      )}
-    </FieldContainer>
+      </div>
+      <Error error={error} />
+    </>
   );
 }

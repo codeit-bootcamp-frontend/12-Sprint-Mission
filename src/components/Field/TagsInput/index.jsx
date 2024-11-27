@@ -1,14 +1,12 @@
 import { useRef } from "react";
 import clsx from "clsx";
-import FieldContainer from "../FieldContainer";
 import Tags from "@components/Tags";
-import styles from "../styles.module.scss";
+import Error from "../Error";
 
 export default function TagsInput({
-  id,
-  label,
   error,
   value,
+  id,
   name,
   onChange,
   placeholder,
@@ -34,21 +32,20 @@ export default function TagsInput({
   }
 
   return (
-    <FieldContainer id={id} label={label} error={error}>
-      <input
-        ref={inputRef}
-        id={id}
-        type="text"
-        className={clsx(
-          styles["item-box"],
-          valid && styles.valid,
-          error && styles.error
-        )}
-        onKeyUp={handleKeyDown}
-        name={name}
-        placeholder={placeholder}
-      />
+    <>
+      <div className="field">
+        <input
+          ref={inputRef}
+          type="text"
+          className={clsx("field-box", valid && "valid", error && "error")}
+          onKeyUp={handleKeyDown}
+          id={name}
+          name={name}
+          placeholder={placeholder}
+        />
+      </div>
       <Tags tags={value} onRemoveItem={handleRemove} />
-    </FieldContainer>
+      <Error error={error} />
+    </>
   );
 }

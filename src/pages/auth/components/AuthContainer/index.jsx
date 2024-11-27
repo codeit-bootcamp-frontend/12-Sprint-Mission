@@ -9,6 +9,7 @@ export default function AuthContainer({
   mode = "login",
   isLoading,
   error,
+  onSubmit,
 }) {
   return (
     <>
@@ -22,7 +23,7 @@ export default function AuthContainer({
           </div>
         </div>
         <div className={styles["auth-body"]}>
-          {children}
+          <form onSubmit={onSubmit}>{children}</form>
           {error && (
             <div className={styles.error}>
               {error.message || "오류가 발생했습니다."}

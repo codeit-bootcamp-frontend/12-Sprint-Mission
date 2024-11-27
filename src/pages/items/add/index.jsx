@@ -1,8 +1,12 @@
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "@context/useAuth";
+import useForm from "@hooks/useForm";
+import { addProduct, uploadProductImage } from "@service/product";
+import { toWon } from "@util/formatter";
 import Button from "@components/Button";
 import PageContainer from "@components/PageContainer";
 import {
+  FieldItem,
   Input,
   Textarea,
   TagsInput,
@@ -10,60 +14,9 @@ import {
   NumberInput,
 } from "@components/Field";
 import Section from "@components/Section";
-import useForm from "@hooks/useForm";
 import LoadingSpinner from "@components/LoadingSpinner";
 import Alert from "@components/Alert";
-import { addProduct, uploadProductImage } from "@service/product";
-import { toWon } from "@util/formatter";
-
-const formSchema = {
-  images: {
-    value: undefined,
-    rule: {
-      required: "이미지를 업로드해주세요",
-    },
-  },
-  tags: {
-    value: [],
-    rule: {
-      required: "태그를 입력해주세요",
-      patterns: [
-        {
-          regex: /^[^!@#$%^&*(),.?":{}|<>_\-+=\[\]\\\/`~';]*$/,
-          message: "특수문자는 사용할 수 없습니다.",
-        },
-      ],
-    },
-  },
-  name: {
-    value: "",
-    rule: {
-      required: "상품명을 입력해주세요",
-    },
-  },
-  description: {
-    value: "",
-    rule: {
-      required: "상품소개를 입력해주세요",
-    },
-  },
-  price: {
-    value: undefined,
-    rule: {
-      required: "판매 가격을 입력해주세요",
-      patterns: [
-        {
-          regex: /^[0-9]*$/,
-          message: "숫자만 입력해주세요",
-        },
-      ],
-      custom: {
-        validate: (value) => value >= 100,
-        message: "최소 100원이상 작성해주세요.",
-      },
-    },
-  },
-};
+import { formSchema } from "./formSchema";
 
 export default function ItemAdd() {
   const {
@@ -111,36 +64,39 @@ export default function ItemAdd() {
             </Button>
           </Section.Header>
           <Section.Content>
-            <ImageUpload
-              label="상품 이미지"
-              {...register("images")}
-              onChange={handleChange}
-            />
-            <Input
-              type="text"
-              label="상품명"
-              placeholder="상품명 입력해주세요"
-              {...register("name")}
-            />
-            <Textarea
-              label="상품 소개"
-              placeholder="상품 소개를  입력해주세요"
-              {...register("description")}
-            />
-            <NumberInput
-              type="number"
-              label="판매 가격"
-              placeholder="판매 가격을 입력해주세요"
-              step="100"
-              formatter={toWon}
-              {...register("price")}
-            />
-            <TagsInput
-              label="태그"
-              placeholder="태그를 입력해주세요"
-              {...register("tags")}
-              onChange={handleChange}
-            />
+            <FieldItem>
+              <FieldItem.Label htmlFor="images">상품 이미지</FieldItem.Label>
+              <ImageUpload {...register("images")} onChange={handleChange} />
+            </FieldItem>
+            <FieldItem>
+              <FieldItem.Label htmlFor="name">상품명</FieldItem.Label>
+              <Input placeholder="상품명 입력해주세요" {...register("name")} />
+            </FieldItem>
+            <FieldItem>
+              <FieldItem.Label htmlFor="description">상품 소개</FieldItem.Label>
+              <Textarea
+                placeholder="상품 소개를  입력해주세요"
+                {...register("description")}
+              />
+            </FieldItem>
+            <FieldItem>
+              <FieldItem.Label htmlFor="price">판매 가격</FieldItem.Label>
+              <NumberInput
+                placeholder="판매 가격을 입력해주세요"
+                step="100"
+                formatter={toWon}
+                {...register("price")}
+              />
+            </FieldItem>
+            <FieldItem>
+              <FieldItem.Label htmlFor="tags">태그</FieldItem.Label>
+              <TagsInput
+                label="태그"
+                placeholder="태그를 입력해주세요"
+                {...register("tags")}
+                onChange={handleChange}
+              />
+            </FieldItem>
           </Section.Content>
         </form>
       </Section>

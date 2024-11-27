@@ -2,36 +2,9 @@ import { useNavigate } from "react-router-dom";
 import { useAuth } from "@context/useAuth";
 import useForm from "@hooks/useForm";
 import AuthContainer from "../components/AuthContainer";
-import { Input } from "@components/Field";
+import { FieldItem, Input } from "@components/Field";
 import Button from "@components/Button";
-import { VALIDATION_MESSAGES, VALIDATION_REGEX } from "@util/validation";
-
-const formSchema = {
-  email: {
-    value: "",
-    rule: {
-      required: VALIDATION_MESSAGES.EMAIL_REQUIRED,
-      patterns: [
-        {
-          regex: VALIDATION_REGEX.EMAIL,
-          message: VALIDATION_MESSAGES.INVALID_EMAIL,
-        },
-      ],
-    },
-  },
-  password: {
-    value: "",
-    rule: {
-      required: VALIDATION_MESSAGES.PASSWORD_REQUIRED,
-      patterns: [
-        {
-          regex: VALIDATION_REGEX.PASSWORD,
-          message: VALIDATION_MESSAGES.PASSWORD_MIN_LENGTH,
-        },
-      ],
-    },
-  },
-};
+import { formSchema } from "./formSchema";
 
 export default function Login() {
   const navigate = useNavigate();
@@ -50,24 +23,30 @@ export default function Login() {
   }
 
   return (
-    <AuthContainer isLoading={isLoading} error={formError}>
-      <form onSubmit={handleSubmit(onSubmit)}>
+    <AuthContainer
+      isLoading={isLoading}
+      error={formError}
+      onSubmit={handleSubmit(onSubmit)}
+    >
+      <FieldItem>
+        <FieldItem.Label htmlFor="email">이메일</FieldItem.Label>
         <Input
           type="email"
-          label="이메일"
           placeholder="이메일을 입력해주세요"
           {...register("email")}
         />
+      </FieldItem>
+      <FieldItem>
+        <FieldItem.Label htmlFor="password">비밀번호</FieldItem.Label>
         <Input
           type="password"
-          label="비밀번호"
           placeholder="비밀번호를 입력해주세요"
           {...register("password")}
         />
-        <Button type="submit" size="xl" disabled={!isFormValid}>
-          로그인
-        </Button>
-      </form>
+      </FieldItem>
+      <Button type="submit" size="xl" disabled={!isFormValid}>
+        로그인
+      </Button>
     </AuthContainer>
   );
 }

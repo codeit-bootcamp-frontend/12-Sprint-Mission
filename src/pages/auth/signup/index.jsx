@@ -1,60 +1,11 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import useForm from "@hooks/useForm";
-import AuthContainer from "../components/AuthContainer";
-import { Input } from "@components/Field";
-import Button from "@components/Button";
 import { signUp } from "@service/auth";
-import { VALIDATION_MESSAGES, VALIDATION_REGEX } from "@util/validation";
-
-const formSchema = {
-  email: {
-    value: "",
-    rule: {
-      required: VALIDATION_MESSAGES.EMAIL_REQUIRED,
-      patterns: [
-        {
-          regex: VALIDATION_REGEX.EMAIL,
-          message: VALIDATION_MESSAGES.INVALID_EMAIL,
-        },
-      ],
-    },
-  },
-  nickname: {
-    value: "",
-    rule: {
-      required: VALIDATION_MESSAGES.USERNAME_REQUIRED,
-    },
-  },
-  password: {
-    value: "",
-    rule: {
-      required: VALIDATION_MESSAGES.PASSWORD_REQUIRED,
-      patterns: [
-        {
-          regex: VALIDATION_REGEX.PASSWORD,
-          message: VALIDATION_MESSAGES.PASSWORD_MIN_LENGTH,
-        },
-      ],
-    },
-  },
-  passwordConfirmation: {
-    value: "",
-    rule: {
-      required: VALIDATION_MESSAGES.PASSWORD_REQUIRED,
-      patterns: [
-        {
-          regex: VALIDATION_REGEX.PASSWORD,
-          message: VALIDATION_MESSAGES.PASSWORD_MIN_LENGTH,
-        },
-      ],
-      match: {
-        field: "password",
-        message: VALIDATION_MESSAGES.PASSWORD_MISMATCH,
-      },
-    },
-  },
-};
+import AuthContainer from "../components/AuthContainer";
+import { FieldItem, Input } from "@components/Field";
+import Button from "@components/Button";
+import { formSchema } from "./formSchema";
 
 export default function Signup() {
   const navigate = useNavigate();
@@ -87,36 +38,50 @@ export default function Signup() {
   }
 
   return (
-    <AuthContainer mode="signup" isLoading={isLoading} error={formError}>
-      <form onSubmit={handleSubmit(onSubmit)}>
+    <AuthContainer
+      mode="signup"
+      isLoading={isLoading}
+      error={formError}
+      onSubmit={handleSubmit(onSubmit)}
+    >
+      <FieldItem>
+        <FieldItem.Label htmlFor="email">이메일</FieldItem.Label>
         <Input
           type="email"
-          label="이메일"
           placeholder="이메일을 입력해주세요"
           {...register("email")}
         />
+      </FieldItem>
+      <FieldItem>
+        <FieldItem.Label htmlFor="nickname">닉네임</FieldItem.Label>
         <Input
           type="text"
-          label="닉네임"
           placeholder="닉네임을 입력해주세요"
           {...register("nickname")}
         />
+      </FieldItem>
+
+      <FieldItem>
+        <FieldItem.Label htmlFor="password">비밀번호</FieldItem.Label>
         <Input
           type="password"
-          label="비밀번호"
           placeholder="비밀번호를 입력해주세요"
           {...register("password")}
         />
+      </FieldItem>
+      <FieldItem>
+        <FieldItem.Label htmlFor="passwordConfirmation">
+          비밀번호 확인
+        </FieldItem.Label>
         <Input
           type="password"
-          label="비밀번호 확인"
           placeholder="비밀번호를 다시 한 번 입력해주세요"
           {...register("passwordConfirmation")}
         />
-        <Button type="submit" size="xl" disabled={!isFormValid}>
-          회원가입
-        </Button>
-      </form>
+      </FieldItem>
+      <Button type="submit" size="xl" disabled={!isFormValid}>
+        회원가입
+      </Button>
     </AuthContainer>
   );
 }
