@@ -134,6 +134,28 @@ export default function useForm(formSchema) {
       }
     }
 
+    if (rule.custom) {
+      const validateFunc = rule.custom.validate;
+      if (Array.isArray(value)) {
+        const isArrayValid = value.every((item) => validateFunc(item));
+        if (!isArrayValid) {
+          return {
+            isValid: false,
+            message:
+              rule.custom.message ||
+              "배열 요소에 유효하지 않은 값이 있습니다..",
+          };
+        }
+      } else {
+        if (!validateFunc(value)) {
+          return {
+            isValid: false,
+            message: rule.custom.message || "유효하지 않은 값입니다.",
+          };
+        }
+      }
+    }
+
     return { isValid: true, message: null };
   }
 

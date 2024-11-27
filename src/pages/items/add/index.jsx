@@ -56,6 +56,10 @@ const formSchema = {
           message: "숫자만 입력해주세요",
         },
       ],
+      custom: {
+        validate: (value) => value >= 100,
+        message: "최소 100원이상 작성해주세요.",
+      },
     },
   },
 };
