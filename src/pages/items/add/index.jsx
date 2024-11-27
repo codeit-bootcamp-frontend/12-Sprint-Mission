@@ -2,7 +2,13 @@ import { useNavigate } from "react-router-dom";
 import { useAuth } from "@/context/useAuth";
 import Button from "@/components/Button";
 import PageContainer from "@/components/PageContainer";
-import { Input, Textarea, TagsInput, FileInput } from "@/components/Field";
+import {
+  Input,
+  Textarea,
+  TagsInput,
+  FileInput,
+  NumberInput,
+} from "@/components/Field";
 import Section from "@/components/Section";
 import useForm from "@/hooks/useForm";
 import LoadingSpinner from "@/components/LoadingSpinner";
@@ -41,7 +47,7 @@ const formSchema = {
     },
   },
   price: {
-    value: 0,
+    value: undefined,
     rule: {
       required: "판매 가격을 입력해주세요",
       patterns: [
@@ -116,10 +122,11 @@ export default function ItemAdd() {
               placeholder="상품명 입력해주세요"
               {...register("description")}
             />
-            <Input
+            <NumberInput
               type="number"
               label="판매 가격"
               placeholder="판매 가격을 입력해주세요"
+              step="100"
               {...register("price")}
             />
             <TagsInput

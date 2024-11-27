@@ -52,7 +52,7 @@ export default function useForm(formSchema) {
     let nextValue;
 
     if (type === "number") {
-      nextValue = value === "" ? "" : Number(value);
+      nextValue = value === "" ? undefined : Number(value);
     } else {
       nextValue = value;
     }
