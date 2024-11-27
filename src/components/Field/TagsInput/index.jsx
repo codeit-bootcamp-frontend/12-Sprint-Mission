@@ -44,7 +44,7 @@ export default function TagsInput({
           valid && styles.valid,
           error && styles.error
         )}
-        onKeyDown={handleKeyDown}
+        onKeyUp={handleKeyDown}
         name={name}
         placeholder={placeholder}
       />
