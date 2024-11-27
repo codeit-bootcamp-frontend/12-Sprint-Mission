@@ -118,8 +118,8 @@ export default function ItemAdd() {
               {...register("name")}
             />
             <Textarea
-              label="상품명"
-              placeholder="상품명 입력해주세요"
+              label="상품 소개"
+              placeholder="상품 소개를  입력해주세요"
               {...register("description")}
             />
             <NumberInput
