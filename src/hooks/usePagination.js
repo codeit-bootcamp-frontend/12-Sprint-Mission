@@ -14,7 +14,7 @@ export default function usePagination({
   const pageLengthInGroup = Math.max(lastPageInGroup - firstPageInGroup + 1, 0);
   const pageNumbers = Array.from(
     { length: pageLengthInGroup },
-    (item, index) => firstPageInGroup + index
+    (_, index) => firstPageInGroup + index
   );
 
   const isPrevDisabled = page === 1;

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import useAsync from "@/hooks/useAsync";
 
 export default function useList(fetchFn, pageSize = 10, params) {
