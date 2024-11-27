@@ -17,7 +17,7 @@ const formSchema = {
     },
   },
   tags: {
-    value: "",
+    value: [],
     rule: {
       required: "태그를 입력해주세요",
       patterns: [
@@ -76,11 +76,7 @@ export default function ItemAdd() {
         data.images = [url];
       }
 
-      if (tags) {
-        data.tags = data.tags.split(" ");
-      }
-
-      const res = await withAuth(addProduct)(data);
+      await withAuth(addProduct)(data);
       alert("성공적으로 작성했습니다.");
       navigate("/items");
     } catch (err) {

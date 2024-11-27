@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import clsx from "clsx";
 import FieldContainer from "../FieldContainer";
-import Tags from "../../Tags";
+import Tags from "@components/Tags";
 import styles from "../styles.module.scss";
 
 export default function TagsInput({
@@ -20,7 +20,7 @@ export default function TagsInput({
     if (e.key === "Enter") {
       const tag = inputRef.current.value.trim();
       if (tag && !value.includes(tag)) {
-        const newTags = value ? `${value} ${tag}` : tag;
+        const newTags = [...value, tag];
         onChange(name, newTags);
       }
       inputRef.current.value = "";
@@ -29,14 +29,9 @@ export default function TagsInput({
   }
 
   function handleRemove(tag) {
-    const newTags = value
-      .split(" ")
-      .filter((item) => item !== tag)
-      .join(" ");
+    const newTags = value.filter((item) => item !== tag);
     onChange(name, newTags);
   }
-
-  const tags = value.length ? value.split(" ") : [];
 
   return (
     <FieldContainer id={id} label={label} error={error}>
@@ -53,7 +48,7 @@ export default function TagsInput({
         name={name}
         placeholder={placeholder}
       />
-      <Tags tags={tags} onRemoveItem={handleRemove} />
+      <Tags tags={value} onRemoveItem={handleRemove} />
     </FieldContainer>
   );
 }
