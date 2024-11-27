@@ -1,4 +1,4 @@
-import useSingleFile from "@/hooks/useSingleFile";
+import useSingleFile from "@hooks/useSingleFile";
 import FieldContainer from "../FieldContainer";
 import Preview from "../Preview";
 import iconPlus from "@assets/img/icon/icon_plus.svg";

@@ -1,4 +1,4 @@
-import PageContainer from "@/components/PageContainer";
+import PageContainer from "@components/PageContainer";
 import BestItems from "./BestItems";
 import AllItems from "./AllItems";
 

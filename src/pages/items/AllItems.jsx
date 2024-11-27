@@ -3,14 +3,14 @@ import useFilteredSearchParams from "@hooks/useFilteredSearchParams";
 import usePageSize from "@hooks/usePageSize";
 import useList from "@hooks/useList";
 import usePagination from "@hooks/usePagination";
-import useLocalArray from "@/hooks/useLocalArray";
+import useLocalArray from "@hooks/useLocalArray";
 import { getProducts } from "@service/product";
 import Select from "@components/Select";
 import Search from "@components/Search";
 import Section from "@components/Section";
 import Button from "@components/Button";
 import Pagination from "@components/Pagination";
-import Recent from "@/components/Search/Recent";
+import Recent from "@components/Search/Recent";
 import ProductList from "./components/ProductList";
 import ProductFilter from "./components/ProductFilter";
 

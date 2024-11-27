@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import useAsync from "@/hooks/useAsync";
+import useAsync from "@hooks/useAsync";
 
 export default function useList(fetchFn, pageSize = 10, params) {
   const { isLoading, error, result, wrappedFn: getData } = useAsync(fetchFn);

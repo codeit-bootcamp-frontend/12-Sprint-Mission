@@ -1,20 +1,20 @@
 import { useNavigate } from "react-router-dom";
-import { useAuth } from "@/context/useAuth";
-import Button from "@/components/Button";
-import PageContainer from "@/components/PageContainer";
+import { useAuth } from "@context/useAuth";
+import Button from "@components/Button";
+import PageContainer from "@components/PageContainer";
 import {
   Input,
   Textarea,
   TagsInput,
   ImageUpload,
   NumberInput,
-} from "@/components/Field";
-import Section from "@/components/Section";
-import useForm from "@/hooks/useForm";
-import LoadingSpinner from "@/components/LoadingSpinner";
-import Alert from "@/components/Alert";
-import { addProduct, uploadProductImage } from "@/service/product";
-import { toWon } from "@/util/formatter";
+} from "@components/Field";
+import Section from "@components/Section";
+import useForm from "@hooks/useForm";
+import LoadingSpinner from "@components/LoadingSpinner";
+import Alert from "@components/Alert";
+import { addProduct, uploadProductImage } from "@service/product";
+import { toWon } from "@util/formatter";
 
 const formSchema = {
   images: {
