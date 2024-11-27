@@ -1,0 +1,73 @@
+.header {
+  width: 100%;
+  height: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 16px;
+  background-color: #ffffff;
+  border-bottom: 1px solid #dfdfdf;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+}
+
+.header > a > img {
+  width: 103px;
+}
+
+.header nav {
+  margin-left: 8px;
+  height: 100%;
+}
+
+.header nav ul {
+  display: flex;
+}
+
+.header nav ul li {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--gray-600);
+}
+
+.header nav ul li.active {
+  color: var(--blue);
+}
+
+.header nav ul li a {
+  display: block;
+  padding: 0 8px;
+  cursor: pointer;
+}
+
+@media (min-width: 768px) {
+  .header {
+    padding: 0 53px;
+  }
+
+  .header > a > img {
+    content: url("../../assets/images/logo/logo-text.svg");
+    width: 153px;
+  }
+
+  .header nav {
+    margin-left: 16px;
+  }
+
+  .header nav ul li {
+    font-size: 18px;
+  }
+
+  .header nav ul li a {
+    padding: 0 15px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .header {
+    padding: 0 200px;
+  }
+}

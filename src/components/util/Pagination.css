@@ -1,0 +1,49 @@
+.pagination-wrapper {
+  margin-top: 46px;
+}
+.pagination-wrapper ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+}
+
+.pagination-wrapper ul li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--gray-200);
+  border-radius: 50%;
+}
+
+.pagination-wrapper button {
+  background-color: initial;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--gray-500);
+}
+
+.pagination-wrapper ul li.active {
+  background-color: var(--blue);
+}
+
+.pagination-wrapper ul li.active button {
+  color: #fff;
+}
+
+.pagination-wrapper button:disabled {
+  cursor: default;
+  opacity: 0.5;
+  background-color: initial;
+}
+
+@media (max-width: 1280px) {
+}
+
+@media (max-width: 768px) {
+  .pagination-wrapper {
+    margin-top: 40px;
+  }
+}
