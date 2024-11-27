@@ -11,8 +11,8 @@ import Section from "@components/Section";
 import Button from "@components/Button";
 import Pagination from "@components/Pagination";
 import Recent from "@/components/Search/Recent";
-import ProductList from "../ProductList";
-import styles from "./styles.module.scss";
+import ProductList from "./components/ProductList";
+import ProductFilter from "./components/ProductFilter";
 
 const rspnSize = {
   pc: 10,
@@ -86,36 +86,38 @@ export default function AllItems() {
   return (
     <Section>
       <Section.Header title="전체 상품">
-        <div className={styles.search}>
-          <Recent
-            title="최근검색"
-            storageKey="keyword"
-            data={recentKeywords}
-            onItemClear={clearKeyword}
-            onItemClick={handleRecentKeywordClick}
-            onItemRemove={removeKeyword}
-          >
-            <Search
-              value={searchInput}
-              onChange={handleSearchInputChange}
-              onSubmit={handleKeywordSubmit}
-              onClear={handleSearchInputClear}
-              placeholder="검색할 상품을 입력해주세요"
+        <ProductFilter
+          search={
+            <Recent
+              title="최근검색"
+              storageKey="keyword"
+              data={recentKeywords}
+              onItemClear={clearKeyword}
+              onItemClick={handleRecentKeywordClick}
+              onItemRemove={removeKeyword}
+            >
+              <Search
+                value={searchInput}
+                onChange={handleSearchInputChange}
+                onSubmit={handleKeywordSubmit}
+                onClear={handleSearchInputClear}
+                placeholder="검색할 상품을 입력해주세요"
+              />
+            </Recent>
+          }
+          action={
+            <Button to="/addItem" size="sm">
+              상품 등록하기
+            </Button>
+          }
+          filter={
+            <Select
+              value={orderBy}
+              onChange={handleOrderBy}
+              options={sortOptions}
             />
-          </Recent>
-        </div>
-        <div className={styles.button}>
-          <Button to="/addItem" size="sm">
-            상품 등록하기
-          </Button>
-        </div>
-        <div className={styles.select}>
-          <Select
-            value={orderBy}
-            onChange={handleOrderBy}
-            options={sortOptions}
-          />
-        </div>
+          }
+        />
       </Section.Header>
       <Section.Content>
         <ProductList

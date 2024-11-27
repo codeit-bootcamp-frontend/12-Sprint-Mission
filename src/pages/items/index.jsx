@@ -1,6 +1,6 @@
 import PageContainer from "@/components/PageContainer";
-import BestItems from "./components/BestItems";
-import AllItems from "./components/AllItems";
+import BestItems from "./BestItems";
+import AllItems from "./AllItems";
 
 export default function Items() {
   return (

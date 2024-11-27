@@ -2,7 +2,7 @@ import usePageSize from "@hooks/usePageSize";
 import useList from "@hooks/useList";
 import { getBestProducts } from "@service/product";
 import Section from "@components/Section";
-import ProductList from "../ProductList";
+import ProductList from "./components/ProductList";
 
 const rspnSize = {
   pc: 4,
