@@ -18,7 +18,7 @@ const rspnCol = {
 
 export default function BestItemsPage() {
   const { pageSize } = usePageSize(rspnSize);
-  const { isLoading, error, items } = useList(getBestProducts, pageSize);
+  const { isLoading, error, items } = useList(getBestProducts, { pageSize });
 
   return (
     <Section title="베스트 상품">

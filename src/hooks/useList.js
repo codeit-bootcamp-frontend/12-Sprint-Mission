@@ -1,7 +1,8 @@
 import { useEffect } from "react";
 import useAsync from "@hooks/useAsync";
 
-export default function useList(fetchFn, pageSize = 10, params) {
+export default function useList(fetchFn, params) {
+  const { page, pageSize, keyword, orderBy } = params;
   const { isLoading, error, result, wrappedFn: getData } = useAsync(fetchFn);
   const items = result?.list || [];
   const totalCount = result?.totalCount || 0;
@@ -9,11 +10,13 @@ export default function useList(fetchFn, pageSize = 10, params) {
   useEffect(() => {
     (async function fetchData() {
       await getData({
+        page,
         pageSize,
-        ...params,
+        keyword,
+        orderBy,
       });
     })();
-  }, [pageSize, params]);
+  }, [page, pageSize, keyword, orderBy]);
 
   return {
     isLoading,
