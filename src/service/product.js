@@ -19,22 +19,6 @@ export async function getProducts(
   return data;
 }
 
-export async function getBestProducts({ pageSize }, { signal }) {
-  const query = `page=1&pageSize=${pageSize}&orderBy=favorite`;
-  const res = await fetch(`${VITE_API_URL}/products?${query}`, { signal });
-
-  const data = await res.json();
-
-  if (!res.ok) {
-    throw {
-      status: res.status,
-      message: data.message || "에러가 발생했습니다.",
-    };
-  }
-
-  return data;
-}
-
 export async function uploadProductImage(formData, accessToken) {
   const res = await fetch(`${VITE_API_URL}/images/upload`, {
     method: "POST",
@@ -87,6 +71,21 @@ export async function deleteProduct(productId, accessToken) {
       Authorization: `Bearer ${accessToken}`,
     },
   });
+
+  const data = await res.json();
+
+  if (!res.ok) {
+    throw {
+      status: res.status,
+      message: data.message || "에러가 발생했습니다.",
+    };
+  }
+
+  return data;
+}
+
+export async function getProduct(productId) {
+  const res = await fetch(`${VITE_API_URL}/products/${productId}`);
 
   const data = await res.json();
 
