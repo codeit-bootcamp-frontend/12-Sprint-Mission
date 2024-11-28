@@ -1,0 +1,39 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  width: 100%;
+  padding: 24px 360px;
+}
+
+.container-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.container-title {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 32px;
+  color: #111827;
+}
+
+.container-header-right {
+  display: flex;
+  gap: 12px;
+}
+
+.item-add {
+  padding: 12px 20px;
+  border-radius: 8px;
+  background-color: #3692ff;
+  color: #f3f4f6;
+}
