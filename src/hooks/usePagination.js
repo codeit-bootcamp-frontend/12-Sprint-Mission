@@ -1,11 +1,11 @@
 import { useEffect } from "react";
 
 export default function usePagination({
-  totalCount,
   page,
   pageSize,
-  onChange,
+  totalCount,
   visibleCount = 5,
+  onChange,
 }) {
   const totalPage = Math.ceil(totalCount / pageSize);
   const currentGroup = Math.ceil(page / visibleCount);
@@ -20,6 +20,9 @@ export default function usePagination({
   const isPrevDisabled = page === 1;
   const isNextDisabled = totalPage === page;
 
+  const isPrevGroupDisabeld = currentGroup === 1;
+  const isNextGroupDisabeld = lastPageInGroup === totalPage;
+
   function handleNextClick() {
     onChange(page + 1);
   }
@@ -32,6 +35,14 @@ export default function usePagination({
     onChange(Number(e.target.dataset.number));
   }
 
+  function handleNextGroupClick() {
+    onChange(lastPageInGroup + 1);
+  }
+
+  function handlePrevGroupClick() {
+    onChange(firstPageInGroup - 1);
+  }
+
   useEffect(() => {
     //모바일에서 뒷페이지로 이동후 pc로 돌아올때 페이지번호가 전체페이지를 넘칠때 마지막 페이지로 이동하기
     if (totalPage > 0 && page > totalPage) {
@@ -41,12 +52,15 @@ export default function usePagination({
 
   return {
     page,
-    totalPage,
     pageNumbers,
     isPrevDisabled,
     isNextDisabled,
-    handlePrevClick,
-    handleNextClick,
-    handlePageClick,
+    isPrevGroupDisabeld,
+    isNextGroupDisabeld,
+    onPrevClick: handlePrevClick,
+    onNextClick: handleNextClick,
+    onPageClick: handlePageClick,
+    onPrevGroupClick: handlePrevGroupClick,
+    onNextGroupClick: handleNextGroupClick,
   };
 }

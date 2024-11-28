@@ -1,6 +1,8 @@
 import clsx from "clsx";
 import arrowLeft from "@assets/img/icon/icon_arrow_left.svg";
 import arrowRight from "@assets/img/icon/icon_arrow_right.svg";
+import doubleArrowLeft from "@assets/img/icon/icon_double_arrow_left.svg";
+import doubleArrowRight from "@assets/img/icon/icon_double_arrow_right.svg";
 import styles from "./Pagination.module.scss";
 
 export function Pagination({
@@ -8,9 +10,13 @@ export function Pagination({
   pageNumbers,
   isPrevDisabled,
   isNextDisabled,
-  handlePrevClick,
-  handleNextClick,
-  handlePageClick,
+  isPrevGroupDisabeld,
+  isNextGroupDisabeld,
+  onPrevClick,
+  onNextClick,
+  onPageClick,
+  onPrevGroupClick,
+  onNextGroupClick,
 }) {
   if (!pageNumbers.length) return null;
 
@@ -20,7 +26,17 @@ export function Pagination({
         <button
           type="button"
           className={styles.item}
-          onClick={handlePrevClick}
+          onClick={!isPrevGroupDisabeld ? onPrevGroupClick : undefined}
+          disabled={isPrevGroupDisabeld}
+        >
+          <img src={doubleArrowLeft} alt="이전 그룹" />
+        </button>
+      </li>
+      <li>
+        <button
+          type="button"
+          className={styles.item}
+          onClick={!isPrevDisabled ? onPrevClick : undefined}
           disabled={isPrevDisabled}
         >
           <img src={arrowLeft} alt="이전 페이지" />
@@ -32,7 +48,7 @@ export function Pagination({
             type="button"
             className={clsx(styles.item, page === number && styles.active)}
             data-number={number}
-            onClick={handlePageClick}
+            onClick={onPageClick}
           >
             {number}
           </button>
@@ -42,10 +58,20 @@ export function Pagination({
         <button
           type="button"
           className={styles.item}
-          onClick={handleNextClick}
+          onClick={!isNextDisabled ? onNextClick : undefined}
           disabled={isNextDisabled}
         >
           <img src={arrowRight} alt="다음 페이지" />
+        </button>
+      </li>
+      <li>
+        <button
+          type="button"
+          className={styles.item}
+          onClick={!isNextGroupDisabeld ? onNextGroupClick : undefined}
+          disabled={isNextGroupDisabeld}
+        >
+          <img src={doubleArrowRight} alt="다음 그룹" />
         </button>
       </li>
     </ul>
