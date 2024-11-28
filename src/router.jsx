@@ -15,7 +15,7 @@ import BoardPage from "./pages/boards/BoardPage";
 
 export const router = createBrowserRouter([
   {
-    element: <App />,
+    path: "/",
     errorElement: <ErrorPage />,
     children: [
       {
