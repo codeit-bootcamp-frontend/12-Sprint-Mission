@@ -11,7 +11,7 @@ export default function usePagination({
   const currentGroup = Math.ceil(page / visibleCount);
   const firstPageInGroup = (currentGroup - 1) * visibleCount + 1;
   const lastPageInGroup = Math.min(currentGroup * visibleCount, totalPage);
-  const pageLengthInGroup = Math.max(lastPageInGroup - firstPageInGroup + 1, 0);
+  const pageLengthInGroup = lastPageInGroup - firstPageInGroup + 1;
   const pageNumbers = Array.from(
     { length: pageLengthInGroup },
     (_, index) => firstPageInGroup + index
