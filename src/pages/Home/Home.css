@@ -41,7 +41,36 @@
   align-items: center;
 }
 
+.all-products__add-button {
+  text-decoration: none;
+  padding: 8px 23px;
+  height: 42px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 26px;
+  background-color: #3692ff;
+  color: #f3f4f6;
+  text-align: center;
+}
+
 .all-products__input {
   width: 325px;
   height: 42px;
+  border-radius: 12px;
+  border: none;
+  background-color: #f3f4f6;
+  padding-left: 16px;
+}
+
+.dropDown-products {
+  width: 130px;
+  height: 42px;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+}
+
+.dropDown-option__recent {
+  border-top-left-radius: 8px;
 }

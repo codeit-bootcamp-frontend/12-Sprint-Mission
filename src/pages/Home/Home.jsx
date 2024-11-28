@@ -61,8 +61,12 @@ function Home() {
               onChange={handleOptionClick}
               className="dropDown-products"
             >
-              <option value="최신순">최신순</option>
-              <option value="인기순">인기순</option>
+              <option value="최신순" className="dropDown-option__recent">
+                최신순
+              </option>
+              <option value="인기순" className="dropDown-option__favorite">
+                인기순
+              </option>
             </select>
           </form>
         </div>
