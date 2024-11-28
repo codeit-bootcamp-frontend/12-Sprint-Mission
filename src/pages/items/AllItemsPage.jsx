@@ -23,19 +23,12 @@ const rspnCol = {
   mobile: 2,
 };
 
-const sortOptions = [
-  { value: "recent", label: "최신순" },
-  { value: "favorite", label: "좋아요순" },
-];
-
-const defaultParams = {
-  keyword: "",
-  orderBy: "recent",
-  page: 1,
-};
-
 export default function AllItemsPage() {
-  const [params, setParams] = useFilteredSearchParams(defaultParams);
+  const [params, setParams] = useFilteredSearchParams({
+    keyword: "",
+    orderBy: "recent",
+    page: 1,
+  });
   const { keyword, orderBy, page } = params;
   const { pageSize } = usePageSize(rspnSize);
   const { isLoading, error, items, totalCount } = useList(getProducts, {
@@ -107,7 +100,10 @@ export default function AllItemsPage() {
             <Select
               value={orderBy}
               onChange={handleOrderBy}
-              options={sortOptions}
+              options={[
+                { value: "recent", label: "최신순" },
+                { value: "favorite", label: "좋아요순" },
+              ]}
             />
           }
         />
