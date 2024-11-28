@@ -9,15 +9,16 @@ export default function Search({
   onSubmit,
   onClear,
   placeholder,
-  setIsOpen,
+  onOpenRecent,
+  onCloseRecent,
 }) {
   const inputRef = useRef(null);
 
   function handleSubmit(e) {
     e.preventDefault();
-    onSubmit(value);
+    onSubmit();
     inputRef.current.blur();
-    setIsOpen && setIsOpen(false);
+    onCloseRecent && onCloseRecent();
   }
 
   function handleClear() {
@@ -26,7 +27,7 @@ export default function Search({
   }
 
   function handleFocus() {
-    setIsOpen && setIsOpen(true);
+    onOpenRecent && onOpenRecent();
   }
 
   return (

@@ -3,7 +3,7 @@ import useFilteredSearchParams from "@hooks/useFilteredSearchParams";
 import usePageSize from "@hooks/usePageSize";
 import useList from "@hooks/useList";
 import usePagination from "@hooks/usePagination";
-import useLocalArray from "@hooks/useLocalArray";
+import useLocalStorage from "@hooks/useLocalStorage";
 import { getProducts } from "@service/product";
 import Select from "@components/Select";
 import Search from "@components/Search";
@@ -37,9 +37,12 @@ const defaultParams = {
   page: 1,
 };
 
+const RECENT_SEARCH_SIZE = 5;
+
 export default function AllItems() {
   const [params, setParams] = useFilteredSearchParams(defaultParams);
   const [searchInput, setSearchInput] = useState(params.keyword || "");
+  const [recentSearh, setRecentSearch] = useLocalStorage("keyword", []);
   const { pageSize } = usePageSize(rspnSize);
   const { isLoading, error, items, totalCount } = useList(
     getProducts,
@@ -53,34 +56,54 @@ export default function AllItems() {
     page: Number(page),
     onChange: (page) => setParams((prev) => ({ ...prev, page })),
   });
-  const {
-    data: recentKeywords,
-    addData: saveKeyword,
-    removeData: removeKeyword,
-    clearData: clearKeyword,
-  } = useLocalArray("keyword");
 
-  function handleKeywordSubmit() {
-    searchInput && saveKeyword(searchInput);
-    setParams((prev) => ({ ...prev, page: 1, keyword: searchInput }));
-  }
-
+  // 최근, 좋아요 필터 핸들러
   function handleOrderBy(orderBy) {
     setParams((prev) => ({ ...prev, orderBy }));
   }
 
-  function handleSearchInputChange(e) {
+  // 검색창 핸들러 (submit, change, clear)
+  function handleSearchSubmit() {
+    if (searchInput.trim()) {
+      setRecentSearch((prev) =>
+        [
+          searchInput,
+          ...prev.filter((keyword) => keyword !== searchInput),
+        ].slice(0, RECENT_SEARCH_SIZE)
+      );
+    }
+    //검색인풋 초기화가 좋은 UX일까? (검색취소 버튼이 나오도록, 검색어가 떠있는게 좋은것 같음)
+    //setSearchInput("");
+    setParams((prev) => ({ ...prev, page: 1, keyword: searchInput }));
+  }
+
+  function handleSearchChange(e) {
     setSearchInput(e.target.value);
   }
 
-  function handleSearchInputClear() {
+  function handleSearchClear() {
     setSearchInput("");
     setParams((prev) => ({ ...prev, page: 1, keyword: "" }));
   }
 
-  function handleRecentKeywordClick(keyword) {
-    setSearchInput(keyword);
-    setParams((prev) => ({ ...prev, page: 1, keyword }));
+  // 최근검색 이벤트 핸들러 (click, remove, clear)
+  function handleRecentSearchClick(value) {
+    setRecentSearch((prev) =>
+      [value, ...prev.filter((keyword) => keyword !== value)].slice(
+        0,
+        RECENT_SEARCH_SIZE
+      )
+    );
+    setSearchInput(value);
+    setParams((prev) => ({ ...prev, page: 1, keyword: value }));
+  }
+
+  function handleRecentSearchRemove(value) {
+    setRecentSearch((prev) => prev.filter((keyword) => keyword !== value));
+  }
+
+  function handleRecentSearchClear() {
+    setRecentSearch([]);
   }
 
   return (
@@ -91,16 +114,16 @@ export default function AllItems() {
             <Recent
               title="최근검색"
               storageKey="keyword"
-              data={recentKeywords}
-              onItemClear={clearKeyword}
-              onItemClick={handleRecentKeywordClick}
-              onItemRemove={removeKeyword}
+              data={recentSearh}
+              onItemClick={handleRecentSearchClick}
+              onItemClear={handleRecentSearchClear}
+              onItemRemove={handleRecentSearchRemove}
             >
               <Search
                 value={searchInput}
-                onChange={handleSearchInputChange}
-                onSubmit={handleKeywordSubmit}
-                onClear={handleSearchInputClear}
+                onChange={handleSearchChange}
+                onSubmit={handleSearchSubmit}
+                onClear={handleSearchClear}
                 placeholder="검색할 상품을 입력해주세요"
               />
             </Recent>

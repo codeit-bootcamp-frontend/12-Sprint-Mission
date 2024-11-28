@@ -5,9 +5,9 @@ import styles from "./styles.module.scss";
 export default function Recent({
   title,
   data,
-  onItemClear,
   onItemClick,
   onItemRemove,
+  onItemClear,
   children,
 }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -26,19 +26,22 @@ export default function Recent({
     };
   }, []);
 
-  function handleClick(value) {
-    onItemClick(value);
+  function handleClick(keyword) {
+    onItemClick(keyword);
     setIsOpen(false);
   }
 
-  function handleRemove(e, id) {
+  function handleRemove(e, keyword) {
     e.stopPropagation();
-    onItemRemove(id);
+    onItemRemove(keyword);
   }
 
   return (
     <div className={styles.container} ref={modalRef}>
-      {cloneElement(children, { setIsOpen })}
+      {cloneElement(children, {
+        onOpenRecent: () => setIsOpen(true),
+        onCloseRecent: () => setIsOpen(false),
+      })}
       {isOpen && (
         <div className={styles.modal}>
           <header className={styles.header}>
@@ -55,15 +58,18 @@ export default function Recent({
             <div className={styles.empty}>최근 검색어가 없습니다.</div>
           )}
           <ul className={styles.list}>
-            {data?.map(({ id, value }) => (
-              <li key={id}>
-                <div className={styles.item} onClick={() => handleClick(value)}>
+            {data?.map((keyword) => (
+              <li key={keyword}>
+                <div
+                  className={styles.item}
+                  onClick={() => handleClick(keyword)}
+                >
                   <img src={searchIcon} alt="검색어" />
-                  <div className={styles.content}>{value}</div>
+                  <div className={styles.content}>{keyword}</div>
                   <button
                     type="button"
                     className={styles.button}
-                    onClick={(e) => handleRemove(e, id)}
+                    onClick={(e) => handleRemove(e, keyword)}
                   >
                     삭제
                   </button>
