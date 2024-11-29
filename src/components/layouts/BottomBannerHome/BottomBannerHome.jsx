@@ -1,7 +1,7 @@
 import BannerHome from '../BannerHome/BannerHome';
 import BottomBannerImg from '../../../assets/images/Img_home_bottom.png';
 
-const bannderData = {
+const BANNER_DATA = {
   className: 'bottom-banner',
   subtitle: '믿을 수 있는 판다마켓 중고 거래',
   imageSrc: BottomBannerImg,
@@ -10,7 +10,7 @@ const bannderData = {
 };
 
 const BottomBannerHome = () => {
-  return <BannerHome {...bannderData} />;
+  return <BannerHome {...BANNER_DATA} />;
 };
 
 export default BottomBannerHome;

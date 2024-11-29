@@ -1,8 +1,7 @@
 import styles from './SectionHome.module.css';
 
 const SectionHome = ({ sectionProp }) => {
-  const { number, src, keyword, subtitle1, subtitle2, paragraph1, paragraph2 } =
-    sectionProp;
+  const { number, src, keyword, subtitle, paragraph } = sectionProp;
 
   const imgElement = (
     <img
@@ -12,18 +11,12 @@ const SectionHome = ({ sectionProp }) => {
     />
   );
 
-  const makeSectionExplain = () => {
+  const MakeSectionExplain = () => {
     return (
       <div className={styles['section-explain']}>
         <span className={styles['keyword']}>{keyword}</span>
-        <h2 className={styles['section-title']}>
-          {subtitle1} <br className={styles['section-title-next-line']} />
-          {subtitle2}
-        </h2>
-        <p>
-          {paragraph1} <br />
-          {paragraph2}
-        </p>
+        <h2 className={styles['section-title']}>{subtitle}</h2>
+        <p>{paragraph}</p>
       </div>
     );
   };
@@ -31,14 +24,14 @@ const SectionHome = ({ sectionProp }) => {
   if (number % 2 === 0)
     return (
       <section className={styles['home-main-section']}>
-        {makeSectionExplain()}
+        {MakeSectionExplain()}
         {imgElement}
       </section>
     );
   return (
     <section className={styles['home-main-section']}>
       {imgElement}
-      {makeSectionExplain()}
+      {MakeSectionExplain()}
     </section>
   );
 };
