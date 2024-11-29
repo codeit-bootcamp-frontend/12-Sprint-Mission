@@ -103,8 +103,8 @@
 /* mobile_size */
 @media (max-width: 767px) {
   .home-main-section h2 {
-    font-size: 32px;
-    padding: 0 32px;
+    font-size: 24px;
+    padding: 0;
   }
   .home-main-section p {
     margin: 0 0 40px;

@@ -111,7 +111,13 @@
   }
 
   .browsing {
-    padding: 16px 32px;
-    width: 50%;
+    padding: 20px 32px;
+    width: 70%;
+  }
+}
+
+@media (max-width: 500px) {
+  .top-banner {
+    margin-top: 130px;
   }
 }

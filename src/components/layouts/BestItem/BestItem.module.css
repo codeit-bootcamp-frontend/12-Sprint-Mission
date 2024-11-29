@@ -12,3 +12,8 @@
   font-size: 20px;
   font-weight: 700;
 }
+@media (max-width: 500px) {
+  .best-item {
+    margin-top: 150px;
+  }
+}
