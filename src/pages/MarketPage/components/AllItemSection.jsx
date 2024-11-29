@@ -5,6 +5,7 @@ import ItemCard from "./ItemCard";
 import searchIcon from "../../../images/ic_search.png";
 import dropdownIcon from "../../../images/ic_arrow_down.png";
 import DropdownList from "../../../components/UI/DropdownList";
+import { Link } from "react-router-dom";
 
 const getPageSize = () => {
   const width = window.innerWidth;
@@ -56,7 +57,9 @@ function AllItemSection() {
             <img className="searchIcon" src={searchIcon} alt="검색아이콘" />
             <input className="searchInput" placeholder="검색할 상품을 입력해주세요" />
           </div>
-          <button className="addItem">상품 등록하기</button>
+          <Link to="/additem" className="addItem">
+            상품 등록하기
+          </Link>
           <div className="dropdownContainer">
             <div className="sortButtonWrapper">
               <img className="dropdownIcon" onClick={toggleDropdownWrapper} src={dropdownIcon} alt="드롭다운아이콘" />
