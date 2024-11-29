@@ -15,7 +15,8 @@ const Header = () => {
   };
 
   useEffect(() => {
-    if (pathname === '/items') setItemsActiveTab('blue');
+    if (pathname === '/items' || pathname === '/addItem')
+      setItemsActiveTab('blue');
     else if (pathname === '/community') setCommunityActiveTab('blue');
   }, [pathname]);
 
