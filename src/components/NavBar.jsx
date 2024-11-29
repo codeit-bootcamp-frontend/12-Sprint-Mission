@@ -1,6 +1,7 @@
 import logo from "../images/Group 19.svg";
 import profile from "../images/Group 33728.svg";
 import "../components/NavBar.css";
+import { NavLink } from "react-router-dom";
 
 function NavBar() {
   return (
@@ -11,8 +12,12 @@ function NavBar() {
         </div>
         <div>
           <div className="navContents">
-            <a>자유게시판</a>
-            <a>중고마켓</a>
+            <NavLink className="navContent" to="./Itempage">
+              자유게시판
+            </NavLink>
+            <NavLink className="navContent" to="./Itempage">
+              중고마켓
+            </NavLink>
           </div>
         </div>
       </div>

@@ -2,6 +2,7 @@ import ProductItem from "./ProductItem";
 import { useEffect, useState } from "react";
 import { getData } from "../api";
 import "../components/AllProductContainer.css";
+import { Link } from "react-router-dom";
 
 function AllProductContainer() {
   const [itemList, setItemList] = useState();
@@ -14,6 +15,7 @@ function AllProductContainer() {
   useEffect(() => {
     getData({ pageSize, orderBy }).then((data) => setItemList(data));
   }, [pageSize, orderBy]);
+
   return (
     <div>
       <div className="navSearch">
@@ -23,9 +25,11 @@ function AllProductContainer() {
             className="navSearch_input"
             placeholder="검색할 상품을 입력해주세요"
           ></input>
-          <button className="navSearch_Btn" type="submitBtn">
-            상품 등록하기
-          </button>
+          <Link to="/additem">
+            <button className="navSearch_Btn" type="button">
+              상품 등록하기
+            </button>
+          </Link>
           <div>
             <select
               className="navSearch_choice"
