@@ -12,22 +12,6 @@ const Header = () => {
   const onClickMenu = (menu) => {
     if (menu === 'home') navigate('/');
     else navigate(`/${menu}`);
-    // switch (menu) {
-    //   case 'home':
-    //     navigate('/');
-    //     break;
-    //   case 'login':
-    //     navigate('/login');
-    //     break;
-    //   case 'items':
-    //     navigate('/items');
-    //     break;
-    //   case 'community':
-    //     navigate('/community');
-    //     break;
-    //   default:
-    //     break;
-    // }
   };
 
   useEffect(() => {
