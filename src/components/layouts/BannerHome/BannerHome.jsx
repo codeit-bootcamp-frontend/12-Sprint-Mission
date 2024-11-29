@@ -4,20 +4,11 @@ import styles from './BannerHome.module.css';
 const BannerHome = ({
   className,
   title,
-  subtitle1,
-  subtitle2,
-  nextLineClass,
+  subtitle,
   imageSrc,
   linkText,
   linkClass,
 }) => {
-  const subtitle = (
-    <>
-      {subtitle1}
-      <br className={nextLineClass} />
-      {subtitle2}
-    </>
-  );
   const bannerPosition = title ? 'top' : 'bottom';
   return (
     <section className={`${styles.banner} ${styles[className]}`}>

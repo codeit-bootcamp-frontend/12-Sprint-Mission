@@ -7,6 +7,7 @@
   font-size: 40px;
   font-weight: 700;
   line-height: 56px;
+  white-space: pre-wrap;
 }
 
 .banner p {
@@ -102,6 +103,7 @@
   .banner h2 {
     font-size: 32px;
     padding: 0 32px;
+    width: 300px;
   }
   .banner p {
     margin: 0 0 40px;
@@ -113,6 +115,9 @@
   .browsing {
     padding: 20px 32px;
     width: 70%;
+  }
+  .top-banner {
+    margin-top: 70px;
   }
 }
 
