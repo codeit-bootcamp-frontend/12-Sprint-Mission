@@ -1,6 +1,7 @@
 import ProductItem from "./ProductItem";
 import { useEffect, useState } from "react";
 import { getData } from "../api";
+import "../components/AllProductContainer.css";
 
 function AllProductContainer() {
   const [itemList, setItemList] = useState();
@@ -15,18 +16,30 @@ function AllProductContainer() {
   }, [pageSize, orderBy]);
   return (
     <div>
-      <h2>전체 상품</h2>
-      <div>
-        <select
-          onChange={(e) => {
-            const selectedValue = e.target.value;
-            if (selectedValue === "최신순") handleNewestClick();
-            if (selectedValue === "베스트순") handleBestClick();
-          }}
-        >
-          <option value="최신순">최신순</option>
-          <option value="베스트순">베스트순</option>
-        </select>
+      <div className="navSearch">
+        <h2>전체 상품</h2>
+        <div className="navSearchBar">
+          <input
+            className="navSearch_input"
+            placeholder="검색할 상품을 입력해주세요"
+          ></input>
+          <button className="navSearch_Btn" type="submitBtn">
+            상품 등록하기
+          </button>
+          <div>
+            <select
+              className="navSearch_choice"
+              onChange={(e) => {
+                const selectedValue = e.target.value;
+                if (selectedValue === "최신순") handleNewestClick();
+                if (selectedValue === "베스트순") handleBestClick();
+              }}
+            >
+              <option value="최신순">최신순</option>
+              <option value="베스트순">베스트순</option>
+            </select>
+          </div>
+        </div>
       </div>
       <div className="product_list">
         {itemList?.list?.map((item, index) => (
