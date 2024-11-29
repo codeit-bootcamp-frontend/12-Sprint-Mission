@@ -1,15 +1,15 @@
 import { createBrowserRouter } from 'react-router-dom';
 import React from 'react';
 import Layout from '../pages/Layout';
-import Home from '../pages/Home/Home';
-import Community from '../pages/Community/Community';
-import Login from '../pages/Login/Login';
-import Signup from '../pages/Signup/Signup';
-import AddItem from '../pages/AddItem/AddItem';
-import Items from '../pages/Items/Items';
-import Privacy from '../pages/Privacy/Privacy';
-import Faq from '../pages/Faq/Faq';
-import ErrorPage from '../pages/ErrorPage/ErrorPage';
+import Home from '../pages/Home/index';
+import Community from '../pages/Community/index';
+import Login from '../pages/Login/index';
+import Signup from '../pages/Signup/index';
+import AddItem from '../pages/AddItem/index';
+import Items from '../pages/Items/index';
+import Privacy from '../pages/Privacy/index';
+import Faq from '../pages/Faq/index';
+import ErrorPage from '../pages/ErrorPage/index';
 
 const router = createBrowserRouter([
   {
