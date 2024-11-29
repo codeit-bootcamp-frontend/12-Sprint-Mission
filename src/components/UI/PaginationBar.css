@@ -1,0 +1,30 @@
+.paginationBar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+}
+
+.paginationButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 0.1rem solid var(--secondary-200);
+  border-radius: 4rem;
+  width: 4rem;
+  height: 4rem;
+  color: var(--secondary-500);
+  font-weight: 600;
+  font-size: 1.6rem;
+  line-height: 2.6rem;
+}
+
+.paginationButton:disabled {
+  cursor: default;
+  opacity: 0.5;
+}
+
+.paginationButton.active {
+  background-color: #2f80ed;
+  color: var(--color-white);
+}
