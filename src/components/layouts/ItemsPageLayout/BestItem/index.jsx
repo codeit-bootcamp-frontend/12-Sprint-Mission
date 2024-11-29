@@ -3,24 +3,28 @@ import ItemCard from '../ItemCard/index';
 import getItems from '../../../../api/productGet';
 import { useEffect, useState, useCallback } from 'react';
 import styles from './index.module.css';
+import { MEDIA_KEY, ORDER, BEST_CARD_CNT } from '../../../../utils/constant';
 
 const BestItem = () => {
-  const mobileWidth = useMediaQuery({ query: '(max-width:768px)' });
+  const mobileWidth = useMediaQuery({ query: MEDIA_KEY.MOBILE });
   const tabletWidth = useMediaQuery({
-    query: '(min-width: 769px) and (max-width: 1200px)',
+    query: MEDIA_KEY.TABLET,
   });
   const [cardCnt, setCardCnt] = useState();
   const [cards, setCards] = useState([]);
 
   const getProduct = useCallback(async () => {
-    const items = await getItems({ pageSize: cardCnt, orderBy: 'favorite' });
+    const items = await getItems({
+      pageSize: cardCnt,
+      orderBy: ORDER.FAVORITE,
+    });
     setCards(items.list);
   }, [cardCnt]);
 
   useEffect(() => {
-    if (mobileWidth) setCardCnt(1);
-    if (tabletWidth) setCardCnt(2);
-    if (!mobileWidth && !tabletWidth) setCardCnt(4);
+    if (mobileWidth) setCardCnt(BEST_CARD_CNT.MOBILE);
+    if (tabletWidth) setCardCnt(BEST_CARD_CNT.TABLET);
+    if (!mobileWidth && !tabletWidth) setCardCnt(BEST_CARD_CNT.DESKTOP);
   }, [mobileWidth, tabletWidth]);
 
   useEffect(() => {

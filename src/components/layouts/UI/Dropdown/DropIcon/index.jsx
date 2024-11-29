@@ -2,9 +2,10 @@ import { useMediaQuery } from 'react-responsive';
 import underArrowImg from '../../../../../assets/images/underArrowImg.png';
 import sortIcon from '../../../../../assets/images/sortIcon.png';
 import styles from './index.module.css';
+import { MEDIA_KEY } from '../../../../../utils/constant';
 
 const DropIcon = ({ order }) => {
-  const mobileWidth = useMediaQuery({ query: '(max-width:768px)' });
+  const mobileWidth = useMediaQuery({ query: MEDIA_KEY.MOBILE });
   if (mobileWidth) {
     return (
       <img src={sortIcon} alt="정렬 아이콘" className={styles['sort-icon']} />

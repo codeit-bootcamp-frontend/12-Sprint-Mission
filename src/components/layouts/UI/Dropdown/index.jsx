@@ -1,10 +1,11 @@
 import { useState } from 'react';
 import DropIcon from './DropIcon/index';
 import styles from './index.module.css';
+import { ORDER } from '../../../../utils/constant';
 
 const Dropdown = ({ onClick }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [orderText, setOrderText] = useState('최신순');
+  const [orderText, setOrderText] = useState(ORDER.RECNET_TEXT);
 
   const toggleDropdown = () => {
     setIsOpen((prevState) => !prevState);
@@ -12,8 +13,8 @@ const Dropdown = ({ onClick }) => {
   const clickEvent = (order) => {
     onClick(order);
     setIsOpen(false);
-    if (order === 'recent') setOrderText('최신순');
-    else setOrderText('좋아요순');
+    if (order === ORDER.RECENT) setOrderText(ORDER.RECNET_TEXT);
+    else setOrderText(ORDER.FAVORITE_TEXT);
   };
   return (
     <div className={styles['dropdown-container']}>
@@ -24,15 +25,15 @@ const Dropdown = ({ onClick }) => {
         <ul className={styles['dropdown-list']}>
           <li
             className={styles['newest-sort']}
-            onClick={() => clickEvent('recent')}
+            onClick={() => clickEvent(ORDER.RECENT)}
           >
-            최신순
+            {ORDER.RECNET_TEXT}
           </li>
           <li
             className={styles['favorite-sort']}
-            onClick={() => clickEvent('favorite')}
+            onClick={() => clickEvent(ORDER.FAVORITE)}
           >
-            좋아요순
+            {ORDER.FAVORITE_TEXT}
           </li>
         </ul>
       )}

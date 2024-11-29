@@ -2,8 +2,10 @@ import { useCallback, useEffect, useState } from 'react';
 import arrowLeft from '../../../../assets/images/arrow_left.png';
 import arrowRight from '../../../../assets/images/arrow_right.png';
 import styles from './index.module.css';
-const PaginationBar = ({ onClick, order, totalPageNum, cardCnt }) => {
-  const [activeNum, setActiveNum] = useState(1);
+import { PAGE_RELATION_NUMBER } from '../../../../utils/constant';
+
+const PaginationBar = ({ onClick, order, totalPageNum }) => {
+  const [activeNum, setActiveNum] = useState(PAGE_RELATION_NUMBER.INIT_PAGE);
   const [disabledArrowLeft, setDisabledArrowLeft] = useState(true);
   const [disabledArrowRight, setDisabledArrowRight] = useState(false);
 
@@ -15,25 +17,31 @@ const PaginationBar = ({ onClick, order, totalPageNum, cardCnt }) => {
     [onClick]
   );
 
-  const startNum = Math.floor((activeNum - 1) / 5) * 5 + 1;
+  const startNum =
+    Math.floor((activeNum - 1) / PAGE_RELATION_NUMBER.MAX_PAGINATION_SIZE) *
+      PAGE_RELATION_NUMBER.MAX_PAGINATION_SIZE +
+    1;
 
   const pages = Array.from(
     {
-      length: Math.min(5, Math.ceil(totalPageNum - startNum) + 1),
+      length: Math.min(
+        PAGE_RELATION_NUMBER.MAX_PAGINATION_SIZE,
+        Math.ceil(totalPageNum - startNum) + 1
+      ),
     },
     (_, i) => startNum + i
   );
 
   const prevClick = () => {
-    pageSelect(startNum - 5);
+    pageSelect(startNum - PAGE_RELATION_NUMBER.MAX_PAGINATION_SIZE);
   };
 
   const nextClick = () => {
-    pageSelect(startNum + 5);
+    pageSelect(startNum + PAGE_RELATION_NUMBER.MAX_PAGINATION_SIZE);
   };
 
   useEffect(() => {
-    setActiveNum(1);
+    setActiveNum(PAGE_RELATION_NUMBER.INIT_PAGE);
   }, [order]);
 
   useEffect(() => {
@@ -41,13 +49,20 @@ const PaginationBar = ({ onClick, order, totalPageNum, cardCnt }) => {
   }, [activeNum, totalPageNum, pageSelect]);
 
   useEffect(() => {
-    const divActiveNum = Math.floor((activeNum - 1) / 5);
-    const divTotalPageNum = Math.floor((totalPageNum - 1) / 5);
-    if (activeNum > 5) setDisabledArrowLeft(false);
+    const divActiveNum = Math.floor(
+      (activeNum - 1) / PAGE_RELATION_NUMBER.MAX_PAGINATION_SIZE
+    );
+    const divTotalPageNum = Math.floor(
+      (totalPageNum - 1) / PAGE_RELATION_NUMBER.MAX_PAGINATION_SIZE
+    );
+    if (activeNum > PAGE_RELATION_NUMBER.MAX_PAGINATION_SIZE)
+      setDisabledArrowLeft(false);
     else setDisabledArrowLeft(true);
-    if (totalPageNum <= 5) {
+
+    if (totalPageNum <= PAGE_RELATION_NUMBER.MAX_PAGINATION_SIZE) {
       setDisabledArrowRight(true);
     }
+
     if (divActiveNum === divTotalPageNum) setDisabledArrowRight(true);
     else setDisabledArrowRight(false);
   }, [activeNum, totalPageNum]);
