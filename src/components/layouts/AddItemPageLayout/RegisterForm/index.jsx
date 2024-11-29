@@ -1,5 +1,6 @@
 import styled from 'styled-components';
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useState, useRef } from 'react';
+import closeImg from '../../../../assets/images/ic_X.svg';
 
 const Form = styled.form`
   display: flex;
@@ -97,6 +98,7 @@ const TitleDiv = styled.div`
 `;
 
 const PreviewImg = styled.img`
+  border-radius: 12px;
   width: 280px;
   height: 280px;
   @media (max-width: 1200px) {
@@ -114,18 +116,41 @@ const ImgArea = styled.div`
   gap: 10px;
 `;
 
+const WarningMessage = styled.p`
+  color: #f74747;
+  font-size: 16px;
+  font-weight: 400;
+`;
+
+const PreviewImgArea = styled.div`
+  position: relative;
+`;
+
+const CloseImg = styled.img`
+  position: absolute;
+  top: 10px;
+  right: 10px;
+`;
+
 const RegisterForm = () => {
   const [imgPreview, setImgPreview] = useState(null);
   const [isValid, setIsValid] = useState(false);
   const [name, setName] = useState('');
   const [price, setPrice] = useState('');
+  const [isImg, setIsImg] = useState(false);
+  const fileInputRef = useRef(null);
 
   const changeImg = ({ target }) => {
     const file = target.files[0];
     if (!file) return;
     //img 추가 전에 전에 생성한 URL 객체는 삭제
-    if (imgPreview) URL.revokeObjectURL(imgPreview);
+    if (imgPreview) {
+      setIsImg(true);
+      return;
+    }
+
     const preview = URL.createObjectURL(file);
+
     setImgPreview(preview);
   };
   const checkValid = useCallback(() => {
@@ -150,6 +175,17 @@ const RegisterForm = () => {
     setter(value);
   };
 
+  const closePreview = (e) => {
+    if (imgPreview) {
+      URL.revokeObjectURL(imgPreview);
+      setImgPreview(null);
+      setIsImg(false);
+      if (fileInputRef.current) {
+        fileInputRef.current.value = null;
+      }
+    }
+  };
+
   useEffect(() => {
     checkValid();
   }, [name, price, checkValid]);
@@ -164,9 +200,23 @@ const RegisterForm = () => {
       <Label>상품 이미지</Label>
       <ImgArea>
         <FileButton htmlFor="file">이미지 등록</FileButton>
-        <FileInput id="file" type="file" onChange={changeImg} />
-        {imgPreview && <PreviewImg src={imgPreview} alt="이미지 미리보기" />}
+        <FileInput
+          id="file"
+          type="file"
+          onChange={changeImg}
+          ref={fileInputRef}
+        />
+        {imgPreview && (
+          <PreviewImgArea>
+            <PreviewImg src={imgPreview} alt="이미지 미리보기" />
+            <CloseImg src={closeImg} alt="닫기 이미지" onClick={closePreview} />
+          </PreviewImgArea>
+        )}
       </ImgArea>
+      {isImg && (
+        <WarningMessage>*이미지 등록은 최대 1개까지 가능합니다.</WarningMessage>
+      )}
+
       <Label htmlFor="item-name">상품명</Label>
       <Input
         id="item-name"
