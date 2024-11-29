@@ -10,22 +10,24 @@ const Header = () => {
   const [communityActiveTab, setCommunityActiveTab] = useState('');
 
   const onClickMenu = (menu) => {
-    switch (menu) {
-      case 'home':
-        navigate('/');
-        break;
-      case 'login':
-        navigate('/login');
-        break;
-      case 'items':
-        navigate('/items');
-        break;
-      case 'community':
-        navigate('/community');
-        break;
-      default:
-        break;
-    }
+    if (menu === 'home') navigate('/');
+    else navigate(`/${menu}`);
+    // switch (menu) {
+    //   case 'home':
+    //     navigate('/');
+    //     break;
+    //   case 'login':
+    //     navigate('/login');
+    //     break;
+    //   case 'items':
+    //     navigate('/items');
+    //     break;
+    //   case 'community':
+    //     navigate('/community');
+    //     break;
+    //   default:
+    //     break;
+    // }
   };
 
   useEffect(() => {
