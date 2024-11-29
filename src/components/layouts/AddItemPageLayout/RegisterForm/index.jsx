@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 
 const Form = styled.form`
   display: flex;
@@ -116,6 +116,9 @@ const ImgArea = styled.div`
 
 const RegisterForm = () => {
   const [imgPreview, setImgPreview] = useState(null);
+  const [isValid, setIsValid] = useState(false);
+  const [name, setName] = useState('');
+  const [price, setPrice] = useState(0);
 
   const changeImg = ({ target }) => {
     const file = target.files[0];
@@ -125,13 +128,24 @@ const RegisterForm = () => {
     const preview = URL.createObjectURL(file);
     setImgPreview(preview);
   };
+  const checkValid = useCallback(() => {
+    const validResult = name.trim() !== '' && price > 0;
+    setIsValid(validResult);
+  }, [name, price]);
+  //change 중복 정의 대신 커링 방식으로 setter함수 넘겨주기
+  const inputChangeHandler = (setter) => (e) => {
+    setter(e.target.value);
+  };
 
-  const isValid = true;
+  useEffect(() => {
+    checkValid();
+  }, [name, price, checkValid]);
+
   return (
     <Form>
       <TitleDiv>
         <Title>상품 등록하기</Title>
-        <SubmitButton disabled={isValid}>등록</SubmitButton>
+        <SubmitButton disabled={!isValid}>등록</SubmitButton>
       </TitleDiv>
 
       <Label>상품 이미지</Label>
@@ -146,6 +160,7 @@ const RegisterForm = () => {
         name="item-name"
         type="text"
         placeholder="상품명을 입력해주세요"
+        onChange={inputChangeHandler(setName)}
       />
 
       <Label htmlFor="item-explain">상품 소개</Label>
@@ -161,6 +176,8 @@ const RegisterForm = () => {
         name="item-price"
         type="number"
         placeholder="판매 가격을 입력해주세요"
+        value={price}
+        onChange={inputChangeHandler(setPrice)}
       />
 
       <Label htmlFor="tag">태그</Label>
