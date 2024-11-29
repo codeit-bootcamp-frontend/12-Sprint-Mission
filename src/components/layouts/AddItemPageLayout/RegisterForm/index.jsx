@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { useState } from 'react';
 
 const Form = styled.form`
   display: flex;
@@ -95,7 +96,36 @@ const TitleDiv = styled.div`
   border-radius: 8px;
 `;
 
+const PreviewImg = styled.img`
+  width: 280px;
+  height: 280px;
+  @media (max-width: 1200px) {
+    width: 170px;
+    height: 170px;
+  }
+  @media (max-width: 500px) {
+    width: 100px;
+    height: 100px;
+  }
+`;
+
+const ImgArea = styled.div`
+  display: flex;
+  gap: 10px;
+`;
+
 const RegisterForm = () => {
+  const [imgPreview, setImgPreview] = useState(null);
+
+  const changeImg = ({ target }) => {
+    const file = target.files[0];
+    if (!file) return;
+    //img 추가 전에 전에 생성한 URL 객체는 삭제
+    if (imgPreview) URL.revokeObjectURL(imgPreview);
+    const preview = URL.createObjectURL(file);
+    setImgPreview(preview);
+  };
+
   const isValid = true;
   return (
     <Form>
@@ -105,10 +135,11 @@ const RegisterForm = () => {
       </TitleDiv>
 
       <Label>상품 이미지</Label>
-
-      <FileButton htmlFor="file">이미지 등록</FileButton>
-      <FileInput id="file" type="file" />
-
+      <ImgArea>
+        <FileButton htmlFor="file">이미지 등록</FileButton>
+        <FileInput id="file" type="file" onChange={changeImg} />
+        {imgPreview && <PreviewImg src={imgPreview} alt="이미지 미리보기" />}
+      </ImgArea>
       <Label htmlFor="item-name">상품명</Label>
       <Input
         id="item-name"
