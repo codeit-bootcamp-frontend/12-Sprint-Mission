@@ -118,7 +118,7 @@ const RegisterForm = () => {
   const [imgPreview, setImgPreview] = useState(null);
   const [isValid, setIsValid] = useState(false);
   const [name, setName] = useState('');
-  const [price, setPrice] = useState(0);
+  const [price, setPrice] = useState('');
 
   const changeImg = ({ target }) => {
     const file = target.files[0];
@@ -132,9 +132,22 @@ const RegisterForm = () => {
     const validResult = name.trim() !== '' && price > 0;
     setIsValid(validResult);
   }, [name, price]);
-  //change 중복 정의 대신 커링 방식으로 setter함수 넘겨주기
+  //inputChange 중복 정의 대신 커링 방식으로 setter함수 넘겨주기
   const inputChangeHandler = (setter) => (e) => {
-    setter(e.target.value);
+    let value = e.target.value;
+    if (setter === setPrice) {
+      value = value.trim();
+      let num = Number(value.replace(/,/g, ''));
+      if (isNaN(num)) {
+        setter('');
+        return;
+      }
+      //최대 금액 설정
+      if (num > 1_000_000_000) num = 1_000_000_000;
+      setter(num);
+      return;
+    }
+    setter(value);
   };
 
   useEffect(() => {
@@ -174,9 +187,9 @@ const RegisterForm = () => {
       <Input
         id="item-price"
         name="item-price"
-        type="number"
+        type="text"
         placeholder="판매 가격을 입력해주세요"
-        value={price}
+        value={price.toLocaleString()}
         onChange={inputChangeHandler(setPrice)}
       />
 
