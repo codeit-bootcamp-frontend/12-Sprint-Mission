@@ -1,9 +1,11 @@
 .container {
-  max-width: 120rem;
+  max-width: 124rem;
   margin: 0 auto;
+  margin-bottom: 7rem;
+  padding: 0 2rem;
 
   @media (max-width: 1199px) {
-    margin: 0 2.4rem 7.8rem 2.4rem;
+    margin: 0 2.4rem 7rem 2.4rem;
   }
 
   @media (max-width: 767px) {
