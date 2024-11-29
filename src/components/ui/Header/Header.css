@@ -40,4 +40,14 @@ header {
   header {
     padding: 9px 24px;
   }
+
+  .header-nav {
+    gap: 0px;
+  }
+}
+
+@media (max-width: 767px) {
+  .header-nav a {
+    padding: 15px 8px;
+  }
 }
