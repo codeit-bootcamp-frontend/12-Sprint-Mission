@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import arrowLeft from '../../../assets/images/arrow_left.png';
 import arrowRight from '../../../assets/images/arrow_right.png';
 import styles from './Pagination.module.css';
@@ -7,10 +7,13 @@ const PaginationBar = ({ onClick, order, totalPageNum, cardCnt }) => {
   const [disabledArrowLeft, setDisabledArrowLeft] = useState(true);
   const [disabledArrowRight, setDisabledArrowRight] = useState(false);
 
-  const pageSelect = (pageNum) => {
-    setActiveNum(pageNum);
-    onClick(pageNum);
-  };
+  const pageSelect = useCallback(
+    (pageNum) => {
+      setActiveNum(pageNum);
+      onClick(pageNum);
+    },
+    [onClick]
+  );
 
   const startNum = Math.floor((activeNum - 1) / 5) * 5 + 1;
 
@@ -35,7 +38,7 @@ const PaginationBar = ({ onClick, order, totalPageNum, cardCnt }) => {
 
   useEffect(() => {
     if (activeNum > totalPageNum) pageSelect(totalPageNum);
-  }, [totalPageNum]);
+  }, [activeNum, totalPageNum, pageSelect]);
 
   useEffect(() => {
     const divActiveNum = Math.floor((activeNum - 1) / 5);
