@@ -1,3 +1,4 @@
+import ImageUpload from "../../components/UI/ImageUpload";
 import "./AddItemPage.css";
 
 function AddItemPage() {
@@ -9,6 +10,10 @@ function AddItemPage() {
           <button type="submit" className="addItemButton button">
             등록
           </button>
+        </div>
+
+        <div className="inputSection">
+          <ImageUpload title="상품 이미지" />
         </div>
       </form>
     </div>

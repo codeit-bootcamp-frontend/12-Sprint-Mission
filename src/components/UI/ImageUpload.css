@@ -1,0 +1,32 @@
+.imageUploadTitle {
+  margin-bottom: 1.6rem;
+  font-weight: 700;
+  font-size: 1.8rem;
+  line-height: 2.6rem;
+  color: var(--secondary-800);
+}
+
+.imageUploadContainer {
+  display: flex;
+  justify-content: center;
+  width: 28.2rem;
+  height: 28.2rem;
+  border-radius: 1.2rem;
+  background-color: var(--secondary-100);
+}
+
+.uploadButton {
+  color: var(--secondary-400);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.3rem;
+  font-size: 1.6rem;
+  cursor: pointer;
+}
+
+.plusIcon {
+  width: 24px;
+  height: 24px;
+}
