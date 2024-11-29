@@ -8,6 +8,8 @@ export function TagsInput({ error, value, id, name, onChange, placeholder }) {
   const valid = value.length && !error;
 
   function handleKeyDown(e) {
+    if (e.nativeEvent.isComposing) return;
+
     if (e.key === "Enter") {
       const tag = inputRef.current.value.trim();
       if (tag && !value.includes(tag)) {
@@ -15,7 +17,6 @@ export function TagsInput({ error, value, id, name, onChange, placeholder }) {
         onChange(name, newTags);
       }
       inputRef.current.value = "";
-      inputRef.current.blur();
     }
   }
 
@@ -31,7 +32,7 @@ export function TagsInput({ error, value, id, name, onChange, placeholder }) {
           ref={inputRef}
           type="text"
           className={clsx("field-box", valid && "valid", error && "error")}
-          onKeyUp={handleKeyDown}
+          onKeyDown={handleKeyDown}
           id={name}
           name={name}
           placeholder={placeholder}
