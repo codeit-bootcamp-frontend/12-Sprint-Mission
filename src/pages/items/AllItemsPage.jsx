@@ -11,18 +11,6 @@ import ProductList from "./components/ProductList";
 import ProductFilter from "./components/ProdcutFilter";
 import useRecentSearch from "./components/useRecentSearch";
 
-const rspnSize = {
-  pc: 10,
-  tablet: 6,
-  mobile: 4,
-};
-
-const rspnCol = {
-  pc: 5,
-  tablet: 3,
-  mobile: 2,
-};
-
 export default function AllItemsPage() {
   const [params, setParams] = useFilteredSearchParams({
     keyword: "",
@@ -30,7 +18,11 @@ export default function AllItemsPage() {
     page: 1,
   });
   const { keyword, orderBy, page } = params;
-  const { pageSize } = usePageSize(rspnSize);
+  const { pageSize } = usePageSize({
+    pc: 10,
+    tablet: 6,
+    mobile: 4,
+  });
   const { isLoading, error, items, totalCount } = useList(getProducts, {
     page,
     pageSize,
@@ -114,7 +106,11 @@ export default function AllItemsPage() {
           keyword={keyword}
           isLoading={isLoading}
           error={error}
-          rspnCol={rspnCol}
+          rspnCol={{
+            pc: 5,
+            tablet: 3,
+            mobile: 2,
+          }}
         />
         <Pagination {...pagination} />
       </Section.Content>

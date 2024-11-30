@@ -4,20 +4,12 @@ import { getProducts } from "@service/product";
 import { Section } from "@components/Section";
 import ProductList from "./components/ProductList";
 
-const rspnSize = {
-  pc: 4,
-  tablet: 2,
-  mobile: 1,
-};
-
-const rspnCol = {
-  pc: 4,
-  tablet: 2,
-  mobile: 1,
-};
-
 export default function BestItemsPage() {
-  const { pageSize } = usePageSize(rspnSize);
+  const { pageSize } = usePageSize({
+    pc: 4,
+    tablet: 2,
+    mobile: 1,
+  });
   const { isLoading, error, items } = useList(getProducts, {
     pageSize,
     orderBy: "favorite",
@@ -31,7 +23,11 @@ export default function BestItemsPage() {
           items={items}
           isLoading={isLoading}
           error={error}
-          rspnCol={rspnCol}
+          rspnCol={{
+            pc: 4,
+            tablet: 2,
+            mobile: 1,
+          }}
         />
       </Section.Content>
     </Section>
