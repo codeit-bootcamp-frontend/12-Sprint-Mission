@@ -1,4 +1,4 @@
-import useSyncParams from "@hooks/useSyncParams";
+import { useSearchParams } from "react-router-dom";
 import usePageSize from "@hooks/usePageSize";
 import useList from "@hooks/useList";
 import usePagination from "@hooks/usePagination";
@@ -12,17 +12,17 @@ import ProductFilter from "./components/ProdcutFilter";
 import useRecentSearch from "./components/useRecentSearch";
 
 export default function AllItemsPage() {
-  const [params, setParams] = useSyncParams({
-    keyword: "",
-    orderBy: "recent",
-    page: 1,
-  });
-  const { keyword, orderBy, page } = params;
+  const [params, setParams] = useSearchParams();
+
+  const keyword = params.get("keyword") || "";
+  const orderBy = params.get("orderBy") || "recent";
+  const page = params.get("page") || 1;
   const { pageSize } = usePageSize({
     pc: 10,
     tablet: 6,
     mobile: 4,
   });
+
   const { isLoading, error, items, totalCount } = useList(getProducts, {
     page,
     pageSize,
