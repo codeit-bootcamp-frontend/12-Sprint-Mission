@@ -1,7 +1,7 @@
 @font-face {
   font-family: 'ROKAF Sans';
   font-weight: 700;
-  src: url(/font/ROKAF\ Sans\ Bold.otf) format('otf');
+  src: url(../font/ROKAF\ Sans\ Bold.otf) format('otf');
 }
 
 :root {
@@ -48,11 +48,12 @@ a {
   color: #f3f4f6;
   font-weight: 600;
   white-space: nowrap;
-  cursor: pointer;
+  border: none;
 }
 
 .btn:hover {
   background-color: var(--blue200);
+  cursor: pointer;
 }
 
 .btn:active {

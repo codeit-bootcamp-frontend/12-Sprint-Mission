@@ -1,0 +1,39 @@
+header {
+  height: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 200px;
+  border-bottom: 1px solid #dfdfdf;
+}
+
+.headerLeft {
+  display: flex;
+  gap: 32px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8.59px;
+  font-size: 25.63px;
+  line-height: 34.6px;
+}
+
+.logoImg,
+.profileImg {
+  width: 40px;
+  height: 40px;
+}
+
+nav {
+  display: flex;
+}
+
+.navMenu {
+  padding: 21px 15px;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 26px;
+  color: var(--gray-600);
+}

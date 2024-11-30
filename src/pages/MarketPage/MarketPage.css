@@ -1,0 +1,140 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  width: 1201px;
+  margin: 0 auto;
+}
+
+.sectionTitle {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 32px;
+  color: var(--gray900);
+}
+
+.itemCard {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.itemImg {
+  border-radius: 16px;
+}
+
+.bestItemsSection {
+  margin-top: 24px;
+}
+
+.bestItemsSection .itemImg {
+  width: 282px;
+  height: 282px;
+}
+
+.bestItemsSection .itemCard {
+  width: 282px;
+}
+
+.allItemsSection .itemImg {
+  width: 221px;
+  height: 221px;
+}
+
+.allItemsSection .itemCard {
+  width: 221px;
+}
+
+.allItemsSection .itemsSection {
+  margin-top: 24px;
+  margin-bottom: 43px;
+}
+
+.allItemsSectionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.allItemsSectionHeaderRight {
+  display: flex;
+  gap: 12px;
+}
+
+.searchInput {
+  padding: 9px 20px 9px 16px;
+  width: 325px;
+  background-color: #f3f4f6;
+  border: none;
+  border-radius: 12px;
+}
+
+.searchInput::placeholder {
+  background-image: url(../../images/ic_search.png);
+  background-repeat: no-repeat;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+}
+
+.searchIcon {
+  width: 24px;
+  height: 24px;
+}
+
+.itemContent {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.itemDescription {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 24px;
+  color: var(--gray800);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.itemPrice {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 26px;
+  color: var(--gray800);
+}
+
+.itemFavorite {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.itemFavoriteCount {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 18px;
+  color: var(--gray600);
+}
+
+.itemsSection {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 1199px) {
+  .searchInput {
+    width: 242px;
+  }
+
+  .bestItemsSection .itemImg {
+    width: 343px;
+    height: 343px;
+  }
+
+  .bestItemsSection .itemCard {
+    width: 343px;
+  }
+}

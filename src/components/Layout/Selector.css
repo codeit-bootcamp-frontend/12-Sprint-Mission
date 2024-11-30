@@ -1,0 +1,45 @@
+.selector {
+  width: 130px;
+  position: relative;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+}
+
+.selected {
+  padding: 12px 20px;
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid var(--gray200);
+  border-radius: 12px;
+  background-color: #ffffff;
+  cursor: pointer;
+}
+
+.selectedValue {
+  color: #1f2937;
+}
+
+.options {
+  width: 130px;
+  height: 84px;
+  position: absolute;
+  top: 60px;
+  border-radius: 12px;
+  border: 1px solid var(--gray200);
+  z-index: 99px;
+  background-color: #ffffff;
+}
+
+.option {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 42px;
+  border-bottom: 1px solid var(--gray200);
+  cursor: pointer;
+}
+
+.option.lastOption {
+  border-bottom: none;
+}
