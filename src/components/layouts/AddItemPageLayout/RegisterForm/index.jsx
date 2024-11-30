@@ -132,18 +132,41 @@ const CloseImg = styled.img`
   right: 10px;
 `;
 
+const Tags = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-bottom: 50px;
+`;
+
+const Tag = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid var(--gray100);
+  border-radius: 26px;
+  padding: 6px 12px;
+  background-color: var(--gray100);
+`;
+
+const TagName = styled.span`
+  font-size: 16px;
+  font-weight: 400;
+`;
+
 const RegisterForm = () => {
   const [imgPreview, setImgPreview] = useState(null);
   const [isValid, setIsValid] = useState(false);
   const [name, setName] = useState('');
   const [price, setPrice] = useState('');
   const [isImg, setIsImg] = useState(false);
+  const [tags, setTags] = useState([]);
   const fileInputRef = useRef(null);
 
   const changeImg = ({ target }) => {
     const file = target.files[0];
     if (!file) return;
-    //img 추가 전에 전에 생성한 URL 객체는 삭제
     if (imgPreview) {
       setIsImg(true);
       return;
@@ -183,6 +206,18 @@ const RegisterForm = () => {
       if (fileInputRef.current) {
         fileInputRef.current.value = null;
       }
+    }
+  };
+
+  const keydownHandler = (e) => {
+    const value = e.target.value;
+    //엔터 혹은 스페이스바
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      setTags((prevTags) => {
+        e.target.value = '';
+        return [value, ...prevTags];
+      });
     }
   };
 
@@ -249,7 +284,18 @@ const RegisterForm = () => {
         name="tag"
         type="text"
         placeholder="태그를 입력해주세요"
+        onKeyDown={keydownHandler}
       />
+      <Tags>
+        {tags.map((value, index) => {
+          return (
+            <Tag key={index}>
+              <TagName>{`#${value}`}</TagName>
+              <img src={closeImg} alt="닫기 이미지" />
+            </Tag>
+          );
+        })}
+      </Tags>
     </Form>
   );
 };
