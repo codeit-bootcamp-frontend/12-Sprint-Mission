@@ -3,7 +3,7 @@ import React, { useEffect } from "react";
 import { BrowserRouter as Router, Route, Routes ,useNavigate} from "react-router-dom";
 import Header from "./components/Header";
 import ProductGallery from "./components/ProductGallery"; // ProductGallery 추가
-import AddItemPage from "./components/ProductGallery"; // ProductGallery 추가
+import AddItemPage from "./components/AddItemPage"; 
 
 
 function RedirectToItems() {
@@ -32,8 +32,17 @@ function App() {
            </>
           }
         />
-        <Route path="/" element={<ProductGallery />} />
-        <Route path="/additem" component={AddItemPage} />
+
+        <Route 
+          path="/additem"  
+          element= {
+          <>
+            <Header />
+            <AddItemPage />
+          </>
+          } 
+        />
+
       </Routes>
     </Router>
   );
