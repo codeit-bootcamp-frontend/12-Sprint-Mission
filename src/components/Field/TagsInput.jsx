@@ -11,6 +11,7 @@ export function TagsInput({ error, value, id, name, onChange, placeholder }) {
     if (e.nativeEvent.isComposing) return;
 
     if (e.key === "Enter") {
+      e.preventDefault();
       const tag = inputRef.current.value.trim();
       if (tag && !value.includes(tag)) {
         const newTags = [...value, tag];
@@ -33,7 +34,7 @@ export function TagsInput({ error, value, id, name, onChange, placeholder }) {
           type="text"
           className={clsx("field-box", valid && "valid", error && "error")}
           onKeyDown={handleKeyDown}
-          id={name}
+          id={id}
           name={name}
           placeholder={placeholder}
         />
