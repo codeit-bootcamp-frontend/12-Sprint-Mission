@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 import { useCallback, useEffect, useState, useRef } from 'react';
-import closeImg from '../../../../assets/images/ic_X.svg';
-import plusImg from '../../../../assets/images/ic_plus.svg';
+import RegisterTitle from './RegisterTitle';
+import RegisterImg from './RegisterImg';
+import RegisterTags from './RegisterTags';
 
 const Form = styled.form`
   display: flex;
@@ -13,11 +14,6 @@ const Form = styled.form`
   @media (max-width: 500px) {
     margin-top: 130px;
   }
-`;
-
-const Title = styled.h1`
-  font-size: 20px;
-  font-weight: 700;
 `;
 
 const Label = styled.label`
@@ -54,107 +50,8 @@ const Textarea = styled.textarea`
   }
 `;
 
-const FileInput = styled.input`
-  display: none;
-`;
-
-const FileButton = styled.label`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 8px;
-  border: 1px solid var(--gray100);
-  border-radius: 12px;
-  width: 280px;
-  height: 280px;
-  background-color: var(--gray100);
-  color: var(--gray400);
-  cursor: pointer;
-
-  @media (max-width: 1200px) {
-    width: 170px;
-    height: 170px;
-  }
-  @media (max-width: 500px) {
-    width: 100px;
-    height: 100px;
-  }
-`;
-
-const SubmitButton = styled.button`
-  border: 1px solid
-    ${({ disabled }) => (disabled ? 'var(--gray400)' : 'var(--blue)')};
-  border-radius: 8px;
-  padding: 10px 20px;
-  background-color: ${({ disabled }) =>
-    disabled ? 'var(--gray400)' : 'var(--blue)'};
-  color: #ffffff;
-  cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
-`;
-
-const TitleDiv = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-radius: 8px;
-  margin-top: 30px;
-`;
-
-const PreviewImg = styled.img`
-  border-radius: 12px;
-  width: 280px;
-  height: 280px;
-  @media (max-width: 1200px) {
-    width: 170px;
-    height: 170px;
-  }
-  @media (max-width: 500px) {
-    width: 100px;
-    height: 100px;
-  }
-`;
-
-const ImgArea = styled.div`
-  display: flex;
-  gap: 10px;
-`;
-
 const WarningMessage = styled.p`
   color: #f74747;
-  font-size: 16px;
-  font-weight: 400;
-`;
-
-const PreviewImgArea = styled.div`
-  position: relative;
-`;
-
-const CloseImg = styled.img`
-  position: absolute;
-  top: 10px;
-  right: 10px;
-`;
-
-const Tags = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  margin-bottom: 50px;
-`;
-
-const Tag = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 6px;
-  border: 1px solid var(--gray100);
-  border-radius: 26px;
-  padding: 6px 12px;
-  background-color: var(--gray100);
-`;
-
-const TagName = styled.span`
   font-size: 16px;
   font-weight: 400;
 `;
@@ -168,18 +65,6 @@ const RegisterForm = () => {
   const [tags, setTags] = useState([]);
   const fileInputRef = useRef(null);
 
-  const changeImg = ({ target }) => {
-    const file = target.files[0];
-    if (!file) return;
-    if (imgPreview) {
-      setIsImg(true);
-      return;
-    }
-
-    const preview = URL.createObjectURL(file);
-
-    setImgPreview(preview);
-  };
   const checkValid = useCallback(() => {
     const validResult = name.trim() !== '' && price > 0;
     setIsValid(validResult);
@@ -203,17 +88,6 @@ const RegisterForm = () => {
     setter(value);
   };
 
-  const closePreview = () => {
-    if (imgPreview) {
-      URL.revokeObjectURL(imgPreview);
-      setImgPreview(null);
-      setIsImg(false);
-      if (fileInputRef.current) {
-        fileInputRef.current.value = null;
-      }
-    }
-  };
-
   const isExistArray = (element, elements) => {
     return elements.some((prevElement) => element === prevElement);
   };
@@ -232,50 +106,27 @@ const RegisterForm = () => {
     }
   };
 
-  const deleteTag = (index) => {
-    setTags((prevTags) => {
-      return prevTags.filter((_, prevIndex) => index !== prevIndex);
-    });
-  };
-
   const preventSubmit = (e) => {
     if (e.key === 'Enter') e.preventDefault();
   };
 
   useEffect(() => {
     checkValid();
-  }, [name, price, checkValid]);
+  }, [checkValid]);
 
   return (
     <Form>
-      <TitleDiv>
-        <Title>상품 등록하기</Title>
-        <SubmitButton disabled={!isValid}>등록</SubmitButton>
-      </TitleDiv>
-
+      <RegisterTitle isValid={isValid} />
       <Label>상품 이미지</Label>
-      <ImgArea>
-        <FileButton htmlFor="file">
-          <img src={plusImg} alt="+ 이미지" />
-          이미지 등록
-        </FileButton>
-        <FileInput
-          id="file"
-          type="file"
-          onChange={changeImg}
-          ref={fileInputRef}
-        />
-        {imgPreview && (
-          <PreviewImgArea>
-            <PreviewImg src={imgPreview} alt="이미지 미리보기" />
-            <CloseImg src={closeImg} alt="닫기 이미지" onClick={closePreview} />
-          </PreviewImgArea>
-        )}
-      </ImgArea>
+      <RegisterImg
+        imgPreview={imgPreview}
+        setImgPreview={setImgPreview}
+        fileInputRef={fileInputRef}
+        setIsImg={setIsImg}
+      />
       {isImg && (
         <WarningMessage>*이미지 등록은 최대 1개까지 가능합니다.</WarningMessage>
       )}
-
       <Label htmlFor="item-name">상품명</Label>
       <Input
         id="item-name"
@@ -285,14 +136,12 @@ const RegisterForm = () => {
         onChange={inputChangeHandler(setName)}
         onKeyDown={preventSubmit}
       />
-
       <Label htmlFor="item-explain">상품 소개</Label>
       <Textarea
         id="item-explain"
         name="item-explain"
         placeholder="상품 소개를 입력해주세요"
       />
-
       <Label htmlFor="item-price">판매 가격</Label>
       <Input
         id="item-price"
@@ -303,7 +152,6 @@ const RegisterForm = () => {
         onChange={inputChangeHandler(setPrice)}
         onKeyDown={preventSubmit}
       />
-
       <Label htmlFor="tag">태그</Label>
       <Input
         id="tag"
@@ -312,20 +160,7 @@ const RegisterForm = () => {
         placeholder="태그를 입력해주세요"
         onKeyDown={keydownHandler}
       />
-      <Tags>
-        {tags.map((value, index) => {
-          return (
-            <Tag key={index}>
-              <TagName>{`#${value}`}</TagName>
-              <img
-                src={closeImg}
-                alt="닫기 이미지"
-                onClick={() => deleteTag(index)}
-              />
-            </Tag>
-          );
-        })}
-      </Tags>
+      <RegisterTags tags={tags} setTags={setTags} />
     </Form>
   );
 };
