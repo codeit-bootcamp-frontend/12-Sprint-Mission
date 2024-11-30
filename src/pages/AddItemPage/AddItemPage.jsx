@@ -32,12 +32,19 @@ function AddItemPage() {
     setTags(tags.filter((tag) => tag !== tagToRemove));
   };
 
+  const isSubmitDisabled =
+    !name.trim() || !description.trim() || !price.trim() || !tags.length;
+
   return (
     <div className="container">
       <form>
         <div className="titleSection">
           <h1 className="sectionTitle">상품 등록하기</h1>
-          <button type="submit" className="addItemButton button">
+          <button
+            type="submit"
+            className="addItemButton button"
+            disabled={isSubmitDisabled}
+          >
             등록
           </button>
         </div>
