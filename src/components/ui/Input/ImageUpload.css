@@ -1,0 +1,52 @@
+.additem-label {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1f2937;
+  padding-bottom: 20px;
+}
+
+.add-image-button {
+  background-color: #f3f4f6;
+  color: #9ca3af;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  font-size: 16px;
+  cursor: pointer;
+  width: calc(50% - 4px);
+  max-width: 200px;
+  aspect-ratio: 1 / 1;
+  border-radius: 12px;
+}
+
+#image-upload {
+  display: none;
+}
+
+.image-preview-wrapper {
+  display: flex;
+  gap: 24px;
+}
+
+.image-preview {
+  width: 282px;
+  max-width: 200px;
+  background-color: #f3f4f6;
+  border-radius: 12px;
+}
+
+.preview-container {
+  position: relative;
+  display: inline-block;
+}
+
+.remove-image-button {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}

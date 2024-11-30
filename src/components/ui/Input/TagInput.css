@@ -1,0 +1,40 @@
+.tag-input-label {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1f2937;
+  padding-bottom: 20px;
+}
+
+.tags-wrapper {
+  display: flex;
+  gap: 12px;
+  margin-top: 12px;
+  flex-wrap: wrap;
+}
+
+.tag-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f9fafb;
+  color: #1f2937;
+  padding: 14px 14px 14px 16px;
+  border-radius: 999px;
+  min-width: 100px;
+}
+
+.tag-name {
+  margin-right: 6px;
+}
+
+.tag-remove-btn {
+  background-color: #9ca3af;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  cursor: pointer;
+}

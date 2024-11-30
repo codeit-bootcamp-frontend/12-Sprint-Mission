@@ -1,0 +1,38 @@
+.additem-page-wrapper {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: 25px 0;
+  width: 100%;
+  gap: 24px;
+}
+
+.additem-page-title-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.additem-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #1f2937;
+  line-height: 32px;
+}
+
+.add-button {
+  padding: 12px 23px;
+  border-radius: 8px;
+  border: none;
+  background-color: #9ca3af;
+  color: #f3f4f6;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+@media (max-width: 1199px) {
+  .additem-page-wrapper {
+    padding: 25px 25px;
+  }
+}
