@@ -1,6 +1,6 @@
-import logoImg from "../images/logo-img.png";
-import userInfoImg from "../images/user-info-img.png";
-import "../styles/Header.css";
+import logoImg from "../../images/logo-img.png";
+import userInfoImg from "../../images/user-info-img.png";
+import "../Layout/Header.css";
 
 function Header() {
   return (

@@ -153,3 +153,8 @@
     grid-template-columns: repeat(2, 1fr);
   }
 }
+
+.paginationBar {
+  margin: 0 auto;
+  width: 400px;
+}
