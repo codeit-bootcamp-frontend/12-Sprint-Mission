@@ -13,64 +13,75 @@ import ItemDetailPage from "./pages/items/ItemDetailPage";
 import ItemAddPage from "./pages/items/ItemAddPage";
 import BoardPage from "./pages/boards/BoardPage";
 
-export const router = createBrowserRouter([
+export const router = createBrowserRouter(
+  [
+    {
+      path: "/",
+      errorElement: <ErrorPage />,
+      children: [
+        {
+          element: <Layout hasFooter />,
+          children: [
+            {
+              index: true,
+              element: <LandingPage />,
+            },
+          ],
+        },
+        {
+          children: [
+            {
+              path: "login",
+              element: <LoginPage />,
+            },
+            {
+              path: "signup",
+              element: <SignupPage />,
+            },
+            {
+              path: "privacy",
+              element: <PrivacyPage />,
+            },
+            {
+              path: "faq",
+              element: <FaqPage />,
+            },
+          ],
+        },
+        {
+          element: <Layout hasNav />,
+          children: [
+            {
+              path: "items",
+              children: [
+                { index: true, element: <ItemsPage /> },
+                { path: ":id", element: <ItemDetailPage /> },
+              ],
+            },
+            {
+              path: "addItem",
+              element: (
+                <ProtectedRoute>
+                  <ItemAddPage />
+                </ProtectedRoute>
+              ),
+            },
+            {
+              path: "boards",
+              element: <BoardPage />,
+            },
+          ],
+        },
+      ],
+    },
+  ],
   {
-    path: "/",
-    errorElement: <ErrorPage />,
-    children: [
-      {
-        element: <Layout hasFooter />,
-        children: [
-          {
-            index: true,
-            element: <LandingPage />,
-          },
-        ],
-      },
-      {
-        children: [
-          {
-            path: "login",
-            element: <LoginPage />,
-          },
-          {
-            path: "signup",
-            element: <SignupPage />,
-          },
-          {
-            path: "privacy",
-            element: <PrivacyPage />,
-          },
-          {
-            path: "faq",
-            element: <FaqPage />,
-          },
-        ],
-      },
-      {
-        element: <Layout hasNav />,
-        children: [
-          {
-            path: "items",
-            children: [
-              { index: true, element: <ItemsPage /> },
-              { path: ":id", element: <ItemDetailPage /> },
-            ],
-          },
-          {
-            path: "addItem",
-            element: (
-              <ProtectedRoute>
-                <ItemAddPage />
-              </ProtectedRoute>
-            ),
-          },
-          {
-            path: "boards",
-            element: <BoardPage />,
-          },
-        ],
-      },
-    ],
-  },
-]);
+    future: {
+      v7_relativeSplatPath: true,
+      v7_fetcherPersist: true,
+      v7_normalizeFormMethod: true,
+      v7_partialHydration: true,
+      v7_skipActionErrorRevalidation: true,
+    },
+  }
+);
