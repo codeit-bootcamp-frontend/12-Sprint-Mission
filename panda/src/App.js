@@ -1,15 +1,39 @@
 // src/App.js
-import React from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import React, { useEffect } from "react";
+import { BrowserRouter as Router, Route, Routes ,useNavigate} from "react-router-dom";
 import Header from "./components/Header";
 import ProductGallery from "./components/ProductGallery"; // ProductGallery 추가
+import AddItemPage from "./components/ProductGallery"; // ProductGallery 추가
+
+
+function RedirectToItems() {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    // 애플리케이션 시작 시 /items로 리디렉션
+    navigate("/items");
+  }, [navigate]);
+
+  return null; // 빈 화면 렌더링
+}
+
 
 function App() {
   return (
     <Router>
-      <Header />
       <Routes>
+        <Route path="/" element={<RedirectToItems />} /> 
+        <Route 
+          path='items'
+          element= {
+           <>
+            <Header />
+            <ProductGallery />
+           </>
+          }
+        />
         <Route path="/" element={<ProductGallery />} />
+        <Route path="/additem" component={AddItemPage} />
       </Routes>
     </Router>
   );

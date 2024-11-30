@@ -2,7 +2,9 @@ import React, { useState, useEffect } from "react";
 import { fetchProducts } from "./api"; // API 유틸 불러오기
 import "./ProductGallery.css";
 import Pagination from "./pagination"; // Pagination 컴포넌트 불러오기
+import { Link } from "react-router-dom"; // Link 추가
 import heart from "../icon/ic_heart.png";
+import useWindowSize from "./useWindowSize"; // 커스텀 훅 가져오기
 
 function ProductGallery() {
   const [allProducts, setAllProducts] = useState([]); // 전체 상품 데이터 상태
@@ -15,39 +17,54 @@ function ProductGallery() {
   const [totalCount, setTotalCount] = useState(0); // 총 상품 개수 상태 추가
   const [totalPages, setTotalPages] = useState(1); // 총 페이지 수 상태 추가
   const [pageSize] = useState(10); // 한 페이지에 표시할 상품 개수
+  const { width } = useWindowSize(); // 화면 크기 가져오기
 
-  // 페이지 변경 시마다 데이터 새로 불러오기
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        // 전체 상품 데이터를 가져옴
-        const { products, totalCount } = await fetchProducts(
-          1,
-          180, // 페이지네이션을 적용하지 않도록 처음에는 200개를 가져옴
-          sortOption,
-          searchQuery
-        );
-        setAllProducts(products); // 전체 상품 데이터를 상태에 저장
-        setTotalCount(totalCount);
-        setTotalPages(Math.ceil(totalCount / pageSize)); // 총 페이지 수 계산
+   // 화면 크기에 따라 상품 표시 개수 조정
+  const getVisibleBestProductsCount = () => {
+    if (width <= 768) return 1; // 모바일에서는 1개
+    if (width <= 1024) return 2; // 테블릿에서는 2개
+    return 4; // 데스크탑에서는 4개
+  };
 
-        // 전체 상품 데이터를 기반으로 베스트 상품을 추출 (favoriteCount가 높은 순으로)
-        const sortedBest = [...products].sort(
-          (a, b) => b.favoriteCount - a.favoriteCount
-        );
-        const topBest = sortedBest.slice(0, 4); // 상위 4개 상품
-        setBestProducts(topBest); // 베스트 상품 상태 업데이트
+  const getVisibleAllProductsCount = () => {
+    if (width <= 768) return 4; // 모바일에서는 4개
+    if (width <= 1024) return 6; // 테블릿에서는 6개
+    return 10; // 데스크탑에서는 10개
+  };
+  
 
-        // 상위 4개 상품을 제외한 나머지 상품을 displayProducts에 저장
-        const remainingProducts = products.slice(4);
-        setDisplayProducts(remainingProducts.slice(0, pageSize)); // 첫 페이지에 보여줄 상품들 설정
-      } catch (error) {
-        setError("상품 데이터를 불러오는 데 문제가 발생했습니다.");
-      }
-    };
+ useEffect(() => {
+  const fetchData = async () => {
+    try {
+      // 전체 상품 데이터를 가져옴
+      const { products, totalCount } = await fetchProducts(
+        1,
+        180, // 페이지네이션을 적용하지 않도록 처음에는 180개를 가져옴
+        sortOption,
+        searchQuery
+      );
+      setAllProducts(products); // 전체 상품 데이터를 상태에 저장
+      setTotalCount(totalCount);
+      setTotalPages(Math.ceil(totalCount / pageSize)); // 총 페이지 수 계산
 
-    fetchData();
-  }, [sortOption, searchQuery]); // 페이지 변경 시 데이터를 다시 가져오지 않음, 정렬이나 검색어 변경 시만 데이터 가져오기
+      // 전체 상품 데이터를 기반으로 베스트 상품을 추출 (favoriteCount가 높은 순으로)
+      const sortedBest = [...products].sort(
+        (a, b) => b.favoriteCount - a.favoriteCount
+      );
+      const topBest = sortedBest.slice(0, getVisibleBestProductsCount()); // 화면 크기에 맞게 상위 상품 개수 결정
+      setBestProducts(topBest); // 베스트 상품 상태 업데이트
+
+      // 상위 상품을 제외한 나머지 상품을 displayProducts에 저장
+      const remainingProducts = products.slice(getVisibleBestProductsCount());
+      const visibleProducts = remainingProducts.slice(0, getVisibleAllProductsCount()); // 화면 크기에 맞게 표시할 상품 수 결정
+      setDisplayProducts(visibleProducts); // 표시할 상품들 설정
+    } catch (error) {
+      setError("상품 데이터를 불러오는 데 문제가 발생했습니다.");
+    }
+  };
+
+  fetchData();
+}, [sortOption, searchQuery, width]); // 화면 크기 변경 시 데이터 갱신
 
   // 좋아요 증가 함수
   const handleLike = (productId) => {
@@ -76,16 +93,16 @@ function ProductGallery() {
   const handlePageChange = (pageNumber) => {
     if (pageNumber < 1 || pageNumber > totalPages) return; // 유효한 페이지 번호만 이동
     setCurrentPage(pageNumber);
-
-    // 베스트 상품과 전체 상품을 합침 (베스트 상품도 전체 상품과 함께 표시됨)
-    const allProductsToDisplay = [...allProducts, ...bestProducts]; // 베스트 상품을 제외하지 않고 합침
-
+  
+    // 표시할 상품 수 계산 (화면 크기에 따라 동적 변경)
+    const itemsPerPage = getVisibleAllProductsCount();
+  
     // 페이지네이션 적용
-    const startIndex = (pageNumber - 1) * pageSize;
-    const endIndex = startIndex + pageSize;
-
-    // 해당 페이지에 맞는 상품들을 displayProducts에 설정
-    setDisplayProducts(allProductsToDisplay.slice(startIndex, endIndex));
+    const startIndex = (pageNumber - 1) * itemsPerPage;
+    const endIndex = startIndex + itemsPerPage;
+  
+    // 전체 상품에서 해당 페이지에 맞는 상품 설정
+    setDisplayProducts(allProducts.slice(startIndex, endIndex));
   };
 
   return (
@@ -135,8 +152,8 @@ function ProductGallery() {
         <div className="productGalleryAll">
           <div className="productGalleryAllMenu">
             <span className="AllMenuTitle">전체 상품</span>
-            <div className="AllMenuOption">
-              <div className="productSearch">
+
+            <div className="productSearch">
                 <input
                   type="text"
                   placeholder="검색할 상품을 입력해주세요"
@@ -144,14 +161,15 @@ function ProductGallery() {
                   onChange={handleSearchChange}
                   className="searchInput"
                 />
-              </div>
-              <button className="AllMenuOptionBtn">상품 등록하기</button>
-              <div className="sortOptions">
+            </div>
+            <Link to="/additem">
+            <button className="AllMenuOptionBtn">상품 등록하기</button>
+            </Link>
+            <div className="sortOptions">
                 <select value={sortOption} onChange={handleSortChange}>
                   <option value="recent">최신순</option>
                   <option value="favorite">좋아요순</option>
                 </select>
-              </div>
             </div>
           </div>
 

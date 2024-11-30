@@ -52,6 +52,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: relative;
 }
 
 .productGalleryAllMain {
@@ -113,7 +114,7 @@
   height: 317px;
   background-color: yellow;
   display: flex;
-  gap: 24 px;
+  gap: 24px;
 }
 
 .AllMainBoxItemImg {
@@ -186,7 +187,7 @@
 
 .productGalleryBest,
 .productGalleryAll {
-  grid-template-columns: repeat(4, 1fr); /* 기본 4개의 상품 */
+
   gap: 24px;
 }
 /* 
@@ -195,19 +196,7 @@
   height: auto;
 }*/
 
-@media (max-width: 1024px) {
-  .best-products,
-  .all-products {
-    grid-template-columns: repeat(2, 1fr); /* 태블릿: 2개 */
-  }
-}
 
-@media (max-width: 768px) {
-  .best-products,
-  .all-products {
-    grid-template-columns: repeat(1, 1fr); /* 모바일: 1개 */
-  }
-}
 
 .favoriteButton {
   background: none; /* 배경 제거 */
@@ -291,4 +280,187 @@
   height: auto; /* 비율에 맞게 높이 자동 조정 */
   object-fit: cover; /* 이미지를 부모 요소에 맞게 잘라서 채우기 */
   border-radius: 16px;
+}
+
+
+/* Tablet 뷰 */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .productGalleryWrapper {
+    width: calc(100% - 48px);
+    height: 1342px;
+  }
+   
+  .productSearch { 
+    position: relative; /* 상대적 위치 설정 */
+    right: -10%; /* 오른쪽에서 120px 간격 */
+  }
+
+  .AllMenuOptionBtn { 
+    position: relative; /* 상대적 위치 설정 */
+    right: -20%; /* 오른쪽에서 120px 간격 */
+  }
+
+
+  .productGalleryWrapper > :first-child {
+    width: 100%;
+    height: 482px;
+  }
+
+  .productGalleryBestMain {
+    height: 434px;
+    position: relative; /* 상대적 위치 설정 */
+  }
+
+  .productGalleryBestMainBox {
+    width: calc((100% - 10px) / 2);
+    height: 434px;
+  }
+
+  .productGalleryBestImg {
+    height: auto; /* 세로 크기는 자동으로 설정 */
+    aspect-ratio: 1; /* 가로와 세로 비율을 1:1로 설정 */
+  }
+
+  .productImage {
+    max-width: 800.5px !important; /* 최대 너비 설정 (원하는 크기로 조정) */
+
+  }
+
+  .productGalleryAll {
+    height: 840px;
+  }
+
+  .productGalleryAllMenu {
+    width: 100%;
+  }
+
+  .productSearch {
+    width: 242px;
+  }
+
+  .AllMenuOption { 
+    width: 529px; 
+  }
+
+  .productGalleryAll {
+    height: 820px;
+  }
+
+  .productGalleryAllMain {
+    height: 754px;
+    gap: 16px;
+  }
+
+  .productGalleryAllMainBoxItem {
+    width: calc((100% - 32px) / 3);
+  } 
+
+
+}
+
+@media (max-width: 768px) {
+
+  .productGalleryWrapper {
+    width: calc(100% - 32px);
+    height: 1278px;
+  }
+
+  .productGalleryWrapper > :first-child {
+    width: 100%;
+    height: 482px;
+  }
+
+  .productGalleryBestMain {
+    height: 434px;
+  }
+
+  .productGalleryBestMainBox {
+    width: 100%;
+    height: 434px;
+  }
+
+  .productGalleryBestImg {
+    height: auto; /* 세로 크기는 자동으로 설정 */
+    aspect-ratio: 1; /* 가로와 세로 비율을 1:1로 설정 */
+  }
+
+  .productImage {
+    max-width: 768px !important; 
+  }
+
+  .productGalleryAll {
+    height: 748px;
+  }
+
+  .productGalleryAllMenu {
+    width: 100%;
+    height: 92px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px; /* 행 사이의 간격 */
+    padding: 10px; /* 내부 여백 추가 */
+  }
+  
+  .AllMenuOptionBtn {
+    order: 3;
+
+  }
+  
+  .productSearch {
+    order: 1;
+  }
+
+  .sortOptions {
+    order: 2;
+    width: 42px;
+  }
+  
+ 
+
+  .productSearch {
+    width: 288px;
+  }
+
+  .AllMenuOption { 
+    width: 529px; 
+    flex-wrap: nowrap; /* 자식 요소들이 1행에 배치되도록 설정 */
+    
+  }
+
+  .productGalleryAll {
+    height: 668px;
+  }
+
+  .productGalleryAllMain {
+    height: 754px;
+    gap: 8px;
+  }
+
+  .productGalleryAllMainBoxItem {
+    width: calc((100% - 8px) / 2);
+    height: 264px;
+  } 
+
+
+}
+
+
+@media (min-width: 1024px) {  
+ 
+  .AllMenuOptionBtn { 
+
+    position: relative; /* 상대적 위치 설정 */
+    right: -160px; /* 오른쪽에서 120px 간격 */
+  }
+
+  .productGalleryAllMenu {
+    position: relative;
+  }
+
+  .productSearch { 
+
+    position: relative; /* 상대적 위치 설정 */
+    right: -320px; /* 오른쪽에서 120px 간격 */
+  }
+
 }
