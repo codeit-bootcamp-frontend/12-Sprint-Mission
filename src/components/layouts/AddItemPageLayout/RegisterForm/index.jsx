@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { useCallback, useEffect, useState, useRef } from 'react';
 import closeImg from '../../../../assets/images/ic_X.svg';
+import plusImg from '../../../../assets/images/ic_plus.svg';
 
 const Form = styled.form`
   display: flex;
@@ -59,8 +60,10 @@ const FileInput = styled.input`
 
 const FileButton = styled.label`
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 8px;
   border: 1px solid var(--gray100);
   border-radius: 12px;
   width: 280px;
@@ -95,6 +98,7 @@ const TitleDiv = styled.div`
   justify-content: space-between;
   align-items: center;
   border-radius: 8px;
+  margin-top: 30px;
 `;
 
 const PreviewImg = styled.img`
@@ -251,7 +255,10 @@ const RegisterForm = () => {
 
       <Label>상품 이미지</Label>
       <ImgArea>
-        <FileButton htmlFor="file">이미지 등록</FileButton>
+        <FileButton htmlFor="file">
+          <img src={plusImg} alt="+ 이미지" />
+          이미지 등록
+        </FileButton>
         <FileInput
           id="file"
           type="file"
