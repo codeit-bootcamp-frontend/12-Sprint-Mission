@@ -183,6 +183,7 @@ const RegisterForm = () => {
   //inputChange 중복 정의 대신 커링 방식으로 setter함수 넘겨주기
   const inputChangeHandler = (setter) => (e) => {
     let value = e.target.value;
+    e.preventDefault();
     if (setter === setPrice) {
       value = value.trim();
       let num = Number(value.replace(/,/g, ''));
@@ -209,11 +210,17 @@ const RegisterForm = () => {
     }
   };
 
+  const isExistArray = (element, elements) => {
+    return elements.some((prevElement) => element === prevElement);
+  };
+
   const keydownHandler = (e) => {
     const value = e.target.value;
     //엔터 혹은 스페이스바
     if (e.key === 'Enter' || e.key === ' ') {
       e.preventDefault();
+      //중복된거 있으면 태그 추가 막기
+      if (isExistArray(value, tags)) return;
       setTags((prevTags) => {
         e.target.value = '';
         return [value, ...prevTags];
@@ -225,6 +232,10 @@ const RegisterForm = () => {
     setTags((prevTags) => {
       return prevTags.filter((_, prevIndex) => index !== prevIndex);
     });
+  };
+
+  const preventSubmit = (e) => {
+    if (e.key === 'Enter') e.preventDefault();
   };
 
   useEffect(() => {
@@ -265,6 +276,7 @@ const RegisterForm = () => {
         type="text"
         placeholder="상품명을 입력해주세요"
         onChange={inputChangeHandler(setName)}
+        onKeyDown={preventSubmit}
       />
 
       <Label htmlFor="item-explain">상품 소개</Label>
@@ -282,6 +294,7 @@ const RegisterForm = () => {
         placeholder="판매 가격을 입력해주세요"
         value={price.toLocaleString()}
         onChange={inputChangeHandler(setPrice)}
+        onKeyDown={preventSubmit}
       />
 
       <Label htmlFor="tag">태그</Label>
