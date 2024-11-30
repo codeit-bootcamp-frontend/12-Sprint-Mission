@@ -8,7 +8,10 @@ import { loginFormSchema } from "./components/schema";
 
 export default function LoginPage() {
   const navigate = useNavigate();
-  const { handleLogin } = useAuth();
+  const {
+    auth: { accessToken },
+    handleLogin,
+  } = useAuth();
   const { formError, isFormValid, isLoading, handleSubmit, register } =
     useForm(loginFormSchema);
 
@@ -20,6 +23,10 @@ export default function LoginPage() {
     } catch (err) {
       throw err;
     }
+  }
+
+  if (accessToken) {
+    navigate("/items");
   }
 
   return (

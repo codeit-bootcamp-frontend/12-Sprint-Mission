@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "@context/AuthContext";
 import useForm from "@hooks/useForm";
 import { signUp } from "@service/auth";
 import { Form, FieldItem, Input } from "@components/Field";
@@ -8,6 +9,9 @@ import AuthContainer from "./components/AuthContainer";
 import { signupFormSchema } from "./components/schema";
 
 export default function SignupPage() {
+  const {
+    auth: { accessToken },
+  } = useAuth();
   const navigate = useNavigate();
   const {
     formState,
@@ -35,6 +39,10 @@ export default function SignupPage() {
     } catch (err) {
       throw err;
     }
+  }
+
+  if (accessToken) {
+    navigate("/items");
   }
 
   return (
