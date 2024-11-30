@@ -75,5 +75,6 @@ state 관리하고 있는 params과 usePageSize로 관리하는 pageSize의 변�
 4. 네번째 마지막 시도 ㅜㅜ(useFetch와 useAsync를 쓰는 방법, 차이점)
 
 - 생각해보니 useFetch는 '주소'를 받아서 fetch처리하는 훅으로 사용되어야할 것 같음 (구글링의 예제 코드들을 분석해봄)
+- url주소 기반으로 처리하는 useFetch를 쓰게되면, 만약에 api url이 변경되거나 요청전 작업이 수정되면 수정하러 이곳저곳을 돌아다녀야 할 것 같음.
 - 비동기 요청함수를 받아서 처리하는 훅으로 만들어둔 useAsync를 쓰는게 더 적합해보임
 - 주소를 기반으로 fetch만을 처리하는 훅으로 useFetch를 수정하고 남겨두기로 결정
