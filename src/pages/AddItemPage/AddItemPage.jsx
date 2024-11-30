@@ -8,7 +8,7 @@ function AddItemPage() {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
-  const [tags, setTags] = useState("");
+  const [tags, setTags] = useState([]);
 
   const addTag = (tag) => {
     if (!tags.includes(tag)) {
