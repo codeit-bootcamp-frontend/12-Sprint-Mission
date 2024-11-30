@@ -1,4 +1,4 @@
-import useFilteredSearchParams from "@hooks/useFilteredSearchParams";
+import useSyncParams from "@hooks/useSyncParams";
 import usePageSize from "@hooks/usePageSize";
 import useList from "@hooks/useList";
 import usePagination from "@hooks/usePagination";
@@ -12,7 +12,7 @@ import ProductFilter from "./components/ProdcutFilter";
 import useRecentSearch from "./components/useRecentSearch";
 
 export default function AllItemsPage() {
-  const [params, setParams] = useFilteredSearchParams({
+  const [params, setParams] = useSyncParams({
     keyword: "",
     orderBy: "recent",
     page: 1,
