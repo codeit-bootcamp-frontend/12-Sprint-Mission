@@ -198,7 +198,7 @@ const RegisterForm = () => {
     setter(value);
   };
 
-  const closePreview = (e) => {
+  const closePreview = () => {
     if (imgPreview) {
       URL.revokeObjectURL(imgPreview);
       setImgPreview(null);
@@ -219,6 +219,12 @@ const RegisterForm = () => {
         return [value, ...prevTags];
       });
     }
+  };
+
+  const deleteTag = (index) => {
+    setTags((prevTags) => {
+      return prevTags.filter((_, prevIndex) => index !== prevIndex);
+    });
   };
 
   useEffect(() => {
@@ -291,7 +297,11 @@ const RegisterForm = () => {
           return (
             <Tag key={index}>
               <TagName>{`#${value}`}</TagName>
-              <img src={closeImg} alt="닫기 이미지" />
+              <img
+                src={closeImg}
+                alt="닫기 이미지"
+                onClick={() => deleteTag(index)}
+              />
             </Tag>
           );
         })}
