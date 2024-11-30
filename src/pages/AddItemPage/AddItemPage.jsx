@@ -4,11 +4,23 @@ import InputItem from "../../components/UI/InputItem";
 import "./AddItemPage.css";
 import InputTag from "../../components/UI/InputTag";
 
+const formatPrice = (value) => {
+  if (!value) return "";
+  return parseInt(value.replace(/,/g, ""), 10).toLocaleString();
+};
+
 function AddItemPage() {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
   const [tags, setTags] = useState([]);
+
+  const handlePriceChange = (e) => {
+    const rawValue = e.target.value.replace(/,/g, "");
+    if (!isNaN(rawValue)) {
+      setPrice(rawValue);
+    }
+  };
 
   const addTag = (tag) => {
     if (!tags.includes(tag)) {
@@ -53,8 +65,8 @@ function AddItemPage() {
           <InputItem
             id="price"
             label="판매 가격"
-            value={price}
-            onChange={(e) => setPrice(e.target.value)}
+            value={formatPrice(price)}
+            onChange={handlePriceChange}
             placeholder="판매 가격을 입력해 주세요"
           />
 
