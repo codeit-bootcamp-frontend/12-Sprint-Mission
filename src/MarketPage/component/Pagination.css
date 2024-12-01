@@ -1,0 +1,19 @@
+.page-nation-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 43px;
+  width: 100%;
+  gap: 4px;
+}
+
+.page-nation-btn {
+  border-radius: 40px;
+  border: 1px solid #e5e7eb;
+  background-color: #ffffff;
+  width: 40px;
+  height: 40px;
+  padding-left: 16px;
+  padding-right: 16px;
+  color: #6b7280;
+}

@@ -1,0 +1,114 @@
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css");
+
+:root {
+  --blue: #3692ff;
+  --darkblue: #1967d6;
+  --white: #ffffff;
+}
+
+body {
+  font-family: "Pretendard", sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.product-container__text {
+  font-size: 20px;
+  line-height: 32px;
+  padding-bottom: 16px;
+}
+
+.best-item-container {
+  padding-bottom: 40px;
+}
+
+.best-item__list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.all-item-container {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 24px;
+  padding-bottom: 24px;
+}
+
+.product-container__text {
+  font-size: 20px;
+  line-height: 32px;
+}
+
+.all-item__list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 23px;
+}
+
+.all-item-tools {
+  display: flex;
+  gap: 12px;
+}
+
+.input-box {
+  position: relative;
+  font-family: "Pretemdard", sans-serif;
+}
+
+#input-search {
+  width: 325px;
+  height: 42px;
+  padding: 9px 44px;
+  border-radius: 12px;
+  background-color: #f3f4f6;
+  border: none;
+}
+
+#input-search:focus {
+  outline: 2px solid #3692ff;
+}
+
+#input-img {
+  position: absolute;
+  top: 10px;
+  left: 15px;
+}
+
+.product-btn {
+  padding: 8px 23px;
+  background-color: var(--blue);
+  border-radius: 8px;
+  color: #fef4f6;
+  font-size: 16px;
+  line-height: 26px;
+  border: none;
+  width: auto;
+  height: 42px;
+  cursor: pointer;
+  font-family: "Pretemdard", sans-serif;
+}
+
+.product-btn:hover {
+  background-color: var(--darkblue);
+}
+
+.product-select {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 26px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 12px 20px;
+  width: 130px;
+  height: 42px;
+  border: 1px solid #e5e7eb;
+}
