@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import ItemCard from "./ItemCard";
-import { getProducts } from "../api";
+import { getProducts } from "../api/api";
 import "./allItems.css";
 
 function AllProducts() {
