@@ -8,9 +8,10 @@ function Header() {
   return (
     <header className="header">
       <div className="headerContainer">
-        <div className="headeLogo">
+        <div className="headerLogo">
           <Link to="/">
-            <img src={logo} alt="logo" />
+            <img src={logo} alt="logo" className="hLogo" />
+
           </Link>
         </div>
 
@@ -18,7 +19,7 @@ function Header() {
           <Link to="/board" className="navBoard">
             <p className="navBoardText"> 자유게시판 </p>
           </Link>
-          <Link to="/items" className="navMarket">
+          <Link to="/additem" className="navMarket">
             중고마켓
           </Link>
         </nav>

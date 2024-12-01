@@ -62,3 +62,64 @@
   text-decoration-skip-ink: none;
   color: #4b5563;
 }
+
+
+@media (max-width: 1024px) {
+  .header {
+    max-width: 1024px;
+  }
+
+  .headerContainer {
+    width: calc(100% - 48px);
+  }
+  .nav {
+    left: 197px;
+  }
+  .profile {
+    left: 250px;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    max-width: 768px;
+  }
+
+  .header .headerLogo {
+    margin-left: -39px !important;
+    
+  }
+
+  .hLogo {
+    width: 78% !important;
+    height: 78%;
+    margin-top: 5px;
+  }
+
+  .nav {
+    width: calc(100% - 220px) !important;
+    height: 70px;
+    left: 100px;
+    gap: 9px;
+  }
+
+  .navBoard {
+    width: 80px;
+    
+  } 
+
+  .navBoardText {
+    font-size: 16px;
+  }
+
+  .navMarket{
+    width: 65px;
+    font-size: 16px;
+  }
+
+  .headerContainer {
+    width: calc(100% - 16px);
+  }
+
+}
+
