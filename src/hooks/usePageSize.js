@@ -26,5 +26,5 @@ export default function usePageSize(
     };
   }, []);
 
-  return { pageSize };
+  return pageSize;
 }

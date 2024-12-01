@@ -5,7 +5,7 @@ import { Section } from "@components/Section";
 import ProductList from "./components/ProductList";
 
 export default function BestItemsPage() {
-  const { pageSize } = usePageSize({
+  const pageSize = usePageSize({
     pc: 4,
     tablet: 2,
     mobile: 1,

@@ -17,7 +17,7 @@ export default function AllItemsPage() {
   const keyword = params.get("keyword") || "";
   const orderBy = params.get("orderBy") || "recent";
   const page = params.get("page") || 1;
-  const { pageSize } = usePageSize({
+  const pageSize = usePageSize({
     pc: 10,
     tablet: 6,
     mobile: 4,
