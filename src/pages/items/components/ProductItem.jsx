@@ -1,6 +1,6 @@
 import { Fragment } from "react";
 import { Link } from "react-router-dom";
-import ProductThumbnail from "./ProductThumbnail";
+import { Thumbnail } from "@components/ui";
 import { toWon } from "@util/formatter";
 import iconHeart from "@assets/img/icon/icon_heart.svg";
 import styles from "./ProductItem.module.scss";
@@ -27,7 +27,9 @@ export default function ProductItem({ item, keyword }) {
 
   return (
     <Link to={`/items/${id}`} className={styles.item}>
-      <ProductThumbnail src={images[0]} alt={name} />
+      <div className={styles.Thumbnail}>
+        <Thumbnail src={images[0]} alt={name} />
+      </div>
       <div className={styles.content}>
         <div className={styles.title}>
           <HighLightWithKeyword content={name} keyword={keyword} />

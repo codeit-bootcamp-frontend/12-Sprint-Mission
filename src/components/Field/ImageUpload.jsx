@@ -1,5 +1,6 @@
 import useSingleFile from "@hooks/useSingleFile";
-import { Preview, Error } from "@components/Field";
+import { Thumbnail } from "@components/ui";
+import { Error } from "@components/Field";
 import iconPlus from "@assets/img/icon/icon_plus.svg";
 import styles from "./ImageUpload.module.scss";
 
@@ -38,7 +39,13 @@ export function ImageUpload({
           </span>
           <input id={id} name={name} className="a11y" {...fileProps} />
         </label>
-        {preview && <Preview src={preview} onRemove={handleRemove} />}
+        {preview && (
+          <Thumbnail
+            src={preview}
+            alt="상품 이미지 등록"
+            onRemove={handleRemove}
+          />
+        )}
       </div>
       <Error error={fileInputError} />
     </>

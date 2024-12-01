@@ -7,3 +7,4 @@ export * from "./LoadingSpinner";
 export * from "./Select";
 export * from "./Tags";
 export * from "./Temporary";
+export * from "./Thumbnail";

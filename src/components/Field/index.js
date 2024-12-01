@@ -6,4 +6,3 @@ export * from "./Textarea";
 export * from "./TagsInput";
 export * from "./ImageUpload";
 export * from "./NumberInput";
-export * from "./Preview";
