@@ -1,0 +1,68 @@
+.Header {
+  display: flex;
+  align-items: center;
+
+  height: 70px;
+  padding: 0 16px;
+}
+
+.divider {
+  display: none;
+}
+
+.left {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-family: ROKAFSansMedium, sans-serif;
+  font-size: 20.2px;
+  font-weight: 700;
+  line-height: 27.27px;
+  text-align: center;
+  color: var(--blue100);
+}
+
+.logo .pandaFace {
+  display: none;
+}
+
+.nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.nav a {
+  font-family: 'Pretendard', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 26px;
+  text-align: center;
+  color: var(--grey100);
+}
+
+.divider.center {
+  display: block;
+  flex-grow: 1;
+}
+
+.right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.myPageLogo {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
