@@ -11,11 +11,12 @@ export function NumberInput({
 }) {
   const [currentType, setCurrentType] = useState(type);
   const valid = value && !error;
-  const formattedValue = formatter
-    ? currentType === "text"
-      ? formatter(value)
-      : value
-    : value;
+
+  let formattedValue = value || "";
+
+  if (formatter && currentType === "text") {
+    formattedValue = formatter(value);
+  }
 
   return (
     <>
