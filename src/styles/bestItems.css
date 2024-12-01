@@ -1,0 +1,35 @@
+.best-items {
+  margin-bottom: 40px;
+}
+
+.best-items h2 {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 32px;
+  margin-bottom: 16px;
+  text-align: left;
+  color: #1f2937;
+}
+
+.best-item-list {
+  display: grid;
+  gap: 16px;
+}
+
+@media (min-width: 1025px) {
+  .best-item-list {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 1024px) and (min-width: 769px) {
+  .best-item-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .best-item-list {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
