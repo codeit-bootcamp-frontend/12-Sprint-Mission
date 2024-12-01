@@ -1,3 +1,5 @@
+/* Mobile */
+
 .Header {
   display: flex;
   align-items: center;
@@ -65,4 +67,34 @@
   display: inline-flex;
   justify-content: center;
   align-items: center;
+}
+
+/* Tablet */
+
+@media (min-width: 745px) {
+  .Header {
+    padding: 0px 24px;
+  }
+
+  .left {
+    gap: 35px;
+  }
+
+  .left .logo {
+    gap: 8.59px;
+
+    font-size: 25.63px;
+  }
+
+  .left .logo .pandaFace {
+    display: block;
+  }
+
+  .left .nav {
+    gap: 30px;
+  }
+
+  .left .nav a {
+    font-size: 18px;
+  }
 }
