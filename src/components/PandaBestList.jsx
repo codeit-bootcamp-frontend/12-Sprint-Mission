@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import ItemCard from "./ItemCard";
-import { getItems } from "../../api/ItemApi";
+import { getItems } from "../api/ItemApi";
 
 function PandaBestList() {
   const [items, setItems] = useState([]);

@@ -1,0 +1,44 @@
+form {
+  margin-top: 94px;
+  justify-items: center;
+}
+
+main {
+  width: 1200px;
+  height: 100%;
+
+  @media (max-width: 1200px) {
+    width: 696px;
+  }
+
+  @media (max-width: 768px) {
+    width: 346px;
+  }
+}
+
+.title {
+  display: flex;
+  justify-content: space-between;
+  height: 42px;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+h2 {
+  font-size: 20px;
+  font-weight: bold;
+  color: #1f2937;
+}
+
+.additem-btn {
+  width: 74px;
+  height: 42px;
+  background-color: #3692ff;
+  border: none;
+  cursor: pointer;
+}
+
+.additem-btn:disabled {
+  background-color: #9ca3af;
+  cursor: not-allowed;
+}

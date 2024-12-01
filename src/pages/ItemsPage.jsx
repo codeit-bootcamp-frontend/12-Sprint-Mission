@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { getItems } from "../../api/ItemApi";
-import PandaBestList from "./PandaBestList";
-import PandaAllList from "./PandaAllList";
+import { getItems } from "../api/ItemApi";
+import PandaBestList from "../components/PandaBestList.jsx";
+import PandaAllList from "../components/PandaAllList.jsx";
 
 function ItemsPage() {
   const [items, setItems] = useState([]);

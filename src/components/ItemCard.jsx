@@ -1,6 +1,6 @@
 import React from "react";
-import heartIcon from "../../asset/icon/ic_heart.png";
-import defaultImage from "../../asset/none.jpeg";
+import heartIcon from "../asset/icon/ic_heart.png";
+import defaultImage from "../asset/none.jpeg";
 
 function ItemCard({ item, imgSizeClass }) {
   const imageUrl =

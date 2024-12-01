@@ -1,8 +1,8 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import ItemsPage from "./pages/items/ItemsPage.js";
-import Additem from "./components/Additem.js";
-import Nav from "./components/Nav.js";
+import ItemsPage from "./pages/ItemsPage.jsx";
+import AddItem from "./pages/AddItem.jsx";
+import Nav from "./components/Nav.jsx";
 import "./Style.css";
 
 function App() {
@@ -11,7 +11,7 @@ function App() {
       <Nav />
       <Routes>
         <Route path="/" element={<ItemsPage />} />
-        <Route path="/additem" element={<Additem />} />
+        <Route path="/additem" element={<AddItem />} />
       </Routes>
     </Router>
   );
