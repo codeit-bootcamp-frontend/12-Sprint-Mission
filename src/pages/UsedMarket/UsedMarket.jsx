@@ -7,7 +7,7 @@ import './UsedMarket.css'
 function UsedMarket() {
 
     return (
-        <div>
+        <div className="wrapper">
             <BestProduct />
             <AllProduct />
         </div>

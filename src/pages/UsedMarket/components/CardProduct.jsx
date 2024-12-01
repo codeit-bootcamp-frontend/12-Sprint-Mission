@@ -1,5 +1,7 @@
+import React from "react";
+import { ReactComponent as HeartIcon } from "../../../assets/images/icons/ic_heart.svg";
+
 function CardProduct({ item }) {
-    // console.log(items)
     return (
         <div className="itemCard">
             <img src={item.images[0]} alt={item.name} className="itemCardThumbnail" />
@@ -7,7 +9,7 @@ function CardProduct({ item }) {
                 <h2 className="itemName">{item.name}</h2>
                 <p className="itemPrice">{item.price.toLocaleString()}원</p>
                 <div className="favoriteCount">
-                    {/* <HeartIcon /> */}
+                    <HeartIcon />
                     {item.favoriteCount}
                 </div>
             </div>
