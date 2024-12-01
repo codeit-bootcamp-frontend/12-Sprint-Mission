@@ -301,6 +301,30 @@
     width: 168px;
     height: 168px;
   }
+  
+    /* 파일 선택 버튼 위에 덧씌울 텍스트 및 디자인 */
+  .AddItemImgOverlay {
+    position: absolute;
+    width: 168px;
+    height: 168px;
+    gap: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    background-color: #f3f4f6;
+    border-radius: 12px;
+    z-index: 0; 
+  }
+
+  .SelectedImage {
+    width: 168px;
+    height: auto;
+    object-fit: cover; /* 이미지 비율 유지 */
+    height: 100%;
+    border-radius: 12px;
+  }
 
   .AddItemImgAfter{
     width: 168px;
@@ -327,6 +351,14 @@
     gap: 24px;
   }
 
+  .SelectedImage {
+    width: 168px;
+    height: auto;
+    object-fit: cover; /* 이미지 비율 유지 */
+    height: 168px;
+    border-radius: 12px;
+  }
+
   .AddItemImgContainer{
     width: 346px;
     height: 205px;
@@ -340,6 +372,22 @@
   .AddItemImgBtn{
     width: 168px;
     height: 168px;
+  }
+
+    /* 파일 선택 버튼 위에 덧씌울 텍스트 및 디자인 */
+  .AddItemImgOverlay {
+    position: absolute;
+    width: 168px;
+    height: 168px;
+    gap: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    background-color: #f3f4f6;
+    border-radius: 12px;
+    z-index: 0; 
   }
 
   .AddItemImgAfter{
