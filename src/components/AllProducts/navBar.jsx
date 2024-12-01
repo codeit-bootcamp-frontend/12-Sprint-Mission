@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import searchIcon from "../../assets/img/logo/searchIcon.svg";
 import styles from "./styles.module.css";
+import { Link } from "react-router-dom"; // Link import
 
 function NavBar({ orderBy, setOrderBy }) {
   const [isOpen, setIsOpen] = useState(false); // 드롭다운 메뉴 열림 상태 관리
@@ -32,7 +33,9 @@ function NavBar({ orderBy, setOrderBy }) {
           placeholder="검색할 상품을 입력해주세요"
         ></input>
         {/* 상품 등록 버튼 */}
-        <button className={styles["register-button"]}>상품 등록하기</button>
+        <Link to="/additem">
+          <button className={styles["register-button"]}>상품 등록하기</button>
+        </Link>
         {/* 드롭다운 버튼 */}
         <button className={styles["dropdown-btn"]} onClick={toggleDropdown}>
           {orderBy}{" "}

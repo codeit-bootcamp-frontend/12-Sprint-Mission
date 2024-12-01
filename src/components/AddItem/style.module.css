@@ -1,0 +1,122 @@
+:root {
+  --blue: #3692ff;
+  --gray900: #111827;
+  --gray800: #1f2937;
+  --gray700: #374151;
+  --gray600: #4b5563;
+  --gray500: #6b7280;
+  --gray400: #9ca3af;
+  --gray200: #e5e7eb;
+  --gray100: #f3f4f6;
+  --gray50: #f9fafb;
+}
+
+body {
+  box-sizing: border-box;
+  margin: 0;
+  font-family: "Pretendard Variable", Pretendard, -apple-system,
+    BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI",
+    "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+}
+
+section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  /* 임시 여백 */
+  padding-top: 8rem; /* 16px * 8 */
+  padding-bottom: 8rem;
+}
+
+.add-items {
+  min-width: 1200px;
+}
+
+.add-items-form {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.product-img,
+.product-title,
+.product-info,
+.sale-cost,
+.tag {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.product-add {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.product-img {
+  display: flex;
+  flex-direction: column;
+}
+
+.add-items h2 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.add-items input {
+  box-sizing: border-box;
+  font-family: Pretendard;
+  width: 100%;
+  padding: 16px 24px;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  background-color: var(--gray100);
+  color: var(--gray400);
+}
+
+.add-items textarea {
+  box-sizing: border-box;
+  font-family: Pretendard;
+  width: 100%;
+  padding: 16px 24px;
+  min-height: 282px;
+  border: none;
+  border-radius: 12px;
+  background-color: var(--gray100);
+  color: var(--gray400);
+  font-size: 16px;
+  resize: none; /* 세로 크기만 조정 가능 */
+  overflow-y: auto; /* 내용이 많을 경우 스크롤 */
+  box-sizing: border-box; /* 패딩 포함 크기 계산 */
+}
+
+.add-items textarea:focus {
+  outline: none;
+  border-color: var(--blue);
+  box-shadow: 0 0 0 2px rgba(54, 146, 255, 0.3);
+}
+
+.add-items input:focus {
+  outline: none;
+  border-color: var(--blue);
+  box-shadow: 0 0 0 2px rgba(54, 146, 255, 0.3);
+}
+
+.product-add button {
+  padding: 10px 20px;
+  background-color: var(--blue);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.product-add button:hover {
+  background-color: #2873cc;
+}

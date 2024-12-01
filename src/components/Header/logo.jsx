@@ -25,7 +25,7 @@ function Logo() {
   }, []);
 
   return (
-    <div className={styles["logo"]}>
+    <div className={styles.logo}>
       {!isMobile && (
         <img
           className={styles["header-bar img"]}
@@ -36,7 +36,7 @@ function Logo() {
       <h1 className={styles["logo-title"]}>
         <Link to="/">판다마켓</Link>
       </h1>
-      <div className={styles["menu"]}>
+      <div className={styles.menu}>
         <Link to="/board" className={styles["menuText"]}>
           자유게시판
         </Link>
