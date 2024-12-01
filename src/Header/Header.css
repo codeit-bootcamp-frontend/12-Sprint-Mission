@@ -71,7 +71,7 @@
 
 /* Tablet */
 
-@media (min-width: 745px) {
+@media (min-width: 768px) {
   .Header {
     padding: 0px 24px;
   }
