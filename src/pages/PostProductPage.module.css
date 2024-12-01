@@ -1,0 +1,115 @@
+.post {
+  display: flex;
+  justify-content: center;
+}
+
+.wrap {
+  width: 80%;
+  max-width: 1200px;
+}
+
+/* 타이틀 */
+.title_wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 24px 0;
+}
+
+.post_title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #1f2937;
+}
+
+.post_button {
+  font-size: 16px;
+  font-weight: 600;
+  background-color: #9ca3af;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  width: 74px;
+  height: 42px;
+}
+
+/* input 요소 */
+.input_list {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.input_wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.label_input {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1f2937;
+}
+
+.file_preview_wrap {
+  display: flex;
+  gap: 24px;
+}
+
+.file_input_preview {
+  width: 282px;
+  height: 282px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.file_input_button {
+  cursor: pointer;
+  width: 282px;
+  height: 282px;
+  background-color: #f3f4f6;
+  color: #9ca3af;
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.file_input {
+  width: 0;
+  height: 0;
+  opacity: 0;
+}
+
+.name_input,
+.price_input,
+.tag_input {
+  background-color: #f3f4f6;
+  border-radius: 12px;
+  border: none;
+  height: 56px;
+  padding-left: 24px;
+}
+
+.description_input {
+  background-color: #f3f4f6;
+  border-radius: 12px;
+  border: none;
+  height: 56px;
+  padding-left: 24px;
+  padding-top: 16px;
+  height: 282px;
+  resize: none;
+}
+
+.name_input::placeholder,
+.description_input::placeholder,
+.price_input::placeholder,
+.tag_input::placeholder {
+  color: #9ca3af;
+  font-size: 16px;
+  font-weight: 400;
+}

@@ -1,5 +1,101 @@
+import { useEffect, useState } from "react";
+import styles from "./PostProductPage.module.css";
+
 function PostProductPage() {
-  return <></>;
+  const [preview, setPreview] = useState("");
+  const [imgError, setImgError] = useState(false);
+
+  const handleChange = (e) => {
+    if (preview) {
+      setImgError(true);
+      return;
+    }
+    setImgError(false);
+    const nextValue = e.target.files[0];
+    const nextPreview = URL.createObjectURL(nextValue);
+    setPreview(nextPreview);
+  };
+
+  useEffect(() => {}, [preview]);
+
+  return (
+    <div className={styles.post}>
+      <form className={styles.wrap}>
+        <div className={styles.title_wrap}>
+          <h1 className={styles.post_title}>상품 등록하기</h1>
+          <button className={styles.post_button}>등록</button>
+        </div>
+        <div className={styles.input_list}>
+          <div className={styles.input_wrap}>
+            <label className={styles.label_input} htmlFor="productImg">
+              상품 이미지
+            </label>
+            <div className={styles.file_preview_wrap}>
+              <label className={styles.file_input_button} htmlFor="productImg">
+                이미지 등록
+              </label>
+              <input
+                className={styles.file_input}
+                type="file"
+                accept="image/png, image/jpeg"
+                onChange={handleChange}
+                id="productImg"
+              />
+              {preview && (
+                <img
+                  className={styles.file_input_preview}
+                  src={preview}
+                  alt="이미지 미리보기"
+                />
+              )}
+            </div>
+            {imgError && <p>*이미지 등록은 최대 1개까지 가능합니다.</p>}
+          </div>
+          <div className={styles.input_wrap}>
+            <label className={styles.label_input} htmlFor="productName">
+              상품명
+            </label>
+            <input
+              className={styles.name_input}
+              id="productName"
+              placeholder="상품명을 입력해주세요."
+            />
+          </div>
+          <div className={styles.input_wrap}>
+            <label className={styles.label_input} htmlFor="productDescription">
+              상품 소개
+            </label>
+            <textarea
+              className={styles.description_input}
+              id="productDescription"
+              placeholder="상품 소개를 입력해주세요."
+            ></textarea>
+          </div>
+          <div className={styles.input_wrap}>
+            <label className={styles.label_input} htmlFor="productPrice">
+              판매가격
+            </label>
+            <input
+              className={styles.price_input}
+              id="productPrice"
+              placeholder="판매 가격을 입력해주세요."
+            />
+          </div>
+          <div className={styles.input_wrap}>
+            <label className={styles.label_input} htmlFor="productTag">
+              태그
+            </label>
+            <input
+              className={styles.tag_input}
+              id="productTag"
+              placeholder="태그를 입력해주세요."
+            />
+            <div className={styles.tag_list}></div>
+          </div>
+        </div>
+      </form>
+    </div>
+  );
 }
 
 export default PostProductPage;
