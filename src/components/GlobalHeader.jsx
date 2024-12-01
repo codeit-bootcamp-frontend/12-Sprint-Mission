@@ -4,7 +4,6 @@ import './GlobalHeader.css'
 function GlobalHeader() {
 
     const location = useLocation();
-    console.log(location.pathname);
 
     return (
         <header className='header'>
@@ -18,7 +17,7 @@ function GlobalHeader() {
                             <Link to="FreeBoard" className={location.pathname === '/FreeBoard' ? 'active-page' : ''}>자유게시판</Link>
                         </li>
                         <li className='header-nav--nav-item'>
-                            <Link to="items" className={location.pathname === '/items' ? 'active-page' : ''}>중고마켓</Link>
+                            <Link to="items" className={location.pathname === '/items' || '/additem' ? 'active-page' : ''}>중고마켓</Link>
                         </li>
                     </ul>
                 </div>
