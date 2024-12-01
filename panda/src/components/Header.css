@@ -63,6 +63,7 @@
   color: #4b5563;
 }
 
+
 @media (max-width: 1024px) {
   .header {
     max-width: 1024px;
@@ -121,3 +122,4 @@
   }
 
 }
+
