@@ -1,4 +1,4 @@
-import pandaFace from './img/logo.svg';
+import pandaFace from './img/pandaFace.svg';
 import myPageLogo from './img/myPageLogo.svg';
 import './Header.css';
 
