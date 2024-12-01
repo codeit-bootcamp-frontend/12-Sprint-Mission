@@ -1,3 +1,5 @@
+const BASE_URL = `https://panda-market-api.vercel.app`;
+
 export async function getProducts({
   page = "1",
   pageSize = "10",
@@ -7,9 +9,7 @@ export async function getProducts({
   const query = `page=${page}&pageSize=${pageSize}&orderBy=${orderBy}&keyword=${keyword}`;
 
   try {
-    const response = await fetch(
-      `https://panda-market-api.vercel.app/products?${query}`
-    );
+    const response = await fetch(`/products?${query}`);
     if (!response.ok) {
       throw new Error(`HTTP error: ${response.status}`);
     }
@@ -19,4 +19,16 @@ export async function getProducts({
     console.error("Failed to fetch products:", error);
     throw error;
   }
+}
+
+export async function createProduct(formData) {
+  const response = await fetch(`${BASE_URL}/products`, {
+    method: "POST",
+    body: formData,
+  });
+  if (!response.ok) {
+    throw new Error("Failed to post products");
+  }
+  const body = await response.json();
+  return body;
 }
