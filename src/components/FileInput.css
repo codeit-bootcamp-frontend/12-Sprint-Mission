@@ -1,0 +1,72 @@
+.itemTitle {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 22px;
+  color: #1f2937;
+}
+
+.FileInputContainer {
+  display: flex;
+  gap: 8px;
+}
+
+@media (min-width: 768px) {
+  .FileInputContainer {
+    gap: 18px;
+  }
+
+  .ImagePreview {
+    width: 282px;
+    height: 282px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .FileInputContainer {
+    gap: 24px;
+  }
+}
+
+.UploadButton {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  border-radius: 12px;
+}
+
+.UploadButton:hover {
+  opacity: 0.5;
+}
+
+.HiddenFileInput {
+  display: none;
+}
+
+.ImagePreview {
+  /* width: calc(50% - 4px);
+  max-width: 200px;
+  aspect-ratio: 1 / 1;
+  border-radius: 12px; */
+  width: 168px;
+  height: 168px;
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.Preview {
+  width: 168px;
+  height: 168px;
+  object-fit: cover;
+}
+
+.DeleteButtonWrapper {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+}
