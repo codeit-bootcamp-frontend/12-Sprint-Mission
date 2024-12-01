@@ -39,13 +39,15 @@ export function ImageUpload({
           </span>
           <input id={id} name={name} className="a11y" {...fileProps} />
         </label>
-        {preview && (
-          <Thumbnail
-            src={preview}
-            alt="상품 이미지 등록"
-            onRemove={handleRemove}
-          />
-        )}
+        <div className={styles.preview}>
+          {preview && (
+            <Thumbnail
+              src={preview}
+              alt="상품 이미지 등록"
+              onRemove={handleRemove}
+            />
+          )}
+        </div>
       </div>
       <Error error={fileInputError} />
     </>

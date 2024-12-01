@@ -27,7 +27,7 @@ export default function ProductItem({ item, keyword }) {
 
   return (
     <Link to={`/items/${id}`} className={styles.item}>
-      <div className={styles.Thumbnail}>
+      <div className={styles.thumbnail}>
         <Thumbnail src={images[0]} alt={name} />
       </div>
       <div className={styles.content}>
