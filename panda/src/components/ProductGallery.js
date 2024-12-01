@@ -160,6 +160,7 @@ function ProductGallery() {
                   value={searchQuery}
                   onChange={handleSearchChange}
                   className="searchInput"
+                  
                 />
             </div>
             <Link to="/additem">

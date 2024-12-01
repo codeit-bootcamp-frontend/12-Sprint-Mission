@@ -82,6 +82,7 @@ function AddItemPage() {
 
           <div className="AddItemImg">
             {/* 이미지 업로드 버튼 */}
+            
             <input
               type="file"
               accept="image/*"
@@ -89,7 +90,12 @@ function AddItemPage() {
               className="AddItemImgBtn"
 
             />
-         
+            
+            {/* 텍스트 및 디자인 변경 */}
+            <div className="AddItemImgOverlay">
+              <span className="icon">+</span>
+              <span className="text">이미지 등록</span>
+            </div>
 
             {/* 선택된 이미지가 있을 경우 그 이미지를 바로 옆에 표시 */}
             {image && (
