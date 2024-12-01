@@ -98,3 +98,15 @@
     font-size: 18px;
   }
 }
+
+/* Desktop */
+
+@media (min-width: 1200px) {
+  .Header {
+    padding: 0px 200px;
+  }
+
+  .left {
+    gap: 47px;
+  }
+}

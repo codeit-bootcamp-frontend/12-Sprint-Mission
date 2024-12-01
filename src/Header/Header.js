@@ -5,7 +5,6 @@ import './Header.css';
 function Header() {
   return (
     <div className="Header">
-      <div className="divider"></div>
       <div className="left">
         <a className="logo" href="/">
           <img className="pandaFace" src={pandaFace} alt="logo"></img>
@@ -26,7 +25,6 @@ function Header() {
           <img src={myPageLogo} alt="myPageLogo"></img>
         </a>
       </div>
-      <div className="divider"></div>
     </div>
   );
 }
