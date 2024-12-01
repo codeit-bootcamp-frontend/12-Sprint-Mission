@@ -5,25 +5,19 @@ import './Header.css';
 function Header() {
   return (
     <div className="Header">
-      <div className="divider left"></div>
+      <div className="divider"></div>
       <div className="left">
-        <div className="logoConatainer">
-          <a className="logo" href="/">
-            <img className="pandaFace" src={pandaFace} alt="logo"></img>
-            <div className="pandaMarket">판다마켓</div>
-          </a>
-        </div>
+        <a className="logo" href="/">
+          <img className="pandaFace" src={pandaFace} alt="logo"></img>
+          <div className="pandaMarket">판다마켓</div>
+        </a>
         <div className="nav">
-          <div>
-            <a className="board" href="/board">
-              자유게시판
-            </a>
-          </div>
-          <div>
-            <a className="items" href="/items">
-              중고마켓
-            </a>
-          </div>
+          <a className="board" href="/board">
+            자유게시판
+          </a>
+          <a className="items" href="/items">
+            중고마켓
+          </a>
         </div>
       </div>
       <div className="divider center"></div>
@@ -32,7 +26,7 @@ function Header() {
           <img src={myPageLogo} alt="myPageLogo"></img>
         </a>
       </div>
-      <div className="divider right"></div>
+      <div className="divider"></div>
     </div>
   );
 }
