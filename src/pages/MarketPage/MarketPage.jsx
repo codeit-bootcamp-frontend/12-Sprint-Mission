@@ -1,7 +1,6 @@
 import "./MarketPage.css";
 import BestItemSection from "./components/BestItemSection";
 import AllItemSection from "./components/AllItemSection";
-import PaginationBar from "../../components/UI/PaginationBar";
 
 function MarketPage() {
   return (

@@ -1,0 +1,78 @@
+.addItemContainer {
+  width: 1200px;
+  margin: 24px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.addItemHeader {
+  display: flex;
+  justify-content: space-between;
+}
+
+.headerTitle {
+  font-size: 20px;
+  font-weight: 700;
+  color: #1f2937;
+}
+
+.addItemBtn {
+  width: 74px;
+  height: 42px;
+  padding: 12px 23px;
+  border: none;
+  border-radius: 8px;
+  background-color: #9ca3af;
+  color: #ffffff;
+}
+
+.addItemBtn:hover {
+  cursor: pointer;
+  background-color: #3692ff;
+}
+
+.inputBox {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.inputLabel {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1f2937;
+}
+
+.input {
+  width: 100%;
+  height: 56px;
+  padding: 16px 24px;
+  border: none;
+  border-radius: 12px;
+  background-color: #f3f4f6;
+}
+
+.input::placeholder {
+  font-size: 16px;
+  font-weight: 400;
+  color: #9ca3af;
+}
+
+.input.inputImg {
+  width: 282px;
+  height: 282px;
+  padding: 158px 104px 98px;
+  background: url(../../images/ic_plus.png) no-repeat center;
+  background-size: 48px;
+  background-color: #f3f4f6;
+}
+
+.input.textarea {
+  height: 282px;
+  padding: 16px 24px;
+}
+
+.input.inputImg::placeholder {
+  text-align: center;
+}
