@@ -57,11 +57,27 @@
   gap: 24px;
 }
 
-.file_input_preview {
+.file_img_wrap {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.file_preview_img {
   width: 282px;
   height: 282px;
   object-fit: cover;
   border-radius: 12px;
+}
+
+.file_preview_xicon {
+  position: absolute;
+  width: 22px;
+  object-fit: cover;
+  right: 12px;
+  top: 12px;
+  cursor: pointer;
 }
 
 .file_input_button {

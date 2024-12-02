@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import styles from "./PostProductPage.module.css";
 import ProductTag from "../component/ProductTag";
+import iconX from "../asset/ic_X.png";
 
 function PostProductPage() {
   const [preview, setPreview] = useState("");
@@ -17,6 +18,7 @@ function PostProductPage() {
     const value = e.target.files[0];
     const nextPreview = URL.createObjectURL(value);
     setPreview(nextPreview);
+    console.log(nextPreview);
   };
 
   const handleChangeTag = (e) => {
@@ -43,9 +45,15 @@ function PostProductPage() {
     setTagList(nextTagList);
   };
 
+  const handleClickFileDelete = () => {
+    URL.revokeObjectURL(preview);
+    setPreview("");
+    setImgError(false);
+  };
+
   useEffect(() => {
-    console.log(tagList);
-  }, [preview, tagList]);
+    console.log(preview);
+  }, [preview]);
 
   return (
     <div className={styles.post}>
@@ -71,11 +79,19 @@ function PostProductPage() {
                 id="productImg"
               />
               {preview && (
-                <img
-                  className={styles.file_input_preview}
-                  src={preview}
-                  alt="이미지 미리보기"
-                />
+                <div className={styles.file_img_wrap}>
+                  <img
+                    className={styles.file_preview_img}
+                    src={preview}
+                    alt="이미지 미리보기"
+                  />
+                  <img
+                    className={styles.file_preview_xicon}
+                    src={iconX}
+                    alt="이미지 삭제 아이콘"
+                    onClick={handleClickFileDelete}
+                  />
+                </div>
               )}
             </div>
             {imgError && <p>*이미지 등록은 최대 1개까지 가능합니다.</p>}
