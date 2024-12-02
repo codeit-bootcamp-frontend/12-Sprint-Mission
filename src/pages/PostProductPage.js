@@ -7,8 +7,37 @@ function PostProductPage() {
   const [preview, setPreview] = useState("");
   const [imgError, setImgError] = useState(false);
   const [tagList, setTagList] = useState([]);
+  //value값들
+  const [nameInput, setnameInput] = useState("");
+  const [desInput, setDesInput] = useState("");
+  const [priceInput, setPriceInput] = useState("");
   const [tagValue, setTagValue] = useState("");
 
+  const handleChangeNameInput = (e) => {
+    setnameInput(e.target.value);
+  };
+
+  const handleChangeDesInput = (e) => {
+    setDesInput(e.target.value);
+  };
+
+  //가격 input 함수
+  const handleChangePriceInput = (e) => {
+    let number = e.target.value;
+    //숫자 이외에 입력은 공백으로 바꿔줌
+    number = number.replace(/[^0-9]/g, "");
+    //3자리마다 콤마표시
+    number = Number(number).toLocaleString();
+    setPriceInput(number);
+  };
+
+  //button hover 조건
+  let ButtonStyle =
+    nameInput && desInput && priceInput && tagList.length
+      ? `${styles.post_button_hover}`
+      : `${styles.post_button}`;
+
+  //파일 input 함수
   const handleChangeFile = (e) => {
     if (preview) {
       setImgError(true);
@@ -21,6 +50,13 @@ function PostProductPage() {
     console.log(nextPreview);
   };
 
+  const handleClickFileDelete = () => {
+    URL.revokeObjectURL(preview);
+    setPreview("");
+    setImgError(false);
+  };
+
+  //태그 input 함수
   const handleChangeTag = (e) => {
     const isValue = tagList.find((element) => element === tagValue);
     if (e.keyCode === 13 && isValue) {
@@ -36,19 +72,14 @@ function PostProductPage() {
     setTagValue(e.target.value);
   };
 
-  const preventSubmit = (e) => {
-    e.preventDefault();
-  };
-
   const handlechangeTagList = (id) => {
     const nextTagList = tagList.filter((element) => element !== id);
     setTagList(nextTagList);
   };
 
-  const handleClickFileDelete = () => {
-    URL.revokeObjectURL(preview);
-    setPreview("");
-    setImgError(false);
+  //폼 제출기능 막기
+  const preventSubmit = (e) => {
+    // e.preventDefault();
   };
 
   useEffect(() => {
@@ -60,7 +91,9 @@ function PostProductPage() {
       <form className={styles.wrap} onSubmit={preventSubmit}>
         <div className={styles.title_wrap}>
           <h1 className={styles.post_title}>상품 등록하기</h1>
-          <button className={styles.post_button}>등록</button>
+          <button type="button" className={ButtonStyle}>
+            등록
+          </button>
         </div>
         <div className={styles.input_list}>
           <div className={styles.input_wrap}>
@@ -104,6 +137,8 @@ function PostProductPage() {
               className={styles.name_input}
               id="productName"
               type="name"
+              onChange={handleChangeNameInput}
+              value={nameInput}
               placeholder="상품명을 입력해주세요."
             />
           </div>
@@ -115,6 +150,8 @@ function PostProductPage() {
               className={styles.description_input}
               id="productDescription"
               placeholder="상품 소개를 입력해주세요."
+              onChange={handleChangeDesInput}
+              value={desInput}
             ></textarea>
           </div>
           <div className={styles.input_wrap}>
@@ -124,7 +161,9 @@ function PostProductPage() {
             <input
               className={styles.price_input}
               id="productPrice"
-              type="number"
+              type="text"
+              onChange={handleChangePriceInput}
+              value={priceInput}
               placeholder="판매 가격을 입력해주세요."
             />
           </div>

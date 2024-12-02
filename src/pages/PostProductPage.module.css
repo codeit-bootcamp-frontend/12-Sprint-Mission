@@ -1,6 +1,7 @@
 .post {
   display: flex;
   justify-content: center;
+  height: 1300px;
 }
 
 .wrap {
@@ -31,6 +32,19 @@
   border-radius: 8px;
   width: 74px;
   height: 42px;
+  cursor: pointer;
+}
+
+.post_button_hover {
+  font-size: 16px;
+  font-weight: 600;
+  background-color: #3692ff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  width: 74px;
+  height: 42px;
+  cursor: pointer;
 }
 
 /* input 요소 */
