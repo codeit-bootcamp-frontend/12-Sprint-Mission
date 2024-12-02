@@ -1,26 +1,55 @@
 import { useEffect, useState } from "react";
 import styles from "./PostProductPage.module.css";
+import ProductTag from "../component/ProductTag";
 
 function PostProductPage() {
   const [preview, setPreview] = useState("");
   const [imgError, setImgError] = useState(false);
+  const [tagList, setTagList] = useState([]);
+  const [tagValue, setTagValue] = useState("");
 
-  const handleChange = (e) => {
+  const handleChangeFile = (e) => {
     if (preview) {
       setImgError(true);
       return;
     }
     setImgError(false);
-    const nextValue = e.target.files[0];
-    const nextPreview = URL.createObjectURL(nextValue);
+    const value = e.target.files[0];
+    const nextPreview = URL.createObjectURL(value);
     setPreview(nextPreview);
   };
 
-  useEffect(() => {}, [preview]);
+  const handleChangeTag = (e) => {
+    const isValue = tagList.find((element) => element === tagValue);
+    if (e.keyCode === 13 && isValue) {
+      alert("이미 있는 태그입니다.");
+      return;
+    } else if (e.keyCode === 13) {
+      setTagValue("");
+      setTagList([...tagList, tagValue]);
+    }
+  };
+
+  const handleChangeTagInput = (e) => {
+    setTagValue(e.target.value);
+  };
+
+  const preventSubmit = (e) => {
+    e.preventDefault();
+  };
+
+  const handlechangeTagList = (id) => {
+    const nextTagList = tagList.filter((element) => element !== id);
+    setTagList(nextTagList);
+  };
+
+  useEffect(() => {
+    console.log(tagList);
+  }, [preview, tagList]);
 
   return (
     <div className={styles.post}>
-      <form className={styles.wrap}>
+      <form className={styles.wrap} onSubmit={preventSubmit}>
         <div className={styles.title_wrap}>
           <h1 className={styles.post_title}>상품 등록하기</h1>
           <button className={styles.post_button}>등록</button>
@@ -38,7 +67,7 @@ function PostProductPage() {
                 className={styles.file_input}
                 type="file"
                 accept="image/png, image/jpeg"
-                onChange={handleChange}
+                onChange={handleChangeFile}
                 id="productImg"
               />
               {preview && (
@@ -58,6 +87,7 @@ function PostProductPage() {
             <input
               className={styles.name_input}
               id="productName"
+              type="name"
               placeholder="상품명을 입력해주세요."
             />
           </div>
@@ -78,6 +108,7 @@ function PostProductPage() {
             <input
               className={styles.price_input}
               id="productPrice"
+              type="number"
               placeholder="판매 가격을 입력해주세요."
             />
           </div>
@@ -88,9 +119,22 @@ function PostProductPage() {
             <input
               className={styles.tag_input}
               id="productTag"
+              type="text"
+              onKeyUp={handleChangeTag}
+              onChange={handleChangeTagInput}
+              value={tagValue}
               placeholder="태그를 입력해주세요."
             />
-            <div className={styles.tag_list}></div>
+            <div className={styles.tag_list}>
+              {tagList &&
+                tagList.map((value) => (
+                  <ProductTag
+                    key={value}
+                    value={value}
+                    handlechangeTagList={handlechangeTagList}
+                  />
+                ))}
+            </div>
           </div>
         </div>
       </form>
