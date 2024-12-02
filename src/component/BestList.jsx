@@ -1,29 +1,37 @@
-import heart from "../ImgFile/icon_wish.svg";
-
+import React, { useEffect, useState } from "react";
 import "./BestList.css";
+import { getProduct } from "../Api";
 
-function BestList({ imageUrl, title, price, likeCount, size }) {
+function BestItemList() {
+  const [itemList, setItemList] = useState([]);
+  const [listpage, setListPageSize] = useState(1);
+
+  useEffect(() => {
+    const fetchBestitem = async () => {
+      const product = await getProduct({
+        page: listpage,
+        PageSize: 4,
+        orderBy: "favorit",
+      });
+      setItemList(product.list);
+    };
+    fetchBestitem();
+  }, []);
+
   return (
-    <div>
-      <div>
-        <img
-          className="Best-image"
-          src={imageUrl}
-          alt="product"
-          style={{
-            width: `${size}px`,
-            height: `${size}px`,
-          }}
-        />
-        <p>{title}</p>
-        <p>{price}원</p>
-        <div>
-          <img src={heart} alt="좋아요 수" />
-          {likeCount}
-        </div>
-      </div>
+    <div className="best-item">
+      <h2>베스트 상품</h2>
+      <BestItemList
+        key={item.id}
+        imageUrl={item.imgaes[0]}
+        title={item.name}
+        price={item.price}
+        likeCount={item.favoriteCount}
+        size={282}
+      />
+      <div className="item-list-seet"></div>
     </div>
   );
 }
 
-export default BestList;
+export default BestItemList;
