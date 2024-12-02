@@ -28,7 +28,11 @@ function PaginationBar({ onChangePage, totalPageNum, activePageNum }) {
         {"<"}
       </button>
       {pageNumArr.map((num) => (
-        <button className={`pageBtn ${activePageNum === num ? "active" : ""}`} onClick={() => onChangePage(num)}>
+        <button
+          key={num}
+          className={`pageBtn ${activePageNum === num ? "active" : ""}`}
+          onClick={() => onChangePage(num)}
+        >
           {num}
         </button>
       ))}

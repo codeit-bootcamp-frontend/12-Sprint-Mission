@@ -1,17 +1,21 @@
 import "./styles/App.css";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "./components/Layout/Header";
 import MarketPage from "./pages/MarketPage/MarketPage";
+import AddItemPage from "./pages/AddItemPage/AddItemPage.jsx";
 
 function App() {
   return (
-    <div>
+    <BrowserRouter>
+      <Header />
+
       <div>
-        <Header />
+        <Routes>
+          <Route index element={<MarketPage />} />
+          <Route path="additem" element={<AddItemPage />} />
+        </Routes>
       </div>
-      <div>
-        <MarketPage />
-      </div>
-    </div>
+    </BrowserRouter>
   );
 }
 
