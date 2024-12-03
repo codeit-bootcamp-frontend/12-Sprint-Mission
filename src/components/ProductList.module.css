@@ -1,0 +1,36 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.price {
+  font-size: 16px;
+  font-weight: 700px;
+  line-height: 26px;
+  color: #1f2937;
+  margin: 0;
+}
+
+.favorite_box {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: #4b5563;
+  font-size: 12px;
+}
+
+.favorite_box__img {
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+}
+
+.favorite_box__count {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+  display: inline-block;
+  margin: 0;
+}
