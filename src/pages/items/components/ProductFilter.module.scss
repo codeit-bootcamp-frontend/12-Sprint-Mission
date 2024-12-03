@@ -1,0 +1,23 @@
+@use "@assets/scss/base/mixins";
+
+.search {
+  width: 100%;
+  max-width: 32.5rem;
+  @include mixins.mobile {
+    order: 2;
+    max-width: 100%;
+    width: calc(100% - 4.2rem - 1.2rem);
+  }
+}
+
+.button {
+  @include mixins.mobile {
+    order: 1;
+  }
+}
+
+.select {
+  @include mixins.mobile {
+    order: 3;
+  }
+}

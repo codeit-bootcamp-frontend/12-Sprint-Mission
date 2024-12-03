@@ -1,7 +1,8 @@
 import { useRef, useState } from "react";
 
 export default function useAsync(asyncFn) {
-  const [isLoading, setLoading] = useState(false);
+  const [result, setResult] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
   const abortcontrollerRef = useRef(null);
 
@@ -11,18 +12,20 @@ export default function useAsync(asyncFn) {
 
     try {
       setError(null);
-      setLoading(true);
-      return await asyncFn(...args, {
+      setIsLoading(true);
+      const res = await asyncFn(...args, {
         signal: abortcontrollerRef.current?.signal,
       });
+      setResult(res);
+      return res;
     } catch (err) {
       if (err.name !== "AbortError") {
         setError(err);
       }
     } finally {
-      setLoading(false);
+      setIsLoading(false);
     }
   }
 
-  return { isLoading, error, wrappedFn };
+  return { isLoading, error, result, wrappedFn };
 }

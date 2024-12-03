@@ -1,0 +1,20 @@
+.item-btn {
+  position: absolute;
+  top: 50%;
+  right: 2.4rem;
+  transform: translateY(-50%);
+  width: 2.4rem;
+  height: 2.4rem;
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  background-position: center;
+}
+
+.visibility-btn .icon-visibility-off,
+.visibility-btn.on .icon-visibility-on {
+  display: none;
+}
+
+.visibility-btn.on .icon-visibility-off {
+  display: block;
+}

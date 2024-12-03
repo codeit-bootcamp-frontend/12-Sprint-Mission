@@ -19,23 +19,53 @@ export default function useForm(formSchema) {
   const [formState, setFormState] = useState(initialState);
   const [isLoading, setIsLoading] = useState(false);
   const [formError, setFormError] = useState(null);
-  const isFormValid = Object.values(formState).every(
-    (item) => item.error === null && item.value.length
+  const isFormValid = Object.entries(formState).every(([key, item]) =>
+    isValidField(rules[key], item)
   );
 
-  function handleChange(e) {
-    const name = e.target.name;
-    const value = e.target.value;
+  function isValidField(rule, item) {
+    if (item.error !== null) return false;
 
-    updateFormFieldState(name, value);
+    if (rule?.required) {
+      const value = item.value;
+
+      if (typeof value === "string" && value.trim().length === 0) {
+        return false;
+      }
+
+      if (typeof value === "number" && isNaN(value)) {
+        return false;
+      }
+
+      if (Array.isArray(value) && value.length === 0) {
+        return false;
+      }
+
+      if (value === null || value === undefined) return false;
+    }
+
+    return true;
+  }
+
+  function handleInputChange(e) {
+    const { type, name, value } = e.target;
+    let nextValue;
+
+    if (type === "number") {
+      nextValue = value === "" ? undefined : Number(value);
+    } else {
+      nextValue = value;
+    }
+
+    handleChange(name, nextValue);
   }
 
   function trigger(name) {
-    const value = formState[name].value || "";
-    updateFormFieldState(name, value);
+    const value = formState[name].value;
+    handleChange(name, value);
   }
 
-  function updateFormFieldState(name, value) {
+  function handleChange(name, value) {
     const { isValid, message } = validate(name, value);
 
     setFormState((prev) => ({
@@ -50,25 +80,46 @@ export default function useForm(formSchema) {
 
   function validate(name, value) {
     const rule = rules[name];
+
     if (!rule) {
       return { isValid: true, message: null };
     }
 
-    if (rule.required && !value.trim()) {
-      return {
-        isValid: false,
-        message:
-          typeof rule.required === "string" ? rule.required : "필수값입니다.",
-      };
+    if (rule.required) {
+      const isEmpty =
+        value === null ||
+        value === undefined ||
+        (typeof value === "string" && !value.trim()) ||
+        (typeof value === "number" && isNaN(value)) ||
+        (Array.isArray(value) && value.length === 0);
+
+      if (isEmpty) {
+        return {
+          isValid: false,
+          message:
+            typeof rule.required === "string" ? rule.required : "필수값입니다.",
+        };
+      }
     }
 
     if (rule.patterns) {
       for (const pattern of rule.patterns) {
-        if (!pattern.regex.test(value)) {
-          return {
-            isValid: false,
-            message: pattern.message || "유효하지 않은 형식입니다.",
-          };
+        if (Array.isArray(value)) {
+          const isArrayValid = value.every((item) => pattern.regex.test(item));
+          if (!isArrayValid) {
+            return {
+              isValid: false,
+              message:
+                pattern.message || "배열 요소에 유효하지 않은 형식이 있습니다.",
+            };
+          }
+        } else {
+          if (!pattern.regex.test(value)) {
+            return {
+              isValid: false,
+              message: pattern.message || "유효하지 않은 형식입니다.",
+            };
+          }
         }
       }
     }
@@ -80,6 +131,28 @@ export default function useForm(formSchema) {
           isValid: false,
           message: rule.match.message || "값이 일치하지 않습니다.",
         };
+      }
+    }
+
+    if (rule.custom) {
+      const validateFunc = rule.custom.validate;
+      if (Array.isArray(value)) {
+        const isArrayValid = value.every((item) => validateFunc(item));
+        if (!isArrayValid) {
+          return {
+            isValid: false,
+            message:
+              rule.custom.message ||
+              "배열 요소에 유효하지 않은 값이 있습니다..",
+          };
+        }
+      } else {
+        if (!validateFunc(value)) {
+          return {
+            isValid: false,
+            message: rule.custom.message || "유효하지 않은 값입니다.",
+          };
+        }
       }
     }
 
@@ -125,8 +198,8 @@ export default function useForm(formSchema) {
       name,
       value: formState[name].value,
       error: formState[name].error,
-      onChange: handleChange,
-      required: rules[name].required ? true : false,
+      onChange: handleInputChange,
+      required: rules[name]?.required ? true : false,
     };
   }
 

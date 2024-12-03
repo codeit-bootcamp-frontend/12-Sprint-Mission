@@ -1,47 +1,22 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import useAsync from "@hooks/useAsync";
 
-export default function useList(fetchFn, pageSize = 10, params) {
-  const { isLoading, error, wrappedFn: getData } = useAsync(fetchFn);
-  const [items, setItems] = useState([]);
-  const [totalCount, setTotalCount] = useState(0);
+export default function useList(fetchFn, params) {
+  const { page, pageSize, keyword, orderBy } = params;
+  const { isLoading, error, result, wrappedFn: getData } = useAsync(fetchFn);
+  const items = result?.list || [];
+  const totalCount = result?.totalCount || 0;
 
   useEffect(() => {
-    /**
-     * Pagination 컴포넌트에서 페이지 번호를 보정하는 과정 중,
-     * 보정 이전의 값으로 발생한 요청으로 인해 리스트 데이터가 오염된 현상을 해결.
-     * (최대 페이지 번호를 넘긴 요청건에서 응답된 빈리스트가 들어가게 됨)
-     *
-     * 방법1) 업데이트된 params의 page를 체크해서 요청할수있는 번호를 넘으면 데이터 요청 취소
-     * 쓰지않은이유 : params안에 page가 무조건 들어있다는 가정하에 체크를 하게되는데 잘못된 방식 같음
-     */
-
-    //if (totalCount > 0 && params?.page > Math.ceil(totalCount / pageSize))
-    //  return;
-
-    /**
-     * 방법2) params의 page가 업데이트가 연속으로 일어났을때,
-     * 바로 전의 업데이트 때문에 요청한 통신을 취소하는 방식으로 접근 (cleanup에 abort실행)
-     * abortcontroller를 넘겨야해서 코드량이 많지만 그래도 안정적인 것 같다.
-     * (리사이징때문에 연속적으로 요청을 보낼때에도 해당 방법이 도와줄것 같다.)
-     */
-
-    // abortcontroller를 useAsync훅으로 옮김 (모든 통신에 사용하기 위해서)
-
     (async function fetchData() {
-      const result = await getData({
+      await getData({
+        page,
         pageSize,
-        ...params,
+        keyword,
+        orderBy,
       });
-
-      if (!result) return;
-
-      const { list, totalCount } = result;
-
-      setItems(list);
-      setTotalCount(totalCount);
     })();
-  }, [pageSize, params]);
+  }, [page, pageSize, keyword, orderBy]);
 
   return {
     isLoading,

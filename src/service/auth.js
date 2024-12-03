@@ -15,7 +15,10 @@ export async function login({ email, password }) {
   const data = await res.json();
 
   if (!res.ok) {
-    throw new Error(data.message || "에러가 발생했습니다.");
+    throw {
+      status: res.status,
+      message: data.message || "에러가 발생했습니다.",
+    };
   }
 
   return data;
@@ -42,7 +45,10 @@ export async function signUp({
 
   const data = await res.json();
   if (!res.ok) {
-    throw new Error(data.message || "에러가 발생했습니다.");
+    throw {
+      status: res.status,
+      message: data.message || "에러가 발생했습니다.",
+    };
   }
 
   return data;
@@ -61,7 +67,10 @@ export async function refreshAccessToken(refreshToken) {
 
   const data = await res.json();
   if (!res.ok) {
-    throw new Error(data.message || "에러가 발생했습니다.");
+    throw {
+      status: res.status,
+      message: data.message || "에러가 발생했습니다.",
+    };
   }
 
   return data;
@@ -76,9 +85,11 @@ export async function getUser(accessToken) {
 
   const data = await res.json();
   if (!res.ok) {
-    throw new Error(data.message || "에러가 발생했습니다.");
+    throw {
+      status: res.status,
+      message: data.message || "에러가 발생했습니다.",
+    };
   }
 
   return data;
-  s;
 }
