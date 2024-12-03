@@ -109,7 +109,9 @@
 
 @media (min-width: 1200px) {
   .Header {
-    padding: 0px 200px;
+    /* padding: 0px 200px; */
+    max-width: 1200px;
+    margin: 0 auto;
   }
 
   .left {
