@@ -24,12 +24,12 @@ export default function ProductDetail({ detail }) {
     auth: { user },
   } = useAuth();
   const navigate = useNavigate();
+  const isOwner = ownerId === user?.id;
 
   async function handleToggleLike() {
     await toggleLike(id, !isFavorite);
     window.location.reload();
   }
-  const isOwner = ownerId === user?.id;
 
   function handleModify() {
     if (!isOwner) {
@@ -75,8 +75,8 @@ export default function ProductDetail({ detail }) {
             />
           </div>
         </header>
-        <Section title={"상품 소개"}>{description}</Section>
-        <Section title={"상품 태그"}>
+        <Section title="상품 소개">{description}</Section>
+        <Section title="상품 태그">
           <div className={styles.tags}>
             {tags.map((tag) => (
               <Link to={`/items?page=1&keyword=${tag}`} key={tag}>
@@ -85,7 +85,6 @@ export default function ProductDetail({ detail }) {
             ))}
           </div>
         </Section>
-
         <div className={styles.meta}>
           <Author nickname={ownerNickname} createAt={createdAt} />
           <div className={styles.controls}>
