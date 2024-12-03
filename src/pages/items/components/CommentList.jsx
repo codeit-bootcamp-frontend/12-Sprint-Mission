@@ -34,7 +34,7 @@ export default function CommentList({ comments: initialComment }) {
 
   return (
     <div className={styles.comments}>
-      <div className={styles.list}>
+      <ul className={styles.list}>
         {list?.map((comment) => (
           <Comment
             key={comment.id}
@@ -42,7 +42,7 @@ export default function CommentList({ comments: initialComment }) {
             isOwner={user?.id === comment.writer.id}
           />
         ))}
-      </div>
+      </ul>
       {nextCursor && (
         <div className={styles.control}>
           <button type="button" className={styles.button} onClick={handleLoad}>

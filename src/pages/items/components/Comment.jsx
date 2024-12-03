@@ -53,7 +53,7 @@ export default function Comment({ comment, isOwner }) {
 
   if (isModify) {
     return (
-      <div className={styles.comment}>
+      <li className={styles.comment}>
         <div className={styles.content}>
           <Form
             isLoading={isLoading}
@@ -82,12 +82,12 @@ export default function Comment({ comment, isOwner }) {
             </div>
           </Form>
         </div>
-      </div>
+      </li>
     );
   }
 
   return (
-    <div className={styles.comment}>
+    <li className={styles.comment}>
       <div className={styles.content}>
         <div className={styles.text}>{content}</div>
         <div className={styles.footer}>
@@ -100,6 +100,6 @@ export default function Comment({ comment, isOwner }) {
           { label: "삭제하기", action: handleDelete },
         ]}
       />
-    </div>
+    </li>
   );
 }
