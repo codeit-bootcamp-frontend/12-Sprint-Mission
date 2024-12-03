@@ -88,11 +88,13 @@ export default function ProductDetail({ detail }) {
 
         <div className={styles.meta}>
           <Author nickname={ownerNickname} createAt={createdAt} />
-          <LikeButton
-            count={favoriteCount}
-            isLiked={isFavorite}
-            onClick={handleToggleLike}
-          />
+          <div className={styles.controls}>
+            <LikeButton
+              count={favoriteCount}
+              isLiked={isFavorite}
+              onClick={handleToggleLike}
+            />
+          </div>
         </div>
       </div>
     </div>
