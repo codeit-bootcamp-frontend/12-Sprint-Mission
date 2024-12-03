@@ -48,3 +48,12 @@ export const addItemSchema = {
     },
   },
 };
+
+export const commentSchema = {
+  content: {
+    value: "",
+    rule: {
+      required: MESSAGE.COMMENT_REQUIRED,
+    },
+  },
+};
