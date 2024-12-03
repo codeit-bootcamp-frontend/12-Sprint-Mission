@@ -4,7 +4,7 @@
   border-radius: 50%;
   overflow: hidden;
 
-  &:hover {
+  &.hover:hover {
     outline: 2px solid var(--color-secondary-100);
   }
 }
