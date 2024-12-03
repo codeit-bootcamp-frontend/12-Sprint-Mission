@@ -11,12 +11,16 @@ function AllProductList() {
   const [page, setPage] = useState(1);
   const [pageSize, setPageSize] = useState(10);
   const [keyword, setKeyword] = useState("");
+  const [maxPage, setMaxPage] = useState(5);
 
   const handleLoad = async (value) => {
     const result = await getProduct(value);
-    const { list } = result;
+    const { list, totalCount } = result;
     setItems(list);
+    const currentMaxPage = Math.ceil(totalCount / 10);
+    setMaxPage(currentMaxPage);
   };
+
   useEffect(() => {
     handleLoad({ page, pageSize, orderBy, keyword });
   }, [page, pageSize, orderBy, keyword]);
@@ -32,6 +36,7 @@ function AllProductList() {
 
   const handleKeyword = (value) => {
     setKeyword(value);
+    setPage(1);
   };
 
   return (
@@ -44,7 +49,7 @@ function AllProductList() {
           })}
         </div>
       </div>
-      <PageButton handlePage={handlePage} page={page} />
+      <PageButton handlePage={handlePage} page={page} maxPage={maxPage} />
     </div>
   );
 }
