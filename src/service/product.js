@@ -1,100 +1,44 @@
-const { VITE_API_URL } = import.meta.env;
+import axios from "@service/axios";
 
 export async function getProducts(
   { page = 1, pageSize = 10, orderBy = "recent", keyword = "" },
   { signal }
 ) {
   const query = `page=${page}&pageSize=${pageSize}&orderBy=${orderBy}&keyword=${keyword}`;
-  const res = await fetch(`${VITE_API_URL}/products?${query}`, { signal });
+  const response = await axios.get(`/products?${query}`, { signal });
 
-  const data = await res.json();
-
-  if (!res.ok) {
-    throw {
-      status: res.status,
-      message: data.message || "에러가 발생했습니다.",
-    };
-  }
-
-  return data;
+  return response.data;
 }
 
-export async function uploadProductImage(formData, accessToken) {
-  const res = await fetch(`${VITE_API_URL}/images/upload`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "multipart/form-data",
-      Authorization: `Bearer ${accessToken}`,
-    },
-    body: formData,
-  });
+export async function uploadProductImage(formData) {
+  const response = await axios.post("/images/upload", formData);
 
-  const data = await res.json();
-
-  if (!res.ok) {
-    throw {
-      status: res.status,
-      message: data.message || "에러가 발생했습니다.",
-    };
-  }
-
-  return data;
+  return response.data;
 }
 
-export async function addProduct(productData, accessToken) {
-  const res = await fetch(`${VITE_API_URL}/products`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${accessToken}`,
-    },
-    body: JSON.stringify(productData),
-  });
+export async function addProduct(productData) {
+  const response = await axios.post("/products", productData);
 
-  const data = await res.json();
-
-  if (!res.ok) {
-    throw {
-      status: res.status,
-      message: data.message || "에러가 발생했습니다.",
-    };
-  }
-
-  return data;
+  return response.data;
 }
 
-export async function deleteProduct(productId, accessToken) {
-  const res = await fetch(`${VITE_API_URL}/products/${productId}`, {
-    method: "DELETE",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${accessToken}`,
-    },
-  });
+export async function deleteProduct(productId) {
+  const response = await axios.delete(`/products/${productId}`);
 
-  const data = await res.json();
-
-  if (!res.ok) {
-    throw {
-      status: res.status,
-      message: data.message || "에러가 발생했습니다.",
-    };
-  }
-
-  return data;
+  return response.data;
 }
 
 export async function getProduct(productId) {
-  const res = await fetch(`${VITE_API_URL}/products/${productId}`);
+  const response = await axios.get(`/products/${productId}`);
 
-  const data = await res.json();
+  return response.data;
+}
 
-  if (!res.ok) {
-    throw {
-      status: res.status,
-      message: data.message || "에러가 발생했습니다.",
-    };
-  }
+export async function toggleLike(productId, flag) {
+  const response = await axios({
+    method: flag ? "POST" : "DELETE",
+    url: `/products/${productId}/favorite`,
+  });
 
-  return data;
+  return response.data;
 }

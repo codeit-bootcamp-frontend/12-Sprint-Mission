@@ -19,7 +19,7 @@ export default function useAsync(asyncFn) {
       setResult(res);
       return res;
     } catch (err) {
-      if (err.name !== "AbortError") {
+      if (err.name !== "CanceledError") {
         setError(err);
       }
     } finally {

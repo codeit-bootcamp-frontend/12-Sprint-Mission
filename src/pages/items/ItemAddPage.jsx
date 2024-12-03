@@ -1,5 +1,4 @@
 import { useNavigate } from "react-router-dom";
-import { useAuth } from "@context/AuthContext";
 import useForm from "@hooks/useForm";
 import { addProduct, uploadProductImage } from "@service/product";
 import { toWon } from "@util/formatter";
@@ -26,7 +25,6 @@ export default function ItemAddPage() {
     handleSubmit,
     register,
   } = useForm(addItemSchema);
-  const { withAuth } = useAuth();
   const navigate = useNavigate();
 
   async function onSubmit(data) {
@@ -35,11 +33,11 @@ export default function ItemAddPage() {
         const imgFormData = new FormData();
         imgFormData.append("image", data.images);
 
-        const { url } = await withAuth(uploadProductImage)(imgFormData);
+        const { url } = await uploadProductImage(imgFormData);
         data.images = [url];
       }
 
-      await withAuth(addProduct)(data);
+      await addProduct(data);
       alert("성공적으로 작성했습니다.");
       navigate("/items");
     } catch (err) {
