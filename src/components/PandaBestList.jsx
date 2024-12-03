@@ -3,7 +3,7 @@ import ItemCard from "./ItemCard";
 import { getItems } from "../api/ItemApi";
 
 function PandaBestList() {
-  const [items, setItems] = useState([]);
+  const [bestItems, setItems] = useState([]);
 
   useEffect(() => {
     getItems({ order: "favorite", pageSize: 10 }).then((data) => {
@@ -18,7 +18,7 @@ function PandaBestList() {
     <div className="bestList-container">
       <h2 className="title">베스트 상품</h2>
       <div className="bestList">
-        {items.map((item) => (
+        {bestItems.map((item) => (
           <ItemCard key={item.id} item={item} />
         ))}
       </div>
