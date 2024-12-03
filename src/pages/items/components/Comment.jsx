@@ -4,8 +4,8 @@ import { removeComment, updateComment } from "@service/comments";
 import { Author, Button, Dropdown } from "@components/ui";
 import { Form, Textarea } from "@components/Field";
 import { commentSchema } from "./schema";
-import dotsIcon from "@assets/img/icon/icon_dots.svg";
 import styles from "./Comment.module.scss";
+import { More } from "@components/Button";
 
 export default function Comment({ comment, isOwner }) {
   const [isModify, setIsModify] = useState(false);
@@ -94,15 +94,12 @@ export default function Comment({ comment, isOwner }) {
           <Author avatar={image} nickname={nickname} createAt={createdAt} />
         </div>
       </div>
-      <Dropdown>
-        <Dropdown.Toggle>
-          <img src={dotsIcon} alt="더보기" />
-        </Dropdown.Toggle>
-        <Dropdown.Menu>
-          <Dropdown.Item onClick={handleModify}>수정하기</Dropdown.Item>
-          <Dropdown.Item onClick={handleDelete}>삭제하기</Dropdown.Item>
-        </Dropdown.Menu>
-      </Dropdown>
+      <More
+        options={[
+          { label: "수정하기", action: handleModify },
+          { label: "삭제하기", action: handleDelete },
+        ]}
+      />
     </div>
   );
 }
