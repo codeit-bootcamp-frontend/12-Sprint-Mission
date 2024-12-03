@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import styles from "./PostProductPage.module.css";
 import ProductTag from "../component/ProductTag";
 import iconX from "../asset/ic_X.png";
@@ -12,6 +12,8 @@ function PostProductPage() {
   const [desInput, setDesInput] = useState("");
   const [priceInput, setPriceInput] = useState("");
   const [tagValue, setTagValue] = useState("");
+
+  const inputRef = useRef();
 
   const handleChangeNameInput = (e) => {
     setnameInput(e.target.value);
@@ -51,6 +53,10 @@ function PostProductPage() {
   };
 
   const handleClickFileDelete = () => {
+    const inputNode = inputRef.current;
+    if (!inputNode) return;
+
+    inputNode.value = "";
     URL.revokeObjectURL(preview);
     setPreview("");
     setImgError(false);
@@ -109,6 +115,7 @@ function PostProductPage() {
                 type="file"
                 accept="image/png, image/jpeg"
                 onChange={handleChangeFile}
+                ref={inputRef}
                 id="productImg"
               />
               {preview && (
