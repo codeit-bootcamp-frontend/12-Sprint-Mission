@@ -203,6 +203,10 @@ export default function useForm(formSchema, defaultValues = {}) {
     };
   }
 
+  function reset() {
+    setFormState(initialState);
+  }
+
   return {
     formState,
     formError,
@@ -213,5 +217,6 @@ export default function useForm(formSchema, defaultValues = {}) {
     handleSubmit,
     getValues,
     register,
+    reset,
   };
 }

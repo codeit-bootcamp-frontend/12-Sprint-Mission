@@ -14,18 +14,21 @@ export default function Comment({ comment, isOwner }) {
     createdAt,
     writer: { nickname, image },
   } = comment;
-  const { formError, isFormValid, isLoading, handleSubmit, register } = useForm(
-    commentSchema,
-    {
+  const { formError, isFormValid, isLoading, handleSubmit, register, reset } =
+    useForm(commentSchema, {
       content,
-    }
-  );
+    });
 
   function handleModify() {
     if (!isOwner) {
       return alert("작성자만 수정이 가능합니다.");
     }
     setIsModify(true);
+  }
+
+  function handleClose() {
+    reset();
+    setIsModify(false);
   }
 
   async function handleDelete() {
@@ -71,11 +74,7 @@ export default function Comment({ comment, isOwner }) {
             <div className={styles.footer}>
               <Author avatar={image} nickname={nickname} createAt={createdAt} />
               <div className={styles.controls}>
-                <Button
-                  color="transparent"
-                  size="sm"
-                  onClick={() => setIsModify(false)}
-                >
+                <Button color="transparent" size="sm" onClick={handleClose}>
                   취소
                 </Button>
                 <Button type="submit" size="sm" disabled={!isFormValid}>
