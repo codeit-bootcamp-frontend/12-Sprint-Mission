@@ -21,7 +21,17 @@ export default function Comment({ comment, isOwner }) {
     }
   );
 
+  function handleModify() {
+    if (!isOwner) {
+      return alert("작성자만 수정이 가능합니다.");
+    }
+    setIsModify(true);
+  }
+
   async function handleDelete() {
+    if (!isOwner) {
+      return alert("작성자만 삭제가 가능합니다.");
+    }
     try {
       await removeComment(comment.id);
       alert("문의를 삭제했습니다.");
@@ -84,19 +94,15 @@ export default function Comment({ comment, isOwner }) {
           <Author avatar={image} nickname={nickname} createAt={createdAt} />
         </div>
       </div>
-      {isOwner && (
-        <Dropdown>
-          <Dropdown.Toggle>
-            <img src={dotsIcon} alt="더보기" />
-          </Dropdown.Toggle>
-          <Dropdown.Menu>
-            <Dropdown.Item onClick={() => setIsModify(true)}>
-              수정하기
-            </Dropdown.Item>
-            <Dropdown.Item onClick={handleDelete}>삭제하기</Dropdown.Item>
-          </Dropdown.Menu>
-        </Dropdown>
-      )}
+      <Dropdown>
+        <Dropdown.Toggle>
+          <img src={dotsIcon} alt="더보기" />
+        </Dropdown.Toggle>
+        <Dropdown.Menu>
+          <Dropdown.Item onClick={handleModify}>수정하기</Dropdown.Item>
+          <Dropdown.Item onClick={handleDelete}>삭제하기</Dropdown.Item>
+        </Dropdown.Menu>
+      </Dropdown>
     </div>
   );
 }
