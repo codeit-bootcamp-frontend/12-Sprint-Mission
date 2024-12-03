@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useRevalidator } from "react-router-dom";
 import { useAuth } from "@context/AuthContext";
 import { deleteProduct, toggleLike } from "@service/product";
 import { Chip, Thumbnail, Author, LikeButton, Dropdown } from "@components/ui";
@@ -24,11 +24,15 @@ export default function ProductDetail({ detail }) {
     auth: { user },
   } = useAuth();
   const navigate = useNavigate();
+  const { revalidate } = useRevalidator();
   const isOwner = ownerId === user?.id;
 
   async function handleToggleLike() {
+    if (!user) {
+      return alert("로그인이 필요합니다.");
+    }
     await toggleLike(id, !isFavorite);
-    window.location.reload();
+    revalidate();
   }
 
   function handleModify() {
