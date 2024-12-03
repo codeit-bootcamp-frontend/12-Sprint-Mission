@@ -78,3 +78,16 @@ state 관리하고 있는 params과 usePageSize로 관리하는 pageSize의 변�
 - url주소 기반으로 처리하는 useFetch를 쓰게되면, 만약에 api url이 변경되거나 요청전 작업이 수정되면 수정하러 이곳저곳을 돌아다녀야 할 것 같음.
 - 비동기 요청함수를 받아서 처리하는 훅으로 만들어둔 useAsync를 쓰는게 더 적합해보임
 - 주소를 기반으로 fetch만을 처리하는 훅으로 useFetch를 수정하고 남겨두기로 결정
+
+#### axios와 abortcontroller 사용기
+
+- fetch와 axios는 abort될시에 error name이 다르다.
+- 기존 fetch에서는 'AbortError'로 예외처리를 했는데, axios에서는 'CanceledError'로 예외처리를 해야했음.
+
+#### react router의 loader를 사용할시 추가로 설정해줘야했던 설정들
+
+- 처음에는 react의 Suspense가 모든 케이스의 데이터 로딩중에도 fallback ui를 보여줄수 있을거라고 생각함
+- 하지만 네비게이션을 통한 이동이 아닌 직접 접근(새로고침, url로 직접)시에는 Suspense가 캐치하지 못한다.
+- useNavigation의 state도 위처럼 직접 접근시에는 loading 상태를 체크가 불가능했다.
+- 콘솔에 보니 react router는 라우터 설정에서 hydrateFallbackElement 설정하라고 경고를 알려준다.
+- 라우터 설정에서 원하는 레벨에서 hydrateFallbackElement을 설정하니, 직접 접근시에 loader가 실행중일때 보여줄 fallback ui를 보여줄 수 있었다.
