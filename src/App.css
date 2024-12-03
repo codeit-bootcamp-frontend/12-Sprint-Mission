@@ -39,6 +39,9 @@ img {display: block;}
 .btn_blue {min-width: 88px; height: 42px; padding: 0 23px; background-color: var(--main); border-radius: 12px; color: #F3F4F6; text-align: center; font-size: 1.6rem; font-weight: 600; line-height: 42px; transition: all 0.2s;}
 .btn_blue:hover {background-color: #1967D6;}
 .btn_blue:active {background-color: #1251AA;}
+.btn_blue:disabled {background-color:  #9CA3AF; cursor: not-allowed;}
+
+.btn_blue.sml {min-width: 74px; border-radius: 8px; font-weight: 400;}
 
 .select_common {position: relative; z-index: 2;}
 .select_common > p {position: relative; z-index: 3; min-width: 130px; height: 42px; padding-left: 20px; padding-right: 50px; border: 1px solid #E5E7EB; background-color: #fff; border-radius: 12px; font-size: 1.6rem; font-weight: 400; line-height: 42px; cursor: pointer;}
@@ -90,6 +93,8 @@ img {display: block;}
 }
 
 @media (max-width: 768px) {
+  .inner {padding-left: 16px; padding-right: 16px;}
+
   .select_common > p {display : flex; align-items: center; justify-content: center; min-width: 42px; width: 42px; height: 42px; margin: 0; padding: 0;}
   .select_common > p::after {display: none;}
 
