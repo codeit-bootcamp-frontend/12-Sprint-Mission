@@ -5,4 +5,4 @@ export async function getData({ page = 1, pageSize = 4, orderBy = "recent" }) {
   const body = response.json();
   return body;
 }
-//fetch axois 함 마 둘다 써봐라 
+//fetch axois 함 마 둘다 써봐라

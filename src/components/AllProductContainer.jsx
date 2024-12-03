@@ -1,11 +1,12 @@
 import ProductItem from "./ProductItem";
 import { useEffect, useState } from "react";
 import { getData } from "../api";
-import "../components/AllProductContainer.css";
+import "../components/AllProductContainer.scss";
 import { Link } from "react-router-dom";
 
 function AllProductContainer() {
   const [itemList, setItemList] = useState();
+  // eslint-disable-next-line
   const [pageSize, setPageSize] = useState(10);
   const [orderBy, setOrderBy] = useState("recent");
 

@@ -4,7 +4,6 @@
   font-family: pretendard;
 }
 header {
-  position: sticky;
   z-index: 1000;
   top: 0;
   background-color: white;
@@ -31,6 +30,23 @@ header {
   gap: 32px;
 }
 
+.navLogo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 153px;
+  height: 51px;
+}
+
+.navLogo,
+#div {
+  font-family: ROKAF Sans;
+  font-size: 19.5px;
+  font-weight: 900;
+  line-height: 34.6px;
+  color: #3692ff;
+}
+
 .navContents {
   display: flex;
   gap: 30px;
@@ -54,4 +70,32 @@ header {
   background-color: #c8c9c7;
   border-radius: 50px;
   margin-right: 200px;
+}
+
+/* 미디어 쿼리 Mobile: 375px 이상 ~ 767px 이하 */
+
+@media (max-width: 767px) {
+  .navContainer {
+    padding-left: 16px;
+    gap: 10px;
+  }
+
+  .navContents {
+    gap: 15px;
+  }
+
+  .navLogo > img {
+    display: none;
+  }
+
+  .navProfile {
+    margin-right: 16px;
+    height: 32px;
+    width: 32px;
+  }
+}
+
+/* 미디어 쿼리 Tablet: 768px 이상 ~ 1199px 이하 */
+
+@media (max-width: 1199px) and (min-width: 768px) {
 }

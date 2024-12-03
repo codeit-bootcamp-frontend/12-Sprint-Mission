@@ -1,4 +1,4 @@
-import logo from "../images/Group 19.svg";
+import logo from "../images/판다 얼굴.svg";
 import profile from "../images/Group 33728.svg";
 import "../components/NavBar.css";
 import { NavLink } from "react-router-dom";
@@ -7,8 +7,9 @@ function NavBar() {
   return (
     <header className="navBar">
       <div className="navContainer">
-        <div>
-          <img className="navLogo" src={logo} alt="헤더이미지" />
+        <div className="navLogo">
+          <img src={logo} alt="헤더이미지" />
+          <h2>판다마켓</h2>
         </div>
         <div>
           <div className="navContents">
