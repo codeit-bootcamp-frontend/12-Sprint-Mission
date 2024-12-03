@@ -1,3 +1,5 @@
+/* Mobile */
+
 .bestItems {
   display: flex;
   flex-direction: column;
@@ -59,4 +61,18 @@
 
 .bestItems .item:nth-child(n + 2) {
   display: none;
+}
+
+/* Tablet */
+
+@media (min-width: 768px) {
+  .bestItems {
+    max-width: 696px;
+  }
+  .bestItems .item:nth-child(n) {
+    display: block;
+  }
+  .bestItems .item:nth-child(n + 3) {
+    display: none;
+  }
 }
