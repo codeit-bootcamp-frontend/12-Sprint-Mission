@@ -8,8 +8,10 @@ export function Tags({ tags, onRemoveItem }) {
         <Chip
           key={tag}
           text={`#${tag}`}
-          onClick={() => onRemoveItem(tag)}
-          removable
+          {...(onRemoveItem && {
+            onClick: () => onRemoveItem(tag),
+            removable: true,
+          })}
         />
       ))}
     </div>
