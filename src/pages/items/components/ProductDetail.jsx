@@ -39,7 +39,7 @@ export default function ProductDetail({ detail }) {
           <div className={styles.tags}>
             {tags.map((tag) => (
               <Link to={`/items?page=1&keyword=${tag}`} key={tag}>
-                <Chip text={tag} />
+                <Chip text={`#${tag}`} />
               </Link>
             ))}
           </div>
