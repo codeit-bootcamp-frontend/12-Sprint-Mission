@@ -1,4 +1,4 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import styled from "styled-components";
 import homeIcon from "../assets/logo.svg";
 import profileImg from "../assets/ic_profile.svg";
@@ -46,6 +46,11 @@ function getLinkStyle({ isActive }) {
 }
 
 function Nav() {
+  const location = useLocation();
+
+  const isItemsActive =
+    location.pathname === "/items" || location.pathname === "/additem";
+
   return (
     <>
       <NavWrap>
@@ -56,7 +61,13 @@ function Nav() {
           <NavLink to="/boards" style={getLinkStyle}>
             자유게시판
           </NavLink>
-          <NavLink to="/items" style={getLinkStyle}>
+          <NavLink
+            to="/items"
+            style={({ isActive }) => ({
+              color: isItemsActive ? "var(--primary-color-100)" : "inherit",
+              fontWeight: isItemsActive ? "var(--font-weight-bold)" : "inherit",
+            })}
+          >
             중고마켓
           </NavLink>
         </SubMenuWrap>
