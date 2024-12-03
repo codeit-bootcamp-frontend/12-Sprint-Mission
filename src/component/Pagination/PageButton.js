@@ -1,5 +1,5 @@
-import LeftArrow from "../asset/arrow_left.png";
-import RightArrow from "../asset/arrow_right.png";
+import LeftArrow from "../../asset/arrow_left.png";
+import RightArrow from "../../asset/arrow_right.png";
 import "./PageButton.css";
 
 function PageButton({ handlePage, page }) {

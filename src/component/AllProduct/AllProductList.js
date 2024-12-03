@@ -1,16 +1,16 @@
 import AllProductItem from "./AllProductItem";
 import "./AllProductList.css";
-import { getProduct } from "../api";
+import { getProduct } from "../../api";
 import { useEffect, useState } from "react";
-import NavBar from "./NavBar";
-import PageButton from "./PageButton";
+import NavBar from "../Navigation/NavBar";
+import PageButton from "../Pagination/PageButton";
 
 function AllProductList() {
   const [items, setItems] = useState([]);
   const [orderBy, setOrderBy] = useState("recent");
   const [page, setPage] = useState(1);
   const handleLoad = async (value) => {
-    let result = await getProduct(value);
+    const result = await getProduct(value);
     const { list } = result;
     setItems(list);
   };

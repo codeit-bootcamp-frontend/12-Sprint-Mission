@@ -1,5 +1,5 @@
-import Logo from "../asset/판다 얼굴.png";
-import UserImg from "../asset/userIcon.png";
+import Logo from "../../asset/panda.png";
+import UserImg from "../../asset/userIcon.png";
 import "./Header.css";
 import { Link } from "react-router-dom";
 
