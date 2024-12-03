@@ -6,6 +6,12 @@
 
   height: 70px;
   padding: 0 16px;
+
+  background-color: #ffffff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
 }
 
 .divider {
