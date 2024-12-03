@@ -10,6 +10,7 @@ import FaqPage from "./pages/etc/FaqPage";
 import ItemsPage from "./pages/items/ItemsPage";
 import ItemDetailPage from "./pages/items/ItemDetailPage";
 import ItemAddPage from "./pages/items/ItemAddPage";
+import ItemModifyPage from "./pages/items/ItemModifyPage";
 import BoardPage from "./pages/boards/BoardPage";
 import { Loading } from "@components/ui/Loading";
 
@@ -72,6 +73,18 @@ export const router = createBrowserRouter(
                   <ItemAddPage />
                 </ProtectedRoute>
               ),
+            },
+            {
+              path: "modifyItem/:id",
+              element: (
+                <ProtectedRoute>
+                  <ItemModifyPage />
+                </ProtectedRoute>
+              ),
+              hydrateFallbackElement: (
+                <Loading>정보를 가져오는 중입니다..</Loading>
+              ),
+              loader: ItemModifyPage.loader,
             },
             {
               path: "boards",

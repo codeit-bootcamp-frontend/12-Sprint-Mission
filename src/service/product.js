@@ -22,6 +22,12 @@ export async function addProduct(productData) {
   return response.data;
 }
 
+export async function modifyProduct(productId, productData) {
+  const response = await axios.patch(`/products/${productId}`, productData);
+
+  return response.data;
+}
+
 export async function deleteProduct(productId) {
   const response = await axios.delete(`/products/${productId}`);
 

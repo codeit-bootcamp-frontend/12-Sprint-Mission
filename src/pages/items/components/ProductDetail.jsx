@@ -1,8 +1,10 @@
-import { Link } from "react-router-dom";
-import { Chip, Thumbnail, Author, LikeButton } from "@components/ui";
+import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "@context/AuthContext";
+import { deleteProduct, toggleLike } from "@service/product";
+import { Chip, Thumbnail, Author, LikeButton, Dropdown } from "@components/ui";
+import { More } from "@components/Button";
 import { toWon } from "@util/formatter";
 import styles from "./ProductDetail.module.scss";
-import { toggleLike } from "@service/product";
 
 export default function ProductDetail({ detail }) {
   const {
@@ -18,10 +20,39 @@ export default function ProductDetail({ detail }) {
     favoriteCount,
     isFavorite,
   } = detail;
+  const {
+    auth: { user },
+  } = useAuth();
+  const navigate = useNavigate();
 
   async function handleToggleLike() {
     await toggleLike(id, !isFavorite);
     window.location.reload();
+  }
+  const isOwner = ownerId === user?.id;
+
+  function handleModify() {
+    if (!isOwner) {
+      return alert("작성자만 수정이 가능합니다.");
+    }
+
+    navigate(`/modifyItem/${id}`);
+  }
+
+  async function handleDelete() {
+    if (!isOwner) {
+      return alert("작성자만 삭제가 가능합니다.");
+    }
+
+    if (confirm("정말 삭제할까요?")) {
+      try {
+        await deleteProduct(id);
+        alert("상품을 삭제했습니다.");
+        navigate("/items");
+      } catch (err) {
+        console.log(err);
+      }
+    }
   }
 
   return (
@@ -31,8 +62,18 @@ export default function ProductDetail({ detail }) {
       </div>
       <div className={styles.content}>
         <header className={styles["detail-header"]}>
-          <h2 className={styles.title}>{name}</h2>
-          <div className={styles.price}>{toWon(price)}</div>
+          <div className={styles.info}>
+            <h2 className={styles.title}>{name}</h2>
+            <div className={styles.price}>{toWon(price)}</div>
+          </div>
+          <div className={styles.controls}>
+            <More
+              options={[
+                { label: "수정하기", action: handleModify },
+                { label: "삭제하기", action: handleDelete },
+              ]}
+            />
+          </div>
         </header>
         <Section title={"상품 소개"}>{description}</Section>
         <Section title={"상품 태그"}>

@@ -21,13 +21,22 @@ export default function useSingleFile({
 
   useEffect(() => {
     if (!value) return;
-    const objectURL = URL.createObjectURL(value);
-    setPreview(objectURL);
 
-    return () => {
-      setPreview(null);
-      URL.revokeObjectURL(objectURL);
-    };
+    if (typeof value === "string") {
+      setPreview(value);
+
+      return () => {
+        setPreview(null);
+      };
+    } else {
+      const objectURL = URL.createObjectURL(value);
+      setPreview(objectURL);
+
+      return () => {
+        setPreview(null);
+        URL.revokeObjectURL(objectURL);
+      };
+    }
   }, [value]);
 
   function handleChange(e) {
