@@ -1,0 +1,22 @@
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 1.2rem;
+  border-radius: 9999px;
+  border: 1px solid var(--color-secondary-200);
+  color: var(--color-secondary-500);
+  font-weight: 500;
+  transition: all 0.2s;
+
+  &:hover {
+    border-color: var(--color-secondary-400);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  &.active {
+    border-color: #ff4180;
+    color: #ff4180;
+  }
+}
