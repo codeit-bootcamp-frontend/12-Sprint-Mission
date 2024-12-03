@@ -1,17 +1,20 @@
 import clsx from "clsx";
 import { Error } from "@components/Field";
+import styles from "./Input.module.scss";
 
-export function Textarea({ error, value, ...props }) {
+export function Textarea({ error, value, size, ...props }) {
   const valid = value && !error;
+  const css = clsx(
+    styles["field-box"],
+    size && styles[size],
+    valid && "valid",
+    error && "error"
+  );
 
   return (
     <>
-      <div className="field">
-        <textarea
-          className={clsx("field-box", valid && "valid", error && "error")}
-          value={value}
-          {...props}
-        />
+      <div className={styles.field}>
+        <textarea className={css} value={value} {...props} />
       </div>
       <Error error={error} />
     </>

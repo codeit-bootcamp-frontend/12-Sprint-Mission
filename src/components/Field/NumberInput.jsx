@@ -1,6 +1,7 @@
 import { useState } from "react";
 import clsx from "clsx";
 import { Error } from "@components/Field";
+import styles from "./Input.module.scss";
 
 export function NumberInput({
   type = "number",
@@ -11,6 +12,7 @@ export function NumberInput({
 }) {
   const [currentType, setCurrentType] = useState(type);
   const valid = value && !error;
+  const css = clsx(styles["field-box"], valid && "valid", error && "error");
 
   let formattedValue = value || "";
 
@@ -20,10 +22,10 @@ export function NumberInput({
 
   return (
     <>
-      <div className="field">
+      <div className={styles.field}>
         <input
           type={currentType}
-          className={clsx("field-box", valid && "valid", error && "error")}
+          className={css}
           value={formattedValue}
           onFocus={() => setCurrentType("number")}
           onBlur={() => setCurrentType("text")}
