@@ -14,7 +14,7 @@ export function NumberInput({
 
   let formattedValue = value || "";
 
-  if (formatter && currentType === "text") {
+  if (formatter && formattedValue && currentType === "text") {
     formattedValue = formatter(value);
   }
 
