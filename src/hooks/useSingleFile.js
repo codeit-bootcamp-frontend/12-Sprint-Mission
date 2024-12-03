@@ -59,7 +59,6 @@ export default function useSingleFile({
   }
 
   function handleRemove() {
-    console.log("e");
     if (!fileRef.current) return;
 
     fileRef.current.value = "";
