@@ -38,7 +38,7 @@ export function Dropdown({ onChange = () => {}, children }) {
   return (
     <DropdownContext.Provider value={value}>
       <div className={styles["list-container"]} ref={dropdownRef}>
-        {children}
+        <div className={styles["list-inner"]}>{children}</div>
       </div>
     </DropdownContext.Provider>
   );
