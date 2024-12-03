@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 import { useAuth } from "@context/AuthContext";
 import useForm from "@hooks/useForm";
 import { Form, FieldItem, Input } from "@components/Field";
@@ -12,6 +12,11 @@ export default function LoginPage() {
     auth: { accessToken },
     handleLogin,
   } = useAuth();
+
+  if (accessToken) {
+    return <Navigate to="/items" />;
+  }
+
   const { formError, isFormValid, isLoading, handleSubmit, register } =
     useForm(loginFormSchema);
 
@@ -19,14 +24,10 @@ export default function LoginPage() {
     try {
       await handleLogin(data);
       alert("로그인에 성공했습니다.");
-      navigate("/items");
+      navigate("/items", { replace: true });
     } catch (err) {
       throw err;
     }
-  }
-
-  if (accessToken) {
-    navigate("/items");
   }
 
   return (

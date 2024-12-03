@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 import { useAuth } from "@context/AuthContext";
 import useForm from "@hooks/useForm";
 import { signUp } from "@service/auth";
@@ -13,6 +13,11 @@ export default function SignupPage() {
     auth: { accessToken },
   } = useAuth();
   const navigate = useNavigate();
+
+  if (accessToken) {
+    return <Navigate to="/items" />;
+  }
+
   const {
     formState,
     formError,
@@ -35,14 +40,10 @@ export default function SignupPage() {
     try {
       await signUp(data);
       alert("회원가입에 성공했습니다. \n로그인 페이지로 이동합니다.");
-      navigate("/login");
+      navigate("/login", { replace: true });
     } catch (err) {
       throw err;
     }
-  }
-
-  if (accessToken) {
-    navigate("/items");
   }
 
   return (
