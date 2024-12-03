@@ -1,0 +1,20 @@
+@use "@assets/scss/base/mixins";
+
+.message {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1.6rem;
+  min-height: 20rem;
+  margin: 4.8rem 0;
+  color: var(--color-secondary-400);
+
+  .icon {
+    width: 19.6rem;
+
+    @include mixins.tablet {
+      width: 14rem;
+    }
+  }
+}

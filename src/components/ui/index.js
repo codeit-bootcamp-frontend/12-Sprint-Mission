@@ -10,3 +10,4 @@ export * from "./Temporary";
 export * from "./Thumbnail";
 export * from "./Author";
 export * from "./LikeButton";
+export * from "./Message";

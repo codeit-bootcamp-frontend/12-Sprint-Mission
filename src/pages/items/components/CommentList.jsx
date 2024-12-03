@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { getProductComments } from "@service/comments";
 import Comment from "./Comment";
-import styles from "./CommentList.module.scss";
 import { useAuth } from "@context/AuthContext";
 import { useParams } from "react-router-dom";
+import { Message } from "@components/ui";
+import emptyIcon from "@assets/img/icon/icon_inquiry_empty.svg";
+import styles from "./CommentList.module.scss";
 
 export default function CommentList({ comments: initialComment }) {
   const {
@@ -47,6 +49,12 @@ export default function CommentList({ comments: initialComment }) {
             더보기
           </button>
         </div>
+      )}
+
+      {list.length === 0 && (
+        <Message icon={emptyIcon} alt="문의가 없습니다.">
+          아직 문의가 없어요
+        </Message>
       )}
     </div>
   );
