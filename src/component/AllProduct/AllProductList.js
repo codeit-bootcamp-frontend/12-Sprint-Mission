@@ -9,14 +9,16 @@ function AllProductList() {
   const [items, setItems] = useState([]);
   const [orderBy, setOrderBy] = useState("recent");
   const [page, setPage] = useState(1);
+  const [pageSize, setPageSize] = useState(10);
+
   const handleLoad = async (value) => {
     const result = await getProduct(value);
     const { list } = result;
     setItems(list);
   };
   useEffect(() => {
-    handleLoad({ page, pageSize: 10, orderBy });
-  }, [page, orderBy]);
+    handleLoad({ page, pageSize, orderBy });
+  }, [page, pageSize, orderBy]);
 
   const handleOrder = (value) => {
     setOrderBy(value);
@@ -36,8 +38,8 @@ function AllProductList() {
             return <AllProductItem key={item.id} item={item} />;
           })}
         </div>
-        <PageButton handlePage={handlePage} page={page} />
       </div>
+      <PageButton handlePage={handlePage} page={page} />
     </div>
   );
 }

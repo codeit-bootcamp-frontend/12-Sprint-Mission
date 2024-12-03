@@ -1,9 +1,16 @@
 import { Link } from "react-router-dom";
 import "./NavBar.css";
+import { useState } from "react";
 
 function NavBar({ handleOrder }) {
+  const [searchInput, setSearchInput] = useState("");
+
   const onClickOption = (e) => {
     handleOrder(e.target.value);
+  };
+
+  const handleChangeInput = (e) => {
+    setSearchInput(e.target.value);
   };
 
   return (
@@ -12,6 +19,8 @@ function NavBar({ handleOrder }) {
       <input
         className="nav__search"
         placeholder="검색할 상품을 입력해주세요"
+        onChange={handleChangeInput}
+        value={searchInput}
       ></input>
       <Link to="/additem" className="nav__post">
         상품 등록하기
