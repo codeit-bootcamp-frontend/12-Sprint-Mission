@@ -86,8 +86,5 @@ state 관리하고 있는 params과 usePageSize로 관리하는 pageSize의 변�
 
 #### react router의 loader를 사용할시 추가로 설정해줘야했던 설정들
 
-- 처음에는 react의 Suspense가 모든 케이스의 데이터 로딩중에도 fallback ui를 보여줄수 있을거라고 생각함
-- 하지만 네비게이션을 통한 이동이 아닌 직접 접근(새로고침, url로 직접)시에는 Suspense가 캐치하지 못한다.
-- useNavigation의 state도 위처럼 직접 접근시에는 loading 상태를 체크가 불가능했다.
-- 콘솔에 보니 react router는 라우터 설정에서 hydrateFallbackElement 설정하라고 경고를 알려준다.
-- 라우터 설정에서 원하는 레벨에서 hydrateFallbackElement을 설정하니, 직접 접근시에 loader가 실행중일때 보여줄 fallback ui를 보여줄 수 있었다.
+- React의 Suspense와 fallback, React router의 loader, hydrateFallback을 조사해보고 정리해보았습니다.
+- https://heavy-bear.tistory.com/13
