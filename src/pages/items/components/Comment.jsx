@@ -32,12 +32,15 @@ export default function Comment({ comment, isOwner }) {
     if (!isOwner) {
       return alert("작성자만 삭제가 가능합니다.");
     }
-    try {
-      await removeComment(comment.id);
-      alert("문의를 삭제했습니다.");
-      window.location.reload();
-    } catch (err) {
-      console.log(err);
+
+    if (confirm("정말 삭제할까요?")) {
+      try {
+        await removeComment(comment.id);
+        alert("문의를 삭제했습니다.");
+        window.location.reload();
+      } catch (err) {
+        console.log(err);
+      }
     }
   }
 
