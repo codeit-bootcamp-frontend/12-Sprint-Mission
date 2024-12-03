@@ -1,4 +1,4 @@
-import { Outlet, useNavigation } from "react-router-dom";
+import { Outlet, ScrollRestoration, useNavigation } from "react-router-dom";
 import { Header } from "@components/Header";
 import { Footer } from "@components/Footer";
 import styles from "./Layout.module.scss";
@@ -15,6 +15,7 @@ export function Layout({ hasNav = false, hasFooter = false }) {
         <Outlet />
       </main>
       {hasFooter && <Footer />}
+      <ScrollRestoration />
     </>
   );
 }
