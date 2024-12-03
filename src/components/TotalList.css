@@ -1,0 +1,55 @@
+.total-product-top {
+  display: grid;
+  grid-template: "title search button sort";
+  grid-template-columns: 1fr;
+  align-items: center;
+  gap: 10px;
+  @media (max-width: 767px) {
+    grid-template:
+      "title button"
+      "search sort";
+    grid-template-columns: 1fr;
+  }
+}
+.total-product-top > form {
+  position: relative;
+  display: flex;
+  gap: 10px;
+}
+.input-search-box {
+  position: relative;
+  display: flex;
+  gap: 10px;
+}
+.input-search-box > img {
+  position: absolute;
+  top: 9px;
+  left: 16px;
+}
+.input-search {
+  grid-area: search;
+  width: 325px;
+  height: 42px;
+  padding: 0 16px 0 46px;
+  border-radius: 12px;
+  background: var(--gray-scale-100) url(../assets/ic_search.svg) no-repeat left
+    16px center;
+  border: none;
+  color: var(--gray-scale-800);
+  font-size: 16px;
+  line-height: 26px;
+  font-weight: var(--font-weight-regular);
+  @media (max-width: 767px) {
+    width: 100%;
+  }
+}
+.input-search::placeholder {
+  color: var(--gray-scale-400);
+}
+
+.product-list.total {
+  width: 221px;
+  @media (max-width: 1199px) {
+    width: 49%;
+  }
+}
