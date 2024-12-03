@@ -18,7 +18,7 @@ export default function CommentList({ comments: initialComment }) {
   async function handleLoad() {
     try {
       const { list, nextCursor: newCursor } = await getProductComments({
-        id,
+        productId: id,
         cursor: nextCursor,
       });
 
