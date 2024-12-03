@@ -10,6 +10,7 @@ function AllProductList() {
   const [orderBy, setOrderBy] = useState("recent");
   const [page, setPage] = useState(1);
   const [pageSize, setPageSize] = useState(10);
+  const [keyword, setKeyword] = useState("");
 
   const handleLoad = async (value) => {
     const result = await getProduct(value);
@@ -17,8 +18,8 @@ function AllProductList() {
     setItems(list);
   };
   useEffect(() => {
-    handleLoad({ page, pageSize, orderBy });
-  }, [page, pageSize, orderBy]);
+    handleLoad({ page, pageSize, orderBy, keyword });
+  }, [page, pageSize, orderBy, keyword]);
 
   const handleOrder = (value) => {
     setOrderBy(value);
@@ -29,10 +30,14 @@ function AllProductList() {
     setPage(value);
   };
 
+  const handleKeyword = (value) => {
+    setKeyword(value);
+  };
+
   return (
     <div className="allsection">
       <div className="allsection-container">
-        <NavBar handleOrder={handleOrder} />
+        <NavBar handleOrder={handleOrder} handleKeyword={handleKeyword} />
         <div className="allproduct-list">
           {items.map((item) => {
             return <AllProductItem key={item.id} item={item} />;

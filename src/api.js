@@ -2,6 +2,7 @@ export async function getProduct({
   page = 1,
   pageSize = 4,
   orderBy = "favorite",
+  keyword = "",
 }) {
   //기본 URL
   const baseURL = "https://panda-market-api.vercel.app/products";
@@ -10,6 +11,7 @@ export async function getProduct({
   url.searchParams.set("page", page);
   url.searchParams.set("pageSize", pageSize);
   url.searchParams.set("orderBy", orderBy);
+  url.searchParams.set("keyword", keyword);
   //API 호출
   console.log(url.toString());
   const response = await fetch(url.toString());
