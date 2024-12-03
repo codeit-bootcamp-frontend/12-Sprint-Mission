@@ -4,6 +4,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 0.8rem;
   background: var(--color-primary-100);
   color: var(--color-white);
 
@@ -13,6 +14,24 @@
 
   &:active {
     background: var(--color-primary-300);
+  }
+
+  &:disabled {
+    background: var(--color-secondary-400);
+    cursor: not-allowed;
+  }
+}
+
+.transparent {
+  background: transparent;
+  color: #737373;
+
+  &:hover {
+    background: var(--color-secondary-100);
+  }
+
+  &:active {
+    background: var(--color-secondary-200);
   }
 
   &:disabled {
