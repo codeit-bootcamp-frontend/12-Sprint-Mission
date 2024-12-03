@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function useForm(formSchema) {
+export default function useForm(formSchema, defaultValues = {}) {
   //rule은 따로 보관하기
   const rules = Object.fromEntries(
     Object.entries(formSchema)
@@ -12,7 +12,7 @@ export default function useForm(formSchema) {
   const initialState = Object.fromEntries(
     Object.entries(formSchema).map(([key, value]) => [
       key,
-      { value: value.value, error: null },
+      { value: defaultValues[key] ?? value.value, error: null },
     ])
   );
 
