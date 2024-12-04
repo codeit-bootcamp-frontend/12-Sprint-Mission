@@ -16,7 +16,7 @@ export default function ProductDetail({ detail }) {
     tags,
     ownerId,
     ownerNickname,
-    createdAt,
+    updatedAt,
     favoriteCount,
     isFavorite,
   } = detail;
@@ -90,7 +90,7 @@ export default function ProductDetail({ detail }) {
           </div>
         </Section>
         <div className={styles.meta}>
-          <Author nickname={ownerNickname} createAt={createdAt} />
+          <Author nickname={ownerNickname} updatedAt={updatedAt} />
           <div className={styles.controls}>
             <LikeButton
               count={favoriteCount}

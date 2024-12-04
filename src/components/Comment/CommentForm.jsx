@@ -58,7 +58,7 @@ export function CommentForm({
               <Author
                 avatar={initialData.writer.mage}
                 nickname={initialData.writer.nickname}
-                createAt={initialData.createdAt}
+                updatedAt={initialData.updatedAt}
               />
               <div className={styles.controls}>
                 <Button

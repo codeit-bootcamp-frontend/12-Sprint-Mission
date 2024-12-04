@@ -13,7 +13,7 @@ export function Comment({ name, comment }) {
   const [isModify, setIsModify] = useState(false);
   const {
     content,
-    createdAt,
+    updatedAt,
     writer: { nickname, image, id: writerId },
   } = comment;
   const { handleUpdate, handleDelete } = useComment(name, comment);
@@ -50,7 +50,7 @@ export function Comment({ name, comment }) {
         <div className={styles.content}>
           <div className={styles.text}>{content}</div>
           <div className={styles.footer}>
-            <Author avatar={image} nickname={nickname} createAt={createdAt} />
+            <Author avatar={image} nickname={nickname} updatedAt={updatedAt} />
           </div>
         </div>
         <More
