@@ -1,0 +1,125 @@
+.home-main-section p {
+  color: var(--gray700);
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 32px;
+}
+
+.home-main-section {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.home-main-section {
+  display: flex;
+  justify-content: center;
+  gap: 5%;
+  padding: 138px 0;
+  text-align: left;
+}
+
+.home-main-section:nth-of-type(3) {
+  text-align: right;
+}
+
+.section-explain {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #fcfcfc;
+}
+
+.home-main-section:nth-of-type(3) .section-explain {
+  padding-right: 40px;
+  padding-left: 0;
+}
+
+.section-img {
+  width: 579px;
+  height: 444px;
+}
+
+.section-title {
+  padding: 0;
+}
+
+.keyword {
+  color: var(--blue);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 26px;
+}
+
+/* Tablet_screen */
+@media (max-width: 1199px) {
+  .home-main-section h2 {
+    width: 100%;
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 40px;
+    text-align: center;
+  }
+  .home-main-section p {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 24px;
+  }
+  .section-title-next-line {
+    display: none;
+  }
+  .home-main-section {
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 0;
+    padding: 16px 24px;
+    width: 100%;
+  }
+  .home-main-section:nth-of-type(3) {
+    flex-direction: column-reverse;
+    align-items: flex-end;
+  }
+  .home-main-section h2 {
+    margin: 16px 0;
+    text-align: left;
+  }
+  .home-main-section:nth-of-type(3) h2 {
+    text-align: right;
+  }
+  .home-main-section:nth-of-type(3) .section-explain {
+    padding: 0;
+  }
+  .section-img {
+    width: 100%;
+    height: 70%;
+  }
+  .section-title {
+    font-size: 32px;
+  }
+  .keyword {
+    margin-top: 16px;
+  }
+}
+
+/* mobile_size */
+@media (max-width: 767px) {
+  .home-main-section h2 {
+    font-size: 24px;
+    padding: 0;
+  }
+  .home-main-section p {
+    margin: 0 0 40px;
+  }
+  .home-main-section {
+    padding: 16px;
+  }
+  .section-title {
+    font-size: 22px;
+  }
+  .creater-info {
+    flex-basis: 100%;
+    order: 3;
+  }
+  .social-list-item {
+    padding-right: 10px;
+  }
+}

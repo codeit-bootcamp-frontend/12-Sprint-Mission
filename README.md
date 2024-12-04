@@ -2,6 +2,151 @@
 
 **코드잇 12기 스프린트 내용입니다.**
 
+## 디렉토리 구조(6주차)
+
+```
+📂src
+ ┣ 📂api
+ ┣ 📂assets
+ ┃ ┣ 📂images
+ ┃ ┗ 📂styles
+ ┣ 📂components
+ ┃ ┣ 📂layouts
+ ┃ ┃ ┣ 📂AddItemPageLayout
+ ┃ ┃ ┣ 📂HomePageLayout
+ ┃ ┃ ┣ 📂ItemsPageLayout
+ ┃ ┃ ┣ 📂UI
+ ┃ ┗ 📜App.jsx
+ ┣ 📂pages
+ ┣ 📂routes
+ ┣ 📂utils
+ ┗ 📜index.jsx
+```
+
+## 6주차 스프린트
+
+### Additem 컴포넌트에서 사용한 상태
+
+```js
+const [imgPreview, setImgPreview] = useState(null);
+const [isValid, setIsValid] = useState(false);
+const [name, setName] = useState('');
+const [price, setPrice] = useState('');
+const [isImg, setIsImg] = useState(false);
+const [tags, setTags] = useState([]);
+```
+
+- `imgPreview` URL 객체를 담기 위한 상태이다.
+  - 이미지 미리보기에 활용한다.
+- `isValid` 폼 유효성 검사 통과 유무를 관리하는 상태이다.
+  - true상태일 때 제출 버튼이 활성화된다.
+- `name` 상품 설명의 값을 관리하기 위한 상태이다.
+- `price` 상품 가격의 값을 관리하기 위한 상태이다.
+- `isImg` 이미지가 이미 등록되었으면 경고 메시지를 출력하기 위해 사용한 상태이다.
+- `tags` 추가한 태그들을 관리하는 상태이다.
+
+### 어떤 스타일링 방식을 채택할 것인가?
+
+- `styled components`를 이번 주에 처음 학습하여 연습도 할 겸 addItems 페이지에는 css 모듈이 아닌 `styled components`로 적용하였다.
+
+### File input을 어떻게 스타일링 할 것인가?
+
+- label과 input을 연결시키면 label를 클릭해도 파일을 첨부할 수 있기 때문에 file타입의 input을 hidden 처리하고, label를 스타일링했다.
+
+### 이미지 등록을 1개만 받으려면 어떻게 할 것인가?
+
+```js
+const changeImg = ({ target }) => {
+  const file = target.files[0];
+  if (!file) return;
+  if (imgPreview) {
+    setIsImg(true);
+    return;
+  }
+
+  const preview = URL.createObjectURL(file);
+
+  setImgPreview(preview);
+};
+
+const closePreview = () => {
+  if (imgPreview) {
+    URL.revokeObjectURL(imgPreview);
+    setImgPreview(null);
+    setIsImg(false);
+    if (fileInputRef.current) {
+      fileInputRef.current.value = null;
+    }
+  }
+};
+```
+
+- 이미지 미리보기가 이미 존재하는데, 추가하려고 파일을 선택할 경우 URL객체를 생성하지 못하도록 early return하였다.
+- 또한 기존재 시 추가하려고 시도했을 때 경고 메시지를 추가하기 위해 `isImg`의 상태가 true일 때만 보이도록 조건부 렌더링으로 구현했다.
+- URL객체의 삭제는 close 아이콘을 누를 시에 이미지 미리보기를 삭제하면서 같이 삭제하였다.
+
+### 판매 가격 란의 타입은 어떤걸 할 것인가?
+
+- number로 처리하면 천단위 구분자를 넣지 못하기에 text로 설정했고, 숫자 외 문자열 입력 시에는 입력 필드가 초기화 되도록 구현했다.
+
+### 판매 가격의 최대 값은?
+
+- 매우 큰 수를 넣으면 처리하기 까다롭기 때문에 10억 정도로 최대 값을 제한했다.
+
+### 폼 유효성 검사는 어떻게 할 것인가?
+
+```js
+const checkValid = useCallback(() => {
+  const validResult = name.trim() !== '' && price > 0;
+    setIsValid(validResult);
+}, [name, price]);
+
+//커링 방식으로 handler 구현
+const inputChangeHandler = (setter) => (e) => {
+    ...
+};
+//커링을 펼치면 이런 형태
+function inputChangeHandler(setter) {
+  return function (e) {
+    ...
+  };
+};
+/**
+ * 랜더링 할 때 함수 호출로 얻은 handler를 등록
+ * 아래와 같이 handler가 return 됨
+ * (e) => {...};
+**/
+<Input onChange={inputChangeHandler(setName)}>
+  ...
+</Input>
+```
+
+- 상품 명과 상품 가격은 필수 항목이지만, 나머지는 선택 사항이라고 생각하여 위 2가지만 유효성 검사를 구현했다.
+- onChange됐을 때 검사하도록 하였는데, 각각의 핸들러를 등록하는 것보단 하나로 처리하고 싶었다.
+- 때문에 커링 방식으로 setter를 파라미터를 받는 핸들러를 작성하여 구현했다.
+
+### 태그 추가는 어떻게 할 것인가?
+
+- 번개장터 웹사이트에선 태그 선택을 스페이스바나 엔터 키를 입력하면 태그가 추가되길래 같은 방식으로 적용했다.
+
+### 태그의 리스트 순서는?
+
+- 최신으로 입력한 태그가 맨 앞에 와야 된다고 생각해서 이전 리스트들 앞에 넣도록 구현했다.
+
+### 태그의 중복 처리는?
+
+- 태그가 중복이 되는게 이상하다고 생각해서 중복을 방지하도록 구현했다.
+- some 메서드를 사용하여 하나라도 input field의 값과 일치하는 태그 이름이 있으면 해당 태그는 삽입하지 못하게 구현했다.
+
+### 태그를 어떻게 삭제할 것인가?
+
+- tag의 key로 배열의 index로 줬기 때문에, 삭제하려는 태그의 index와 일치하지 않는 요소들만 필터하는 방식으로 구현했다.
+
+### 입력 필드에서 Enter 입력 시 폼 제출이 되는 문제
+
+- 등록 버튼으로만 눌러야만 폼이 제출되도록 구현하는게 맞다고 생각했다.
+- 따라서, input field에서 엔터 키 입력 시 폼 제출이 안되도록 `e.preventDefault()` 메서드를 호출하여 방지하였다.
+
 ## 4주차 스프린트
 
 ### 이벤트를 input 요소 하나마다 다 등록해야 하는가?
