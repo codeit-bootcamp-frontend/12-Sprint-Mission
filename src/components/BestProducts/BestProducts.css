@@ -1,16 +1,33 @@
 .best-section {
   margin: 0 auto;
-  width: 1200px;
   padding: 20px;
+  max-width: 1200px;
 }
 
-.product-list {
+.product-list.desktop {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
   justify-content: space-between;
   max-width: 1200px;
   margin: 0 auto;
+  padding: 0;
+  list-style: none;
+}
+
+.product-list.tablet {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: left;
+  margin: 0 auto;
+  padding: 0;
+  list-style: none;
+}
+
+.product-list.mobile {
+  display: flex;
+  justify-content: left;
   padding: 0;
   list-style: none;
 }

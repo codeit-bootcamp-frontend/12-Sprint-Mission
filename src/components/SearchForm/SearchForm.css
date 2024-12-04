@@ -49,3 +49,35 @@
   font-size: 14px;
   cursor: pointer;
 }
+
+.search-container.tablet .search-input {
+  width: 242px;
+}
+
+.search-container.mobile .search-input {
+  width: 242px;
+}
+
+@media screen and (max-width: 768px) {
+  .search-form {
+    display: block;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .search-button {
+    display: block;
+  }
+
+  .search-container {
+    top: 100px;
+    position: relative;
+    transform: translateX(-400px);
+    overflow-x: hidden; /* 가로 스크롤 방지 */
+  }
+
+  select {
+    position: relative;
+    top: 15px;
+  }
+}
