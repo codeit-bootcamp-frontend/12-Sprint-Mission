@@ -18,8 +18,11 @@ export function AuthProvider({ children }) {
         const userData = await getUser(auth.accessToken);
         setAuth((prev) => ({ ...prev, user: userData }));
       } catch (err) {
-        console.log(err);
-        clear();
+        if (err.name !== "CanceledError") {
+          //abort로 취소되어서 날아온 err에는 clear하지않도록 방어
+          console.error(err);
+          clear();
+        }
       }
     })();
   }, []);
