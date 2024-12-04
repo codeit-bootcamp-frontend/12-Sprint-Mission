@@ -1,0 +1,27 @@
+.headTitle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .item-list {
+    width: 1200px;
+    height: 1206px;
+  }
+  .item-list-seet {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 24px;
+  }
+  
+  .item-list-seeter {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 24px;
+  }
+  
+  .Allproduct-list {
+    display: flex;
+  }
