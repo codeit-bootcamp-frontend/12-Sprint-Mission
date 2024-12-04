@@ -1,7 +1,7 @@
-import heart from '../../assets/ic_heart.svg';
-import '../BestItems.css';
+import heart from '../../../assets/ic_heart.svg';
+import '../AllItems.css';
 
-function BestItemList({ item, index }) {
+function AllItemList({ item, index }) {
   const price = item.price.toLocaleString();
 
   return (
@@ -23,4 +23,4 @@ function BestItemList({ item, index }) {
   );
 }
 
-export default BestItemList;
+export default AllItemList;

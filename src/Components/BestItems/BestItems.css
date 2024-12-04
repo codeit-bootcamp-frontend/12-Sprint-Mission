@@ -24,7 +24,15 @@
   gap: 10px;
 }
 
+.bestItems .item > a {
+  display: block;
+  width: 100%;
+  border-radius: 19.46px;
+  background-color: #cccccc;
+}
+
 .bestItems .itemImg {
+  display: block;
   width: 100%;
   /* height: 343px; */
   aspect-ratio: 1;

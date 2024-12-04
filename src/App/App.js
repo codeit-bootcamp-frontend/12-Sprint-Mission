@@ -1,25 +1,18 @@
-import BestItems from '../BestItems/BestItems';
-import Header from '../Header/Header';
+import { getData } from '../api';
+import AllItems from '../Components/AllItems/AllItems';
+import BestItems from '../Components/BestItems/BestItems';
+import Header from '../Components/Header/Header';
 import './App.css';
 
-const res = await fetch(
-  'https://panda-market-api.vercel.app/products?page=1&pageSize=10&orderBy=favorite'
-);
-const { list: bestItems } = await res.json();
+const { list: bestItems } = await getData('favorite');
+const { list: allItems } = await getData();
 
 function App() {
-  // const { list: items } = fetch(
-  //   'https://panda-market-api.vercel.app/products?page=1&pageSize=10&orderBy=favorite'
-  // )
-  //   .then((res) => res.json())
-  //   .then((data) => data);
-
-  // console.log(items);
-
   return (
     <>
       <Header />
       <BestItems items={bestItems} />
+      <AllItems items={allItems} />
     </>
   );
 }

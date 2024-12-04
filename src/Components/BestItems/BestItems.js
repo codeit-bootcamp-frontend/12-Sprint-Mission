@@ -1,10 +1,6 @@
 import BestItemList from './BestItemList/BestItemList';
 import './BestItems.css';
 
-const style = {
-  height: '1500px',
-};
-
 function BestItems({ items }) {
   return (
     <div className="bestItems">
@@ -14,17 +10,8 @@ function BestItems({ items }) {
           return <BestItemList key={item.id} item={item} index={index} />;
         })}
       </ul>
-      <div style={style}></div> {/* Header position 고정 확인용 */}
     </div>
   );
 }
 
 export default BestItems;
-
-// return (
-//   <ul>
-//     {items.map((item) => {
-//       return <ReviewListItem key={item.id} />;
-//     })}
-//   </ul>
-// );

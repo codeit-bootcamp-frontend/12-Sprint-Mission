@@ -1,5 +1,5 @@
-import pandaFace from './img/pandaFace.svg';
-import myPageLogo from './img/myPageLogo.svg';
+import pandaFace from './assets/pandaFace.svg';
+import myPageLogo from './assets/myPageLogo.svg';
 import './Header.css';
 
 function Header() {
