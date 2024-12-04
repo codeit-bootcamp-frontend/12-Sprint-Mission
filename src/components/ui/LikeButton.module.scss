@@ -22,7 +22,11 @@
   }
 
   &.active {
-    border-color: #ff4180;
-    color: #ff4180;
+    border-color: #ff68cc;
+    color: #ff68cc;
+
+    &:hover {
+      box-shadow: 0 0 10px rgba(225, 71, 110, 0.3);
+    }
   }
 }
