@@ -19,7 +19,7 @@ function AddItemPage() {
   };
 
   const handleDeleteClick = (tags) => {
-    setTags((prevTags) => prevTags.filter((tag) => tag != tags));
+    setTags((prevTags) => prevTags.filter((tag) => tag !== tags));
   };
   return (
     <div className="addItems__container">
@@ -34,7 +34,6 @@ function AddItemPage() {
             type="file"
             placeholder="이미지 등록"
             className="addItems-img__input"
-            value={value}
           />
         </div>
         <div className="addItems-name__container">
@@ -43,7 +42,6 @@ function AddItemPage() {
             type="text"
             placeholder="상품명을 입력해주세요"
             className="addItems-name__input"
-            value={value}
           />
         </div>
         <div className="addItems-explain__container">
@@ -52,7 +50,6 @@ function AddItemPage() {
             type="text"
             placeholder="상품 소개를 입력해주세요"
             className="addItems-explain__input"
-            value={value}
           />
         </div>
         <div className="addItems-price__container">
@@ -61,7 +58,6 @@ function AddItemPage() {
             type="number"
             className="addItems-price__input"
             placeholder="판매 가격을 입력해주세요"
-            value={value}
           />
         </div>
         <div className="addItems-tag__container">
