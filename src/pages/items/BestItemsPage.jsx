@@ -1,5 +1,5 @@
 import useResponsive from "@hooks/useResponsive";
-import useList from "@hooks/useList";
+import useProductList from "./components/useProductList";
 import { getProducts } from "@service/product";
 import { Section } from "@components/Section";
 import ProductList from "./components/ProductList";
@@ -10,7 +10,7 @@ export default function BestItemsPage() {
     tablet: 2,
     mobile: 1,
   });
-  const { isLoading, error, items } = useList(getProducts, {
+  const { isLoading, error, items } = useProductList(getProducts, {
     pageSize,
     orderBy: "favorite",
   });

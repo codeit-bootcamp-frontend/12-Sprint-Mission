@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import useAsync from "@hooks/useAsync";
 
-export default function useList(fetchFn, params) {
+export default function useProductList(fetchFn, params) {
   const { page, pageSize, keyword, orderBy } = params;
   const { isLoading, error, result, wrappedFn: getData } = useAsync(fetchFn);
   const items = result?.list || [];
