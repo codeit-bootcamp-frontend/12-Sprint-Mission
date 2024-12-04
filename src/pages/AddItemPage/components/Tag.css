@@ -1,0 +1,14 @@
+.tags__container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border-radius: 26px;
+  background-color: #f3f4f6;
+  flex-shrink: 0;
+}
