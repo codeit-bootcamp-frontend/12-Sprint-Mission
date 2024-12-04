@@ -10,6 +10,11 @@
   margin: 4.8rem 0;
   color: var(--color-secondary-400);
 
+  &.compact {
+    min-height: 0;
+    margin: 2em 0;
+  }
+
   .icon {
     width: 19.6rem;
 
