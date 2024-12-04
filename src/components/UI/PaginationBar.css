@@ -1,0 +1,27 @@
+.pageBtnContainer {
+  margin: 40px auto;
+  display: flex;
+  gap: 4px;
+}
+
+.pageBtn {
+  width: 40px;
+  height: 40px;
+  border: 1px solid #e5e7eb;
+  border-radius: 40px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #6b7280;
+  background-color: #ffffff;
+}
+
+.pageBtn.active {
+  background-color: #2f80ed;
+  color: #ffffff;
+}
+
+.pageBtn:hover {
+  background-color: #2f80ed;
+  color: #ffffff;
+  cursor: pointer;
+}

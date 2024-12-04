@@ -1,0 +1,160 @@
+.marketContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.bestItemContainer {
+  margin: 24px auto;
+  max-width: 1200px;
+
+  @media (max-width: 1280px) {
+    margin: 24px;
+  }
+
+  @media (max-width: 768px) {
+    margin: 16px;
+  }
+}
+
+.sectionTitle {
+  margin-bottom: 16px;
+  font-size: 20px;
+  font-weight: 700;
+  color: #111827;
+}
+
+.bestItemList {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+
+  @media (max-width: 1280px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+.allItemContainer {
+  max-width: 1200px;
+
+  @media (max-width: 1280px) {
+    margin: 24px;
+  }
+
+  @media (max-width: 768px) {
+    margin: 16px;
+  }
+}
+
+.allItemSectionHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.sectionHeaderRight {
+  display: flex;
+  gap: 12px;
+}
+
+.searchBox {
+  position: relative;
+}
+
+.searchIcon {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  top: 9px;
+  left: 16px;
+}
+
+.searchInput {
+  width: 325px;
+  height: 42px;
+  padding: 9px 40px;
+  border: none;
+  border-radius: 12px;
+  background-color: #f3f4f6;
+}
+
+.searchInput::placeholder {
+  font-size: 16px;
+  font-weight: 400;
+  color: #9ca3af;
+}
+
+.addItem {
+  padding: 12px 23px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+  color: #f3f4f6;
+  background-color: #3692ff;
+}
+
+.addItem:hover {
+  cursor: pointer;
+}
+
+.dropdownContainer {
+  position: relative;
+}
+
+.sortButtonWrapper {
+  position: relative;
+}
+
+.showDropdownWrapperBtn {
+  width: 130px;
+  height: 42px;
+  padding: 12px 20px;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  text-align: left;
+  font-size: 16px;
+  font-weight: 400;
+  color: #1f2937;
+  background-color: #ffffff;
+}
+
+.dropdownIcon {
+  position: absolute;
+  top: 9px;
+  right: 20px;
+  width: 24px;
+  height: 24px;
+}
+
+.dropdownIcon:hover {
+  background-color: #b5b3b3;
+  cursor: pointer;
+}
+
+.allItemList {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 24px;
+
+  @media (max-width: 1280px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.paginationBar {
+  margin: 0 auto;
+  width: 400px;
+}
