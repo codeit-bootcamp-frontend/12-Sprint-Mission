@@ -1,13 +1,12 @@
 import { Suspense } from "react";
 import { Await, useLoaderData } from "react-router-dom";
 import { getProduct } from "@service/product";
-import { getProductComments } from "@service/comments";
+import { getComments } from "@service/comments";
 import { PageWrapper } from "@components/Page";
 import ProductDetail from "./components/ProductDetail";
-import CommentForm from "./components/CommentForm";
-import CommentList from "./components/CommentList";
 import { BackToList } from "@components/Button/BackToList";
 import { Loading } from "@components/ui/Loading";
+import { CommentAdd, CommentList } from "@components/Comment";
 
 export default function ItemDetailPage() {
   const { detail, comments } = useLoaderData();
@@ -18,12 +17,12 @@ export default function ItemDetailPage() {
       <ProductDetail detail={detail} />
 
       {/* comment 작성 */}
-      <CommentForm />
+      <CommentAdd name="products" />
 
       {/* non critical */}
       <Suspense fallback={<Loading>상품 문의를 가져오는 중입니다....</Loading>}>
         <Await resolve={comments}>
-          {(comments) => <CommentList comments={comments} />}
+          {(comments) => <CommentList name="products" comments={comments} />}
         </Await>
       </Suspense>
 
@@ -48,7 +47,7 @@ async function loader({ params }) {
   // 두 요청을 거의 동시에 보내도록 우선 await없이 promise를 각 변수에 할당함
   // 여기서 미리 await을 작성하면 그 요청을 기다린후 다음줄의 코드가 실행되어서 동시에 요청이 안됨
   const detail = getProduct(id);
-  const comments = getProductComments({ productId: id, limit: 5 });
+  const comments = getComments("products", { productId: id, limit: 5 });
 
   // detail에 담긴 promise를 기다린후에 리턴
   return { detail: await detail, comments };

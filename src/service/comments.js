@@ -1,17 +1,14 @@
 import axios from "@service/axios";
 
-export async function getProductComments({ productId, limit = 5, cursor }) {
+export async function getComments(name, { productId, limit = 5, cursor }) {
   const query = `limit=${limit}${cursor ? `&cursor=${cursor}` : ""}`;
-  const response = await axios.get(`/products/${productId}/comments?${query}`);
+  const response = await axios.get(`/${name}/${productId}/comments?${query}`);
 
   return response.data;
 }
 
-export async function addProductComment(productId, formData) {
-  const response = await axios.post(
-    `/products/${productId}/comments`,
-    formData
-  );
+export async function addComment(name, id, formData) {
+  const response = await axios.post(`/${name}/${id}/comments`, formData);
 
   return response.data;
 }
