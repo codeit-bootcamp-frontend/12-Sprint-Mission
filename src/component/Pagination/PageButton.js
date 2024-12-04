@@ -1,8 +1,8 @@
-import LeftArrow from "../asset/arrow_left.png";
-import RightArrow from "../asset/arrow_right.png";
+import LeftArrow from "../../asset/arrow_left.png";
+import RightArrow from "../../asset/arrow_right.png";
 import "./PageButton.css";
 
-function PageButton({ handlePage, page }) {
+function PageButton({ handlePage, page, maxPage }) {
   const ClickNumber = (e) => {
     handlePage(e.target.value);
   };
@@ -14,10 +14,24 @@ function PageButton({ handlePage, page }) {
   };
 
   const ClickIconRight = () => {
-    handlePage(page + 1);
+    if (page < maxPage) {
+      handlePage(page + 1);
+    }
   };
 
-  const PageGroup = [1, 2, 3, 4, 5];
+  let pageIine;
+  pageIine = Math.floor((page - 1) / 5);
+  let PageGroup = [];
+  if (pageIine === Math.floor(maxPage / 5)) {
+    for (let i = 1; i <= maxPage % 5; i++) {
+      PageGroup.push(i + 5 * pageIine);
+    }
+  } else {
+    for (let i = 1; i <= 5; i++) {
+      PageGroup.push(i + 5 * pageIine);
+    }
+  }
+
   function PageButtonNumber({ value }) {
     const className =
       page === value ? "pagebutton-number active" : "pagebutton-number";

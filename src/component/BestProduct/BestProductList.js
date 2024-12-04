@@ -1,6 +1,6 @@
 import BestProductItem from "./BestProductItem";
 import "./BestProductList.css";
-import { getProduct } from "../api";
+import { getProduct } from "../../api";
 import { useEffect, useState } from "react";
 
 function BestProductList() {

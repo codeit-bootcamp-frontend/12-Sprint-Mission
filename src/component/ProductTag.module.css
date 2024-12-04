@@ -1,0 +1,19 @@
+.tag_wrap {
+  display: flex;
+  padding: 6px 12px;
+  background-color: #f3f4f6;
+  border-radius: 26px;
+  gap: 9px;
+  align-items: center;
+}
+
+.tag_name {
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.tag_xIcon {
+  width: 22px;
+  object-fit: cover;
+  cursor: pointer;
+}

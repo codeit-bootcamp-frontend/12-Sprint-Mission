@@ -5,12 +5,17 @@
 
 .allsection {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 43px;
 }
 
 .allsection-container {
   width: 1200px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
 }
 
 .allproduct-list {
