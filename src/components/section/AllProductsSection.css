@@ -1,0 +1,28 @@
+.all-products {
+  width: 100%;
+  max-width: 1200px;
+  margin-top: 16px;
+}
+
+.all-products-list {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 40px 24px;
+}
+
+@media (max-width: 1199px) {
+  .all-products {
+    padding: 0 25px;
+  }
+  .all-products-list {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px 16px;
+  }
+}
+
+@media (max-width: 767px) {
+  .all-products-list {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px 8px;
+  }
+}

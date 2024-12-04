@@ -10,7 +10,7 @@ function Header() {
         <img src={logo} alt="로고" className="header-logo" />
         <div className="header-nav-links">
           <Link>자유게시판</Link>
-          <Link>중고마켓</Link>
+          <Link to="/items">중고마켓</Link>
         </div>
       </div>
       <img src={profile} alt="" className="header-profile" />
