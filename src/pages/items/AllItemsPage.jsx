@@ -50,7 +50,7 @@ export default function AllItemsPage() {
   } = useRecentSearch({ initialKeyword: keyword, onChange: handleSearch });
 
   function handlePage(page) {
-    setParams((prev) => ({ ...prev, page }));
+    setParams((prev) => ({ ...prev, page }), { preventScrollReset: true });
   }
 
   function handleSearch(keyword) {
