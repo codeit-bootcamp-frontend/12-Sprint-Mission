@@ -1,11 +1,11 @@
-import usePageSize from "@hooks/usePageSize";
+import useResponsive from "@hooks/useResponsive";
 import useList from "@hooks/useList";
 import { getProducts } from "@service/product";
 import { Section } from "@components/Section";
 import ProductList from "./components/ProductList";
 
 export default function BestItemsPage() {
-  const pageSize = usePageSize({
+  const pageSize = useResponsive({
     pc: 4,
     tablet: 2,
     mobile: 1,

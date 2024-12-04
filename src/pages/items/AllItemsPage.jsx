@@ -1,5 +1,5 @@
 import { useSearchParams } from "react-router-dom";
-import usePageSize from "@hooks/usePageSize";
+import useResponsive from "@hooks/useResponsive";
 import useList from "@hooks/useList";
 import usePagination from "@hooks/usePagination";
 import { getProducts } from "@service/product";
@@ -17,10 +17,15 @@ export default function AllItemsPage() {
   const keyword = params.get("keyword") || "";
   const orderBy = params.get("orderBy") || "recent";
   const page = params.get("page") || 1;
-  const pageSize = usePageSize({
+  const pageSize = useResponsive({
     pc: 10,
     tablet: 6,
     mobile: 4,
+  });
+  const visibleCount = useResponsive({
+    pc: 5,
+    tablet: 4,
+    mobile: 3,
   });
 
   const { isLoading, error, items, totalCount } = useList(getProducts, {
@@ -34,7 +39,7 @@ export default function AllItemsPage() {
     page: Number(page),
     pageSize,
     totalCount,
-    visibleCount: 5,
+    visibleCount: visibleCount,
     onChange: handlePage,
   });
 
