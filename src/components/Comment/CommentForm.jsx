@@ -61,7 +61,12 @@ export function CommentForm({
                 createAt={initialData.createdAt}
               />
               <div className={styles.controls}>
-                <Button color="transparent" size="sm" onClick={handleClose}>
+                <Button
+                  variant="text"
+                  color="secondary"
+                  size="sm"
+                  onClick={handleClose}
+                >
                   취소
                 </Button>
                 <Button type="submit" size="sm" disabled={!isFormValid}>
