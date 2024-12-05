@@ -4,7 +4,7 @@ import { getProduct } from "../../../api/ItemApi";
 import ItemCard from "./ItemCard";
 import searchIcon from "../../../images/ic_search.png";
 import dropdownIcon from "../../../images/ic_arrow_down.png";
-import DropdownList from "../../../components/UI/DropdownList";
+import onSortSelect from "../../../components/UI/onSortSelect";
 import { Link } from "react-router-dom";
 import PaginationBar from "../../../components/UI/PaginationBar";
 
@@ -73,7 +73,7 @@ function AllItemSection() {
               <img className="dropdownIcon" onClick={toggleDropdownWrapper} src={dropdownIcon} alt="드롭다운아이콘" />
               <button className="showDropdownWrapperBtn">{orderBy === "recent" ? "최신순" : "베스트순"}</button>
             </div>
-            {dropdownToggle && <DropdownList onSortSelection={handleSortLoadList} />}
+            {dropdownToggle && <onSortSelect onSortSelection={handleSortLoadList} />}
           </div>
         </div>
       </div>
