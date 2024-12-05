@@ -4,7 +4,6 @@ import { getProduct } from "../../../api/ItemApi";
 import ItemCard from "./ItemCard";
 import searchIcon from "../../../images/ic_search.png";
 import dropdownIcon from "../../../images/ic_arrow_down.png";
-import onSortSelect from "../../../components/UI/onSortSelect";
 import { Link } from "react-router-dom";
 import PaginationBar from "../../../components/UI/PaginationBar";
 
