@@ -11,6 +11,23 @@
   margin-top: 24px;
 }
 
+.allItems .container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.allItems .orderSelect {
+  width: 130px;
+  height: 42px;
+  border-radius: 12px;
+
+  padding: 9px 20px;
+
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 26px;
+}
+
 .allItems .itemList {
   display: flex;
   flex-wrap: wrap;
