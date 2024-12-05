@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useRef, useState } from "react";
 import { getUser, login, refreshAccessToken } from "@service/auth";
 import { isTokenValid } from "@util/helper";
 
@@ -11,16 +11,26 @@ export function AuthProvider({ children }) {
     user: null,
   }));
 
+  const refreshRef = useRef(false);
+
   useEffect(() => {
     if (!auth.accessToken) return;
 
-    async function tokenCheck() {
-      const { accessToken } = await refreshAccessToken(auth.refreshToken);
-      localStorage.setItem("accessToken", accessToken);
-      setAuth((prev) => ({ ...prev, accessToken }));
-    }
+    (async function tokenCheck() {
+      if (!isTokenValid(auth.accessToken)) {
+        const { accessToken } = await refreshAccessToken(auth.refreshToken);
+        localStorage.setItem("accessToken", accessToken);
+        setAuth((prev) => ({ ...prev, accessToken }));
+      }
 
-    async function getUserData() {
+      refreshRef.current = true;
+    })();
+  }, []);
+
+  useEffect(() => {
+    if (!refreshRef.current || !auth.accessToken) return;
+
+    (async function getUserData() {
       try {
         const user = await getUser();
         setAuth((prev) => ({ ...prev, user }));
@@ -30,9 +40,7 @@ export function AuthProvider({ children }) {
           clear();
         }
       }
-    }
-
-    isTokenValid(auth.accessToken) ? getUserData() : tokenCheck();
+    })();
   }, [auth.accessToken]);
 
   async function handleLogin({ email, password }) {
