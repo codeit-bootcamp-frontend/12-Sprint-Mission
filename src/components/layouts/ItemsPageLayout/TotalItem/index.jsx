@@ -56,8 +56,8 @@ const TotalItem = () => {
     <section className={styles[`total-items`]}>
       <TotalItemTitle onClick={orderSelect} />
       <div className={styles['total-item-list']}>
-        {cards?.map((value, index) => (
-          <ItemCard key={`${index}`} value={value} category="total" />
+        {cards?.map((value) => (
+          <ItemCard key={value.id} value={value} category="total" />
         ))}
       </div>
 
