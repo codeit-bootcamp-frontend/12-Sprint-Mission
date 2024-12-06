@@ -9,16 +9,33 @@ import {
 import styles from "./Dropdown.module.scss";
 
 /** compound pattern + context api 복습 (mui dropdown 참고) */
-const DropdownContext = createContext();
-const useDropdown = () => useContext(DropdownContext);
+const DropdownStateContext = createContext();
+const DropdownDispatchContext = createContext();
+
+const useDropdownState = () => {
+  const context = useContext(DropdownStateContext);
+  if (!context) {
+    throw new Error("Dropdown components must be used within an Dropdown.");
+  }
+  return context;
+};
+
+const useDropdownDispatch = () => {
+  const context = useContext(DropdownDispatchContext);
+  if (!context) {
+    throw new Error("Dropdown components must be used within an Dropdown.");
+  }
+  return context;
+};
 
 export function Dropdown({ onChange = () => {}, children }) {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
 
-  const value = {
+  const state = { isOpen };
+
+  const dispatch = {
     onChange,
-    isOpen,
     setIsOpen,
   };
 
@@ -36,16 +53,18 @@ export function Dropdown({ onChange = () => {}, children }) {
   }, []);
 
   return (
-    <DropdownContext.Provider value={value}>
-      <div className={styles["list-container"]} ref={dropdownRef}>
-        <div className={styles["list-inner"]}>{children}</div>
-      </div>
-    </DropdownContext.Provider>
+    <DropdownStateContext.Provider value={state}>
+      <DropdownDispatchContext.Provider value={dispatch}>
+        <div className={styles["list-container"]} ref={dropdownRef}>
+          <div className={styles["list-inner"]}>{children}</div>
+        </div>
+      </DropdownDispatchContext.Provider>
+    </DropdownStateContext.Provider>
   );
 }
 
 function Toggle({ children, asChild = false }) {
-  const { setIsOpen } = useDropdown();
+  const { setIsOpen } = useDropdownDispatch();
 
   function handleClick() {
     setIsOpen((prev) => !prev);
@@ -63,7 +82,7 @@ function Toggle({ children, asChild = false }) {
 }
 
 function Menu({ children }) {
-  const { isOpen } = useDropdown();
+  const { isOpen } = useDropdownState();
 
   if (!isOpen) return null;
 
@@ -71,7 +90,7 @@ function Menu({ children }) {
 }
 
 function Item({ value, onClick, children }) {
-  const { setIsOpen, onChange } = useDropdown();
+  const { setIsOpen, onChange } = useDropdownDispatch();
 
   function handleClick() {
     setIsOpen(false);
