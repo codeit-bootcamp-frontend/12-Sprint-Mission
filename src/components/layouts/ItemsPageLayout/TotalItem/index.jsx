@@ -1,6 +1,6 @@
 import { useEffect, useState, useCallback } from 'react';
 import { useMediaQuery } from 'react-responsive';
-import getItems from '../../../../api/productGet';
+import { getItems } from '../../../../api/productAPI';
 import TotalItemTitle from './TotalItemTitle/index';
 import ItemCard from '../ItemCard/index';
 import PaginationBar from '../../UI/PaginationBar/index';

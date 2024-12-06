@@ -12,8 +12,22 @@ const getItems = async (params = {}) => {
     return body;
   } catch (error) {
     console.error('아이템 정보를 가져오는데 실패했습니다. ', error);
-    throw error;
   }
 };
 
-export default getItems;
+const getItemDetail = async (id) => {
+  try {
+    const response = await fetch(
+      `https://panda-market-api.vercel.app/products/${id}`
+    );
+    if (!response.ok) {
+      throw new Error(`에러코드 : ${response.status}`);
+    }
+    const body = await response.json();
+    return body;
+  } catch (error) {
+    console.error('아이템 상세 정보를 가져오는데 실패했습니다. ', error);
+  }
+};
+
+export { getItems, getItemDetail };

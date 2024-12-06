@@ -1,6 +1,6 @@
 import { useMediaQuery } from 'react-responsive';
 import ItemCard from '../ItemCard/index';
-import getItems from '../../../../api/productGet';
+import { getItems } from '../../../../api/productAPI';
 import { useEffect, useState, useCallback } from 'react';
 import styles from './index.module.css';
 import { MEDIA_KEY, ORDER, BEST_CARD_CNT } from '../../../../utils/constant';
