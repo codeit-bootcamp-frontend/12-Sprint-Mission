@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import closeImg from '../../../../../assets/images/ic_X.svg';
+import closeImg from 'assets/images/ic_X.svg';
 
 const Tags = styled.div`
   display: flex;
