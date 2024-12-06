@@ -1,13 +1,11 @@
 import { axiosInstance } from "@service/axios";
 
-export async function getProducts({
-  page = 1,
-  pageSize = 10,
-  orderBy = "recent",
-  keyword = "",
-}) {
+export async function getProducts(
+  { page = 1, pageSize = 10, orderBy = "recent", keyword = "" },
+  signal
+) {
   const query = `page=${page}&pageSize=${pageSize}&orderBy=${orderBy}&keyword=${keyword}`;
-  const response = await axiosInstance.get(`/products?${query}`);
+  const response = await axiosInstance.get(`/products?${query}`, { signal });
 
   return response.data;
 }

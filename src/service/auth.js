@@ -1,4 +1,4 @@
-import { axiosInstance, refreshInstance } from "@service/axios";
+import { axiosInstance } from "@service/axios";
 
 export async function login({ email, password }) {
   const response = await axiosInstance.post("/auth/signIn", {
@@ -32,7 +32,7 @@ export async function getUser() {
 }
 
 export async function refreshAccessToken(refreshToken) {
-  const response = await refreshInstance.post("/auth/refresh-token", {
+  const response = await axiosInstance.post("/auth/refresh-token", {
     refreshToken,
   });
 

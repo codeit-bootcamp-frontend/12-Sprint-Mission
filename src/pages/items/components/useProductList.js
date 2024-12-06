@@ -8,14 +8,22 @@ export default function useProductList(fetchFn, params) {
   const totalCount = result?.totalCount || 0;
 
   useEffect(() => {
+    const controller = new AbortController();
+    const signal = controller.signal;
+
     (async function fetchData() {
-      await getData({
-        page,
-        pageSize,
-        keyword,
-        orderBy,
-      });
+      await getData(
+        {
+          page,
+          pageSize,
+          keyword,
+          orderBy,
+        },
+        signal
+      );
     })();
+
+    return () => controller.abort();
   }, [page, pageSize, keyword, orderBy]);
 
   return {
