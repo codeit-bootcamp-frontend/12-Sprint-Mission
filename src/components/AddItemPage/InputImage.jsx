@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import imgButton from "../images/imgPlaceholder.svg";
 import deleteButton from "../images/ic_X.svg";
-import "../components/InputImage.scss";
+import "../AddItemPage/InputImage.scss";
 
 function InputImage({ title, value, placeholder }) {
   const [preview, setPreview] = useState("");

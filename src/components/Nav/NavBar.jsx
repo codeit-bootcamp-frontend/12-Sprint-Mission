@@ -1,6 +1,6 @@
 import logo from "../images/판다 얼굴.svg";
 import profile from "../images/Group 33728.svg";
-import "../components/NavBar.css";
+import "../Nav/NavBar.css";
 import { NavLink } from "react-router-dom";
 
 function NavBar() {

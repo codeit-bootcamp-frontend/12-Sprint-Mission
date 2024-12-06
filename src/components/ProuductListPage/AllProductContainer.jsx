@@ -1,7 +1,7 @@
 import ProductItem from "./ProductItem";
 import { useEffect, useState } from "react";
-import { getData } from "../api";
-import "../components/AllProductContainer.scss";
+import { getData } from "../../api";
+import "../ProuductListPage/AllProductContainer.scss";
 import { Link } from "react-router-dom";
 import Pagination from "./Pagination";
 

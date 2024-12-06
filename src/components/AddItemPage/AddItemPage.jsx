@@ -1,7 +1,7 @@
-import NavBar from "../components/NavBar";
-import "../pages/AddItemPage.scss";
-import InputForm from "../components/InputForm";
-import InputImage from "../components/InputImage";
+import NavBar from "../Nav/NavBar";
+import "../AddItemPage/AddItemPage.scss";
+import InputForm from "../AddItemPage/InputForm";
+import InputImage from "../AddItemPage/InputImage";
 import { useRef, useState } from "react";
 
 function AddItemPage() {

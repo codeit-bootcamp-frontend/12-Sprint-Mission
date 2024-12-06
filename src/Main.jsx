@@ -1,7 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import App from "./pages/App";
-import Item from "./pages/ItemPage";
-import AddItem from "./pages/AddItemPage";
+import App from "./components/App";
+import Item from "./components/ItemPage/ItemPage";
+import AddItem from "./components/AddItemPage/AddItemPage";
 
 function Main() {
   return (
