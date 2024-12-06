@@ -3,6 +3,8 @@ import Header from "./components/layout/Header";
 import BestProducts from "./components/BestProducts/BestProducts";
 import AllProducts from "./components/AllProducts/AllProducts";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import AddItem from "./pages/AddItem";
+import "./styles/global.css";
 
 function MainContent() {
   return (
@@ -21,6 +23,7 @@ function App() {
         <Routes>
           <Route path="/" element={<MainContent />} />
           <Route path="/items" element={<MainContent />} />
+          <Route path="pages/additem" element={<AddItem />} />
         </Routes>
       </div>
     </BrowserRouter>

@@ -14,8 +14,11 @@ function Header() {
           <Link
             to="./items"
             style={{
-              borderBottom:
-                location.pathname === "/items" ? "2px solid #3692ff" : "none",
+              color:
+                location.pathname === "/items" ||
+                location.pathname === "/pages/additem"
+                  ? "#3692ff"
+                  : "none",
             }}
           >
             중고마켓
