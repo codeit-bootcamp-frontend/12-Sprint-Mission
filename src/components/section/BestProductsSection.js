@@ -5,8 +5,7 @@ import { HttpException } from "../../utils/exceptions.js";
 import ItemCard from "../ui/Item/ItemCard.js";
 import "./BestProductsSection.css";
 
-const getPageSize = () => {
-  const width = window.innerWidth;
+const getPageLimit = (width) => {
   if (width > 1199) {
     return 4;
   } else if (width > 768) {
@@ -21,10 +20,10 @@ function BestProductsSection() {
   const [pageSize, setPageSize] = useState(null);
   const [error, setError] = useState(null);
 
-  const getProducts = async () => {
-    if (pageSize !== null) {
+  const getProducts = async (limit) => {
+    if (limit !== null) {
       try {
-        const { list } = await fetchProducts("favorite", pageSize);
+        const { list } = await fetchProducts("favorite", limit);
         setItems(list);
       } catch (error) {
         if (error instanceof HttpException) {
@@ -37,14 +36,14 @@ function BestProductsSection() {
   };
 
   const handleResize = useCallback(() => {
-    const newPageSize = getPageSize();
+    const newPageSize = getPageLimit(window.innerWidth);
     if (newPageSize !== pageSize) {
       setPageSize(newPageSize);
     }
   }, [pageSize]);
 
   useEffect(() => {
-    const initialPageSize = getPageSize();
+    const initialPageSize = getPageLimit(window.innerWidth);
     setPageSize(initialPageSize);
 
     window.addEventListener("resize", handleResize);
@@ -52,7 +51,7 @@ function BestProductsSection() {
   }, [handleResize]);
 
   useEffect(() => {
-    getProducts();
+    getProducts(pageSize);
   }, [pageSize]);
 
   if (error) {
