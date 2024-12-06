@@ -1,6 +1,7 @@
 import { useEffect, useState, useCallback } from "react";
 import { Link } from "react-router-dom";
 import { fetchProducts } from "../../api/product.js";
+import { HttpException } from "../../utils/exceptions.js";
 import ItemCard from "../ui/Item/ItemCard.js";
 import "./BestProductsSection.css";
 
@@ -18,11 +19,20 @@ const getPageSize = () => {
 function BestProductsSection() {
   const [items, setItems] = useState([]);
   const [pageSize, setPageSize] = useState(null);
+  const [error, setError] = useState(null);
 
   const getProducts = async () => {
     if (pageSize !== null) {
-      const { list } = await fetchProducts("favorite", pageSize);
-      setItems(list);
+      try {
+        const { list } = await fetchProducts("favorite", pageSize);
+        setItems(list);
+      } catch (error) {
+        if (error instanceof HttpException) {
+          setError(error.message);
+        } else {
+          setError("알 수 없는 오류가 발생했습니다.");
+        }
+      }
     }
   };
 
@@ -44,6 +54,10 @@ function BestProductsSection() {
   useEffect(() => {
     getProducts();
   }, [pageSize]);
+
+  if (error) {
+    return <div>오류: {error}</div>;
+  }
 
   return (
     <section className="best-products">

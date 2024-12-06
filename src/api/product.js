@@ -1,5 +1,6 @@
 import { BASE_URL } from "../constants/apiUrls";
 import { handleResponseError } from "../utils/errorHandler";
+import { HttpException } from "../utils/exceptions";
 
 export const fetchProducts = async (orderBy, pageSize) => {
   const params = new URLSearchParams({ orderBy, pageSize });
@@ -19,7 +20,11 @@ export const fetchProducts = async (orderBy, pageSize) => {
     const data = await response.json();
     return data;
   } catch (error) {
-    console.error("네트워크 오류", error);
-    throw new Error("네트워크 오류가 발생했습니다. 잠시 후 다시 시도해주세요.");
+    if (error instanceof HttpException) {
+      throw error;
+    } else {
+      console.error("네트워크 오류", error);
+      throw new Error("네트워크 오류가 발생했습니다. 잠시 후 다시 시도해주세요.");
+    }
   }
 };
