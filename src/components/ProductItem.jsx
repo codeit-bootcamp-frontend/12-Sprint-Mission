@@ -11,6 +11,7 @@ function ProductItem({ imageUrl, title, price, likeCount, size }) {
           backgroundColor: "gray",
           borderRadius: "16px",
         }}
+        s
       >
         <img
           className="product_Image"

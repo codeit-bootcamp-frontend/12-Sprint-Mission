@@ -3,19 +3,29 @@ import { useEffect, useState } from "react";
 import { getData } from "../api";
 import "../components/AllProductContainer.scss";
 import { Link } from "react-router-dom";
+import Pagination from "./Pagination";
 
 function AllProductContainer() {
   const [itemList, setItemList] = useState();
   // eslint-disable-next-line
   const [pageSize, setPageSize] = useState(10);
   const [orderBy, setOrderBy] = useState("recent");
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(0);
 
   const handleBestClick = () => setOrderBy("favorite");
   const handleNewestClick = () => setOrderBy("recent");
 
   useEffect(() => {
-    getData({ pageSize, orderBy }).then((data) => setItemList(data));
-  }, [pageSize, orderBy]);
+    getData({ pageSize, orderBy, page: currentPage }).then((data) => {
+      setItemList(data);
+      setTotalPages(Math.ceil(data.totalCount / pageSize));
+    });
+  }, [pageSize, orderBy, currentPage]);
+
+  const handlePageChange = (page) => {
+    setCurrentPage(page);
+  };
 
   return (
     <div>
@@ -58,6 +68,11 @@ function AllProductContainer() {
           />
         ))}
       </div>
+      <Pagination
+        currentPage={currentPage}
+        totalPages={totalPages}
+        onPageChange={handlePageChange}
+      />
     </div>
   );
 }
