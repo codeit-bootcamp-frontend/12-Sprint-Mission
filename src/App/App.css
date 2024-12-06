@@ -18,3 +18,21 @@
 a {
   text-decoration: none;
 }
+
+.loadChangeButton {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.loadChange {
+  /* width: 100%; */
+  flex-grow: 1;
+  height: 50px;
+
+  font-size: 25px;
+  border-radius: 10px;
+
+  margin-bottom: 100px;
+  cursor: pointer;
+}

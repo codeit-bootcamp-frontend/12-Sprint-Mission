@@ -1,9 +1,17 @@
 import AllItemList from './AllItemList/AllItemList';
 import './AllItems.css';
 
-function AllItems({ items, onChange }) {
+function AllItems({ items, onChange, onLoadNext, onLoadPre }) {
   const allItemsChange = (e) => {
     onChange(e.target.value);
+  };
+
+  const handleLoadNext = () => {
+    onLoadNext();
+  };
+
+  const handleLoadPre = () => {
+    onLoadPre();
   };
 
   return (
@@ -29,6 +37,14 @@ function AllItems({ items, onChange }) {
           return <AllItemList key={item.id} item={item} index={index} />;
         })}
       </ul>
+      <div className="loadChangeButton">
+        <button className="loadChange" onClick={handleLoadPre}>
+          &lt;
+        </button>
+        <button className="loadChange" onClick={handleLoadNext}>
+          &gt;
+        </button>
+      </div>
     </div>
   );
 }
