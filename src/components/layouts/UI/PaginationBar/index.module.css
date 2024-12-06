@@ -8,6 +8,9 @@
 
 .page-arrow-btn,
 .page-num-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 40px;
   height: 40px;
   border-radius: 50%;
