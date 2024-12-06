@@ -5,7 +5,7 @@ import MarketPage from "./pages/MarketPage/MarketPage";
 import AddItemPage from "./pages/AddItemPage/AddItemPage";
 import CommunityFeedPage from "./pages/CommunityFeedPage/CommunityFeedPage";
 import Header from "./components/Layout/Header";
-
+import ItemDetailPage from "./pages/ItemDetailPage/ItemDetailPage";
 function App() {
   return (
     <BrowserRouter>
@@ -20,6 +20,7 @@ function App() {
           <Route path="items" element={<MarketPage />} />
           <Route path="additem" element={<AddItemPage />} />
           <Route path="community" element={<CommunityFeedPage />} />
+          <Route path="items/:productId" element={<ItemDetailPage />}></Route>
         </Routes>
       </div>
     </BrowserRouter>

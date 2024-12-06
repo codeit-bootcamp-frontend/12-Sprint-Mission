@@ -1,0 +1,26 @@
+.itemDetailPage__section {
+  width: 1200px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-top: 24px;
+}
+
+.item-information__container {
+  display: flex;
+  gap: 24px;
+}
+
+.item__img {
+  width: 486px;
+  height: 486px;
+  object-fit: cover;
+  border-radius: 16px;
+}
+
+.item-explain-title__container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #e5e7eb;
+}
