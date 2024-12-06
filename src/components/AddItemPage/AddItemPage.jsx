@@ -2,6 +2,7 @@ import NavBar from "../Nav/NavBar";
 import "../AddItemPage/AddItemPage.scss";
 import InputForm from "../AddItemPage/InputForm";
 import InputImage from "../AddItemPage/InputImage";
+import InputTag from "./InputTag";
 import { useRef, useState } from "react";
 
 function AddItemPage() {
@@ -38,7 +39,7 @@ function AddItemPage() {
           height={56}
           placeholder={"판매 가격을 입력해주세요"}
         />
-        <InputForm
+        <InputTag
           title={"태그"}
           height={56}
           placeholder={"태그을 입력해주세요"}
