@@ -1,4 +1,4 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import Logo from "../../assets/images/logo/logo.svg";
 import Profile from "../../assets/images/icons/ic_profile.svg";
 import "./Header.css";
@@ -8,6 +8,8 @@ function getLinkStyle({ isActive }) {
 }
 
 function Header() {
+  const location = useLocation();
+
   return (
     <header className="globalHeader">
       <div className="headerWrapper">
@@ -24,7 +26,14 @@ function Header() {
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/items" style={getLinkStyle}>
+                <NavLink
+                  to="/items"
+                  style={({ isActive }) =>
+                    location.pathname === "/additem" || isActive
+                      ? { color: "var(--primary-100)" }
+                      : {}
+                  }
+                >
                   중고마켓
                 </NavLink>
               </li>

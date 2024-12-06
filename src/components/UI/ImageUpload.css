@@ -1,0 +1,69 @@
+.imageUploadTitle {
+  margin-bottom: 1.6rem;
+  font-weight: 700;
+  font-size: 1.8rem;
+  line-height: 2.6rem;
+  color: var(--secondary-800);
+}
+
+.imageUploadContainer {
+  display: flex;
+  align-items: center;
+  gap: 2.4rem;
+}
+
+.uploadButton {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.3rem;
+  width: 28.2rem;
+  height: 28.2rem;
+  border-radius: 1.2rem;
+  background-color: var(--secondary-100);
+  color: var(--secondary-400);
+  font-size: 1.6rem;
+  cursor: pointer;
+
+  @media (max-width: 1199px) {
+    width: 20rem;
+    height: 20rem;
+  }
+}
+
+.plusIcon {
+  width: 24px;
+  height: 24px;
+}
+
+.imagePreviewContainer {
+  position: relative;
+  width: 28.2rem;
+  height: 28.2rem;
+
+  @media (max-width: 1199px) {
+    width: 20rem;
+    height: 20rem;
+  }
+}
+
+.imagePreview {
+  width: 100%;
+  height: 100%;
+  border-radius: 1.2rem;
+  object-fit: cover;
+}
+
+.imageDeleteButton {
+  position: absolute;
+  top: 1.3rem;
+  right: 1.3rem;
+}
+
+.errorMessage {
+  margin-top: 1.6rem;
+  color: var(--error-red);
+  font-size: 1.6rem;
+  line-height: 2.6rem;
+}
