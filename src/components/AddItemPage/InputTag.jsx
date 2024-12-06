@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./InputTag.scss";
 import deleteButton from "../images/ic_X.svg";
 
@@ -13,16 +13,18 @@ function InputTag({ title, height, placeholder, type = "text" }) {
 
   const handleAddTag = (e) => {
     e.preventDefault();
-    if (inputValue.trim() !== "") {
-      setTags([...tags, inputValue.trim()]);
-      setInputValue("");
-    }
+    console.log(e.target.value);
+    // console.log("ddd", [...tags, inputValue.trim()]);
+    setTags([...tags, inputValue.trim()]);
+    setInputValue("");
   };
 
   const handleDeleteTag = (tag) => {
     setTags(tags.filter((t) => t !== tag));
   };
-
+  useEffect(() => {
+    console.log("tags", tags);
+  }, [tags]);
   return (
     <>
       <div
@@ -46,6 +48,7 @@ function InputTag({ title, height, placeholder, type = "text" }) {
         onChange={handleInputChange}
         onKeyDown={(e) => {
           if (e.key === "Enter") {
+            e.preventDefault();
             handleAddTag(e);
           }
         }}
@@ -53,7 +56,7 @@ function InputTag({ title, height, placeholder, type = "text" }) {
       <div>
         {tags.map((tag, index) => (
           <span key={index} className="tag">
-            #{tag}{" "}
+            #{tag}
             <button onClick={() => handleDeleteTag(tag)}>
               <img src={deleteButton} alt="지우기 버튼" />
             </button>
