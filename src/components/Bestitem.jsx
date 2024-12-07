@@ -2,9 +2,11 @@ import favorit_img from '../assets/heart_favorit.png';
 import './BestItem.css';
 
 const Bestitem = ({ items }) => {
+  const limiteData = items.slice(0, 4);
+
   return (
     <div className="Bestitem">
-      {items.map((item) => {
+      {limiteData.map((item) => {
         return (
           <div className="BestiemContainer">
             <div className="itemImg">{<img src={item.images} />}</div>
