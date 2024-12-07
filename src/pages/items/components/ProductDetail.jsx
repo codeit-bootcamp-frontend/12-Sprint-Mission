@@ -1,7 +1,13 @@
 import { Link, useNavigate, useRevalidator } from "react-router-dom";
 import { useAuth } from "@context/AuthContext";
 import { deleteProduct, toggleLike } from "@service/product";
-import { Chip, Thumbnail, Author, LikeButton, Dropdown } from "@components/ui";
+import {
+  Chip,
+  Thumbnail,
+  Author,
+  LikeButton,
+  Fullscreen,
+} from "@components/ui";
 import { More } from "@components/Button";
 import { toWon } from "@util/formatter";
 import styles from "./ProductDetail.module.scss";
@@ -62,7 +68,9 @@ export default function ProductDetail({ detail }) {
   return (
     <div className={styles.detail}>
       <div className={styles.cover}>
-        <Thumbnail src={images[0]} alt={name} />
+        <Fullscreen>
+          <Thumbnail src={images[0]} alt={name} />
+        </Fullscreen>
       </div>
       <div className={styles.content}>
         <header className={styles["detail-header"]}>

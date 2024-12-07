@@ -9,6 +9,10 @@
   background: var(--color-secondary-100);
   transition: all 0.2s;
 
+  &.fullscreen {
+    cursor: zoom-in;
+  }
+
   .img {
     width: 100%;
     height: 100%;
