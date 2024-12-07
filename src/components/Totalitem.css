@@ -1,9 +1,27 @@
 .Totalitems {
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-template-rows: 2fr;
+  grid-template-columns: repeat(5, 1fr);
   gap: 24px;
   margin-top: 16px;
-  flex-wrap: wrap;
+
+  @media (max-width: 1199px) {
+    grid-template-columns: repeat(3, 1fr);
+    .TotaliemContainer:nth-child(n + 7) {
+      display: none;
+    }
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  @media (max-width: 767px) {
+    grid-template-columns: repeat(2, 1fr);
+    .TotaliemContainer:nth-child(n + 5) {
+      display: none;
+    }
+    padding-left: 16px;
+    padding-right: 16px;
+  }
 }
 
 .Totalitems > div {
@@ -16,10 +34,12 @@
 }
 
 .Totalitems .itemImg img {
-  width: 221px;
-  height: 221px;
+  width: 100%;
+  height: auto;
   border-radius: 16px;
   margin-bottom: 10px;
+  object-fit: cover;
+  aspect-ratio: 1;
 }
 
 .itemName {
