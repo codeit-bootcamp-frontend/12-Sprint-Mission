@@ -1,18 +1,15 @@
 import { useState, useEffect } from "react";
-import { getProducts } from "../services/api";
+import { GetProductsAPI } from "../..//api/GetProductsAPI";
 import "./BestProductList.css";
-import favoriteIcon from "../assets/favorite_icon.png";
+import favoriteIcon from "../../assets/favorite_icon.png";
 
-// function BestProductList({ imageUrl, name, price, favoriteCount, size }) {
 function BestProductList() {
   const [bestProducts, setBestProducts] = useState([]);
-  const [orderBy, setOrderBy] = useState();
-  //   const [pageSize, setPageSize] = useState(10);
   const imageSize = "282px";
 
   const loadBestProducts = async () => {
     try {
-      const data = await getProducts({
+      const data = await GetProductsAPI({
         page: 1,
         pageSize: 4,
         orderBy: "favorite",
@@ -33,7 +30,7 @@ function BestProductList() {
       <h3 className="title">베스트 상품</h3>
       <div className="bestProducts">
         {bestProducts.map((product) => (
-          <div className="bestProduct">
+          <div className="bestProduct" key={product.id}>
             <img
               className="productImage"
               src={product.images[0]}

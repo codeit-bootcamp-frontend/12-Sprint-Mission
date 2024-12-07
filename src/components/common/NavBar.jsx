@@ -1,5 +1,5 @@
-import logoImage from "../assets/logo.png";
-import profileImage from "../assets/profile_icon.png";
+import logoImage from "../../assets/logo.png";
+import profileImage from "../../assets/profile_icon.png";
 import "./NavBar.css";
 
 function NavBar() {

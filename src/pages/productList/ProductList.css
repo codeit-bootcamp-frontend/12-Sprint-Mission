@@ -1,0 +1,12 @@
+title {
+  color: #111827;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.productForm {
+  padding: 94px 360px 141px;
+  height: 1206px;
+  width: 1206px;
+  gap: 40px;
+}

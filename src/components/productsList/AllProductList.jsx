@@ -1,36 +1,45 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { getProducts } from "../services/api";
+import { GetProductsAPI } from "../../api/GetProductsAPI";
 import "./AllProductList.css";
-import favoriteIcon from "../assets/favorite_icon.png";
+import favoriteIcon from "../../assets/favorite_icon.png";
+import defaultImg from "../../assets/logo.png";
 
 function AllProductList() {
   const [allProducts, setAllProducts] = useState([]);
   const [orderBy, setOrderBy] = useState();
+  const [keyword, setKeyword] = useState();
   const imageSize = "220px";
-
-  //   const [pageSize, setPageSize] = useState(10);
 
   const loadAllProducts = async () => {
     try {
-      const data = await getProducts({
+      const data = await GetProductsAPI({
         page: 1,
         pageSize: 10,
         orderBy: orderBy,
+        keyword: keyword,
       });
-      console.log(data);
+      // console.log(data);
       setAllProducts(data);
     } catch (error) {
-      console.log("전체 상품 로드 실패: ", error);
+      throw new Error("전체 상품 로드 실패:", error);
     }
   };
 
   useEffect(() => {
     loadAllProducts();
-  }, [orderBy]);
+  }, [orderBy, keyword]);
 
   const handleOrderChange = (e) => {
     setOrderBy(e.target.value);
+  };
+
+  const onErrorImg = (e) => {
+    e.target.src = defaultImg;
+  };
+
+  const searchProducts = (e) => {
+    setKeyword(e.target.value);
   };
 
   return (
@@ -41,8 +50,10 @@ function AllProductList() {
           <input
             className="search"
             placeholder="검색할 상품을 입력해주세요."
+            value={keyword}
+            onChange={searchProducts}
           ></input>
-          <Link to="/additem">
+          <Link to="/addproduct">
             <button className="registerButton">상품 등록하기</button>
           </Link>
           <select
@@ -61,7 +72,7 @@ function AllProductList() {
       </div>
       <div className="allProducts">
         {allProducts.map((product) => (
-          <div className="allProduct">
+          <div className="allProduct" key={product.id}>
             <img
               className="productImage"
               src={product.images[0]}
@@ -70,6 +81,7 @@ function AllProductList() {
                 width: imageSize,
                 height: imageSize,
               }}
+              onError={onErrorImg}
             />
             <div className="content">
               <p className="name">{product.name}</p>

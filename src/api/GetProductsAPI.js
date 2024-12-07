@@ -1,12 +1,13 @@
-export async function getProducts({
+import { baseURL } from "../constants/VariableSetting";
+
+export async function GetProductsAPI({
   page = 1,
   pageSize = 10,
   orderBy = "recent",
+  keyword = "",
 }) {
-  const baseURL = "https://panda-market-api.vercel.app";
-
   const response = await fetch(
-    `${baseURL}/products?page=${page}&pageSize=${pageSize}&orderBy=${orderBy}`
+    `${baseURL}/products?page=${page}&pageSize=${pageSize}&orderBy=${orderBy}&keyword=${keyword}`
   );
 
   if (!response.ok) {
