@@ -4,15 +4,13 @@
   gap: 12px;
   height: 32px;
   white-space: nowrap;
-  @media (max-width: 767px) {
-    align-items: stretch;
-    height: 92px;
-  }
+  flex-wrap: wrap;
+  align-items: stretch;
 }
 
 @media (max-width: 767px) {
-  .Itemtitle {
-    flex-wrap: wrap;
+  .search {
+    height: 92px;
   }
   .Item_text:nth-child(1) {
     order: 1;
