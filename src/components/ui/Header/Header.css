@@ -22,7 +22,13 @@ header {
   padding: 21px 15px;
 }
 
+.header-logo-link {
+  text-decoration: none;
+  display: inline-block;
+}
+
 .header-logo {
+  display: block;
   width: 153px;
   height: 51px;
 }
