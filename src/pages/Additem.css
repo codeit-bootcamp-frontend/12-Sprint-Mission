@@ -1,3 +1,15 @@
+form {
+  @media (max-width: 1199px) {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  @media (max-width: 767px) {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+
 .Additem .edit {
   max-width: 1201px;
   width: 100%;
