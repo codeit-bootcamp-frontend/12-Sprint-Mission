@@ -13,6 +13,24 @@ import { Link } from 'react-router-dom';
 import { useState } from 'react';
 
 const Home = () => {
+  const [sort, setSort] = useState('new');
+
+  const onChangeSort = (e) => {
+    setSort(e.target.value);
+  };
+
+  const getSortData = () => {
+    return totalitems.toSorted((a, b) => {
+      if (sort === 'new') {
+        return Number(b.createdAt) - Number(a.createdAt);
+      } else {
+        return Number(b.favoriteCount) - Number(a.favoriteCount);
+      }
+    });
+  };
+  console.log(getSortData());
+  const sortData = getSortData();
+
   return (
     <div className="Home">
       <Nav
@@ -42,14 +60,14 @@ const Home = () => {
                 </Link>
               }
               rightChild={
-                <select>
+                <select onChange={onChangeSort}>
                   <option value={'new'}>최신순</option>
                   <option value={'like'}>좋아요순</option>
                 </select>
               }
             />
           </div>
-          <Totalitem totalitems={totalitems} />
+          <Totalitem totalitems={sortData} />
         </div>
         <div>
           <Pagenation />
