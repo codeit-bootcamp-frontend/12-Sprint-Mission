@@ -28,7 +28,6 @@ const Home = () => {
       }
     });
   };
-  console.log(getSortData());
   const sortData = getSortData();
 
   return (
@@ -44,35 +43,33 @@ const Home = () => {
         rightChild={<img src={Nav_user} />}
       />
       {/* 아래는 상품 */}
-      <form>
-        <div className="item">
-          <div className="item_title">
-            <Itemtitle leftChild={'베스트 상품'} />
-          </div>
-          <Bestitem items={items} />
-          <div className="item_title">
-            <Itemtitle
-              leftChild={'전체 상품'}
-              searchInput={<input placeholder="검색할 상품을 입력해주세요" />}
-              searchBtn={
-                <Link to="/additem">
-                  <Button text={'상품 등록하기'} type={'ItemAdd'} />
-                </Link>
-              }
-              rightChild={
-                <select onChange={onChangeSort}>
-                  <option value={'new'}>최신순</option>
-                  <option value={'like'}>좋아요순</option>
-                </select>
-              }
-            />
-          </div>
-          <Totalitem totalitems={sortData} />
+      <div className="item">
+        <div className="item_title">
+          <Itemtitle leftChild={'베스트 상품'} />
         </div>
-        <div>
-          <Pagenation />
+        <Bestitem items={items} />
+        <div className="item_title">
+          <Itemtitle
+            leftChild={'전체 상품'}
+            searchInput={<input placeholder="검색할 상품을 입력해주세요" />}
+            searchBtn={
+              <Link to="/additem">
+                <Button text={'상품 등록하기'} type={'ItemAdd'} />
+              </Link>
+            }
+            rightChild={
+              <select onChange={onChangeSort}>
+                <option value={'new'}>최신순</option>
+                <option value={'like'}>좋아요순</option>
+              </select>
+            }
+          />
         </div>
-      </form>
+        <Totalitem totalitems={sortData} />
+      </div>
+      <div>
+        <Pagenation />
+      </div>
     </div>
   );
 };
