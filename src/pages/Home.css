@@ -3,6 +3,14 @@
   font-size: 20px;
   font-weight: 700;
   line-height: 32px;
+
+  @media (max-width: 1199px) {
+    padding: 0 24px;
+  }
+
+  @media (max-width: 767px) {
+    padding: 0 16px;
+  }
 }
 
 .Home .item {
