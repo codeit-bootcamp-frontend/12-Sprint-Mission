@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { getProducts } from "../../../api/itemApi";
 import defaultImage from "../../../assets/images/image/img_default.png";
 import { ReactComponent as HeartIcon } from "../../../assets/images/icons/ic_heart.svg";
@@ -41,7 +42,7 @@ function BestItemsSection() {
       <h2 className="sectionTitle">베스트 상품</h2>
       <div className="bestItemsCardSection">
         {itemList?.map((item) => (
-          <div key={item.id} className="itemCard">
+          <Link to={`/items/${item.id}`} key={item.id} className="itemCard">
             {item.images && item.images.length > 0 ? (
               <img src={item.images[0]} alt={item.name} className="itemImage" />
             ) : (
@@ -53,7 +54,7 @@ function BestItemsSection() {
               <HeartIcon />
               {item.favoriteCount}
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     </div>
