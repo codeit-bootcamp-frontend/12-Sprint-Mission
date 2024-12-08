@@ -16,7 +16,7 @@ const ItemQueryForm = () => {
       <textarea
         name="content"
         id="content"
-        className="bg-gray-100 rounded-xl py-6 px-6 resize-none"
+        className="bg-gray-100 rounded-xl py-6 px-6 h-44 resize-none md:h-auto"
         onChange={onChangeHandler}
         placeholder={QUERY_PLACEHOLDER.TEXT}
       ></textarea>

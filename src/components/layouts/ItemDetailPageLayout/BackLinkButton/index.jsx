@@ -8,7 +8,7 @@ const BackLinkButton = () => {
   };
   return (
     <button
-      className="flex mx-auto py-2 px-6 rounded-full text-white bg-blue-500"
+      className="flex mx-auto mt-10 mb-24 py-2 px-6 rounded-full text-white bg-blue-500"
       onClick={onClick}
     >
       <span>목록으로 돌아가기</span>

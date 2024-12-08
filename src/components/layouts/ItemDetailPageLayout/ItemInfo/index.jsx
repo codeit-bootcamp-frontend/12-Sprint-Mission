@@ -52,12 +52,15 @@ const ItemInfo = () => {
         alt="상품 이미지"
         onError={errorImg}
         ref={imgRef}
-        className="rounded-xl object-cover w-2/5 aspect-square h-auto"
+        className="rounded-xl object-cover w-5/5 aspect-square max-w-md md:w-2/5"
       />
 
-      <div className="flex flex-col relative flex-1">
-        <p className="text-xl font-semibold text-gray-800">{name}</p>
-        <p className="border-b border-gray-200 mt-2 pb-4 text-3xl font-semibold text-gray-800">{`${price.toLocaleString()}원`}</p>
+      <div className="flex flex-col justify-between relative flex-1">
+        <div>
+          <p className="text-xl font-semibold text-gray-800">{name}</p>
+          <p className="border-b border-gray-200 mt-2 pb-4 text-3xl font-semibold text-gray-800">{`${price.toLocaleString()}원`}</p>
+        </div>
+
         <img
           src={dropdownImg}
           alt="드롭다운 이미지"
@@ -74,19 +77,23 @@ const ItemInfo = () => {
             </li>
           </ul>
         )}
-        <p className="mt-4 mb-4 font-semibold text-gray-600">상품 소개</p>
-        <p className="font-normal text-gray-600">{description}</p>
-        <p className="mt-4 mb-4 font-semibold text-gray-600">상품 태그</p>
-        <div className="flex flex-wrap gap-2">
-          {tags?.map((value) => (
-            <span
-              className="rounded-3xl py-1.5 px-4 bg-gray-100 text-gray-800 font-normal"
-              key={value}
-            >{`#${value}`}</span>
-          ))}
+        <div>
+          <p className="mt-4 mb-4 font-semibold text-gray-600">상품 소개</p>
+          <p className="font-normal text-gray-600">{description}</p>
+        </div>
+        <div>
+          <p className="mt-4 mb-4 font-semibold text-gray-600">상품 태그</p>
+          <div className="flex flex-wrap gap-2">
+            {tags?.map((value) => (
+              <span
+                className="rounded-3xl py-1.5 px-4 bg-gray-100 text-gray-800 font-normal"
+                key={value}
+              >{`#${value}`}</span>
+            ))}
+          </div>
         </div>
 
-        <div className="flex items-center gap-4 flex-1 mt-12 ">
+        <div className="flex items-center gap-4 mt-12 ">
           <img
             src={ownerImages?.[0] ?? emptyProfileImg}
             alt="상품 소유자 프로필 이미지"
