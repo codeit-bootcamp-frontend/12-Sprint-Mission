@@ -48,7 +48,7 @@ const ItemInfo = () => {
   return (
     <section className="flex flex-col gap-6 border-b border-gray-200 mt-36 mx-auto pb-10 w-4/5 md:flex-row sm:mt-20">
       <img
-        src={images[0]}
+        src={images[0] ?? defaultItemImg}
         alt="상품 이미지"
         onError={errorImg}
         ref={imgRef}
