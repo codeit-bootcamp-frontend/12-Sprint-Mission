@@ -36,6 +36,10 @@
   font-weight: 600;
 }
 
+.login:hover {
+  background-color: #1967d6;
+}
+
 .logo,
 .community-tab,
 .items-tab,

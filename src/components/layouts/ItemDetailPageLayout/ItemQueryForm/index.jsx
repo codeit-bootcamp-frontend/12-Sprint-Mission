@@ -23,7 +23,7 @@ const ItemQueryForm = () => {
       <button
         disabled={!isValid}
         className={`my-4 ml-auto py-2 px-6 rounded-xl text-white ${
-          isValid ? 'bg-blue-500' : 'bg-gray-400'
+          isValid ? 'bg-blue-500 hover:bg-blue-700' : 'bg-gray-400'
         }`}
       >
         등록

@@ -64,15 +64,15 @@ const ItemInfo = () => {
         <img
           src={dropdownImg}
           alt="드롭다운 이미지"
-          className="absolute top-0 right-0 cursor-pointer"
+          className="absolute top-0 right-0 cursor-pointer hover:bg-gray-200"
           onClick={clickDropdownHandler}
         />
         {isDropdown && (
           <ul className="absolute top-8 right-0 bg-white">
-            <li className="border border-b-0 border-gray-300 rounded-t-lg py-2 px-6 text-gray-500 cursor-pointer">
+            <li className="border border-b-0 border-gray-300 rounded-t-lg py-2 px-6 text-gray-500 cursor-pointer hover:bg-gray-100">
               수정하기
             </li>
-            <li className="border border-t-0 border-gray-300 rounded-b-lg py-2 px-6 text-gray-500 cursor-pointer">
+            <li className="border border-t-0 border-gray-300 rounded-b-lg py-2 px-6 text-gray-500 cursor-pointer hover:bg-gray-100">
               삭제하기
             </li>
           </ul>

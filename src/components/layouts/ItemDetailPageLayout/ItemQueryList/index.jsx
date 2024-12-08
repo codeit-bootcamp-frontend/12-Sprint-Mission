@@ -59,7 +59,7 @@ const ItemQueryList = () => {
       {renderComments}
       {nextCursor && (
         <button
-          className="mx-auto py-2 px-6 rounded-full text-white bg-blue-500"
+          className="mx-auto py-2 px-6 rounded-full text-white bg-blue-500 hover:bg-blue-700"
           onClick={moreComments}
         >
           더 보기
