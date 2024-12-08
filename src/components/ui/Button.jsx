@@ -13,7 +13,7 @@ export function Button({
 }) {
   const css = clsx(
     styles.btn,
-    color && styles[variant],
+    variant && styles[variant],
     color && styles[color],
     size && styles[size],
     className
