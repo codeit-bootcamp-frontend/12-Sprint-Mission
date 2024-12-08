@@ -28,7 +28,7 @@ const getItemDetail = async (id) => {
   }
 };
 
-const getItemComments = async (id, params = { limit: 3 }) => {
+const getItemComments = async (id, params = { limit: 3, cursor: 0 }) => {
   const query = new URLSearchParams(params).toString();
   try {
     const response = await fetch(

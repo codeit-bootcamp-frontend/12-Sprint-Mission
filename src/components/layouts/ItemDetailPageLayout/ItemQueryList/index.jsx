@@ -17,11 +17,28 @@ const EmptyQueryList = () => {
 const ItemQueryList = () => {
   const { id } = useParams();
   const [comments, setComments] = useState(null);
+  const [nextCursor, setNextCursor] = useState(null);
 
   const getComments = useCallback(async () => {
     const response = await getItemComments(id);
     setComments(response.list);
+    setNextCursor(response.nextCursor);
   }, [id]);
+
+  const getMoreComments = useCallback(async () => {
+    const response = await getItemComments(id, {
+      limit: 3,
+      cursor: nextCursor,
+    });
+    setComments((prevComments) => {
+      return [...prevComments, ...response.list];
+    });
+    setNextCursor(response.nextCursor);
+  }, [id, nextCursor]);
+
+  const moreComments = () => {
+    getMoreComments();
+  };
 
   useEffect(() => {
     getComments();
@@ -38,7 +55,17 @@ const ItemQueryList = () => {
     );
 
   return (
-    <section className="flex flex-col mx-auto w-4/5">{renderComments}</section>
+    <section className="flex flex-col mx-auto w-4/5">
+      {renderComments}
+      {nextCursor && (
+        <button
+          className="mx-auto py-2 px-6 rounded-full text-white bg-blue-500"
+          onClick={moreComments}
+        >
+          더 보기
+        </button>
+      )}
+    </section>
   );
 };
 
