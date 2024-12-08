@@ -8,9 +8,10 @@ import Totalitem from '../components/Totalitem';
 import items from '../mockdata.json';
 import totalitems from '../totalitems_data.json';
 import Itemtitle from '../components/Itemtitle';
-import Pagenation from '../components/Pagenation';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
+import arrowLeft from '../assets/arrow_left.svg';
+import arrowRight from '../assets/arrow_right.svg';
 
 const Home = () => {
   const [sort, setSort] = useState('new');
@@ -48,7 +49,7 @@ const Home = () => {
           <Itemtitle leftChild={'베스트 상품'} />
         </div>
         <Bestitem items={items} />
-        <div className="item_title">
+        <div className="item_title search">
           <Itemtitle
             leftChild={'전체 상품'}
             searchInput={<input placeholder="검색할 상품을 입력해주세요" />}
@@ -67,8 +68,19 @@ const Home = () => {
         </div>
         <Totalitem totalitems={sortData} />
       </div>
-      <div>
-        <Pagenation />
+      {/* 페이지네이션 영역 */}
+      <div className="pagenation_box">
+        <button className="page_button">
+          <img src={arrowLeft} />
+        </button>
+        <button className="page_button active">1</button>
+        <button className="page_button">2</button>
+        <button className="page_button">3</button>
+        <button className="page_button">4</button>
+        <button className="page_button">5</button>
+        <button className="page_button">
+          <img src={arrowRight} />
+        </button>
       </div>
     </div>
   );
