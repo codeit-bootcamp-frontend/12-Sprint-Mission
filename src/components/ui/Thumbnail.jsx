@@ -21,7 +21,7 @@ export function Thumbnail({
     <figure
       className={coverCss}
       style={{ aspectRatio }}
-      {...(hasFullScreen && { ...{ onClick: () => onOpenScreen(src) } })}
+      {...(hasFullScreen && { onClick: () => onOpenScreen(src) })}
     >
       {onRemove && (
         <button type="button" className={styles.button} onClick={onRemove}>
