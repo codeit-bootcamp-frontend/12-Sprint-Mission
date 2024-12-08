@@ -21,15 +21,16 @@ function AddItemPage() {
     setTags(tags.filter((tag) => tag !== tagToRemove));
   };
 
-  const isSubmitDisabled = !name || !description || !price;
+  // form 제출 버튼 활성화
+  const isSubmitDisabled = !name || !description || !price || !tags.length;
 
   return (
     <div className="container">
       <form>
-        <div className="TitleSection">
-          <h1 className="SectionTitle">상품 등록하기</h1>
+        <div className="titleSection">
+          <h1 className="sectionTitle">상품 등록하기</h1>
           <button
-            className="RegisterButton"
+            className="registerButton"
             type="submit"
             disabled={isSubmitDisabled}
           >
@@ -37,7 +38,7 @@ function AddItemPage() {
           </button>
         </div>
 
-        <div className="InputSection">
+        <div className="inputSection">
           <FileInput title="상품 이미지" />
 
           <InputItem
@@ -61,7 +62,7 @@ function AddItemPage() {
             id="price"
             label="판매 가격"
             value={price}
-            onChange={(e) => setPrice(e.target.value)}
+            onChange={(e) => setPrice(Number(e.target.value) || "")}
             placeholder="판매 가격을 입력해 주세요"
           />
 

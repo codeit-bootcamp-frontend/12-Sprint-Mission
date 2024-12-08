@@ -15,7 +15,7 @@ function InputItem({
       {label && <label htmlFor={id}>{label}</label>}
       {isTextArea ? (
         <input
-          className="TextArea"
+          className="textArea"
           id={id}
           value={value}
           onChange={onChange}
@@ -23,7 +23,7 @@ function InputItem({
         />
       ) : (
         <input
-          className="InputField"
+          className="inputField"
           id={id}
           value={value}
           onChange={onChange}

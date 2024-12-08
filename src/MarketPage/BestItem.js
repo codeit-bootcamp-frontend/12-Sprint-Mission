@@ -2,11 +2,17 @@ import React, { useEffect, useState } from "react";
 import ItemCard from "./ItemCard";
 import { getProducts } from "../API";
 
+const MOBILE = 768;
+const TABLET = 1280;
+const BEST_ITEM_MOBILE = 1;
+const BEST_ITEM_TABLET = 2;
+const BEST_ITEM_DESKTOP = 4;
+
 const getPageSize = () => {
   const width = window.innerWidth;
-  if (width < 768) return 1;
-  if (width < 1280) return 2;
-  return 4;
+  if (width < MOBILE) return BEST_ITEM_MOBILE;
+  if (width < TABLET) return BEST_ITEM_TABLET;
+  return BEST_ITEM_DESKTOP;
 };
 
 function BestItem() {

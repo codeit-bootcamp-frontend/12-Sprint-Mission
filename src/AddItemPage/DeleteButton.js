@@ -1,15 +1,15 @@
 import React from "react";
-import DeleteIcon from "../assets/ic-reset.png";
+import deleteIcon from "../assets/ic-reset.png";
 import "./DeleteButton.css";
 
 function DeleteButton({ onClick, label }) {
   return (
     <div
-      className="DeleteButton"
+      className="deleteButton"
       aria-label={`${label} 삭제`}
       onClick={onClick}
     >
-      <img src={DeleteIcon} alt="이미지 삭제" />
+      <img src={deleteIcon} alt="이미지 삭제" />
     </div>
   );
 }

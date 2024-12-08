@@ -3,19 +3,20 @@ import "./PaginationBar.css";
 import LeftArrorw from "../assets/left-arrow.svg";
 import RightArrow from "../assets/right-arrow.svg";
 
+const MAX_VISIBLE_PAGES = 5; // 한 번에 보여줄 페이지의 최대 개수
+
 const PaginationBar = ({ totalPageNum, activePageNum, onPageChange }) => {
-  const maxVisiblePages = 5; // 한 번에 보여줄 페이지의 최대 개수
   let startPage;
 
-  if (totalPageNum <= maxVisiblePages) {
+  if (totalPageNum <= MAX_VISIBLE_PAGES) {
     startPage = 1;
   } else {
-    startPage = Math.max(activePageNum - Math.floor(maxVisiblePages / 2), 1);
-    startPage = Math.min(startPage, totalPageNum - maxVisiblePages + 1);
+    startPage = Math.max(activePageNum - Math.floor(MAX_VISIBLE_PAGES / 2), 1);
+    startPage = Math.min(startPage, totalPageNum - MAX_VISIBLE_PAGES + 1);
   }
 
   const pages = Array.from(
-    { length: Math.min(maxVisiblePages, totalPageNum - startPage + 1) },
+    { length: Math.min(MAX_VISIBLE_PAGES, totalPageNum - startPage + 1) },
     (_, i) => startPage + i
   );
 
