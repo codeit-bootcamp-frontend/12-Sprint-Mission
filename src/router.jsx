@@ -14,6 +14,9 @@ import ItemModifyPage from "./pages/items/ItemModifyPage";
 import BoardPage from "./pages/boards/BoardPage";
 import { Loading } from "@components/ui/Loading";
 
+import ItemDetailPageLoader from "./pages/items/ItemDetailPage.loader";
+import ItemModifyPageLoader from "./pages/items/ItemModifyPage.loader";
+
 export const router = createBrowserRouter(
   [
     {
@@ -62,7 +65,7 @@ export const router = createBrowserRouter(
                   hydrateFallbackElement: (
                     <Loading>정보를 가져오는 중입니다..</Loading>
                   ),
-                  loader: ItemDetailPage.loader,
+                  loader: ItemDetailPageLoader,
                 },
               ],
             },
@@ -84,7 +87,7 @@ export const router = createBrowserRouter(
               hydrateFallbackElement: (
                 <Loading>정보를 가져오는 중입니다..</Loading>
               ),
-              loader: ItemModifyPage.loader,
+              loader: ItemModifyPageLoader,
             },
             {
               path: "boards",

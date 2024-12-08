@@ -2,7 +2,6 @@ import { useSearchParams } from "react-router-dom";
 import useResponsive from "@hooks/useResponsive";
 import useProductList from "./components/useProductList";
 import usePagination from "@hooks/usePagination";
-import { getProducts } from "@service/product";
 import { Select, Button } from "@components/ui";
 import { Search, Recent } from "@components/Search";
 import { Section } from "@components/Section";
@@ -28,7 +27,7 @@ export default function AllItemsPage() {
     mobile: 3,
   });
 
-  const { isLoading, error, items, totalCount } = useProductList(getProducts, {
+  const { isLoading, error, items, totalCount } = useProductList({
     page,
     pageSize,
     keyword,

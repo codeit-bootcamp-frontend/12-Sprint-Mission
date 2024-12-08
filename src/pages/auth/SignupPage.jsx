@@ -2,7 +2,6 @@ import { useEffect } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
 import { useAuth } from "@context/AuthContext";
 import useForm from "@hooks/useForm";
-import { signUp } from "@service/auth";
 import { Form, FieldItem, Input } from "@components/Field";
 import { Button } from "@components/ui";
 import AuthContainer from "./components/AuthContainer";
@@ -11,6 +10,7 @@ import { signupFormSchema } from "./components/schema";
 export default function SignupPage() {
   const {
     auth: { accessToken },
+    handleSignup,
   } = useAuth();
   const navigate = useNavigate();
 
@@ -38,7 +38,7 @@ export default function SignupPage() {
 
   async function onSubmit(data) {
     try {
-      await signUp(data);
+      await handleSignup(data);
       alert("회원가입에 성공했습니다. \n로그인 페이지로 이동합니다.");
       navigate("/login", { replace: true });
     } catch (err) {

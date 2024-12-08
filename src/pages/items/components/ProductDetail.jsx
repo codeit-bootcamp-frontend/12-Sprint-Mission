@@ -1,6 +1,5 @@
 import { Link, useNavigate, useRevalidator } from "react-router-dom";
 import { useAuth } from "@context/AuthContext";
-import { deleteProduct, toggleLike } from "@service/product";
 import {
   Chip,
   Thumbnail,
@@ -11,6 +10,7 @@ import {
 import { More } from "@components/Button";
 import { toWon } from "@util/formatter";
 import styles from "./ProductDetail.module.scss";
+import useProductActions from "./useProductActions";
 
 export default function ProductDetail({ detail }) {
   const {
@@ -31,13 +31,14 @@ export default function ProductDetail({ detail }) {
   } = useAuth();
   const navigate = useNavigate();
   const { revalidate } = useRevalidator();
+  const { handleLike, handleProductDelete } = useProductActions(id);
   const isOwner = ownerId === user?.id;
 
   async function handleToggleLike() {
     if (!user) {
       return alert("로그인이 필요합니다.");
     }
-    await toggleLike(id, !isFavorite);
+    await handleLike(!isFavorite);
     revalidate();
   }
 
@@ -56,7 +57,7 @@ export default function ProductDetail({ detail }) {
 
     if (confirm("정말 삭제할까요?")) {
       try {
-        await deleteProduct(id);
+        await handleProductDelete(id);
         alert("상품을 삭제했습니다.");
         navigate("/items");
       } catch (err) {

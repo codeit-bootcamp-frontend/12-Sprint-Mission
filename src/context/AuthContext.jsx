@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useRef, useState } from "react";
-import { getUser, login, refreshAccessToken } from "@service/auth";
+import { getUser, login, refreshAccessToken, signUp } from "@service/auth";
 import { isTokenValid } from "@util/helper";
 import { axiosInstance } from "@service/axios";
 
@@ -114,6 +114,10 @@ export function AuthProvider({ children }) {
     }
   }
 
+  async function handleSignup(formData) {
+    return signUp(formData);
+  }
+
   function clear() {
     localStorage.removeItem("accessToken");
     localStorage.removeItem("refreshToken");
@@ -134,6 +138,7 @@ export function AuthProvider({ children }) {
     auth,
     handleLogin,
     handleLogout,
+    handleSignup,
   };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
