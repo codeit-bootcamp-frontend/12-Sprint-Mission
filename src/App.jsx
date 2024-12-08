@@ -4,6 +4,7 @@ import Home from "./pages/home/Home";
 import FreeBoard from "./pages/FreeBoard/FreeBoard";
 import UsedMarket from "./pages/UsedMarket/UsedMarket"
 import ProductForm from "./pages/ProductForm/ProductForm"
+import ItemPage from "./pages/ItemPage/ItemPage";
 import './components/common.css';
 import './components/reset.css';
 
@@ -18,6 +19,7 @@ function App() {
                 <Route path="/FreeBoard" element={<FreeBoard />}></Route>
                 <Route path="/items" element={<UsedMarket />}></Route>
                 <Route path="/additem" element={<ProductForm />}></Route>
+                <Route path="/items/:productId" element={<ItemPage />} />
             </Routes>
         </BrowserRouter>
     );
