@@ -18,6 +18,38 @@ export const Container = styled.section`
   }
 `;
 
+export const Button = styled.button`
+  background-color: var(--primary-100);
+  color: var(--secondary-100);
+  text-align: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+
+  &:hover {
+    background-color: var(--primary-200);
+  }
+
+  &:focus {
+    background-color: var(--primary-300);
+  }
+
+  &:disabled {
+    background-color: var(--secondary-400);
+    cursor: default;
+    pointer-events: none;
+  }
+`;
+
+export const PillButton = styled.button`
+  padding: 1.2rem 12.4rem;
+  border-radius: 999px;
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 3.2rem;
+`;
+
 export const LineDivider = styled.hr`
   width: 100%;
   border: none;
