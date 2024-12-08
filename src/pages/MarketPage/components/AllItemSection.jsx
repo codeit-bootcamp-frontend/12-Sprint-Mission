@@ -6,6 +6,7 @@ import searchIcon from "../../../images/ic_search.png";
 import dropdownIcon from "../../../images/ic_arrow_down.png";
 import { Link } from "react-router-dom";
 import PaginationBar from "../../../components/UI/PaginationBar";
+import SortSelect from "../../../components/UI/onSortSelect";
 
 const getPageSize = () => {
   const width = window.innerWidth;
@@ -72,7 +73,7 @@ function AllItemSection() {
               <img className="dropdownIcon" onClick={toggleDropdownWrapper} src={dropdownIcon} alt="드롭다운아이콘" />
               <button className="showDropdownWrapperBtn">{orderBy === "recent" ? "최신순" : "베스트순"}</button>
             </div>
-            {dropdownToggle && <onSortSelect onSortSelection={handleSortLoadList} />}
+            {dropdownToggle && <SortSelect onSortSelection={handleSortLoadList} />}
           </div>
         </div>
       </div>

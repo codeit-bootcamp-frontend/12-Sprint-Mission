@@ -40,6 +40,10 @@
   background-color: #3692ff;
 }
 
+.addItemBtn.active {
+  background-color: #3692ff;
+}
+
 .inputBox {
   display: flex;
   flex-direction: column;

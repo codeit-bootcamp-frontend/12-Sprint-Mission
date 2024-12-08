@@ -10,6 +10,7 @@ const AddItemPage = () => {
     tag: "",
     imgFile: null,
   });
+  const [disabled, setDisabled] = useState(true);
 
   const handleChange = (name, value) => {
     setValues((prevValues) => ({
@@ -21,21 +22,22 @@ const AddItemPage = () => {
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     handleChange(name, value);
+    setDisabled(isSubmitDisabled);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(values);
   };
-
-  const isSubmitDisabled = !values.itemName && !values.itemDesc && !values.itemPrice && !values.tag;
+  // disable가 true이면 비활성화 false이면 활성화된다. 값을 전부 입력하면 false를 전달해줘야한다.
+  const isSubmitDisabled = !(values.itemName && values.itemDesc && values.itemPrice && values.tag);
 
   return (
     <div>
       <form className="addItemContainer">
         <div className="addItemHeader">
           <h1 className="headerTitle">상품 등록하기</h1>
-          <button className="addItemBtn" onSubmit={handleSubmit} disabled={isSubmitDisabled}>
+          <button className={`addItemBtn ${disabled ? "" : "active"}`} onSubmit={handleSubmit} disabled={disabled}>
             등록
           </button>
         </div>
