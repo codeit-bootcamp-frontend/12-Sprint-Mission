@@ -7,8 +7,8 @@ export function Textarea({ error, value, size, ...props }) {
   const css = clsx(
     styles["field-box"],
     size && styles[size],
-    valid && "valid",
-    error && "error"
+    valid && styles.valid,
+    error && styles.error
   );
 
   return (

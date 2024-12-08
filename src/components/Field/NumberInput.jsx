@@ -12,7 +12,11 @@ export function NumberInput({
 }) {
   const [currentType, setCurrentType] = useState(type);
   const valid = value && !error;
-  const css = clsx(styles["field-box"], valid && "valid", error && "error");
+  const css = clsx(
+    styles["field-box"],
+    valid && styles.valid,
+    error && styles.error
+  );
 
   let formattedValue = value || "";
 

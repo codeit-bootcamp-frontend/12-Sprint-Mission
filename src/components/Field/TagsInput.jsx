@@ -7,7 +7,11 @@ import styles from "./Input.module.scss";
 export function TagsInput({ error, value, id, name, onChange, placeholder }) {
   const inputRef = useRef(null);
   const valid = value.length && !error;
-  const css = clsx(styles["field-box"], valid && "valid", error && "error");
+  const css = clsx(
+    styles["field-box"],
+    valid && styles.valid,
+    error && styles.error
+  );
 
   function handleKeyDown(e) {
     if (e.nativeEvent.isComposing) return;
