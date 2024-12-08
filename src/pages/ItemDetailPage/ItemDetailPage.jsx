@@ -48,19 +48,21 @@ export default function ItemDetailPage() {
             <h1 className="item-name">{product.name}</h1>
             <h2 className="item-price">{product.price}</h2>
           </div>
-          <div className="item-explain__text">
+          <div className="item-description__container">
             <h3 className="item-description__title">상품 소개</h3>
-            <p>{product.description}</p>
+            <p className="item-description__text">{product.description}</p>
           </div>
-          <div className="item-explain__tag">
+          <div className="item-tag__container">
             <h3 className="item-tag__title">상품 태그</h3>
-            {product.tags.map((tag) => {
-              return (
-                <div key={tag} className="item-tag">
-                  {tag}
-                </div>
-              );
-            })}
+            <div className="item-tag__flex-container">
+              {product.tags.map((tag) => {
+                return (
+                  <div key={tag} className="item-tag">
+                    #{tag}
+                  </div>
+                );
+              })}
+            </div>
           </div>
           <div className="item-explain__user-information">user-information</div>
         </div>
@@ -70,24 +72,24 @@ export default function ItemDetailPage() {
         <input
           type="text"
           placeholder="개인정보를 공유 및 요청하거나, 명예 훼손, 무단 광고, 불법 정보 유포시 모니터링 후 삭제될 수 있으며, 이에 대한 민형사상 책임은 게시자에게 있습니다."
+          className="comment__input"
         />
-        <button>등록</button>
+        <button className="comment__button">등록</button>
       </form>
       <div className="comment-list__container">
         {comments.list.length > 0 ? (
           comments.list.map((comment) => (
             <div key={comment.id} className="comment-list">
-              <div className="comment-list__text-container">
-                <p>{comment.content}</p>
-                <div className="comment-list__user-container">
-                  <img
-                    src={comment.writer.image || profileIcon}
-                    alt={comment.writer.nickname}
-                  />
-                  <div className="comment-list__user-information">
-                    <p>{comment.writer.nickname}</p>
-                    <p className="comment-time">몇 시간전</p>
-                  </div>
+              <p>{comment.content}</p>
+              <div className="comment-list__user-container">
+                <img
+                  src={comment.writer.image || profileIcon}
+                  alt={comment.writer.nickname}
+                  className="comment-list__user-img"
+                />
+                <div className="comment-list__user-information">
+                  <p>{comment.writer.nickname}</p>
+                  <p className="comment-time">몇 시간전</p>
                 </div>
               </div>
             </div>

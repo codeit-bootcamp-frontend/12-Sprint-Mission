@@ -3,11 +3,14 @@
   max-width: 1200px;
   margin: 0 auto;
   padding-top: 24px;
+  display: flex;
+  flex-direction: column;
 }
 
 .item-information__container {
   display: flex;
   gap: 24px;
+  padding-bottom: 40px;
 }
 
 .item__img {
@@ -17,10 +20,145 @@
   border-radius: 16px;
 }
 
+.item-explain__container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
 .item-explain-title__container {
   display: flex;
   flex-direction: column;
   gap: 16px;
   padding-bottom: 16px;
   border-bottom: 1px solid #e5e7eb;
+}
+
+.item-description__container,
+.item-tag__container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.item-description__container {
+  padding: 24px 0;
+}
+.item-description__title,
+.item-tag__title,
+.comment__title {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 26px;
+}
+
+.item-description__text {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 26px;
+}
+
+.item-tag__flex-container {
+  display: flex;
+  gap: 8px;
+}
+
+.item-tag {
+  background-color: #f3f4f6;
+  height: 36px;
+  border-radius: 26px;
+  padding: 5px 16px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.comment-form__section {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 24px;
+}
+.comment__title {
+  padding-bottom: 9px;
+}
+
+.comment__input {
+  height: 104px;
+  background-color: #f3f4f6;
+  border: none;
+  border-radius: 12px;
+  padding: 24px 16px;
+  margin-bottom: 16px;
+}
+
+.comment__input::placeholder {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 26px;
+}
+
+.comment__button {
+  height: 42px;
+  background-color: #9ca3af;
+  border-radius: 8px;
+  align-self: flex-end;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 12px 23px;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 26px;
+  color: #f3f4f6;
+}
+
+.comment-list__container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  background-color: #fcfcfc;
+}
+
+.comment-list {
+  display: flex;
+  gap: 24px;
+  flex-direction: column;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.comment-list__user-container {
+  display: flex;
+  gap: 8px;
+}
+
+.comment-list__user-img {
+  width: 32px;
+  height: 32px;
+}
+
+.comment-list__user-information {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding-bottom: 12px;
+}
+
+.back-to-list-button__container {
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  margin-top: 64px;
+  margin-bottom: 222px;
+  background-color: #3692ff;
+  border-radius: 40px;
+  width: 240px;
+  height: 48px;
+  gap: 8px;
+  align-items: center;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 26px;
+  color: #f3f4f6;
 }
