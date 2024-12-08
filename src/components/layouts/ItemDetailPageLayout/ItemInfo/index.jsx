@@ -9,6 +9,7 @@ import { ReactComponent as HeartIcon } from 'assets/images/heart_empty.svg';
 const ItemInfo = () => {
   const { id } = useParams();
   const [item, setItem] = useState(null);
+  const [isDropdown, setIsDropdown] = useState(false);
   const imgRef = useRef();
 
   const errorImg = () => {
@@ -19,6 +20,10 @@ const ItemInfo = () => {
     const response = await getItemDetail(id);
     setItem(response);
   }, [id]);
+
+  const clickDropdownHandler = () => {
+    setIsDropdown((prev) => !prev);
+  };
 
   useEffect(() => {
     getItem();
@@ -57,7 +62,18 @@ const ItemInfo = () => {
           src={dropdownImg}
           alt="드롭다운 이미지"
           className="absolute top-0 right-0 cursor-pointer"
+          onClick={clickDropdownHandler}
         />
+        {isDropdown && (
+          <ul className="absolute top-8 right-0 bg-white">
+            <li className="border border-b-0 border-gray-300 rounded-t-lg py-2 px-6 text-gray-500 cursor-pointer">
+              수정하기
+            </li>
+            <li className="border border-t-0 border-gray-300 rounded-b-lg py-2 px-6 text-gray-500 cursor-pointer">
+              삭제하기
+            </li>
+          </ul>
+        )}
         <p className="mt-4 mb-4 font-semibold text-gray-600">상품 소개</p>
         <p className="font-normal text-gray-600">{description}</p>
         <p className="mt-4 mb-4 font-semibold text-gray-600">상품 태그</p>
