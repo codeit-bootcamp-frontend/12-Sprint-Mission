@@ -162,11 +162,13 @@ function ItemDetailsSection({ item }) {
 
   return (
     <SectionContainer>
-      {item.images && item.images.length > 0 ? (
-        <ItemImage src={item.images[0]} alt={item.name} />
-      ) : (
-        <ItemImage src={defaultImage} alt={item.name} />
-      )}
+      <ItemImage
+        src={
+          item.images && item.images.length > 0 ? item.images[0] : defaultImage
+        }
+        alt={item.name}
+        onError={(e) => (e.target.src = defaultImage)}
+      />
 
       <ItemDetailsContainer>
         <MainDetails>
