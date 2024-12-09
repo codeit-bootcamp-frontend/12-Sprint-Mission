@@ -88,8 +88,14 @@
   background-color: #f3f4f6;
   border: none;
   border-radius: 12px;
-  padding: 24px 16px;
+  padding: 16px 24px;
   margin-bottom: 16px;
+  text-align: left;
+  vertical-align: top;
+  display: flex;
+  align-items: flex-start;
+  overflow: hidden;
+  resize: none;
 }
 
 .comment__input::placeholder {
@@ -161,4 +167,71 @@
   font-weight: 600;
   line-height: 26px;
   color: #f3f4f6;
+  position: relative;
+}
+
+.comment-list__empty {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.empty__icon {
+  width: 196px;
+  height: 196px;
+}
+
+.empty__text {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 26px;
+  color: #9ca3af;
+}
+
+.item-explain__user-information {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  justify-self: space-between;
+}
+
+.user__information {
+  display: flex;
+  gap: 16px;
+}
+
+.user__icon {
+  object-fit: contain;
+}
+
+.user__text {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.user-createdAt__text {
+  color: #9ca3af;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+.user-nickname__text {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 24px;
+  color: #4b5563;
+}
+
+.favorite-count__container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 4px 12px;
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 35px;
 }

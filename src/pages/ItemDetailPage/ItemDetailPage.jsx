@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { getProductsById, getProductsComments } from "../../api/itemApi";
 import profileIcon from "../../assets/images/icons/ic_profile.png";
 import backButtonIcon from "../../assets/images/icons/ic_back.png";
+import inquiryEmptyIcon from "../../assets/images/icons/Img_inquiry_empty.png";
+import heartIcon from "../../assets/images/icons/ic_heart.png";
 import "./ItemDetailPage.css";
 
 export default function ItemDetailPage() {
@@ -10,6 +12,9 @@ export default function ItemDetailPage() {
   const [product, setProduct] = useState(null);
   const [comments, setComments] = useState({ list: [], nextCursor: null });
   const [loading, setLoading] = useState(true);
+  const [commentText, setCommentText] = useState("");
+
+  const natigate = useNavigate();
 
   useEffect(() => {
     const fetchProduct = async () => {
@@ -35,6 +40,14 @@ export default function ItemDetailPage() {
     fetchProduct();
     fetchComment();
   }, [productId]);
+
+  const handleCommentChange = (e) => {
+    setCommentText(e.target.value);
+  };
+
+  const handleBackToList = () => {
+    natigate("/items");
+  };
 
   if (loading) return <div>Loading...</div>;
   if (!product) return <div>상품 정보를 불러오는 데 실패했습니다.</div>;
@@ -64,17 +77,44 @@ export default function ItemDetailPage() {
               })}
             </div>
           </div>
-          <div className="item-explain__user-information">user-information</div>
+          <div className="item-explain__user-information">
+            <div className="user__information">
+              <img
+                src={profileIcon}
+                alt="등록자 아이콘"
+                className="user__icon"
+              />
+              <div className="user__text">
+                <p className="user-nickname__text">{product.ownerNickname}</p>
+                <p className="user-createdAt__text">
+                  {product.createdAt.slice(0, 10)}
+                </p>
+              </div>
+            </div>
+            <div className="favorite-count__container">
+              <img src={heartIcon} alt="좋아요 이미지" />
+              <p>{product.favoriteCount}</p>
+            </div>
+          </div>
         </div>
       </div>
       <form className="comment-form__section">
         <h4 className="comment__title">문의하기</h4>
-        <input
+        <textarea
           type="text"
           placeholder="개인정보를 공유 및 요청하거나, 명예 훼손, 무단 광고, 불법 정보 유포시 모니터링 후 삭제될 수 있으며, 이에 대한 민형사상 책임은 게시자에게 있습니다."
           className="comment__input"
-        />
-        <button className="comment__button">등록</button>
+          value={commentText}
+          onChange={handleCommentChange}
+        ></textarea>
+        <button
+          className="comment__button"
+          style={{
+            backgroundColor: commentText.trim() ? "#3692FF" : "#ccc", // 텍스트 유무에 따라 색상 변경
+          }}
+        >
+          등록
+        </button>
       </form>
       <div className="comment-list__container">
         {comments.list.length > 0 ? (
@@ -95,11 +135,20 @@ export default function ItemDetailPage() {
             </div>
           ))
         ) : (
-          <p>댓글이 없습니다.</p>
+          <div className="comment-list__empty">
+            <img
+              src={inquiryEmptyIcon}
+              alt="댓글이 없습니다."
+              className="empty__icon"
+            />
+            <p className="empty__text">아직 문의가 없어요</p>
+          </div>
         )}
       </div>
       <div className="back-to-list-button__container">
-        <button className="back-to-list-button">목록으로 돌아가기</button>
+        <button className="back-to-list-button" onClick={handleBackToList}>
+          목록으로 돌아가기
+        </button>
         <img
           src={backButtonIcon}
           alt="되돌리기 버튼"
