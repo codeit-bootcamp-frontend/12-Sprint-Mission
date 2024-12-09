@@ -7,11 +7,17 @@ import SortIcon from "../assets/sort-icon.svg";
 import DropdownList from "./DropDownList";
 import PaginationBar from "./PaginationBar";
 
+const MOBILE = 768;
+const TABLET = 1280;
+const ALL_ITEM_MOBILE = 4;
+const ALL_ITEM_TABLET = 6;
+const ALL_ITEM_DESKTOP = 10;
+
 const getPageSize = () => {
   const width = window.innerWidth;
-  if (width < 768) return 4;
-  if (width < 1280) return 6;
-  return 10;
+  if (width < MOBILE) return ALL_ITEM_MOBILE;
+  if (width < TABLET) return ALL_ITEM_TABLET;
+  return ALL_ITEM_DESKTOP;
 };
 
 function AllItem() {
@@ -20,7 +26,7 @@ function AllItem() {
   const [pageSize, setPageSize] = useState(getPageSize());
   const [itemList, setItemList] = useState([]);
   const [isDropdownVisible, setIsDropdownVisible] = useState(false); // 드롭다운 메뉴 // 기본값 false(닫음)
-  const [totalPageNum, setTotalPageNum] = useState();
+  const [totalPageNum, setTotalPageNum] = useState(1);
 
   const fetchSortedData = async ({ orderBy, page, pageSize }) => {
     const products = await getProducts({ orderBy, page, pageSize });

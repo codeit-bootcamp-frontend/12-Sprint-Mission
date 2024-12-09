@@ -18,7 +18,7 @@ function TagInput({ tags = [], onAddTag, onRemoveTag }) {
   };
 
   return (
-    <div>
+    <div className="tagInputContainer">
       <InputItem
         id="tags"
         label="태그"
@@ -29,10 +29,10 @@ function TagInput({ tags = [], onAddTag, onRemoveTag }) {
       />
 
       {tags.length > 0 && (
-        <div className="TagButtonSection">
+        <div className="tagButtonSection">
           {tags.map((tag) => (
-            <div className="Tag" key={`tag-${tag}`}>
-              <div className="TagText">{tag}</div>
+            <div className="tag" key={`tag-${tag}`}>
+              <div className="tagText">{tag}</div>
 
               <DeleteButton
                 onClick={() => onRemoveTag(tag)}

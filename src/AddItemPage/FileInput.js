@@ -5,9 +5,16 @@ import "./FileInput.css";
 
 function FileInput({ title }) {
   const [imagePreviewUrl, setImagePreviewUrl] = useState("");
+  const [error, setError] = useState("");
 
   const handleImageChange = (event) => {
     const file = event.target.files[0];
+    if (imagePreviewUrl) {
+      setError("*이미지 등록은 최대 1개까지 가능합니다.");
+      setTimeout(() => setError(""), 3000); // 3초 후 경고 메시지 해제
+      return;
+    }
+
     if (file) {
       const imageUrl = URL.createObjectURL(file);
       setImagePreviewUrl(imageUrl);
@@ -22,13 +29,13 @@ function FileInput({ title }) {
     <div>
       {title && <label>{title}</label>}
 
-      <div className="FileInputContainer">
-        <label className="UploadButton" htmlFor="image-upload">
+      <div className="fileInputContainer">
+        <label className="uploadButton" htmlFor="image-upload">
           <img src={placeholderImg} alt="이미지 등록" />
         </label>
 
         <input
-          className="HiddenFileInput"
+          className="hiddenFileInput"
           id="image-upload"
           type="file"
           onChange={handleImageChange}
@@ -36,13 +43,14 @@ function FileInput({ title }) {
         />
 
         {imagePreviewUrl && (
-          <div className="ImagePreview">
-            <img className="Preview" src={imagePreviewUrl} alt="미리보기" />
-            <div className="DeleteButtonWrapper">
+          <div className="imagePreview">
+            <img className="preview" src={imagePreviewUrl} alt="미리보기" />
+            <div className="deleteButtonWrapper">
               <DeleteButton onClick={handleDelete} label="이미지 파일" />
             </div>
           </div>
         )}
+        {error && <div className="errorMessage">{error}</div>}
       </div>
     </div>
   );

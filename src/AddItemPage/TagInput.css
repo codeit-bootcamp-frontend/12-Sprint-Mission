@@ -1,11 +1,15 @@
-.TagButtonSection {
+.tagInputContainer {
+  padding-bottom: 20px;
+}
+
+.tagButtonSection {
   display: flex;
   gap: 12px;
   margin-top: 12px;
   flex-wrap: wrap;
 }
 
-.Tag {
+.tag {
   display: flex;
   background-color: #f3f4f6;
   color: #1f2937;
@@ -14,7 +18,7 @@
   min-width: 100px;
 }
 
-.TagText {
+.tagText {
   font-size: 16px;
   line-height: 24px;
   margin-right: 8px;

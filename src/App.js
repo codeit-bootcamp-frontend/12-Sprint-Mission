@@ -2,8 +2,9 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Header from "./components/Header";
 import HomePage from "./components/HomePage";
 import LoginPage from "./components/LoginPage";
-import MarketPage from "./components/MarketPage";
-import AddItemPage from "./components/AddItemPage";
+import MarketPage from "./MarketPage/MarketPage";
+import ItemPage from "./ItemPage/ItemPage";
+import AddItemPage from "./AddItemPage/AddItemPage";
 import CommunityPage from "./components/CommunityPage";
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
           <Route index element={<HomePage />} />
           <Route path="login" element={<LoginPage />} />
           <Route path="items" element={<MarketPage />} />
+          <Route path="items/:productId" element={<ItemPage />} />
           <Route path="additem" element={<AddItemPage />} />
           <Route path="community" element={<CommunityPage />} />
         </Routes>

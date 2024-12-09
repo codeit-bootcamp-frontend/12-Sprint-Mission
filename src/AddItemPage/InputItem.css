@@ -24,7 +24,7 @@ input:focus {
   outline-color: #3692ff;
 }
 
-.TextArea {
+.textArea {
   resize: none;
   padding: 16px 24px 240px 24px;
   background-color: #f3f4f6;
@@ -37,7 +37,7 @@ input:focus {
   box-sizing: border-box;
 }
 
-.TextArea::placeholder {
+.textArea::placeholder {
   color: #9ca3af;
   text-align: left;
   vertical-align: top;

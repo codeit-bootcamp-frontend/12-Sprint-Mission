@@ -1,4 +1,4 @@
-.DeleteButton {
+.deleteButton {
   background-color: #9ca3af;
   width: 20px;
   height: 20px;
@@ -9,12 +9,12 @@
   position: relative;
 }
 
-.DeleteButton img {
+.deleteButton img {
   width: 10px;
   height: 10px;
 }
 
-.DeleteButton:hover {
+.deleteButton:hover {
   background-color: var(--blue);
   cursor: pointer;
 }

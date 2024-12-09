@@ -1,28 +1,38 @@
-.TitleSection {
+.titleSection {
   display: flex;
   justify-content: space-between;
   padding-top: 24px;
   margin-bottom: 16px;
 }
 
-.SectionTitle {
+.sectionTitle {
   color: #111827;
   font-size: 20px;
   font-weight: 700;
   line-height: 32px;
 }
 
-.RegisterButton {
+.registerButton {
   width: 74px;
   height: 42px;
   border-radius: 8px;
   padding: 12px 23px;
-  background-color: #9ca3af;
+  background-color: var(--blue);
   color: #fff;
   border: none;
 }
 
-.InputSection {
+.registerButton:focus {
+  background-color: var(--blue);
+}
+
+.registerButton:disabled {
+  background-color: #9ca3af;
+  cursor: pointer;
+  position: none;
+}
+
+.inputSection {
   display: flex;
   flex-direction: column;
   gap: 24px;
