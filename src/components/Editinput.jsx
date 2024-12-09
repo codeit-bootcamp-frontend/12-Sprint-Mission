@@ -7,11 +7,24 @@ const Editinput = ({ type, info, placeholder }) => {
   const imgRef = useRef();
 
   const saveImgFile = () => {
+    if (!imgRef.current || !imgRef.current.files[0]) {
+      console.error('파일이 선택되지 않았습니다.');
+      return;
+    }
+
     const file = imgRef.current.files[0];
     const reader = new FileReader();
+
     reader.readAsDataURL(file);
+
     reader.onloadend = () => {
-      setImgFile(reader.result);
+      if (reader.result) {
+        setImgFile(reader.result); // reader.result는 base64 데이터 URL
+      }
+    };
+
+    reader.onerror = () => {
+      console.error('파일을 읽는 도중 에러가 발생했습니다.');
     };
   };
 
