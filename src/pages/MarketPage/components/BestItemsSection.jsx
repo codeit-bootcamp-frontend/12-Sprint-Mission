@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { getProducts } from "../../../api/itemApi";
 import defaultImage from "../../../assets/images/image/img_default.png";
 import { ReactComponent as HeartIcon } from "../../../assets/images/icons/ic_heart.svg";
@@ -41,19 +42,24 @@ function BestItemsSection() {
       <h2 className="sectionTitle">베스트 상품</h2>
       <div className="bestItemsCardSection">
         {itemList?.map((item) => (
-          <div key={item.id} className="itemCard">
-            {item.images && item.images.length > 0 ? (
-              <img src={item.images[0]} alt={item.name} className="itemImage" />
-            ) : (
-              <img src={defaultImage} alt={item.name} className="itemImage" />
-            )}
+          <Link to={`/items/${item.id}`} key={item.id} className="itemCard">
+            <img
+              src={
+                item.images && item.images.length > 0
+                  ? item.images[0]
+                  : defaultImage
+              }
+              alt={item.name}
+              className="itemImage"
+              onError={(e) => (e.target.src = defaultImage)}
+            />
             <h3 className="itemName">{item.name}</h3>
             <p className="itemPrice">{item.price.toLocaleString()}원</p>
             <div className="favoriteCount">
               <HeartIcon />
               {item.favoriteCount}
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     </div>

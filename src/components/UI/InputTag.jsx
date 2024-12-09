@@ -26,8 +26,8 @@ function InputTag({ tags, onAddTag, onRemoveTag }) {
         placeholder="태그를 입력해 주세요"
       />
       <div className="tagList">
-        {tags.map((tag, index) => (
-          <span key={index} className="tag">
+        {tags.map((tag) => (
+          <span key={tag} className="tag">
             #{tag}
             <DeleteButton onClick={() => onRemoveTag(tag)} />
           </span>
