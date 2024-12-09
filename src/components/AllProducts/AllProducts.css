@@ -1,6 +1,7 @@
 .all-item-section {
   max-width: 1200px;
   margin: 40px auto;
+  padding: 20px;
 }
 
 .all-item-header {
@@ -10,9 +11,27 @@
   margin-bottom: 20px;
 }
 
-.all-product-list {
+.all-product-list.desktop {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.all-product-list.tablet {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.all-product-list.mobile {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   gap: 20px;
   list-style: none;
   padding: 0;

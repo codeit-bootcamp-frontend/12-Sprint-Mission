@@ -1,5 +1,6 @@
 import "./product.css";
 import heartImage from "../../assets/images/heart.png";
+import useDevice from "../../hooks/useDevice";
 
 function ProductItem({ imageUrl, name, price, likeCount, size }) {
   return (
@@ -26,7 +27,7 @@ function ProductItem({ imageUrl, name, price, likeCount, size }) {
         <p>{price.toLocaleString()}원</p>
         <div className="heart-section">
           <img src={heartImage} alt="하트이미지" />
-          <span>{likeCount}</span>
+          <span>{likeCount.toLocaleString()}</span>
         </div>
       </div>
     </div>

@@ -4,18 +4,32 @@ import ProductItem from "../common/product";
 import SearchForm from "../SearchForm/SearchForm";
 import Pagination from "../Pagination/Pagination";
 import "./AllProducts.css";
+import useDevice from "../../hooks/useDevice";
 
 function AllProducts() {
   const [allItemList, setAllItemList] = useState([]);
   const [selectedOption, setSelectedOption] = useState("recent");
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(0);
+  const [size, setSize] = useState(282);
+
+  const { mode } = useDevice();
 
   useEffect(() => {
     const fetchAllItems = async () => {
+      let pageSize = 10;
+      if (mode === "tablet") {
+        pageSize = 6;
+        setSize(221);
+      } else if (mode === "mobile") {
+        pageSize = 4;
+        setSize(168);
+      } else {
+        setSize(221);
+      }
       const data = await getData({
         page: currentPage,
-        pageSize: 10,
+        pageSize: pageSize,
         orderBy: selectedOption,
       });
 
@@ -24,7 +38,7 @@ function AllProducts() {
     };
 
     fetchAllItems();
-  }, [currentPage, selectedOption]);
+  }, [currentPage, selectedOption, mode]);
 
   const handlePageChange = (pageNumber) => {
     if (pageNumber < 1 || pageNumber > totalPages) return;
@@ -40,7 +54,7 @@ function AllProducts() {
           setSelectedOption={setSelectedOption}
         />
       </div>
-      <ul className="all-product-list">
+      <ul className={`all-product-list ${mode}`}>
         {allItemList.map((item) => (
           <li key={item.id}>
             <ProductItem
@@ -48,7 +62,7 @@ function AllProducts() {
               name={item.name}
               price={item.price}
               likeCount={item.favoriteCount}
-              size={221}
+              size={size}
             />
           </li>
         ))}

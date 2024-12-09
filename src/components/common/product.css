@@ -1,10 +1,9 @@
-@media screen and (min-width: 1200px) {
-  .heart-section {
-    display: flex;
-    gap: 6px;
-  }
+.heart-section {
+  display: flex;
+  gap: 6px;
 }
-/* @media screen and (min-width: 768px) and (max-width: 1199px) {
+
+.product-info span {
+  position: relative;
+  top: 5px;
 }
-@media screen and (min-width: 375px) and (max-width: 767px) {
-} */
