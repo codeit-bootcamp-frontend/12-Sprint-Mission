@@ -1,6 +1,6 @@
 import { useEffect, useState, useCallback } from 'react';
 import { useMediaQuery } from 'react-responsive';
-import getItems from '../../../../api/productGet';
+import { getItems } from '../../../../api/productAPI';
 import TotalItemTitle from './TotalItemTitle/index';
 import ItemCard from '../ItemCard/index';
 import PaginationBar from '../../UI/PaginationBar/index';
@@ -56,8 +56,8 @@ const TotalItem = () => {
     <section className={styles[`total-items`]}>
       <TotalItemTitle onClick={orderSelect} />
       <div className={styles['total-item-list']}>
-        {cards?.map((value, index) => (
-          <ItemCard key={`${index}`} value={value} category="total" />
+        {cards?.map((value) => (
+          <ItemCard key={value.id} value={value} category="total" />
         ))}
       </div>
 

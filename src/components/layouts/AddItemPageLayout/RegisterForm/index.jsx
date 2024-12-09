@@ -59,33 +59,40 @@ const WarningMessage = styled.p`
 const RegisterForm = () => {
   const [imgPreview, setImgPreview] = useState(null);
   const [isValid, setIsValid] = useState(false);
-  const [name, setName] = useState('');
-  const [price, setPrice] = useState('');
   const [isImg, setIsImg] = useState(false);
   const [tags, setTags] = useState([]);
+
+  const [form, setForm] = useState({
+    name: '',
+    price: '',
+  });
+
   const fileInputRef = useRef(null);
 
   const checkValid = useCallback(() => {
-    const validResult = name.trim() !== '' && price > 0;
+    const validResult = form.name.trim() !== '' && form.price > 0;
     setIsValid(validResult);
-  }, [name, price]);
-  //inputChange 중복 정의 대신 커링 방식으로 setter함수 넘겨주기
-  const inputChangeHandler = (setter) => (e) => {
-    let value = e.target.value;
+  }, [form.name, form.price]);
+
+  const inputChangeHandler = (e) => {
+    const { value, name: eName } = e.target;
+    const trimValue = value.trim();
     e.preventDefault();
-    if (setter === setPrice) {
-      value = value.trim();
+    if (eName === 'item-price') {
       let num = Number(value.replace(/,/g, ''));
-      if (isNaN(num)) {
-        setter('');
-        return;
-      }
-      //최대 금액 설정
-      if (num > 1_000_000_000) num = 1_000_000_000;
-      setter(num);
-      return;
+      console.log(num);
+      if (isNaN(num) || num === 0) num = '';
+      if (num > Math.pow(10, 9)) num = Math.pow(10, 9);
+      setForm((prevForm) => ({
+        ...prevForm,
+        price: num,
+      }));
+    } else {
+      setForm((prevForm) => ({
+        ...prevForm,
+        name: trimValue,
+      }));
     }
-    setter(value);
   };
 
   const isExistArray = (element, elements) => {
@@ -133,7 +140,7 @@ const RegisterForm = () => {
         name="item-name"
         type="text"
         placeholder="상품명을 입력해주세요"
-        onChange={inputChangeHandler(setName)}
+        onChange={inputChangeHandler}
         onKeyDown={preventSubmit}
       />
       <Label htmlFor="item-explain">상품 소개</Label>
@@ -148,8 +155,8 @@ const RegisterForm = () => {
         name="item-price"
         type="text"
         placeholder="판매 가격을 입력해주세요"
-        value={price.toLocaleString()}
-        onChange={inputChangeHandler(setPrice)}
+        value={form.price.toLocaleString()}
+        onChange={inputChangeHandler}
         onKeyDown={preventSubmit}
       />
       <Label htmlFor="tag">태그</Label>

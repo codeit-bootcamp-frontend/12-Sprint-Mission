@@ -68,7 +68,6 @@
   }
   .banner {
     flex-direction: column;
-    padding: 30px 0 0;
   }
   .banner-explain {
     display: flex;
@@ -86,8 +85,7 @@
     display: none;
   }
   .bottom-banner {
-    margin-top: 0;
-    padding-top: 40px;
+    padding-top: 80px;
   }
   .browsing {
     font-size: 16px;
@@ -113,7 +111,7 @@
   }
 
   .browsing {
-    padding: 20px 32px;
+    padding: 16px 32px;
     width: 70%;
   }
   .top-banner {

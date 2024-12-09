@@ -10,6 +10,7 @@ import Items from '../pages/Items/index';
 import Privacy from '../pages/Privacy/index';
 import Faq from '../pages/Faq/index';
 import ErrorPage from '../pages/ErrorPage/index';
+import ItemDetail from 'pages/ItemDetail';
 
 const router = createBrowserRouter([
   {
@@ -21,7 +22,13 @@ const router = createBrowserRouter([
       { path: 'login', element: <Login /> },
       { path: 'signup', element: <Signup /> },
       { path: 'addItem', element: <AddItem /> },
-      { path: 'items', element: <Items /> },
+      {
+        path: 'items',
+        children: [
+          { index: true, element: <Items /> },
+          { path: ':id', element: <ItemDetail /> },
+        ],
+      },
       { path: 'privacy', element: <Privacy /> },
       { path: 'faq', element: <Faq /> },
     ],

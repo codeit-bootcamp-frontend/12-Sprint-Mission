@@ -1,6 +1,6 @@
 import { useMediaQuery } from 'react-responsive';
 import ItemCard from '../ItemCard/index';
-import getItems from '../../../../api/productGet';
+import { getItems } from '../../../../api/productAPI';
 import { useEffect, useState, useCallback } from 'react';
 import styles from './index.module.css';
 import { MEDIA_KEY, ORDER, BEST_CARD_CNT } from '../../../../utils/constant';
@@ -35,8 +35,8 @@ const BestItem = () => {
     <section className={styles['best-item']}>
       <p className={styles['sub-title']}>베스트 상품</p>
       <div className={styles['best-item-list']}>
-        {cards?.map((value, index) => (
-          <ItemCard key={`${index}`} value={value} category="best" />
+        {cards?.map((value) => (
+          <ItemCard key={value.id} value={value} category="best" />
         ))}
       </div>
     </section>

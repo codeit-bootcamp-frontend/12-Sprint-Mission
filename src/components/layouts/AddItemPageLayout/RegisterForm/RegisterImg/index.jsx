@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import closeImg from '../../../../../assets/images/ic_X.svg';
-import plusImg from '../../../../../assets/images/ic_plus.svg';
+import closeImg from 'assets/images/ic_X.svg';
+import plusImg from 'assets/images/ic_plus.svg';
 
 const FileInput = styled.input`
   display: none;

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import closeImg from '../../../../../assets/images/ic_X.svg';
+import closeImg from 'assets/images/ic_X.svg';
 
 const Tags = styled.div`
   display: flex;
@@ -37,18 +37,16 @@ const RegisterTags = ({ tags, setTags }) => {
 
   return (
     <Tags>
-      {tags.map((value, index) => {
-        return (
-          <Tag key={index}>
-            <TagName>{`#${value}`}</TagName>
-            <TagCloseImg
-              src={closeImg}
-              alt="닫기 이미지"
-              onClick={() => deleteTag(index)}
-            />
-          </Tag>
-        );
-      })}
+      {tags.map((value, index) => (
+        <Tag key={value}>
+          <TagName>{`#${value}`}</TagName>
+          <TagCloseImg
+            src={closeImg}
+            alt="닫기 이미지"
+            onClick={() => deleteTag(index)}
+          />
+        </Tag>
+      ))}
     </Tags>
   );
 };
