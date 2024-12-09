@@ -3,20 +3,20 @@ import ItemCard from "./ItemCard";
 import { getProducts } from "../api/api";
 import "./bestItems.css";
 
+const getPageSize = () => {
+  const width = window.innerWidth;
+  if (width < 768) {
+    return 1;
+  } else if (width < 1280) {
+    return 2;
+  } else {
+    return 4;
+  }
+};
+
 function BestProductsSection() {
   const [itemList, setItemList] = useState([]);
-  const [pageSize, setPageSize] = useState("4");
-
-  const getPageSize = () => {
-    const width = window.innerWidth;
-    if (width < 768) {
-      return 1;
-    } else if (width < 1280) {
-      return 2;
-    } else {
-      return 4;
-    }
-  };
+  const [pageSize, setPageSize] = useState(4);
 
   const fetchSortedData = async ({ orderBy, pageSize }) => {
     const products = await getProducts({ orderBy, pageSize });
@@ -24,8 +24,16 @@ function BestProductsSection() {
   };
 
   useEffect(() => {
+    const handleResize = () => {
+      setPageSize(getPageSize());
+    };
+
+    window.addEventListener("resize", handleResize);
     fetchSortedData({ orderBy: "favorite", pageSize });
-    setPageSize(getPageSize());
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
   }, [pageSize]);
 
   return (

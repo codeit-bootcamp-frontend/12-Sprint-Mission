@@ -1,11 +1,14 @@
+import { Outlet } from "react-router-dom";
 import Nav from "../components/Nav";
 import styles from "./App.module.css";
 
-function App({ children }) {
+function App() {
   return (
     <>
       <Nav />
-      <div className={styles.body}>{children}</div>
+      <div className={styles.body}>
+        <Outlet />
+      </div>
     </>
   );
 }

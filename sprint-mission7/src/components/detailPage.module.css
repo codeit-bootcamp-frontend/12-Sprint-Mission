@@ -1,0 +1,30 @@
+.img {
+  width: 486px;
+  height: 486px;
+  border-radius: 28px;
+}
+
+.name {
+  font-family: Pretendard;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 32px;
+}
+
+.itemDetailSection {
+  display: flex;
+  flex-direction: row;
+}
+
+.itemDetailPageContainer {
+  margin: auto;
+  width: 1200px;
+  top: 24px;
+}
+
+.price {
+  font-family: Pretendard;
+  font-size: 40px;
+  font-weight: 600;
+  line-height: 47px;
+}
