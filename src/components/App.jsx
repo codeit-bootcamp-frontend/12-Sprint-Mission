@@ -1,8 +1,8 @@
 import "./App.css";
 
-import NavBar from "./NavBar";
-import BestProductContainer from "./BestProductContainer";
-import AllProductContainer from "./AllProductContainer";
+import NavBar from "./Nav/NavBar";
+import BestProductContainer from "./ProuductListPage/BestProductContainer";
+import AllProductContainer from "./ProuductListPage/AllProductContainer";
 
 function App() {
   return (

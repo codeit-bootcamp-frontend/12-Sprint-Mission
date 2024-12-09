@@ -1,6 +1,6 @@
 import ProductItem from "./ProductItem";
 import { useEffect, useState } from "react";
-import { getData } from "../api";
+import { getData } from "../../api";
 
 function BestProductContainer() {
   const [itemList, setItemList] = useState([]);
