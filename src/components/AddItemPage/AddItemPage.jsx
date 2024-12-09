@@ -3,14 +3,14 @@ import "../AddItemPage/AddItemPage.scss";
 import InputForm from "../AddItemPage/InputForm";
 import InputImage from "../AddItemPage/InputImage";
 import InputTag from "./InputTag";
-import { useRef, useState } from "react";
+import { useRef, useState, useMemo } from "react";
 
 function AddItemPage() {
   const [values, setValues] = useState({
     title: "",
     description: "",
     price: "",
-    tag: "",
+    tag: [],
   });
 
   const handleInputChange = (field) => (e) => {
@@ -20,8 +20,14 @@ function AddItemPage() {
     }));
   };
 
-  const isSubmitDisabled =
-    !values.title || !values.description || !values.price || !values.tag;
+  const isSubmitDisabled = useMemo(
+    () => !values.title || !values.description || !values.price || !values.tag,
+    [values.title, values.description, values.price, values.tag]
+  );
+
+  // const isSubmitDisabled =
+  //   !values.title || !values.description || !values.price || !values.tag;
+
   return (
     <>
       <NavBar />
@@ -48,6 +54,7 @@ function AddItemPage() {
           value={values.price}
           height={56}
           placeholder={"판매 가격을 입력해주세요"}
+          type="number"
         />
         <InputTag
           title={"태그"}

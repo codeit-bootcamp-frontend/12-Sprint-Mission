@@ -1,4 +1,4 @@
-function InputForm({ title, height, placeholder, type = "text", onChange }) {
+function InputForm({ title, height, placeholder, type = "text" }) {
   return (
     <>
       <div
