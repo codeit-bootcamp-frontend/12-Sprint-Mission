@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import ItemCard from "./ItemCard";
-import "../Style.css";
+import "../style.css";
 import { Link } from "react-router-dom";
 
 function PandaAllList({ items }) {

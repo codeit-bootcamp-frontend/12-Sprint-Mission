@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import heartIcon from "../asset/icon/ic_heart.png";
 import defaultImage from "../asset/none.jpeg";
 
@@ -8,11 +9,13 @@ function ItemCard({ item, imgSizeClass }) {
 
   return (
     <div className="itemCard">
-      <img
-        className={`itemImg ${imgSizeClass}`}
-        src={imageUrl}
-        alt={item.name}
-      />
+      <Link to={`/items/${item.id}`}>
+        <img
+          className={`itemImg ${imgSizeClass}`}
+          src={imageUrl}
+          alt={item.name}
+        />
+      </Link>
       <p className="itemName">{item.name}</p>
       <h3 className="itemPrice">{item.price.toLocaleString()}원</h3>
       <div className="favorit">

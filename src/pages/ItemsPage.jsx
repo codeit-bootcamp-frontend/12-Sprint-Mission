@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { getItems } from "../api/ItemApi";
+import { getItems } from "../api/itemApi.js";
 import PandaBestList from "../components/PandaBestList.jsx";
 import PandaAllList from "../components/PandaAllList.jsx";
 
