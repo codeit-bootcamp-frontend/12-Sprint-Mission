@@ -1,0 +1,120 @@
+/* Mobile */
+
+.Header {
+  display: flex;
+  align-items: center;
+
+  height: 70px;
+  padding: 0 16px;
+
+  background-color: #ffffff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.divider {
+  display: none;
+}
+
+.left {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.left .logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-family: ROKAFSansMedium, sans-serif;
+  font-size: 20.2px;
+  font-weight: 700;
+  line-height: 27.27px;
+  text-align: center;
+  color: var(--blue100);
+}
+
+.left .logo .pandaFace {
+  display: none;
+}
+
+.left .nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.left .nav a {
+  font-family: 'Pretendard', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 26px;
+  text-align: center;
+  color: var(--grey100);
+}
+
+.divider.center {
+  display: block;
+  flex-grow: 1;
+}
+
+.right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.right .myPageLogo {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Tablet */
+
+@media (min-width: 768px) {
+  .Header {
+    padding: 0px 24px;
+  }
+
+  .left {
+    gap: 35px;
+  }
+
+  .left .logo {
+    gap: 8.59px;
+
+    font-size: 25.63px;
+  }
+
+  .left .logo .pandaFace {
+    display: block;
+  }
+
+  .left .nav {
+    gap: 30px;
+  }
+
+  .left .nav a {
+    font-size: 18px;
+  }
+}
+
+/* Desktop */
+
+@media (min-width: 1200px) {
+  .Header {
+    /* padding: 0px 200px; */
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .left {
+    gap: 47px;
+  }
+}
