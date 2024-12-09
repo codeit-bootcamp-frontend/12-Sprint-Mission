@@ -3,7 +3,6 @@ import Nav from '../components/Nav';
 import Button from '../components/Button';
 import Itemtitle from '../components/Itemtitle';
 import Editsection from '../components/Editsection';
-import Edittext from '../components/Edittext';
 import Editinput from '../components/Editinput';
 
 const Additem = () => {
@@ -20,17 +19,17 @@ const Additem = () => {
         </div>
         <div className="edit_info">
           <Editsection
-            topChlid={<Edittext text={'상품 이미지'} />}
+            topChlid={'상품이미지'}
             center={<Editinput type={'img'} />}
           />
           <Editsection
-            topChlid={<Edittext text={'상품명'} />}
+            topChlid={'상품명'}
             center={
               <Editinput info={'name'} placeholder={'상품명을 입력해주세요'} />
             }
           />
           <Editsection
-            topChlid={<Edittext text={'상품 소개'} />}
+            topChlid={'상품 소개'}
             center={
               <Editinput
                 info={'info'}
@@ -39,7 +38,7 @@ const Additem = () => {
             }
           />
           <Editsection
-            topChlid={<Edittext text={'판매가격'} />}
+            topChlid={'판매가격'}
             center={
               <Editinput
                 info={'price'}
@@ -48,7 +47,7 @@ const Additem = () => {
             }
           />
           <Editsection
-            topChlid={<Edittext text={'태그'} />}
+            topChlid={'태그'}
             center={
               <Editinput info={'tag'} placeholder={'태그를 입력해주세요'} />
             }
