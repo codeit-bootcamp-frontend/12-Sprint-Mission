@@ -8,3 +8,7 @@ export * from "./Select";
 export * from "./Tags";
 export * from "./Temporary";
 export * from "./Thumbnail";
+export * from "./Author";
+export * from "./LikeButton";
+export * from "./Message";
+export * from "./Fullscreen";

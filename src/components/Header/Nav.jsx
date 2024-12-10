@@ -11,12 +11,12 @@ const MENU = [
     path: "/items",
     reload: true,
     title: "중고마켓",
-    activePathList: ["/items", "/addItem"],
+    activePathList: ["/items", "/addItem", "/modifyItem"],
   },
 ];
 
 function isInclude(path, list = []) {
-  return list.includes(path);
+  return list.filter((item) => path.startsWith(item)).length > 0;
 }
 
 export function Nav() {

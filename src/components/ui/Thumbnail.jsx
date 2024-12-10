@@ -2,29 +2,39 @@ import clsx from "clsx";
 import defaultImg from "@assets/img/icon/icon_placeholder.svg";
 import clearIcon from "@assets/img/icon/icon_clear.svg";
 import styles from "./Thumbnail.module.scss";
+import { useState } from "react";
 
 export function Thumbnail({
   src = defaultImg,
   alt = "",
   onRemove,
   aspectRatio = "1 / 1",
+  onOpenScreen,
 }) {
-  function handleError(e) {
-    e.target.src = defaultImg;
-    e.target.classList.add(styles.default);
-  }
+  const [isDefault, setIsDefault] = useState(src === defaultImg);
+  const hasFullScreen = onOpenScreen && !isDefault;
 
-  const imgCss = clsx(styles.img, src === defaultImg && styles.default);
+  const coverCss = clsx(styles.cover, hasFullScreen && styles.fullscreen);
+  const imgCss = clsx(styles.img, isDefault && styles.default);
 
   return (
-    <figure className={styles.cover} style={{ aspectRatio }}>
+    <figure
+      className={coverCss}
+      style={{ aspectRatio }}
+      {...(hasFullScreen && { onClick: () => onOpenScreen(src) })}
+    >
       {onRemove && (
         <button type="button" className={styles.button} onClick={onRemove}>
           <img src={clearIcon} alt="삭제" />
         </button>
       )}
 
-      <img className={imgCss} src={src} alt={alt} onError={handleError} />
+      <img
+        className={imgCss}
+        src={!isDefault ? src : defaultImg}
+        alt={alt}
+        onError={() => setIsDefault(true)}
+      />
     </figure>
   );
 }

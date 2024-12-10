@@ -1,5 +1,4 @@
-import { LoadingSpinner } from "@components/ui";
-import { Message } from "@components/List";
+import { LoadingSpinner, Message } from "@components/ui";
 
 export function List({
   items,

@@ -1,5 +1,7 @@
-import { createContext, useContext, useEffect, useState } from "react";
-import { getUser, login, refreshAccessToken } from "@service/auth";
+import { createContext, useContext, useEffect, useRef, useState } from "react";
+import { getUser, login, refreshAccessToken, signUp } from "@service/auth";
+import { isTokenValid } from "@util/helper";
+import { axiosInstance } from "@service/axios";
 
 const AuthContext = createContext();
 
@@ -10,36 +12,86 @@ export function AuthProvider({ children }) {
     user: null,
   }));
 
+  // request interceptor : access토큰이 변경될때마다, 요청 헤더에 토큰 심어주기
   useEffect(() => {
     if (!auth.accessToken) return;
+
+    const authInterceptor = axiosInstance.interceptors.request.use(
+      async function (config) {
+        if (!config._retry && auth.accessToken) {
+          config.headers.Authorization = `Bearer ${auth.accessToken}`;
+        }
+
+        return config;
+      }
+    );
+    return () => {
+      axiosInstance.interceptors.request.eject(authInterceptor);
+    };
+  }, [auth.accessToken]);
+
+  // response interceptor : 응답 실패시 토큰 재발급
+  useEffect(() => {
+    if (!auth.refreshToken) return;
+
+    const refreshInterceptor = axiosInstance.interceptors.response.use(
+      function (response) {
+        return response;
+      },
+      async function (error) {
+        if (error.response?.status === 401) {
+          try {
+            error.config._retry = true;
+            const accessToken = await handleRrefreshToken();
+            error.config.headers.Authorization = `Bearer ${accessToken}`;
+
+            return axiosInstance(error.config);
+          } catch (refreshError) {
+            console.log("refresh error", refreshError);
+            return Promise.reject(refreshError);
+          }
+        }
+
+        return Promise.reject(error);
+      }
+    );
+    return () => {
+      axiosInstance.interceptors.response.eject(refreshInterceptor);
+    };
+  }, []);
+
+  // access토큰이 변경될때마다, 유저정보 가져와서 업데이트
+  useEffect(() => {
+    if (!auth.accessToken) return;
+
     (async function getUserData() {
       try {
-        const userData = await getUser(auth.accessToken);
-        setAuth((prev) => ({ ...prev, user: userData }));
+        // 토큰이 만료되었으면 재발급후 종료 (다시 이 effect가 호출되어서 유저정보를 가져옴)
+        if (!isTokenValid(auth.accessToken)) {
+          return await handleRrefreshToken();
+        }
+
+        const user = await getUser();
+        setAuth((prev) => ({ ...prev, user }));
       } catch (err) {
-        if (err.status === 401 && auth.refreshToken) {
-          await handleRefreshToken();
-        } else {
-          console.log(err);
+        if (err.name !== "CanceledError") {
+          console.error(err);
           clear();
         }
       }
     })();
   }, [auth.accessToken]);
 
-  async function handleRefreshToken() {
+  async function handleRrefreshToken() {
     try {
-      const { accessToken: newAccessToken } = await refreshAccessToken(
-        auth.refreshToken
-      );
+      const { accessToken } = await refreshAccessToken(auth.refreshToken);
+      localStorage.setItem("accessToken", accessToken);
+      setAuth((prev) => ({ ...prev, accessToken }));
 
-      localStorage.setItem("accessToken", newAccessToken);
-      setAuth((prev) => ({ ...prev, accessToken: newAccessToken }));
-
-      return newAccessToken;
+      return accessToken;
     } catch (err) {
-      console.log(err);
       clear();
+      throw err;
     }
   }
 
@@ -50,11 +102,7 @@ export function AuthProvider({ children }) {
         password,
       });
 
-      setAuth({
-        accessToken: accessToken,
-        refreshToken: refreshToken,
-        user: user,
-      });
+      setAuth({ user, accessToken, refreshToken });
 
       localStorage.setItem("accessToken", accessToken);
       localStorage.setItem("refreshToken", refreshToken);
@@ -64,6 +112,10 @@ export function AuthProvider({ children }) {
       console.error(err);
       throw err;
     }
+  }
+
+  async function handleSignup(formData) {
+    return signUp(formData);
   }
 
   function clear() {
@@ -82,33 +134,11 @@ export function AuthProvider({ children }) {
     window.location.replace("/");
   }
 
-  function withAuth(asyncFn) {
-    return async function (...args) {
-      try {
-        return await asyncFn(...args, auth.accessToken);
-      } catch (err) {
-        if (err.status === 401 && auth.refreshToken) {
-          try {
-            const newAccessToken = await handleRefreshToken();
-            return await asyncFn(...args, newAccessToken);
-          } catch (refreshErr) {
-            console.error("리프레시 요청 실패");
-            clear();
-            throw refreshErr;
-          }
-        } else {
-          console.error(err);
-          throw err;
-        }
-      }
-    };
-  }
-
   const value = {
     auth,
     handleLogin,
     handleLogout,
-    withAuth,
+    handleSignup,
   };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;

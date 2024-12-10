@@ -10,7 +10,7 @@ export function Profile({ user, onLogout }) {
   return (
     <Dropdown>
       <Dropdown.Toggle>
-        <Avatar nickname={user.nickname} img={user.image} />
+        <Avatar nickname={user.nickname} img={user.image} hover />
       </Dropdown.Toggle>
       <Dropdown.Menu>
         <Dropdown.Item onClick={handleLogout}>로그아웃</Dropdown.Item>

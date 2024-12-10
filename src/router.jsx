@@ -1,5 +1,4 @@
 import { createBrowserRouter } from "react-router-dom";
-import App from "./App";
 import { Layout } from "@components/Layout";
 import ProtectedRoute from "@components/routing/ProtectedRoute";
 import ErrorPage from "./pages/error/ErrorPage";
@@ -11,7 +10,12 @@ import FaqPage from "./pages/etc/FaqPage";
 import ItemsPage from "./pages/items/ItemsPage";
 import ItemDetailPage from "./pages/items/ItemDetailPage";
 import ItemAddPage from "./pages/items/ItemAddPage";
+import ItemModifyPage from "./pages/items/ItemModifyPage";
 import BoardPage from "./pages/boards/BoardPage";
+import { Loading } from "@components/ui/Loading";
+
+import ItemDetailPageLoader from "./pages/items/ItemDetailPage.loader";
+import ItemModifyPageLoader from "./pages/items/ItemModifyPage.loader";
 
 export const router = createBrowserRouter(
   [
@@ -55,7 +59,14 @@ export const router = createBrowserRouter(
               path: "items",
               children: [
                 { index: true, element: <ItemsPage /> },
-                { path: ":id", element: <ItemDetailPage /> },
+                {
+                  path: ":id",
+                  element: <ItemDetailPage />,
+                  hydrateFallbackElement: (
+                    <Loading>정보를 가져오는 중입니다..</Loading>
+                  ),
+                  loader: ItemDetailPageLoader,
+                },
               ],
             },
             {
@@ -65,6 +76,18 @@ export const router = createBrowserRouter(
                   <ItemAddPage />
                 </ProtectedRoute>
               ),
+            },
+            {
+              path: "modifyItem/:id",
+              element: (
+                <ProtectedRoute>
+                  <ItemModifyPage />
+                </ProtectedRoute>
+              ),
+              hydrateFallbackElement: (
+                <Loading>정보를 가져오는 중입니다..</Loading>
+              ),
+              loader: ItemModifyPageLoader,
             },
             {
               path: "boards",

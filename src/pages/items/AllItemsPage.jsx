@@ -1,8 +1,7 @@
 import { useSearchParams } from "react-router-dom";
-import usePageSize from "@hooks/usePageSize";
-import useList from "@hooks/useList";
+import useResponsive from "@hooks/useResponsive";
+import useProductList from "./components/useProductList";
 import usePagination from "@hooks/usePagination";
-import { getProducts } from "@service/product";
 import { Select, Button } from "@components/ui";
 import { Search, Recent } from "@components/Search";
 import { Section } from "@components/Section";
@@ -17,13 +16,18 @@ export default function AllItemsPage() {
   const keyword = params.get("keyword") || "";
   const orderBy = params.get("orderBy") || "recent";
   const page = params.get("page") || 1;
-  const pageSize = usePageSize({
+  const pageSize = useResponsive({
     pc: 10,
     tablet: 6,
     mobile: 4,
   });
+  const visibleCount = useResponsive({
+    pc: 5,
+    tablet: 4,
+    mobile: 3,
+  });
 
-  const { isLoading, error, items, totalCount } = useList(getProducts, {
+  const { isLoading, error, items, totalCount } = useProductList({
     page,
     pageSize,
     keyword,
@@ -34,7 +38,7 @@ export default function AllItemsPage() {
     page: Number(page),
     pageSize,
     totalCount,
-    visibleCount: 5,
+    visibleCount: visibleCount,
     onChange: handlePage,
   });
 
@@ -50,7 +54,7 @@ export default function AllItemsPage() {
   } = useRecentSearch({ initialKeyword: keyword, onChange: handleSearch });
 
   function handlePage(page) {
-    setParams((prev) => ({ ...prev, page }));
+    setParams((prev) => ({ ...prev, page }), { preventScrollReset: true });
   }
 
   function handleSearch(keyword) {

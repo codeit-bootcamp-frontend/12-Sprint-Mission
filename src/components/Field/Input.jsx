@@ -8,6 +8,11 @@ import styles from "./Input.module.scss";
 export function Input({ type = "text", error, value, ...props }) {
   const [currentType, setCurrentType] = useState(type);
   const valid = value && !error;
+  const css = clsx(
+    styles["field-box"],
+    valid && styles.valid,
+    error && styles.error
+  );
 
   function handleVisibility() {
     setCurrentType((prev) => (prev === "password" ? "text" : "password"));
@@ -15,13 +20,8 @@ export function Input({ type = "text", error, value, ...props }) {
 
   return (
     <>
-      <div className="field">
-        <input
-          type={currentType}
-          className={clsx("field-box", valid && "valid", error && "error")}
-          value={value}
-          {...props}
-        />
+      <div className={styles.field}>
+        <input type={currentType} className={css} value={value} {...props} />
         {type === "password" && (
           <button
             type="button"

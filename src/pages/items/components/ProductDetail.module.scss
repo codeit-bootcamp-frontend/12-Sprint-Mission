@@ -1,0 +1,112 @@
+@use "@assets/scss/base/mixins";
+
+.detail {
+  display: flex;
+  gap: 2.4rem;
+  padding-bottom: 4rem;
+  margin-bottom: 4rem;
+  border-bottom: 1px solid var(--color-secondary-200);
+
+  @include mixins.tablet {
+    gap: 1.6rem;
+  }
+
+  @include mixins.mobile {
+    flex-direction: column;
+  }
+
+  .cover {
+    max-width: 48.6rem;
+    flex: 0 1 50%;
+
+    @include mixins.mobile {
+      max-width: 100%;
+    }
+  }
+
+  .content {
+    flex: 1;
+  }
+
+  .detail-header {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 1.6rem;
+    margin-bottom: 2.4rem;
+    border-bottom: 1px solid var(--color-secondary-200);
+
+    .info {
+      font-weight: 600;
+      color: var(--color-secondary-800);
+    }
+
+    .title {
+      margin-bottom: 1.6rem;
+      font-size: 2.4rem;
+
+      @include mixins.tablet {
+        font-size: 2rem;
+      }
+
+      @include mixins.tablet {
+        font-size: 1.6rem;
+      }
+    }
+
+    .price {
+      font-size: 4rem;
+
+      @include mixins.tablet {
+        font-size: 3.2rem;
+      }
+
+      @include mixins.tablet {
+        font-size: 2.4rem;
+      }
+    }
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+
+    div {
+      transition: all 0.2s;
+    }
+
+    a:hover {
+      font-weight: 500;
+
+      & > div {
+        transform: translateY(-3px);
+        background: var(--color-secondary-200);
+      }
+    }
+  }
+
+  .meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 6.2rem;
+
+    .controls {
+      margin-left: 2.4rem;
+      padding-left: 2.4rem;
+      border-left: 1px solid var(--color-secondary-200);
+    }
+  }
+}
+
+.section {
+  margin-bottom: 2.8rem;
+  color: var(--color-secondary-600);
+  line-height: 1.625;
+
+  .title {
+    margin-bottom: 1.6rem;
+    font-size: 1.6rem;
+    font-weight: 600;
+  }
+}

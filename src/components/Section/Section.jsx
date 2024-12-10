@@ -17,5 +17,10 @@ function Content({ children }) {
   return <>{children}</>;
 }
 
+function Footer({ children }) {
+  return <div className={styles.footer}>{children}</div>;
+}
+
 Section.Header = Header;
 Section.Content = Content;
+Section.Footer = Footer;

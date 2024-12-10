@@ -2,10 +2,16 @@ import { useRef } from "react";
 import clsx from "clsx";
 import { Tags } from "@components/ui";
 import { Error } from "@components/Field";
+import styles from "./Input.module.scss";
 
 export function TagsInput({ error, value, id, name, onChange, placeholder }) {
   const inputRef = useRef(null);
   const valid = value.length && !error;
+  const css = clsx(
+    styles["field-box"],
+    valid && styles.valid,
+    error && styles.error
+  );
 
   function handleKeyDown(e) {
     if (e.nativeEvent.isComposing) return;
@@ -28,11 +34,11 @@ export function TagsInput({ error, value, id, name, onChange, placeholder }) {
 
   return (
     <>
-      <div className="field">
+      <div className={styles.field}>
         <input
           ref={inputRef}
           type="text"
-          className={clsx("field-box", valid && "valid", error && "error")}
+          className={css}
           onKeyDown={handleKeyDown}
           id={id}
           name={name}

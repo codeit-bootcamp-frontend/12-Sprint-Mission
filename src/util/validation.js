@@ -22,3 +22,7 @@ export const PRODUCT_VALIDATION_MESSAGE = {
   INVALID_STRING: "특수문자는 사용할 수 없습니다.",
   INVALID_NUMBER: "숫자만 입력해주세요",
 };
+
+export const COMMENT_VALIDATION_MESSAGE = {
+  COMMENT_REQUIRED: "내용을 적어주세요",
+};
