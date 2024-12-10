@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useState } from "react";
-import { getProduct } from "../../../api/ItemApi";
+import { getProductList } from "../../../api/ItemApi";
 import "../MarketPage";
 import ItemCard from "./ItemCard";
 
@@ -21,7 +21,7 @@ function BestItemSection() {
   const [pageSize, setPageSize] = useState(getPageSize());
 
   const loadProductList = async ({ orderBy, pageSize }) => {
-    const products = await getProduct({ orderBy, pageSize });
+    const products = await getProductList({ orderBy, pageSize });
     setItemList(products.list);
   };
 

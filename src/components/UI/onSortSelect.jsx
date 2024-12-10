@@ -1,6 +1,6 @@
-import "./DropdownList.css";
+import "./onSortSelect.css";
 
-function DropdownList({ onSortSelection }) {
+function SortSelect({ onSortSelection }) {
   return (
     <div className="dropdownList">
       <div className="dropdownItem" onClick={() => onSortSelection("recent")}>
@@ -13,4 +13,4 @@ function DropdownList({ onSortSelection }) {
   );
 }
 
-export default DropdownList;
+export default SortSelect;
