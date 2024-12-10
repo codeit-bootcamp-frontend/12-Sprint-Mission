@@ -36,7 +36,7 @@ header {
   height: 70px;
 }
 
-.header-bar,
+.header_bar,
 .logo {
   box-sizing: border-box;
   display: flex;
@@ -47,9 +47,9 @@ header {
   gap: 10px;
 }
 
-.header-bar {
+.header_bar {
   margin: auto;
-  padding: 0 200px;
+  padding: 0 12.5rem;
   background-color: #ffffff;
   border: 1px solid #dfdfdf;
   width: 100%;
@@ -58,10 +58,10 @@ header {
 }
 
 .menu {
-  margin-left: 32px;
+  margin-left: 2rem;
 }
 
-.menuText {
+.menuText_default {
   font-weight: 700;
   color: var(--gray600);
   font-size: 18px;
@@ -70,37 +70,50 @@ header {
   line-height: 26px;
 }
 
+.menuText_focus {
+  font-weight: 700;
+  color: var(--blue);
+  font-size: 18px;
+  text-decoration: none;
+  padding: 21px 15px;
+  line-height: 26px;
+}
+
 /* tablet */
 @media screen and (max-width: 1199px) {
-  .header-bar {
-    padding: 0 24px;
+  .header_bar {
+    padding: 0 1.5rem;
   }
 
   .menu {
-    margin-left: 20px;
+    margin-left: 1.5rem;
   }
 }
 
 /* mobile */
 @media screen and (max-width: 767px) and (min-width: 375px) {
-  .header-bar {
-    padding: 0 16px;
+  .header_bar {
+    padding: 0 1rem;
     min-width: 375px;
     max-width: 767px;
     margin: 0;
   }
 
   .menu {
-    margin-left: 8px;
+    margin-left: 0.2rem;
+  }
+
+  .menuText {
+    padding: 1.5rem 0.2rem;
   }
 }
 
-.header-bar img {
+.header_bar_img {
   width: 40px;
   height: 40px;
 }
 
-.header-bar .login {
+.header_bar .login {
   position: relative;
   border-radius: 8px;
   background-color: var(--blue);
@@ -121,12 +134,12 @@ header {
   text-align: center;
 }
 
-.header-bar > .login:hover {
+.header_bar > .login:hover {
   cursor: pointer;
   background: #1967d6;
 }
 
-.logo-title a {
+.logo_title a {
   font-family: "ROKAF Sans";
   text-decoration: none;
   color: var(--blue);

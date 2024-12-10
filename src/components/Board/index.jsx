@@ -5,7 +5,11 @@ function Board() {
   return (
     <div>
       <Header />
-      <div className={styles["board-body"]}> 준비중 </div>
+      <section>
+        <div className={styles.board_body}>
+          <h1>준비중</h1>
+        </div>
+      </section>
     </div>
   );
 }

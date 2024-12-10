@@ -5,7 +5,11 @@ function Home() {
   return (
     <div>
       <Header />
-      <div className={styles["home-body"]}> 준비중 </div>
+      <section>
+        <div className={styles.home_body}>
+          <h1>준비중</h1>
+        </div>
+      </section>
     </div>
   );
 }

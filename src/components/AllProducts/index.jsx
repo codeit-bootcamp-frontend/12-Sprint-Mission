@@ -3,23 +3,24 @@ import { getProducts } from "api";
 import NavBar from "./navBar";
 import ProductList from "./products";
 import Pagination from "./pagination";
-import styles from "./styles.module.css";
+import styles from "./allProduct.module.css";
 
 function AllProducts() {
   const [products, setProducts] = useState([]); // 상품 데이터 상태
   const [pageSize, setPageSize] = useState(getPageSize(window.innerWidth)); // 페이지 크기 상태 (화면 크기에 따라 동적으로 변경됨)
   const [currentPage, setCurrentPage] = useState(1); // 현재 페이지 상태
-  const [orderBy, setOrderBy] = useState("최신순"); // 정렬 기준 (최신순)
+  const [orderBy, setOrderBy] = useState("recent"); // 정렬 기준 (최신순)
   const [totalItems, setTotalItems] = useState(0); // 전체 상품 개수 상태 (페이징에 사용)
+  const [keyword, setKeyword] = useState(""); // 검색어 상태
 
   // 화면 크기 기반으로 페이지 크기 결정 함수
   function getPageSize(width) {
-    if (width >= 1200) {
-      return 10; // 화면 너비가 1200px 이상이면 한 페이지에 10개
-    } else if (width >= 768) {
+    if (width <= 767) {
+      return 4; // 화면 너비가 768px 미만이면 한 페이지에 4개
+    } else if (width <= 1199) {
       return 6; // 화면 너비가 768px 이상이면 한 페이지에 6개
     } else {
-      return 4; // 화면 너비가 768px 미만이면 한 페이지에 4개
+      return 10; // 화면 너비가 1200px 이상이면 한 페이지에 10개
     }
   }
 
@@ -43,8 +44,8 @@ function AllProducts() {
         const result = await getProducts({
           page: currentPage, // 현재 페이지
           pageSize, // 페이지 크기 (한 페이지당 표시할 상품 개수)
-          orderBy: "", // 정렬 기준 (최신순 등)
-          keyword: "", // 검색어
+          orderBy, // 정렬 기준 (최신순 등)
+          keyword, // 검색어
           totalItems, // 총 아이템 개수 (API 요청 시 사용)
         });
         setProducts(result.list); // 상품 목록 업데이트
@@ -56,15 +57,17 @@ function AllProducts() {
     };
 
     fetchProducts();
-  }, [currentPage, pageSize, orderBy]); // currentPage, pageSize, orderBy 상태가 변경될 때마다 데이터 가져오기
+  }, [currentPage, pageSize, orderBy, keyword]); // keyword가 변경될 때마다 상품 데이터 가져오기
 
   return (
-    <div className={styles["all-Container"]}>
-      {/* 상단 바 컴포넌트 (정렬 기준 변경을 위한 props 전달) */}
-      <NavBar orderBy={orderBy} setOrderBy={setOrderBy} />
-      {/* 상품 리스트 컴포넌트 (상품 목록 전달) */}
+    <div className={styles.all_Container}>
+      <NavBar
+        orderBy={orderBy}
+        setOrderBy={setOrderBy}
+        keyword={keyword}
+        setKeyword={setKeyword}
+      />
       <ProductList products={products} />
-      {/* 페이징 컴포넌트 (현재 페이지, 총 상품 개수, 한 페이지 당 상품 개수 전달) */}
       <Pagination
         currentPage={currentPage}
         totalItems={totalItems}

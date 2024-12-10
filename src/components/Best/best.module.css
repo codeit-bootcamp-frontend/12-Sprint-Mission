@@ -20,7 +20,7 @@ body {
     "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
 }
 
-.best-Container {
+.best_Container {
   padding-top: 94px;
   display: flex;
   flex-direction: column;
@@ -34,7 +34,7 @@ body {
   font-size: 20px;
 }
 
-.best-list {
+.best_list {
   margin: 0;
   padding: 0;
   display: flex;
@@ -45,19 +45,31 @@ body {
   gap: 24px;
 }
 
-.product-image-box {
+.product_link {
+  text-decoration: none;
+}
+
+.product_image_box {
   position: relative;
   width: 282px;
   height: 282px;
   margin-bottom: 16px;
 }
 
-.product-image {
+@media screen and (max-width: 1199px) {
+  .product_image_box {
+    width: 343px;
+    height: 343px;
+    margin-bottom: 16px;
+  }
+}
+
+.product_image {
   position: absolute;
   width: 100%;
 }
 
-.product-name {
+.product_name {
   margin: 0;
   margin-bottom: 6px;
   font-size: 14px;
@@ -66,7 +78,7 @@ body {
   line-height: 24px;
 }
 
-.product-price {
+.product_price {
   margin: 0;
   margin-bottom: 6px;
   font-size: 16px;
@@ -75,17 +87,17 @@ body {
   line-height: 26px;
 }
 
-.heart-line {
+.heart_line {
   height: 18px;
 }
 
-.heart-image {
+.heart_image {
   width: 16px;
   height: 16px;
   vertical-align: middle;
 }
 
-.heart-num {
+.heart_num {
   padding: 1px 0 1px 4px;
   font-size: 12px;
   line-height: 18px;

@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./styles.module.css";
+import styles from "./allProduct.module.css";
 
 function Pagination({ currentPage, totalItems, itemsPerPage, onPageChange }) {
   const totalPages = Math.ceil(totalItems / itemsPerPage); // 총 페이지 수 계산
@@ -30,10 +30,10 @@ function Pagination({ currentPage, totalItems, itemsPerPage, onPageChange }) {
   };
 
   return (
-    <div className={styles["pagination"]}>
+    <div className={styles.pagination}>
       {/* 이전 버튼 */}
       <button
-        className={styles["page-btn"]}
+        className={styles.page_btn}
         onClick={handlePrevClick}
         disabled={currentPage === 1} // 첫 페이지일 경우 비활성화
       >
@@ -44,9 +44,9 @@ function Pagination({ currentPage, totalItems, itemsPerPage, onPageChange }) {
       {pages.map((page) => (
         <button
           key={page}
-          className={`${styles["page-btn"]} ${
+          className={`${styles.page_btn} ${
             // 현재 페이지는 활성화 스타일 적용
-            page === currentPage ? styles["active"] : ""
+            page === currentPage ? styles.active : ""
           }`}
           onClick={() => onPageChange(page)} // 페이지 클릭 시 페이지 변경
         >
@@ -56,7 +56,7 @@ function Pagination({ currentPage, totalItems, itemsPerPage, onPageChange }) {
 
       {/* 다음 버튼 */}
       <button
-        className={styles["page-btn"]}
+        className={styles.page_btn}
         onClick={handleNextClick}
         disabled={currentPage === totalPages} // 마지막 페이지일 경우 비활성화
       >

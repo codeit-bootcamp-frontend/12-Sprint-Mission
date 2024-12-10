@@ -5,7 +5,7 @@ import loginImg from "../../assets/img/logo/login.svg";
 function Header() {
   return (
     <header>
-      <nav className={styles["header-bar"]}>
+      <nav className={styles.header_bar}>
         <Logo />
         <div>
           <img src={loginImg} />
