@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useState } from "react";
-import { getProduct } from "../../../api/ItemApi";
+import { getProductList } from "../../../api/ItemApi";
 import ItemCard from "./ItemCard";
 import searchIcon from "../../../images/ic_search.png";
 import dropdownIcon from "../../../images/ic_arrow_down.png";
@@ -29,7 +29,7 @@ function AllItemSection() {
   const [totalPageNum, setTotalPageNum] = useState();
 
   const loadProductList = async ({ orderBy, page, pageSize }) => {
-    const products = await getProduct({ orderBy, page, pageSize });
+    const products = await getProductList({ orderBy, page, pageSize });
     setTotalPageNum(Math.ceil(products.totalCount / pageSize));
     setItemList(products.list);
   };
