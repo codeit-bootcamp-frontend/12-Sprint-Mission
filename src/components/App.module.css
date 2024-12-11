@@ -26,5 +26,14 @@ body {
   flex: none;
 }
 
-/* .body {
-} */
+@media (max-width: 1199px) {
+  .body {
+    padding: 0 24px 0;
+  }
+}
+
+@media (min-width: 375px) and (max-width: 767px) {
+  .body {
+    padding: 0 16px 0;
+  }
+}
