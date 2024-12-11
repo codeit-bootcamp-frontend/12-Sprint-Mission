@@ -1,17 +1,22 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import App from "./components/App";
-import Items from "./pages/Items";
-import AddItem from "./pages/AddItem";
+import ItemListPage from "./pages/ItemListPage";
+import AddItemPage from "./pages/AddItemPage";
+import ItemPage from "./pages/ItemPage";
 
 function Main() {
   return (
     <BrowserRouter>
-      <App>
-        <Routes>
-          <Route path="items" element={<Items />} />
-          <Route path="additem" element={<AddItem />} />
-        </Routes>
-      </App>
+      <Routes>
+        <Route path="/" element={<App />}>
+          <Route index />
+          <Route path="items">
+            <Route index element={<ItemListPage />} />
+            <Route path=":id" element={<ItemPage />} />
+          </Route>
+          <Route path="additem" element={<AddItemPage />} />
+        </Route>
+      </Routes>
     </BrowserRouter>
   );
 }

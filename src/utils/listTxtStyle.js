@@ -1,16 +1,48 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
-export const ListWrapUl = styled.ul`
+const CommonListWrapUl = css`
   display: flex;
   justify-content: space-between;
   gap: 40px 16px;
   flex-wrap: wrap;
   margin-top: 24px;
+`;
+
+export const ListWrapUl = styled.ul`
+  ${CommonListWrapUl}
   @media (max-width: 1199px) {
     gap: 40px 2%;
   }
   @media (max-width: 767px) {
     gap: 32px 0;
+  }
+
+  a {
+    width: 221px;
+    @media (max-width: 1199px) {
+      width: 32%;
+    }
+    @media (max-width: 768px) {
+      width: 49%;
+    }
+  }
+`;
+
+export const BestListWrapUl = styled.ul`
+  ${CommonListWrapUl}
+  @media (max-width: 1199px) {
+    gap: 0;
+  }
+
+  a {
+    display: inline-block;
+    //width: 221px;
+    @media (max-width: 1199px) {
+      width: 49%;
+    }
+    @media (max-width: 767px) {
+      width: 100%;
+    }
   }
 `;
 

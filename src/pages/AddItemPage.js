@@ -97,8 +97,7 @@ function AddItem() {
   });
 
   const [tags, setTags] = useState([]);
-
-  const [isButtonEnabled, setIsButtonEnabled] = useState(false);
+  const [isComposing, setIsComposing] = useState(false);
 
   const handleChange = (name, value) => {
     setValues((prevValues) => ({
@@ -119,38 +118,50 @@ function AddItem() {
   };
 
   const handleTagKeyDown = (e) => {
-    if (e.key === "Enter" && values.tag.trim() !== "") {
+    if (e.key === "Enter" && !isComposing) {
       e.preventDefault();
 
-      if (tags.includes(values.tag.trim())) {
+      const trimmedTag = values.tag.trim();
+      if (trimmedTag === "") return;
+
+      if (tags.includes(trimmedTag)) {
         alert("이미 추가된 태그입니다.");
         return;
       }
-      setTags((prevTag) => [...prevTag, values.tag.trim()]);
+      setTags((prevTag) => [...prevTag, trimmedTag]);
       setValues((prevValues) => ({ ...prevValues, tag: "" }));
     }
+  };
+
+  const handleCompositionStart = () => {
+    setIsComposing(true);
+  };
+
+  const handleCompositionEnd = () => {
+    setIsComposing(false);
   };
 
   const handleRemoveTag = (index) => {
     setTags((prevTags) => prevTags.filter((_, i) => i !== index));
   };
 
-  useEffect(() => {
-    const { title, content, price } = values;
-    const isValid =
-      title.trim() !== "" &&
-      content.trim() !== "" &&
-      price > 0 &&
-      tags.length > 0;
-    setIsButtonEnabled(isValid);
-  }, [values, tags]);
+  const isValid = (values, tags) => {
+    return (
+      values.title.trim() !== "" &&
+      values.content.trim() !== "" &&
+      values.price > 0 &&
+      tags.length > 0
+    );
+  };
+
+  useEffect(() => {}, [values, tags]);
 
   return (
     <>
       <AddForm id="submitForm" onSubmit={handleSubmit}>
         <FormTopSection>
           <SectionTitle>상품 등록하기</SectionTitle>
-          <SubmitButton type="submit" disabled={!isButtonEnabled}>
+          <SubmitButton type="submit" disabled={!isValid(values, tags)}>
             등록
           </SubmitButton>
         </FormTopSection>
@@ -201,6 +212,8 @@ function AddItem() {
             placeholder="태그를 입력해주세요"
             onChange={handleInputChange}
             onKeyDown={handleTagKeyDown}
+            onCompositionStart={handleCompositionStart}
+            onCompositionEnd={handleCompositionEnd}
           />
           {tags && (
             <TagsWrap>

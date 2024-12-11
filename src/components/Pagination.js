@@ -22,6 +22,7 @@ const PaginationButton = css`
   text-align: center;
   color: var(--gray-scale-500);
   background-color: var(--gray-scale-0);
+  cursor: pointer;
 `;
 
 const PaginationPrevButton = styled.button`

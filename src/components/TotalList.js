@@ -1,5 +1,5 @@
-import "./TotalList.css";
 import styled from "styled-components";
+import heartImg from "../assets/ic_heart.svg";
 import {
   ListWrapUl,
   ItemTxtWrap,
@@ -9,17 +9,9 @@ import {
   FavoriteImg,
   FavoriteCount,
 } from "../utils/listTxtStyle";
-import heartImg from "../assets/ic_heart.svg";
+import { Link } from "react-router-dom";
 
-const TotalListLi = styled.li`
-  width: 221px;
-  @media (max-width: 1199px) {
-    width: 32%;
-  }
-  @media (max-width: 768px) {
-    width: 49%;
-  }
-`;
+const TotalListLi = styled.li``;
 
 const TotalListImg = styled.img`
   display: inline-block;
@@ -55,9 +47,11 @@ function TotalList({ fullItems }) {
     <ListWrapUl>
       {fullItems.map((fullItem) => {
         return (
-          <TotalListLi key={fullItem.id}>
-            <TotalListItem item={fullItem} />
-          </TotalListLi>
+          <Link to={`/items/${fullItem.id}`}>
+            <TotalListLi key={fullItem.id}>
+              <TotalListItem item={fullItem} />
+            </TotalListLi>
+          </Link>
         );
       })}
     </ListWrapUl>

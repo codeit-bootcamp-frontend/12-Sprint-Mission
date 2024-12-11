@@ -35,6 +35,12 @@ const AddItem = styled.button`
   font-weight: var(--font-weight-semibold);
   color: var(--gray-scale-0);
   align-content: center;
+  &:hover {
+    background-color: var(--primary-color-200);
+  }
+  &:active {
+    background-color: var(--primary-color-300);
+  }
 `;
 
 function Items() {
@@ -52,11 +58,13 @@ function Items() {
   const [totalCount, setTotalCount] = useState(0);
 
   const [keyword, setKeyword] = useState("");
+
   const handleKeywordSubmit = (e) => {
     e.preventDefault();
     const searchKeyword = e.target["keyword"].value.trim();
-    setKeyword(searchKeyword);
-    handleLoadFull(order, searchKeyword);
+    if (searchKeyword) {
+      setKeyword(searchKeyword);
+    }
   };
 
   const handleLoad = async () => {
@@ -70,8 +78,6 @@ function Items() {
       orderBy: order,
       pageSize: fullPageSize,
       keyword: keyword,
-      offset: (fullPage - 1) * fullPageSize,
-      limit: fullPageSize,
       page: fullPage,
     };
     const { list, totalCount } = await getItems(fullOptions);
@@ -80,9 +86,7 @@ function Items() {
   };
 
   useEffect(() => {
-    if (pageSize > 0) {
-      handleLoad();
-    }
+    handleLoad();
   }, [pageSize]);
 
   useEffect(() => {
@@ -99,10 +103,14 @@ function Items() {
   }, [width]);
 
   useEffect(() => {
-    if (fullPageSize > 0) {
-      handleLoadFull();
-    }
+    handleLoadFull();
   }, [fullPage, order, keyword, fullPageSize]);
+
+  useEffect(() => {
+    if (keyword) {
+      handleLoadFull(order, keyword);
+    }
+  }, [keyword, order]);
 
   return (
     <>

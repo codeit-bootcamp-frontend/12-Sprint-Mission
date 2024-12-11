@@ -8,6 +8,7 @@ const SortWrap = styled.div`
   display: flex;
   position: relative;
   justify-content: flex-end;
+  cursor: pointer;
 `;
 
 const SortLabelCommon = css`
@@ -66,7 +67,7 @@ function Sort({ setOrder, width }) {
   const [currentValue, setCurrentValue] = useState("최신순");
   const [showOptions, setShowOptions] = useState(false);
 
-  const handleOnChangeSelectValue = (e) => {
+  const handleClickSelectValue = (e) => {
     const sortValue = e.target.getAttribute("value");
     const sortName = e.target.getAttribute("name");
     setCurrentValue(sortName);
@@ -99,14 +100,14 @@ function Sort({ setOrder, width }) {
           <SortListLi
             value="recent"
             name="최신순"
-            onClick={handleOnChangeSelectValue}
+            onClick={handleClickSelectValue}
           >
             최신순
           </SortListLi>
           <SortListLi
             value="favorite"
             name="좋아요순"
-            onClick={handleOnChangeSelectValue}
+            onClick={handleClickSelectValue}
           >
             좋아요순
           </SortListLi>

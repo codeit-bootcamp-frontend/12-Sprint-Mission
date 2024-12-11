@@ -98,8 +98,8 @@ function FileInput({ name, value, onChange }) {
   const inputRef = useRef();
 
   const handleChange = (e) => {
-    const nextValue = e.target.files[0];
-    onChange(name, nextValue);
+    const imgValue = e.target.files[0];
+    onChange(name, imgValue);
   };
 
   const handleDisabledClick = (e) => {
@@ -120,12 +120,12 @@ function FileInput({ name, value, onChange }) {
 
   useEffect(() => {
     if (!value) return;
-    const nextPreview = URL.createObjectURL(value);
-    setPreview(nextPreview);
+    const imgPreview = URL.createObjectURL(value);
+    setPreview(imgPreview);
 
     return () => {
       setPreview();
-      URL.revokeObjectURL(nextPreview);
+      URL.revokeObjectURL(imgPreview);
     };
   }, [value]);
 

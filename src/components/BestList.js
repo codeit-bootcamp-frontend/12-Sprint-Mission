@@ -1,6 +1,7 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import {
-  ListWrapUl,
+  BestListWrapUl,
   ItemTxtWrap,
   ItemTitle,
   ItemPrice,
@@ -15,14 +16,7 @@ const BestListWrap = styled.article`
   margin-bottom: 40px;
 `;
 
-const BestListLi = styled.li`
-  @media (max-width: 1199px) {
-    width: 49%;
-  }
-  @media (max-width: 767px) {
-    width: 100%;
-  }
-`;
+const BestListLi = styled.li``;
 
 const BestListImg = styled.img`
   border-radius: 16px;
@@ -54,15 +48,17 @@ function BestList({ items }) {
   return (
     <BestListWrap>
       <SectionTitle>베스트 상품</SectionTitle>
-      <ListWrapUl>
+      <BestListWrapUl>
         {items.map((item) => {
           return (
-            <BestListLi key={item.id}>
-              <BestListItem item={item} />
-            </BestListLi>
+            <Link to={`/items/${item.id}`}>
+              <BestListLi key={item.id}>
+                <BestListItem item={item} />
+              </BestListLi>
+            </Link>
           );
         })}
-      </ListWrapUl>
+      </BestListWrapUl>
     </BestListWrap>
   );
 }

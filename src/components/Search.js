@@ -29,13 +29,19 @@ const SearchInput = styled.input`
 `;
 
 function Search({ handleKeywordSubmit }) {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    handleKeywordSubmit(e);
+  };
+
   return (
-    <SearchForm onSubmit={handleKeywordSubmit}>
+    <SearchForm onSubmit={handleSubmit}>
       <SearchInput
         type="search"
         name="keyword"
         className="input-search"
         placeholder="검색할 상품을 입력해주세요"
+        autoComplete="off"
       />
     </SearchForm>
   );
