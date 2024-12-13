@@ -1,0 +1,52 @@
+.item-detail-meta {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 30px;
+}
+
+.item-detail-meta-section {
+  display: flex;
+  gap: 16px;
+}
+
+.item-detail-meta-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.item-detail-meta-wrapper p:nth-child(1) {
+  font-size: 14px;
+  font-weight: 500;
+  color: #4b5563;
+}
+
+.item-detail-meta-wrapper p:nth-child(2) {
+  font-size: 14px;
+  color: #9ca3af;
+}
+
+.likebutton-wrapper {
+  padding-left: 16px;
+  border-left: 1px solid #e5e7eb;
+}
+
+.item-detail-likebutton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 87px;
+  height: 40px;
+  padding: 4px 12px;
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 35px;
+  color: #6b7280;
+  font-size: 20px;
+}
+
+.item-detail-likebutton img {
+  width: 20px;
+  vertical-align: top;
+}

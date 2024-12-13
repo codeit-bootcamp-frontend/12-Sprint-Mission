@@ -1,0 +1,35 @@
+.item-detail-wrapper {
+  margin: 0 auto;
+  padding: 45px 0;
+  max-width: 1200px;
+  width: 100%;
+}
+
+.back-to-list {
+  display: block;
+  padding: 12px 43px;
+  margin: 50px auto;
+  background-color: #3692ff;
+  border: none;
+  border-radius: 40px;
+  color: #f3f4f6;
+  font-size: 18px;
+  font-weight: 600;
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
+
+.back-to-list:hover {
+  background-color: #2a7ae4;
+}
+
+.back-to-list-img {
+  padding-left: 5px;
+  vertical-align: middle;
+}
+
+@media (max-width: 1199px) {
+  .item-detail-wrapper {
+    padding: 45px 20px;
+  }
+}

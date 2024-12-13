@@ -1,0 +1,59 @@
+.comments-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.comment-wrapper {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.comment-author {
+  display: flex;
+}
+
+.comment-options {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  margin-left: auto;
+}
+
+.comment-content {
+  font-size: 14px;
+  color: #1f2937;
+  padding-top: 14px;
+}
+
+.comment-profile-image {
+  padding-right: 15px;
+}
+
+.comment-author-detail {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.comment-nickname {
+  font-size: 12px;
+  color: #4b5563;
+  line-height: 18px;
+}
+
+.comment-date {
+  font-size: 12px;
+  line-height: 18px;
+  color: #9ca3af;
+}
+
+.comment-empty {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.comment-empty-text {
+  color: #9ca3af;
+}
