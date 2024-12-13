@@ -10,7 +10,7 @@ const AddItemPage = () => {
     tag: "",
     imgFile: null,
   });
-  const [disabled, setDisabled] = useState(true);
+  const [canSubmit, setCanSubmit] = useState(true);
 
   const handleChange = (name, value) => {
     setValues((prevValues) => ({
@@ -22,7 +22,7 @@ const AddItemPage = () => {
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     handleChange(name, value);
-    setDisabled(isSubmitDisabled);
+    setCanSubmit(isSubmitDisabled);
   };
 
   const handleSubmit = (e) => {
@@ -37,7 +37,7 @@ const AddItemPage = () => {
       <form className="addItemContainer">
         <div className="addItemHeader">
           <h1 className="headerTitle">상품 등록하기</h1>
-          <button className={`addItemBtn ${disabled ? "" : "active"}`} onSubmit={handleSubmit} disabled={disabled}>
+          <button className={`addItemBtn ${canSubmit ? "" : "active"}`} onSubmit={handleSubmit} disabled={canSubmit}>
             등록
           </button>
         </div>

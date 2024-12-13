@@ -6,9 +6,9 @@ import ItemDetailPage from "../ItemDetailPage/ItemDetailPage";
 function MarketPage() {
   return (
     <div className="marketContainer">
-      {/* <BestItemSection />
-      <AllItemSection /> */}
-      <ItemDetailPage />
+      <BestItemSection />
+      <AllItemSection />
+      {/* <ItemDetailPage /> */}
     </div>
   );
 }

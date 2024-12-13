@@ -12,6 +12,10 @@
   }
 }
 
+.logo:hover {
+  cursor: pointer;
+}
+
 .header-left {
   display: flex;
   align-items: center;
