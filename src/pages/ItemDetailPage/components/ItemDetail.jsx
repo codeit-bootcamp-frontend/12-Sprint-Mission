@@ -1,7 +1,7 @@
 import Tag from "./Tag.jsx";
 import "./ItemDetail.css";
-import userImg from "../../../images/user-info-img.png";
-import itemHeart from "../../../images/ic_heart_itemDetail.png";
+import userImg from "../../../assets/images/user-info-img.png";
+import itemHeart from "../../../assets/images/ic_heart_itemDetail.png";
 
 function ItemDetail({ product }) {
   return (

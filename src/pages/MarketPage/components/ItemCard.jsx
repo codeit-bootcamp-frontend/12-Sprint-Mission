@@ -1,4 +1,4 @@
-import heartIcon from "../../../images/ic_heart.png";
+import heartIcon from "../../../assets/images/ic_heart.png";
 import "./ItemCard.css";
 
 function ItemCard({ item }) {
