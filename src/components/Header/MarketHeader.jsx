@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
 import logoImg from "../../assets/images/logo-img.png";
 import userInfoImg from "../../assets/images/user-info-img.png";
-import "../Layout/Header.css";
+import "./Header.css";
 
-function Header() {
+function MarketHeader() {
   return (
     <div className="header">
       <div className="header-left">
@@ -28,4 +28,4 @@ function Header() {
   );
 }
 
-export default Header;
+export default MarketHeader;
