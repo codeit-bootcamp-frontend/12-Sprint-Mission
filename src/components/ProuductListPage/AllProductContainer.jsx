@@ -19,6 +19,7 @@ function AllProductContainer() {
   useEffect(() => {
     getData({ pageSize, orderBy, page: currentPage }).then((data) => {
       setItemList(data);
+      console.log(data);
       setTotalPages(Math.ceil(data.totalCount / pageSize));
     });
   }, [pageSize, orderBy, currentPage]);
