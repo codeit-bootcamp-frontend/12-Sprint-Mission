@@ -1,0 +1,25 @@
+.button {
+  padding: 0.8rem 2.3rem;
+  border-radius: 0.8rem;
+  font-size: 1.6rem;
+  font-weight: 600;
+  line-height: 2.6rem;
+  background-color: var(--color-primary-100);
+  color: var(--color-secondary-100);
+}
+
+.button:hover {
+  background-color: var(--color-primary-300);
+}
+
+.large {
+  padding: 1.6rem 12.4rem;
+  border-radius: 4rem;
+  font-size: 2rem;
+}
+
+.medium {
+  padding: 1.2rem 7.1rem;
+  border-radius: 4rem;
+  font-size: 1.8rem;
+}

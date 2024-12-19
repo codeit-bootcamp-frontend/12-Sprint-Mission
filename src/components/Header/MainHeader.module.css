@@ -1,0 +1,10 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 40rem;
+  border: 1px solid #dfdfdf;
+
+  @media (max-width: 1920px) {
+    padding: 1rem 20rem;
+  }
+}

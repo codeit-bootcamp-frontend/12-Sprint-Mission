@@ -1,5 +1,12 @@
+import Input from "../../components/Input/Input.jsx";
+import styles from "./SamplePage.module.css";
+
 const SamplePage = () => {
-  return <div>샘플페이지입니다</div>;
+  return (
+    <div className={styles.container}>
+      <Input />
+    </div>
+  );
 };
 
 export default SamplePage;

@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import logoImg from "../../assets/images/logo-img.png";
 import userInfoImg from "../../assets/images/user-info-img.png";
-import "./Header.css";
+import "./MarketHeader.css";
 
 function MarketHeader() {
   return (

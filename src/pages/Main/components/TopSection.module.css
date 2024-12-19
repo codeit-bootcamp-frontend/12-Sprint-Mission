@@ -1,0 +1,24 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20rem 40rem 0;
+  background-color: #cfe5ff;
+}
+
+.content {
+  display: flex;
+  gap: 7px;
+}
+
+.box {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.text {
+  font-size: 4rem;
+  font-weight: 700;
+  line-height: 5.6rem;
+}

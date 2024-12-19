@@ -1,0 +1,51 @@
+.container {
+  padding: 13.8rem 46.6rem;
+  background-color: #ffffff;
+}
+
+.contentBox {
+  display: flex;
+  gap: 6.4rem;
+  width: 98.8rem;
+  margin: 0 auto;
+  border-radius: 1.2rem;
+  background-color: #fcfcfc;
+}
+
+.opposite {
+  order: 2;
+}
+
+.textBox {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  padding: 10rem 2.3rem 10rem 0;
+}
+
+.oppositeText {
+  text-align: right;
+}
+
+.category {
+  font-size: 1.8rem;
+  font-weight: 700;
+  line-height: 2.6rem;
+  color: var(--color-primary-100);
+}
+
+.title {
+  font-size: 4rem;
+  font-weight: 700;
+  line-height: 5.6rem;
+  word-break: break-word;
+  color: var(--color-secondary-700);
+}
+
+.content {
+  font-size: 2.4rem;
+  font-weight: 500;
+  line-height: 3.2rem;
+  word-break: break-word;
+  color: var(--color-secondary-700);
+}
