@@ -8,6 +8,7 @@ import HotItemImg from "../../assets/images/Img_home_01.svg";
 import SearchImg from "../../assets/images/Img_home_02.svg";
 import RegsiterImg from "../../assets//images//Img_home_03.svg";
 import BottomSection from "./components/BottomSection";
+import MainFooter from "./components/MainFooter";
 
 const MainPage = () => {
   return (
@@ -48,6 +49,7 @@ const MainPage = () => {
         content="어떤 물건이든 판마해고 싶은 상품을 쉽게 등록하세요"
       />
       <BottomSection />
+      <MainFooter />
     </div>
   );
 };
