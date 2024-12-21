@@ -1,5 +1,4 @@
 .container {
-  padding: 13.8rem 46.6rem;
   background-color: #ffffff;
 }
 
@@ -7,7 +6,7 @@
   display: flex;
   gap: 6.4rem;
   width: 98.8rem;
-  margin: 0 auto;
+  margin: 13.8rem auto;
   border-radius: 1.2rem;
   background-color: #fcfcfc;
 }
@@ -38,7 +37,7 @@
   font-size: 4rem;
   font-weight: 700;
   line-height: 5.6rem;
-  word-break: break-word;
+  word-break: keep-all;
   color: var(--color-secondary-700);
 }
 
@@ -46,6 +45,6 @@
   font-size: 2.4rem;
   font-weight: 500;
   line-height: 3.2rem;
-  word-break: break-word;
+  word-break: keep-all;
   color: var(--color-secondary-700);
 }

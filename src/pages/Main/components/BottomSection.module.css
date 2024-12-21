@@ -1,0 +1,18 @@
+.container {
+  padding: 14.3rem 40.5rem 0;
+  background-color: #cfe5ff;
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6.9rem;
+}
+
+.slogan {
+  padding-bottom: 6rem;
+  font-size: 4rem;
+  font-weight: 700;
+  line-height: 5.6rem;
+}

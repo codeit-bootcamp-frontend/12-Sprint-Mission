@@ -1,3 +1,4 @@
+import styles from "./MainPage.module.css";
 import MainHeader from "../../components/Header/MainHeader";
 import TopSection from "./components/TopSection";
 import MidSection from "./components/MidSection";
@@ -6,10 +7,11 @@ import MidSection from "./components/MidSection";
 import HotItemImg from "../../assets/images/Img_home_01.svg";
 import SearchImg from "../../assets/images/Img_home_02.svg";
 import RegsiterImg from "../../assets//images//Img_home_03.svg";
+import BottomSection from "./components/BottomSection";
 
 const MainPage = () => {
   return (
-    <div>
+    <div className={styles.container}>
       <MainHeader />
       <TopSection />
       <MidSection
@@ -45,6 +47,7 @@ const MainPage = () => {
         }
         content="어떤 물건이든 판마해고 싶은 상품을 쉽게 등록하세요"
       />
+      <BottomSection />
     </div>
   );
 };
