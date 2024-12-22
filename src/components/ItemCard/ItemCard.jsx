@@ -1,10 +1,15 @@
 import heartIcon from "../../assets/images/ic_heart.png";
 import "./ItemCard.css";
+import EmptyItemImg from "../../assets/images/item-empty-img.svg";
 
 function ItemCard({ item }) {
   return (
     <div className="itemCard">
-      <img className="itemCardImg" src={item.images?.[0]} alt={item.name} />
+      <img
+        className="itemCardImg"
+        src={item.images[0] ? item.images[0] : EmptyItemImg}
+        alt={item.name}
+      />
       <div className="itemContainer">
         <p className="itemName">{item.name}</p>
         <p className="itemPrice">{item.price}</p>
