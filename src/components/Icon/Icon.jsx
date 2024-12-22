@@ -1,6 +1,6 @@
 import { iconData } from "./iconData.jsx";
 
-const Icon = ({ name, size, color, ...props }) => {
+const Icon = ({ name, size, color = "black", ...props }) => {
   const icon = iconData[name];
   if (!icon) {
     console.warn(`${name}은 없는 아이콘입니다.`);

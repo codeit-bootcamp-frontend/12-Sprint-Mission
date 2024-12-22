@@ -1,6 +1,7 @@
 import styles from "./TopSection.module.css";
 import HomeTopImg from "../../../assets/images/Img_home_top.svg";
 import LinkButton from "../../../components/Button/LinkButton";
+import { Link } from "react-router-dom";
 
 const TopSection = () => {
   return (
@@ -11,9 +12,9 @@ const TopSection = () => {
             일상의 모든 물건을
             <br /> 거래해 보세요
           </p>
-          <div className={styles.btn}>
+          <Link to="/items" className={styles.btn}>
             <LinkButton size="large">구경하러 가기</LinkButton>
-          </div>
+          </Link>
         </div>
       </div>
       <img src={HomeTopImg} alt="동산위의판다이미지" />

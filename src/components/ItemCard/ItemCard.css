@@ -2,12 +2,28 @@
   overflow: hidden;
 }
 
+.itemCard:hover {
+  cursor: pointer;
+  border: 0.1rem solid var(--color-primary-400);
+  animation: vibration 0.1s 2;
+}
+
+@keyframes vibration {
+  from {
+    transform: rotate(1deg);
+  }
+  to {
+    transform: rotate(-1deg);
+  }
+}
+
 .itemCardImg {
   width: 100%;
   height: auto;
   margin-bottom: 16px;
   object-fit: cover;
   border-radius: 16px;
+  border: 1px solid rgb(61, 3, 3);
   overflow: hidden;
   aspect-ratio: 1;
 }

@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { getProductList } from "../../../api/ItemApi";
 import "../MarketPage";
-import ItemCard from "./ItemCard";
+import ItemCard from "../../../components/ItemCard/ItemCard.jsx";
 
 const getPageSize = () => {
   const width = window.innerWidth;

@@ -1,11 +1,11 @@
 import { useEffect } from "react";
 import { useState } from "react";
 import { getProductList } from "../../../api/ItemApi";
-import ItemCard from "./ItemCard";
+import ItemCard from "../../../components/ItemCard/ItemCard.jsx";
 import searchIcon from "../../../assets/images/ic_search.png";
 import dropdownIcon from "../../../assets/images/ic_arrow_down.png";
 import { Link } from "react-router-dom";
-import PaginationBar from "../../../components/UI/PaginationBar";
+import PaginationBar from "../../../components/Pagination/PaginationBar.jsx";
 import SortSelect from "../../../components/UI/onSortSelect";
 
 const getPageSize = () => {
@@ -63,17 +63,29 @@ function AllItemSection() {
         <div className="sectionHeaderRight">
           <div className="searchBox">
             <img className="searchIcon" src={searchIcon} alt="검색아이콘" />
-            <input className="searchInput" placeholder="검색할 상품을 입력해주세요" />
+            <input
+              className="searchInput"
+              placeholder="검색할 상품을 입력해주세요"
+            />
           </div>
           <Link to="/additem" className="addItem">
             상품 등록하기
           </Link>
           <div className="dropdownContainer">
             <div className="sortButtonWrapper">
-              <img className="dropdownIcon" onClick={toggleDropdownWrapper} src={dropdownIcon} alt="드롭다운아이콘" />
-              <button className="showDropdownWrapperBtn">{orderBy === "recent" ? "최신순" : "베스트순"}</button>
+              <img
+                className="dropdownIcon"
+                onClick={toggleDropdownWrapper}
+                src={dropdownIcon}
+                alt="드롭다운아이콘"
+              />
+              <button className="showDropdownWrapperBtn">
+                {orderBy === "recent" ? "최신순" : "베스트순"}
+              </button>
             </div>
-            {dropdownToggle && <SortSelect onSortSelection={handleSortLoadList} />}
+            {dropdownToggle && (
+              <SortSelect onSortSelection={handleSortLoadList} />
+            )}
           </div>
         </div>
       </div>
@@ -83,7 +95,11 @@ function AllItemSection() {
         ))}
       </div>
       <div className="paginationBar">
-        <PaginationBar onChangePage={onChangePage} totalPageNum={totalPageNum} activePageNum={page} />
+        <PaginationBar
+          onChangePage={onChangePage}
+          totalPageNum={totalPageNum}
+          activePageNum={page}
+        />
       </div>
     </div>
   );

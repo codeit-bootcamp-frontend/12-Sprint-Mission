@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import logoImg from "../../assets/images/logo-img.png";
+import logoImg from "../../assets/images/logo-img.svg";
 import userInfoImg from "../../assets/images/user-info-img.png";
 import "./MarketHeader.css";
 
