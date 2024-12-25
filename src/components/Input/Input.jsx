@@ -11,15 +11,17 @@ const Input = ({
   ...props
 }) => {
   return (
-    <input
-      value={value}
-      onChange={onChange}
-      type={type}
-      placeholder={placeholder}
-      className={clsx(styles.input, className)}
-    >
-      {children}
-    </input>
+    <div className={clsx(styles.inputWrapper, className)}>
+      <input
+        value={value}
+        onChange={onChange}
+        type={type}
+        placeholder={placeholder}
+        className={styles.input}
+        {...props}
+      />
+      {children && <div className={styles.iconWrapper}>{children}</div>}
+    </div>
   );
 };
 

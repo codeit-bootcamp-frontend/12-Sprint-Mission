@@ -1,5 +1,12 @@
+.inputWrapper {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
 .input {
-  padding: 1.6rem 2.4rem;
+  flex: 1;
+  padding: 1.6rem 2.4rem 1.6rem 4rem;
   border-radius: 1.2rem;
   font-size: 1.6rem;
   font-weight: 400;
@@ -12,6 +19,14 @@
   font-size: 1.6rem;
   font-weight: 400;
   color: var(--color-secondary-400);
+}
+
+.iconWrapper {
+  position: absolute;
+  left: 10px;
+  display: flex;
+  align-items: center;
+  pointer-events: none;
 }
 
 .error {

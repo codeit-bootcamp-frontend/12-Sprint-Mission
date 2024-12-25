@@ -1,10 +1,11 @@
 import heartIcon from "../../assets/images/ic_heart.png";
 import "./ItemCard.css";
 import EmptyItemImg from "../../assets/images/item-empty-img.svg";
+import { Link } from "react-router-dom";
 
 function ItemCard({ item }) {
   return (
-    <div className="itemCard">
+    <Link to={`/item/${item.id}`} className="itemCard">
       <img
         className="itemCardImg"
         src={item.images[0] ? item.images[0] : EmptyItemImg}
@@ -18,7 +19,7 @@ function ItemCard({ item }) {
           <p className="favoriteCount">{item.favoriteCount}</p>
         </div>
       </div>
-    </div>
+    </Link>
   );
 }
 

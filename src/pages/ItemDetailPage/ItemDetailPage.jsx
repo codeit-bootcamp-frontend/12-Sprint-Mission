@@ -1,11 +1,13 @@
 import ItemDetail from "./components/ItemDetail.jsx";
 import "./ItemDetailPage.css";
 import { getProduct } from "../../api/ItemApi";
-import { useState } from "react";
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import QuestionForm from "./components/QuestionForm.jsx";
+import { useParams } from "react-router-dom";
 
 function ItemDetailPage() {
+  const { id } = useParams();
+
   const [product, setProduct] = useState({
     images: [],
     name: "",

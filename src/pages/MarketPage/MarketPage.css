@@ -5,40 +5,6 @@
   width: 100%;
 }
 
-.bestItemContainer {
-  margin: 24px auto;
-  max-width: 1200px;
-
-  @media (max-width: 1280px) {
-    margin: 24px;
-  }
-
-  @media (max-width: 768px) {
-    margin: 16px;
-  }
-}
-
-.sectionTitle {
-  margin-bottom: 16px;
-  font-size: 20px;
-  font-weight: 700;
-  color: #111827;
-}
-
-.bestItemList {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
-
-  @media (max-width: 1280px) {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  @media (max-width: 768px) {
-    grid-template-columns: repeat(1, 1fr);
-  }
-}
-
 .allItemContainer {
   max-width: 1200px;
 

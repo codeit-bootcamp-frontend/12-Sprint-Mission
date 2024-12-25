@@ -23,7 +23,9 @@ function ItemDetail({ product }) {
             <img className="userImg" src={userImg} />
             <div>
               <div className="userName">{product.ownerNickname}</div>
-              <div className="date">{new Date(product.createdAt).toLocaleDateString()}</div>
+              <div className="date">
+                {new Date(product.createdAt).toLocaleDateString()}
+              </div>
             </div>
           </div>
           <div className="favoriteCountContainer">

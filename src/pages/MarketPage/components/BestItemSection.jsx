@@ -1,3 +1,4 @@
+import styles from "./BestItemSection.module.css";
 import { useEffect } from "react";
 import { useState } from "react";
 import { getProductList } from "../../../api/ItemApi";
@@ -36,9 +37,9 @@ function BestItemSection() {
   }, [pageSize]);
 
   return (
-    <div className="bestItemContainer">
-      <h1 className="sectionTitle">베스트 상품</h1>
-      <div className="bestItemList">
+    <div className={styles.container}>
+      <h1 className={styles.title}>베스트 상품</h1>
+      <div className={styles.list}>
         {itemList?.map((item) => (
           <ItemCard item={item} key={item.id} />
         ))}
