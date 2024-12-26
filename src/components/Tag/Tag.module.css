@@ -1,0 +1,12 @@
+.container {
+  display: flex;
+  gap: 0.8rem;
+}
+
+.tag {
+  padding: 0.6rem 1.6rem;
+  border-radius: 2.6rem;
+  font-weight: 400;
+  font-size: 1.6rem;
+  background-color: var(--color-secondary-100);
+}

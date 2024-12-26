@@ -1,0 +1,124 @@
+.container {
+  display: flex;
+  gap: 2.4rem;
+}
+
+.img {
+  width: 48.6rem;
+  height: 48.6rem;
+  border-radius: 1.6rem;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1;
+  gap: 2.4rem;
+}
+
+.content-header {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  width: 100%;
+  border-bottom: 0.1rem solid #e5e7eb;
+  font-weight: 600;
+  color: var(--color-secondary-800);
+}
+
+.header-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+
+.description {
+  font-size: 2.4rem;
+}
+
+.price {
+  margin-bottom: 1.6rem;
+  font-size: 4rem;
+}
+
+.content-mid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+  font-size: 1.6rem;
+  color: var(--color-secondary-600);
+}
+
+.mid-header {
+  font-weight: 600;
+}
+
+.mid-content {
+  font-weight: 400;
+}
+
+.content-bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+
+.content-bottom > p {
+  font-weight: 600;
+  font-size: 1.6rem;
+  color: var(--color-secondary-600);
+}
+
+.content-footer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+  flex: 1;
+  border-right: 1px solid var(--color-secondary-200);
+}
+
+.footer-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.user-name {
+  font-weight: 500;
+  font-size: 1.4rem;
+  line-height: 2.4rem;
+  color: var(--color-secondary-600);
+}
+
+.date {
+  font-weight: 400;
+  font-size: 1.4rem;
+  line-height: 2.4rem;
+  color: var(--color-secondary-400);
+}
+
+.like-btn {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-left: 2.4rem;
+  padding: 0.4rem 1.2rem;
+  border: 1px solid var(--color-secondary-200);
+  border-radius: 3.5rem;
+}
+
+.heart {
+}
+
+.like-count {
+  font-weight: 500;
+  font-size: 1.6rem;
+  line-height: 2.6rem;
+  color: var(--color-secondary-500);
+}

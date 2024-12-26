@@ -4,6 +4,7 @@ import clsx from "clsx";
 const LinkButton = ({
   onClick,
   children,
+  type,
   className,
   disabled = false,
   size,
@@ -16,6 +17,7 @@ const LinkButton = ({
       className={clsx(styles.button, styles[size], styles[color], className)}
       onClick={onClick}
       disabled={disabled}
+      type={type}
       {...props}
     >
       {children}

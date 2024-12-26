@@ -12,6 +12,11 @@
   background-color: var(--color-primary-300);
 }
 
+.button:disabled {
+  background-color: var(--color-secondary-400);
+  cursor: not-allowed;
+}
+
 .large {
   padding: 1.6rem 12.4rem;
   border-radius: 4rem;
@@ -22,4 +27,8 @@
   padding: 1.2rem 7.1rem;
   border-radius: 4rem;
   font-size: 1.8rem;
+}
+
+.small {
+  width: 7.4rem;
 }

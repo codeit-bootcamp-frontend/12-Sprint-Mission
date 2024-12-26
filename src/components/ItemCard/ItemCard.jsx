@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 function ItemCard({ item }) {
   return (
-    <Link to={`/item/${item.id}`} className="itemCard">
+    <Link to={`/items/${item.id}`} className="itemCard">
       <img
         className="itemCardImg"
         src={item.images[0] ? item.images[0] : EmptyItemImg}
