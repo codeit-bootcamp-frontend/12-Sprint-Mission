@@ -12,11 +12,9 @@ const ProductSection = ({ id }) => {
   const loadProduct = async (id) => {
     try {
       const productData = await getProduct(id);
-      console.log(productData);
-      console.log(product.tags);
       setProduct(productData);
     } catch (error) {
-      console.error("데이터 로드 실패", error);
+      console.error("상품 데이터 로드 실패", error);
     }
   };
 

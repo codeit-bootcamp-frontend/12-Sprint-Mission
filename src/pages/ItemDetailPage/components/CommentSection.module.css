@@ -1,0 +1,40 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 1.2rem;
+  border-bottom: 1px solid var(--color-secondary-200);
+  font-weight: 400;
+}
+
+.content-box {
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+}
+
+.content {
+  font-size: 1.4rem;
+  color: var(--color-secondary-800);
+}
+
+.user {
+  display: flex;
+  gap: 0.8rem;
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 0.4rem;
+}
+
+.name {
+  font-size: 1.2rem;
+  color: var(--color-secondary-600);
+}
+
+.date {
+  font-size: 1.2rem;
+  color: var(--color-secondary-400);
+}
