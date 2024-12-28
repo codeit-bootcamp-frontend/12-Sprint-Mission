@@ -1,11 +1,28 @@
-import { createContext, useContext, useEffect, useRef, useState } from "react";
+import {
+  createContext,
+  ReactNode,
+  useContext,
+  useEffect,
+  useState,
+} from "react";
 import { getUser, login, refreshAccessToken, signUp } from "@service/auth";
 import { isTokenValid } from "@util/helper";
 import { axiosInstance } from "@service/axios";
+import { SigninFormData, SignupFormData, User } from "@type/auth";
 
-const AuthContext = createContext();
+type AuthContextProps = {
+  auth: {
+    accessToken: string | null;
+    refreshToken: string | null;
+    user: User | null;
+  };
+  handleLogin: (formData: SigninFormData) => void;
+  handleLogout: () => void;
+  handleSignup: (formData: SignupFormData) => void;
+};
+const AuthContext = createContext<AuthContextProps | null>(null);
 
-export function AuthProvider({ children }) {
+export function AuthProvider({ children }: { children: ReactNode }) {
   const [auth, setAuth] = useState(() => ({
     accessToken: localStorage.getItem("accessToken") || null,
     refreshToken: localStorage.getItem("refreshToken") || null,
@@ -18,7 +35,7 @@ export function AuthProvider({ children }) {
 
     const authInterceptor = axiosInstance.interceptors.request.use(
       async function (config) {
-        if (!config._retry && auth.accessToken) {
+        if (auth.accessToken) {
           config.headers.Authorization = `Bearer ${auth.accessToken}`;
         }
 
@@ -74,10 +91,8 @@ export function AuthProvider({ children }) {
         const user = await getUser();
         setAuth((prev) => ({ ...prev, user }));
       } catch (err) {
-        if (err.name !== "CanceledError") {
-          console.error(err);
-          clear();
-        }
+        console.error(err);
+        clear();
       }
     })();
   }, [auth.accessToken]);
@@ -95,7 +110,7 @@ export function AuthProvider({ children }) {
     }
   }
 
-  async function handleLogin({ email, password }) {
+  async function handleLogin({ email, password }: SigninFormData) {
     try {
       const { user, accessToken, refreshToken } = await login({
         email,
@@ -114,7 +129,7 @@ export function AuthProvider({ children }) {
     }
   }
 
-  async function handleSignup(formData) {
+  async function handleSignup(formData: SignupFormData) {
     return signUp(formData);
   }
 
