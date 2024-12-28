@@ -1,12 +1,22 @@
 .container {
   display: flex;
   gap: 2.4rem;
+
+  @media (max-width: 502px) {
+    flex-direction: column;
+    gap: 1.6rem;
+  }
 }
 
 .img {
   width: 48.6rem;
   height: 48.6rem;
   border-radius: 1.6rem;
+
+  @media (max-width: 1200px) {
+    width: 34rem;
+    height: 34rem;
+  }
 }
 
 .content {

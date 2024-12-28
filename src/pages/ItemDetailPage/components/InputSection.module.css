@@ -11,10 +11,12 @@
   color: var(--color-secondary-900);
 }
 
-.input {
+.text {
   height: 10.4rem;
 }
 
 .btn {
+  box-sizing: border-box;
   width: 7.4rem;
+  margin-left: auto;
 }

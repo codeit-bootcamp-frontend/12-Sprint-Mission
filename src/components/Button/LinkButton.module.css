@@ -1,4 +1,7 @@
 .button {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
   padding: 0.8rem 2.3rem;
   border-radius: 0.8rem;
   font-size: 1.6rem;
@@ -30,5 +33,6 @@
 }
 
 .small {
-  width: 7.4rem;
+  padding: 1.2rem 2.3rem;
+  border-radius: 0.8rem;
 }

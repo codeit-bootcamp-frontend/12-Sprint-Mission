@@ -20,9 +20,9 @@
 .itemCardImg {
   width: 100%;
   height: auto;
-  margin-bottom: 16px;
+  margin-bottom: 1.6rem;
   object-fit: cover;
-  border-radius: 16px;
+  border-radius: 1.6rem;
   border: 1px solid rgb(61, 3, 3);
   overflow: hidden;
   aspect-ratio: 1;
@@ -31,36 +31,36 @@
 .itemContainer {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 0.6rem;
 }
 
 .itemName {
-  font-size: 14px;
+  font-size: 1.4rem;
   font-weight: 500;
-  line-height: 24px;
+  line-height: 2.4rem;
   color: #1f2937;
 }
 
 .itemPrice {
-  font-size: 16px;
+  font-size: 1.6rem;
   font-weight: 700;
-  line-height: 26px;
+  line-height: 2.6rem;
   color: #1f2937;
 }
 
 .iconContainer {
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: 0.4rem;
 }
 
 .heartIcon {
-  width: 16px;
-  height: 16px;
+  width: 1.6rem;
+  height: 1.6rem;
 }
 
 .favoriteCount {
-  font-size: 12px;
+  font-size: 1.2rem;
   font-weight: 500;
-  line-height: 18px;
+  line-height: 1.8rem;
 }

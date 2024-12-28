@@ -19,6 +19,7 @@
 .input::placeholder {
   font-size: 1.6rem;
   font-weight: 400;
+  overflow: auto;
   color: var(--color-secondary-400);
 }
 
