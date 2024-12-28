@@ -10,8 +10,8 @@ export function Pagination({
   pageNumbers,
   isPrevDisabled,
   isNextDisabled,
-  isPrevGroupDisabeld,
-  isNextGroupDisabeld,
+  isPrevGroupDisabled,
+  isNextGroupDisabled,
   onPrevClick,
   onNextClick,
   onPageClick,
@@ -26,8 +26,8 @@ export function Pagination({
         <button
           type="button"
           className={styles.item}
-          onClick={!isPrevGroupDisabeld ? onPrevGroupClick : undefined}
-          disabled={isPrevGroupDisabeld}
+          onClick={!isPrevGroupDisabled ? onPrevGroupClick : undefined}
+          disabled={isPrevGroupDisabled}
         >
           <img src={doubleArrowLeft} alt="이전 그룹" />
         </button>
@@ -68,8 +68,8 @@ export function Pagination({
         <button
           type="button"
           className={styles.item}
-          onClick={!isNextGroupDisabeld ? onNextGroupClick : undefined}
-          disabled={isNextGroupDisabeld}
+          onClick={!isNextGroupDisabled ? onNextGroupClick : undefined}
+          disabled={isNextGroupDisabled}
         >
           <img src={doubleArrowRight} alt="다음 그룹" />
         </button>

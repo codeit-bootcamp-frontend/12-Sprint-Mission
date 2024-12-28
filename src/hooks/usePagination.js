@@ -20,8 +20,8 @@ export default function usePagination({
   const isPrevDisabled = page === 1;
   const isNextDisabled = totalPage === page;
 
-  const isPrevGroupDisabeld = currentGroup === 1;
-  const isNextGroupDisabeld = lastPageInGroup === totalPage;
+  const isPrevGroupDisabled = currentGroup === 1;
+  const isNextGroupDisabled = lastPageInGroup === totalPage;
 
   function handleNextClick() {
     onChange(page + 1);
@@ -55,8 +55,8 @@ export default function usePagination({
     pageNumbers,
     isPrevDisabled,
     isNextDisabled,
-    isPrevGroupDisabeld,
-    isNextGroupDisabeld,
+    isPrevGroupDisabled,
+    isNextGroupDisabled,
     onPrevClick: handlePrevClick,
     onNextClick: handleNextClick,
     onPageClick: handlePageClick,
