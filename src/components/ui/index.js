@@ -12,3 +12,4 @@ export * from "./Author";
 export * from "./LikeButton";
 export * from "./Message";
 export * from "./Fullscreen";
+export * from "./Modal";

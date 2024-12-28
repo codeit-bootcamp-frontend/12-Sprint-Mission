@@ -1,5 +1,5 @@
 import { cloneElement, useState } from "react";
-import { createPortal } from "react-dom";
+import { Modal } from "@components/ui";
 import styles from "./Fullscreen.module.scss";
 
 export function Fullscreen({ children }) {
@@ -16,11 +16,11 @@ export function Fullscreen({ children }) {
   return (
     <>
       {cloneElement(children, { onOpenScreen: handleOpenScreen })}
-      {imgSrc &&
-        createPortal(
-          <ImgViewer src={imgSrc} onCloseScreen={handleCloseScreen} />,
-          document.querySelector("#root")
-        )}
+      {imgSrc && (
+        <Modal>
+          <ImgViewer src={imgSrc} onCloseScreen={handleCloseScreen} />
+        </Modal>
+      )}
     </>
   );
 }
