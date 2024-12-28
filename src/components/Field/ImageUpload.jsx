@@ -18,7 +18,7 @@ export function ImageUpload({
     name,
     value,
     accept: "image/*",
-    limiSize: LIMIT_SIZE_MB,
+    limitSize: LIMIT_SIZE_MB,
     onChange: (file) => onChange(name, file),
     errorMessage: {
       max: "이미지 등록은 최대 1개까지 가능합니다.",

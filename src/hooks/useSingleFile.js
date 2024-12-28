@@ -4,7 +4,7 @@ export default function useSingleFile({
   value,
   onChange,
   accept = "",
-  limiSize = 5,
+  limitSize = 5,
   errorMessage = {},
 }) {
   const [preview, setPreview] = useState(null);
@@ -13,7 +13,7 @@ export default function useSingleFile({
 
   const defaultMessage = {
     max: "등록은 최대 1개까지 가능합니다.",
-    size: `${limiSize}MB 이하로 올려주세요`,
+    size: `${limitSize}MB 이하로 올려주세요`,
     accept: "지원하지 않는 형식입니다.",
   };
 
@@ -50,7 +50,7 @@ export default function useSingleFile({
     if (!file.type.match(accept)) {
       return setError(message.accept);
     }
-    if (file.size > limiSize * 1024 * 1024) {
+    if (file.size > limitSize * 1024 * 1024) {
       return setError(message.size);
     }
 
