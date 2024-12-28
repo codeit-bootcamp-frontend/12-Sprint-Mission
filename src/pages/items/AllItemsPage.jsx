@@ -44,7 +44,7 @@ export default function AllItemsPage() {
 
   const {
     searchInput,
-    recentSearh,
+    recentSearch,
     handleSearchSubmit,
     handleSearchChange,
     handleSearchClear,
@@ -73,7 +73,7 @@ export default function AllItemsPage() {
             <Recent
               title="최근검색"
               storageKey="keyword"
-              data={recentSearh}
+              data={recentSearch}
               onItemClick={handleRecentSearchClick}
               onItemClear={handleRecentSearchClear}
               onItemRemove={handleRecentSearchRemove}

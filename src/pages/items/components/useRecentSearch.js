@@ -5,7 +5,7 @@ const RECENT_SEARCH_SIZE = 5;
 
 export default function useRecentSearch({ initialKeyword, onChange }) {
   const [searchInput, setSearchInput] = useState(initialKeyword || "");
-  const [recentSearh, setRecentSearch] = useLocalStorage("keyword", []);
+  const [recentSearch, setRecentSearch] = useLocalStorage("keyword", []);
 
   // 검색창 핸들러 (submit, change, clear)
   function handleSearchSubmit() {
@@ -53,7 +53,7 @@ export default function useRecentSearch({ initialKeyword, onChange }) {
 
   return {
     searchInput,
-    recentSearh,
+    recentSearch,
     handleSearchSubmit,
     handleSearchChange,
     handleSearchClear,
