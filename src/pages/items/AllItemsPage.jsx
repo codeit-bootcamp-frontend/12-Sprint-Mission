@@ -7,7 +7,7 @@ import { Search, Recent } from "@components/Search";
 import { Section } from "@components/Section";
 import { Pagination } from "@components/Pagination/";
 import ProductList from "./components/ProductList";
-import ProductFilter from "./components/ProdcutFilter";
+import ProductFilter from "./components/ProductFilter";
 import useRecentSearch from "./components/useRecentSearch";
 
 export default function AllItemsPage() {
