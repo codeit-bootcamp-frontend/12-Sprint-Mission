@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function useLocalStorage(key, initialValue) {
+export default function useLocalStorage(key: string, initialValue: string[]) {
   const [state, setState] = useState(() => {
     try {
       const value = window.localStorage.getItem(key);
@@ -11,7 +11,7 @@ export default function useLocalStorage(key, initialValue) {
     }
   });
 
-  function setValue(value) {
+  function setValue(value: string[]) {
     try {
       //useState의 setState에 callback을 넘기는 행동처럼 사용가능하도록
       const newValue = value instanceof Function ? value(state) : value;

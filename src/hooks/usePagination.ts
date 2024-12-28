@@ -1,4 +1,12 @@
-import { useEffect } from "react";
+import { MouseEvent, useEffect } from "react";
+
+interface PaginationProps {
+  page: number;
+  pageSize: number;
+  totalCount: number;
+  visibleCount: number;
+  onChange: (page: number) => void;
+}
 
 export default function usePagination({
   page,
@@ -6,7 +14,7 @@ export default function usePagination({
   totalCount,
   visibleCount = 5,
   onChange,
-}) {
+}: PaginationProps) {
   const totalPage = Math.ceil(totalCount / pageSize);
   const currentGroup = Math.ceil(page / visibleCount);
   const firstPageInGroup = (currentGroup - 1) * visibleCount + 1;
@@ -31,8 +39,8 @@ export default function usePagination({
     onChange(page - 1);
   }
 
-  function handlePageClick(e) {
-    onChange(Number(e.target.dataset.number));
+  function handlePageClick(e: MouseEvent<HTMLElement>) {
+    onChange(Number(e.currentTarget.dataset.number));
   }
 
   function handleNextGroupClick() {

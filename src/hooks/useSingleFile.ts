@@ -1,4 +1,15 @@
-import { useEffect, useRef, useState } from "react";
+import { ChangeEvent, useEffect, useRef, useState } from "react";
+
+interface SingleFileProps {
+  value: File;
+  onChange: (file: File | undefined) => void;
+  accept: string;
+  limitSize: number;
+  errorMessage?: {
+    max?: string;
+    accept?: string;
+  };
+}
 
 export default function useSingleFile({
   value,
@@ -6,10 +17,10 @@ export default function useSingleFile({
   accept = "",
   limitSize = 5,
   errorMessage = {},
-}) {
-  const [preview, setPreview] = useState(null);
-  const [error, setError] = useState(null);
-  const fileRef = useRef(null);
+}: SingleFileProps) {
+  const [preview, setPreview] = useState<string | null>(null);
+  const [error, setError] = useState<string | null>(null);
+  const fileRef = useRef<HTMLInputElement>(null);
 
   const defaultMessage = {
     max: "등록은 최대 1개까지 가능합니다.",
@@ -39,7 +50,9 @@ export default function useSingleFile({
     }
   }, [value]);
 
-  function handleChange(e) {
+  function handleChange(e: ChangeEvent<HTMLInputElement>) {
+    if (!e.target.files) return;
+
     const file = e.target.files[0];
     setError(null);
 
@@ -54,7 +67,10 @@ export default function useSingleFile({
       return setError(message.size);
     }
 
-    fileRef.current.value = "";
+    if (fileRef.current) {
+      fileRef.current.value = "";
+    }
+
     onChange(file);
   }
 

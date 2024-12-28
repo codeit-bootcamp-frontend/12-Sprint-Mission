@@ -1,11 +1,11 @@
 import { useState } from "react";
 
-export default function useAsync(asyncFn) {
-  const [result, setResult] = useState(null);
+export default function useAsync<T>(asyncFn: () => Promise<T>) {
+  const [result, setResult] = useState<T | null>(null);
   const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState(null);
+  const [error, setError] = useState<Error | null>(null);
 
-  async function wrappedFn(...args) {
+  async function wrappedFn(...args: Parameters<typeof asyncFn>) {
     try {
       setError(null);
       setIsLoading(true);
@@ -13,7 +13,7 @@ export default function useAsync(asyncFn) {
       setResult(res);
       return res;
     } catch (err) {
-      if (err.name !== "CanceledError") {
+      if (err instanceof Error && err.name !== "CanceledError") {
         setError(err);
       }
     } finally {

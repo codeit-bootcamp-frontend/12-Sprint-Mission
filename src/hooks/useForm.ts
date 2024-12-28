@@ -1,10 +1,49 @@
-import { useState } from "react";
+import { ChangeEvent, useState } from "react";
 
-export default function useForm(formSchema, defaultValues = {}) {
+type FormValue = string | number | File | File[] | undefined;
+
+type FormSchema = {
+  [key: string]: {
+    value: FormValue;
+    rule: Rule;
+  };
+};
+
+type Rule = {
+  required?: boolean | string;
+  patterns?: {
+    regex: RegExp;
+    message: string;
+  }[];
+  custom?: {
+    validate: (value: FormValue) => boolean;
+    message: string;
+  };
+  match?: {
+    field: keyof FormSchema;
+    message: string;
+  };
+};
+
+type DefaultValues = {
+  [key: keyof FormSchema]: FormValue;
+};
+
+type FormState = {
+  [name: keyof FormSchema]: {
+    value: FormValue;
+    error: string | null;
+  };
+};
+
+export default function useForm(
+  formSchema: FormSchema,
+  defaultValues: DefaultValues = {}
+) {
   //rule은 따로 보관하기
   const rules = Object.fromEntries(
     Object.entries(formSchema)
-      .filter(([key, value]) => value.rule)
+      .filter(([_, value]) => value.rule)
       .map(([key, value]) => [key, value.rule])
   );
 
@@ -16,14 +55,17 @@ export default function useForm(formSchema, defaultValues = {}) {
     ])
   );
 
-  const [formState, setFormState] = useState(initialState);
+  const [formState, setFormState] = useState<FormState>(initialState);
   const [isLoading, setIsLoading] = useState(false);
-  const [formError, setFormError] = useState(null);
+  const [formError, setFormError] = useState<Error | null>(null);
   const isFormValid = Object.entries(formState).every(([key, item]) =>
     isValidField(rules[key], item)
   );
 
-  function isValidField(rule, item) {
+  function isValidField(
+    rule: Rule,
+    item: { value: FormValue; error: string | null }
+  ) {
     if (item.error !== null) return false;
 
     if (rule?.required) {
@@ -47,7 +89,7 @@ export default function useForm(formSchema, defaultValues = {}) {
     return true;
   }
 
-  function handleInputChange(e) {
+  function handleInputChange(e: ChangeEvent<HTMLInputElement>) {
     const { type, name, value } = e.target;
     let nextValue;
 
@@ -60,12 +102,12 @@ export default function useForm(formSchema, defaultValues = {}) {
     handleChange(name, nextValue);
   }
 
-  function trigger(name) {
+  function trigger(name: keyof FormSchema) {
     const value = formState[name].value;
     handleChange(name, value);
   }
 
-  function handleChange(name, value) {
+  function handleChange(name: keyof FormSchema, value: FormValue) {
     const { isValid, message } = validate(name, value);
 
     setFormState((prev) => ({
@@ -78,7 +120,7 @@ export default function useForm(formSchema, defaultValues = {}) {
     }));
   }
 
-  function validate(name, value) {
+  function validate(name: keyof FormSchema, value: FormValue) {
     const rule = rules[name];
 
     if (!rule) {
@@ -104,7 +146,10 @@ export default function useForm(formSchema, defaultValues = {}) {
 
     if (rule.patterns) {
       for (const pattern of rule.patterns) {
-        if (Array.isArray(value)) {
+        if (
+          Array.isArray(value) &&
+          value.every((item) => typeof item === "string")
+        ) {
           const isArrayValid = value.every((item) => pattern.regex.test(item));
           if (!isArrayValid) {
             return {
@@ -114,7 +159,7 @@ export default function useForm(formSchema, defaultValues = {}) {
             };
           }
         } else {
-          if (!pattern.regex.test(value)) {
+          if (typeof value === "string" && !pattern.regex.test(value)) {
             return {
               isValid: false,
               message: pattern.message || "유효하지 않은 형식입니다.",
@@ -159,10 +204,14 @@ export default function useForm(formSchema, defaultValues = {}) {
     return { isValid: true, message: null };
   }
 
-  function handleSubmit(submitFn) {
+  function handleSubmit<T>(
+    submitFn: (submitData: {
+      [name: keyof FormSchema]: FormValue;
+    }) => Promise<T>
+  ) {
     //다른곳에서 submit과 관련된 비동기코드만 넣으면 되도록
     //공통적으로 사용되는 코드를 모아두기
-    return async function (e) {
+    return async function (e: SubmitEvent) {
       e.preventDefault();
 
       //전체적으로 field들을 다시한번 trigger를 호출해서 재점검
@@ -179,7 +228,9 @@ export default function useForm(formSchema, defaultValues = {}) {
       try {
         return await submitFn(getValues());
       } catch (err) {
-        setFormError(err);
+        if (err instanceof Error) {
+          setFormError(err);
+        }
       } finally {
         setIsLoading(false);
       }
@@ -192,7 +243,7 @@ export default function useForm(formSchema, defaultValues = {}) {
     );
   }
 
-  function register(name) {
+  function register(name: keyof FormSchema) {
     return {
       id: name,
       name,
