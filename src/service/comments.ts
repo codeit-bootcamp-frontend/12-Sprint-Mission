@@ -1,6 +1,15 @@
 import { axiosInstance } from "@service/axios";
 
-export async function getComments(name, { productId, limit = 5, cursor }) {
+type BoardName = "articles" | "products";
+
+export async function getComments(
+  name: BoardName,
+  {
+    productId,
+    limit = 5,
+    cursor,
+  }: { productId: number; limit: number; cursor: number }
+) {
   const query = `limit=${limit}${cursor ? `&cursor=${cursor}` : ""}`;
   const response = await axiosInstance.get(
     `/${name}/${productId}/comments?${query}`
@@ -9,7 +18,11 @@ export async function getComments(name, { productId, limit = 5, cursor }) {
   return response.data;
 }
 
-export async function addComment(name, id, formData) {
+export async function addComment(
+  name: BoardName,
+  id: number,
+  formData: Comment
+) {
   const response = await axiosInstance.post(
     `/${name}/${id}/comments`,
     formData
@@ -18,13 +31,13 @@ export async function addComment(name, id, formData) {
   return response.data;
 }
 
-export async function removeComment(commentId) {
+export async function removeComment(commentId: number) {
   const response = await axiosInstance.delete(`/comments/${commentId}`);
 
   return response.data;
 }
 
-export async function updateComment(commentId, formData) {
+export async function updateComment(commentId: number, formData: Comment) {
   const response = await axiosInstance.patch(
     `/comments/${commentId}`,
     formData

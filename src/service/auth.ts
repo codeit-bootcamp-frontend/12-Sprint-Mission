@@ -1,6 +1,7 @@
 import { axiosInstance } from "@service/axios";
+import { SigninFormData, SignupFormData } from "@type/auth";
 
-export async function login({ email, password }) {
+export async function login({ email, password }: SigninFormData) {
   const response = await axiosInstance.post("/auth/signIn", {
     email,
     password,
@@ -14,7 +15,7 @@ export async function signUp({
   nickname,
   password,
   passwordConfirmation,
-}) {
+}: SignupFormData) {
   const response = await axiosInstance.post("/auth/signUp", {
     email,
     nickname,
@@ -31,7 +32,7 @@ export async function getUser() {
   return response.data;
 }
 
-export async function refreshAccessToken(refreshToken) {
+export async function refreshAccessToken(refreshToken: string) {
   const response = await axiosInstance.post("/auth/refresh-token", {
     refreshToken,
   });
