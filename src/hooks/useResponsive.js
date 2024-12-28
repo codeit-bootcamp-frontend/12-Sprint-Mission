@@ -2,21 +2,21 @@ import { useEffect, useState } from "react";
 import { getDeviceType } from "@util/breakpoints";
 import { debounce } from "@util/debounce";
 
-export default function useReponsive(
+export default function useResponsive(
   initialOption = {
     pc: 10,
     tablet: 6,
     mobile: 4,
   }
 ) {
-  const [pageSize, setPageSize] = useState(
+  const [responsiveValue, setResponsiveValue] = useState(
     () => initialOption[getDeviceType()]
   );
 
   useEffect(() => {
     const debounceHandleResize = debounce(function () {
       const targetSize = initialOption[getDeviceType()];
-      setPageSize(targetSize);
+      setResponsiveValue(targetSize);
     }, 100);
 
     window.addEventListener("resize", debounceHandleResize);
@@ -26,5 +26,5 @@ export default function useReponsive(
     };
   }, []);
 
-  return pageSize;
+  return responsiveValue;
 }
