@@ -2,41 +2,18 @@
   margin-bottom: 2.4rem;
   padding-bottom: 2.4rem;
   border-bottom: 1px solid var(--color-secondary-200);
+}
 
-  .form {
-    margin-bottom: -4rem;
-  }
+.comment {
+  display: flex;
+  gap: 2rem;
+}
 
-  .comment {
-    display: flex;
-    gap: 2rem;
+.content {
+  flex: 1;
+}
 
-    .content {
-      flex: 1;
-
-      .text {
-        margin-bottom: 2.4rem;
-        white-space: pre-wrap;
-      }
-
-      .footer {
-        display: flex;
-        justify-content: space-between;
-
-        .controls {
-          display: flex;
-          gap: 0.4rem;
-        }
-      }
-    }
-
-    .actions {
-      flex: 0 0 2.4rem;
-    }
-
-    textarea {
-      height: 8rem;
-      margin-bottom: 1.6rem;
-    }
-  }
+.text {
+  margin-bottom: 2.4rem;
+  white-space: pre-wrap;
 }
