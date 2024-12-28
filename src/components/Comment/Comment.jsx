@@ -16,7 +16,7 @@ export function Comment({ name, comment }) {
     updatedAt,
     writer: { nickname, image, id: writerId },
   } = comment;
-  const { handleUpdate, handleDelete } = useComment(name, comment);
+  const { isOwner, handleUpdate, handleDelete } = useComment(name, comment);
 
   function handleModify() {
     if (user?.id !== writerId) {
@@ -53,12 +53,14 @@ export function Comment({ name, comment }) {
             <Author avatar={image} nickname={nickname} updatedAt={updatedAt} />
           </div>
         </div>
-        <More
-          options={[
-            { label: "수정하기", action: handleModify },
-            { label: "삭제하기", action: handleDelete },
-          ]}
-        />
+        {isOwner && (
+          <More
+            options={[
+              { label: "수정하기", action: handleModify },
+              { label: "삭제하기", action: handleDelete },
+            ]}
+          />
+        )}
       </div>
     </li>
   );

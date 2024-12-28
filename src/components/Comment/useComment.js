@@ -45,5 +45,5 @@ export default function useComment(name, comment = {}) {
     }
   }
 
-  return { handleSubmit, handleUpdate, handleDelete };
+  return { isOwner, handleSubmit, handleUpdate, handleDelete };
 }
