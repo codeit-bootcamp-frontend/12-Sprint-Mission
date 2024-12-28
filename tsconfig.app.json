@@ -31,7 +31,8 @@
       "@context/*": ["src/context/*"],
       "@service/*": ["src/service/*"],
       "@util/*": ["src/util/*"],
-      "@assets/*": ["src/assets/*"]
+      "@assets/*": ["src/assets/*"],
+      "@type/*": ["src/types/*"]
     }
   },
   "include": ["src"]
