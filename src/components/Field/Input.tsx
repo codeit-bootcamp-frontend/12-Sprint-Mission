@@ -7,7 +7,7 @@ import styles from "./Input.module.scss";
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   type: string;
-  error: string;
+  error: string | null;
   value: string;
 }
 

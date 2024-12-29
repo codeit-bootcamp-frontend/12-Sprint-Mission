@@ -5,7 +5,7 @@ import { Error } from "@components/Field";
 import styles from "./Input.module.scss";
 
 interface TagsInputProps {
-  error: string;
+  error: string | null;
   value: string[];
   id: string;
   name: string;

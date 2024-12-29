@@ -15,6 +15,6 @@ export type Comment = {
   id: number;
 };
 
-export type CommentFormSchema = {
+export type CommentFormData = {
   content: string;
 };

@@ -5,7 +5,7 @@ import styles from "./Input.module.scss";
 
 interface NumberInputProps extends InputHTMLAttributes<HTMLInputElement> {
   type: string;
-  error: string;
+  error: string | null;
   value: number;
   formatter: (value: number) => string;
 }

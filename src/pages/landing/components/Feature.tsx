@@ -1,6 +1,24 @@
 import styles from "./Feature.module.scss";
 
-export default function Feature({ list }) {
+type Featrue = {
+  keyword: string;
+  title: string;
+  description: string;
+  featureImg: {
+    src: string;
+    alt: string;
+  };
+};
+
+interface FeatureProps {
+  list: Featrue[];
+}
+
+type FetaureItemProps = Featrue & {
+  reverse: boolean;
+};
+
+export default function Feature({ list }: FeatureProps) {
   return (
     <section className={styles.features}>
       <h2 className="a11y">판다마켓의 기능들</h2>
@@ -15,7 +33,13 @@ export default function Feature({ list }) {
   );
 }
 
-function FeatureItem({ reverse, keyword, title, featureImg, description }) {
+function FeatureItem({
+  reverse,
+  keyword,
+  title,
+  featureImg,
+  description,
+}: FetaureItemProps) {
   return (
     <div className={`${styles.feature} ${reverse ? styles.reverse : ""}`}>
       <div className={styles.inner}>

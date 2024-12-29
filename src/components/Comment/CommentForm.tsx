@@ -3,11 +3,11 @@ import { FieldItem, Form, Textarea } from "@components/Field";
 import { Author, Button } from "@components/ui";
 import { commentSchema } from "./schema";
 import styles from "./CommentForm.module.scss";
-import { Comment, CommentFormSchema } from "@type/comment";
+import { Comment, CommentFormData } from "@type/comment";
 
 interface CommentForm {
   initialData?: Comment;
-  onCommentSubmit: (data: CommentFormSchema) => void;
+  onCommentSubmit: (data: CommentFormData) => void;
   onClose?: () => void;
   isEdit?: boolean;
 }
@@ -19,7 +19,7 @@ export function CommentForm({
   isEdit,
 }: CommentForm) {
   const { formError, isFormValid, isLoading, handleSubmit, register, reset } =
-    useForm<CommentFormSchema>(commentSchema, initialData);
+    useForm<CommentFormData>(commentSchema, initialData);
 
   function handleClose() {
     reset();
@@ -30,7 +30,7 @@ export function CommentForm({
     ? "성공적으로 수정했습니다."
     : "성공적으로 작성했습니다.";
 
-  async function onSubmit(data: CommentFormSchema) {
+  async function onSubmit(data: CommentFormData) {
     try {
       await onCommentSubmit(data);
       alert(message);

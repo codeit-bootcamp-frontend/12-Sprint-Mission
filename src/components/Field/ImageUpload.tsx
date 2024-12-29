@@ -7,7 +7,7 @@ import styles from "./ImageUpload.module.scss";
 const LIMIT_SIZE_MB = 2;
 
 interface ImageUploadProps {
-  error: string;
+  error: string | null;
   value: File;
   id: string;
   name: string;

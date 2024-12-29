@@ -1,12 +1,26 @@
 import { Button } from "@components/ui";
 import styles from "./Banner.module.scss";
+import { To } from "react-router-dom";
+
+export interface BannerProps {
+  title: string;
+  bannerType: "hero" | "footer";
+  action?: {
+    to: To;
+    label: string;
+  };
+  bannerImg: {
+    src: string;
+    alt: string;
+  };
+}
 
 export default function Banner({
   title,
   bannerType = "hero",
   action,
   bannerImg,
-}) {
+}: BannerProps) {
   return (
     <section className={`${styles.banner} ${styles[`${bannerType}-banner`]}`}>
       <div className={styles.inner}>

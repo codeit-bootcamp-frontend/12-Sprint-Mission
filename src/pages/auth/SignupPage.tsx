@@ -6,6 +6,7 @@ import { Form, FieldItem, Input } from "@components/Field";
 import { Button } from "@components/ui";
 import AuthContainer from "./components/AuthContainer";
 import { signupFormSchema } from "./components/schema";
+import { SignupFormData } from "@type/auth";
 
 export default function SignupPage() {
   const {
@@ -26,7 +27,7 @@ export default function SignupPage() {
     trigger,
     handleSubmit,
     register,
-  } = useForm(signupFormSchema);
+  } = useForm<SignupFormData>(signupFormSchema);
 
   //비밀번호 변경시 비밀번호확인 필드 trigger
   useEffect(() => {
@@ -36,7 +37,7 @@ export default function SignupPage() {
     trigger("passwordConfirmation");
   }, [formState.password.value]);
 
-  async function onSubmit(data) {
+  async function onSubmit(data: SignupFormData) {
     try {
       await handleSignup(data);
       alert("회원가입에 성공했습니다. \n로그인 페이지로 이동합니다.");

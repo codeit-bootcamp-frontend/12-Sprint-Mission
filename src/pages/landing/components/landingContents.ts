@@ -3,8 +3,9 @@ import bottomBannerImg from "@assets/img/landing/banner_img_bottom.svg";
 import featureImg1 from "@assets/img/landing/landing_content_01.svg";
 import featureImg2 from "@assets/img/landing/landing_content_02.svg";
 import featureImg3 from "@assets/img/landing/landing_content_03.svg";
+import { BannerProps } from "./Banner";
 
-export const heroBannerData = {
+export const heroBannerData: BannerProps = {
   bannerType: "hero",
   title: "일상의 모든 물건을 \n거래해 보세요",
   action: { to: "/items", label: "구경하러가기" },
@@ -14,7 +15,7 @@ export const heroBannerData = {
   },
 };
 
-export const footerBannerData = {
+export const footerBannerData: BannerProps = {
   bannerType: "footer",
   title: "믿을 수 있는 \n판다마켓 중고 거래",
   bannerImg: {

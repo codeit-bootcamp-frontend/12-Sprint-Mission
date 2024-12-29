@@ -5,6 +5,7 @@ import { Form, FieldItem, Input } from "@components/Field";
 import { Button } from "@components/ui";
 import AuthContainer from "./components/AuthContainer";
 import { loginFormSchema } from "./components/schema";
+import { SigninFormData } from "@type/auth";
 
 export default function LoginPage() {
   const navigate = useNavigate();
@@ -18,9 +19,9 @@ export default function LoginPage() {
   }
 
   const { formError, isFormValid, isLoading, handleSubmit, register } =
-    useForm(loginFormSchema);
+    useForm<SigninFormData>(loginFormSchema);
 
-  async function onSubmit(data) {
+  async function onSubmit(data: SigninFormData) {
     try {
       await handleLogin(data);
       alert("로그인에 성공했습니다.");
