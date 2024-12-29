@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function useAsync<T>(asyncFn: () => Promise<T>) {
+export default function useAsync<T>(asyncFn: (...args: any[]) => Promise<T>) {
   const [result, setResult] = useState<T | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<Error | null>(null);

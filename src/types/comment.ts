@@ -1,5 +1,7 @@
 import { User } from "./auth";
 
+export type BoardName = "articles" | "products";
+
 export type CommentList = {
   nextCursor: number;
   list: Comment[];
@@ -11,4 +13,8 @@ export type Comment = {
   createdAt: string;
   content: string;
   id: number;
+};
+
+export type CommentFormSchema = {
+  content: string;
 };

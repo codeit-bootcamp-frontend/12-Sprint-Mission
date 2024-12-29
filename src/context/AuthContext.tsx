@@ -20,7 +20,16 @@ type AuthContextProps = {
   handleLogout: () => void;
   handleSignup: (formData: SignupFormData) => void;
 };
-const AuthContext = createContext<AuthContextProps | null>(null);
+const AuthContext = createContext<AuthContextProps>({
+  auth: {
+    accessToken: null,
+    refreshToken: null,
+    user: null,
+  },
+  handleLogin: () => {},
+  handleLogout: () => {},
+  handleSignup: () => {},
+});
 
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [auth, setAuth] = useState(() => ({
@@ -82,6 +91,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     if (!auth.accessToken) return;
 
     (async function getUserData() {
+      if (!auth.accessToken) return;
+
       try {
         // 토큰이 만료되었으면 재발급후 종료 (다시 이 effect가 호출되어서 유저정보를 가져옴)
         if (!isTokenValid(auth.accessToken)) {
@@ -98,6 +109,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }, [auth.accessToken]);
 
   async function handleRrefreshToken() {
+    if (!auth.refreshToken) return;
+
     try {
       const { accessToken } = await refreshAccessToken(auth.refreshToken);
       localStorage.setItem("accessToken", accessToken);

@@ -1,12 +1,8 @@
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, FormEvent, useState } from "react";
 
-type FormValue = string | number | File | File[] | undefined;
-
-type FormSchema = {
-  [key: string]: {
-    value: FormValue;
-    rule: Rule;
-  };
+type FieldValue = string | number | File | undefined;
+type FieldValues = {
+  [key: string]: FieldValue;
 };
 
 type Rule = {
@@ -16,36 +12,39 @@ type Rule = {
     message: string;
   }[];
   custom?: {
-    validate: (value: FormValue) => boolean;
+    validate: (value: FieldValue) => boolean;
     message: string;
   };
   match?: {
-    field: keyof FormSchema;
+    field: string;
     message: string;
   };
 };
 
-type DefaultValues = {
-  [key: keyof FormSchema]: FormValue;
-};
-
-type FormState = {
-  [name: keyof FormSchema]: {
-    value: FormValue;
+type FormState<T extends FieldValues> = {
+  [K in keyof T]: {
+    value: T[K];
     error: string | null;
   };
 };
 
-export default function useForm(
-  formSchema: FormSchema,
-  defaultValues: DefaultValues = {}
+type FormSchema<T extends FieldValues> = {
+  [K in keyof T]: {
+    value: T[K];
+    rule: Rule;
+  };
+};
+
+export default function useForm<T extends FieldValues>(
+  formSchema: FormSchema<T>,
+  defaultValues: Partial<T> = {}
 ) {
   //rule은 따로 보관하기
   const rules = Object.fromEntries(
     Object.entries(formSchema)
       .filter(([_, value]) => value.rule)
       .map(([key, value]) => [key, value.rule])
-  );
+  ) as Record<keyof T, Rule>;
 
   //상태관리할 벨류값만 추려서 초기state만들기
   const initialState = Object.fromEntries(
@@ -53,9 +52,9 @@ export default function useForm(
       key,
       { value: defaultValues[key] ?? value.value, error: null },
     ])
-  );
+  ) as FormState<T>;
 
-  const [formState, setFormState] = useState<FormState>(initialState);
+  const [formState, setFormState] = useState<FormState<T>>(initialState);
   const [isLoading, setIsLoading] = useState(false);
   const [formError, setFormError] = useState<Error | null>(null);
   const isFormValid = Object.entries(formState).every(([key, item]) =>
@@ -64,7 +63,7 @@ export default function useForm(
 
   function isValidField(
     rule: Rule,
-    item: { value: FormValue; error: string | null }
+    item: { value: FieldValue; error: string | null }
   ) {
     if (item.error !== null) return false;
 
@@ -89,7 +88,9 @@ export default function useForm(
     return true;
   }
 
-  function handleInputChange(e: ChangeEvent<HTMLInputElement>) {
+  function handleInputChange(
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) {
     const { type, name, value } = e.target;
     let nextValue;
 
@@ -102,12 +103,12 @@ export default function useForm(
     handleChange(name, nextValue);
   }
 
-  function trigger(name: keyof FormSchema) {
+  function trigger(name: keyof T) {
     const value = formState[name].value;
     handleChange(name, value);
   }
 
-  function handleChange(name: keyof FormSchema, value: FormValue) {
+  function handleChange(name: keyof T, value: FieldValue) {
     const { isValid, message } = validate(name, value);
 
     setFormState((prev) => ({
@@ -120,7 +121,7 @@ export default function useForm(
     }));
   }
 
-  function validate(name: keyof FormSchema, value: FormValue) {
+  function validate(name: keyof T, value: FieldValue) {
     const rule = rules[name];
 
     if (!rule) {
@@ -204,14 +205,10 @@ export default function useForm(
     return { isValid: true, message: null };
   }
 
-  function handleSubmit<T>(
-    submitFn: (submitData: {
-      [name: keyof FormSchema]: FormValue;
-    }) => Promise<T>
-  ) {
+  function handleSubmit(submitFn: (submitData: T) => Promise<void>) {
     //다른곳에서 submit과 관련된 비동기코드만 넣으면 되도록
     //공통적으로 사용되는 코드를 모아두기
-    return async function (e: SubmitEvent) {
+    return async function (e: FormEvent) {
       e.preventDefault();
 
       //전체적으로 field들을 다시한번 trigger를 호출해서 재점검
@@ -237,13 +234,13 @@ export default function useForm(
     };
   }
 
-  function getValues() {
+  function getValues(): T {
     return Object.fromEntries(
       Object.entries(formState).map(([key, value]) => [key, value.value])
-    );
+    ) as T;
   }
 
-  function register(name: keyof FormSchema) {
+  function register<K extends keyof T>(name: K) {
     return {
       id: name,
       name,
