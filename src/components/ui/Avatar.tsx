@@ -5,7 +5,7 @@ import { SyntheticEvent } from "react";
 
 interface AvatarProps {
   nickname: string;
-  img: string;
+  img: string | undefined;
   hover?: boolean;
 }
 

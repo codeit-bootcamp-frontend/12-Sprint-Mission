@@ -3,7 +3,7 @@ import { toDate } from "@util/formatter";
 import styles from "./Author.module.scss";
 
 interface AuthorProps {
-  avatar: string;
+  avatar?: string;
   nickname: string;
   updatedAt: string;
 }

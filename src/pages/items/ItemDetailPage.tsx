@@ -5,9 +5,14 @@ import ProductDetail from "./components/ProductDetail";
 import { BackToList } from "@components/Button/BackToList";
 import { Loading } from "@components/ui/Loading";
 import { CommentAdd, CommentList } from "@components/Comment";
+import { Product } from "@type/product";
+import { CommentList as CommentListType } from "@type/comment";
 
 export default function ItemDetailPage() {
-  const { detail, comments } = useLoaderData();
+  const { detail, comments } = useLoaderData() as {
+    detail: Product;
+    comments: CommentListType;
+  };
 
   return (
     <PageWrapper>

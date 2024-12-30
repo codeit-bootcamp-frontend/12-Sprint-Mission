@@ -9,7 +9,7 @@ interface SelectProps {
     value: string;
     label: string;
   }[];
-  onChange: () => void;
+  onChange: (value: string) => void;
 }
 
 export function Select({ value, options = [], onChange }: SelectProps) {

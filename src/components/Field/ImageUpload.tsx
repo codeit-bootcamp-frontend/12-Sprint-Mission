@@ -8,11 +8,11 @@ const LIMIT_SIZE_MB = 2;
 
 interface ImageUploadProps {
   error: string | null;
-  value: File;
+  value: Blob | File | string | string[] | undefined;
   id: string;
   name: string;
-  onChange: (name: string, file: File | undefined) => {};
-  placeholder: string;
+  onChange: (name: string, file: File | undefined) => void;
+  placeholder?: string;
 }
 
 export function ImageUpload({

@@ -1,9 +1,17 @@
-import { useState } from "react";
+import { ChangeEvent, useState } from "react";
 import useLocalStorage from "@hooks/useLocalStorage";
 
 const RECENT_SEARCH_SIZE = 5;
 
-export default function useRecentSearch({ initialKeyword, onChange }) {
+interface useRecentSearchProps {
+  initialKeyword: string;
+  onChange: (keyword: string) => void;
+}
+
+export default function useRecentSearch({
+  initialKeyword,
+  onChange,
+}: useRecentSearchProps) {
   const [searchInput, setSearchInput] = useState(initialKeyword || "");
   const [recentSearch, setRecentSearch] = useLocalStorage("keyword", []);
 
@@ -22,7 +30,7 @@ export default function useRecentSearch({ initialKeyword, onChange }) {
     onChange(searchInput);
   }
 
-  function handleSearchChange(e) {
+  function handleSearchChange(e: ChangeEvent<HTMLInputElement>) {
     setSearchInput(e.target.value);
   }
 
@@ -32,7 +40,7 @@ export default function useRecentSearch({ initialKeyword, onChange }) {
   }
 
   // 최근검색 이벤트 핸들러 (click, remove, clear)
-  function handleRecentSearchClick(value) {
+  function handleRecentSearchClick(value: string) {
     setRecentSearch((prev) =>
       [value, ...prev.filter((keyword) => keyword !== value)].slice(
         0,
@@ -43,7 +51,7 @@ export default function useRecentSearch({ initialKeyword, onChange }) {
     onChange(value);
   }
 
-  function handleRecentSearchRemove(value) {
+  function handleRecentSearchRemove(value: string) {
     setRecentSearch((prev) => prev.filter((keyword) => keyword !== value));
   }
 

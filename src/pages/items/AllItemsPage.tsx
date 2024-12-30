@@ -28,8 +28,8 @@ export default function AllItemsPage() {
   });
 
   const { isLoading, error, items, totalCount } = useProductList({
-    page,
-    pageSize,
+    page: Number(page),
+    pageSize: Number(pageSize),
     keyword,
     orderBy,
   });
@@ -53,15 +53,15 @@ export default function AllItemsPage() {
     handleRecentSearchClear,
   } = useRecentSearch({ initialKeyword: keyword, onChange: handleSearch });
 
-  function handlePage(page) {
+  function handlePage(page: number) {
     setParams((prev) => ({ ...prev, page }), { preventScrollReset: true });
   }
 
-  function handleSearch(keyword) {
+  function handleSearch(keyword: string) {
     setParams((prev) => ({ ...prev, page: 1, keyword }));
   }
 
-  function handleOrderBy(orderBy) {
+  function handleOrderBy(orderBy: string) {
     setParams((prev) => ({ ...prev, orderBy }));
   }
 
@@ -72,7 +72,6 @@ export default function AllItemsPage() {
           search={
             <Recent
               title="최근검색"
-              storageKey="keyword"
               data={recentSearch}
               onItemClick={handleRecentSearchClick}
               onItemClear={handleRecentSearchClear}

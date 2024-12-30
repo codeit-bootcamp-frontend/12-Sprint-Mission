@@ -1,3 +1,4 @@
+import { ReactNode } from "react";
 import { Link, useNavigate, useRevalidator } from "react-router-dom";
 import { useAuth } from "@context/AuthContext";
 import {
@@ -11,8 +12,13 @@ import { More } from "@components/Button";
 import { toWon } from "@util/formatter";
 import styles from "./ProductDetail.module.scss";
 import useProductActions from "./useProductActions";
+import { Product } from "@type/product";
 
-export default function ProductDetail({ detail }) {
+interface ProductDetail {
+  detail: Product;
+}
+
+export default function ProductDetail({ detail }: ProductDetail) {
   const {
     id,
     images,
@@ -57,7 +63,7 @@ export default function ProductDetail({ detail }) {
 
     if (confirm("정말 삭제할까요?")) {
       try {
-        await handleProductDelete(id);
+        await handleProductDelete();
         alert("상품을 삭제했습니다.");
         navigate("/items");
       } catch (err) {
@@ -113,7 +119,7 @@ export default function ProductDetail({ detail }) {
   );
 }
 
-function Section({ title, children }) {
+function Section({ title, children }: { title: string; children: ReactNode }) {
   return (
     <section className={styles.section}>
       <h3 className={styles.title}>{title}</h3>

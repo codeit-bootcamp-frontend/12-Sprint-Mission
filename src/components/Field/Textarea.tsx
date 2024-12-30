@@ -6,7 +6,7 @@ import { TextareaHTMLAttributes } from "react";
 interface TextareaProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
   error: string | null;
   value: string;
-  size: "sm" | "lg";
+  size?: "sm" | "lg";
 }
 
 export function Textarea({ error, value, size, ...props }: TextareaProps) {

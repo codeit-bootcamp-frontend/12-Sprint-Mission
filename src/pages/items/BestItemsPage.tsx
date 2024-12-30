@@ -15,7 +15,7 @@ export default function BestItemsPage() {
   });
 
   return (
-    <Section title="베스트 상품">
+    <Section>
       <Section.Header title="베스트 상품" />
       <Section.Content>
         <ProductList

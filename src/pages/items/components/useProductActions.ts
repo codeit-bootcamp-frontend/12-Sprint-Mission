@@ -5,15 +5,18 @@ import {
   toggleLike,
   uploadProductImage,
 } from "@service/product";
+import { ProductFormData } from "@type/product";
 
-export default function useProductActions(productId) {
-  async function handleLike(flag) {
+export default function useProductActions(productId?: number) {
+  async function handleLike(flag: boolean) {
+    if (!productId) return;
+
     return toggleLike(productId, flag);
   }
 
-  async function handleProductAdd(formData) {
+  async function handleProductAdd(formData: ProductFormData) {
     try {
-      if (formData.images) {
+      if (formData.images instanceof Blob) {
         const imgFormData = new FormData();
         imgFormData.append("image", formData.images);
 
@@ -27,9 +30,11 @@ export default function useProductActions(productId) {
     }
   }
 
-  async function handleProductModify(prevData, formData) {
+  async function handleProductModify(formData: ProductFormData) {
+    if (!productId) return;
+
     try {
-      if (formData.images !== prevData.images[0]) {
+      if (formData.images instanceof Blob) {
         const imgFormData = new FormData();
         imgFormData.append("image", formData.images);
 
@@ -44,6 +49,8 @@ export default function useProductActions(productId) {
   }
 
   async function handleProductDelete() {
+    if (!productId) return;
+
     return deleteProduct(productId);
   }
 

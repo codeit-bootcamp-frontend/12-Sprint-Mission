@@ -1,3 +1,4 @@
+import { FieldValue } from "@hooks/useForm";
 import { PRODUCT_VALIDATION_MESSAGE as MESSAGE } from "@util/validation";
 
 export const addItemSchema = {
@@ -42,7 +43,7 @@ export const addItemSchema = {
         },
       ],
       custom: {
-        validate: (value) => value >= 100,
+        validate: (value: FieldValue) => Number(value) >= 100,
         message: "최소 100원이상 작성해주세요.",
       },
     },

@@ -13,12 +13,19 @@ import {
   NumberInput,
 } from "@components/Field";
 import { addItemSchema } from "./schema";
+import { Product, ProductFormData } from "@type/product";
+
+interface ProductFormProps {
+  initialData?: Partial<Product>;
+  onProductSubmit: (formData: ProductFormData) => void;
+  isEdit?: boolean;
+}
 
 export default function ProductForm({
-  initialData = {},
+  initialData,
   onProductSubmit,
   isEdit = false,
-}) {
+}: ProductFormProps) {
   const {
     formError,
     isFormValid,
@@ -26,15 +33,16 @@ export default function ProductForm({
     handleChange,
     handleSubmit,
     register,
-  } = useForm(addItemSchema, initialData);
+  } = useForm<ProductFormData>(addItemSchema, initialData);
   const navigate = useNavigate();
 
-  const redirect = isEdit ? `/items/${initialData.id}` : "/items";
+  const redirect =
+    isEdit && initialData ? `/items/${initialData.id}` : "/items";
   const message = isEdit
     ? "성공적으로 수정했습니다."
     : "성공적으로 작성했습니다.";
 
-  async function onSubmit(data) {
+  async function onSubmit(data: ProductFormData) {
     try {
       await onProductSubmit(data);
       alert(message);
@@ -84,7 +92,6 @@ export default function ProductForm({
           <FieldItem>
             <FieldItem.Label htmlFor="tags">태그</FieldItem.Label>
             <TagsInput
-              label="태그"
               placeholder="태그를 입력해주세요"
               {...register("tags")}
               onChange={handleChange}

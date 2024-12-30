@@ -4,10 +4,10 @@ import { Error } from "@components/Field";
 import styles from "./Input.module.scss";
 
 interface NumberInputProps extends InputHTMLAttributes<HTMLInputElement> {
-  type: string;
+  type?: string;
   error: string | null;
-  value: number;
-  formatter: (value: number) => string;
+  value: number | undefined;
+  formatter: (value: number | undefined) => string;
 }
 
 export function NumberInput({

@@ -2,14 +2,27 @@ import clsx from "clsx";
 import { List } from "@components/List";
 import ProductItem from "./ProductItem";
 import styles from "./ProductList.module.scss";
+import { Product } from "@type/product";
+
+interface ProductListProps {
+  items: Product[];
+  keyword?: string;
+  isLoading: boolean;
+  error: Error | null;
+  rspnCol: {
+    pc: number;
+    tablet: number;
+    mobile: number;
+  };
+}
 
 export default function ProductList({
   items,
   keyword,
   isLoading,
   error,
-  rspnCol = { pc: 5, table: 3, mobile: 2 },
-}) {
+  rspnCol = { pc: 5, tablet: 3, mobile: 2 },
+}: ProductListProps) {
   const col = Object.entries(rspnCol).map(
     ([key, value]) => styles[`${key}-col-${value}`]
   );

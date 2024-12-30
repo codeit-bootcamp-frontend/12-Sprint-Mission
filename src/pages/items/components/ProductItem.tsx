@@ -4,8 +4,15 @@ import { Thumbnail } from "@components/ui";
 import { toWon } from "@util/formatter";
 import iconHeart from "@assets/img/icon/icon_heart.svg";
 import styles from "./ProductItem.module.scss";
+import { Product } from "@type/product";
 
-function HighLightWithKeyword({ content, keyword }) {
+function HighLightWithKeyword({
+  content,
+  keyword,
+}: {
+  content: string;
+  keyword?: string;
+}) {
   if (!keyword) return <>{content}</>;
 
   const textArray = content.split(new RegExp(`(${keyword})`, "gi"));
@@ -22,7 +29,13 @@ function HighLightWithKeyword({ content, keyword }) {
   );
 }
 
-export default function ProductItem({ item, keyword }) {
+export default function ProductItem({
+  item,
+  keyword,
+}: {
+  item: Product;
+  keyword?: string;
+}) {
   const { id, images, name, price, favoriteCount } = item;
 
   return (

@@ -6,7 +6,7 @@ import iconViewOff from "@assets/img/icon/icon_view_off.svg";
 import styles from "./Input.module.scss";
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
-  type: string;
+  type?: string;
   error: string | null;
   value: string;
 }

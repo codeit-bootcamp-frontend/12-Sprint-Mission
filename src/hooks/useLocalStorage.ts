@@ -11,7 +11,7 @@ export default function useLocalStorage(key: string, initialValue: string[]) {
     }
   });
 
-  function setValue(value: string[]) {
+  function setValue(value: string[] | ((value: string[]) => void)) {
     try {
       //useState의 setState에 callback을 넘기는 행동처럼 사용가능하도록
       const newValue = value instanceof Function ? value(state) : value;
@@ -22,5 +22,5 @@ export default function useLocalStorage(key: string, initialValue: string[]) {
     }
   }
 
-  return [state, setValue];
+  return [state, setValue] as const;
 }

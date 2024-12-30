@@ -7,7 +7,7 @@ export async function getComments(
     productId,
     limit = 5,
     cursor,
-  }: { productId: number; limit: number; cursor: number }
+  }: { productId: number; limit: number; cursor?: number }
 ) {
   const query = `limit=${limit}${cursor ? `&cursor=${cursor}` : ""}`;
   const response = await axiosInstance.get(

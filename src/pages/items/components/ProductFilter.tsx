@@ -1,6 +1,17 @@
+import { ReactNode } from "react";
 import styles from "./ProductFilter.module.scss";
 
-export default function ProductFilter({ search, action, filter }) {
+interface ProductFilterProps {
+  search: ReactNode;
+  action: ReactNode;
+  filter: ReactNode;
+}
+
+export default function ProductFilter({
+  search,
+  action,
+  filter,
+}: ProductFilterProps) {
   return (
     <>
       <div className={styles.search}>{search}</div>

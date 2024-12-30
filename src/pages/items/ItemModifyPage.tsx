@@ -3,9 +3,10 @@ import { useAuth } from "@context/AuthContext";
 import { PageWrapper } from "@components/Page";
 import ProductForm from "./components/ProductForm";
 import useProductActions from "./components/useProductActions";
+import { Product } from "@type/product";
 
 export default function ItemModifyPage() {
-  const { detail } = useLoaderData();
+  const { detail } = useLoaderData() as { detail: Product };
   const {
     auth: { user },
   } = useAuth();
@@ -16,16 +17,11 @@ export default function ItemModifyPage() {
     return <Navigate to="/items" replace />;
   }
 
-  const initialData = {
-    ...detail,
-    images: detail.images[0],
-  };
-
   return (
     <PageWrapper>
       <ProductForm
-        initialData={initialData}
-        onProductSubmit={(formData) => handleProductModify(detail, formData)}
+        initialData={detail}
+        onProductSubmit={(formData) => handleProductModify(formData)}
         isEdit
       />
     </PageWrapper>

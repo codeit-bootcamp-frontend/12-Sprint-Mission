@@ -1,7 +1,7 @@
 import { ChangeEvent, useEffect, useRef, useState } from "react";
 
 interface SingleFileProps {
-  value: File;
+  value: Blob | File | string | string[] | undefined;
   onChange: (file: File | undefined) => void;
   accept: string;
   limitSize: number;
@@ -32,6 +32,13 @@ export default function useSingleFile({
 
   useEffect(() => {
     if (!value) return;
+    if (Array.isArray(value)) {
+      setPreview(value[0]);
+
+      return () => {
+        setPreview(null);
+      };
+    }
 
     if (typeof value === "string") {
       setPreview(value);

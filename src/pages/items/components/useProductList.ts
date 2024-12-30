@@ -2,8 +2,19 @@ import { useEffect } from "react";
 import { getProducts } from "@service/product";
 import useAsync from "@hooks/useAsync";
 
-export default function useProductList(params) {
-  const { page, pageSize, keyword, orderBy } = params;
+interface useProductListProps {
+  page?: number;
+  pageSize: number;
+  keyword?: string;
+  orderBy: string;
+}
+
+export default function useProductList({
+  page,
+  pageSize,
+  keyword,
+  orderBy,
+}: useProductListProps) {
   const {
     isLoading,
     error,

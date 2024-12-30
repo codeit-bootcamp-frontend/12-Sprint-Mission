@@ -5,7 +5,7 @@ export function Section({ children }: { children: ReactNode }) {
   return <section className={styles.section}>{children}</section>;
 }
 
-function Header({ title, children }: { title: string; children: ReactNode }) {
+function Header({ title, children }: { title: string; children?: ReactNode }) {
   return (
     <header className={styles.header}>
       <h2 className={styles.title}>{title}</h2>

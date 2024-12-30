@@ -1,5 +1,5 @@
 import { axiosInstance } from "@service/axios";
-import { Product } from "@type/product";
+import { ProductFormData } from "@type/product";
 
 export async function getProducts(
   { page = 1, pageSize = 10, orderBy = "recent", keyword = "" },
@@ -17,13 +17,16 @@ export async function uploadProductImage(formData: FormData) {
   return response.data;
 }
 
-export async function addProduct(productData: Product) {
+export async function addProduct(productData: ProductFormData) {
   const response = await axiosInstance.post("/products", productData);
 
   return response.data;
 }
 
-export async function modifyProduct(productId: number, productData: Product) {
+export async function modifyProduct(
+  productId: number,
+  productData: ProductFormData
+) {
   const response = await axiosInstance.patch(
     `/products/${productId}`,
     productData

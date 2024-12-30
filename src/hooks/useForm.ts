@@ -1,6 +1,7 @@
 import { ChangeEvent, FormEvent, useState } from "react";
 
-type FieldValue = string | number | File | undefined;
+export type FieldValue = string[] | string | number | File | Blob | undefined;
+
 type FieldValues = {
   [key: string]: FieldValue;
 };
@@ -108,7 +109,7 @@ export default function useForm<T extends FieldValues>(
     handleChange(name, value);
   }
 
-  function handleChange(name: keyof T, value: FieldValue) {
+  function handleChange(name: keyof T | string, value: FieldValue) {
     const { isValid, message } = validate(name, value);
 
     setFormState((prev) => ({
