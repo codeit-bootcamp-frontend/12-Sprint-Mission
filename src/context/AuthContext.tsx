@@ -8,7 +8,12 @@ import {
 import { getUser, login, refreshAccessToken, signUp } from "@service/auth";
 import { isTokenValid } from "@util/helper";
 import { axiosInstance } from "@service/axios";
-import { SigninFormData, SignupFormData, User } from "@type/auth";
+import {
+  SigninFormData,
+  SignupFormData,
+  SignupResponse,
+  User,
+} from "@type/auth";
 
 type AuthContextProps = {
   auth: {
@@ -16,23 +21,21 @@ type AuthContextProps = {
     refreshToken: string | null;
     user: User | null;
   };
-  handleLogin: (formData: SigninFormData) => void;
+  handleLogin: (formData: SigninFormData) => Promise<User>;
   handleLogout: () => void;
-  handleSignup: (formData: SignupFormData) => void;
+  handleSignup: (formData: SignupFormData) => Promise<SignupResponse>;
 };
-const AuthContext = createContext<AuthContextProps>({
-  auth: {
-    accessToken: null,
-    refreshToken: null,
-    user: null,
-  },
-  handleLogin: () => {},
-  handleLogout: () => {},
-  handleSignup: () => {},
-});
+
+type AuthStateProps = {
+  accessToken: string | null;
+  refreshToken: string | null;
+  user: User | null;
+};
+
+const AuthContext = createContext<AuthContextProps | null>(null);
 
 export function AuthProvider({ children }: { children: ReactNode }) {
-  const [auth, setAuth] = useState(() => ({
+  const [auth, setAuth] = useState<AuthStateProps>(() => ({
     accessToken: localStorage.getItem("accessToken") || null,
     refreshToken: localStorage.getItem("refreshToken") || null,
     user: null,
@@ -173,5 +176,10 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 }
 
 export function useAuth() {
-  return useContext(AuthContext);
+  const context = useContext(AuthContext);
+  if (!context) {
+    throw new Error("useAuth는 AuthProvider 내부에서만 사용가능합니다.");
+  }
+
+  return context;
 }
