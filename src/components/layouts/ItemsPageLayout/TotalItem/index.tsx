@@ -15,7 +15,7 @@ const TotalItem = () => {
   });
   const [cardCnt, setCardCnt] = useState<number>();
   const [cards, setCards] = useState<Card[]>([]);
-  const [order, setOrder] = useState(ORDER.RECENT);
+  const [order, setOrder] = useState<string>(ORDER.RECENT);
   const [page, setPage] = useState(PAGE_RELATION_NUMBER.INIT_PAGE);
   const [totalPageNum, setTotalPageNum] = useState<number>(1);
 
