@@ -8,12 +8,8 @@ import {
 import { getUser, login, refreshAccessToken, signUp } from "@service/auth";
 import { isTokenValid } from "@util/helper";
 import { axiosInstance } from "@service/axios";
-import {
-  SigninFormData,
-  SignupFormData,
-  SignupResponse,
-  User,
-} from "@type/auth";
+import { SignupResponse, User } from "@type/auth";
+import { SigninFormType, SignupFormType } from "@schemas/auth";
 
 type AuthContextProps = {
   auth: {
@@ -21,9 +17,9 @@ type AuthContextProps = {
     refreshToken: string | null;
     user: User | null;
   };
-  handleLogin: (formData: SigninFormData) => Promise<User>;
+  handleLogin: (formData: SigninFormType) => Promise<User>;
   handleLogout: () => void;
-  handleSignup: (formData: SignupFormData) => Promise<SignupResponse>;
+  handleSignup: (formData: SignupFormType) => Promise<SignupResponse>;
 };
 
 type AuthStateProps = {
@@ -126,7 +122,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     }
   }
 
-  async function handleLogin({ email, password }: SigninFormData) {
+  async function handleLogin({ email, password }: SigninFormType) {
     try {
       const { user, accessToken, refreshToken } = await login({
         email,
@@ -145,7 +141,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     }
   }
 
-  async function handleSignup(formData: SignupFormData) {
+  async function handleSignup(formData: SignupFormType) {
     return signUp(formData);
   }
 

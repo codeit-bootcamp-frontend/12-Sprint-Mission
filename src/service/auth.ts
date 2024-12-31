@@ -1,14 +1,13 @@
+import { SigninFormType, SignupFormType } from "@schemas/auth";
 import { axiosInstance } from "@service/axios";
 import {
   RefreshResponse,
-  SigninFormData,
   SigninResponse,
-  SignupFormData,
   SignupResponse,
   User,
 } from "@type/auth";
 
-export async function login({ email, password }: SigninFormData) {
+export async function login({ email, password }: SigninFormType) {
   const response = await axiosInstance.post<SigninResponse>("/auth/signIn", {
     email,
     password,
@@ -22,7 +21,7 @@ export async function signUp({
   nickname,
   password,
   passwordConfirmation,
-}: SignupFormData) {
+}: SignupFormType) {
   const response = await axiosInstance.post<SignupResponse>("/auth/signUp", {
     email,
     nickname,

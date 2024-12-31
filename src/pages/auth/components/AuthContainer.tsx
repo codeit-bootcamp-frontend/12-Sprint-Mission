@@ -2,8 +2,17 @@ import { Link } from "react-router-dom";
 import logo from "@assets/img/common/logo_full.svg";
 import Oauth from "./Oauth";
 import styles from "./AuthContainer.module.scss";
+import { ReactNode } from "react";
 
-export default function AuthContainer({ children, mode = "login" }) {
+interface AuthContainerProps {
+  children: ReactNode;
+  mode?: "login" | "signup";
+}
+
+export default function AuthContainer({
+  children,
+  mode = "login",
+}: AuthContainerProps) {
   return (
     <>
       <div className={styles["auth-container"]}>
