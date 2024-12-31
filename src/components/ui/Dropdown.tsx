@@ -44,20 +44,13 @@ const useDropdownDispatch = () => {
   return context;
 };
 
-export function Dropdown({
-  onChange,
-  children,
-}: {
-  onChange?: (value: string) => void;
-  children: ReactNode;
-}) {
+export function Dropdown({ children }: { children: ReactNode }) {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   const state = { isOpen };
 
   const dispatch = {
-    onChange,
     setIsOpen,
   };
 
@@ -121,23 +114,17 @@ function Menu({ children }: { children: ReactNode }) {
 }
 
 function Item({
-  value,
   onClick,
   children,
 }: {
-  value?: string;
   onClick?: () => void;
   children: ReactNode;
 }) {
-  const { setIsOpen, onChange } = useDropdownDispatch();
+  const { setIsOpen } = useDropdownDispatch();
 
   function handleClick() {
     setIsOpen(false);
-    value && onChange && onChange(value);
-
-    if (onClick) {
-      onClick();
-    }
+    onClick && onClick();
   }
 
   return (

@@ -15,7 +15,7 @@ interface SelectProps {
 export function Select({ value, options = [], onChange }: SelectProps) {
   const selectedLabel = options.find((option) => option.value === value)?.label;
   return (
-    <Dropdown onChange={onChange}>
+    <Dropdown>
       <Dropdown.Toggle asChild>
         <button type="button" className={styles.button}>
           <span className={styles.label}>{selectedLabel}</span>
@@ -25,7 +25,10 @@ export function Select({ value, options = [], onChange }: SelectProps) {
       </Dropdown.Toggle>
       <Dropdown.Menu>
         {options.map((option) => (
-          <Dropdown.Item key={option.value} value={option.value}>
+          <Dropdown.Item
+            key={option.value}
+            onClick={() => onChange(option.value)}
+          >
             {option.label}
           </Dropdown.Item>
         ))}
