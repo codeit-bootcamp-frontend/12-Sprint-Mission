@@ -6,9 +6,10 @@ import { Select, Button } from "@components/ui";
 import { Search, Recent } from "@components/Search";
 import { Section } from "@components/Section";
 import { Pagination } from "@components/Pagination/";
-import ProductList from "./components/ProductList";
 import ProductFilter from "./components/ProductFilter";
 import useRecentSearch from "./components/useRecentSearch";
+import ProductList from "./components/ProductList";
+import ProductItem from "./components/ProductItem";
 
 export default function AllItemsPage() {
   const [params, setParams] = useSearchParams();
@@ -104,17 +105,9 @@ export default function AllItemsPage() {
         />
       </Section.Header>
       <Section.Content>
-        <ProductList
-          items={items}
-          keyword={keyword}
-          isLoading={isLoading}
-          error={error}
-          rspnCol={{
-            pc: 5,
-            tablet: 3,
-            mobile: 2,
-          }}
-        />
+        <ProductList items={items} isLoading={isLoading} error={error}>
+          {(item) => <ProductItem item={item} keyword={keyword} />}
+        </ProductList>
         <Pagination {...pagination} />
       </Section.Content>
     </Section>

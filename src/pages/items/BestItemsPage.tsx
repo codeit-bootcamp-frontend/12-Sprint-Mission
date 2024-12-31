@@ -2,6 +2,7 @@ import useResponsive from "@hooks/useResponsive";
 import useProductList from "./components/useProductList";
 import { Section } from "@components/Section";
 import ProductList from "./components/ProductList";
+import ProductItem from "./components/ProductItem";
 
 export default function BestItemsPage() {
   const pageSize = useResponsive({
@@ -22,12 +23,10 @@ export default function BestItemsPage() {
           items={items}
           isLoading={isLoading}
           error={error}
-          rspnCol={{
-            pc: 4,
-            tablet: 2,
-            mobile: 1,
-          }}
-        />
+          mode="best"
+        >
+          {(item) => <ProductItem item={item} />}
+        </ProductList>
       </Section.Content>
     </Section>
   );
