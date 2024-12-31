@@ -4,7 +4,7 @@ import { useCallback, useEffect, useState, useRef } from 'react';
 import defaultItemImg from '@/assets/images/img_default.png';
 import emptyProfileImg from '@/assets/images/ic_profile.svg';
 import dropdownImg from '@/assets/images/ic_kebab.svg';
-import { ReactComponent as HeartIcon } from '@/assets/images/heart_empty.svg';
+import HeartIcon from '@/assets/images/heart_empty.svg?react';
 
 interface Item {
   images: string[];
@@ -29,8 +29,10 @@ const ItemInfo = () => {
   };
 
   const getItem = useCallback(async () => {
-    const response = await getItemDetail(id);
-    setItem(response);
+    if (typeof id === 'string') {
+      const response = await getItemDetail(id);
+      setItem(response);
+    }
   }, [id]);
 
   const clickDropdownHandler = () => {

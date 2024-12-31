@@ -13,11 +13,11 @@ const TotalItem = () => {
   const tabletWidth = useMediaQuery({
     query: MEDIA_KEY.TABLET,
   });
-  const [cardCnt, setCardCnt] = useState<number>(0);
+  const [cardCnt, setCardCnt] = useState<number>();
   const [cards, setCards] = useState<Card[]>([]);
   const [order, setOrder] = useState(ORDER.RECENT);
   const [page, setPage] = useState(PAGE_RELATION_NUMBER.INIT_PAGE);
-  const [totalPageNum, setTotalPageNum] = useState<number>(0);
+  const [totalPageNum, setTotalPageNum] = useState<number>(1);
 
   const getProduct = useCallback(async () => {
     const items = await getItems({

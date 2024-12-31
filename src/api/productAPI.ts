@@ -1,7 +1,19 @@
 import { GET_PRODUCT } from '@/utils/constant';
 
-const getItems = async (params = {}) => {
-  const query = new URLSearchParams(params).toString();
+interface GetItemsParms {
+  page?: number;
+  pageSize?: number;
+  orderBy?: string;
+  keyword?: string;
+}
+
+interface GetCommentsParams {
+  limit: number;
+  cursor?: number | null;
+}
+
+const getItems = async (params: GetItemsParms = {}) => {
+  const query = new URLSearchParams(JSON.parse(JSON.stringify(params))).toString();
 
   try {
     const response = await fetch(`${GET_PRODUCT.BASE_URL}?${query}`);
@@ -15,7 +27,7 @@ const getItems = async (params = {}) => {
   }
 };
 
-const getItemDetail = async (id) => {
+const getItemDetail = async (id: string) => {
   try {
     const response = await fetch(`${GET_PRODUCT.BASE_URL}/${id}`);
     if (!response.ok) {
@@ -28,12 +40,10 @@ const getItemDetail = async (id) => {
   }
 };
 
-const getItemComments = async (id, params = { limit: 3, cursor: 0 }) => {
-  const query = new URLSearchParams(params).toString();
+const getItemComments = async (id: string, params: GetCommentsParams = { limit: 3, cursor: 0 }) => {
+  const query = new URLSearchParams(JSON.parse(JSON.stringify(params))).toString();
   try {
-    const response = await fetch(
-      `${GET_PRODUCT.BASE_URL}/${id}/comments?${query}`
-    );
+    const response = await fetch(`${GET_PRODUCT.BASE_URL}/${id}/comments?${query}`);
     if (!response.ok) {
       throw new Error(`에러코드 : ${response.status}`);
     }

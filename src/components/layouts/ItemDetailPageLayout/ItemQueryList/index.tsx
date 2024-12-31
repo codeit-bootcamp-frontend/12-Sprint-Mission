@@ -24,7 +24,7 @@ interface Comment {
   updatedAt: string;
   createdAt: string;
   content: string;
-  id: number;
+  id: string;
 }
 
 const ItemQueryList = () => {
@@ -33,21 +33,25 @@ const ItemQueryList = () => {
   const [nextCursor, setNextCursor] = useState<number | null>(null);
 
   const getComments = useCallback(async () => {
-    const response = await getItemComments(id);
-    setComments(response.list);
-    setNextCursor(response.nextCursor);
+    if (typeof id === 'string') {
+      const response = await getItemComments(id);
+      setComments(response.list);
+      setNextCursor(response.nextCursor);
+    }
   }, [id]);
 
   const getMoreComments = useCallback(async () => {
     if (nextCursor !== null) {
-      const response = await getItemComments(id, {
-        limit: 3,
-        cursor: nextCursor,
-      });
-      setComments((prevComments) => {
-        return [...(prevComments || []), ...response.list];
-      });
-      setNextCursor(response.nextCursor);
+      if (typeof id === 'string') {
+        const response = await getItemComments(id, {
+          limit: 3,
+          cursor: nextCursor,
+        });
+        setComments((prevComments) => {
+          return [...(prevComments || []), ...response.list];
+        });
+        setNextCursor(response.nextCursor);
+      }
     }
   }, [id, nextCursor]);
 
