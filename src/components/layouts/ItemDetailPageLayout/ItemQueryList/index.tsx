@@ -7,17 +7,30 @@ import ItemQuery from './ItemQuery';
 
 const EmptyQueryList = () => {
   return (
-    <div className="flex flex-col justify-center items-center mb-10">
-      <img src={emptyQueryImg} alt="빈 댓글 이미지" />
-      <p className="text-gray-400">아직 문의가 없어요</p>
+    <div className='flex flex-col justify-center items-center mb-10'>
+      <img src={emptyQueryImg} alt='빈 댓글 이미지' />
+      <p className='text-gray-400'>아직 문의가 없어요</p>
     </div>
   );
 };
 
+interface Writer {
+  image: string;
+  nickname: string;
+  id: number;
+}
+interface Comment {
+  writer: Writer;
+  updatedAt: string;
+  createdAt: string;
+  content: string;
+  id: number;
+}
+
 const ItemQueryList = () => {
   const { id } = useParams();
-  const [comments, setComments] = useState(null);
-  const [nextCursor, setNextCursor] = useState(null);
+  const [comments, setComments] = useState<Comment[] | null>(null);
+  const [nextCursor, setNextCursor] = useState<number | null>(null);
 
   const getComments = useCallback(async () => {
     const response = await getItemComments(id);
@@ -26,14 +39,16 @@ const ItemQueryList = () => {
   }, [id]);
 
   const getMoreComments = useCallback(async () => {
-    const response = await getItemComments(id, {
-      limit: 3,
-      cursor: nextCursor,
-    });
-    setComments((prevComments) => {
-      return [...prevComments, ...response.list];
-    });
-    setNextCursor(response.nextCursor);
+    if (nextCursor !== null) {
+      const response = await getItemComments(id, {
+        limit: 3,
+        cursor: nextCursor,
+      });
+      setComments((prevComments) => {
+        return [...(prevComments || []), ...response.list];
+      });
+      setNextCursor(response.nextCursor);
+    }
   }, [id, nextCursor]);
 
   const moreComments = () => {
@@ -47,21 +62,13 @@ const ItemQueryList = () => {
   if (!comments) {
     return <p>로딩 중</p>;
   }
-  const renderComments =
-    comments.length > 0 ? (
-      comments.map((value) => <ItemQuery key={value.id} query={value} />)
-    ) : (
-      <EmptyQueryList />
-    );
+  const renderComments = comments.length > 0 ? comments.map((value) => <ItemQuery key={value.id} query={value} />) : <EmptyQueryList />;
 
   return (
-    <section className="flex flex-col mx-auto w-4/5">
+    <section className='flex flex-col mx-auto w-4/5'>
       {renderComments}
       {nextCursor && (
-        <button
-          className="mx-auto py-2 px-6 rounded-full text-white bg-blue-500 hover:bg-blue-700"
-          onClick={moreComments}
-        >
+        <button className='mx-auto py-2 px-6 rounded-full text-white bg-blue-500 hover:bg-blue-700' onClick={moreComments}>
           더 보기
         </button>
       )}
