@@ -19,6 +19,8 @@ export const signupFormSchema = z
     message: MESSAGE.PASSWORD_MISMATCH,
   });
 
+export type SigninFormType = z.infer<typeof signinFormSchmea>;
+
 export const signinFormSchmea = z.object({
   email: z
     .string({ required_error: MESSAGE.EMAIL_REQUIRED })
@@ -27,3 +29,5 @@ export const signinFormSchmea = z.object({
     .string({ required_error: MESSAGE.PASSWORD_REQUIRED })
     .min(8, { message: MESSAGE.PASSWORD_MIN_LENGTH }),
 });
+
+export type SignupFormType = z.infer<typeof signupFormSchema>;

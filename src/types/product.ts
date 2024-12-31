@@ -20,10 +20,6 @@ export type ProductList = {
   list: Product[];
 };
 
-export type ProductFormData = {
-  images: Blob | string[] | undefined;
-  tags: string[];
-  price: number | undefined;
-  description: string;
-  name: string;
+export type ImageUploadResponse = {
+  url: string;
 };
