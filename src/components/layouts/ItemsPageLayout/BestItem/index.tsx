@@ -4,14 +4,15 @@ import { getItems } from '../../../../api/productAPI';
 import { useEffect, useState, useCallback } from 'react';
 import styles from './index.module.css';
 import { MEDIA_KEY, ORDER, BEST_CARD_CNT } from '../../../../utils/constant';
+import Card from '../types';
 
 const BestItem = () => {
   const mobileWidth = useMediaQuery({ query: MEDIA_KEY.MOBILE });
   const tabletWidth = useMediaQuery({
     query: MEDIA_KEY.TABLET,
   });
-  const [cardCnt, setCardCnt] = useState();
-  const [cards, setCards] = useState([]);
+  const [cardCnt, setCardCnt] = useState<number>();
+  const [cards, setCards] = useState<Card[]>([]);
 
   const getProduct = useCallback(async () => {
     const items = await getItems({
@@ -34,11 +35,7 @@ const BestItem = () => {
   return (
     <section className={styles['best-item']}>
       <p className={styles['sub-title']}>베스트 상품</p>
-      <div className={styles['best-item-list']}>
-        {cards?.map((value) => (
-          <ItemCard key={value.id} value={value} category="best" />
-        ))}
-      </div>
+      <div className={styles['best-item-list']}>{cards?.map((value) => <ItemCard key={value.id} value={value} category='best' />)}</div>
     </section>
   );
 };

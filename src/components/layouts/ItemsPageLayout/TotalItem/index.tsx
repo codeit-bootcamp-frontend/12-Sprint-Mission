@@ -5,23 +5,19 @@ import TotalItemTitle from './TotalItemTitle/index';
 import ItemCard from '../ItemCard/index';
 import PaginationBar from '../../UI/PaginationBar/index';
 import styles from './index.module.css';
-import {
-  TOTAL_CARD_CNT,
-  PAGE_RELATION_NUMBER,
-  ORDER,
-  MEDIA_KEY,
-} from '../../../../utils/constant';
+import { TOTAL_CARD_CNT, PAGE_RELATION_NUMBER, ORDER, MEDIA_KEY } from '../../../../utils/constant';
+import Card from '../types';
 
 const TotalItem = () => {
   const mobileWidth = useMediaQuery({ query: MEDIA_KEY.MOBILE });
   const tabletWidth = useMediaQuery({
     query: MEDIA_KEY.TABLET,
   });
-  const [cardCnt, setCardCnt] = useState();
-  const [cards, setCards] = useState([]);
+  const [cardCnt, setCardCnt] = useState<number>(0);
+  const [cards, setCards] = useState<Card[]>([]);
   const [order, setOrder] = useState(ORDER.RECENT);
   const [page, setPage] = useState(PAGE_RELATION_NUMBER.INIT_PAGE);
-  const [totalPageNum, setTotalPageNum] = useState();
+  const [totalPageNum, setTotalPageNum] = useState<number>(0);
 
   const getProduct = useCallback(async () => {
     const items = await getItems({
@@ -30,15 +26,15 @@ const TotalItem = () => {
       page: page,
     });
     setCards(items.list);
-    setTotalPageNum(Math.ceil(items.totalCount / cardCnt));
+    setTotalPageNum(Math.ceil(items.totalCount / (cardCnt as number)));
   }, [cardCnt, order, page]);
 
-  const orderSelect = (orderQuery) => {
+  const orderSelect = (orderQuery: string) => {
     setOrder(orderQuery);
     setPage(PAGE_RELATION_NUMBER.INIT_PAGE);
   };
 
-  const changePage = (num) => {
+  const changePage = (num: number) => {
     setPage(num);
   };
 
@@ -55,18 +51,9 @@ const TotalItem = () => {
   return (
     <section className={styles[`total-items`]}>
       <TotalItemTitle onClick={orderSelect} />
-      <div className={styles['total-item-list']}>
-        {cards?.map((value) => (
-          <ItemCard key={value.id} value={value} category="total" />
-        ))}
-      </div>
+      <div className={styles['total-item-list']}>{cards?.map((value) => <ItemCard key={value.id} value={value} category='total' />)}</div>
 
-      <PaginationBar
-        onClick={changePage}
-        order={order}
-        totalPageNum={totalPageNum}
-        cardCnt={cardCnt}
-      />
+      <PaginationBar onClick={changePage} order={order} totalPageNum={totalPageNum} />
     </section>
   );
 };
