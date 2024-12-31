@@ -1,7 +1,8 @@
 import { useParams } from "react-router-dom";
 import { addComment, removeComment, updateComment } from "@service/comments";
 import { useAuth } from "@context/AuthContext";
-import { BoardName, Comment, CommentFormData } from "@type/comment";
+import { BoardName, Comment } from "@type/comment";
+import { CommentFormType } from "@schemas/comment";
 
 export default function useComment(
   name: BoardName,
@@ -14,7 +15,7 @@ export default function useComment(
   const productId = Number(id);
   const isOwner = user?.id === comment.writer?.id;
 
-  async function handleSubmit(data: CommentFormData) {
+  async function handleSubmit(data: CommentFormType) {
     try {
       await addComment(name, productId, data);
     } catch (err) {
@@ -22,7 +23,7 @@ export default function useComment(
     }
   }
 
-  async function handleUpdate(data: CommentFormData) {
+  async function handleUpdate(data: CommentFormType) {
     if (!comment.id) return;
     if (!isOwner) {
       return alert("작성자만 수정이 가능합니다.");

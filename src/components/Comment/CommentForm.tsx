@@ -1,14 +1,14 @@
 import { FieldItem, Form, Textarea } from "@components/Field";
 import { Author, Button } from "@components/ui";
 import styles from "./CommentForm.module.scss";
-import { Comment, CommentFormData } from "@type/comment";
+import { Comment } from "@type/comment";
 import useFormWithError from "@hooks/useFormWithError";
 import { CommentFormSchema, CommentFormType } from "@schemas/comment";
 import { zodResolver } from "@hookform/resolvers/zod";
 
 interface CommentForm {
   initialData?: Comment;
-  onCommentSubmit: (data: CommentFormData) => Promise<void>;
+  onCommentSubmit: (data: CommentFormType) => Promise<void>;
   onClose?: () => void;
   isEdit?: boolean;
 }
@@ -40,7 +40,7 @@ export function CommentForm({
     ? "성공적으로 수정했습니다."
     : "성공적으로 작성했습니다.";
 
-  async function onSubmit(data: CommentFormData) {
+  async function onSubmit(data: CommentFormType) {
     try {
       await onCommentSubmit(data);
       alert(message);

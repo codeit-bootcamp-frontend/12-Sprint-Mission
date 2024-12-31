@@ -1,5 +1,6 @@
 import { axiosInstance } from "@service/axios";
-import { BoardName, CommentFormData } from "@type/comment";
+import { BoardName } from "@type/comment";
+import { CommentFormType } from "@schemas/comment";
 
 export async function getComments(
   name: BoardName,
@@ -20,7 +21,7 @@ export async function getComments(
 export async function addComment(
   name: BoardName,
   id: number,
-  formData: CommentFormData
+  formData: CommentFormType
 ) {
   const response = await axiosInstance.post(
     `/${name}/${id}/comments`,
@@ -38,7 +39,7 @@ export async function removeComment(commentId: number) {
 
 export async function updateComment(
   commentId: number,
-  formData: CommentFormData
+  formData: CommentFormType
 ) {
   const response = await axiosInstance.patch(
     `/comments/${commentId}`,

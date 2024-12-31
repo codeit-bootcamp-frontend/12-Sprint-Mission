@@ -14,7 +14,3 @@ export type Comment = {
   content: string;
   id: number;
 };
-
-export type CommentFormData = {
-  content: string;
-};
