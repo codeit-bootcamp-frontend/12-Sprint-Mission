@@ -1,9 +1,14 @@
-export function debounce(func, timeout = 300) {
-  let timer;
-  return (...args) => {
+export function debounce<T extends unknown[]>(
+  func: (...args: T) => void,
+  timeout: number = 300
+) {
+  let timer: ReturnType<typeof setTimeout>;
+
+  return (...args: T) => {
     clearTimeout(timer);
+
     timer = setTimeout(() => {
-      func.apply(this, args);
+      func(...args);
     }, timeout);
   };
 }
