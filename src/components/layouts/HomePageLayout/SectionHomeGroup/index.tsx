@@ -2,8 +2,9 @@ import SectionHome from './SectionHome/index';
 import SectionFirstImg from '../../../../assets/images/img_home_01.png';
 import SectionSecondImg from '../../../../assets/images/Img_home_02.png';
 import SectionThirdImg from '../../../../assets/images/Img_home_03.png';
+import Section from './types';
 
-const SECTIONS = {
+const SECTIONS: Record<number, Section> = {
   1: {
     number: 1,
     src: SectionFirstImg,
@@ -33,12 +34,8 @@ const SectionHomeGroup = () => {
   const componentArray = Array(componentCnt).fill(null);
 
   return componentArray.map((_, index) => {
-    return (
-      <SectionHome
-        key={SECTIONS[(index + 1).toString()].keyword}
-        sectionProp={SECTIONS[(index + 1).toString()]}
-      />
-    );
+    const section = SECTIONS[index + 1];
+    return <SectionHome key={section.keyword} sectionProp={section} />;
   });
 };
 

@@ -1,15 +1,10 @@
 import styles from './index.module.css';
+import Section from '../types';
 
-const SectionHome = ({ sectionProp }) => {
+const SectionHome = ({ sectionProp }: { sectionProp: Section }) => {
   const { number, src, keyword, subtitle, paragraph } = sectionProp;
 
-  const imgElement = (
-    <img
-      src={src}
-      alt={`${keyword} 이미지입니다.`}
-      className={styles['section-img']}
-    />
-  );
+  const imgElement = <img src={src} alt={`${keyword} 이미지입니다.`} className={styles['section-img']} />;
 
   const MakeSectionExplain = () => {
     return (
