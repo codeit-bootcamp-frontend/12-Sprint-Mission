@@ -3,8 +3,8 @@ import { Button } from "@components/ui";
 import styles from "./Temporary.module.scss";
 
 interface TemporaryProps {
-  title: string;
-  description: string;
+  title?: string;
+  description?: string;
 }
 
 export function Temporary({
