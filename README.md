@@ -2,6 +2,110 @@
 
 **코드잇 12기 스프린트 내용입니다.**
 
+## 디렉토리 구조(8주차)
+
+```
+📂src
+ ┣ 📂api
+ ┣ 📂assets
+ ┃ ┣ 📂images
+ ┃ ┗ 📂styles
+ ┃   ┣ 📜Global.css
+ ┃   ┗ 📜Index.scss
+ ┣ 📂components
+ ┃ ┣ 📂layouts
+ ┃ ┃ ┣ 📂AddItemPageLayout
+ ┃ ┃ ┣ 📂HomePageLayout
+ ┃ ┃ ┣ 📂ItemsDetailPageLayout
+ ┃ ┃ ┣ 📂ItemsPageLayout
+ ┃ ┃ ┣ 📂UI
+ ┃ ┗ 📜App.jsx
+ ┣ 📂pages
+ ┣ 📂routes
+ ┣ 📂utils
+ ┗ 📜index.jsx
+```
+## 8주차 스프린트
+
+### CRA를 써야하나?
+- 타입스크립트 템플릿 있는 CRA로 프로젝트를 하려고 했지만, 리액트 18버전과 19버전이 충돌이 일어나서 tsconfig나 기타 다른 파일들을 충돌 이후부턴 수작업해야 하는 번거로움이 있었다.
+- Vite를 안써보기도 했기에 CRA에서 Vite로 넘어왔다.
+
+### Vite에서 tailwind 설정
+- CRA에서 썼던 것처럼 tailwind를 적용했더니 스타일이 하나도 입혀지지가 않았다.
+- 원인을 찾아보니 postcss를 사용하지 않아서 tailwind가 적용되지 않았던 것이었다.
+- CRA에선 이러한 과정 + css 속성에 접두사를 추가해주는 autoprefixer 설정이 알아서 되었다는 걸 이번에 처음 알게 되었다.
+- 해결하기 위해 다음과 같이 진행했다.
+1. npm install -D tailwindcss postcss autoprefixer 를 통해 tailwind, postcss, autoprefixer를 설치한다.
+2. npx tailwindcss init
+3. tailwind config에 다음과 같이 적는다.
+
+```js
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: ['./src/**/*.{js,jsx,ts,tsx}'],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+};
+```
+4. postcss.config.js에 다음과 같이 적는다.
+```js
+export default {
+  plugins: {
+    tailwindcss: {},
+    autoprefixer: {},
+  },
+};
+```
+
+### svg 리액트 컴포넌트화
+- 기존 CRA에선 as로 svg 이미지를 컴포넌트화 시켜서 속성을 변경시켰는데, vite에서 하려고 하니, import 관련 에러가 떴다.
+- 이를 해결하기 위해 다음과 같이 진행했다.
+
+1. vite.config.ts 파일에 다음과 같이 사용하고, vite-plugin-svgr 패키지를 설치한다.
+```js
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+import path from 'path';
+import svgr from 'vite-plugin-svgr';
+
+// https://vite.dev/config/
+export default defineConfig({
+  plugins: [react(), svgr()],
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, 'src'),
+    },
+  },
+});
+
+```
+
+2. import 구문을 다음과 같이 수정한다.
+```tsx
+// 수정 전 
+import { ReactComponent as HeartIcon} from '@/assets/images/heart_empty.svg';
+// 수정 후 
+import HeartIcon from '@/assets/images/heart_empty.svg?react';
+```
+
+3. vite-env.d.ts 파일을 다음과 같이 수정한다.
+```ts
+declare module '*.svg?react' {
+  import { SVGProps } from 'react';
+  const content: React.FC<SVGProps<SVGSVGElement>>;
+  export default content;
+}
+```
+
+### 왜 Vite로 바꾼 후 main.tsx가 불러지지 않지?
+- 기존 CRA에서 프로젝트를 할 때는 스크립트 태그를 굳이 추가하지 않아도 알아서 추가가 되었기에 신경을 안쓰고 있었다.
+- 모든 타입을 수정 후 개발 서버를 열어서 확인하려고 하는데, main.tsx가 불러와지지 않았다.
+- 알고 보니, Vite에선 CRA와 달리 스크립트 태그를 명시적으로 작성해야 한다고 해서, 수정하였더니 잘 불러와졌다.
+
+
 ## 디렉토리 구조(7주차)
 
 ```
