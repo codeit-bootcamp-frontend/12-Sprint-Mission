@@ -4,14 +4,17 @@ import { z } from "zod";
 export const signupFormSchema = z
   .object({
     email: z
-      .string({ required_error: MESSAGE.EMAIL_REQUIRED })
+      .string()
+      .nonempty({ message: MESSAGE.EMAIL_REQUIRED })
       .email({ message: MESSAGE.INVALID_EMAIL }),
-    nickname: z.string({ required_error: MESSAGE.USERNAME_REQUIRED }),
+    nickname: z.string().nonempty({ message: MESSAGE.USERNAME_REQUIRED }),
     password: z
-      .string({ required_error: MESSAGE.PASSWORD_REQUIRED })
+      .string()
+      .nonempty({ message: MESSAGE.PASSWORD_REQUIRED })
       .min(8, { message: MESSAGE.PASSWORD_MIN_LENGTH }),
     passwordConfirmation: z
-      .string({ required_error: MESSAGE.PASSWORD_REQUIRED })
+      .string()
+      .nonempty({ message: MESSAGE.PASSWORD_REQUIRED })
       .min(8, { message: MESSAGE.PASSWORD_MIN_LENGTH }),
   })
   .refine((data) => data.password === data.passwordConfirmation, {
@@ -23,10 +26,12 @@ export type SigninFormType = z.infer<typeof signinFormSchmea>;
 
 export const signinFormSchmea = z.object({
   email: z
-    .string({ required_error: MESSAGE.EMAIL_REQUIRED })
+    .string()
+    .nonempty({ message: MESSAGE.EMAIL_REQUIRED })
     .email({ message: MESSAGE.INVALID_EMAIL }),
   password: z
-    .string({ required_error: MESSAGE.PASSWORD_REQUIRED })
+    .string()
+    .nonempty({ message: MESSAGE.PASSWORD_REQUIRED })
     .min(8, { message: MESSAGE.PASSWORD_MIN_LENGTH }),
 });
 
