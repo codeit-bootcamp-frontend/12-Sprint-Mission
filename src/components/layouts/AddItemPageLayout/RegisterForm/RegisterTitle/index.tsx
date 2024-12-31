@@ -5,12 +5,10 @@ const Title = styled.h1`
 `;
 
 const SubmitButton = styled.button`
-  border: 1px solid
-    ${({ disabled }) => (disabled ? 'var(--gray400)' : 'var(--blue)')};
+  border: 1px solid ${({ disabled }) => (disabled ? 'var(--gray400)' : 'var(--blue)')};
   border-radius: 8px;
   padding: 10px 20px;
-  background-color: ${({ disabled }) =>
-    disabled ? 'var(--gray400)' : 'var(--blue)'};
+  background-color: ${({ disabled }) => (disabled ? 'var(--gray400)' : 'var(--blue)')};
   color: #ffffff;
   cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
 `;
@@ -23,7 +21,7 @@ const TitleDiv = styled.div`
   margin-top: 30px;
 `;
 
-const RegisterTitle = ({ isValid }) => {
+const RegisterTitle = ({ isValid }: { isValid: boolean }) => {
   return (
     <TitleDiv>
       <Title>상품 등록하기</Title>

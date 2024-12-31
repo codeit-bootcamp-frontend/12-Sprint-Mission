@@ -60,10 +60,19 @@ const CloseImg = styled.img`
   cursor: pointer;
 `;
 
-const RegisterImg = ({ imgPreview, setImgPreview, fileInputRef, setIsImg }) => {
-  const changeImg = ({ target }) => {
+type SetState<T> = React.Dispatch<React.SetStateAction<T>>;
+
+interface Props {
+  imgPreview: string | null;
+  setImgPreview: SetState<string | null>;
+  fileInputRef: React.RefObject<HTMLInputElement>;
+  setIsImg: SetState<boolean>;
+}
+
+const RegisterImg = ({ imgPreview, setImgPreview, fileInputRef, setIsImg }: Props) => {
+  const changeImg = ({ target }: { target: HTMLInputElement }) => {
+    if (target === null || target.files === null) return;
     const file = target.files[0];
-    if (!file) return;
     if (imgPreview) {
       setIsImg(true);
       return;
@@ -80,27 +89,21 @@ const RegisterImg = ({ imgPreview, setImgPreview, fileInputRef, setIsImg }) => {
       setImgPreview(null);
       setIsImg(false);
       if (fileInputRef.current) {
-        fileInputRef.current.value = null;
+        fileInputRef.current.value = '';
       }
     }
   };
   return (
     <ImgArea>
-      <FileButton htmlFor="file">
-        <img src={plusImg} alt="+ 이미지" />
+      <FileButton htmlFor='file'>
+        <img src={plusImg} alt='+ 이미지' />
         이미지 등록
       </FileButton>
-      <FileInput
-        id="file"
-        name="file"
-        type="file"
-        onChange={changeImg}
-        ref={fileInputRef}
-      />
+      <FileInput id='file' name='file' type='file' onChange={changeImg} ref={fileInputRef} />
       {imgPreview && (
         <PreviewImgArea>
-          <PreviewImg src={imgPreview} alt="이미지 미리보기" />
-          <CloseImg src={closeImg} alt="닫기 이미지" onClick={closePreview} />
+          <PreviewImg src={imgPreview} alt='이미지 미리보기' />
+          <CloseImg src={closeImg} alt='닫기 이미지' onClick={closePreview} />
         </PreviewImgArea>
       )}
     </ImgArea>

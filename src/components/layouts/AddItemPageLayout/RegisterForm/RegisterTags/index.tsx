@@ -28,8 +28,13 @@ const TagCloseImg = styled.img`
   cursor: pointer;
 `;
 
-const RegisterTags = ({ tags, setTags }) => {
-  const deleteTag = (index) => {
+interface Props {
+  tags: string[];
+  setTags: React.Dispatch<React.SetStateAction<string[]>>;
+}
+
+const RegisterTags = ({ tags, setTags }: Props) => {
+  const deleteTag = (index: number) => {
     setTags((prevTags) => {
       return prevTags.filter((_, prevIndex) => index !== prevIndex);
     });
@@ -40,11 +45,7 @@ const RegisterTags = ({ tags, setTags }) => {
       {tags.map((value, index) => (
         <Tag key={value}>
           <TagName>{`#${value}`}</TagName>
-          <TagCloseImg
-            src={closeImg}
-            alt="닫기 이미지"
-            onClick={() => deleteTag(index)}
-          />
+          <TagCloseImg src={closeImg} alt='닫기 이미지' onClick={() => deleteTag(index)} />
         </Tag>
       ))}
     </Tags>

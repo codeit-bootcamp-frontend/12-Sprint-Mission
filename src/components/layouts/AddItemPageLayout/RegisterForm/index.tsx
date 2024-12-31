@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { useCallback, useEffect, useState, useRef } from 'react';
+import { useCallback, useEffect, useState, useRef, KeyboardEvent, ChangeEvent } from 'react';
 import RegisterTitle from './RegisterTitle';
 import RegisterImg from './RegisterImg';
 import RegisterTags from './RegisterTags';
@@ -57,35 +57,34 @@ const WarningMessage = styled.p`
 `;
 
 const RegisterForm = () => {
-  const [imgPreview, setImgPreview] = useState(null);
+  const [imgPreview, setImgPreview] = useState<string | null>(null);
   const [isValid, setIsValid] = useState(false);
   const [isImg, setIsImg] = useState(false);
-  const [tags, setTags] = useState([]);
+  const [tags, setTags] = useState<string[]>([]);
 
   const [form, setForm] = useState({
     name: '',
     price: '',
   });
 
-  const fileInputRef = useRef(null);
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
   const checkValid = useCallback(() => {
-    const validResult = form.name.trim() !== '' && form.price > 0;
+    const validResult = form.name.trim() !== '' && Number(form.price) > 0;
     setIsValid(validResult);
   }, [form.name, form.price]);
 
-  const inputChangeHandler = (e) => {
+  const inputChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
     const { value, name: eName } = e.target;
     const trimValue = value.trim();
     e.preventDefault();
     if (eName === 'item-price') {
       let num = Number(value.replace(/,/g, ''));
-      console.log(num);
-      if (isNaN(num) || num === 0) num = '';
-      if (num > Math.pow(10, 9)) num = Math.pow(10, 9);
+      let updatePrice = '';
+      if (num > Math.pow(10, 9)) updatePrice = Math.pow(10, 9).toString();
       setForm((prevForm) => ({
         ...prevForm,
-        price: num,
+        price: updatePrice,
       }));
     } else {
       setForm((prevForm) => ({
@@ -95,25 +94,25 @@ const RegisterForm = () => {
     }
   };
 
-  const isExistArray = (element, elements) => {
+  const isExistArray = (element: string, elements: string[]) => {
     return elements.some((prevElement) => element === prevElement);
   };
 
-  const keydownHandler = (e) => {
-    const value = e.target.value;
+  const keydownHandler = (e: KeyboardEvent) => {
+    const value = (e.target as HTMLInputElement).value;
     //엔터 혹은 스페이스바
     if (e.key === 'Enter' || e.key === ' ') {
       e.preventDefault();
       //중복된거 있으면 태그 추가 막기
       if (isExistArray(value, tags)) return;
       setTags((prevTags) => {
-        e.target.value = '';
+        (e.target as HTMLInputElement).value = '';
         return [value, ...prevTags];
       });
     }
   };
 
-  const preventSubmit = (e) => {
+  const preventSubmit = (e: KeyboardEvent) => {
     if (e.key === 'Enter') e.preventDefault();
   };
 
