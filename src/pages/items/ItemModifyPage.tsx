@@ -21,7 +21,7 @@ export default function ItemModifyPage() {
     <PageWrapper>
       <ProductForm
         initialData={detail}
-        onProductSubmit={(formData) => handleProductModify(formData)}
+        onProductSubmit={handleProductModify}
         isEdit
       />
     </PageWrapper>

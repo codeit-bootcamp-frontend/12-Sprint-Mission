@@ -1,3 +1,4 @@
+import { ProductFormType } from "@schemas/product";
 import {
   addProduct,
   deleteProduct,
@@ -5,7 +6,6 @@ import {
   toggleLike,
   uploadProductImage,
 } from "@service/product";
-import { ProductFormData } from "@type/product";
 
 export default function useProductActions(productId?: number) {
   async function handleLike(flag: boolean) {
@@ -14,11 +14,11 @@ export default function useProductActions(productId?: number) {
     return toggleLike(productId, flag);
   }
 
-  async function handleProductAdd(formData: ProductFormData) {
+  async function handleProductAdd(formData: ProductFormType) {
     try {
-      if (formData.images instanceof Blob) {
+      if (formData.images[0] instanceof File) {
         const imgFormData = new FormData();
-        imgFormData.append("image", formData.images);
+        imgFormData.append("image", formData.images[0]);
 
         const { url } = await uploadProductImage(imgFormData);
         formData.images = [url];
@@ -30,13 +30,13 @@ export default function useProductActions(productId?: number) {
     }
   }
 
-  async function handleProductModify(formData: ProductFormData) {
+  async function handleProductModify(formData: ProductFormType) {
     if (!productId) return;
 
     try {
-      if (formData.images instanceof Blob) {
+      if (formData.images[0] instanceof File) {
         const imgFormData = new FormData();
-        imgFormData.append("image", formData.images);
+        imgFormData.append("image", formData.images[0]);
 
         const { url } = await uploadProductImage(imgFormData);
         formData.images = [url];

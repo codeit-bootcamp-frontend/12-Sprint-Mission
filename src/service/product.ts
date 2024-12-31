@@ -1,4 +1,4 @@
-import { ItemFormType } from "@schemas/product";
+import { ProductFormType } from "@schemas/product";
 import { axiosInstance } from "@service/axios";
 import {
   DeleteProductResponse,
@@ -28,7 +28,7 @@ export async function uploadProductImage(formData: FormData) {
   return response.data;
 }
 
-export async function addProduct(productData: ItemFormType) {
+export async function addProduct(productData: ProductFormType) {
   const response = await axiosInstance.post<Product>("/products", productData);
 
   return response.data;
@@ -36,7 +36,7 @@ export async function addProduct(productData: ItemFormType) {
 
 export async function modifyProduct(
   productId: number,
-  productData: ItemFormType
+  productData: ProductFormType
 ) {
   const response = await axiosInstance.patch(
     `/products/${productId}`,
