@@ -1,6 +1,6 @@
 import dayjs from "dayjs";
 
-export function toWon(price: number | undefined) {
+export function toWon(price: string | number | undefined) {
   return Number(price).toLocaleString() + "원";
 }
 
