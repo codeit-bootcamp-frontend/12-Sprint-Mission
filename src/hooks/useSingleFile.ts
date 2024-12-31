@@ -1,10 +1,10 @@
 import { ChangeEvent, useEffect, useRef, useState } from "react";
 
 interface SingleFileProps {
-  value: Blob | File | string | string[] | undefined;
-  onChange: (file: File | undefined) => void;
+  value: (File | string)[];
   accept: string;
   limitSize: number;
+  onChange: (file: (File | string)[]) => void;
   errorMessage?: {
     max?: string;
     accept?: string;
@@ -18,7 +18,8 @@ export default function useSingleFile({
   limitSize = 5,
   errorMessage = {},
 }: SingleFileProps) {
-  const [preview, setPreview] = useState<string | null>(null);
+  const preview =
+    value?.[0] instanceof File ? URL.createObjectURL(value[0]) : value?.[0];
   const [error, setError] = useState<string | null>(null);
   const fileRef = useRef<HTMLInputElement>(null);
 
@@ -31,31 +32,12 @@ export default function useSingleFile({
   const message = { ...defaultMessage, ...errorMessage };
 
   useEffect(() => {
-    if (!value) return;
-    if (Array.isArray(value)) {
-      setPreview(value[0]);
-
-      return () => {
-        setPreview(null);
-      };
-    }
-
-    if (typeof value === "string") {
-      setPreview(value);
-
-      return () => {
-        setPreview(null);
-      };
-    } else {
-      const objectURL = URL.createObjectURL(value);
-      setPreview(objectURL);
-
-      return () => {
-        setPreview(null);
-        URL.revokeObjectURL(objectURL);
-      };
-    }
-  }, [value]);
+    return () => {
+      if (preview && value?.[0] instanceof File) {
+        URL.revokeObjectURL(preview);
+      }
+    };
+  }, []);
 
   function handleChange(e: ChangeEvent<HTMLInputElement>) {
     if (!e.target.files) return;
@@ -63,7 +45,7 @@ export default function useSingleFile({
     const file = e.target.files[0];
     setError(null);
 
-    if (value) {
+    if (value.length) {
       return setError(message.max);
     }
 
@@ -78,7 +60,7 @@ export default function useSingleFile({
       fileRef.current.value = "";
     }
 
-    onChange(file);
+    onChange([file]);
   }
 
   function handleRemove() {
@@ -86,7 +68,7 @@ export default function useSingleFile({
 
     fileRef.current.value = "";
     setError(null);
-    onChange(undefined);
+    onChange([]);
   }
 
   return {
