@@ -125,48 +125,16 @@ const RegisterForm = () => {
     <Form>
       <RegisterTitle isValid={isValid} />
       <Label>상품 이미지</Label>
-      <RegisterImg
-        imgPreview={imgPreview}
-        setImgPreview={setImgPreview}
-        fileInputRef={fileInputRef}
-        setIsImg={setIsImg}
-      />
-      {isImg && (
-        <WarningMessage>*이미지 등록은 최대 1개까지 가능합니다.</WarningMessage>
-      )}
-      <Label htmlFor="item-name">상품명</Label>
-      <Input
-        id="item-name"
-        name="item-name"
-        type="text"
-        placeholder="상품명을 입력해주세요"
-        onChange={inputChangeHandler}
-        onKeyDown={preventSubmit}
-      />
-      <Label htmlFor="item-explain">상품 소개</Label>
-      <Textarea
-        id="item-explain"
-        name="item-explain"
-        placeholder="상품 소개를 입력해주세요"
-      />
-      <Label htmlFor="item-price">판매 가격</Label>
-      <Input
-        id="item-price"
-        name="item-price"
-        type="text"
-        placeholder="판매 가격을 입력해주세요"
-        value={form.price.toLocaleString()}
-        onChange={inputChangeHandler}
-        onKeyDown={preventSubmit}
-      />
-      <Label htmlFor="tag">태그</Label>
-      <Input
-        id="tag"
-        name="tag"
-        type="text"
-        placeholder="태그를 입력해주세요"
-        onKeyDown={keydownHandler}
-      />
+      <RegisterImg imgPreview={imgPreview} setImgPreview={setImgPreview} fileInputRef={fileInputRef} setIsImg={setIsImg} />
+      {isImg && <WarningMessage>*이미지 등록은 최대 1개까지 가능합니다.</WarningMessage>}
+      <Label htmlFor='item-name'>상품명</Label>
+      <Input id='item-name' name='item-name' type='text' placeholder='상품명을 입력해주세요' onChange={inputChangeHandler} onKeyDown={preventSubmit} />
+      <Label htmlFor='item-explain'>상품 소개</Label>
+      <Textarea id='item-explain' name='item-explain' placeholder='상품 소개를 입력해주세요' />
+      <Label htmlFor='item-price'>판매 가격</Label>
+      <Input id='item-price' name='item-price' type='text' placeholder='판매 가격을 입력해주세요' value={form.price.toLocaleString()} onChange={inputChangeHandler} onKeyDown={preventSubmit} />
+      <Label htmlFor='tag'>태그</Label>
+      <Input id='tag' name='tag' type='text' placeholder='태그를 입력해주세요' onKeyDown={keydownHandler} />
       <RegisterTags tags={tags} setTags={setTags} />
     </Form>
   );
