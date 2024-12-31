@@ -23,3 +23,7 @@ export type ProductList = {
 export type ImageUploadResponse = {
   url: string;
 };
+
+export type DeleteProductResponse = {
+  id: number;
+};

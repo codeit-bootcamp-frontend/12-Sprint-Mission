@@ -1,31 +1,42 @@
+import { ItemFormType } from "@schemas/product";
 import { axiosInstance } from "@service/axios";
-import { ProductFormData } from "@type/product";
+import {
+  DeleteProductResponse,
+  ImageUploadResponse,
+  Product,
+  ProductList,
+} from "@type/product";
 
 export async function getProducts(
   { page = 1, pageSize = 10, orderBy = "recent", keyword = "" },
   signal: AbortSignal
 ) {
   const query = `page=${page}&pageSize=${pageSize}&orderBy=${orderBy}&keyword=${keyword}`;
-  const response = await axiosInstance.get(`/products?${query}`, { signal });
+  const response = await axiosInstance.get<ProductList>(`/products?${query}`, {
+    signal,
+  });
 
   return response.data;
 }
 
 export async function uploadProductImage(formData: FormData) {
-  const response = await axiosInstance.post("/images/upload", formData);
+  const response = await axiosInstance.post<ImageUploadResponse>(
+    "/images/upload",
+    formData
+  );
 
   return response.data;
 }
 
-export async function addProduct(productData: ProductFormData) {
-  const response = await axiosInstance.post("/products", productData);
+export async function addProduct(productData: ItemFormType) {
+  const response = await axiosInstance.post<Product>("/products", productData);
 
   return response.data;
 }
 
 export async function modifyProduct(
   productId: number,
-  productData: ProductFormData
+  productData: ItemFormType
 ) {
   const response = await axiosInstance.patch(
     `/products/${productId}`,
@@ -36,19 +47,21 @@ export async function modifyProduct(
 }
 
 export async function deleteProduct(productId: number) {
-  const response = await axiosInstance.delete(`/products/${productId}`);
+  const response = await axiosInstance.delete<DeleteProductResponse>(
+    `/products/${productId}`
+  );
 
   return response.data;
 }
 
 export async function getProduct(productId: number) {
-  const response = await axiosInstance.get(`/products/${productId}`);
+  const response = await axiosInstance.get<Product>(`/products/${productId}`);
 
   return response.data;
 }
 
 export async function toggleLike(productId: number, flag: boolean) {
-  const response = await axiosInstance({
+  const response = await axiosInstance<Product>({
     method: flag ? "POST" : "DELETE",
     url: `/products/${productId}/favorite`,
   });
