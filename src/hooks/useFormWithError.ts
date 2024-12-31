@@ -1,23 +1,35 @@
 import { useState } from "react";
-import { FieldPath, FieldValues, useForm, UseFormProps } from "react-hook-form";
+import {
+  FieldPath,
+  FieldValues,
+  RegisterOptions,
+  useForm,
+  UseFormProps,
+} from "react-hook-form";
 
 export default function useFormWithError<TFieldValues extends FieldValues>(
   options: UseFormProps<TFieldValues>
 ) {
   const [formError, setFormError] = useState<Error | null>(null);
   const form = useForm<TFieldValues>(options);
-  const { handleSubmit, getFieldState, register, formState } = form;
+  const { handleSubmit, getFieldState, register, formState, watch } = form;
 
   function registerWithError<TFieldName extends FieldPath<TFieldValues>>(
-    name: TFieldName
+    name: TFieldName,
+    options?: RegisterOptions<TFieldValues, TFieldName>
   ) {
-    const { error, invalid, isTouched } = getFieldState(name, formState);
+    const { error, isDirty, isTouched, invalid } = getFieldState(
+      name,
+      formState
+    );
 
     return {
-      ...register(name),
-      error: error?.message,
-      isValid: !invalid,
+      ...register(name, options),
+      error,
+      isDirty,
       isTouched,
+      isValid: !invalid,
+      value: watch(name),
     };
   }
 
