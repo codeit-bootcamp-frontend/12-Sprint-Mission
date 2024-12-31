@@ -5,8 +5,7 @@ import { Button } from "@components/ui";
 import AuthContainer from "./components/AuthContainer";
 import useFormWithError from "@hooks/useFormWithError";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { signinFormSchmea } from "./components/schema";
-import { SigninFormType } from "@type/auth";
+import { signinFormSchmea, SigninFormType } from "@schemas/auth";
 
 export default function LoginPage() {
   const navigate = useNavigate();
