@@ -1,10 +1,10 @@
 import { useParams } from 'react-router-dom';
-import { getItemDetail } from 'api/productAPI';
+import { getItemDetail } from '@/api/productAPI';
 import { useCallback, useEffect, useState, useRef } from 'react';
-import defaultItemImg from 'assets/images/img_default.png';
-import emptyProfileImg from 'assets/images/ic_profile.svg';
-import dropdownImg from 'assets/images/ic_kebab.svg';
-import { ReactComponent as HeartIcon } from 'assets/images/heart_empty.svg';
+import defaultItemImg from '@/assets/images/img_default.png';
+import emptyProfileImg from '@/assets/images/ic_profile.svg';
+import dropdownImg from '@/assets/images/ic_kebab.svg';
+import { ReactComponent as HeartIcon } from '@/assets/images/heart_empty.svg';
 
 const ItemInfo = () => {
   const { id } = useParams();

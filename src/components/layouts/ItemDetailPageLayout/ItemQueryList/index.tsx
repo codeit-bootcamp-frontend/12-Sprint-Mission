@@ -1,7 +1,7 @@
-import { getItemComments } from 'api/productAPI';
+import { getItemComments } from '@/api/productAPI';
 import { useCallback, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import emptyQueryImg from 'assets/images/Img_inquiry_empty.svg';
+import emptyQueryImg from '@/assets/images/Img_inquiry_empty.svg';
 
 import ItemQuery from './ItemQuery';
 

@@ -1,4 +1,4 @@
-import backArrowImg from 'assets/images/ic_back.svg';
+import backArrowImg from '@/assets/images/ic_back.svg';
 import { useNavigate } from 'react-router-dom';
 
 const BackLinkButton = () => {

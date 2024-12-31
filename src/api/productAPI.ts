@@ -1,4 +1,4 @@
-import { GET_PRODUCT } from 'utils/constant';
+import { GET_PRODUCT } from '@/utils/constant';
 
 const getItems = async (params = {}) => {
   const query = new URLSearchParams(params).toString();

@@ -1,5 +1,5 @@
-import emptyProfileImg from 'assets/images/ic_profile.svg';
-import dropdownIcon from 'assets/images/ic_kebab.svg';
+import emptyProfileImg from '@/assets/images/ic_profile.svg';
+import dropdownIcon from '@/assets/images/ic_kebab.svg';
 import { useState } from 'react';
 
 const getTime = (updatedAt) => {

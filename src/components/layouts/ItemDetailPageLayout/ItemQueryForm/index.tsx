@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { QUERY_PLACEHOLDER } from 'utils/constant';
+import { QUERY_PLACEHOLDER } from '@/utils/constant';
 
 const ItemQueryForm = () => {
   const [isValid, setIsValid] = useState(false);
