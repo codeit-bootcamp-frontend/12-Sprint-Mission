@@ -1,13 +1,14 @@
-import useForm from "@hooks/useForm";
 import { FieldItem, Form, Textarea } from "@components/Field";
 import { Author, Button } from "@components/ui";
-import { commentSchema } from "./schema";
 import styles from "./CommentForm.module.scss";
 import { Comment, CommentFormData } from "@type/comment";
+import useFormWithError from "@hooks/useFormWithError";
+import { CommentFormSchema, CommentFormType } from "@schemas/comment";
+import { zodResolver } from "@hookform/resolvers/zod";
 
 interface CommentForm {
   initialData?: Comment;
-  onCommentSubmit: (data: CommentFormData) => void;
+  onCommentSubmit: (data: CommentFormData) => Promise<void>;
   onClose?: () => void;
   isEdit?: boolean;
 }
@@ -18,8 +19,17 @@ export function CommentForm({
   onClose,
   isEdit,
 }: CommentForm) {
-  const { formError, isFormValid, isLoading, handleSubmit, register, reset } =
-    useForm<CommentFormData>(commentSchema, initialData);
+  const {
+    formError,
+    register,
+    reset,
+    handleSubmit,
+    formState: { isSubmitting, isValid },
+  } = useFormWithError<CommentFormType>({
+    mode: "onBlur",
+    resolver: zodResolver(CommentFormSchema),
+    defaultValues: initialData,
+  });
 
   function handleClose() {
     reset();
@@ -42,7 +52,7 @@ export function CommentForm({
 
   return (
     <Form
-      isLoading={isLoading}
+      isLoading={isSubmitting}
       error={formError}
       onSubmit={handleSubmit(onSubmit)}
     >
@@ -75,13 +85,13 @@ export function CommentForm({
               >
                 취소
               </Button>
-              <Button type="submit" size="sm" disabled={!isFormValid}>
+              <Button type="submit" size="sm" disabled={!isValid}>
                 수정 완료
               </Button>
             </div>
           </div>
         ) : (
-          <Button type="submit" size="sm" disabled={!isFormValid}>
+          <Button type="submit" size="sm" disabled={!isValid}>
             등록
           </Button>
         )}
