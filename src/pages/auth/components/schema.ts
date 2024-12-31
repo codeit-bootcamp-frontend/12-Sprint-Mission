@@ -1,80 +1,29 @@
-import {
-  AUTH_VALIDATION_MESSAGES as MESSAGE,
-  AUTH_VALIDATION_REGEX as REGEX,
-} from "@util/validation";
+import { AUTH_VALIDATION_MESSAGES as MESSAGE } from "@util/validation";
+import { z } from "zod";
 
-export const signupFormSchema = {
-  email: {
-    value: "",
-    rule: {
-      required: MESSAGE.EMAIL_REQUIRED,
-      patterns: [
-        {
-          regex: REGEX.EMAIL,
-          message: MESSAGE.INVALID_EMAIL,
-        },
-      ],
-    },
-  },
-  nickname: {
-    value: "",
-    rule: {
-      required: MESSAGE.USERNAME_REQUIRED,
-    },
-  },
-  password: {
-    value: "",
-    rule: {
-      required: MESSAGE.PASSWORD_REQUIRED,
-      patterns: [
-        {
-          regex: REGEX.PASSWORD,
-          message: MESSAGE.PASSWORD_MIN_LENGTH,
-        },
-      ],
-    },
-  },
-  passwordConfirmation: {
-    value: "",
-    rule: {
-      required: MESSAGE.PASSWORD_REQUIRED,
-      patterns: [
-        {
-          regex: REGEX.PASSWORD,
-          message: MESSAGE.PASSWORD_MIN_LENGTH,
-        },
-      ],
-      match: {
-        field: "password",
-        message: MESSAGE.PASSWORD_MISMATCH,
-      },
-    },
-  },
-};
+export const signupFormSchema = z
+  .object({
+    email: z
+      .string({ required_error: MESSAGE.EMAIL_REQUIRED })
+      .email({ message: MESSAGE.INVALID_EMAIL }),
+    nickname: z.string({ required_error: MESSAGE.USERNAME_REQUIRED }),
+    password: z
+      .string({ required_error: MESSAGE.PASSWORD_REQUIRED })
+      .min(8, { message: MESSAGE.PASSWORD_MIN_LENGTH }),
+    passwordConfirmation: z
+      .string({ required_error: MESSAGE.PASSWORD_REQUIRED })
+      .min(8, { message: MESSAGE.PASSWORD_MIN_LENGTH }),
+  })
+  .refine((data) => data.password === data.passwordConfirmation, {
+    path: ["passwordConfirmation"],
+    message: MESSAGE.PASSWORD_MISMATCH,
+  });
 
-export const loginFormSchema = {
-  email: {
-    value: "",
-    rule: {
-      required: MESSAGE.EMAIL_REQUIRED,
-      patterns: [
-        {
-          regex: REGEX.EMAIL,
-          message: MESSAGE.INVALID_EMAIL,
-        },
-      ],
-    },
-  },
-  password: {
-    value: "",
-    rule: {
-      required: MESSAGE.PASSWORD_REQUIRED,
-      patterns: [
-        {
-          regex: REGEX.PASSWORD,
-          message: MESSAGE.PASSWORD_MIN_LENGTH,
-        },
-      ],
-    },
-  },
-};
+export const signinFormSchmea = z.object({
+  email: z
+    .string({ required_error: MESSAGE.EMAIL_REQUIRED })
+    .email({ message: MESSAGE.INVALID_EMAIL }),
+  password: z
+    .string({ required_error: MESSAGE.PASSWORD_REQUIRED })
+    .min(8, { message: MESSAGE.PASSWORD_MIN_LENGTH }),
+});

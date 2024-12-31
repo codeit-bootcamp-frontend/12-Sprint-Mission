@@ -1,43 +1,34 @@
-import { useEffect } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
 import { useAuth } from "@context/AuthContext";
-import useForm from "@hooks/useForm";
 import { Form, FieldItem, Input } from "@components/Field";
 import { Button } from "@components/ui";
 import AuthContainer from "./components/AuthContainer";
+import { zodResolver } from "@hookform/resolvers/zod";
+import useFormWithError from "@hooks/useFormWithError";
 import { signupFormSchema } from "./components/schema";
-import { SignupFormData } from "@type/auth";
+import { SignupFormType } from "@type/auth";
 
 export default function SignupPage() {
+  const navigate = useNavigate();
   const {
     auth: { accessToken },
     handleSignup,
   } = useAuth();
-  const navigate = useNavigate();
 
   if (accessToken) {
     return <Navigate to="/items" />;
   }
 
   const {
-    formState,
     formError,
-    isFormValid,
-    isLoading,
-    trigger,
-    handleSubmit,
     register,
-  } = useForm<SignupFormData>(signupFormSchema);
+    handleSubmit,
+    formState: { isSubmitting, isValid },
+  } = useFormWithError<SignupFormType>({
+    resolver: zodResolver(signupFormSchema),
+  });
 
-  //비밀번호 변경시 비밀번호확인 필드 trigger
-  useEffect(() => {
-    if (!formState.password.value || !formState.passwordConfirmation.value)
-      return;
-
-    trigger("passwordConfirmation");
-  }, [formState.password.value]);
-
-  async function onSubmit(data: SignupFormData) {
+  async function onSubmit(data: SignupFormType) {
     try {
       await handleSignup(data);
       alert("회원가입에 성공했습니다. \n로그인 페이지로 이동합니다.");
@@ -50,7 +41,7 @@ export default function SignupPage() {
   return (
     <AuthContainer mode="signup">
       <Form
-        isLoading={isLoading}
+        isLoading={isSubmitting}
         error={formError}
         onSubmit={handleSubmit(onSubmit)}
       >
@@ -88,7 +79,7 @@ export default function SignupPage() {
             {...register("passwordConfirmation")}
           />
         </FieldItem>
-        <Button type="submit" size="xl" disabled={!isFormValid}>
+        <Button type="submit" size="xl" disabled={!isValid}>
           회원가입
         </Button>
       </Form>

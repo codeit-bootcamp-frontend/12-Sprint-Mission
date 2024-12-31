@@ -1,11 +1,12 @@
 import { Navigate, useNavigate } from "react-router-dom";
 import { useAuth } from "@context/AuthContext";
-import useForm from "@hooks/useForm";
 import { Form, FieldItem, Input } from "@components/Field";
 import { Button } from "@components/ui";
 import AuthContainer from "./components/AuthContainer";
-import { loginFormSchema } from "./components/schema";
-import { SigninFormData } from "@type/auth";
+import useFormWithError from "@hooks/useFormWithError";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { signinFormSchmea } from "./components/schema";
+import { SigninFormType } from "@type/auth";
 
 export default function LoginPage() {
   const navigate = useNavigate();
@@ -18,10 +19,17 @@ export default function LoginPage() {
     return <Navigate to="/items" />;
   }
 
-  const { formError, isFormValid, isLoading, handleSubmit, register } =
-    useForm<SigninFormData>(loginFormSchema);
+  const {
+    formError,
+    register,
+    handleSubmit,
+    formState: { isSubmitting, isValid },
+  } = useFormWithError<SigninFormType>({
+    mode: "onBlur",
+    resolver: zodResolver(signinFormSchmea),
+  });
 
-  async function onSubmit(data: SigninFormData) {
+  async function onSubmit(data: SigninFormType) {
     try {
       await handleLogin(data);
       alert("로그인에 성공했습니다.");
@@ -34,7 +42,7 @@ export default function LoginPage() {
   return (
     <AuthContainer>
       <Form
-        isLoading={isLoading}
+        isLoading={isSubmitting}
         error={formError}
         onSubmit={handleSubmit(onSubmit)}
       >
@@ -54,7 +62,7 @@ export default function LoginPage() {
             {...register("password")}
           />
         </FieldItem>
-        <Button type="submit" size="xl" disabled={!isFormValid}>
+        <Button type="submit" size="xl" disabled={!isValid}>
           로그인
         </Button>
       </Form>
