@@ -1,5 +1,4 @@
 import { createBrowserRouter } from 'react-router-dom';
-import React from 'react';
 import Layout from '../pages/Layout';
 import Home from '../pages/Home/index';
 import Community from '../pages/Community/index';
@@ -10,7 +9,7 @@ import Items from '../pages/Items/index';
 import Privacy from '../pages/Privacy/index';
 import Faq from '../pages/Faq/index';
 import ErrorPage from '../pages/ErrorPage/index';
-import ItemDetail from 'pages/ItemDetail';
+import ItemDetail from '../pages/ItemDetail';
 
 const router = createBrowserRouter([
   {
