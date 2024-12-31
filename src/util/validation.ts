@@ -19,6 +19,7 @@ export const PRODUCT_VALIDATION_MESSAGE = {
   PRODUCT_NAME_REQUIRED: "상품명을 입력해주세요",
   PRODUCT_DESCRIPTION_REQUIRED: "상품소개를 입력해주세요",
   PRODUCT_PRICE_REQUIRED: "판매 가격을 입력해주세요",
+  PRODUCT_PRICE_MIN: "원 이상 입력해주세요",
   INVALID_STRING: "특수문자는 사용할 수 없습니다.",
   INVALID_NUMBER: "숫자만 입력해주세요",
 };
