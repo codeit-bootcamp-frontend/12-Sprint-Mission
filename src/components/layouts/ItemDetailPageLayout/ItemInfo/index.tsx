@@ -5,22 +5,11 @@ import defaultItemImg from '@/assets/images/img_default.png';
 import emptyProfileImg from '@/assets/images/ic_profile.svg';
 import dropdownImg from '@/assets/images/ic_kebab.svg';
 import HeartIcon from '@/assets/images/heart_empty.svg?react';
-
-interface Item {
-  images: string[];
-  name: string;
-  price: number;
-  description: string;
-  tags: string[];
-  ownerNickname: string;
-  createdAt: string;
-  favoriteCount: number;
-  ownerImages: string;
-}
+import { ItemDetail } from '@/api/types';
 
 const ItemInfo = () => {
   const { id } = useParams();
-  const [item, setItem] = useState<null | Item>(null);
+  const [item, setItem] = useState<null | ItemDetail>(null);
   const [isDropdown, setIsDropdown] = useState(false);
   const imgRef = useRef<HTMLImageElement>(null);
 
@@ -29,8 +18,8 @@ const ItemInfo = () => {
   };
 
   const getItem = useCallback(async () => {
-    if (typeof id === 'string') {
-      const response = await getItemDetail(id);
+    const response = id ? await getItemDetail(id) : null;
+    if (response) {
       setItem(response);
     }
   }, [id]);

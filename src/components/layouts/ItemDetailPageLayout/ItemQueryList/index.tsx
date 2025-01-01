@@ -2,6 +2,7 @@ import { getItemComments } from '@/api/productAPI';
 import { useCallback, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import emptyQueryImg from '@/assets/images/Img_inquiry_empty.svg';
+import { Comment } from '@/api/types';
 
 import ItemQuery from './ItemQuery';
 
@@ -14,44 +15,31 @@ const EmptyQueryList = () => {
   );
 };
 
-interface Writer {
-  image: string;
-  nickname: string;
-  id: number;
-}
-interface Comment {
-  writer: Writer;
-  updatedAt: string;
-  createdAt: string;
-  content: string;
-  id: string;
-}
-
 const ItemQueryList = () => {
   const { id } = useParams();
   const [comments, setComments] = useState<Comment[] | null>(null);
   const [nextCursor, setNextCursor] = useState<number | null>(null);
 
   const getComments = useCallback(async () => {
-    if (typeof id === 'string') {
-      const response = await getItemComments(id);
+    const response = id ? await getItemComments(id) : null;
+    if (response) {
       setComments(response.list);
       setNextCursor(response.nextCursor);
     }
   }, [id]);
 
   const getMoreComments = useCallback(async () => {
-    if (nextCursor !== null) {
-      if (typeof id === 'string') {
-        const response = await getItemComments(id, {
-          limit: 3,
-          cursor: nextCursor,
-        });
-        setComments((prevComments) => {
-          return [...(prevComments || []), ...response.list];
-        });
-        setNextCursor(response.nextCursor);
-      }
+    if (nextCursor === null) return;
+    if (typeof id !== 'string') return;
+
+    const response = await getItemComments(id, {
+      limit: 3,
+      cursor: nextCursor,
+    });
+
+    if (response) {
+      setComments((prevComments) => [...(prevComments || []), ...response.list]);
+      setNextCursor(response.nextCursor);
     }
   }, [id, nextCursor]);
 

@@ -1,6 +1,7 @@
 import emptyProfileImg from '@/assets/images/ic_profile.svg';
 import dropdownIcon from '@/assets/images/ic_kebab.svg';
 import { useState } from 'react';
+import { Comment } from '@/api/types';
 
 const getTime = (updatedAt: string) => {
   const updateDate = new Date(updatedAt);
@@ -19,18 +20,7 @@ const getTime = (updatedAt: string) => {
   return time;
 };
 
-interface Writer {
-  nickname: string;
-  image: string;
-}
-
-interface Query {
-  content: string;
-  updatedAt: string;
-  writer: Writer;
-}
-
-const ItemQuery = ({ query }: { query: Query }) => {
+const ItemQuery = ({ query }: { query: Comment }) => {
   const [isDropdown, setIsDropdown] = useState(false);
   const { content, updatedAt, writer } = query;
   const { nickname, image } = writer;

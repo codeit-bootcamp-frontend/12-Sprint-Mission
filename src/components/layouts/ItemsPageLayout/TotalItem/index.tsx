@@ -25,8 +25,10 @@ const TotalItem = () => {
       orderBy: order,
       page: page,
     });
-    setCards(items.list);
-    setTotalPageNum(Math.ceil(items.totalCount / (cardCnt as number)));
+    if (items) {
+      setCards(items.list);
+      setTotalPageNum(Math.ceil(items.totalCount / (cardCnt as number)));
+    }
   }, [cardCnt, order, page]);
 
   const orderSelect = (orderQuery: string) => {
