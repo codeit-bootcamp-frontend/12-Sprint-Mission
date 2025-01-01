@@ -4,7 +4,7 @@ import { getItems } from '../../../../api/productAPI';
 import { useEffect, useState, useCallback } from 'react';
 import styles from './index.module.css';
 import { MEDIA_KEY, ORDER, BEST_CARD_CNT } from '../../../../utils/constant';
-import Card from '../types';
+import { Item } from '@/api/types';
 
 const BestItem = () => {
   const mobileWidth = useMediaQuery({ query: MEDIA_KEY.MOBILE });
@@ -12,14 +12,16 @@ const BestItem = () => {
     query: MEDIA_KEY.TABLET,
   });
   const [cardCnt, setCardCnt] = useState<number>();
-  const [cards, setCards] = useState<Card[]>([]);
+  const [cards, setCards] = useState<Item[]>([]);
 
   const getProduct = useCallback(async () => {
     const items = await getItems({
       pageSize: cardCnt,
       orderBy: ORDER.FAVORITE,
     });
-    setCards(items.list);
+    if (items) {
+      setCards(items.list);
+    }
   }, [cardCnt]);
 
   useEffect(() => {

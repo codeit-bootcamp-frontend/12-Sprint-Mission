@@ -3,9 +3,9 @@ import defaultImg from '../../../../assets/images/img_default.png';
 import heartEmptyImg from '../../../../assets/images/heart_empty.svg';
 import styles from './index.module.css';
 import { useNavigate } from 'react-router-dom';
-import Card from '../types';
+import { Item } from '@/api/types';
 
-const ItemCard = ({ value, category }: { value: Card; category: string }) => {
+const ItemCard = ({ value, category }: { value: Item; category: string }) => {
   const { name, price, images, favoriteCount, id } = value;
 
   const [imgSrc, setImgSrc] = useState(images[0] || defaultImg);

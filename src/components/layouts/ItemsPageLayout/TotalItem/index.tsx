@@ -6,7 +6,7 @@ import ItemCard from '../ItemCard/index';
 import PaginationBar from '../../UI/PaginationBar/index';
 import styles from './index.module.css';
 import { TOTAL_CARD_CNT, PAGE_RELATION_NUMBER, ORDER, MEDIA_KEY } from '../../../../utils/constant';
-import Card from '../types';
+import { Item } from '@/api/types';
 
 const TotalItem = () => {
   const mobileWidth = useMediaQuery({ query: MEDIA_KEY.MOBILE });
@@ -14,7 +14,7 @@ const TotalItem = () => {
     query: MEDIA_KEY.TABLET,
   });
   const [cardCnt, setCardCnt] = useState<number>();
-  const [cards, setCards] = useState<Card[]>([]);
+  const [cards, setCards] = useState<Item[]>([]);
   const [order, setOrder] = useState<string>(ORDER.RECENT);
   const [page, setPage] = useState(PAGE_RELATION_NUMBER.INIT_PAGE);
   const [totalPageNum, setTotalPageNum] = useState<number>(1);
