@@ -4,16 +4,13 @@ import { useAuth } from "@context/AuthContext";
 import { BoardName, Comment } from "@type/comment";
 import { CommentFormType } from "@schemas/comment";
 
-export default function useComment(
-  name: BoardName,
-  comment: Partial<Comment> = {}
-) {
+export default function useComment(name: BoardName, comment?: Comment) {
   const {
     auth: { user },
   } = useAuth();
   const { id } = useParams();
   const productId = Number(id);
-  const isOwner = user?.id === comment.writer?.id;
+  const isOwner = user && comment && user.id === comment.writer.id;
 
   async function handleSubmit(data: CommentFormType) {
     try {
@@ -24,7 +21,8 @@ export default function useComment(
   }
 
   async function handleUpdate(data: CommentFormType) {
-    if (!comment.id) return;
+    if (!comment) return;
+
     if (!isOwner) {
       return alert("작성자만 수정이 가능합니다.");
     }
@@ -37,7 +35,7 @@ export default function useComment(
   }
 
   async function handleDelete() {
-    if (!comment.id) return;
+    if (!comment) return;
 
     if (!isOwner) {
       return alert("작성자만 삭제가 가능합니다.");
