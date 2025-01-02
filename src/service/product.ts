@@ -1,10 +1,10 @@
 import { ProductFormType } from "@schemas/product";
 import { axiosInstance } from "@service/axios";
+import { PaginationResponse } from "@type/common";
 import {
   DeleteProductResponse,
   ImageUploadResponse,
   Product,
-  ProductList,
 } from "@type/product";
 
 export async function getProducts(
@@ -12,9 +12,12 @@ export async function getProducts(
   signal: AbortSignal
 ) {
   const query = `page=${page}&pageSize=${pageSize}&orderBy=${orderBy}&keyword=${keyword}`;
-  const response = await axiosInstance.get<ProductList>(`/products?${query}`, {
-    signal,
-  });
+  const response = await axiosInstance.get<PaginationResponse<Product>>(
+    `/products?${query}`,
+    {
+      signal,
+    }
+  );
 
   return response.data;
 }

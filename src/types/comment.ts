@@ -1,4 +1,5 @@
 import { User } from "./auth";
+import { BaseData } from "./common";
 
 export type BoardName = "articles" | "products";
 
@@ -7,14 +8,9 @@ export type CommentList = {
   list: Comment[];
 };
 
-export type Comment = {
+export type Comment = BaseData & {
   writer: User;
-  updatedAt: string;
-  createdAt: string;
   content: string;
-  id: number;
 };
 
-export type DeleteCommentResponse = {
-  id: number;
-};
+export type DeleteCommentResponse = Pick<BaseData, "id">;

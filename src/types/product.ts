@@ -1,6 +1,8 @@
-export type Product = {
-  createdAt: string;
-  updatedAt: string;
+import { BaseData } from "./common";
+
+export type Tags = string[];
+
+export type Product = BaseData & {
   favoriteCount: number;
   ownerNickname: string;
   ownerId: number;
@@ -9,21 +11,11 @@ export type Product = {
   price: number;
   description: string;
   name: string;
-  id: number;
   isFavorite: boolean;
-};
-
-export type Tags = string[];
-
-export type ProductList = {
-  totalCount: number;
-  list: Product[];
 };
 
 export type ImageUploadResponse = {
   url: string;
 };
 
-export type DeleteProductResponse = {
-  id: number;
-};
+export type DeleteProductResponse = Pick<BaseData, "id">;

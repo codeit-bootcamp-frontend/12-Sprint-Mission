@@ -4,3 +4,14 @@ export type ListQueryParams = {
   keyword: string;
   orderBy: string;
 };
+
+export type PaginationResponse<T> = {
+  totalCount: number;
+  list: T[];
+};
+
+export type BaseData = {
+  updatedAt: string;
+  createdAt: string;
+  id: number;
+};

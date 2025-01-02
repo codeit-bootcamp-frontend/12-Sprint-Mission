@@ -4,10 +4,11 @@ import { Tags } from "@components/ui";
 import { Error } from "@components/Field";
 import styles from "./Input.module.scss";
 import { FieldError } from "react-hook-form";
+import { Tags as TagsType } from "@type/product";
 
 interface TagsInputProps {
-  value: string[];
-  onChange: (value: string[]) => void;
+  value: TagsType;
+  onChange: (value: TagsType) => void;
   error: FieldError | FieldError[] | undefined;
   isValid: boolean;
   isTouched: boolean;
