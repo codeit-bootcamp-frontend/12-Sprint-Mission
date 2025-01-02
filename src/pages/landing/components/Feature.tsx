@@ -8,15 +8,12 @@ type Featrue = {
     src: string;
     alt: string;
   };
+  reverse?: boolean;
 };
 
 interface FeatureProps {
   list: Featrue[];
 }
-
-type FetaureItemProps = Featrue & {
-  reverse: boolean;
-};
 
 export default function Feature({ list }: FeatureProps) {
   return (
@@ -39,7 +36,7 @@ function FeatureItem({
   title,
   featureImg,
   description,
-}: FetaureItemProps) {
+}: Featrue) {
   return (
     <div className={`${styles.feature} ${reverse ? styles.reverse : ""}`}>
       <div className={styles.inner}>
