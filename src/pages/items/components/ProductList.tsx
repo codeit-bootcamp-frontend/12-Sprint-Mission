@@ -23,7 +23,11 @@ export default function ProductList({
     return <Message>상품을 가져오는데 문제가 생겼습니다.</Message>;
   }
 
-  if (!items.length && !isLoading) {
+  if (isLoading) {
+    return <Message>상품을 가져오는 중입니다.</Message>;
+  }
+
+  if (!items.length) {
     return <Message>검색된 상품이 없습니다</Message>;
   }
 

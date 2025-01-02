@@ -6,6 +6,8 @@ export default function useAsync<T>(asyncFn: (...args: any[]) => Promise<T>) {
   const [error, setError] = useState<Error | null>(null);
 
   async function wrappedFn(...args: Parameters<typeof asyncFn>) {
+    let isAborted = false;
+
     try {
       setError(null);
       setIsLoading(true);
@@ -13,13 +15,19 @@ export default function useAsync<T>(asyncFn: (...args: any[]) => Promise<T>) {
       setResult(res);
       return res;
     } catch (err) {
-      if (err instanceof Error && err.name !== "CanceledError") {
-        setError(err);
+      if (err instanceof Error) {
+        if (err.name === "CanceledError") {
+          isAborted = true;
+        } else {
+          setError(err);
+        }
       }
     } finally {
-      setIsLoading(false);
+      if (!isAborted) {
+        setIsLoading(false);
+      }
     }
   }
 
-  return { isLoading, error, result, wrappedFn };
+  return { isLoading, setIsLoading, error, result, wrappedFn };
 }
