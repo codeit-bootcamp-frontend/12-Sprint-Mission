@@ -25,7 +25,9 @@ export default function ItemDetailPage() {
       {/* non critical */}
       <Suspense fallback={<Loading>상품 문의를 가져오는 중입니다....</Loading>}>
         <Await resolve={comments}>
-          {(comments) => <CommentList name="products" comments={comments} />}
+          {(comments: CommentListType) => (
+            <CommentList name="products" comments={comments} />
+          )}
         </Await>
       </Suspense>
 
