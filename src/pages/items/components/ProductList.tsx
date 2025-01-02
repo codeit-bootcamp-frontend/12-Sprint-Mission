@@ -6,7 +6,6 @@ import styles from "./ProductList.module.scss";
 
 interface ProductListProps {
   items: Product[];
-  keyword?: string;
   isLoading: boolean;
   error: Error | null;
   mode?: "best" | "all";

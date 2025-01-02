@@ -19,8 +19,7 @@ export const ProductFormSchema = z.object({
   }),
   price: z.coerce
     .number()
-    .min(100, { message: 100 + MESSAGE.PRODUCT_PRICE_MIN })
-    .optional(),
+    .min(100, { message: 100 + MESSAGE.PRODUCT_PRICE_MIN }),
 });
 
 export type ProductFormType = z.infer<typeof ProductFormSchema>;
