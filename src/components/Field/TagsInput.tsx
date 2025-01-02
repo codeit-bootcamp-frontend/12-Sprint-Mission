@@ -16,7 +16,10 @@ interface TagsInputProps {
 }
 
 export const TagsInput = forwardRef(
-  ({ value, onChange, error, isValid, placeholder = "" }: TagsInputProps) => {
+  (
+    { value, onChange, error, isValid, placeholder = "" }: TagsInputProps,
+    _
+  ) => {
     const inputRef = useRef<HTMLInputElement>(null);
     const valid = isValid && value.length;
     const css = clsx(

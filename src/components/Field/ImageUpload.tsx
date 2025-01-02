@@ -17,7 +17,7 @@ interface ImageUploadProps {
 }
 
 export const ImageUpload = forwardRef(
-  ({ name, value, onChange, error, placeholder }: ImageUploadProps) => {
+  ({ name, value, onChange, error, placeholder }: ImageUploadProps, _) => {
     const { fileProps, fileError, handleRemove, preview } = useSingleFile({
       value,
       onChange,
