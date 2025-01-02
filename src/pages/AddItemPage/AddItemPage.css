@@ -74,7 +74,7 @@
   width: 282px;
   height: 282px;
   padding: 158px 104px 98px;
-  background: url(../../images/ic_plus.png) no-repeat center;
+  background: url(../../assets/images/ic_plus.png) no-repeat center;
   background-size: 48px;
   background-color: #f3f4f6;
   @media (max-width: 768px) {
@@ -117,7 +117,7 @@
   top: 12px;
   right: 12px;
   border: none;
-  background: url("/src/images/ic_X.png");
+  background: url("../../assets/images/ic_X.png");
 }
 
 .clearBtn:hover {

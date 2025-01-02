@@ -1,0 +1,22 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.header {
+  font-weight: 600;
+  font-size: 1.6rem;
+  line-height: 2.6rem;
+  color: var(--color-secondary-900);
+}
+
+.text {
+  height: 10.4rem;
+}
+
+.btn {
+  box-sizing: border-box;
+  width: 7.4rem;
+  margin-left: auto;
+}

@@ -1,9 +1,0 @@
-.itemDetailPageContainer {
-  width: 1200px;
-  margin: 24px auto;
-  padding: 0 0 40px;
-  display: flex;
-  flex-direction: column;
-  gap: 64px;
-  border-bottom: 1px solid #e5e7eb;
-}

@@ -1,0 +1,30 @@
+.container {
+  height: 16rem;
+  padding: 3.2rem 40rem;
+  background-color: var(--color-secondary-900);
+}
+
+.content {
+  display: flex;
+  justify-content: space-between;
+}
+
+.policy-link {
+  display: flex;
+  gap: 30px;
+}
+
+.text {
+  font-weight: 400;
+  font-size: 1.6rem;
+  color: var(--color-secondary-400);
+}
+
+.text.link {
+  color: var(--color-secondary-200);
+}
+
+.sns-list {
+  display: flex;
+  gap: 12px;
+}

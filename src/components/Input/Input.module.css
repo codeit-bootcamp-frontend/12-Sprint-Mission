@@ -1,0 +1,36 @@
+.inputWrapper {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.input {
+  flex: 1;
+  height: 100%;
+  padding: 1.6rem 2.4rem 1.6rem 4rem;
+  border-radius: 1.2rem;
+  font-size: 1.6rem;
+  font-weight: 400;
+  border: none;
+  color: var(--color-secondary-800);
+  background-color: var(--color-secondary-100);
+}
+
+.input::placeholder {
+  font-size: 1.6rem;
+  font-weight: 400;
+  overflow: auto;
+  color: var(--color-secondary-400);
+}
+
+.iconWrapper {
+  position: absolute;
+  left: 10px;
+  display: flex;
+  align-items: center;
+  pointer-events: none;
+}
+
+.error {
+  border: 1px solid var(--color-error);
+}
