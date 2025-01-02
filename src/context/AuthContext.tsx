@@ -8,7 +8,7 @@ import {
 import { getUser, login, refreshAccessToken, signUp } from "@service/auth";
 import { isTokenValid } from "@util/helper";
 import { axiosInstance } from "@service/axios";
-import { SignupResponse, User } from "@type/auth";
+import { AuthResponse, User } from "@type/auth";
 import { SigninFormType, SignupFormType } from "@schemas/auth";
 
 type AuthContextProps = {
@@ -19,7 +19,7 @@ type AuthContextProps = {
   };
   handleLogin: (formData: SigninFormType) => Promise<User>;
   handleLogout: () => void;
-  handleSignup: (formData: SignupFormType) => Promise<SignupResponse>;
+  handleSignup: (formData: SignupFormType) => Promise<AuthResponse>;
 };
 
 type AuthStateProps = {

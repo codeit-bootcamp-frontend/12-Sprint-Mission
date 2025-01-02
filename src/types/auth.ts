@@ -6,18 +6,13 @@ export type User = {
   id: number;
 };
 
-export type SigninResponse = {
+export type Tokens = {
   accessToken: string;
   refreshToken: string;
+};
+
+export type AuthResponse = Tokens & {
   user: User;
 };
 
-export type SignupResponse = {
-  accessToken: string;
-  refreshToken: string;
-  user: User;
-};
-
-export type RefreshResponse = {
-  accessToken: string;
-};
+export type RefreshResponse = Pick<Tokens, "accessToken">;
