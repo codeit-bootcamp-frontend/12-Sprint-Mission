@@ -2,9 +2,9 @@ import { ChangeEvent, useEffect, useRef, useState } from "react";
 
 interface SingleFileProps {
   value: (File | string)[];
-  accept: string;
-  limitSize: number;
   onChange: (file: (File | string)[]) => void;
+  accept?: string;
+  limitSize?: number;
   errorMessage?: {
     max?: string;
     accept?: string;
@@ -78,8 +78,8 @@ export default function useSingleFile({
       accept,
       onChange: handleChange,
     },
-    preview,
     fileError: error,
     handleRemove,
+    preview,
   };
 }

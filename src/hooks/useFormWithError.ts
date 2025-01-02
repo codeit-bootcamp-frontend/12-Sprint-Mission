@@ -7,16 +7,16 @@ import {
   UseFormProps,
 } from "react-hook-form";
 
-export default function useFormWithError<TFieldValues extends FieldValues>(
-  options: UseFormProps<TFieldValues>
+export default function useFormWithError<T extends FieldValues>(
+  options: UseFormProps<T>
 ) {
   const [formError, setFormError] = useState<Error | null>(null);
-  const form = useForm<TFieldValues>(options);
+  const form = useForm<T>(options);
   const { handleSubmit, getFieldState, register, formState, watch } = form;
 
-  function registerWithError<TFieldName extends FieldPath<TFieldValues>>(
-    name: TFieldName,
-    options?: RegisterOptions<TFieldValues, TFieldName>
+  function registerWithError<U extends FieldPath<T>>(
+    name: U,
+    options?: RegisterOptions<T, U>
   ) {
     const { error, isDirty, isTouched, invalid } = getFieldState(
       name,
@@ -33,9 +33,7 @@ export default function useFormWithError<TFieldValues extends FieldValues>(
     };
   }
 
-  function handleSumbitWithError(
-    submitFn: (data: TFieldValues) => Promise<void>
-  ) {
+  function handleSumbitWithError(submitFn: (data: T) => Promise<void>) {
     return handleSubmit(async function (data) {
       try {
         setFormError(null);
