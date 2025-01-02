@@ -1,5 +1,10 @@
 import { axiosInstance } from "@service/axios";
-import { BoardName } from "@type/comment";
+import {
+  BoardName,
+  Comment,
+  DeleteCommentResponse,
+  CommentList,
+} from "@type/comment";
 import { CommentFormType } from "@schemas/comment";
 
 export async function getComments(
@@ -11,7 +16,7 @@ export async function getComments(
   }: { productId: number; limit: number; cursor?: number }
 ) {
   const query = `limit=${limit}${cursor ? `&cursor=${cursor}` : ""}`;
-  const response = await axiosInstance.get(
+  const response = await axiosInstance.get<CommentList>(
     `/${name}/${productId}/comments?${query}`
   );
 
@@ -23,7 +28,7 @@ export async function addComment(
   id: number,
   formData: CommentFormType
 ) {
-  const response = await axiosInstance.post(
+  const response = await axiosInstance.post<Comment>(
     `/${name}/${id}/comments`,
     formData
   );
@@ -32,7 +37,9 @@ export async function addComment(
 }
 
 export async function removeComment(commentId: number) {
-  const response = await axiosInstance.delete(`/comments/${commentId}`);
+  const response = await axiosInstance.delete<DeleteCommentResponse>(
+    `/comments/${commentId}`
+  );
 
   return response.data;
 }
@@ -41,7 +48,7 @@ export async function updateComment(
   commentId: number,
   formData: CommentFormType
 ) {
-  const response = await axiosInstance.patch(
+  const response = await axiosInstance.patch<Comment>(
     `/comments/${commentId}`,
     formData
   );

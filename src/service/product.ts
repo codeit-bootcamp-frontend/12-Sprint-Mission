@@ -38,7 +38,7 @@ export async function modifyProduct(
   productId: number,
   productData: ProductFormType
 ) {
-  const response = await axiosInstance.patch(
+  const response = await axiosInstance.patch<Product>(
     `/products/${productId}`,
     productData
   );

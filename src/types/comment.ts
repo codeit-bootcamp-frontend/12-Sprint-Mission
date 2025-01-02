@@ -14,3 +14,7 @@ export type Comment = {
   content: string;
   id: number;
 };
+
+export type DeleteCommentResponse = {
+  id: number;
+};
