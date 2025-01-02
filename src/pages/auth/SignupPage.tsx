@@ -24,6 +24,7 @@ export default function SignupPage() {
     handleSubmit,
     formState: { isSubmitting, isValid },
   } = useFormWithError<SignupFormType>({
+    mode: "onBlur",
     resolver: zodResolver(signupFormSchema),
   });
 
