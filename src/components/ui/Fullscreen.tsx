@@ -5,7 +5,7 @@ import styles from "./Fullscreen.module.scss";
 export function Fullscreen({
   children,
 }: {
-  children: ReactElement<{ onOpenScreen?: (src: string) => void }>;
+  children: ReactElement<{ onFullScreen?: (src: string) => void }>;
 }) {
   const [imgSrc, setImgSrc] = useState<string | null>(null);
 
@@ -19,7 +19,7 @@ export function Fullscreen({
 
   return (
     <>
-      {cloneElement(children, { onOpenScreen: handleOpenScreen })}
+      {cloneElement(children, { onFullScreen: handleOpenScreen })}
       {imgSrc && (
         <Modal>
           <ImgViewer src={imgSrc} onCloseScreen={handleCloseScreen} />

@@ -79,6 +79,9 @@
   pointer-events: none;
 }
 
+input[type="number"]:focus ~ .formatted {
+  display: none;
+}
 .placeholder {
   color: var(--color-secondary-400);
 }

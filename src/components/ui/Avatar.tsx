@@ -1,11 +1,11 @@
+import { SyntheticEvent } from "react";
 import clsx from "clsx";
 import defaultAvatar from "@assets/img/icon/icon_avatar.svg";
 import styles from "./Avatar.module.scss";
-import { SyntheticEvent } from "react";
 
 interface AvatarProps {
-  nickname: string;
   img: string | undefined;
+  nickname: string;
   hover?: boolean;
 }
 

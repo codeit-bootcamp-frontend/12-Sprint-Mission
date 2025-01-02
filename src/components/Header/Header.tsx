@@ -1,18 +1,10 @@
-import { Logo, Nav, Util } from "@components/Header";
+import { ReactNode } from "react";
 import styles from "./Header.module.scss";
 
-interface HeaderProps {
-  showNav?: boolean;
-}
-
-export function Header({ showNav = false }: HeaderProps) {
+export function Header({ children }: { children: ReactNode }) {
   return (
     <header className={styles.header}>
-      <nav className={styles.nav}>
-        <Logo />
-        {showNav && <Nav />}
-        <Util />
-      </nav>
+      <nav className={styles.nav}>{children}</nav>
     </header>
   );
 }

@@ -5,11 +5,11 @@ import clearIcon from "@assets/img/icon/icon_clear.svg";
 import styles from "./Thumbnail.module.scss";
 
 interface ThumbnailProps {
-  src: string;
+  src?: string;
   alt?: string;
   onRemove?: () => void;
   aspectRatio?: string;
-  onOpenScreen?: (src: string) => void;
+  onFullScreen?: (src: string) => void;
 }
 
 export function Thumbnail({
@@ -17,10 +17,10 @@ export function Thumbnail({
   alt = "",
   onRemove,
   aspectRatio = "1 / 1",
-  onOpenScreen,
+  onFullScreen,
 }: ThumbnailProps) {
   const [isDefault, setIsDefault] = useState(src === defaultImg);
-  const hasFullScreen = onOpenScreen && !isDefault;
+  const hasFullScreen = onFullScreen && !isDefault;
 
   const coverCss = clsx(styles.cover, hasFullScreen && styles.fullscreen);
   const imgCss = clsx(styles.img, isDefault && styles.default);
@@ -29,7 +29,7 @@ export function Thumbnail({
     <figure
       className={coverCss}
       style={{ aspectRatio }}
-      {...(hasFullScreen && { onClick: () => onOpenScreen(src) })}
+      {...(hasFullScreen && { onClick: () => onFullScreen(src) })}
     >
       {onRemove && (
         <button type="button" className={styles.button} onClick={onRemove}>

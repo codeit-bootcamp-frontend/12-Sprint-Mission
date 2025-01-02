@@ -6,19 +6,19 @@ import styles from "./Input.module.scss";
 import { FieldError } from "react-hook-form";
 
 interface TagsInputProps {
+  value: string[];
+  onChange: (value: string[]) => void;
   error: FieldError | FieldError[] | undefined;
   isValid: boolean;
   isTouched: boolean;
   isDirty: boolean;
-  value: string[];
-  onChange: (value: string[]) => void;
-  placeholder: string;
+  placeholder?: string;
 }
 
-export const TagsInput = forwardRef<HTMLInputElement, TagsInputProps>(
-  ({ error, value, onChange, isValid, placeholder }: TagsInputProps, ref) => {
+export const TagsInput = forwardRef(
+  ({ value, onChange, error, isValid, placeholder = "" }: TagsInputProps) => {
     const inputRef = useRef<HTMLInputElement>(null);
-    const valid = isValid && !error && value.length;
+    const valid = isValid && value.length;
     const css = clsx(
       styles["field-box"],
       valid && styles.valid,
@@ -46,9 +46,19 @@ export const TagsInput = forwardRef<HTMLInputElement, TagsInputProps>(
       onChange(newTags);
     }
 
-    const extractError = Array.isArray(error)
-      ? error?.find((err) => err && err.message)?.message ?? null
-      : error?.message;
+    // 메세지가 string or string[] 일 수 있음 (zod schema 때문에)
+    let tagsError: string | undefined;
+    if (Array.isArray(error)) {
+      tagsError = error.reduce((acc: string, errorItem, index) => {
+        if (errorItem.message) {
+          const message = `<${value[index]}>: ${errorItem.message}`;
+          return acc ? acc + ", " + message : message;
+        }
+        return acc;
+      }, "");
+    } else {
+      tagsError = error?.message || undefined;
+    }
 
     return (
       <>
@@ -62,7 +72,7 @@ export const TagsInput = forwardRef<HTMLInputElement, TagsInputProps>(
           />
         </div>
         <Tags tags={value} onRemoveItem={handleRemove} />
-        {extractError && <Error error={extractError} />}
+        {tagsError && <Error error={tagsError} />}
       </>
     );
   }

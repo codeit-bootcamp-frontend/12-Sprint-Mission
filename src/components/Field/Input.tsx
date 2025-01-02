@@ -20,7 +20,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
   ref
 ) {
   const [currentType, setCurrentType] = useState(type);
-  const valid = isValid && !error && value;
+  const valid = isValid && value;
   const css = clsx(
     styles["field-box"],
     valid && styles.valid,
@@ -51,7 +51,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
           </button>
         )}
       </div>
-      {error && <Error error={error.message} />}
+      {error?.message && <Error error={error.message} />}
     </>
   );
 });

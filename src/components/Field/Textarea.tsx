@@ -39,7 +39,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
         <div className={styles.field}>
           <textarea ref={ref} className={css} {...props} />
         </div>
-        {error && <Error error={error.message} />}
+        {error?.message && <Error error={error.message} />}
       </>
     );
   }

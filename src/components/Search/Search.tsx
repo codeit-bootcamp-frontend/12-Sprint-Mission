@@ -9,6 +9,8 @@ interface SearchProps {
   onSubmit: () => void;
   onClear: () => void;
   placeholder: string;
+  onOpenRecent?: () => void;
+  onCloseRecent?: () => void;
 }
 
 export function Search({
@@ -17,6 +19,8 @@ export function Search({
   onSubmit,
   onClear,
   placeholder,
+  onOpenRecent,
+  onCloseRecent,
 }: SearchProps) {
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -24,11 +28,16 @@ export function Search({
     e.preventDefault();
     onSubmit();
     inputRef.current && inputRef.current.blur();
+    onCloseRecent && onCloseRecent();
   }
 
   function handleClear() {
     onClear();
     inputRef.current && inputRef.current.blur();
+  }
+
+  function handleFocus() {
+    onOpenRecent && onOpenRecent();
   }
 
   return (
@@ -42,6 +51,7 @@ export function Search({
           value={value}
           onChange={onChange}
           placeholder={placeholder}
+          onFocus={handleFocus}
         />
         {value && (
           <button type="button" className={styles.clear} onClick={handleClear}>

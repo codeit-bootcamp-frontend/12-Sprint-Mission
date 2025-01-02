@@ -9,29 +9,31 @@ import { forwardRef } from "react";
 const LIMIT_SIZE_MB = 2;
 
 interface ImageUploadProps {
-  value: (File | string)[];
   name: string;
+  value: (File | string)[];
   onChange: (file: (File | string)[]) => void;
   error: FieldError | undefined;
   placeholder?: string;
 }
 
-export const ImageUpload = forwardRef<HTMLInputElement, ImageUploadProps>(
-  ({ value, onChange, name, error, placeholder }: ImageUploadProps, ref) => {
+export const ImageUpload = forwardRef(
+  ({ name, value, onChange, error, placeholder }: ImageUploadProps) => {
     const { fileProps, fileError, handleRemove, preview } = useSingleFile({
       value,
-      accept: "image/*",
       onChange,
+      accept: "image/*",
       limitSize: LIMIT_SIZE_MB,
       errorMessage: {
         max: "이미지 등록은 최대 1개까지 가능합니다.",
         accept: "이미지 파일만 업로드 가능합니다.",
       },
     });
-    // 두가지 에러 동시에 보내려고 문자열로 합침
+
+    // react hook form error + useSingleFile hook error
     const fileInputError = [fileError, error?.message]
       .filter((err) => err)
       .join(" / ");
+
     return (
       <>
         <div className={styles["thumbnail-list"]}>

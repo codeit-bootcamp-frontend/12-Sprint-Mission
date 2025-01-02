@@ -2,8 +2,8 @@ import clearIcon from "@assets/img/icon/icon_clear.svg";
 import styles from "./Chip.module.scss";
 
 interface ChipProps {
-  removable?: boolean;
   text: string;
+  removable?: boolean;
   onClick?: () => void;
 }
 

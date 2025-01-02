@@ -20,13 +20,10 @@ type DropdownDispatchContext = {
 };
 
 /** compound pattern + context api 복습 (mui dropdown 참고) */
-const DropdownStateContext = createContext<DropdownStateContext>({
-  isOpen: false,
-});
-const DropdownDispatchContext = createContext<DropdownDispatchContext>({
-  onChange: () => {},
-  setIsOpen: () => {},
-});
+const DropdownStateContext = createContext<DropdownStateContext | null>(null);
+const DropdownDispatchContext = createContext<DropdownDispatchContext | null>(
+  null
+);
 
 const useDropdownState = () => {
   const context = useContext(DropdownStateContext);

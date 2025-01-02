@@ -1,4 +1,4 @@
-import { FocusEvent, forwardRef, InputHTMLAttributes, useState } from "react";
+import { forwardRef, InputHTMLAttributes } from "react";
 import clsx from "clsx";
 import { Error } from "@components/Field";
 import styles from "./Input.module.scss";
@@ -10,6 +10,7 @@ interface NumberInputProps extends InputHTMLAttributes<HTMLInputElement> {
   isValid: boolean;
   isTouched: boolean;
   isDirty: boolean;
+  value: number;
 }
 
 export const NumberInput = forwardRef<HTMLInputElement, NumberInputProps>(
@@ -20,15 +21,12 @@ export const NumberInput = forwardRef<HTMLInputElement, NumberInputProps>(
       isTouched,
       isDirty,
       placeholder,
-      onFocus,
-      onBlur,
       value,
       ...props
     }: NumberInputProps,
     ref
   ) => {
-    const [isInput, setIsInput] = useState(false);
-    const valid = isValid && !error && value;
+    const valid = isValid && value;
     const css = clsx(
       styles["field-box"],
       valid && styles.valid,
@@ -41,41 +39,21 @@ export const NumberInput = forwardRef<HTMLInputElement, NumberInputProps>(
       !value && styles.placeholder
     );
 
-    function handleFocus(e: FocusEvent<HTMLInputElement>) {
-      setIsInput(true);
-
-      if (onFocus) {
-        onFocus(e);
-      }
-    }
-
-    function handleBlur(e: FocusEvent<HTMLInputElement>) {
-      setIsInput(false);
-
-      if (onBlur) {
-        onBlur(e);
-      }
-    }
-
     return (
       <>
         <div className={styles.field}>
-          {!isInput && (
-            <div className={formattedCss}>
-              {(value && toWon(value as string)) || placeholder}
-            </div>
-          )}
           <input
             ref={ref}
             type="number"
             className={css}
             placeholder={placeholder}
             {...props}
-            onBlur={handleBlur}
-            onFocus={handleFocus}
           />
+          <div className={formattedCss}>
+            {value ? toWon(value) : placeholder}
+          </div>
         </div>
-        {error && <Error error={error.message} />}
+        {error?.message && <Error error={error.message} />}
       </>
     );
   }
