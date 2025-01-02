@@ -3,26 +3,22 @@ import clsx from "clsx";
 import { Tags } from "@components/ui";
 import { Error } from "@components/Field";
 import styles from "./Input.module.scss";
-import { FieldError } from "react-hook-form";
 import { Tags as TagsType } from "@type/product";
+import { DefaultFieldState } from "@type/common";
 
-interface TagsInputProps {
+interface TagsInputProps extends DefaultFieldState {
   value: TagsType;
   onChange: (value: TagsType) => void;
-  error: FieldError | FieldError[] | undefined;
-  isValid: boolean;
-  isTouched: boolean;
-  isDirty: boolean;
   placeholder?: string;
 }
 
 export const TagsInput = forwardRef(
   (
-    { value, onChange, error, isValid, placeholder = "" }: TagsInputProps,
+    { value, onChange, error, invalid, placeholder = "" }: TagsInputProps,
     _
   ) => {
     const inputRef = useRef<HTMLInputElement>(null);
-    const valid = isValid && value.length;
+    const valid = !invalid && value.length;
     const css = clsx(
       styles["field-box"],
       valid && styles.valid,
@@ -52,6 +48,7 @@ export const TagsInput = forwardRef(
 
     // 메세지가 string or string[] 일 수 있음 (zod schema 때문에)
     let tagsError: string | undefined;
+
     if (Array.isArray(error)) {
       tagsError = error.reduce((acc: string, errorItem, index) => {
         if (errorItem.message) {

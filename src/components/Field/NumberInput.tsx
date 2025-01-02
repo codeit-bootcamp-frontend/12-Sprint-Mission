@@ -3,13 +3,11 @@ import clsx from "clsx";
 import { Error } from "@components/Field";
 import styles from "./Input.module.scss";
 import { toWon } from "@util/formatter";
-import { FieldError } from "react-hook-form";
+import { DefaultFieldState } from "@type/common";
 
-interface NumberInputProps extends InputHTMLAttributes<HTMLInputElement> {
-  error: FieldError | undefined;
-  isValid: boolean;
-  isTouched: boolean;
-  isDirty: boolean;
+interface NumberInputProps
+  extends InputHTMLAttributes<HTMLInputElement>,
+    DefaultFieldState {
   value: number;
 }
 
@@ -17,16 +15,17 @@ export const NumberInput = forwardRef<HTMLInputElement, NumberInputProps>(
   (
     {
       error,
-      isValid,
+      invalid,
       isTouched,
       isDirty,
+      isValidating,
       placeholder,
       value,
       ...props
     }: NumberInputProps,
     ref
   ) => {
-    const valid = isValid && value;
+    const valid = !invalid && isDirty;
     const css = clsx(
       styles["field-box"],
       valid && styles.valid,
@@ -47,6 +46,7 @@ export const NumberInput = forwardRef<HTMLInputElement, NumberInputProps>(
             type="number"
             className={css}
             placeholder={placeholder}
+            value={value}
             {...props}
           />
           <div className={formattedCss}>

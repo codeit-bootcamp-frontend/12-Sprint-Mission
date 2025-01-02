@@ -2,14 +2,11 @@ import clsx from "clsx";
 import { Error } from "@components/Field";
 import styles from "./Input.module.scss";
 import { forwardRef, TextareaHTMLAttributes } from "react";
-import { FieldError } from "react-hook-form";
+import { DefaultFieldState } from "@type/common";
 
-interface TextareaProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
-  error: FieldError | undefined;
-  isValid: boolean;
-  isTouched: boolean;
-  isDirty: boolean;
-  value: string;
+interface TextareaProps
+  extends TextareaHTMLAttributes<HTMLTextAreaElement>,
+    DefaultFieldState {
   size?: "sm" | "lg";
 }
 
@@ -17,16 +14,16 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
   (
     {
       error,
-      isValid,
+      invalid,
       isTouched,
       isDirty,
-      value,
+      isValidating,
       size,
       ...props
     }: TextareaProps,
     ref
   ) => {
-    const valid = isValid && !error && value;
+    const valid = !invalid && isTouched;
     const css = clsx(
       styles["field-box"],
       size && styles[size],

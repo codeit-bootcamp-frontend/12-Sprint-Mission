@@ -12,24 +12,15 @@ export default function useFormWithError<T extends FieldValues>(
 ) {
   const [formError, setFormError] = useState<Error | null>(null);
   const form = useForm<T>(options);
-  const { handleSubmit, getFieldState, register, formState, watch } = form;
+  const { handleSubmit, getFieldState, register, formState } = form;
 
   function registerWithError<U extends FieldPath<T>>(
     name: U,
     options?: RegisterOptions<T, U>
   ) {
-    const { error, isDirty, isTouched, invalid } = getFieldState(
-      name,
-      formState
-    );
-
     return {
       ...register(name, options),
-      error,
-      isDirty,
-      isTouched,
-      isValid: !invalid,
-      value: watch(name),
+      ...getFieldState(name, formState),
     };
   }
 

@@ -4,23 +4,20 @@ import { Error } from "@components/Field";
 import iconViewOn from "@assets/img/icon/icon_view_on.svg";
 import iconViewOff from "@assets/img/icon/icon_view_off.svg";
 import styles from "./Input.module.scss";
-import { FieldError } from "react-hook-form";
+import { DefaultFieldState } from "@type/common";
 
-interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
+interface InputProps
+  extends InputHTMLAttributes<HTMLInputElement>,
+    DefaultFieldState {
   type?: string;
-  error: FieldError | undefined;
-  isValid: boolean;
-  isTouched: boolean;
-  isDirty: boolean;
-  value: string;
 }
 
 export const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
-  { type = "text", error, isValid, isTouched, isDirty, value, ...props },
+  { type = "text", error, invalid, isTouched, isDirty, isValidating, ...props },
   ref
 ) {
   const [currentType, setCurrentType] = useState(type);
-  const valid = isValid && value;
+  const valid = !invalid && isDirty;
   const css = clsx(
     styles["field-box"],
     valid && styles.valid,

@@ -9,15 +9,14 @@ import { forwardRef } from "react";
 const LIMIT_SIZE_MB = 2;
 
 interface ImageUploadProps {
-  name: string;
   value: (File | string)[];
   onChange: (file: (File | string)[]) => void;
-  error: FieldError | undefined;
+  error?: FieldError | undefined;
   placeholder?: string;
 }
 
 export const ImageUpload = forwardRef(
-  ({ name, value, onChange, error, placeholder }: ImageUploadProps, _) => {
+  ({ value, onChange, error, placeholder }: ImageUploadProps, _) => {
     const { fileProps, fileError, handleRemove, preview } = useSingleFile({
       value,
       onChange,
@@ -42,7 +41,7 @@ export const ImageUpload = forwardRef(
               <img src={iconPlus} alt="이미지 업로드" />
               {placeholder}
             </span>
-            <input name={name} className="a11y" {...fileProps} />
+            <input className="a11y" {...fileProps} />
           </label>
           <div className={styles.preview}>
             {preview && (
