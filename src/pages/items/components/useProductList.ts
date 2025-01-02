@@ -1,13 +1,9 @@
 import { useEffect } from "react";
 import { getProducts } from "@service/product";
 import useAsync from "@hooks/useAsync";
+import { ListQueryParams } from "@type/common";
 
-interface useProductListProps {
-  page?: number;
-  pageSize: number;
-  keyword?: string;
-  orderBy: string;
-}
+type useProductListProps = Partial<ListQueryParams>;
 
 export default function useProductList({
   page,
