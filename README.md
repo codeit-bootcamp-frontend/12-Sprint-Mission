@@ -88,3 +88,11 @@ state 관리하고 있는 params과 usePageSize로 관리하는 pageSize의 변�
 
 - React의 Suspense와 fallback, React router의 loader, hydrateFallback을 조사해보고 정리해보았습니다.
 - https://heavy-bear.tistory.com/13
+
+#### react hook form을 적용하면서 알게된 점
+
+- Controlled 필드를 사용할때는 defaultValue 설정을 꼭 해주어야한다. (초기값이 제대로 안잡히면 벨리데이션이 안됨)
+- useForm의 모드를 'onBlur'로 설정할때에는 필드에 전달된 props중 onBlur가 실행이 되어야 벨리데이션이 된다.
+- 직접 값을 업데이트해줄때는 (특수한 필드의 경우), useForm의 반환값중 setValue를 이용하면 값 업데이트와 벨리데이션이 작동한다.
+- react hook form에 컴포넌트를 연결할때에는 한겹의 어뎁터 레이어를 설정하여 컴포넌트 내부에서 react hook form의 의존성이 없도록 작성하는 방법을 사용하자.
+- watch를 통해 각 필드에 value값을 전달하면 하나의 필드가 업데이트 될때마다 전체가 리랜더링이 되어버린다. (Controller, useController 등을 통해서 전달해야함)
