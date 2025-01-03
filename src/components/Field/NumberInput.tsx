@@ -3,29 +3,26 @@ import clsx from "clsx";
 import { Error } from "@components/Field";
 import styles from "./Input.module.scss";
 import { toWon } from "@util/formatter";
-import { DefaultFieldState } from "@type/common";
 
-interface NumberInputProps
-  extends InputHTMLAttributes<HTMLInputElement>,
-    DefaultFieldState {
+interface NumberInputProps extends InputHTMLAttributes<HTMLInputElement> {
   value: number;
+  isValid: boolean;
+  error?: string;
 }
 
 export const NumberInput = forwardRef<HTMLInputElement, NumberInputProps>(
   (
     {
-      error,
-      invalid,
-      isTouched,
-      isDirty,
-      isValidating,
-      placeholder,
       value,
+      onChange,
+      error,
+      isValid,
+      placeholder,
       ...props
     }: NumberInputProps,
     ref
   ) => {
-    const valid = !invalid && isDirty;
+    const valid = isValid && value;
     const css = clsx(
       styles["field-box"],
       valid && styles.valid,
@@ -47,13 +44,14 @@ export const NumberInput = forwardRef<HTMLInputElement, NumberInputProps>(
             className={css}
             placeholder={placeholder}
             value={value}
+            onChange={onChange}
             {...props}
           />
           <div className={formattedCss}>
             {value ? toWon(value) : placeholder}
           </div>
         </div>
-        {error?.message && <Error error={error.message} />}
+        {error && <Error error={error} />}
       </>
     );
   }

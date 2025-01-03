@@ -3,7 +3,6 @@ import { Thumbnail } from "@components/ui";
 import { Error } from "@components/Field";
 import iconPlus from "@assets/img/icon/icon_plus.svg";
 import styles from "./ImageUpload.module.scss";
-import { FieldError } from "react-hook-form";
 import { forwardRef } from "react";
 
 const LIMIT_SIZE_MB = 2;
@@ -11,7 +10,7 @@ const LIMIT_SIZE_MB = 2;
 interface ImageUploadProps {
   value: (File | string)[];
   onChange: (file: (File | string)[]) => void;
-  error?: FieldError | undefined;
+  error?: string;
   placeholder?: string;
 }
 
@@ -29,9 +28,7 @@ export const ImageUpload = forwardRef(
     });
 
     // react hook form error + useSingleFile hook error
-    const fileInputError = [fileError, error?.message]
-      .filter((err) => err)
-      .join(" / ");
+    const fileInputError = [fileError, error].filter((err) => err).join(" / ");
 
     return (
       <>

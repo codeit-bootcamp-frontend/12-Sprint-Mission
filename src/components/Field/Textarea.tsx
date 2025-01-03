@@ -1,29 +1,18 @@
+import { forwardRef, TextareaHTMLAttributes } from "react";
 import clsx from "clsx";
 import { Error } from "@components/Field";
 import styles from "./Input.module.scss";
-import { forwardRef, TextareaHTMLAttributes } from "react";
-import { DefaultFieldState } from "@type/common";
 
-interface TextareaProps
-  extends TextareaHTMLAttributes<HTMLTextAreaElement>,
-    DefaultFieldState {
+interface TextareaProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
+  value: string;
   size?: "sm" | "lg";
+  isValid: boolean;
+  error?: string;
 }
 
 export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
-  (
-    {
-      error,
-      invalid,
-      isTouched,
-      isDirty,
-      isValidating,
-      size,
-      ...props
-    }: TextareaProps,
-    ref
-  ) => {
-    const valid = !invalid && isTouched;
+  ({ error, isValid, value, onChange, size, ...props }: TextareaProps, ref) => {
+    const valid = isValid && value;
     const css = clsx(
       styles["field-box"],
       size && styles[size],
@@ -34,9 +23,15 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
     return (
       <>
         <div className={styles.field}>
-          <textarea ref={ref} className={css} {...props} />
+          <textarea
+            ref={ref}
+            className={css}
+            value={value}
+            onChange={onChange}
+            {...props}
+          />
         </div>
-        {error?.message && <Error error={error.message} />}
+        {error && <Error error={error} />}
       </>
     );
   }

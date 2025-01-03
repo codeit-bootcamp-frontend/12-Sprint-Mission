@@ -4,20 +4,19 @@ import { Error } from "@components/Field";
 import iconViewOn from "@assets/img/icon/icon_view_on.svg";
 import iconViewOff from "@assets/img/icon/icon_view_off.svg";
 import styles from "./Input.module.scss";
-import { DefaultFieldState } from "@type/common";
 
-interface InputProps
-  extends InputHTMLAttributes<HTMLInputElement>,
-    DefaultFieldState {
-  type?: string;
+interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
+  value: string;
+  isValid: boolean;
+  error?: string;
 }
 
 export const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
-  { type = "text", error, invalid, isTouched, isDirty, isValidating, ...props },
+  { type = "text", value, onChange, isValid, error, ...props },
   ref
 ) {
   const [currentType, setCurrentType] = useState(type);
-  const valid = !invalid && isDirty;
+  const valid = isValid && value;
   const css = clsx(
     styles["field-box"],
     valid && styles.valid,
@@ -30,7 +29,14 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
   return (
     <>
       <div className={styles.field}>
-        <input ref={ref} type={currentType} className={css} {...props} />
+        <input
+          ref={ref}
+          type={currentType}
+          className={css}
+          value={value}
+          onChange={onChange}
+          {...props}
+        />
         {type === "password" && (
           <button
             type="button"
@@ -48,7 +54,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
           </button>
         )}
       </div>
-      {error?.message && <Error error={error.message} />}
+      {error && <Error error={error} />}
     </>
   );
 });

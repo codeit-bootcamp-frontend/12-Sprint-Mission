@@ -13,8 +13,8 @@ import useFormWithError from "@hooks/useFormWithError";
 import { ProductFormSchema, ProductFormType } from "@schemas/product";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useNavigate } from "react-router-dom";
-import { Controller } from "react-hook-form";
 import { Product } from "@type/product";
+import { FieldAdapter } from "@components/adaptor/rhf";
 
 interface ProductFormProps {
   initialData?: Product;
@@ -32,19 +32,19 @@ export default function ProductForm({
   const {
     control,
     formError,
-    register,
     handleSubmit,
     formState: { isSubmitting, isValid },
   } = useFormWithError<ProductFormType>({
-    mode: "onChange",
+    mode: "onBlur",
     resolver: zodResolver(ProductFormSchema),
     defaultValues: initialData || {
-      price: 0,
       images: [],
+      name: "",
+      description: "",
+      price: 0,
       tags: [],
     },
   });
-
   async function onSubmit(data: ProductFormType) {
     try {
       await onFormSubmit(data);
@@ -72,50 +72,56 @@ export default function ProductForm({
         <Section.Content>
           <FieldItem>
             <FieldItem.Label htmlFor="images">상품 이미지</FieldItem.Label>
-            <Controller
+            <FieldAdapter
               name="images"
               control={control}
-              render={({ field, fieldState }) => (
-                <ImageUpload {...field} {...fieldState} />
-              )}
+              render={(props) => <ImageUpload {...props} />}
             />
           </FieldItem>
           <FieldItem>
             <FieldItem.Label htmlFor="name">상품명</FieldItem.Label>
-            <Input placeholder="상품명 입력해주세요" {...register("name")} />
+            <FieldAdapter
+              name="name"
+              control={control}
+              render={(props) => (
+                <Input
+                  type="text"
+                  placeholder="상품명 입력해주세요"
+                  {...props}
+                />
+              )}
+            />
           </FieldItem>
           <FieldItem>
             <FieldItem.Label htmlFor="description">상품 소개</FieldItem.Label>
-            <Textarea
-              {...register("description")}
-              placeholder="상품 소개를  입력해주세요"
+            <FieldAdapter
+              name="description"
+              control={control}
+              render={(props) => (
+                <Textarea placeholder="상품 소개를  입력해주세요" {...props} />
+              )}
             />
           </FieldItem>
           <FieldItem>
             <FieldItem.Label htmlFor="price">판매 가격</FieldItem.Label>
-            <Controller
+            <FieldAdapter
               name="price"
               control={control}
-              render={({ field, fieldState }) => (
+              render={(props) => (
                 <NumberInput
-                  {...field}
-                  {...fieldState}
                   placeholder="판매 가격을 입력해주세요"
+                  {...props}
                 />
               )}
             />
           </FieldItem>
           <FieldItem>
             <FieldItem.Label htmlFor="tags">태그</FieldItem.Label>
-            <Controller
+            <FieldAdapter
               name="tags"
               control={control}
-              render={({ field, fieldState }) => (
-                <TagsInput
-                  {...field}
-                  {...fieldState}
-                  placeholder="태그를 입력해주세요"
-                />
+              render={(props) => (
+                <TagsInput placeholder="태그를 입력해주세요" {...props} />
               )}
             />
           </FieldItem>

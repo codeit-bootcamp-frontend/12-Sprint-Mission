@@ -5,6 +5,7 @@ import { Comment } from "@type/comment";
 import useFormWithError from "@hooks/useFormWithError";
 import { CommentFormSchema, CommentFormType } from "@schemas/comment";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { FieldAdapter } from "@components/adaptor/rhf";
 
 interface CommentForm {
   initialData?: Comment;
@@ -20,13 +21,13 @@ export function CommentForm({
   isEdit,
 }: CommentForm) {
   const {
+    control,
     formError,
-    register,
     reset,
     handleSubmit,
     formState: { isSubmitting, isValid },
   } = useFormWithError<CommentFormType>({
-    mode: "onBlur",
+    mode: "onChange",
     resolver: zodResolver(CommentFormSchema),
     defaultValues: initialData,
   });
@@ -60,10 +61,16 @@ export function CommentForm({
         {!isEdit && (
           <FieldItem.Label htmlFor="content">문의하기</FieldItem.Label>
         )}
-        <Textarea
-          size="sm"
-          placeholder="개인정보를 공유 및 요청하거나, 명예 훼손, 무단 광고, 불법 정보 유포시 모니터링 후 삭제될 수 있으며, 이에 대한 민형사상 책임은 게시자에게 있습니다."
-          {...register("content")}
+        <FieldAdapter
+          name="content"
+          control={control}
+          render={(props) => (
+            <Textarea
+              size="sm"
+              placeholder="개인정보를 공유 및 요청하거나, 명예 훼손, 무단 광고, 불법 정보 유포시 모니터링 후 삭제될 수 있으며, 이에 대한 민형사상 책임은 게시자에게 있습니다."
+              {...props}
+            />
+          )}
         />
       </FieldItem>
       <div className={styles.footer}>

@@ -6,12 +6,17 @@ export const ProductFormSchema = z.object({
     .array(z.union([z.instanceof(File), z.string()]))
     .min(1, { message: MESSAGE.PRODUCT_IMAGE_REQUIRED }),
   tags: z
-    .array(
-      z.string().regex(/^[^!@#$%^&*(),.?":{}|<>_\-+=\[\]\\\/`~';]*$/, {
+    .array(z.string())
+    .min(1, { message: MESSAGE.PRODUCT_TAGS_REQUIRED })
+    .refine(
+      (tags) =>
+        tags.every((tag) =>
+          /^[^!@#$%^&*(),.?":{}|<>_\-+=\[\]\\\/`~';]*$/.test(tag)
+        ),
+      {
         message: MESSAGE.INVALID_STRING,
-      })
-    )
-    .min(1, { message: MESSAGE.PRODUCT_TAGS_REQUIRED }),
+      }
+    ),
   name: z.string().nonempty({ message: MESSAGE.PRODUCT_NAME_REQUIRED }),
   description: z.string().nonempty({
     message: MESSAGE.PRODUCT_DESCRIPTION_REQUIRED,
