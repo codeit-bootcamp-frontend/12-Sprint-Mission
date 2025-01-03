@@ -91,19 +91,24 @@ function AllItemsSection() {
 
       <div className="allItemsCardSection">
         {itemList?.map((item) => (
-          <div key={item.id} className="itemCard">
-            {item.images && item.images.length > 0 ? (
-              <img src={item.images[0]} alt={item.name} className="itemImage" />
-            ) : (
-              <img src={defaultImage} alt={item.name} className="itemImage" />
-            )}
+          <Link to={`/items/${item.id}`} key={item.id} className="itemCard">
+            <img
+              src={
+                item.images && item.images.length > 0
+                  ? item.images[0]
+                  : defaultImage
+              }
+              alt={item.name}
+              className="itemImage"
+              onError={(e) => (e.target.src = defaultImage)}
+            />
             <h3 className="itemName">{item.name}</h3>
             <p className="itemPrice">{item.price.toLocaleString()}원</p>
             <div className="favoriteCount">
               <HeartIcon />
               {item.favoriteCount}
             </div>
-          </div>
+          </Link>
         ))}
       </div>
 
