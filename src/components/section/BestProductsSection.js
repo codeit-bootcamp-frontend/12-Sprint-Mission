@@ -1,11 +1,11 @@
 import { useEffect, useState, useCallback } from "react";
 import { Link } from "react-router-dom";
 import { fetchProducts } from "../../api/product.js";
+import { HttpException } from "../../utils/exceptions.js";
 import ItemCard from "../ui/Item/ItemCard.js";
 import "./BestProductsSection.css";
 
-const getPageSize = () => {
-  const width = window.innerWidth;
+const getPageLimit = (width) => {
   if (width > 1199) {
     return 4;
   } else if (width > 768) {
@@ -18,23 +18,32 @@ const getPageSize = () => {
 function BestProductsSection() {
   const [items, setItems] = useState([]);
   const [pageSize, setPageSize] = useState(null);
+  const [error, setError] = useState(null);
 
-  const getProducts = async () => {
-    if (pageSize !== null) {
-      const { list } = await fetchProducts("favorite", pageSize);
-      setItems(list);
+  const getProducts = async (limit) => {
+    if (limit !== null) {
+      try {
+        const { list } = await fetchProducts("favorite", limit);
+        setItems(list);
+      } catch (error) {
+        if (error instanceof HttpException) {
+          setError(error.message);
+        } else {
+          setError("알 수 없는 오류가 발생했습니다.");
+        }
+      }
     }
   };
 
   const handleResize = useCallback(() => {
-    const newPageSize = getPageSize();
+    const newPageSize = getPageLimit(window.innerWidth);
     if (newPageSize !== pageSize) {
       setPageSize(newPageSize);
     }
   }, [pageSize]);
 
   useEffect(() => {
-    const initialPageSize = getPageSize();
+    const initialPageSize = getPageLimit(window.innerWidth);
     setPageSize(initialPageSize);
 
     window.addEventListener("resize", handleResize);
@@ -42,8 +51,12 @@ function BestProductsSection() {
   }, [handleResize]);
 
   useEffect(() => {
-    getProducts();
+    getProducts(pageSize);
   }, [pageSize]);
+
+  if (error) {
+    return <div>오류: {error}</div>;
+  }
 
   return (
     <section className="best-products">

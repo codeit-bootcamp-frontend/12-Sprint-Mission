@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import Dropdown from "./Dropdown";
 import "./AllProductsNav.css";
-import dropdownToggle from "../../../../src/assets/icons/dropdown-toggle.svg";
 
 function AllProductsNav({ onSortChange }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -30,22 +30,7 @@ function AllProductsNav({ onSortChange }) {
         <div className="search-container">
           <input type="text" className="item-nav-search" placeholder="검색할 상품을 입력해주세요" />
         </div>
-        <div className="dropdown-container">
-          <button className="dropdown-btn" onClick={toggleDropdown}>
-            {selected}
-            <img src={dropdownToggle} alt="더보기" />
-          </button>
-          {isOpen && (
-            <ul className="dropdown-menu">
-              <li className="dropdown-item" onClick={() => selectOption("최신순", "recent")}>
-                최신순
-              </li>
-              <li className="dropdown-item" onClick={() => selectOption("인기순", "favorite")}>
-                인기순
-              </li>
-            </ul>
-          )}
-        </div>
+        <Dropdown isOpen={isOpen} selected={selected} onToggle={toggleDropdown} onSelect={selectOption} />
       </div>
     </nav>
   );

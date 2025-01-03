@@ -7,7 +7,9 @@ function Header() {
   return (
     <header>
       <div className="header-nav">
-        <img src={logo} alt="로고" className="header-logo" />
+        <Link to="/items" className="header-logo-link">
+          <img src={logo} alt="로고" className="header-logo" />
+        </Link>
         <div className="header-nav-links">
           <Link>자유게시판</Link>
           <Link to="/items">중고마켓</Link>
