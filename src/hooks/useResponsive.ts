@@ -2,11 +2,7 @@ import { useEffect, useState } from "react";
 import { getDeviceType } from "@util/breakpoints";
 import { debounce } from "@util/debounce";
 
-type ResponsiveNumber = {
-  pc: number;
-  tablet: number;
-  mobile: number;
-};
+type ResponsiveNumber = Record<"pc" | "tablet" | "mobile", number>;
 
 export default function useResponsive(
   initialOption: ResponsiveNumber = {
