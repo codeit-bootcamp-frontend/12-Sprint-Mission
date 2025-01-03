@@ -1,4 +1,4 @@
-const HTTP_STATUS_CODE_MAPPER = {
+const HTTP_STATUS_CODE_MAPPER: { [key: number]: string } = {
   400: "잘못된 요청입니다.",
   401: "인증이 필요합니다",
   403: "접근 권한이 없습니다",
@@ -7,7 +7,10 @@ const HTTP_STATUS_CODE_MAPPER = {
 };
 
 export class HttpException extends Error {
-  constructor(message, statusCode, response) {
+  public statusCode: number;
+  public response: Response;
+
+  constructor(message: string, statusCode: number, response: Response) {
     super(message);
     this.name = this.constructor.name;
     this.statusCode = statusCode;
@@ -17,25 +20,25 @@ export class HttpException extends Error {
 }
 
 export class NotFoundException extends HttpException {
-  constructor(details) {
+  constructor(details: Response) {
     super(HTTP_STATUS_CODE_MAPPER[404], 404, details);
   }
 }
 
 export class UnauthorizedException extends HttpException {
-  constructor(details) {
+  constructor(details: Response) {
     super(HTTP_STATUS_CODE_MAPPER[401], 401, details);
   }
 }
 
 export class BadRequestException extends HttpException {
-  constructor(details) {
+  constructor(details: Response) {
     super(HTTP_STATUS_CODE_MAPPER[400], 400, details);
   }
 }
 
 export class InternalServerErrorException extends HttpException {
-  constructor(details) {
+  constructor(details: Response) {
     super(HTTP_STATUS_CODE_MAPPER[500], 500, details);
   }
 }

@@ -1,6 +1,14 @@
 import dropdownToggle from "../../../../src/assets/icons/dropdown-toggle.svg";
+import { SortOption } from "../../../types";
 
-function Dropdown({ isOpen, selected, onToggle, onSelect }) {
+interface DropdownProps {
+  isOpen: boolean;
+  selected: string;
+  onToggle: () => void;
+  onSelect: (option: string, sortKey: SortOption) => void;
+}
+
+function Dropdown({ isOpen, selected, onToggle, onSelect }: DropdownProps) {
   return (
     <div className="dropdown-container">
       <button className="dropdown-btn" onClick={onToggle}>

@@ -4,8 +4,9 @@ import { fetchProducts } from "../../api/product.js";
 import { HttpException } from "../../utils/exceptions.js";
 import ItemCard from "../ui/Item/ItemCard.js";
 import "./BestProductsSection.css";
+import { Product } from "../../types";
 
-const getPageLimit = (width) => {
+const getPageLimit = (width: number): number => {
   if (width > 1199) {
     return 4;
   } else if (width > 768) {
@@ -16,11 +17,11 @@ const getPageLimit = (width) => {
 };
 
 function BestProductsSection() {
-  const [items, setItems] = useState([]);
-  const [pageSize, setPageSize] = useState(null);
-  const [error, setError] = useState(null);
+  const [items, setItems] = useState<Product[]>([]);
+  const [pageSize, setPageSize] = useState<number | null>(null);
+  const [error, setError] = useState<string | null>(null);
 
-  const getProducts = async (limit) => {
+  const getProducts = async (limit: number): Promise<void> => {
     if (limit !== null) {
       try {
         const { list } = await fetchProducts("favorite", limit);
@@ -51,7 +52,9 @@ function BestProductsSection() {
   }, [handleResize]);
 
   useEffect(() => {
-    getProducts(pageSize);
+    if (typeof pageSize === "number") {
+      getProducts(pageSize);
+    }
   }, [pageSize]);
 
   if (error) {

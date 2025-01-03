@@ -1,11 +1,15 @@
 import { fetchProducts } from "../../api/product";
 import { useCallback, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import { HttpException } from "../../utils/exceptions";
 import ItemCard from "../ui/Item/ItemCard";
 import "./AllProductsSection.css";
+import { SortOption, Product } from "../../types";
 
-const getPageLimit = (width) => {
+interface AllProductsSectionProps {
+  sortOption: SortOption;
+}
+
+const getPageLimit = (width: number): number => {
   if (width > 1199) {
     return 10;
   } else if (width > 768) {
@@ -15,12 +19,12 @@ const getPageLimit = (width) => {
   }
 };
 
-function AllProductsSection({ sortOption }) {
-  const [items, setItems] = useState([]);
+function AllProductsSection({ sortOption }: AllProductsSectionProps) {
+  const [items, setItems] = useState<Product[]>([]);
   const [pageSize, setPageSize] = useState(getPageLimit(window.innerWidth));
-  const [error, setError] = useState(null);
+  const [error, setError] = useState<string | null>(null);
 
-  const getProducts = async (limit, sort) => {
+  const getProducts = async (limit: number, sort: SortOption): Promise<void> => {
     try {
       const { list } = await fetchProducts(sort, limit);
       setItems(list);
@@ -59,9 +63,7 @@ function AllProductsSection({ sortOption }) {
     <section className="all-products">
       <div className="all-products-list">
         {items.map((item) => (
-          <Link className="item-link" key={item.id}>
-            <ItemCard item={item}></ItemCard>
-          </Link>
+          <ItemCard key={item.id} item={item} />
         ))}
       </div>
     </section>
