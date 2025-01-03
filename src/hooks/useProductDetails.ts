@@ -1,14 +1,15 @@
 import { useState, useEffect } from "react";
 import { fetchProductById, fetchProductCommentById } from "../api/product";
 import { HttpException } from "../utils/exceptions";
+import { ProductDetail } from "../types";
 
-export function useProductDetails(productId) {
-  const [item, setItem] = useState(null);
+export function useProductDetails(productId: string | undefined) {
+  const [item, setItem] = useState<ProductDetail | null>(null);
   const [comments, setComments] = useState([]);
-  const [error, setError] = useState(null);
+  const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
 
-  const getProductById = async (productId) => {
+  const getProductById = async (productId: string | undefined) => {
     try {
       const data = await fetchProductById(productId);
       setItem(data);
@@ -23,7 +24,7 @@ export function useProductDetails(productId) {
     }
   };
 
-  const getProductCommentById = async (productId) => {
+  const getProductCommentById = async (productId: string | undefined) => {
     try {
       const { list } = await fetchProductCommentById(productId);
       setComments(list);

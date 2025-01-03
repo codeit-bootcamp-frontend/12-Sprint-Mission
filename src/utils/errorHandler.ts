@@ -6,7 +6,7 @@ import {
   InternalServerErrorException,
 } from "./exceptions";
 
-export const handleResponseError = (response) => {
+export const handleResponseError = (response: Response) => {
   console.error(`HTTP Error: ${response.status} ${response.statusText}`);
 
   switch (response.status) {
