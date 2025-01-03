@@ -44,3 +44,11 @@ export interface CommentsResponse {
   nextCursor: number;
   list: Comment[];
 }
+
+export interface AddItemData {
+  images?: string[];
+  tags: string[];
+  price: number | string;
+  description: string;
+  name: string;
+}

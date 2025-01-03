@@ -1,14 +1,18 @@
-import { useEffect, useState } from "react";
+import { ChangeEvent, useEffect, useState } from "react";
 import ic_plus from "../../../assets/icons/ic_plus.svg";
 import ic_X from "../../../assets/icons/ic_X.svg";
 import "./ImageUpload.css";
 
-function ImageUpload({ title }) {
-  const [value, setValue] = useState();
-  const [preview, setPreview] = useState();
+interface ImageUploadProps {
+  title: string;
+}
 
-  const handleChange = (e) => {
-    const nextValue = e.target.files[0];
+function ImageUpload({ title }: ImageUploadProps) {
+  const [value, setValue] = useState<File | null>(null);
+  const [preview, setPreview] = useState<string | null>(null);
+
+  const handleChange = (e: ChangeEvent<HTMLInputElement>): void => {
+    const nextValue = e.target.files ? e.target.files[0] : null;
     setValue(nextValue);
   };
 
@@ -18,8 +22,10 @@ function ImageUpload({ title }) {
     setPreview(nextPreview);
 
     return () => {
-      setPreview();
-      URL.revokeObjectURL(nextPreview);
+      if (nextPreview) {
+        URL.revokeObjectURL(nextPreview);
+      }
+      setPreview(null);
     };
   }, [value]);
 

@@ -1,15 +1,24 @@
-import { useState } from "react";
+import { ChangeEvent, KeyboardEvent, useState } from "react";
 import ic_X from "../../../assets/icons/ic_X.svg";
 import "./TagInput.css";
 
-function TagInput({ id, title, placeholder, tags, onAddTag, onRemoveTag }) {
-  const [inputValue, setInputValue] = useState("");
+interface TagInputProps {
+  id: string;
+  title: string;
+  placeholder: string;
+  tags: string[];
+  onAddTag: (tag: string) => void;
+  onRemoveTag: (tag: string) => void;
+}
 
-  const handleChange = (e) => {
+function TagInput({ id, title, placeholder, tags, onAddTag, onRemoveTag }: TagInputProps) {
+  const [inputValue, setInputValue] = useState<string>("");
+
+  const handleChange = (e: ChangeEvent<HTMLInputElement>): void => {
     setInputValue(e.target.value);
   };
 
-  const handleKeyDown = (e) => {
+  const handleKeyDown = (e: KeyboardEvent<HTMLInputElement>): void => {
     if (e.nativeEvent.isComposing) return;
 
     if (e.key === "Enter" && inputValue.trim() !== "") {
@@ -25,7 +34,7 @@ function TagInput({ id, title, placeholder, tags, onAddTag, onRemoveTag }) {
     }
   };
 
-  const handleRemoveTag = (tag) => {
+  const handleRemoveTag = (tag: string) => {
     onRemoveTag(tag);
   };
 
