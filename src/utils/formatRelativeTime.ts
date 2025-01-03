@@ -1,7 +1,12 @@
-export function formatRelativeTime(dateString) {
+export function formatRelativeTime(dateString: string): string {
   const now = new Date();
   const past = new Date(dateString);
-  const diffInSeconds = Math.floor((now - past) / 1000);
+
+  if (isNaN(past.getTime())) {
+    throw new Error("유효하지 않은 날짜 형식입니다.");
+  }
+
+  const diffInSeconds: number = Math.floor((now.getTime() - past.getTime()) / 1000);
 
   if (diffInSeconds < 0) {
     return "방금 전";
@@ -17,7 +22,7 @@ export function formatRelativeTime(dateString) {
   ];
 
   for (let interval of intervals) {
-    const count = Math.floor(diffInSeconds / interval.seconds);
+    const count: number = Math.floor(diffInSeconds / interval.seconds);
     if (count >= 1) {
       return `${count}${interval.label} 전`;
     }

@@ -1,9 +1,10 @@
 import { BASE_URL } from "../constants/apiUrls";
 import { handleResponseError } from "../utils/errorHandler";
 import { HttpException } from "../utils/exceptions";
+import { ProductDetail, CommentsResponse } from "../types";
 
-export const fetchProducts = async (orderBy, pageSize) => {
-  const params = new URLSearchParams({ orderBy, pageSize });
+export const fetchProducts = async (orderBy: string, pageSize: number) => {
+  const params = new URLSearchParams({ orderBy, pageSize: pageSize.toString() });
 
   try {
     const response = await fetch(`${BASE_URL}?${params.toString()}`, {
@@ -29,7 +30,7 @@ export const fetchProducts = async (orderBy, pageSize) => {
   }
 };
 
-export const fetchProductById = async (productId) => {
+export const fetchProductById = async (productId: number | string): Promise<ProductDetail> => {
   try {
     const response = await fetch(`${BASE_URL}/${productId}`, {
       method: "GET",
@@ -54,8 +55,11 @@ export const fetchProductById = async (productId) => {
   }
 };
 
-export const fetchProductCommentById = async (productId, limit = 10) => {
-  const params = new URLSearchParams({ limit: limit });
+export const fetchProductCommentById = async (
+  productId: number | string,
+  limit: number = 10
+): Promise<CommentsResponse> => {
+  const params = new URLSearchParams({ limit: limit.toString() });
 
   try {
     const response = await fetch(`${BASE_URL}/${productId}/comments?${params.toString()}`, {

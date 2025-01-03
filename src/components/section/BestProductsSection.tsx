@@ -1,8 +1,8 @@
 import { useEffect, useState, useCallback } from "react";
 import { Link } from "react-router-dom";
-import { fetchProducts } from "../../api/product.js";
-import { HttpException } from "../../utils/exceptions.js";
-import ItemCard from "../ui/Item/ItemCard.js";
+import { fetchProducts } from "../../api/product";
+import { HttpException } from "../../utils/exceptions";
+import ItemCard from "../ui/Item/ItemCard";
 import "./BestProductsSection.css";
 import { Product } from "../../types";
 
