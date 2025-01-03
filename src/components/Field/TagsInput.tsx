@@ -5,11 +5,31 @@ import { Error } from "@components/Field";
 import styles from "./Input.module.scss";
 import { Tags as TagsType } from "@type/product";
 import { DefaultFieldState } from "@type/common";
+import { FieldError } from "react-hook-form";
 
 interface TagsInputProps extends DefaultFieldState {
   value: TagsType;
   onChange: (value: TagsType) => void;
   placeholder?: string;
+}
+
+function formattedTagsError(
+  error: FieldError | FieldError[] | undefined,
+  value: TagsType
+) {
+  if (!error) return undefined;
+
+  if (Array.isArray(error)) {
+    return error.reduce((acc: string, errorItem, index) => {
+      if (errorItem.message) {
+        const message = `<${value[index]}>: ${errorItem.message}`;
+        return acc ? acc + ", " + message : message;
+      }
+      return acc;
+    }, "");
+  }
+
+  return error.message;
 }
 
 export const TagsInput = forwardRef(
@@ -47,19 +67,7 @@ export const TagsInput = forwardRef(
     }
 
     // 메세지가 string or string[] 일 수 있음 (zod schema 때문에)
-    let tagsError: string | undefined;
-
-    if (Array.isArray(error)) {
-      tagsError = error.reduce((acc: string, errorItem, index) => {
-        if (errorItem.message) {
-          const message = `<${value[index]}>: ${errorItem.message}`;
-          return acc ? acc + ", " + message : message;
-        }
-        return acc;
-      }, "");
-    } else {
-      tagsError = error?.message || undefined;
-    }
+    const tagsError = formattedTagsError(error, value);
 
     return (
       <>
