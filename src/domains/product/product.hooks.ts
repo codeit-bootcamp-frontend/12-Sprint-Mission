@@ -21,12 +21,10 @@ export function useProductDetails(productId: number | string | undefined) {
         ]);
         setItem(product);
         setComments(commentsResponse.list);
-      } catch (err) {
-        if (err instanceof HttpException) {
-          setError(err.message);
-        } else {
-          setError("알 수 없는 오류가 발생했습니다.");
-        }
+      } catch (error) {
+        console.error(error);
+        const message = error instanceof Error ? error.message : "알 수 없는 오류가 발생했습니다";
+        setError(message);
       } finally {
         setLoading(false);
       }

@@ -21,11 +21,9 @@ function AllProductsSection({ sortOption }: AllProductsSectionProps) {
       const { list } = await fetchProducts(sort, limit);
       setItems(list);
     } catch (error) {
-      if (error instanceof HttpException) {
-        setError(error.message);
-      } else {
-        setError("알 수 없는 오류가 발생했습니다.");
-      }
+      console.error(error);
+      const message = error instanceof Error ? error.message : "알 수 없는 오류가 발생했습니다";
+      setError(message);
     }
   };
 
