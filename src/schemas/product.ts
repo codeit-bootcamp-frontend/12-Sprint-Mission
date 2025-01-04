@@ -1,13 +1,6 @@
 import { z } from "zod";
 import { PRODUCT_VALIDATION_MESSAGE as MESSAGE } from "@constants/message";
-
-export const MAX_FILE_SIZE = 2 * 1024 * 1024;
-export const ACCEPT_FILE_TYPES = [
-  "image/jpeg",
-  "image/png",
-  "image/gif",
-  "image/webp",
-];
+import { ACCEPT_FILE_TYPES, MAX_FILE_SIZE } from "@constants/file";
 
 export const ProductFormSchema = z.object({
   images: z
@@ -21,7 +14,11 @@ export const ProductFormSchema = z.object({
         }
         return true; // string일 경우는 size 체크 스킵
       },
-      { message: `${MESSAGE.INVALID_IMAGE_SIZE}` }
+      {
+        message: `${MESSAGE.INVALID_IMAGE_SIZE} (${
+          MAX_FILE_SIZE / 1024 / 1024
+        }MB 초과)`,
+      }
     )
     .refine(
       (files) => {
