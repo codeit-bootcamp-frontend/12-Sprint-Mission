@@ -10,11 +10,7 @@ export default function useComments(
 ) {
   const { id: productId } = useParams();
   const [comments, setComments] = useState(initialComments);
-  const {
-    isLoading,
-    error,
-    wrappedFn: getData,
-  } = useAsync<CommentList>(getComments);
+  const { isLoading, error, wrappedFn: getData } = useAsync(getComments);
 
   async function handleLoad() {
     try {
