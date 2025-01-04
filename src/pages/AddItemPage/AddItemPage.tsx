@@ -5,19 +5,20 @@ import InputItem from "./InputItem";
 import TagInput from "./TagInput";
 import "../styles/global.css";
 
-function AddItemPage() {
+function AddItemPage: React.FC = () => {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
-  const [tags, setTags] = useState([]);
+  const [tags, setTags] = useState<string[]>([]);
 
-  const addTag = (tag) => {
+  // 중복 등록을 막기 위함
+  const addTag = (tag: string) => {
     if (!tags.includes(tag)) {
       setTags([...tags, tag]);
     }
   };
 
-  const removeTag = (tagToRemove) => {
+  const removeTag = (tagToRemove: string) => {
     setTags(tags.filter((tag) => tag !== tagToRemove));
   };
 

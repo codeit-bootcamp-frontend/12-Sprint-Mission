@@ -38,7 +38,7 @@ const UserProfile = styled.div`
 const UserProfileImage = styled.img`
   width: 40px;
   height: 40px;
-  border-radisu: 50%;
+  border-radius: 50%;
   object-fit: cover;
 
   @media (min-width: 768px) {
