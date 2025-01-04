@@ -1,11 +1,8 @@
-import useSingleFile from "@hooks/useSingleFile";
+import { ChangeEvent, forwardRef, useEffect, useRef } from "react";
 import { Thumbnail } from "@components/ui";
 import { Error } from "@components/Field";
 import iconPlus from "@assets/img/icon/icon_plus.svg";
 import styles from "./ImageUpload.module.scss";
-import { forwardRef } from "react";
-
-const LIMIT_SIZE_MB = 2;
 
 interface ImageUploadProps {
   value: (File | string)[];
@@ -16,19 +13,36 @@ interface ImageUploadProps {
 
 export const ImageUpload = forwardRef(
   ({ value, onChange, error, placeholder }: ImageUploadProps, _) => {
-    const { fileProps, fileError, handleRemove, preview } = useSingleFile({
-      value,
-      onChange,
-      accept: "image/*",
-      limitSize: LIMIT_SIZE_MB,
-      errorMessage: {
-        max: "이미지 등록은 최대 1개까지 가능합니다.",
-        accept: "이미지 파일만 업로드 가능합니다.",
-      },
-    });
+    const preview =
+      value?.[0] instanceof File ? URL.createObjectURL(value[0]) : value?.[0];
+    const fileRef = useRef<HTMLInputElement>(null);
 
-    // react hook form error + useSingleFile hook error
-    const fileInputError = [fileError, error].filter((err) => err).join(" / ");
+    useEffect(() => {
+      return () => {
+        if (preview && value?.[0] instanceof File) {
+          URL.revokeObjectURL(preview);
+        }
+      };
+    }, []);
+
+    function handleChange(e: ChangeEvent<HTMLInputElement>) {
+      if (!e.target.files) return;
+
+      const files = e.target.files;
+
+      onChange(Array.from(files));
+
+      if (fileRef.current) {
+        fileRef.current.value = "";
+      }
+    }
+
+    function handleRemove() {
+      if (!fileRef.current) return;
+
+      fileRef.current.value = "";
+      onChange([]);
+    }
 
     return (
       <>
@@ -38,7 +52,13 @@ export const ImageUpload = forwardRef(
               <img src={iconPlus} alt="이미지 업로드" />
               {placeholder}
             </span>
-            <input className="a11y" {...fileProps} />
+            <input
+              className="a11y"
+              type="file"
+              accept="image/*"
+              ref={fileRef}
+              onChange={handleChange}
+            />
           </label>
           <div className={styles.preview}>
             {preview && (
@@ -50,7 +70,7 @@ export const ImageUpload = forwardRef(
             )}
           </div>
         </div>
-        {fileInputError && <Error error={fileInputError} />}
+        {error && <Error error={error} />}
       </>
     );
   }
