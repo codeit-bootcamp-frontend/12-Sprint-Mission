@@ -1,4 +1,4 @@
-import { AUTH_VALIDATION_MESSAGES as MESSAGE } from "@util/validation";
+import { AUTH_VALIDATION_MESSAGES as MESSAGE } from "@constants/message";
 import { z } from "zod";
 
 export const signupFormSchema = z

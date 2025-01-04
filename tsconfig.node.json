@@ -31,7 +31,8 @@
       "@util/*": ["src/util/*"],
       "@assets/*": ["src/assets/*"],
       "@type/*": ["src/types/*"],
-      "@schemas/*": ["src/schemas/*"]
+      "@schemas/*": ["src/schemas/*"],
+      "@constants/*": ["src/constants/*"]
     }
   },
   "include": ["vite.config.ts"]
