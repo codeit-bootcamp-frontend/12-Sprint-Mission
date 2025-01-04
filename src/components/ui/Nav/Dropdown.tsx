@@ -1,5 +1,5 @@
 import dropdownToggle from "../../../../src/assets/icons/dropdown-toggle.svg";
-import { SortOption } from "../../../types";
+import { SortOption } from "../../../domains/product/index";
 
 interface DropdownProps {
   isOpen: boolean;

@@ -4,7 +4,7 @@ import "./AddItemPage.css";
 import ImageUpload from "../../components/ui/Input/ImageUpload";
 import InputItem from "../../components/ui/Input/InputItem";
 import TagInput from "../../components/ui/Input/TagInput";
-import { AddItemData } from "../../types";
+import { AddItemData } from "../../domains/product/index";
 
 function AddItemPage() {
   const [formValues, setFormValues] = useState<AddItemData>({

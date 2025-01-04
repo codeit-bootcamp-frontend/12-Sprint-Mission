@@ -2,7 +2,7 @@ import heartIcon from "../../../assets/icons/heart-icon.svg";
 import defaultImg from "../../../assets/images/item-default-img-md.svg";
 import { Link } from "react-router-dom";
 import "./ItemCard.css";
-import { Product } from "../../../types";
+import { Product } from "../../../domains/product/index";
 
 interface ItemCardProps {
   item: Product;

@@ -1,4 +1,3 @@
-import React from "react";
 import "./ProductMeta.css";
 import profile from "../../../assets/images/profile.svg";
 import heart_icon from "../../../assets/icons/heart-icon.svg";

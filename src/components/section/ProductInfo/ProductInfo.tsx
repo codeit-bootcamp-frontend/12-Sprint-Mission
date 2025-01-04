@@ -2,7 +2,7 @@ import "./ProductInfo.css";
 import ic_kebab from "../../../assets/icons/ic_kebab.svg";
 import defaultImg from "../../../assets/images/item-default-img-md.svg";
 import ProductMeta from "./ProductMeta";
-import { ProductMeta as ProductMetaType } from "../../../types";
+import { ProductMeta as ProductMetaType } from "../../../domains/product/index";
 
 interface ProductInfoProps {
   images: string[];

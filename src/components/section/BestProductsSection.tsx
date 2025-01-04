@@ -1,10 +1,9 @@
 import { useEffect, useState, useCallback } from "react";
 import { Link } from "react-router-dom";
-import { fetchProducts } from "../../api/product";
 import { HttpException } from "../../utils/exceptions";
 import ItemCard from "../ui/Item/ItemCard";
 import "./BestProductsSection.css";
-import { Product } from "../../types";
+import { Product, fetchProducts } from "../../domains/product/index";
 
 const getPageLimit = (width: number): number => {
   if (width > 1199) {

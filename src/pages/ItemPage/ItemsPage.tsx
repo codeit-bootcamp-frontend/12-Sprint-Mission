@@ -4,7 +4,7 @@ import BestProductsSection from "../../components/section/BestProductsSection";
 import AllProductsNav from "../../components/ui/Nav/AllProductsNav";
 import AllProductsSection from "../../components/section/AllProductsSection";
 import "./ItemsPage.css";
-import { SortOption } from "../../types";
+import { SortOption } from "../../domains/product/index";
 
 function ItemsPage() {
   const [sortOption, setSortOption] = useState<SortOption>("recent");

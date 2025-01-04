@@ -1,7 +1,7 @@
 import "./ItemDetailPage.css";
 import ic_back from "../../assets/icons/ic_back.svg";
 import { useParams } from "react-router-dom";
-import { useProductDetails } from "../../hooks/useProductDetails";
+import { useProductDetails } from "../../domains/product/index";
 import { useNavigate } from "react-router-dom";
 import Header from "../../components/ui/Header/Header";
 import ProductInfo from "../../components/section/ProductInfo/ProductInfo";

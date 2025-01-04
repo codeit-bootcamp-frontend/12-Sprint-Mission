@@ -1,9 +1,9 @@
-import { fetchProducts } from "../../api/product";
+import { fetchProducts } from "../../domains/product/index";
 import { useCallback, useEffect, useState } from "react";
 import { HttpException } from "../../utils/exceptions";
 import ItemCard from "../ui/Item/ItemCard";
 import "./AllProductsSection.css";
-import { SortOption, Product } from "../../types";
+import { SortOption, Product } from "../../domains/product/index";
 
 interface AllProductsSectionProps {
   sortOption: SortOption;

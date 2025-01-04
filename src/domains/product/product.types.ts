@@ -26,6 +26,11 @@ export interface ProductDetail extends Product {
   updatedAt?: string;
 }
 
+export interface ProductListResponse {
+  totalCount: number;
+  list: Product[];
+}
+
 export interface Writer {
   image?: string;
   nickname: string;

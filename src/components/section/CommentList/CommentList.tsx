@@ -3,7 +3,7 @@ import "./CommentList.css";
 import profile from "../../../assets/images/profile.svg";
 import ic_kebab from "../../../assets/icons/ic_kebab.svg";
 import inquiry_empty from "../../../assets/images/Img_inquiry_empty.svg";
-import { Comment } from "../../../types";
+import { Comment } from "../../../domains/product/index";
 
 interface CommentListProps {
   comments: Comment[];

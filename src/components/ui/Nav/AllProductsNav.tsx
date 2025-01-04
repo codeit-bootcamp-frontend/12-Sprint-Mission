@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import Dropdown from "./Dropdown";
 import "./AllProductsNav.css";
-import { SortOption } from "../../../types";
+import { SortOption } from "../../../domains/product/index";
 
 interface AllProductsNavProps {
   onSortChange: (newSortOption: SortOption) => void;
