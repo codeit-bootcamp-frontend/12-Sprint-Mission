@@ -4,16 +4,8 @@ import { HttpException } from "../../utils/exceptions";
 import ItemCard from "../ui/Item/ItemCard";
 import "./BestProductsSection.css";
 import { Product, fetchProducts } from "../../domains/product/index";
-
-const getPageLimit = (width: number): number => {
-  if (width > 1199) {
-    return 4;
-  } else if (width > 768) {
-    return 2;
-  } else {
-    return 1;
-  }
-};
+import { getPageLimit } from "../../utils/getPageLimit";
+import { debounce } from "../../utils/debounce";
 
 function BestProductsSection() {
   const [items, setItems] = useState<Product[]>([]);
@@ -36,18 +28,18 @@ function BestProductsSection() {
   };
 
   const handleResize = useCallback(() => {
-    const newPageSize = getPageLimit(window.innerWidth);
+    const newPageSize = getPageLimit(window.innerWidth, "best");
     if (newPageSize !== pageSize) {
       setPageSize(newPageSize);
     }
   }, [pageSize]);
 
   useEffect(() => {
-    const initialPageSize = getPageLimit(window.innerWidth);
-    setPageSize(initialPageSize);
+    setPageSize(getPageLimit(window.innerWidth, "best"));
 
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
+    const debounceResize = debounce(handleResize, 300);
+    window.addEventListener("resize", debounceResize);
+    return () => window.removeEventListener("resize", debounceResize);
   }, [handleResize]);
 
   useEffect(() => {

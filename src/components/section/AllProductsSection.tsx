@@ -4,24 +4,16 @@ import { HttpException } from "../../utils/exceptions";
 import ItemCard from "../ui/Item/ItemCard";
 import "./AllProductsSection.css";
 import { SortOption, Product } from "../../domains/product/index";
+import { getPageLimit } from "../../utils/getPageLimit";
+import { debounce } from "../../utils/debounce";
 
 interface AllProductsSectionProps {
   sortOption: SortOption;
 }
 
-const getPageLimit = (width: number): number => {
-  if (width > 1199) {
-    return 10;
-  } else if (width > 768) {
-    return 6;
-  } else {
-    return 4;
-  }
-};
-
 function AllProductsSection({ sortOption }: AllProductsSectionProps) {
   const [items, setItems] = useState<Product[]>([]);
-  const [pageSize, setPageSize] = useState(getPageLimit(window.innerWidth));
+  const [pageSize, setPageSize] = useState(getPageLimit(window.innerWidth, "all"));
   const [error, setError] = useState<string | null>(null);
 
   const getProducts = async (limit: number, sort: SortOption): Promise<void> => {
@@ -38,15 +30,16 @@ function AllProductsSection({ sortOption }: AllProductsSectionProps) {
   };
 
   const handleResize = useCallback(() => {
-    const newPageSize = getPageLimit(window.innerWidth);
+    const newPageSize = getPageLimit(window.innerWidth, "all");
     if (newPageSize !== pageSize) {
       setPageSize(newPageSize);
     }
   }, [pageSize]);
 
   useEffect(() => {
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
+    const debounceResize = debounce(handleResize, 300);
+    window.addEventListener("resize", debounceResize);
+    return () => window.removeEventListener("resize", debounceResize);
   }, [handleResize]);
 
   useEffect(() => {

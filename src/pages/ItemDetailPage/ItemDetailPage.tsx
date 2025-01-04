@@ -13,59 +13,38 @@ function ItemDetailPage() {
   const { productId } = useParams();
   const { item, comments, error, loading } = useProductDetails(productId);
 
-  if (loading) {
-    return (
-      <div className="item-detail-page">
-        <Header />
-        <p>로딩 중...</p>
-      </div>
-    );
-  }
-
-  if (error) {
-    return (
-      <div className="item-detail-page">
-        <Header />
-        <p>오류 발생: {error}</p>
-      </div>
-    );
-  }
-
-  if (!item) {
-    return (
-      <div className="item-detail-page">
-        <Header />
-        <p>상품 정보를 찾을 수 없습니다.</p>
-      </div>
-    );
-  }
-
   return (
     <div className="item-detail-page">
       <Header />
-      <div className="item-detail-wrapper">
-        <ProductInfo
-          images={item.images}
-          name={item.name}
-          price={item.price}
-          description={item.description}
-          tags={item.tags}
-          meta={{
-            ownerNickname: item.ownerNickname,
-            createdAt: item.createdAt,
-            updatedAt: item.updatedAt,
-            favoriteCount: item.favoriteCount,
-          }}
-        />
+      {loading && <p>로딩 중...</p>}
+      {error && <p>오류 발생: {error}</p>}
+      {!loading && !error && !item && <p>상품 정보를 찾을 수 없습니다.</p>}
 
-        <InquiryForm />
-        <CommentList comments={comments} />
+      {!loading && !error && item && (
+        <div className="item-detail-wrapper">
+          <ProductInfo
+            images={item.images}
+            name={item.name}
+            price={item.price}
+            description={item.description}
+            tags={item.tags}
+            meta={{
+              ownerNickname: item.ownerNickname,
+              createdAt: item.createdAt,
+              updatedAt: item.updatedAt,
+              favoriteCount: item.favoriteCount,
+            }}
+          />
 
-        <button className="back-to-list" onClick={() => navigate("/items")}>
-          목록으로 돌아가기
-          <img src={ic_back} alt="돌아가기" className="back-to-list-img" />
-        </button>
-      </div>
+          <InquiryForm />
+          <CommentList comments={comments} />
+
+          <button className="back-to-list" onClick={() => navigate("/items")}>
+            목록으로 돌아가기
+            <img src={ic_back} alt="돌아가기" className="back-to-list-img" />
+          </button>
+        </div>
+      )}
     </div>
   );
 }
