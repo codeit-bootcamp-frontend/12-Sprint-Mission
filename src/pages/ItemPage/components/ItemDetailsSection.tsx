@@ -1,10 +1,27 @@
 import styled from "styled-components";
-import { LineDivider } from "../../../styles/CommonStyles";
-import TagDisplay from "../components/TagDisplay";
-import LikeButton from "../components/LikeButton";
-import { ReactComponent as KebabIcon } from "../../../assets/images/icons/ic_kebab.svg";
-import defaultImage from "../../../assets/images/image/img_default.png";
-import { ReactComponent as SellerImage } from "../../../assets/images/icons/ic_profile.svg";
+import { LineDivider } from "@/styles/CommonStyles";
+import TagDisplay from "@/pages/ItemPage/components/TagDisplay";
+import LikeButton from "@/pages/ItemPage/components/LikeButton";
+import KebabIcon from "@/assets/images/icons/ic_kebab.svg?react";
+import defaultImage from "@/assets/images/image/img_default.png";
+import SellerImage from "@/assets/images/icons/ic_profile.svg?react";
+
+interface Item {
+  id: string;
+  name: string;
+  price: number;
+  createdAt: string;
+  description: string;
+  tags: string[];
+  ownerNickname: string;
+  images: string[];
+  isFavorite: boolean;
+  favoriteCount: number;
+}
+
+interface ItemDetailsSectionProps {
+  item: Item;
+}
 
 const SectionContainer = styled.section`
   display: flex;
@@ -152,7 +169,7 @@ const ItemDate = styled.div`
   color: var(--secondary-400);
 `;
 
-function ItemDetailsSection({ item }) {
+function ItemDetailsSection({ item }: ItemDetailsSectionProps) {
   const createdDate = new Date(item.createdAt);
   const formattedDate = `${createdDate.getFullYear()}. ${(
     createdDate.getMonth() + 1
@@ -167,7 +184,7 @@ function ItemDetailsSection({ item }) {
           item.images && item.images.length > 0 ? item.images[0] : defaultImage
         }
         alt={item.name}
-        onError={(e) => (e.target.src = defaultImage)}
+        onError={(e) => ((e.target as HTMLImageElement).src = defaultImage)}
       />
 
       <ItemDetailsContainer>

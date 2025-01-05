@@ -1,5 +1,5 @@
-import BestItemsSection from "./components/BestItemsSection";
-import AllItemsSection from "./components/AllItemsSection";
+import BestItemsSection from "@/pages/MarketPage/components/BestItemsSection";
+import AllItemsSection from "@/pages/MarketPage/components/AllItemsSection";
 import "./MarketPage.css";
 
 function MarketPage() {

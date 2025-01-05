@@ -1,39 +1,56 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { getProducts } from "../../../api/itemApi";
-import defaultImage from "../../../assets/images/image/img_default.png";
-import { ReactComponent as HeartIcon } from "../../../assets/images/icons/ic_heart.svg";
-import { ReactComponent as SearchIcon } from "../../../assets/images/icons/ic_search.svg";
-import { ReactComponent as ArrowDownIcon } from "../../../assets/images/icons/ic_arrow_down.svg";
-import DropdownList from "../../../components/UI/DropdownList";
-import PaginationBar from "../../../components/UI/PaginationBar";
+import { getProducts } from "@/api/itemApi";
+import defaultImage from "@/assets/images/image/img_default.png";
+import HeartIcon from "@/assets/images/icons/ic_heart.svg?react";
+import SearchIcon from "@/assets/images/icons/ic_search.svg?react";
+import ArrowDownIcon from "@/assets/images/icons/ic_arrow_down.svg?react";
+import DropdownList from "@/components/UI/DropdownList";
+import PaginationBar from "@/components/UI/PaginationBar";
 
 const getPageSize = () => {
   const width = window.innerWidth;
   if (width < 768) {
-    return 4; // 모바일
+    return 4;
   } else if (width < 1200) {
-    return 6; // 태블릿
+    return 6;
   } else {
-    return 10; // 데스크탑
+    return 10;
   }
 };
 
 function AllItemsSection() {
-  const [itemList, setItemList] = useState([]);
+  const [itemList, setItemList] = useState<
+    Array<{
+      id: number;
+      images: string[];
+      name: string;
+      price: number;
+      favoriteCount: number;
+    }>
+  >([]);
+
   const [pageSize, setPageSize] = useState(getPageSize());
   const [orderBy, setOrderBy] = useState("recent");
   const [isDropdownVisible, setIsDropdownVisible] = useState(false);
   const [page, setPage] = useState(1);
-  const [totalPageNum, setTotalPageNum] = useState();
+  const [totalPageNum, setTotalPageNum] = useState(0);
 
-  const fetchSortedItems = async ({ orderBy, page, pageSize }) => {
+  const fetchSortedItems = async ({
+    orderBy,
+    page,
+    pageSize,
+  }: {
+    orderBy: string;
+    page: number;
+    pageSize: number;
+  }) => {
     const products = await getProducts({ orderBy, page, pageSize });
     setItemList(products.list);
     setTotalPageNum(Math.ceil(products.totalCount / pageSize));
   };
 
-  const handleSortSelection = (sortOption) => {
+  const handleSortSelection = (sortOption: string) => {
     setOrderBy(sortOption);
     setIsDropdownVisible(false);
   };
@@ -42,7 +59,7 @@ function AllItemsSection() {
     setIsDropdownVisible(!isDropdownVisible);
   };
 
-  const onPageChange = (pageNumber) => {
+  const onPageChange = (pageNumber: number) => {
     setPage(pageNumber);
   };
 
@@ -100,7 +117,9 @@ function AllItemsSection() {
               }
               alt={item.name}
               className="itemImage"
-              onError={(e) => (e.target.src = defaultImage)}
+              onError={(e) =>
+                ((e.target as HTMLImageElement).src = defaultImage)
+              }
             />
             <h3 className="itemName">{item.name}</h3>
             <p className="itemPrice">{item.price.toLocaleString()}원</p>

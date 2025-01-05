@@ -1,25 +1,39 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { getProducts } from "../../../api/itemApi";
-import defaultImage from "../../../assets/images/image/img_default.png";
-import { ReactComponent as HeartIcon } from "../../../assets/images/icons/ic_heart.svg";
+import { getProducts } from "@/api/itemApi";
+import defaultImage from "@/assets/images/image/img_default.png";
+import HeartIcon from "@/assets/images/icons/ic_heart.svg?react";
+
+interface Product {
+  id: number;
+  images: string[];
+  name: string;
+  price: number;
+  favoriteCount: number;
+}
 
 const getPageSize = () => {
   const width = window.innerWidth;
   if (width < 768) {
-    return 1; // 모바일
+    return 1;
   } else if (width < 1200) {
-    return 2; // 태블릿
+    return 2;
   } else {
-    return 4; // 데스크탑
+    return 4;
   }
 };
 
 function BestItemsSection() {
-  const [itemList, setItemList] = useState([]);
+  const [itemList, setItemList] = useState<Product[]>([]);
   const [pageSize, setPageSize] = useState(getPageSize());
 
-  const fetchSortedItems = async ({ orderBy, pageSize }) => {
+  const fetchSortedItems = async ({
+    orderBy,
+    pageSize,
+  }: {
+    orderBy: string;
+    pageSize: number;
+  }) => {
     const products = await getProducts({ orderBy, pageSize });
     setItemList(products.list);
   };
@@ -51,7 +65,9 @@ function BestItemsSection() {
               }
               alt={item.name}
               className="itemImage"
-              onError={(e) => (e.target.src = defaultImage)}
+              onError={(e) =>
+                ((e.target as HTMLImageElement).src = defaultImage)
+              }
             />
             <h3 className="itemName">{item.name}</h3>
             <p className="itemPrice">{item.price.toLocaleString()}원</p>

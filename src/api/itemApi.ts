@@ -1,4 +1,4 @@
-const BASE_URL = "https://panda-market-api.vercel.app";
+const BASE_URL = import.meta.env.VITE_BASE_URL;
 
 export async function getProducts(params = {}) {
   const query = new URLSearchParams(params).toString();
@@ -16,7 +16,7 @@ export async function getProducts(params = {}) {
   }
 }
 
-export async function getProductById(productId) {
+export async function getProductById(productId: number) {
   if (!productId) {
     throw new Error("Invalid product ID");
   }
@@ -31,7 +31,13 @@ export async function getProductById(productId) {
   }
 }
 
-export async function getProductComments({ productId, params }) {
+export async function getProductComments({
+  productId,
+  params,
+}: {
+  productId: string;
+  params?: Record<string, string>;
+}) {
   if (!productId) {
     throw new Error("Invalid product ID");
   }
