@@ -1,10 +1,10 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Reset } from "styled-reset";
-import Header from "./components/Layout/Header";
-import HomePage from "./pages/HomePage/HomePage";
-import MarketPage from "./pages/MarketPage/MarketPage";
-import AddItemPage from "./pages/AddItemPage/AddItemPage";
-import ItemPage from "./pages/ItemPage/ItemPage";
+import Header from "@/components/Layout/Header";
+import HomePage from "@/pages/HomePage/HomePage";
+import MarketPage from "@/pages/MarketPage/MarketPage";
+import AddItemPage from "@/pages/AddItemPage/AddItemPage";
+import ItemPage from "@/pages/ItemPage/ItemPage";
 
 function App() {
   return (

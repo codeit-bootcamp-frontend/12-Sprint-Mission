@@ -1,8 +1,21 @@
 import styled from "styled-components";
-import { ReactComponent as KebabIcon } from "../../../assets/images/icons/ic_kebab.svg";
-import DefaultProfileImage from "../../../assets/images/icons/ic_profile.svg";
-import formatUpdatedAt from "../../../utils/dateUtils";
-import { LineDivider } from "../../../styles/CommonStyles";
+import KebabIcon from "@/assets/images/icons/ic_kebab.svg?react";
+import DefaultProfileImage from "@/assets/images/icons/ic_profile.svg";
+import formatUpdatedAt from "@/utils/dateUtils";
+import { LineDivider } from "@/styles/CommonStyles";
+
+interface AuthorInfo {
+  nickname: string;
+  image: string | null;
+}
+
+interface CommentItemProps {
+  item: {
+    content: string;
+    updatedAt: string;
+    writer: AuthorInfo;
+  };
+}
 
 const CommentContainer = styled.section`
   padding: 2.4rem 0;
@@ -62,8 +75,7 @@ const Timestamp = styled.p`
   }
 `;
 
-function CommentItem({ item }) {
-  console.log("Received item:", item);
+function CommentItem({ item }: CommentItemProps) {
   const authorInfo = item.writer;
   const formattedTimestamp = formatUpdatedAt(item.updatedAt);
 

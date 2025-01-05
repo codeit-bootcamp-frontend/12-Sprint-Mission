@@ -15,7 +15,7 @@ const Tag = styled.div`
   line-height: 2.6rem;
 `;
 
-function TagDisplay({ tags }) {
+function TagDisplay({ tags }: { tags: string[] }) {
   if (!tags || tags.length === 0) return null;
 
   return (

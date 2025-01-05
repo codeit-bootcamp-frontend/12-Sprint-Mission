@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import styled from "styled-components";
-import { Container, LineDivider } from "../../styles/CommonStyles";
-import { getProductById } from "../../api/itemApi";
-import ItemDetailsSection from "./components/ItemDetailsSection";
-import ItemCommentsSection from "./components/ItemCommentsSection";
-import { ReactComponent as BackIcon } from "../../assets/images/icons/ic_back.svg";
+import { Container, LineDivider } from "@/styles/CommonStyles";
+import { getProductById } from "@/api/itemApi";
+import ItemDetailsSection from "@/pages/ItemPage/components/ItemDetailsSection";
+import ItemCommentsSection from "@/pages/ItemPage/components/ItemCommentsSection";
+import BackIcon from "@/assets/images/icons/ic_back.svg?react";
 
 const BackToMarketPageLink = styled(Link)`
   display: flex;
@@ -45,7 +45,7 @@ function ItemPage() {
   useEffect(() => {
     const fetchItemDetails = async () => {
       try {
-        const data = await getProductById(productId);
+        const data = await getProductById(Number(productId));
         setItem(data);
       } catch (error) {
         console.error("Error fetching item details: ", error);
@@ -59,11 +59,13 @@ function ItemPage() {
     return <Loading>로딩 중...</Loading>;
   }
 
+  const safeProductId = productId || "";
+
   return (
     <Container>
       <ItemDetailsSection item={item} />
       <LineDivider $margin="4rem 0 4rem" />
-      <ItemCommentsSection productId={productId} />
+      <ItemCommentsSection productId={safeProductId} />
       <BackToMarketPageLink to="/items">
         목록으로 돌아가기
         <BackIcon />

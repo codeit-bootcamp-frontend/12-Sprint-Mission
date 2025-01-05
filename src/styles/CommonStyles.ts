@@ -50,7 +50,11 @@ export const PillButton = styled.button`
   line-height: 3.2rem;
 `;
 
-export const LineDivider = styled.hr`
+export const LineDivider = styled.hr<{
+  $margin?: string;
+  $tabletMargin?: string;
+  $mobileMargin?: string;
+}>`
   width: 100%;
   border: none;
   height: 1px;

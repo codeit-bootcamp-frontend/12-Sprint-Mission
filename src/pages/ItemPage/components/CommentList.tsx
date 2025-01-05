@@ -1,8 +1,22 @@
 import { useEffect, useState } from "react";
-import { getProductComments } from "../../../api/itemApi";
+import { getProductComments } from "@/api/itemApi";
 import styled from "styled-components";
-import CommentItem from "./CommentItem";
-import { ReactComponent as EmptyCommentImage } from "../../../assets/images/image/img_empty_comment.svg";
+import CommentItem from "@/pages/ItemPage/components/CommentItem";
+import EmptyCommentImage from "@/assets/images/image/img_empty_comment.svg?react";
+
+interface Comment {
+  id: string;
+  content: string;
+  writer: {
+    nickname: string;
+    image: string | null;
+  };
+  updatedAt: string;
+}
+
+interface CommentListProps {
+  productId: string;
+}
 
 const EmptyCommentContainer = styled.div`
   display: flex;
@@ -30,8 +44,8 @@ const CommentListContainer = styled.div`
   }
 `;
 
-function CommentList({ productId }) {
-  const [comments, setComments] = useState([]);
+function CommentList({ productId }: CommentListProps) {
+  const [comments, setComments] = useState<Comment[]>([]);
 
   useEffect(() => {
     if (!productId) {
@@ -41,7 +55,7 @@ function CommentList({ productId }) {
 
     const fetchComments = async () => {
       const params = {
-        limit: 10,
+        limit: "10",
       };
 
       try {

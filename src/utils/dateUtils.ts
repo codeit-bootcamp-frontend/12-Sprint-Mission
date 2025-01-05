@@ -7,7 +7,7 @@ import {
   differenceInMonths,
 } from "date-fns";
 
-function formatUpdateAt(dateString) {
+function formatUpdateAt(dateString: string) {
   const date = new Date(dateString);
   const now = new Date();
 

@@ -1,5 +1,11 @@
 import styled from "styled-components";
-import { ReactComponent as HeartSvg } from "../../../assets/images/icons/ic_heart.svg";
+import HeartSvg from "@/assets/images/icons/ic_heart.svg?react";
+
+interface LikeButtonProps {
+  productId: string | number;
+  isFavorite: boolean;
+  favoriteCount: number;
+}
 
 const PillButton = styled.button`
   display: flex;
@@ -32,7 +38,7 @@ const ButtonContent = styled.div`
   gap: 1rem;
 `;
 
-function LikeButton({ productId, isFavorite, favoriteCount }) {
+function LikeButton({ favoriteCount }: LikeButtonProps) {
   return (
     <PillButton>
       <ButtonContent>
