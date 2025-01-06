@@ -1,0 +1,19 @@
+.author {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+
+  .info {
+    font-size: 1.4rem;
+
+    .nickname {
+      margin-bottom: 2px;
+      font-weight: 500;
+      color: var(--color-secondary-600);
+    }
+
+    .date {
+      color: var(--color-secondary-400);
+    }
+  }
+}
