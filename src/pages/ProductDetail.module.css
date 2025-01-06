@@ -1,0 +1,9 @@
+.product_img {
+  width: 486px;
+  height: 486px;
+  object-fit: cover;
+}
+
+.product_tag_list {
+  display: flex;
+}
