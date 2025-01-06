@@ -1,12 +1,12 @@
 .sectionTitle {
-  color: #111827;
+  color: var(--gray-900);
   font-weight: bold;
   font-size: 20px;
   line-height: normal;
 }
 
 .itemCard {
-  color: #1f2937;
+  color: var(--gray-800);
   overflow: hidden;
   cursor: pointer;
 }
@@ -46,7 +46,7 @@
   display: flex;
   align-items: center;
   gap: 4px;
-  color: #4b5563;
+  color: var(--gray-600);
   font-size: 12px;
 }
 
@@ -75,20 +75,9 @@
   padding-bottom: 16px;
 }
 
-.sortButtonWrapper {
-  position: relative;
-}
-
-.sortDropdownTriggerButton {
-  border: 1px solid #e5e7eb;
-  border-radius: 12px;
-  padding: 9px;
-  margin-left: 8px;
-}
-
 .searchBarWrapper {
   display: flex;
-  background-color: #f3f4f6;
+  background-color: var(--gray-100);
   border-radius: 12px;
   padding: 9px 16px;
   flex: 1;
@@ -103,7 +92,7 @@
 }
 
 .searchBarInput::placeholder {
-  color: #9ca3af;
+  color: var(--gray-400);
   font-size: 16px;
 }
 
