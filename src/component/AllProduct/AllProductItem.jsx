@@ -1,6 +1,6 @@
 import noPhotoImg from "../../asset/nophoto.png";
 import HeartIcon from "../../asset/ic_heart.png";
-import "./AllProductItem.css";
+import styles from "./AllProductItem.module.css";
 
 function AllProductItem({ item }) {
   const onErrorImg = (e) => {
@@ -11,19 +11,23 @@ function AllProductItem({ item }) {
     <div>
       {item.images[0] ? (
         <img
-          className="allproduct-img"
+          className={styles.allproduct_img}
           src={item.images[0]}
           alt="상품 이미지"
           onError={onErrorImg}
         />
       ) : (
-        <img className="allproduct-img" src={noPhotoImg} alt="상품 이미지" />
+        <img
+          className={styles.allproduct_img}
+          src={noPhotoImg}
+          alt="상품 이미지"
+        />
       )}
-      <h2 className="allproduct-title">{item.name}</h2>
+      <h2 className={styles.allproduct_title}>{item.name}</h2>
       <p>{item.price.toLocaleString()}</p>
       <div>
         <img
-          className="allproduct-popularity"
+          className={styles.allproduct_popularity}
           src={HeartIcon}
           alt="찜 아이콘"
         />

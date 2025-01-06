@@ -1,5 +1,5 @@
 import BestProductItem from "./BestProductItem";
-import "./BestProductList.css";
+import styles from "./BestProductList.module.css";
 import { getProduct } from "../../api";
 import { useEffect, useState } from "react";
 
@@ -15,10 +15,10 @@ function BestProductList() {
   }, []);
 
   return (
-    <div className="bestsection">
-      <div className="bestsection-container">
-        <h1 className="bestsection-title">베스트 상품</h1>
-        <div className="bestproduct-list">
+    <div className={styles.bestsection}>
+      <div className={styles.bestsection_container}>
+        <h1 className={styles.bestsection_title}>베스트 상품</h1>
+        <div className={styles.bestproduct_list}>
           {items.map((item) => {
             return <BestProductItem key={item.id} item={item} />;
           })}

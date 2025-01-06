@@ -9,11 +9,11 @@
   align-items: center;
 }
 
-.bestsection-container {
+.bestsection_container {
   width: 1200px;
 }
 
-.bestproduct-list {
+.bestproduct_list {
   display: flex;
   gap: 24px;
   flex-wrap: wrap;

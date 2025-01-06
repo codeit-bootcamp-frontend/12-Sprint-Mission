@@ -11,14 +11,14 @@
   gap: 43px;
 }
 
-.allsection-container {
+.allsection_container {
   width: 1200px;
   display: flex;
   flex-direction: column;
   gap: 24px;
 }
 
-.allproduct-list {
+.allproduct_list {
   display: flex;
   flex-wrap: wrap;
   gap: 23px;

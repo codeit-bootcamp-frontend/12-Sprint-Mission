@@ -1,5 +1,5 @@
 import AllProductItem from "./AllProductItem";
-import "./AllProductList.css";
+import styles from "./AllProductList.module.css";
 import { getProduct } from "../../api";
 import { useEffect, useState } from "react";
 import NavBar from "../Navigation/NavBar";
@@ -40,10 +40,10 @@ function AllProductList() {
   };
 
   return (
-    <div className="allsection">
-      <div className="allsection-container">
+    <div className={styles.allsection}>
+      <div className={styles.allsection_container}>
         <NavBar handleOrder={handleOrder} handleKeyword={handleKeyword} />
-        <div className="allproduct-list">
+        <div className={styles.allproduct_list}>
           {items.map((item) => {
             return <AllProductItem key={item.id} item={item} />;
           })}

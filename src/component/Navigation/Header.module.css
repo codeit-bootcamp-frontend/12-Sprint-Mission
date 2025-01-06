@@ -11,7 +11,7 @@
   border-bottom: solid 1px #dfdfdf;
 }
 
-.header-container {
+.headercontainer {
   display: flex;
   align-items: center;
   width: 100%;
@@ -26,30 +26,30 @@
   text-decoration: none;
 }
 
-.header__logo-img {
+.header__logoimg {
   width: 40px;
 }
 
-.header__logo-title {
+.header__logotitle {
   font-size: 25px;
   font-weight: 700;
   color: #3692ff;
 }
 
-.header__Link-container {
+.header__Linkcontainer {
   display: flex;
   gap: 30px;
   flex-grow: 1;
 }
 
-.header__Link-title {
+.header__Linktitle {
   font-size: 18px;
   font-weight: 700;
   color: #4b5563;
   text-decoration: none;
 }
 
-.header__profile-img {
+.header__profileimg {
   width: 40px;
   height: 40px;
 }

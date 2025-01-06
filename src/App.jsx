@@ -3,6 +3,7 @@ import Header from "./component/Navigation/Header";
 import MainPage from "./pages/MainPage";
 import PostProductPage from "./pages/PostProductPage";
 import ProductDetail from "./pages/ProductDetail";
+import "./styles/global.css";
 
 function App() {
   return (

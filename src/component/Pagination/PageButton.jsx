@@ -1,6 +1,6 @@
 import LeftArrow from "../../asset/arrow_left.png";
 import RightArrow from "../../asset/arrow_right.png";
-import "./PageButton.css";
+import styles from "./PageButton.module.css";
 
 function PageButton({ handlePage, page, maxPage }) {
   const ClickNumber = (e) => {
@@ -34,7 +34,9 @@ function PageButton({ handlePage, page, maxPage }) {
 
   function PageButtonNumber({ value }) {
     const className =
-      page === value ? "pagebutton-number active" : "pagebutton-number";
+      page === value
+        ? "styles.pagebutton_number styles.active"
+        : "styles.pagebutton_number";
     return (
       <li className={className} value={value} onClick={ClickNumber}>
         {value}
@@ -43,15 +45,23 @@ function PageButton({ handlePage, page, maxPage }) {
   }
 
   return (
-    <ul className="pagebutton-container">
-      <li className="pagebutton-number" onClick={ClickIconLeft}>
-        <img className="pagebutton-icon" src={LeftArrow} alt="왼쪽아이콘" />
+    <ul className={styles.pagebutton_container}>
+      <li className={styles.pagebutton_number} onClick={ClickIconLeft}>
+        <img
+          className={styles.pagebutton_icon}
+          src={LeftArrow}
+          alt="왼쪽아이콘"
+        />
       </li>
       {PageGroup.map((value) => (
         <PageButtonNumber value={value} key={value} />
       ))}
-      <li className="pagebutton-number" onClick={ClickIconRight}>
-        <img className="pagebutton-icon" src={RightArrow} alt="오른쪽아이콘" />
+      <li className={styles.pagebutton_number} onClick={ClickIconRight}>
+        <img
+          className={styles.pagebutton_icon}
+          src={RightArrow}
+          alt="오른쪽아이콘"
+        />
       </li>
     </ul>
   );

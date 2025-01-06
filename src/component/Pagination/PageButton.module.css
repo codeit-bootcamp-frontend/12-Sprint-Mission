@@ -1,14 +1,14 @@
-.pagebutton-container {
+.pagebutton_container {
   display: flex;
   justify-content: center;
   gap: 4px;
 }
 
-.pagebutton-icon {
+.pagebutton_icon {
   height: 16px;
 }
 
-.pagebutton-number {
+.pagebutton_number {
   width: 40px;
   height: 40px;
   border-radius: 40px;
@@ -21,7 +21,7 @@
   cursor: pointer;
 }
 
-.pagebutton-number.active {
+.pagebutton_number.active {
   background-color: #2f80ed;
   color: white;
 }

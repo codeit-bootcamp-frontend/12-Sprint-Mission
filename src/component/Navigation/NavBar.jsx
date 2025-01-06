@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import "./NavBar.css";
 import { useState } from "react";
+import styles from "./NavBar.module.css";
 
 function NavBar({ handleOrder, handleKeyword }) {
   const [searchInput, setSearchInput] = useState("");
@@ -21,19 +21,19 @@ function NavBar({ handleOrder, handleKeyword }) {
   };
 
   return (
-    <nav className="nav">
-      <h1 className="all-item__title">전체상품</h1>
+    <nav className={styles.nav}>
+      <h1 className={styles.allitem__title}>전체상품</h1>
       <input
-        className="nav__search"
+        className={styles.nav__search}
         placeholder="검색할 상품을 입력해주세요"
         onChange={handleChangeInput}
         onKeyDown={onKeyDownEnter}
         value={searchInput}
       ></input>
-      <Link to="/additem" className="nav__post">
+      <Link to="/additem" className={styles.nav__post}>
         상품 등록하기
       </Link>
-      <select className="nav__select" onChange={onClickOption}>
+      <select className={styles.nav__select} onChange={onClickOption}>
         <option value="recent">최신순</option>
         <option value="favorite">좋아요순</option>
       </select>

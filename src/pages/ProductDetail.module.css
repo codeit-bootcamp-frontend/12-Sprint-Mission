@@ -140,6 +140,7 @@
   font-weight: 400;
   font-size: 16px;
   line-height: 26px;
+  font-family: "Pretendard Variable", Pretendard;
 }
 
 .comment_input::placeholder {
@@ -147,6 +148,7 @@
   font-size: 16px;
   line-height: 26px;
   color: #9ca3af;
+  font-family: "Pretendard Variable", Pretendard;
 }
 
 .comment_button {

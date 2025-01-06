@@ -3,19 +3,19 @@
   margin: 0;
 }
 
-.bestproduct-img {
+.bestproduct_img {
   width: 282px;
   height: 282px;
   border-radius: 16px;
   object-fit: cover;
 }
 
-.bestproduct-title {
+.bestproduct_title {
   font-size: 14px;
   font-weight: 500;
 }
 
-.bestproduct-popularity {
+.bestproduct_popularity {
   width: 16px;
   height: 16px;
 }

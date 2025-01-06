@@ -3,19 +3,19 @@
   margin: 0;
 }
 
-.allproduct-img {
+.allproduct_img {
   width: 221px;
   height: 221px;
   border-radius: 16px;
   object-fit: cover;
 }
 
-.allproduct-popularity {
+.allproduct_popularity {
   width: 16px;
   height: 16px;
 }
 
-.allproduct-title {
+.allproduct_title {
   font-size: 14px;
   font-weight: 500;
 }
