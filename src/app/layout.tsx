@@ -14,8 +14,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ko" className={`${pretendard.variable}`}>
-      <body className={pretendard.className}>{children}</body>
+    <html lang='ko' className={`${pretendard.variable}`}>
+      <body className={`${pretendard.className} min-h-screen`}>{children}</body>
     </html>
   );
 }
