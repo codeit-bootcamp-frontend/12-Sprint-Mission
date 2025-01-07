@@ -1,18 +1,31 @@
+import { Product, ProductResponse, Comment } from "./types";
+
+interface GetProductsParams {
+  page?: number;
+  pageSize?: number;
+  orderBy?: string;
+  keyword?: string;
+  totalItems?: number;
+}
+
+interface GetProductCommentsParams {
+  productId: string;
+  limit?: number;
+}
+
 export async function getProducts({
   page = 1,
   pageSize = 10,
   orderBy,
   keyword = "",
   totalItems,
-}) {
+}: GetProductsParams): Promise<ProductResponse> {
   const params = new URLSearchParams({
-    page,
-    pageSize,
-    // keyword가 비어있지 않은 경우에만 추가
+    page: page.toString(),
+    pageSize: pageSize.toString(),
     ...(keyword && { keyword }),
   });
 
-  // orderBy가 있을 때만 추가
   if (orderBy) {
     params.append("orderBy", orderBy);
   }
@@ -34,37 +47,38 @@ export async function getProducts({
   }
 }
 
-// Fetch product details
-export async function getProductDetails(productId) {
+export async function getProductDetails(productId: string): Promise<Product> {
   try {
     const response = await fetch(
       `https://panda-market-api.vercel.app/products/${productId}`
     );
     if (!response.ok) {
-      throw new Error("Product not found");
+      throw new Error("상품을 찾을 수 없습니다.");
     }
     const data = await response.json();
     return data;
   } catch (error) {
-    console.error("Error fetching product details:", error);
+    console.error("상품 세부 정보를 가져오는 중 오류 발생:", error);
     throw error;
   }
 }
 
-// Fetch product comments
-export async function getProductComments(productId, limit = 10) {
-  const params = new URLSearchParams({ limit: limit.toString() }); // limit 값 추가
+export async function getProductComments({
+  productId,
+  limit = 10,
+}: GetProductCommentsParams): Promise<Comment[]> {
+  const params = new URLSearchParams({ limit: limit.toString() });
   try {
     const response = await fetch(
       `https://panda-market-api.vercel.app/products/${productId}/comments?${params}`
     );
     if (!response.ok) {
-      throw new Error("Comments not found");
+      throw new Error("댓글을 찾을 수 없습니다.");
     }
     const data = await response.json();
     return data;
   } catch (error) {
-    console.error("Error fetching product comments:", error);
+    console.error("상품 댓글을 가져오는 중 오류 발생:", error);
     throw error;
   }
 }

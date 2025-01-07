@@ -1,23 +1,31 @@
-import React, { useState } from "react";
+import React, { useState, ChangeEvent } from "react";
 import searchIcon from "../../assets/img/logo/searchIcon.svg";
 import styles from "./allProduct.module.css";
 import { Link } from "react-router-dom"; // Link import
 
-function NavBar({ orderBy, setOrderBy, keyword, setKeyword }) {
-  const [isOpen, setIsOpen] = useState(false); // 드롭다운 메뉴 열림 상태 관리
+// Props 타입 정의
+interface NavBarProps {
+  orderBy: string;
+  setOrderBy: (order: string) => void;
+  keyword: string;
+  setKeyword: (keyword: string) => void;
+}
+
+function NavBar({ orderBy, setOrderBy, keyword, setKeyword }: NavBarProps) {
+  const [isOpen, setIsOpen] = useState<boolean>(false); // 드롭다운 메뉴 열림 상태 관리
 
   // 드롭다운 메뉴의 열림/닫힘 상태를 토글하는 함수
   const toggleDropdown = () => setIsOpen((prev) => !prev);
 
   // 드롭다운에서 옵션을 선택했을 때 정렬 기준을 변경하고 드롭다운을 닫는 함수
-  const selectOption = (option) => {
+  const selectOption = (option: string) => {
     const order = option === "최신순" ? "recent" : "favorite";
     setOrderBy(order); // 정렬 기준을 선택한 값으로 업데이트
     setIsOpen(false);
   };
 
   // 검색어 입력 시 부모 컴포넌트로 전달
-  const handleSearchChange = (e) => {
+  const handleSearchChange = (e: ChangeEvent<HTMLInputElement>) => {
     setKeyword(e.target.value); // 검색어 상태 업데이트
   };
 

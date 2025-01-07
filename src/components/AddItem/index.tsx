@@ -1,36 +1,42 @@
-import React, { useState } from "react";
-import Header from "components/Header/index";
+import React, { ChangeEvent, useState } from "react";
+import Header from "../Header/index.tsx";
 import styles from "./addItem.module.css";
 
 function AddItems() {
-  const [productImg, setProductImg] = useState(null);
-  const [title, setTitle] = useState("");
-  const [info, setInfo] = useState("");
-  const [price, setPrice] = useState("");
-  const [tagInput, setTagInput] = useState("");
-  const [tags, setTags] = useState([]);
+  const [productImg, setProductImg] = useState<string | null>(null); // 이미지 URL 또는 null
+  const [title, setTitle] = useState<string>(""); // 상품명
+  const [info, setInfo] = useState<string>(""); // 상품 소개
+  const [price, setPrice] = useState<string>(""); // 판매 가격
+  const [tagInput, setTagInput] = useState<string>(""); // 태그 입력
+  const [tags, setTags] = useState<string[]>([]); // 태그 배열
 
-  const handleImageUpload = (e) => {
-    if (e.target.files.length > 0) {
+  // 이미지 업로드 핸들러
+  const handleImageUpload = (e: ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files && e.target.files.length > 0) {
       setProductImg(URL.createObjectURL(e.target.files[0]));
     }
   };
 
+  // 이미지 삭제 핸들러
   const handleImageDelete = () => {
     setProductImg(null);
   };
 
+  // 태그 추가 핸들러
   const handleTagAdd = () => {
-    if (tagInput.trim() && !tags.includes(tagInput.trim())) {
-      setTags([...tags, tagInput.trim()]);
+    const tag = tagInput.trim();
+    if (tag && !tags.includes(tag)) {
+      setTags([...tags, tag]);
       setTagInput("");
     }
   };
 
-  const handleTagDelete = (tagToDelete) => {
+  // 태그 삭제 핸들러
+  const handleTagDelete = (tagToDelete: string) => {
     setTags(tags.filter((tag) => tag !== tagToDelete));
   };
 
+  // 제출 가능 여부 체크
   const isSubmitEnabled =
     title.trim() && info.trim() && price.trim() && tags.length > 0;
 

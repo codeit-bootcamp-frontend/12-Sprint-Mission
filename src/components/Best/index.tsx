@@ -1,15 +1,19 @@
 import styles from "./best.module.css";
 import heartIcon from "../../assets/img/logo/heartIcon.svg";
-import { getProducts } from "../../api";
+import { getProducts } from "../../api.ts";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { Product } from "../../types"; // Product 타입 임포트
+import React from "react";
 
 function Best() {
-  const [products, setProducts] = useState([]);
-  const [pageSize, setPageSize] = useState(getPageSize(window.innerWidth));
+  const [products, setProducts] = useState<Product[]>([]); // 상품 데이터 상태 (Product[] 타입)
+  const [pageSize, setPageSize] = useState<number>(
+    getPageSize(window.innerWidth)
+  ); // 페이지 크기 상태
 
   // 화면 크기 기반으로 페이지 크기 결정 함수
-  function getPageSize(width) {
+  function getPageSize(width: number): number {
     if (width <= 767) {
       return 1; // 화면 너비가 768px 미만이면 한 페이지에 1개
     } else if (width <= 1199) {
@@ -21,7 +25,6 @@ function Best() {
 
   // 화면 크기 변경 시 페이지 크기 재조정 (반응형 디자인 처리)
   useEffect(() => {
-    // 윈도우 크기 변경 시 pageSize를 업데이트
     const handleResize = () => {
       setPageSize(getPageSize(window.innerWidth)); // 새로운 화면 크기 반영
     };
@@ -29,8 +32,7 @@ function Best() {
     window.addEventListener("resize", handleResize); // 화면 크기 변화 이벤트 리스너 추가
 
     return () => {
-      // 컴포넌트가 언마운트될 때 이벤트 리스너 제거
-      window.removeEventListener("resize", handleResize);
+      window.removeEventListener("resize", handleResize); // 컴포넌트 언마운트 시 이벤트 리스너 제거
     };
   }, []);
 
@@ -44,7 +46,7 @@ function Best() {
           orderBy: "favorite", // 정렬 기준 (인기 순)
           keyword: "",
         });
-        setProducts(result.list);
+        setProducts(result.list); // 상품 데이터 업데이트
       } catch (error) {
         console.error("데이터 로드 중 오류 발생:", error.message);
         setProducts([]); // 오류 발생 시 빈 배열로 설정
@@ -52,7 +54,7 @@ function Best() {
     };
 
     fetchProducts();
-  }, [pageSize]);
+  }, [pageSize]); // pageSize가 변경될 때마다 상품 데이터를 가져옴
 
   return (
     <div className={styles.best_Container}>
@@ -79,7 +81,7 @@ function Best() {
                     className={styles.heart_image}
                     src={heartIcon}
                     alt="좋아요 하트 기호"
-                  ></img>
+                  />
                   <span className={styles.heart_num}>
                     {product.favoriteCount}
                   </span>
@@ -88,7 +90,7 @@ function Best() {
             </li>
           ))
         ) : (
-          <p>No Products</p>
+          <p>No Products</p> // 상품이 없을 경우
         )}
       </ul>
     </div>

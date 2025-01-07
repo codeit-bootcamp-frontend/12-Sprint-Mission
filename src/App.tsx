@@ -1,9 +1,10 @@
-import Items from "./components/Items/index";
-import Board from "./components/Board";
-import Home from "./components/Home";
-import AddItem from "components/AddItem/index";
+import React from "react";
+import Items from "./components/Items/index.tsx";
+import Board from "./components/Board/index.tsx";
+import Home from "./components/Home/index.tsx";
+import AddItem from "./components/AddItem/index.tsx";
 import { Routes, Route } from "react-router-dom";
-import ProductDetail from "components/product";
+import ProductDetail from "./components/product/index.tsx";
 
 function App() {
   return (

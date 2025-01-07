@@ -4,7 +4,21 @@ import styles from "./allProduct.module.css";
 import EMPTY_IMAGE_URL from "../../assets/img/landing/Img_home_02.png";
 import { Link } from "react-router-dom";
 
-function ProductList({ products }) {
+// Product 타입 정의
+interface Product {
+  id: string; // 상품 ID
+  name: string; // 상품 이름
+  price: number; // 상품 가격
+  favoriteCount: number; // 좋아요 개수
+  images: string[]; // 상품 이미지 URL 배열
+}
+
+// props 타입 정의
+interface ProductListProps {
+  products: Product[]; // products 배열
+}
+
+function ProductList({ products }: ProductListProps) {
   return (
     <ul className={styles.all_list}>
       {/* 상품 목록이 있을 경우, 상품 정보를 렌더링 */}

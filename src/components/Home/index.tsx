@@ -1,7 +1,8 @@
-import Header from "components/Header/index";
-import styles from "components/Board/styles.module.css";
+import React from "react";
+import Header from "../Header/index.tsx";
+import styles from "./styles.module.css";
 
-function Home() {
+const Home: React.FC = () => {
   return (
     <div>
       <Header />
@@ -12,6 +13,6 @@ function Home() {
       </section>
     </div>
   );
-}
+};
 
 export default Home;

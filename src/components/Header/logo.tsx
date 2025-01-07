@@ -3,8 +3,8 @@ import logoImg from "../../assets/img/logo/logo.png"; // 이미지 파일 경로
 import styles from "./styles.module.css"; // 스타일 파일 경로
 import { Link, useLocation } from "react-router-dom"; // Link import
 
-function Logo() {
-  const [isMobile, setIsMobile] = useState(false);
+const Logo: React.FC = () => {
+  const [isMobile, setIsMobile] = useState<boolean>(false);
   const location = useLocation(); // 현재 경로 가져오기
 
   // 각 경로에 있을 때의 스타일을 조건부로 적용
@@ -68,6 +68,6 @@ function Logo() {
       </div>
     </div>
   );
-}
+};
 
 export default Logo;

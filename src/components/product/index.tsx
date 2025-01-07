@@ -1,34 +1,27 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { getProductComments, getProductDetails } from "api";
+import { getProductComments, getProductDetails } from "../../api.ts";
 import styles from "./product.module.css";
-import Header from "components/Header";
+import Header from "../Header/index.tsx";
+import { Product, Comment } from "../../types"; // 타입 임포트
+import { formatDate } from "../../utils/formatDate.ts"; // formatDate 함수 임포트
 
-function ProductDetail() {
-  const { productId } = useParams();
+const ProductDetail: React.FC = () => {
+  const { productId } = useParams<{ productId: string }>();
   const navigate = useNavigate();
-  const [product, setProduct] = useState(null);
-  const [comments, setComments] = useState([]);
-  const [newComment, setNewComment] = useState("");
-  const [isCommentValid, setIsCommentValid] = useState(false);
-
-  // 날짜 포맷 함수 (예: '2024-09-24 08:40:06' -> '2024-09-24 08:40')
-  function formatDate(dateString) {
-    const date = new Date(dateString);
-    return `${date.getFullYear()}-${(date.getMonth() + 1)
-      .toString()
-      .padStart(2, "0")}-${date.getDate().toString().padStart(2, "0")} ${date
-      .getHours()
-      .toString()
-      .padStart(2, "0")}:${date.getMinutes().toString().padStart(2, "0")}`;
-  }
+  const [product, setProduct] = useState<Product | null>(null);
+  const [comments, setComments] = useState<Comment[]>([]);
+  const [newComment, setNewComment] = useState<string>("");
+  const [isCommentValid, setIsCommentValid] = useState<boolean>(false);
 
   // Fetch product details
   useEffect(() => {
     async function fetchProduct() {
       try {
-        const data = await getProductDetails(productId);
-        setProduct(data); // 상품 데이터 설정
+        if (productId) {
+          const data = await getProductDetails(productId);
+          setProduct(data); // 상품 데이터 설정
+        }
       } catch (error) {
         console.error("Error fetching product details:", error);
       }
@@ -41,11 +34,13 @@ function ProductDetail() {
   useEffect(() => {
     async function fetchComments() {
       try {
-        const data = await getProductComments(productId);
-        if (data && Array.isArray(data.list)) {
-          setComments(data.list); // list 안에 댓글 배열이 있을 경우
-        } else {
-          setComments([]); // list가 없으면 빈 배열 설정
+        if (productId) {
+          const data = await getProductComments({ productId, limit: 10 });
+          if (data && Array.isArray(data)) {
+            setComments(data); // list 안에 댓글 배열이 있을 경우
+          } else {
+            setComments([]); // list가 없으면 빈 배열 설정
+          }
         }
       } catch (error) {
         console.error("Error fetching comments:", error);
@@ -55,7 +50,7 @@ function ProductDetail() {
     fetchComments();
   }, [productId]);
 
-  const handleCommentChange = (e) => {
+  const handleCommentChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const value = e.target.value;
     setNewComment(value);
     setIsCommentValid(value.trim().length > 0);
@@ -77,10 +72,9 @@ function ProductDetail() {
         writer: user, // 로그인된 사용자 정보 추가
         createdAt: new Date().toISOString(),
         updatedAt: new Date().toISOString(),
-        id: Date.now(), // 새로운 댓글 ID 생성 (서버에서 관리될 경우 제외)
+        id: Date.now().toString(), // 새로운 댓글 ID 생성 (서버에서 관리될 경우 제외)
       };
 
-      // JWT 토큰 사용시를 가정으로 두고 예시 코드 (아마 안될 것임)
       const token = localStorage.getItem("authToken");
 
       const response = await fetch(
@@ -101,7 +95,6 @@ function ProductDetail() {
         setNewComment("");
         setIsCommentValid(false);
       } else {
-        // 401 오류 처리
         console.error("Unauthorized: Check your login or token.");
       }
     } catch (error) {
@@ -127,7 +120,7 @@ function ProductDetail() {
             <div className={styles.details_section}>
               <h1 className={styles.product_name}>{product.name}</h1>
               <span className={styles.price}>{product.price}원</span>
-              <hr></hr>
+              <hr />
               <h2 className={styles.product_intro}>상품 소개</h2>
               <p className={styles.product_intro_detail}>
                 {product.description}
@@ -145,7 +138,7 @@ function ProductDetail() {
               </p>
             </div>
           </div>
-          <hr></hr>
+          <hr />
           <div className={styles.comment_section}>
             <h2 className={styles.do_comment}>문의하기</h2>
             <textarea
@@ -166,16 +159,15 @@ function ProductDetail() {
               {comments.map((comment, index) => (
                 <div key={index} className={styles.comment}>
                   <img
-                    src={comment.image || "default-avatar.jpg"}
+                    src={comment.writer.image || "default-avatar.jpg"}
                     alt="작성자 이미지"
                   />
                   <div>
-                    <p className={styles.nickname}>{comment.nickname}</p>
+                    <p className={styles.nickname}>{comment.writer.nickname}</p>
                     <p className={styles.content}>{comment.content}</p>
                     <p className={styles.timestamp}>
                       {formatDate(comment.updatedAt)}
-                    </p>{" "}
-                    {/* 날짜 포맷 처리 */}
+                    </p>
                   </div>
                 </div>
               ))}
@@ -193,6 +185,6 @@ function ProductDetail() {
       </section>
     </div>
   );
-}
+};
 
 export default ProductDetail;
