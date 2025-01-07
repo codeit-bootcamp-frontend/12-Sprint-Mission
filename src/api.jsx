@@ -18,3 +18,21 @@ export async function getProduct({
   const data = await response.json();
   return data;
 }
+
+//제품 상세페이지
+export async function getProductDetail(productSlug) {
+  const response = await fetch(
+    `https://panda-market-api.vercel.app/products/${productSlug}`
+  );
+  const data = await response.json();
+  return data;
+}
+
+//제품 코멘트
+export async function getProductComment({ productSlug, limit }) {
+  const response = await fetch(
+    `https://panda-market-api.vercel.app/products/${productSlug}/comments?limit=${limit}`
+  );
+  const data = await response.json();
+  return data;
+}

@@ -32,13 +32,24 @@ function PageButton({ handlePage, page, maxPage }) {
     }
   }
 
+  let background = "";
+  let color = "";
   function PageButtonNumber({ value }) {
-    const className =
-      page === value
-        ? "styles.pagebutton_number styles.active"
-        : "styles.pagebutton_number";
+    if (page === value) {
+      background = "#2f80ed";
+      color = "white";
+    } else {
+      background = "";
+      color = "";
+    }
+
     return (
-      <li className={className} value={value} onClick={ClickNumber}>
+      <li
+        className={styles.pagebutton_number}
+        style={{ background: background, color: color }}
+        value={value}
+        onClick={ClickNumber}
+      >
         {value}
       </li>
     );

@@ -13,9 +13,9 @@ function App() {
         <Route path="/" element={<MainPage />} />
         <Route path="/items">
           <Route index element={<MainPage />} />
-          {/* <Route path=":productSlug" element={<ProductDetail />} /> */}
+          <Route path=":productSlug" element={<ProductDetail />} />
         </Route>
-        <Route path="/items/product" element={<ProductDetail />} />
+        {/* <Route path="/items/product" element={<ProductDetail />} /> */}
         <Route path="/additem" element={<PostProductPage />} />
       </Routes>
     </BrowserRouter>

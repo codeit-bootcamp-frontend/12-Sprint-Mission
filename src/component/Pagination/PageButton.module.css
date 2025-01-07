@@ -21,7 +21,7 @@
   cursor: pointer;
 }
 
-.pagebutton_number.active {
+.pagebutton_number .active {
   background-color: #2f80ed;
   color: white;
 }
