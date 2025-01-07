@@ -1,0 +1,29 @@
+.itemPageContainer {
+  margin-top: 70px;
+  margin-bottom: 100px;
+}
+
+.backToMarketPage {
+  width: 240px;
+  height: 48px;
+  border: none;
+  border-radius: 40px;
+  background-color: #3692ff;
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  padding: 13px 39.5px;
+  margin: 0 auto;
+}
+
+.backToMarketPage p {
+  font-size: 18px;
+  font-weight: 600;
+  text-align: center;
+  color: #f3f4f6;
+}
+
+.backToMarketPage img {
+  width: 24px;
+  height: 24px;
+}

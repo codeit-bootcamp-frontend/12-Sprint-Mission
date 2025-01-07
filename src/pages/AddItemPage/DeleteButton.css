@@ -7,6 +7,8 @@
   justify-content: center;
   align-items: center;
   position: relative;
+  border: none;
+  outline: none;
 }
 
 .deleteButton img {

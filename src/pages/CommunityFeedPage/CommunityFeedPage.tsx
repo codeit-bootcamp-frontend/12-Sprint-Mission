@@ -1,7 +1,11 @@
 import React from "react";
 
 const CommunityFeedPage: React.FC = () => {
-  return <div>CommunityFeedPage</div>;
+  return (
+    <>
+      <p style={{ marginTop: "70px" }}>CommunityFeedPage</p>
+    </>
+  );
 };
 
 export default CommunityFeedPage;

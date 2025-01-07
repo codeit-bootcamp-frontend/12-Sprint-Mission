@@ -1,0 +1,593 @@
+@charset "utf-8";
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css");
+
+* {
+  font-family: "pretendard";
+}
+
+body {
+  margin: 0;
+  color: #374151;
+  background-color: #fff;
+  min-width: 376px;
+}
+
+a {
+  text-decoration: none;
+  display: block;
+}
+
+/* 모바일 헤더 영역 */
+.header-home {
+  width: 100%;
+  height: 70px;
+  background-color: #fff;
+  position: fixed;
+  z-index: 1;
+}
+
+.top {
+  display: flex;
+  justify-content: space-between;
+}
+
+.logo {
+  margin-left: 16px;
+}
+
+.logo .logo-symbol {
+  display: none;
+}
+
+.logo .logo-text {
+  margin-top: 18px;
+  width: 103px;
+  height: 35px;
+}
+
+.login {
+  width: 128px;
+  height: 48px;
+  background-color: #3692ff;
+  border-radius: 8px;
+  margin-top: 11px;
+  margin-right: 16px;
+}
+
+.login > a {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 48px;
+  text-align: center;
+  color: #fff;
+}
+
+/* 모바일 메인 영역 */
+.main-banner {
+  width: 100%;
+  height: 540px;
+  top: 70px;
+  position: relative;
+  background-color: #cfe5ff;
+}
+
+.banner {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.banner .banner-title {
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 44px;
+  text-align: center;
+  margin-top: 48px;
+  position: absolute;
+}
+
+.banner .banner-title > span {
+  display: block;
+}
+
+.banner .shortcut {
+  position: absolute;
+  width: 240px;
+  height: 48px;
+  background-color: #3692ff;
+  border-radius: 40px;
+  top: 156px;
+}
+
+.banner .shortcut > a {
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 48px;
+  text-align: center;
+  color: #fff;
+}
+
+.banner img {
+  width: 100%;
+  bottom: 0;
+  position: absolute;
+}
+
+/* 모바일 콘텐츠 영역 */
+.contents {
+  width: 100%;
+  top: 70px;
+  position: relative;
+  margin-bottom: 83px;
+}
+
+.con {
+  width: 96%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.con img {
+  width: 100%;
+  border-radius: 7px;
+}
+
+.con .text {
+  display: block;
+  margin-top: 24px;
+}
+
+.con .text span {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 26px;
+  color: #3692ff;
+}
+
+.con .text .text-title {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 32px;
+  margin-top: 8px;
+}
+
+.con .text .text-title > span {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 32px;
+  color: #374151;
+}
+
+.con .text p {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 26px;
+  margin: 16px 0 0 0;
+}
+
+.hot-item {
+  padding-top: 52px;
+}
+
+.search {
+  padding-top: 40px;
+}
+
+.search .text {
+  display: block;
+  margin-top: 24px;
+  text-align: right;
+}
+
+.register {
+  padding-top: 40px;
+}
+
+/* 모바일 하단 영역 */
+.bottom {
+  width: 100%;
+  height: 540px;
+  position: relative;
+  top: 70px;
+  background-color: #cfe5ff;
+}
+
+.btpanda {
+  display: flex;
+  justify-content: center;
+}
+
+.btpanda p {
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 44px;
+  margin: 121px 0 0 0;
+  text-align: center;
+}
+
+.btpanda img {
+  width: 100%;
+  max-width: 375px;
+  position: absolute;
+  bottom: 0;
+}
+
+/* 모바일 푸터 영역 */
+footer {
+  width: 100%;
+  height: 160px;
+  background-color: #111827;
+  position: relative;
+  top: 70px;
+}
+
+.container-home {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 18px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  column-gap: 30px;
+  row-gap: 44px;
+}
+
+.copyright {
+  color: #9ca3af;
+  order: 1;
+  margin-left: 32px;
+  margin-bottom: 32px;
+}
+
+.link {
+  display: flex;
+  gap: 30px;
+}
+
+.pri p > a {
+  color: #e5e7eb;
+  margin-top: 32px;
+  margin-left: 32px;
+}
+
+.faq p > a {
+  color: #e5e7eb;
+  margin-top: 32px;
+}
+
+.sns {
+  height: 20px;
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  margin-top: 32px;
+  margin-right: 32px;
+  list-style: none;
+}
+
+.sns ul {
+  display: flex;
+  gap: 13px;
+  justify-content: space-between;
+}
+
+.sns li {
+  list-style-type: none;
+}
+
+.sns img {
+  width: 20px;
+}
+
+/* 태블릿 */
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  /* 태블릿 헤더 영역 */
+  .top {
+    width: 100%;
+  }
+
+  .logo {
+    position: relative;
+    width: 153px;
+    margin-left: 24px;
+  }
+
+  .logo .logo-symbol {
+    display: inline-block;
+    margin-top: 15px;
+    position: absolute;
+  }
+
+  .logo .logo-text {
+    position: absolute;
+    right: 0;
+  }
+
+  .login {
+    margin-right: 24px;
+  }
+
+  /* 태블릿 메인 영역 */
+  .main-banner {
+    height: 771px;
+  }
+
+  .banner {
+    height: 771px;
+  }
+
+  .banner .banner-title {
+    margin-top: 84px;
+    font-size: 40px;
+    line-height: 56px;
+  }
+
+  .banner .banner-title > span {
+    display: inline-block;
+  }
+
+  .banner .shortcut {
+    top: 164px;
+    width: 357px;
+    height: 56px;
+  }
+
+  .banner .shortcut > a {
+    font-size: 20px;
+    line-height: 56px;
+  }
+
+  .banner img {
+    bottom: 0;
+  }
+
+  /* 태블릿 콘텐츠 영역 */
+  .contents {
+    margin-bottom: 56px;
+  }
+
+  .con {
+    display: block;
+  }
+
+  .con img {
+    border-radius: 14px;
+  }
+
+  .con .text span {
+    font-size: 18px;
+  }
+
+  .con .text .text-title {
+    font-size: 32px;
+    line-height: 42px;
+    margin-top: 16px;
+  }
+
+  .con .text .text-title > span {
+    font-size: 32px;
+    line-height: 42px;
+  }
+
+  .con .text p {
+    font-size: 18px;
+    margin: 24px 0 0 0;
+  }
+
+  .hot-item {
+    padding-top: 24px;
+  }
+
+  .search {
+    padding-top: 52px;
+  }
+
+  .register {
+    padding-top: 40px;
+  }
+
+  /* 태블릿 하단 영역 */
+  .bottom {
+    height: 927px;
+  }
+
+  .btpanda p {
+    font-size: 40px;
+    line-height: 56px;
+    margin-top: 201px;
+  }
+
+  .btpanda img {
+    max-width: none;
+  }
+
+  /* 태블릿 푸터 영역 */
+  .copyright {
+    order: 0;
+    margin-left: 104px;
+    margin-top: 32px;
+  }
+
+  .pri p > a {
+    margin-left: 0;
+  }
+
+  .sns {
+    margin-right: 104px;
+  }
+}
+
+/* 데스크톱 */
+@media screen and (min-width: 1200px) {
+  /* 데스크톱 헤더 영역 */
+  .top {
+    width: 1120px;
+    margin: 0 auto;
+  }
+
+  .logo {
+    position: relative;
+    width: 153px;
+  }
+
+  .logo .logo-symbol {
+    display: inline-block;
+    margin-top: 15px;
+    position: absolute;
+  }
+
+  .logo .logo-text {
+    position: absolute;
+    right: 0;
+  }
+
+  /* 데스크톱 메인 영역 */
+  .main-banner {
+    height: 540px;
+  }
+
+  .banner {
+    width: 1110px;
+    height: 540px;
+    margin: 0 auto;
+    padding-top: 200px;
+    position: relative;
+  }
+
+  .banner .banner-title {
+    font-size: 40px;
+    line-height: 56px;
+    text-align: left;
+    margin-top: 40px;
+    position: absolute;
+    left: 0;
+  }
+
+  .banner .shortcut {
+    width: 357px;
+    height: 56px;
+    top: 384px;
+    position: absolute;
+    left: 0;
+  }
+
+  .banner .shortcut > a {
+    font-size: 20px;
+    line-height: 56px;
+  }
+
+  .banner img {
+    width: 746px;
+    height: 340px;
+    position: absolute;
+    right: 0;
+  }
+
+  /* 데스크톱 콘텐츠 영역 */
+  .contents {
+    margin-bottom: 138px;
+  }
+
+  .con {
+    padding: 138px 0 138px 0;
+  }
+
+  .con img {
+    width: 579px;
+    border-radius: 0;
+  }
+
+  .con .text {
+    margin-top: 103px;
+  }
+
+  .con .text span {
+    font-size: 18px;
+  }
+
+  .con .text .text-title {
+    font-size: 40px;
+    line-height: 56px;
+    margin-top: 12px;
+  }
+
+  .con .text .text-title > span {
+    font-size: 40px;
+    line-height: 56px;
+    display: block;
+  }
+
+  .con .text p {
+    font-size: 24px;
+    line-height: 32px;
+    margin: 24px 0 0 0;
+  }
+
+  .hot-item {
+    display: flex;
+    gap: 64px;
+    margin: 0 auto;
+    padding: 0;
+    width: 988px;
+    height: 444px;
+    background-color: #fcfcfc;
+  }
+
+  .search {
+    display: flex;
+    gap: 64px;
+    width: 988px;
+    height: 444px;
+    margin: 0 auto;
+    padding: 0;
+    flex-direction: row-reverse;
+    background-color: #fcfcfc;
+  }
+
+  .register {
+    display: flex;
+    gap: 64px;
+    width: 988px;
+    height: 444px;
+    margin: 0 auto;
+    padding: 0;
+    background-color: #fcfcfc;
+  }
+
+  /* 데스크톱 하단 영역 */
+  .btpanda {
+    width: 1110px;
+    height: 540px;
+    margin: 0 auto;
+    padding-top: 143px;
+    position: relative;
+  }
+
+  .btpanda p {
+    font-size: 40px;
+    line-height: 56px;
+    text-align: left;
+    margin: 112px 0 0 0;
+    left: 0;
+    position: absolute;
+  }
+
+  .btpanda img {
+    max-width: 746px;
+    height: 397px;
+    right: 0;
+    position: absolute;
+  }
+
+  /* 데스크톱 푸터 영역 */
+  .container-home {
+    justify-content: space-around;
+  }
+
+  .copyright {
+    order: 0;
+    margin-top: 32px;
+  }
+}

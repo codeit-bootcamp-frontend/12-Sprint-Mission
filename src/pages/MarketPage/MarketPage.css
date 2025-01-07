@@ -1,0 +1,165 @@
+.sectionTitle {
+  color: #111827;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 32px;
+}
+
+.itemCard {
+  color: #1f2937;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.itemCardThumbnail {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 20px;
+  overflow: hidden;
+  aspect-ratio: 1;
+  margin-bottom: 16px;
+  margin-top: 24px;
+}
+
+.itemCatagory {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex-grow: 1;
+}
+
+.itemName {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 24px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.itemPrice {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 26px;
+  padding-top: 6px;
+}
+
+.likeCount {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: #4b5563;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+  padding-top: 6px;
+}
+
+.bestItemsContainer {
+  padding-top: 17px;
+  padding-bottom: 24px;
+  margin-top: 70px;
+}
+
+.allItemsCardSection {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px 8px;
+}
+
+.allItemsSectionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.allItemsSectionHeader:first-child {
+  padding-bottom: 8px;
+}
+
+.allItemsSectionHeader:nth-child(2) {
+  padding-bottom: 16px;
+}
+
+.searchBarWrapper {
+  display: flex;
+  background-color: #f3f4f6;
+  border-radius: 12px;
+  padding: 16px;
+  height: 42px;
+  flex: 1;
+  align-items: center;
+}
+
+.searchBarInput {
+  border: none;
+  flex: 1 1;
+  background-color: #f3f4f6;
+  margin-left: 4px;
+  height: 42px;
+}
+
+.searchBarInput::placeholder {
+  color: #9ca3af;
+  font-size: 16px;
+}
+
+.searchBarInput:focus {
+  outline: none;
+}
+
+.itemRegister {
+  border-radius: 8px;
+  background-color: var(--blue);
+  color: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 23px;
+}
+
+.sortButtonWrapper {
+  position: relative;
+}
+
+.sortDropdownTriggerButton {
+  border: 1px solid #e5e7eb;
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 9px;
+  margin-left: 8px;
+}
+
+.paginationBarWrapper {
+  padding-top: 40px;
+  padding-bottom: 80px;
+}
+
+@media (min-width: 768px) {
+  .bestItemsContainer {
+    margin-bottom: 40px;
+  }
+
+  .bestItemsCardSection {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+
+  .allItemsCardSection {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px 16px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .bestItemsCardSection {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .allItemsCardSection {
+    grid-template-columns: repeat(5, 1fr);
+    gap: 40px 24px;
+  }
+}
