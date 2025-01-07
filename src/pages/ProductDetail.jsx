@@ -13,7 +13,12 @@ import noCommentImg from "../asset/Img_inquiry_empty.png";
 function ProductDetail() {
   const [item, setItem] = useState();
   const [comment, setComment] = useState();
+  const [input, setInput] = useState("");
   const { productSlug } = useParams();
+
+  const handleChangeInput = (e) => {
+    setInput(e.target.value);
+  };
 
   const handleLoad = async () => {
     const result = await getProductDetail(productSlug);
@@ -35,6 +40,11 @@ function ProductDetail() {
   if (item) {
     date = new Date(item.createdAt);
   }
+
+  //등록 버튼 hover
+  let ButtonStyle = input
+    ? `${styles.comment_button_hover}`
+    : `${styles.comment_button}`;
 
   useEffect(() => {
     handleLoad();
@@ -118,9 +128,11 @@ function ProductDetail() {
               <textarea
                 className={styles.comment_input}
                 placeholder="개인정보를 공유 및 요청하거나, 명예 훼손, 무단 광고, 불법 정보 유포시 모니터링 후 삭제될 수 있으며, 이에 대한 민형사상 책임은 게시자에게 있습니다."
+                value={input}
+                onChange={handleChangeInput}
               />
             </div>
-            <button className={styles.comment_button}>등록</button>
+            <button className={ButtonStyle}>등록</button>
           </form>
           <div className={styles.comment_list_container}>
             {!comment.length && (

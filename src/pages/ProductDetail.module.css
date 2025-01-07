@@ -164,6 +164,16 @@
   margin-left: auto;
 }
 
+.comment_button_hover {
+  width: 72px;
+  height: 42px;
+  background-color: #3692ff;
+  border-radius: 8px;
+  color: white;
+  border: none;
+  margin-left: auto;
+}
+
 .detail_line {
   height: 1px;
   max-width: 1190px;
@@ -202,6 +212,11 @@
   font-weight: 400;
   font-size: 18px;
   line-height: 26px;
+  cursor: pointer;
+}
+
+.button_to_list:hover {
+  background-color: #8bbfff;
 }
 
 .button_backicon {
