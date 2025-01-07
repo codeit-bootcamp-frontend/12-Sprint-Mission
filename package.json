@@ -10,6 +10,8 @@
   },
   "dependencies": {
     "@fontsource/pretendard": "^5.1.0",
+    "date-fns": "^4.1.0",
+    "dayjs": "^1.11.13",
     "next": "15.1.3",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
