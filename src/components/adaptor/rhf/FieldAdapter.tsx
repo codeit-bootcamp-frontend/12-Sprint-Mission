@@ -14,6 +14,7 @@ interface FieldAdapterProps<T extends FieldValues, U extends FieldPath<T>> {
   control: Control<T>;
   render: (props: {
     value: FieldPathValue<T, U>;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     onChange: (...event: any[]) => void;
     onBlur: () => void;
     ref: RefCallBack;

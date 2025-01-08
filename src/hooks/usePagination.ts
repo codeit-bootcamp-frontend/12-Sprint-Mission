@@ -56,7 +56,7 @@ export default function usePagination({
     if (totalPage > 0 && page > totalPage) {
       onChange(totalPage);
     }
-  }, [page, totalPage]);
+  }, [page, totalPage, onChange]);
 
   return {
     page,

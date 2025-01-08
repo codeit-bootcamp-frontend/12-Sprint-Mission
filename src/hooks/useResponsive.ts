@@ -27,7 +27,7 @@ export default function useResponsive(
     return () => {
       window.removeEventListener("resize", debounceHandleResize);
     };
-  }, []);
+  }, [initialOption]);
 
   return responsiveValue;
 }
