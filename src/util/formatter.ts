@@ -7,3 +7,7 @@ export function toWon(price: string | number | undefined) {
 export function toDate(date: string) {
   return dayjs(date).format("YYYY.MM.DD");
 }
+
+export function maxNumber(number: number, max: number) {
+  return number <= max ? number : `${max}+`;
+}
