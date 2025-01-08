@@ -1,18 +1,17 @@
+"use client";
+
 import { Button } from "@components/ui";
 import { Profile } from "@components/Header";
 import styles from "./Util.module.scss";
-import { auth } from "@/app/api/auth/auth";
+import { useAuth } from "@/context/AuthContext";
 
-export async function Util() {
-  const session = await auth();
+export function Util() {
+  const { user } = useAuth();
 
   return (
     <div className={styles.util}>
-      {session ? (
-        <Profile
-          nickname={session.user?.nickname || ""}
-          image={session.user?.image || ""}
-        />
+      {user ? (
+        <Profile nickname={user.nickname || ""} image={user.image || ""} />
       ) : (
         <Button href="/login" size="sm-48" className={styles["login-btn"]}>
           로그인
