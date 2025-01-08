@@ -1,0 +1,16 @@
+@use "@assets/scss/base/mixins";
+
+.list {
+  display: flex;
+  gap: 2.4rem;
+}
+
+.item {
+  width: 100%;
+}
+
+@include mixins.mobile {
+  .list {
+    gap: 1.6rem;
+  }
+}
