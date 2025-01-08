@@ -13,6 +13,8 @@ interface ThumbnailProps {
   onRemove?: () => void;
   aspectRatio?: string;
   onFullScreen?: (src: string) => void;
+  mini?: boolean;
+  border?: boolean;
 }
 
 export function Thumbnail({
@@ -21,11 +23,18 @@ export function Thumbnail({
   onRemove,
   aspectRatio = "1 / 1",
   onFullScreen,
+  mini = false,
+  border = false,
 }: ThumbnailProps) {
   const [isDefault, setIsDefault] = useState(src === defaultImg);
   const hasFullScreen = onFullScreen && !isDefault;
 
-  const coverCss = clsx(styles.cover, hasFullScreen && styles.fullscreen);
+  const coverCss = clsx(
+    styles.cover,
+    hasFullScreen && styles.fullscreen,
+    mini && styles.mini,
+    border && styles.border
+  );
   const imgCss = clsx(styles.img, isDefault && styles.default);
 
   return (
@@ -45,6 +54,8 @@ export function Thumbnail({
         src={!isDefault ? src : defaultImg}
         alt={alt}
         onError={() => setIsDefault(true)}
+        width={100}
+        height={100}
       />
     </figure>
   );
