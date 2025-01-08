@@ -1,6 +1,7 @@
 import { SigninFormType, SignupFormType } from "@schemas/auth";
 import { axiosInstance } from "@service/axios";
 import { RefreshResponse, AuthResponse, User } from "@type/auth";
+import axios from "axios";
 
 export async function login({ email, password }: SigninFormType) {
   const response = await axiosInstance.post<AuthResponse>("/auth/signIn", {
@@ -34,8 +35,8 @@ export async function getUser() {
 }
 
 export async function refreshAccessToken(refreshToken: string) {
-  const response = await axiosInstance.post<RefreshResponse>(
-    "/auth/refresh-token",
+  const response = await axios.post<RefreshResponse>(
+    `${process.env.NEXT_PUBLIC_API_URL}/auth/refresh-token`,
     {
       refreshToken,
     }
