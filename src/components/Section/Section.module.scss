@@ -3,29 +3,29 @@
 .section {
   position: relative;
   margin-bottom: 4rem;
+}
 
-  .header {
-    display: flex;
-    align-items: center;
-    gap: 0.8rem 1.2rem;
-    margin-bottom: 2.4rem;
+.header {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem 1.2rem;
+  margin-bottom: 2.4rem;
 
-    @include mixins.mobile {
-      flex-wrap: wrap;
-      justify-content: flex-end;
-    }
-
-    .title {
-      flex: none;
-      margin-right: auto;
-      font-size: 2rem;
-      font-weight: 700;
-      color: var(--color-secondary-900);
-    }
-  }
-
-  .footer {
-    display: flex;
+  @include mixins.mobile {
+    flex-wrap: wrap;
     justify-content: flex-end;
   }
+}
+
+.title {
+  flex: none;
+  margin-right: auto;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--color-secondary-900);
+}
+
+.footer {
+  display: flex;
+  justify-content: flex-end;
 }
