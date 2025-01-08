@@ -5,15 +5,17 @@ export const axiosInstance = axios.create({
   baseURL: process.env.NEXT_PUBLIC_API_URL,
 });
 
-axiosInstance.interceptors.request.use(
-  async (config) => {
-    if (typeof window === "undefined") {
+if (typeof window === "undefined") {
+  axiosInstance.interceptors.request.use(
+    async (config) => {
       const session = await auth();
-      config.headers.Authorization = `Bearer ${session?.accessToken}`;
+      if (session?.accessToken) {
+        config.headers.Authorization = `Bearer ${session?.accessToken}`;
+      }
+      return config;
+    },
+    (error) => {
+      return Promise.reject(error);
     }
-    return config;
-  },
-  (error) => {
-    return Promise.reject(error);
-  }
-);
+  );
+}

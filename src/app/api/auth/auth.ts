@@ -61,7 +61,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       if (token?.accessToken && typeof token.accessToken === "string") {
         // accessToken이 만료됬으면 재발급;
         const decodedToken = jwtDecode(token.accessToken as string);
-        const expiredTime = decodedToken.exp || 0 - 1800000;
+        const expiredTime = (decodedToken.exp || 0) * 1000;
         if (Date.now() > expiredTime) {
           try {
             const { accessToken } = await refreshAccessToken(

@@ -31,7 +31,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<User | null>(null);
   const { data, status, update } = useSession();
 
-  // request inetercepotr : 요청 헤더에 토큰 넣기
+  // request inetercepotr : 요청 헤더에 토큰 넣기 (client)
   useEffect(() => {
     if (status !== "authenticated" || !data.accessToken) return;
 
@@ -50,6 +50,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     };
   }, [status, data?.accessToken]);
 
+  // response interceptor : 응답 실패시 재발급
   useEffect(() => {
     if (!data?.refreshToken) return;
 
@@ -58,17 +59,19 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         return response;
       },
       async function (error) {
-        if (
-          error.response?.status === 401 &&
-          !error.config._retry &&
-          data?.refreshToken
-        ) {
+        if (error.response?.status === 401 && !error.config._retry) {
           try {
             error.config._retry = true;
             const accessToken = await handleRrefreshToken(data.refreshToken);
-            await update({ accessToken });
+
+            if (accessToken !== data.accessToken) {
+              // next-auth jwt callback 호출 (trigger === "update" 조건)
+              await update({ accessToken });
+              error.config.headers.Authorization = `Bearer ${accessToken}`;
+            }
+            return axiosInstance(error.config);
           } catch (refreshError) {
-            console.log("refresh error", refreshError);
+            console.error("refresh error", refreshError);
             return Promise.reject(refreshError);
           }
         }
@@ -79,11 +82,11 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     return () => {
       axiosInstance.interceptors.response.eject(refreshInterceptor);
     };
-  }, [data?.refreshToken, update]);
+  }, [data?.refreshToken, data?.accessToken, update]);
 
   // 유저 데이터 요청
   useEffect(() => {
-    if (status !== "authenticated" || user) return;
+    if (status !== "authenticated" || !data?.accessToken || user) return;
 
     (async function fetchUser() {
       try {
@@ -94,7 +97,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         setUser(null);
       }
     })();
-  }, [status, user]);
+  }, [status, data?.accessToken, user]);
 
   const value = {
     user,
