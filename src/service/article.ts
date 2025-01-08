@@ -18,6 +18,5 @@ export async function getArticles({
 
 export async function getArticle(articleId: number) {
   const response = await axiosInstance.get<Article>(`/articles/${articleId}`);
-  console.log(response.headers);
   return response.data;
 }
