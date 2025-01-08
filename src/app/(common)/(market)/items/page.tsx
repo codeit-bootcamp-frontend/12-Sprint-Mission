@@ -1,3 +1,15 @@
+import { PageWrapper } from "@/components/Page";
+import BestItems from "./_components/BestItems";
+import AllItems from "./_components/AllItems";
+import { Suspense } from "react";
+
 export default function ItemsPage() {
-  return <div>중고마켓 페이지</div>;
+  return (
+    <PageWrapper>
+      <BestItems />
+      <Suspense>
+        <AllItems />
+      </Suspense>
+    </PageWrapper>
+  );
 }
