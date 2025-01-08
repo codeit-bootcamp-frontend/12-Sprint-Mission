@@ -10,7 +10,7 @@ export default function BestItem({ data }: { data: Article }) {
   const thumbnailImage = image || undefined;
 
   return (
-    <Link href={`/board/${id}`} className={styles.item}>
+    <Link href={`/boards/${id}`} className={styles.item}>
       <div className={styles.status}>
         <Badge label="Best" icon={<Image src={bestIcon} alt="best" />} />
       </div>

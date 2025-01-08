@@ -11,7 +11,7 @@ export default function BoardItem({ data }: { data: Article }) {
     <div className={styles.item}>
       <div className={styles.header}>
         <div className={styles.content}>
-          <Link href={`/board/${id}`}>
+          <Link href={`/boards/${id}`}>
             <h3 className={styles.title}>{title}</h3>
           </Link>
         </div>
