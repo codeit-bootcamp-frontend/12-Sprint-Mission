@@ -9,6 +9,7 @@ const MENU = [
   {
     path: "/boards",
     title: "자유게시판",
+    activePathList: ["/boards", "/addboard", "/board"],
   },
   {
     path: "/items",
@@ -19,7 +20,7 @@ const MENU = [
 ];
 
 function isInclude(path: string, list: string[] = []) {
-  return list.filter((item) => path.startsWith(item)).length > 0;
+  return list.some((item) => path.startsWith(item));
 }
 
 export function Nav() {
