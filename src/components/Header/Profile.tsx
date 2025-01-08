@@ -1,22 +1,24 @@
+"use client";
+
 import { Dropdown, Avatar } from "@components/ui";
-import { User } from "@type/auth";
+import { signOut } from "next-auth/react";
 
 interface ProfileProps {
-  user: User;
-  onLogout: () => void;
+  nickname: string;
+  image: string;
 }
 
-export function Profile({ user, onLogout }: ProfileProps) {
+export function Profile({ nickname, image }: ProfileProps) {
   function handleLogout() {
     if (confirm("정말로 로그아웃 하시겠습니까?")) {
-      onLogout();
+      signOut();
     }
   }
 
   return (
     <Dropdown>
       <Dropdown.Toggle>
-        <Avatar nickname={user.nickname} img={user.image} hover />
+        <Avatar nickname={nickname} img={image} hover />
       </Dropdown.Toggle>
       <Dropdown.Menu>
         <Dropdown.Item onClick={handleLogout}>로그아웃</Dropdown.Item>

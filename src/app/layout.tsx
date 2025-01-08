@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import "@assets/scss/style.scss";
 import { AuthProvider } from "@/context/AuthContext";
+import { SessionProvider } from "next-auth/react";
 
 export const metadata: Metadata = {
   title: "판다마켓",
@@ -19,7 +20,9 @@ export default function RootLayout({ children }: PropsWithChildren) {
   return (
     <html lang="ko">
       <body>
-        <AuthProvider>{children}</AuthProvider>
+        <SessionProvider>
+          <AuthProvider>{children}</AuthProvider>
+        </SessionProvider>
       </body>
     </html>
   );
