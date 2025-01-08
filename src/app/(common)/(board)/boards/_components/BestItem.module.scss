@@ -3,6 +3,11 @@
   background: var(--color-secondary-100);
   padding: 0 2.4rem 1.6rem;
   border-radius: 0.8rem;
+  transition: transform 0.2s;
+}
+
+.item:hover {
+  transform: translateY(-4px);
 }
 
 .status {
@@ -41,6 +46,7 @@
 .meta {
   display: flex;
   align-items: center;
+  gap: 0.8rem;
 }
 
 .date {
