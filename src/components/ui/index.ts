@@ -13,3 +13,6 @@ export * from "./LikeButton";
 export * from "./Message";
 export * from "./Fullscreen";
 export * from "./Modal";
+export * from "./Date";
+export * from "./Like";
+export * from "./Badge";
