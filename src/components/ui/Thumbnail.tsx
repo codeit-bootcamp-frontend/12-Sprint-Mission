@@ -53,9 +53,10 @@ export function Thumbnail({
         className={imgCss}
         src={!isDefault ? src : defaultImg}
         alt={alt}
+        fill
         onError={() => setIsDefault(true)}
-        width={100}
-        height={100}
+        quality={100}
+        sizes="80vw"
       />
     </figure>
   );
