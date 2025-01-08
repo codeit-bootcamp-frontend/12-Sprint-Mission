@@ -1,0 +1,19 @@
+.item {
+  margin-bottom: 2.4rem;
+  padding-bottom: 2.4rem;
+  border-bottom: 1px solid var(--color-secondary-200);
+}
+
+.comment {
+  display: flex;
+  gap: 2rem;
+}
+
+.content {
+  flex: 1;
+}
+
+.text {
+  margin-bottom: 2.4rem;
+  white-space: pre-wrap;
+}

@@ -1,31 +1,31 @@
 import { PageWrapper } from "@/components/Page";
 import { getProduct } from "@/service/product";
-import ProductDetail from "../_components/ProductDetail";
+import ProductDetail from "../../_components/ProductDetail";
+import { CommentAdd, CommentList } from "@/components/Comment";
+import { BackToList } from "@/components/Button";
+import { getComments } from "@/service/comments";
+
 export default async function ItemDetailPage({
   params,
 }: {
   params: Promise<{ id: string }>;
 }) {
   const id = (await params).id;
-  const detail = await getProduct(Number(id));
+  const [detail, comments] = await Promise.all([
+    getProduct(Number(id)),
+    getComments("products", { productId: Number(id), limit: 5 }),
+  ]);
 
   return (
     <PageWrapper>
       <ProductDetail detail={detail} />
 
       {/* comment 작성 */}
-      {/* <CommentAdd name="products" /> */}
+      <CommentAdd name="products" />
 
-      {/* non critical */}
-      {/* <Suspense fallback={<Loading>상품 문의를 가져오는 중입니다....</Loading>}>
-        <Await resolve={comments}>
-          {(comments: CommentListType) => (
-            <CommentList name="products" comments={comments} />
-          )}
-        </Await>
-      </Suspense>
+      <CommentList name="products" comments={comments} />
 
-      <BackToList /> */}
+      <BackToList />
     </PageWrapper>
   );
 }

@@ -1,0 +1,19 @@
+.comments {
+  .control {
+    display: flex;
+    justify-content: center;
+  }
+
+  .button {
+    padding: 1rem 2rem;
+    border-radius: 9999px;
+    background: #eee;
+    font-size: 1.4rem;
+    color: var(--color-secondary-500);
+
+    &:hover {
+      background: #ddd;
+      color: var(--color-secondary-700);
+    }
+  }
+}
