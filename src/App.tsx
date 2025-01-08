@@ -15,7 +15,6 @@ function App() {
           <Route index element={<MainPage />} />
           <Route path=":productSlug" element={<ProductDetail />} />
         </Route>
-        {/* <Route path="/items/product" element={<ProductDetail />} /> */}
         <Route path="/additem" element={<PostProductPage />} />
       </Routes>
     </BrowserRouter>

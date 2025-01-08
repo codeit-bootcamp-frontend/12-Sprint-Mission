@@ -1,9 +1,19 @@
 import iconX from "../asset/ic_X.png";
 import styles from "./ProductTag.module.css";
 
-function ProductTag({ value, handlechangeTagList, disable = true }) {
+function ProductTag({
+  value,
+  handlechangeTagList,
+  disable = true,
+}: {
+  value: string;
+  handlechangeTagList?: (id: string) => void;
+  disable?: boolean;
+}) {
   const handleClickTag = () => {
-    handlechangeTagList(value);
+    if (handlechangeTagList) {
+      handlechangeTagList(value);
+    }
   };
   return (
     <div className={styles.tag_wrap}>

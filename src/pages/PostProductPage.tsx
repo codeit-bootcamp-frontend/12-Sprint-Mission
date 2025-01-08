@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { ChangeEvent, KeyboardEvent, useEffect, useRef, useState } from "react";
 import styles from "./PostProductPage.module.css";
 import ProductTag from "../component/ProductTag";
 import iconX from "../asset/ic_X.png";
@@ -6,25 +6,25 @@ import iconX from "../asset/ic_X.png";
 function PostProductPage() {
   const [preview, setPreview] = useState("");
   const [imgError, setImgError] = useState(false);
-  const [tagList, setTagList] = useState([]);
+  const [tagList, setTagList] = useState<string[]>([]);
   //value값들
   const [nameInput, setnameInput] = useState("");
   const [desInput, setDesInput] = useState("");
   const [priceInput, setPriceInput] = useState("");
   const [tagValue, setTagValue] = useState("");
 
-  const inputRef = useRef();
+  const inputRef = useRef<HTMLInputElement>(null);
 
-  const handleChangeNameInput = (e) => {
+  const handleChangeNameInput = (e: ChangeEvent<HTMLInputElement>) => {
     setnameInput(e.target.value);
   };
 
-  const handleChangeDesInput = (e) => {
+  const handleChangeDesInput = (e: ChangeEvent<HTMLTextAreaElement>) => {
     setDesInput(e.target.value);
   };
 
   //가격 input 함수
-  const handleChangePriceInput = (e) => {
+  const handleChangePriceInput = (e: ChangeEvent<HTMLInputElement>) => {
     let number = e.target.value;
     //숫자 이외에 입력은 공백으로 바꿔줌
     number = number.replace(/[^0-9]/g, "");
@@ -40,7 +40,10 @@ function PostProductPage() {
       : `${styles.post_button}`;
 
   //파일 input 함수
-  const handleChangeFile = (e) => {
+  const handleChangeFile = (e: ChangeEvent<HTMLInputElement>) => {
+    if (!e.target.files) {
+      return;
+    }
     if (preview) {
       setImgError(true);
       return;
@@ -63,7 +66,7 @@ function PostProductPage() {
   };
 
   //태그 input 함수
-  const handleChangeTag = (e) => {
+  const handleChangeTag = (e: KeyboardEvent<HTMLInputElement>) => {
     const isValue = tagList.find((element) => element === tagValue);
     if (e.keyCode === 13 && isValue) {
       alert("이미 있는 태그입니다.");
@@ -74,18 +77,18 @@ function PostProductPage() {
     }
   };
 
-  const handleChangeTagInput = (e) => {
+  const handleChangeTagInput = (e: ChangeEvent<HTMLInputElement>) => {
     setTagValue(e.target.value);
   };
 
-  const handlechangeTagList = (id) => {
+  const handlechangeTagList = (id: string) => {
     const nextTagList = tagList.filter((element) => element !== id);
     setTagList(nextTagList);
   };
 
   //폼 제출기능 막기
-  const preventSubmit = (e) => {
-    // e.preventDefault();
+  const preventSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
   };
 
   useEffect(() => {

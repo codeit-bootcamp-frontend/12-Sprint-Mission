@@ -2,7 +2,19 @@ import { Link } from "react-router-dom";
 import HeartIcon from "../../asset/ic_heart.png";
 import styles from "./BestProductItem.module.css";
 
-function ProductItem({ item }) {
+interface Product {
+  id: number;
+  name: string;
+  price: number;
+  description: string;
+  tags: string[];
+  images: string[];
+  createdAt: string;
+  ownerNickname: string;
+  favoriteCount: number;
+}
+
+function ProductItem({ item }: { item: Product }) {
   return (
     <Link to={`/items/${item.id}`} className={styles.link}>
       <div>

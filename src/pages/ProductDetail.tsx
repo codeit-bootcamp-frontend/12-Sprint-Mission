@@ -4,39 +4,72 @@ import UserImg from "../asset/userIcon.png";
 import ProductTag from "../component/ProductTag";
 import ProductComment from "../component/ProductComment/ProductComment";
 import heartIcon from "../asset/ic_heart.png";
-import { useEffect, useState } from "react";
+import { SyntheticEvent, useEffect, useState } from "react";
 import { getProductComment, getProductDetail } from "../api";
 import noPhotoImg from "../asset/nophoto.png";
 import backIcon from "../asset/ic_back.png";
 import noCommentImg from "../asset/Img_inquiry_empty.png";
 
+interface Product {
+  id: number;
+  name: string;
+  price: number;
+  description: string;
+  tags: string[];
+  images: string[];
+  createdAt: string;
+  ownerNickname: string;
+  favoriteCount: number;
+}
+
+interface Comment {
+  writer: {
+    image: string;
+    nickname: string;
+    id: number;
+  };
+  updatedAt: string;
+  createdAt: string;
+  content: string;
+  id: number;
+}
+
 function ProductDetail() {
-  const [item, setItem] = useState();
-  const [comment, setComment] = useState();
-  const [input, setInput] = useState("");
+  const [item, setItem] = useState<Product>();
+  const [comment, setComment] = useState<Comment[]>([]);
+  const [input, setInput] = useState<string>("");
   const { productSlug } = useParams();
 
-  const handleChangeInput = (e) => {
+  const handleChangeInput = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setInput(e.target.value);
   };
 
   const handleLoad = async () => {
-    const result = await getProductDetail(productSlug);
-    const { list } = await getProductComment({ productSlug, limit: 3 });
-    if (result === undefined) {
+    if (!productSlug) {
+      console.error("productSlug키 없음");
       return;
     }
-    setItem(result);
-    setComment(list);
+    try {
+      const result = await getProductDetail(productSlug);
+      const { list } = await getProductComment({ productSlug, limit: 3 });
+      if (!result) {
+        console.log("제품 정보를 찾을수 없음");
+        return;
+      }
+      setItem(result);
+      setComment(list || []);
+    } catch (error) {
+      console.log("데이터를 로드하는 중 오류 발생");
+    }
   };
 
   //이미지 링크가 잘못된 링크일 때, 기본 이미지 출력
-  const onErrorImg = (e) => {
-    e.target.src = noPhotoImg;
+  const onErrorImg = (e: SyntheticEvent<HTMLImageElement, Event>) => {
+    e.currentTarget.src = noPhotoImg;
   };
 
   //날짜
-  let date;
+  let date = new Date();
   if (item) {
     date = new Date(item.createdAt);
   }
@@ -59,7 +92,7 @@ function ProductDetail() {
             {item.images[0] ? (
               <img
                 alt="상품이미지"
-                src={item.images}
+                src={item.images[0]}
                 className={styles.product_img}
                 onError={onErrorImg}
               />

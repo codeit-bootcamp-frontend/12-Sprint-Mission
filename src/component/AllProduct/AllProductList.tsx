@@ -5,15 +5,34 @@ import { useEffect, useState } from "react";
 import NavBar from "../Navigation/NavBar";
 import PageButton from "../Pagination/PageButton";
 
+interface ProductValue {
+  page?: number;
+  pageSize: number;
+  orderBy: string;
+  keyword?: string;
+}
+
+interface Product {
+  id: number;
+  name: string;
+  price: number;
+  description: string;
+  tags: string[];
+  images: string[];
+  createdAt: string;
+  ownerNickname: string;
+  favoriteCount: number;
+}
+
 function AllProductList() {
-  const [items, setItems] = useState([]);
+  const [items, setItems] = useState<Product[]>([]);
   const [orderBy, setOrderBy] = useState("recent");
   const [page, setPage] = useState(1);
   const [pageSize, setPageSize] = useState(10);
   const [keyword, setKeyword] = useState("");
   const [maxPage, setMaxPage] = useState(5);
 
-  const handleLoad = async (value) => {
+  const handleLoad = async (value: ProductValue) => {
     const result = await getProduct(value);
     const { list, totalCount } = result;
     setItems(list);
@@ -25,16 +44,16 @@ function AllProductList() {
     handleLoad({ page, pageSize, orderBy, keyword });
   }, [page, pageSize, orderBy, keyword]);
 
-  const handleOrder = (value) => {
+  const handleOrder = (value: string) => {
     setOrderBy(value);
     setPage(1);
   };
 
-  const handlePage = (value) => {
+  const handlePage = (value: number) => {
     setPage(value);
   };
 
-  const handleKeyword = (value) => {
+  const handleKeyword = (value: string) => {
     setKeyword(value);
     setPage(1);
   };

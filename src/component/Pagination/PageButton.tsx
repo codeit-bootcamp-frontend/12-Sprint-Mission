@@ -2,9 +2,17 @@ import LeftArrow from "../../asset/arrow_left.png";
 import RightArrow from "../../asset/arrow_right.png";
 import styles from "./PageButton.module.css";
 
-function PageButton({ handlePage, page, maxPage }) {
-  const ClickNumber = (e) => {
-    handlePage(e.target.value);
+function PageButton({
+  handlePage,
+  page,
+  maxPage,
+}: {
+  handlePage: (value: number) => void;
+  page: number;
+  maxPage: number;
+}) {
+  const ClickNumber = (e: React.MouseEvent<HTMLElement>) => {
+    handlePage(Number(e.currentTarget.dataset.value));
   };
 
   const ClickIconLeft = () => {
@@ -34,7 +42,7 @@ function PageButton({ handlePage, page, maxPage }) {
 
   let background = "";
   let color = "";
-  function PageButtonNumber({ value }) {
+  function PageButtonNumber({ value }: { value: number }) {
     if (page === value) {
       background = "#2f80ed";
       color = "white";
@@ -47,7 +55,7 @@ function PageButton({ handlePage, page, maxPage }) {
       <li
         className={styles.pagebutton_number}
         style={{ background: background, color: color }}
-        value={value}
+        data-value={value}
         onClick={ClickNumber}
       >
         {value}

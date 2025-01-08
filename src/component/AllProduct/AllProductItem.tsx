@@ -2,12 +2,26 @@ import noPhotoImg from "../../asset/nophoto.png";
 import HeartIcon from "../../asset/ic_heart.png";
 import styles from "./AllProductItem.module.css";
 import { Link } from "react-router-dom";
+import { SyntheticEvent } from "react";
 
-function AllProductItem({ item }) {
-  const onErrorImg = (e) => {
-    e.target.src = noPhotoImg;
+interface Product {
+  id: number;
+  name: string;
+  price: number;
+  description: string;
+  tags: string[];
+  images: string[];
+  createdAt: string;
+  ownerNickname: string;
+  favoriteCount: number;
+}
+
+function AllProductItem({ item }: { item: Product }) {
+  const onErrorImg = (e: SyntheticEvent<HTMLImageElement>) => {
+    e.currentTarget.src = noPhotoImg;
   };
   //이미지 링크가 잘못된 링크일 때, 기본 이미지 출력
+
   return (
     <Link to={`/items/${item.id}`} className={styles.link}>
       <div>

@@ -1,20 +1,26 @@
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { ChangeEvent, KeyboardEvent, useState } from "react";
 import styles from "./NavBar.module.css";
 
-function NavBar({ handleOrder, handleKeyword }) {
+function NavBar({
+  handleOrder,
+  handleKeyword,
+}: {
+  handleOrder: (value: string) => void;
+  handleKeyword: (value: string) => void;
+}) {
   const [searchInput, setSearchInput] = useState("");
 
-  const onClickOption = (e) => {
+  const onClickOption = (e: ChangeEvent<HTMLSelectElement>) => {
     handleOrder(e.target.value);
   };
 
-  const handleChangeInput = (e) => {
+  const handleChangeInput = (e: ChangeEvent<HTMLInputElement>) => {
     setSearchInput(e.target.value);
   };
 
   //엔터키 입력시 상품 검색
-  const onKeyDownEnter = (e) => {
+  const onKeyDownEnter = (e: KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter") {
       handleKeyword(searchInput);
     }

@@ -2,7 +2,19 @@ import userIcon from "../../asset/userIcon.png";
 import kebabIcon from "../../asset/ic_kebab.png";
 import styles from "./ProductComment.module.css";
 
-function ProductComment({ value }) {
+interface Value {
+  writer: {
+    image: string;
+    nickname: string;
+    id: number;
+  };
+  updatedAt: string;
+  createdAt: string;
+  content: string;
+  id: number;
+}
+
+function ProductComment({ id, value }: { id: number; value: Value }) {
   //마지막 업데이트 시간 계산
 
   // date1과 date2 문자열을 Date 객체로 변환합니다.
