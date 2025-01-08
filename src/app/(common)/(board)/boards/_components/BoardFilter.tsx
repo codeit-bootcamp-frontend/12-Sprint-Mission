@@ -1,15 +1,13 @@
 "use client";
 
 import { ChangeEvent, useState } from "react";
-import { useSearchParams } from "next/navigation";
 import { Search } from "@/components/Search";
 import { Select } from "@/components/ui";
 import useParams from "@/hooks/useParams";
 import styles from "./BoardFilter.module.scss";
 
 export default function BoardFilter() {
-  const { handleParams } = useParams();
-  const searchParams = useSearchParams();
+  const { searchParams, handleParams } = useParams();
 
   const initialKeyword = searchParams.get("keyword") || "";
   const orderBy = searchParams.get("orderBy") || "recent";
@@ -17,7 +15,7 @@ export default function BoardFilter() {
   const [keyword, setKeyword] = useState(initialKeyword);
 
   function handleKeywordSubmit() {
-    handleParams("keyword", keyword);
+    handleParams({ keyword });
   }
 
   function handleKeywordChange(e: ChangeEvent<HTMLInputElement>) {
@@ -25,12 +23,12 @@ export default function BoardFilter() {
   }
 
   function handleKeywordClear() {
-    handleParams("keyword", "");
+    handleParams({ keyword });
     setKeyword("");
   }
 
-  function handleOrderChange(value: string) {
-    handleParams("orderBy", value);
+  function handleOrderChange(orderBy: string) {
+    handleParams({ orderBy });
   }
 
   return (

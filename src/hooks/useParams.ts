@@ -5,16 +5,20 @@ export default function useParams() {
   const pathname = usePathname();
   const searchParams = useSearchParams();
 
-  function handleParams(key: string, value: string) {
+  function handleParams(updateParams: Record<string, string | number>) {
     const params = new URLSearchParams(searchParams);
 
-    if (value.trim()) {
-      params.set(key, value.trim());
-    } else {
-      params.delete(key);
-    }
+    Object.entries(updateParams).forEach(([key, value]) => {
+      const formattedValue = value.toString().trim();
+      if (formattedValue) {
+        params.set(key, formattedValue);
+      } else {
+        params.delete(key);
+      }
+    });
+
     router.push(`${pathname}?${params.toString()}`);
   }
 
-  return { handleParams };
+  return { searchParams, handleParams };
 }
