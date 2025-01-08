@@ -42,7 +42,7 @@ function ImgViewer({
   return (
     <div className={styles.fullscreen} onClick={onCloseScreen}>
       <div className={styles.info}>아무곳이나 클릭하시면 닫힙니다.</div>
-      <Image src={src} alt="확대보기입니다. 한번더 클릭하시면 닫힙니다." />
+      <Image src={src} alt="확대보기입니다. 한번더 클릭하시면 닫힙니다." fill />
     </div>
   );
 }
