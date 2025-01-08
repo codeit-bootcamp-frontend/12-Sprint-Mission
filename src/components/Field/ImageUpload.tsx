@@ -24,7 +24,7 @@ export const ImageUpload = forwardRef(
           URL.revokeObjectURL(preview);
         }
       };
-    }, []);
+    }, [preview, value]);
 
     function handleChange(e: ChangeEvent<HTMLInputElement>) {
       if (!e.target.files) return;
