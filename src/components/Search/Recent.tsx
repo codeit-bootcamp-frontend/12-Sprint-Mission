@@ -3,6 +3,7 @@
 import { cloneElement, ReactElement, useEffect, useRef, useState } from "react";
 import searchIcon from "@assets/img/icon/icon_search.svg";
 import styles from "./Recent.module.scss";
+import Image from "next/image";
 
 interface RecentProps {
   title: string;
@@ -78,7 +79,7 @@ export function Recent({
                   className={styles.item}
                   onClick={() => handleClick(keyword)}
                 >
-                  <img src={searchIcon} alt="검색어" />
+                  <Image src={searchIcon} alt="검색어" />
                   <div className={styles.content}>{keyword}</div>
                   <button
                     type="button"
