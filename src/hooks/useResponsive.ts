@@ -17,6 +17,7 @@ export default function useResponsive(
 
   useEffect(() => {
     const debounceHandleResize = debounce(function () {
+      if (typeof window === "undefined") return;
       const targetSize = initialOption[getDeviceType()];
       setResponsiveValue(targetSize);
     }, 100);
