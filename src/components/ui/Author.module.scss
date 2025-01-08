@@ -11,9 +11,23 @@
       font-weight: 500;
       color: var(--color-secondary-600);
     }
+  }
 
-    .date {
-      color: var(--color-secondary-400);
+  &.row {
+    gap: 0.8rem;
+
+    figure {
+      width: 2.4rem;
+      height: 2.4rem;
+
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+    .info {
+      display: flex;
+      gap: 0.8rem;
     }
   }
 }
