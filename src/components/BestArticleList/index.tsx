@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { getArticles } from '@/api/articles';
-import BestArticle from '@/components/BestArticle';
+import BestArticle from '@/components/BestArticleList/BestArticle';
 import { Article } from '@/types';
 
 interface List {

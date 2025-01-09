@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect, useCallback } from 'react';
 import { getArticles } from '@/api/articles';
-import ArticleItem from '@/components/ArticleItem';
+import ArticleItem from '@/components/ArticleContent/ArticleList/ArticleItem';
 import { Article } from '@/types';
 
 interface List {
