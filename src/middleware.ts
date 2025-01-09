@@ -7,5 +7,5 @@ export default auth((req) => {
 });
 
 export const config = {
-  matcher: ["/addBoard"],
+  matcher: ["/addBoard", "/addItem", "/modifyItem"],
 };
