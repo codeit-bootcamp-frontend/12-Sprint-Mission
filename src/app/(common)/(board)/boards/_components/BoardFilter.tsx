@@ -23,7 +23,7 @@ export default function BoardFilter() {
   }
 
   function handleKeywordClear() {
-    handleParams({ keyword });
+    handleParams({ keyword: "" });
     setKeyword("");
   }
 
