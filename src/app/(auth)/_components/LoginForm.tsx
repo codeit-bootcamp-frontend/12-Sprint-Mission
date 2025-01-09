@@ -28,10 +28,15 @@ export default function LoginForm() {
 
   async function onSubmit(data: SigninFormType) {
     try {
-      await signIn("credentials", {
+      const respone = await signIn("credentials", {
         redirect: false,
         ...data,
       });
+
+      if (respone?.error) {
+        throw new Error(respone?.code);
+      }
+
       alert("로그인에 성공했습니다.");
       router.replace("/items");
     } catch (err) {

@@ -1,8 +1,10 @@
 import { signinFormSchmea } from "@/schemas/auth";
 import { login, refreshAccessToken } from "@/service/auth";
+import axios from "axios";
 import { jwtDecode } from "jwt-decode";
-import NextAuth from "next-auth";
+import NextAuth, { CredentialsSignin } from "next-auth";
 import Credentials from "next-auth/providers/credentials";
+import { ZodError } from "zod";
 
 declare module "next-auth" {
   interface User {
@@ -35,15 +37,31 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         try {
           const result = await signinFormSchmea.parseAsync(credentials);
           const { user, accessToken, refreshToken } = await login(result);
+
           return {
+            id: user.id.toString(),
+            name: user.nickname,
+            email: result.email,
             nickname: user.nickname,
             image: user.image,
             accessToken,
             refreshToken,
           };
         } catch (error) {
-          console.log(error);
-          return null;
+          if (error instanceof ZodError) {
+            throw new Error("잘못된 입력값");
+          }
+
+          if (axios.isAxiosError(error)) {
+            const message = error.response?.data?.message;
+            const credentialsSignin = new CredentialsSignin();
+            credentialsSignin.message = message;
+            credentialsSignin.code = message;
+
+            throw credentialsSignin;
+          }
+
+          throw new Error("로그인 실패");
         }
       },
     }),
