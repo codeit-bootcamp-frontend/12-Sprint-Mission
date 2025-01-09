@@ -10,7 +10,7 @@ function List({ setOrder }: { setOrder: Dispatch<SetStateAction<string>> }) {
   };
 
   return (
-    <ul className='absolute top-14 left-0 right-0 border border-gray-200 rounded-xl' onClick={onClick}>
+    <ul className='absolute top-14 left-0 right-0 z-10 border border-gray-200 rounded-xl bg-white' onClick={onClick}>
       <li className='py-2'>최신순</li>
       <li className='py-2'>인기순</li>
     </ul>

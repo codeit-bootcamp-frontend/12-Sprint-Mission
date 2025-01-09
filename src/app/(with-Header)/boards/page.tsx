@@ -1,6 +1,7 @@
 import BestArticleList from '@/components/BestArticleList';
 import Searchbar from '@/components/ArticleSearchbar';
 import Dropdown from '@/components/ArticleDropdown';
+import ArticleList from '@/components/ArticleList';
 
 export default async function Boards() {
   return (
@@ -19,6 +20,9 @@ export default async function Boards() {
         <div className='flex items-center gap-6 mt-4'>
           <Searchbar />
           <Dropdown />
+        </div>
+        <div className='flex flex-col items-center mt-4 my-12'>
+          <ArticleList />
         </div>
       </section>
     </>
