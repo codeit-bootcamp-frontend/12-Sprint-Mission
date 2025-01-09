@@ -1,6 +1,5 @@
 "use client";
 
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { Pagination } from "@/components/Pagination";
 import usePagination from "@/hooks/usePagination";
 import BoardItem from "./BoardItem";
@@ -8,6 +7,7 @@ import BoardListWrapper from "./BoardListWrapper";
 import { Article } from "@/types/article";
 import { ListQueryParams, PaginationResponse } from "@/types/common";
 import { Message } from "@/components/ui";
+import useParams from "@/hooks/useParams";
 
 interface BoardListProps extends ListQueryParams {
   data: PaginationResponse<Article>;
@@ -19,9 +19,7 @@ export default function BoardList({
   keyword,
 }: BoardListProps) {
   const { list, totalCount } = data;
-  const router = useRouter();
-  const pathname = usePathname();
-  const searchParams = useSearchParams();
+  const { handleParams } = useParams();
 
   const visibleCount = 5;
 
@@ -31,9 +29,7 @@ export default function BoardList({
     totalCount,
     visibleCount,
     onChange: (pageNumber) => {
-      const params = new URLSearchParams(searchParams);
-      params.set("page", pageNumber.toString());
-      router.push(`${pathname}?${params.toString()}`);
+      handleParams({ page: pageNumber.toString() });
     },
   });
 

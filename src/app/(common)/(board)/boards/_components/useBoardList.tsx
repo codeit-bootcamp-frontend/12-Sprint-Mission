@@ -1,24 +1,23 @@
 import { useEffect } from "react";
 import { getArticles } from "@service/article";
 import useAsync from "@hooks/useAsync";
-import { ListQueryParams } from "@type/common";
+import { ListQueryParams, PaginationResponse } from "@type/common";
+import { Article } from "@/types/article";
 
 type useProductListProps = Partial<ListQueryParams>;
 
-export default function useBoardList({
-  page,
-  pageSize,
-  keyword,
-  orderBy,
-}: useProductListProps) {
+export default function useBoardList(
+  { page, pageSize, keyword, orderBy }: useProductListProps,
+  initialData: PaginationResponse<Article>
+) {
   const {
     isLoading,
     error,
     result,
     wrappedFn: getData,
   } = useAsync(getArticles);
-  const items = result?.list || [];
-  const totalCount = result?.totalCount || 0;
+  const items = result?.list || initialData.list || [];
+  const totalCount = result?.totalCount || initialData.totalCount || 0;
 
   useEffect(() => {
     const controller = new AbortController();

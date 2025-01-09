@@ -1,33 +1,36 @@
 "use client";
 
 import useResponsive from "@/hooks/useResponsive";
-import useBoardList from "./useBoardList";
 import BestListWrapper from "./BestListWrapper";
 import BestItem from "./BestItem";
-import { Message } from "@/components/ui";
+import { useEffect } from "react";
+import { PaginationResponse } from "@/types/common";
+import { Article } from "@/types/article";
+import useParams from "@/hooks/useParams";
 
-export default function BestList() {
+interface BestListProps {
+  data: PaginationResponse<Article>;
+}
+
+export default function BestList({ data }: BestListProps) {
+  const { searchParams, handleParams } = useParams();
+  const currentSize = Number(searchParams.get("bestPageSize")) || 0;
   const pageSize = useResponsive({
     pc: 3,
     tablet: 2,
     mobile: 1,
   });
-  const { isLoading, error, items } = useBoardList({
-    pageSize,
-    orderBy: "like",
-  });
+  const { list } = data;
 
-  if (error) {
-    return <Message>데이터를 가져오는데 문제가 생겼습니다.</Message>;
-  }
+  useEffect(() => {
+    if (pageSize === currentSize) return;
 
-  if (isLoading) {
-    return <Message>베스트 게시글을 가져오는 중입니다.</Message>;
-  }
+    handleParams({ bestPageSize: pageSize });
+  }, [pageSize, currentSize, handleParams]);
 
   return (
     <>
-      <BestListWrapper items={items}>
+      <BestListWrapper items={list}>
         {(item) => <BestItem data={item} />}
       </BestListWrapper>
     </>

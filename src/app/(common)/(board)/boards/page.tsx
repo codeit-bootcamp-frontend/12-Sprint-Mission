@@ -2,18 +2,29 @@ import { Suspense } from "react";
 import { Section } from "@/components/Section";
 import { Button, Message } from "@/components/ui";
 import { PageWrapper } from "@/components/Page";
-import BestList from "./_components/BestList";
 import BoardFilter from "./_components/BoardFilter";
 import BoardListAsync from "./_components/BoardListAsync";
+import BestListAsync from "./_components/BestListAsync";
 
-export default function BoardsPage() {
+export type BoardPageQueryParams = {
+  page?: string;
+  orderBy?: string;
+  keyword?: string;
+  bestPageSize?: string;
+};
+
+export default async function BoardsPage({
+  searchParams,
+}: {
+  searchParams: Promise<BoardPageQueryParams>;
+}) {
   return (
     <PageWrapper>
       <Section>
         <Section.Header title="베스트 게시글" />
         <Section.Content>
           <Suspense fallback={<Message>베스트 게시물 가져오는중...</Message>}>
-            <BestList />
+            <BestListAsync searchParams={searchParams} />
           </Suspense>
         </Section.Content>
       </Section>
@@ -24,7 +35,7 @@ export default function BoardsPage() {
         <Section.Content>
           <Suspense fallback={<Message>게시물 가져오는중...</Message>}>
             <BoardFilter />
-            <BoardListAsync />
+            <BoardListAsync searchParams={searchParams} />
           </Suspense>
         </Section.Content>
       </Section>

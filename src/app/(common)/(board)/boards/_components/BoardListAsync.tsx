@@ -1,15 +1,12 @@
 import { getArticles } from "@/service/article";
 import BoardList from "./BoardList";
+import { BoardPageQueryParams } from "../page";
 
-interface BoardPageProps {
-  searchParams?: Promise<{
-    page?: string;
-    orderBy?: string;
-    keyword?: string;
-  }>;
+interface BoardListProps {
+  searchParams?: Promise<Partial<BoardPageQueryParams>>;
 }
 
-export default async function BoardListAsync(props: BoardPageProps) {
+export default async function BoardListAsync(props: BoardListProps) {
   const searchParams = await props.searchParams;
   const page = Number(searchParams?.page) || 1;
   const pageSize = 10;
