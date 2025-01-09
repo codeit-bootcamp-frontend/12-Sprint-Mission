@@ -1,34 +1,12 @@
-import { getArticles } from "@/service/article";
-import BoardList from "./_components/BoardList";
-import BestList from "./_components/BestList";
 import { Suspense } from "react";
 import { Section } from "@/components/Section";
-import { Button } from "@/components/ui";
+import { Button, Message } from "@/components/ui";
 import { PageWrapper } from "@/components/Page";
+import BestList from "./_components/BestList";
 import BoardFilter from "./_components/BoardFilter";
+import BoardListAsync from "./_components/BoardListAsync";
 
-interface BoardPageProps {
-  searchParams?: Promise<{
-    page?: string;
-    orderBy?: string;
-    keyword?: string;
-  }>;
-}
-
-export default async function BoardsPage(props: BoardPageProps) {
-  const searchParams = await props.searchParams;
-  const page = Number(searchParams?.page) || 1;
-  const pageSize = 10;
-  const orderBy = searchParams?.orderBy || "recent";
-  const keyword = searchParams?.keyword || "";
-
-  const data = await getArticles({
-    page,
-    pageSize,
-    keyword,
-    orderBy,
-  });
-
+export default async function BoardsPage() {
   return (
     <PageWrapper>
       <Section>
@@ -43,17 +21,8 @@ export default async function BoardsPage(props: BoardPageProps) {
         </Section.Header>
         <Section.Content>
           <BoardFilter />
-          <Suspense
-            key={page + pageSize + keyword + orderBy}
-            fallback={<div>loading</div>}
-          >
-            <BoardList
-              data={data}
-              page={page}
-              pageSize={pageSize}
-              keyword={keyword}
-              orderBy={orderBy}
-            />
+          <Suspense fallback={<Message>게시물 가져오는중...</Message>}>
+            <BoardListAsync />
           </Suspense>
         </Section.Content>
       </Section>
