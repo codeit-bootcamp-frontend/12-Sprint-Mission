@@ -7,7 +7,7 @@ interface BestListProps {
 }
 export default async function BestListAsync(props: BestListProps) {
   const searchParams = await props.searchParams;
-  const pageSize = Number(searchParams?.bestPageSize) || 0;
+  const pageSize = Number(searchParams?.bestPageSize) || 3;
 
   const data = await getArticles({
     pageSize,
