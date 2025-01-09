@@ -1,27 +1,25 @@
 import { PageWrapper } from "@/components/Page";
-import { getProduct } from "@/service/product";
 import { BackToList } from "@/components/Button";
-import { getComments } from "@/service/comments";
-import ProductDetail from "../../_components/ProductDetail";
-import Comments from "../../_components/Comments";
+import { Suspense } from "react";
+import ProdcutDetailAsync from "../../_components/ProdcutDetailAsync";
+import CommentsAsync from "../../_components/CommentsAsync";
+import { Message } from "@/components/ui";
 
-export const dynamic = "force-dynamic";
-
-export default async function ItemDetailPage({
+export default function ItemDetailPage({
   params,
 }: {
   params: Promise<{ id: string }>;
 }) {
-  const id = (await params).id;
-  const [detail, comments] = await Promise.all([
-    getProduct(Number(id)),
-    getComments("products", { productId: Number(id), limit: 5 }),
-  ]);
-
   return (
     <PageWrapper>
-      <ProductDetail detail={detail} />
-      <Comments name="products" data={comments} />
+      <Suspense
+        fallback={<Message>상품상제정보를 가져오는중입니다...</Message>}
+      >
+        <ProdcutDetailAsync params={params} />
+      </Suspense>
+      <Suspense fallback={<Message>코멘트를 가져오는중입니다...</Message>}>
+        <CommentsAsync name="products" params={params} />
+      </Suspense>
       <BackToList />
     </PageWrapper>
   );
