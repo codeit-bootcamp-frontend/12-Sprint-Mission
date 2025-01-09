@@ -4,22 +4,6 @@ import { useEffect } from "react";
 import { refreshAccessToken } from "@/service/auth";
 import { useSession } from "next-auth/react";
 import { axiosInstance } from "@/service/axios";
-import { auth } from "@/app/api/auth/auth";
-
-if (typeof window === "undefined") {
-  axiosInstance.interceptors.request.use(
-    async (config) => {
-      const session = await auth();
-      if (session?.accessToken) {
-        config.headers.Authorization = `Bearer ${session?.accessToken}`;
-      }
-      return config;
-    },
-    (error) => {
-      return Promise.reject(error);
-    }
-  );
-}
 
 async function handleRrefreshToken(refreshToken: string) {
   try {
