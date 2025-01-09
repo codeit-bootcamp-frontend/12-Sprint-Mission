@@ -1,4 +1,4 @@
-import { auth } from "@/app/api/auth/auth";
+import { auth } from "@/auth";
 import axios from "axios";
 
 export const axiosInstance = axios.create({

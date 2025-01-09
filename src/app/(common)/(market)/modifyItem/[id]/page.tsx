@@ -1,7 +1,7 @@
 import { PageWrapper } from "@/components/Page";
 import ProductForm from "../../_components/ProductForm";
 import { getProduct } from "@/service/product";
-import { auth } from "@/app/api/auth/auth";
+import { auth } from "@/auth";
 import { redirect } from "next/navigation";
 import { Suspense } from "react";
 import { Message } from "@/components/ui";

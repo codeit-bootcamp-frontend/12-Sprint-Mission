@@ -1,7 +1,7 @@
 import { Button } from "@components/ui";
 import { Profile } from "@components/Header";
 import styles from "./Util.module.scss";
-import { auth } from "@/app/api/auth/auth";
+import { auth } from "@/auth";
 
 export async function Util() {
   const session = await auth();
