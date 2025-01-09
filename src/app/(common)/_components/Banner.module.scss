@@ -78,6 +78,7 @@
     right: 2.4rem;
     bottom: 0;
     width: min(55vw, 74.6rem);
+    height: auto;
 
     @include mixins.tablet {
       position: relative;
