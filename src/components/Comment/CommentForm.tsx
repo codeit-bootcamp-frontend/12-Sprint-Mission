@@ -8,7 +8,7 @@ import useFormWithError from "@hooks/useFormWithError";
 import { CommentFormSchema, CommentFormType } from "@schemas/comment";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { FieldAdapter } from "@components/adaptor/rhf";
-import { useAuth } from "@/context/AuthContext";
+import { useSession } from "next-auth/react";
 
 interface CommentForm {
   initialData?: Comment;
@@ -36,7 +36,7 @@ export function CommentForm({
     resolver: zodResolver(CommentFormSchema),
     defaultValues: initialData,
   });
-  const { user } = useAuth();
+  const { data: session } = useSession();
 
   function handleClose() {
     reset();
@@ -48,7 +48,7 @@ export function CommentForm({
     : "성공적으로 작성했습니다.";
 
   async function onSubmit(data: CommentFormType) {
-    if (!user) {
+    if (!session?.user) {
       return alert("로그인이 필요합니다.");
     }
 

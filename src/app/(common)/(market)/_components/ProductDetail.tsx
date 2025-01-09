@@ -1,7 +1,6 @@
 "use client";
 
 import { ReactNode } from "react";
-import { useAuth } from "@context/AuthContext";
 import {
   Chip,
   Thumbnail,
@@ -16,6 +15,7 @@ import { Product } from "@type/product";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import useProductActions from "./useProductActions";
+import { useSession } from "next-auth/react";
 
 interface ProductDetail {
   detail: Product;
@@ -35,13 +35,13 @@ export default function ProductDetail({ detail }: ProductDetail) {
     favoriteCount,
     isFavorite,
   } = detail;
-  const { user } = useAuth();
+  const { data: session } = useSession();
   const router = useRouter();
   const { handleLike, handleProductDelete } = useProductActions(id);
-  const isOwner = ownerId === user?.id;
+  const isOwner = ownerId === Number(session?.user?.id);
 
   async function handleToggleLike() {
-    if (!user) {
+    if (!session?.user) {
       return alert("로그인이 필요합니다.");
     }
     await handleLike(!isFavorite);

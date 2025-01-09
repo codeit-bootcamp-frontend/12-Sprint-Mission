@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { useAuth } from "@context/AuthContext";
 import useComment from "./useComment";
 import { Author } from "@components/ui";
 import { More } from "@components/Button";
@@ -9,6 +8,7 @@ import { CommentForm } from ".";
 import styles from "./Comment.module.scss";
 import { BoardName, Comment as CommentItem } from "@type/comment";
 import { useComments } from "@/context/CommentContext";
+import { useSession } from "next-auth/react";
 
 interface Comment {
   name: BoardName;
@@ -16,7 +16,7 @@ interface Comment {
 }
 
 export function Comment({ name, comment }: Comment) {
-  const { user } = useAuth();
+  const { data: session } = useSession();
 
   const [isModify, setIsModify] = useState(false);
   const {
@@ -32,7 +32,7 @@ export function Comment({ name, comment }: Comment) {
   } = useComment(name, comment);
 
   function handleModify() {
-    if (user?.id !== writerId) {
+    if (Number(session?.user?.id) !== writerId) {
       return alert("작성자만 수정이 가능합니다.");
     }
     setIsModify(true);

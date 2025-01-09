@@ -1,22 +1,25 @@
 "use client";
 
-import {
-  createContext,
-  ReactNode,
-  useContext,
-  useEffect,
-  useState,
-} from "react";
-import { User } from "@type/auth";
-import { getUser, refreshAccessToken } from "@/service/auth";
+import { useEffect } from "react";
+import { refreshAccessToken } from "@/service/auth";
 import { useSession } from "next-auth/react";
 import { axiosInstance } from "@/service/axios";
+import { auth } from "@/app/api/auth/auth";
 
-type AuthContextProps = {
-  user: User | null;
-};
-
-const AuthContext = createContext<AuthContextProps | null>(null);
+if (typeof window === "undefined") {
+  axiosInstance.interceptors.request.use(
+    async (config) => {
+      const session = await auth();
+      if (session?.accessToken) {
+        config.headers.Authorization = `Bearer ${session?.accessToken}`;
+      }
+      return config;
+    },
+    (error) => {
+      return Promise.reject(error);
+    }
+  );
+}
 
 async function handleRrefreshToken(refreshToken: string) {
   try {
@@ -27,8 +30,7 @@ async function handleRrefreshToken(refreshToken: string) {
   }
 }
 
-export function AuthProvider({ children }: { children: ReactNode }) {
-  const [user, setUser] = useState<User | null>(null);
+export function AxiosInterCeptor() {
   const { data, status, update } = useSession();
 
   // request inetercepotr : 요청 헤더에 토큰 넣기 (client)
@@ -84,33 +86,5 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     };
   }, [data?.refreshToken, data?.accessToken, update]);
 
-  // 유저 데이터 요청
-  useEffect(() => {
-    if (status !== "authenticated" || !data?.accessToken || user) return;
-
-    (async function fetchUser() {
-      try {
-        const data = await getUser();
-        setUser(data);
-      } catch (error) {
-        console.error(error);
-        setUser(null);
-      }
-    })();
-  }, [status, data?.accessToken, user]);
-
-  const value = {
-    user,
-  };
-
-  return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
-}
-
-export function useAuth() {
-  const context = useContext(AuthContext);
-  if (!context) {
-    throw new Error("useAuth는 AuthProvider 내부에서만 사용가능합니다.");
-  }
-
-  return context;
+  return null;
 }

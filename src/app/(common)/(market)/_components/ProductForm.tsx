@@ -18,7 +18,7 @@ import { Product } from "@type/product";
 import { FieldAdapter } from "@components/adaptor/rhf";
 import { redirect, useRouter } from "next/navigation";
 import useProductActions from "./useProductActions";
-import { useAuth } from "@/context/AuthContext";
+import { useSession } from "next-auth/react";
 
 interface ProductFormProps {
   initialData?: Product;
@@ -32,7 +32,7 @@ export default function ProductForm({
   productId,
 }: ProductFormProps) {
   const router = useRouter();
-  const { user } = useAuth();
+  const { data: session } = useSession();
   const { handleProductAdd, handleProductModify } =
     useProductActions(productId);
   const onFormSubmit = mode === "add" ? handleProductAdd : handleProductModify;
@@ -66,7 +66,7 @@ export default function ProductForm({
     }
   }
 
-  if (mode === "edit" && user?.id !== initialData?.ownerId) {
+  if (mode === "edit" && Number(session?.user?.id) !== initialData?.ownerId) {
     if (typeof window !== "undefined") {
       alert("권한이 없습니다.");
     }
