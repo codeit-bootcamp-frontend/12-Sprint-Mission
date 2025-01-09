@@ -6,13 +6,15 @@ import BestList from "./_components/BestList";
 import BoardFilter from "./_components/BoardFilter";
 import BoardListAsync from "./_components/BoardListAsync";
 
-export default async function BoardsPage() {
+export default function BoardsPage() {
   return (
     <PageWrapper>
       <Section>
         <Section.Header title="베스트 게시글" />
         <Section.Content>
-          <BestList />
+          <Suspense fallback={<Message>베스트 게시물 가져오는중...</Message>}>
+            <BestList />
+          </Suspense>
         </Section.Content>
       </Section>
       <Section>
@@ -20,8 +22,8 @@ export default async function BoardsPage() {
           <Button href="/addBoard">글쓰기</Button>
         </Section.Header>
         <Section.Content>
-          <BoardFilter />
           <Suspense fallback={<Message>게시물 가져오는중...</Message>}>
+            <BoardFilter />
             <BoardListAsync />
           </Suspense>
         </Section.Content>
