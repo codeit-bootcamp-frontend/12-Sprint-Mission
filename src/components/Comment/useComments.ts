@@ -1,11 +1,11 @@
 import { useState } from "react";
 import useAsync from "@hooks/useAsync";
 import { getComments } from "@service/comments";
-import { CommentList } from "@type/comment";
+import { BoardName, CommentList } from "@type/comment";
 import { useParams } from "next/navigation";
 
 export default function useComments(
-  name: string,
+  name: BoardName,
   initialComments: CommentList
 ) {
   const { id: productId } = useParams();
@@ -15,7 +15,7 @@ export default function useComments(
   async function handleLoad() {
     try {
       const result = await getData(name, {
-        productId,
+        productId: Number(productId),
         cursor: comments.nextCursor,
       });
 
@@ -33,5 +33,13 @@ export default function useComments(
     }
   }
 
-  return { comments, handleLoad, isLoading, error };
+  async function refreshComments() {
+    const data = await getComments(name, {
+      productId: Number(productId),
+      limit: 5,
+    });
+    setComments(data);
+  }
+
+  return { comments, handleLoad, refreshComments, isLoading, error };
 }

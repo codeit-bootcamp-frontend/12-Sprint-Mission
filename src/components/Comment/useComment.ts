@@ -43,7 +43,6 @@ export default function useComment(name: BoardName, comment?: Comment) {
       try {
         await removeComment(comment.id);
         alert("문의를 삭제했습니다.");
-        window.location.reload();
       } catch (err) {
         console.log(err);
       }

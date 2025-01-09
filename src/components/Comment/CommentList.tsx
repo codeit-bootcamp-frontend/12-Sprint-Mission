@@ -1,24 +1,12 @@
 "use client";
-import useComments from "./useComments";
 import { Alert, Message } from "@components/ui";
 import { Comment } from "./Comment";
 import emptyIcon from "@assets/img/icon/icon_inquiry_empty.svg";
 import styles from "./CommentList.module.scss";
-import { BoardName, CommentList as CommentListType } from "@type/comment";
+import { useComments } from "@/context/CommentContext";
 
-interface CommentListProps {
-  name: BoardName;
-  comments: CommentListType;
-}
-
-export function CommentList({
-  name,
-  comments: initialComments,
-}: CommentListProps) {
-  const { comments, handleLoad, isLoading, error } = useComments(
-    name,
-    initialComments
-  );
+export function CommentList() {
+  const { name, comments, handleLoad, isLoading, error } = useComments();
   const { list, nextCursor } = comments;
 
   return (

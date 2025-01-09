@@ -8,6 +8,7 @@ import { More } from "@components/Button";
 import { CommentForm } from ".";
 import styles from "./Comment.module.scss";
 import { BoardName, Comment as CommentItem } from "@type/comment";
+import { useComments } from "@/context/CommentContext";
 
 interface Comment {
   name: BoardName;
@@ -23,7 +24,12 @@ export function Comment({ name, comment }: Comment) {
     updatedAt,
     writer: { nickname, image, id: writerId },
   } = comment;
-  const { isOwner, handleUpdate, handleDelete } = useComment(name, comment);
+  const { refreshComments } = useComments();
+  const {
+    isOwner,
+    handleUpdate,
+    handleDelete: handleDeleteComment,
+  } = useComment(name, comment);
 
   function handleModify() {
     if (user?.id !== writerId) {
@@ -36,6 +42,11 @@ export function Comment({ name, comment }: Comment) {
     setIsModify(false);
   }
 
+  async function handleDelete() {
+    await handleDeleteComment();
+    refreshComments();
+  }
+
   if (isModify) {
     return (
       <li className={styles.item}>
@@ -45,6 +56,7 @@ export function Comment({ name, comment }: Comment) {
             onCommentSubmit={handleUpdate}
             onClose={handleClose}
             isEdit
+            onRefresh={refreshComments}
           />
         </div>
       </li>

@@ -1,9 +1,11 @@
 import { PageWrapper } from "@/components/Page";
 import { getProduct } from "@/service/product";
-import ProductDetail from "../../_components/ProductDetail";
-import { CommentAdd, CommentList } from "@/components/Comment";
 import { BackToList } from "@/components/Button";
 import { getComments } from "@/service/comments";
+import ProductDetail from "../../_components/ProductDetail";
+import Comments from "../../_components/Comments";
+
+export const dynamic = "force-dynamic";
 
 export default async function ItemDetailPage({
   params,
@@ -19,12 +21,7 @@ export default async function ItemDetailPage({
   return (
     <PageWrapper>
       <ProductDetail detail={detail} />
-
-      {/* comment 작성 */}
-      <CommentAdd name="products" />
-
-      <CommentList name="products" comments={comments} />
-
+      <Comments name="products" data={comments} />
       <BackToList />
     </PageWrapper>
   );

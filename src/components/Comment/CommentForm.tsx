@@ -15,6 +15,7 @@ interface CommentForm {
   onCommentSubmit: (data: CommentFormType) => Promise<void>;
   onClose?: () => void;
   isEdit?: boolean;
+  onRefresh: () => void;
 }
 
 export function CommentForm({
@@ -22,6 +23,7 @@ export function CommentForm({
   onCommentSubmit,
   onClose,
   isEdit,
+  onRefresh,
 }: CommentForm) {
   const {
     control,
@@ -38,9 +40,7 @@ export function CommentForm({
 
   function handleClose() {
     reset();
-    if (onClose) {
-      onClose();
-    }
+    onClose?.();
   }
 
   const message = isEdit
@@ -55,7 +55,9 @@ export function CommentForm({
     try {
       await onCommentSubmit(data);
       alert(message);
-      window.location.reload();
+      onRefresh();
+      reset({ content: "" });
+      onClose?.();
     } catch (err) {
       throw err;
     }
