@@ -6,7 +6,10 @@ import { Dispatch, SetStateAction } from 'react';
 
 function List({ setOrder }: { setOrder: Dispatch<SetStateAction<string>> }) {
   const onClick = (e: MouseEvent) => {
-    setOrder((e.target as HTMLElement).textContent || '');
+    const target = e.target as HTMLElement;
+    if (target.tagName === 'LI') {
+      setOrder(target.textContent as string);
+    }
   };
 
   return (
@@ -17,8 +20,7 @@ function List({ setOrder }: { setOrder: Dispatch<SetStateAction<string>> }) {
   );
 }
 
-export default function Dropdown() {
-  const [order, setOrder] = useState('최신순');
+export default function Dropdown({ order, setOrder }: { order: string; setOrder: Dispatch<SetStateAction<string>> }) {
   const [isOpen, setIsOpen] = useState(false);
   const buttonRef = useRef<HTMLButtonElement | null>(null);
 

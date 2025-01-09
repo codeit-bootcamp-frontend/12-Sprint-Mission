@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useRef, useEffect, useCallback } from 'react';
 import { getArticles } from '@/api/articles';
 import ArticleItem from '@/components/ArticleItem';
 import { Article } from '@/types';
@@ -36,20 +36,33 @@ function SkeletonUi({ cnt }: { cnt: number }) {
   );
 }
 
-export default function ArticleList() {
+export default function ArticleList({ order }: { order: string }) {
   const [list, setList] = useState<List>({ articles: [], loading: true });
   const [page, setPage] = useState<number>(1);
+  const [total, setTotal] = useState<number>(Infinity);
+  const observerRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    setPage(1);
+  }, [order]);
 
   useEffect(() => {
     const fetchArticles = async () => {
-      setList({ articles: [], loading: true });
+      if (!isFinite(total)) window.scrollTo(0, 0);
+      if (total <= (page - 1) * 5) return;
+      setList((prevList) => ({ ...prevList, loading: true }));
       try {
-        const { list } = await getArticles({
+        const orderBy = order === '최신순' ? 'recent' : 'like';
+        const { list, totalCount } = await getArticles({
           page,
           pageSize: 5,
-          orderBy: 'like',
+          orderBy,
         });
-        setList({ articles: list, loading: false });
+        setTotal(totalCount);
+        setList((prevList) => ({
+          articles: page === 1 ? list : [...prevList.articles, ...list.filter((newArticle) => !prevList.articles.some((existingArticle) => existingArticle.id === newArticle.id))],
+          loading: false,
+        }));
       } catch (error) {
         console.error('Error fetching articles:', error);
         setList((prev) => ({ ...prev, loading: false }));
@@ -57,7 +70,48 @@ export default function ArticleList() {
     };
 
     fetchArticles();
-  }, [page]);
+  }, [page, total]);
 
-  return <div className='flex flex-col gap-6 w-[100%]'>{list.loading ? <SkeletonUi cnt={5} /> : list.articles.map((article) => <ArticleItem key={article.id} article={article} />)}</div>;
+  const loadMore = useCallback(
+    (entries: IntersectionObserverEntry[]) => {
+      const [entry] = entries;
+      if (entry.isIntersecting && list.loading === false) {
+        setPage((prev) => (prev += 1));
+      }
+    },
+    [list.loading],
+  );
+
+  useEffect(() => {
+    if (list.loading) return;
+
+    const observer = new IntersectionObserver(loadMore, {
+      root: null,
+      rootMargin: '0px',
+      threshold: 1.0,
+    });
+
+    const currentRef = observerRef.current;
+
+    if (currentRef) {
+      observer.observe(currentRef);
+    }
+
+    return () => {
+      if (currentRef) {
+        observer.unobserve(currentRef);
+      }
+    };
+  }, [list.loading, loadMore]);
+
+  return (
+    <div className='flex flex-col gap-6 w-[100%]'>
+      {list.articles.map((article) => (
+        <ArticleItem key={article.id} article={article} />
+      ))}
+      {list.loading && <SkeletonUi cnt={5} />}
+
+      <div ref={observerRef} className='h-4'></div>
+    </div>
+  );
 }

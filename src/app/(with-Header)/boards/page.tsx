@@ -1,7 +1,5 @@
 import BestArticleList from '@/components/BestArticleList';
-import Searchbar from '@/components/ArticleSearchbar';
-import Dropdown from '@/components/ArticleDropdown';
-import ArticleList from '@/components/ArticleList';
+import ArticleContent from '@/components/ArticleContent';
 
 export default async function Boards() {
   return (
@@ -17,13 +15,7 @@ export default async function Boards() {
           <p className='flex-1 text-xl text-gray-900 font-bold'>게시글</p>
           <button className='rounded-lg py-3 px-6 bg-blue-100 font-semibold text-white'>글쓰기</button>
         </div>
-        <div className='flex items-center gap-6 mt-4'>
-          <Searchbar />
-          <Dropdown />
-        </div>
-        <div className='flex flex-col items-center mt-4 my-12'>
-          <ArticleList />
-        </div>
+        <ArticleContent />
       </section>
     </>
   );
