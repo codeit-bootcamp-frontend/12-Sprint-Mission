@@ -18,7 +18,11 @@ export default function Searchbar() {
   };
 
   const onSubmit = () => {
-    if (!search || q === search) return;
+    if (q === search) return;
+    if (search === '') {
+      router.push(`/boards`);
+      return;
+    }
     router.push(`/boards?q=${search}`);
   };
 

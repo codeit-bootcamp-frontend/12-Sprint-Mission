@@ -36,7 +36,7 @@ function SkeletonUi({ cnt }: { cnt: number }) {
   );
 }
 
-export default function ArticleList({ order }: { order: string }) {
+export default function ArticleList({ order, q }: { order: string; q: string | undefined }) {
   const [list, setList] = useState<List>({ articles: [], loading: true });
   const [page, setPage] = useState<number>(1);
   const [total, setTotal] = useState<number>(Infinity);
@@ -44,7 +44,8 @@ export default function ArticleList({ order }: { order: string }) {
 
   useEffect(() => {
     setPage(1);
-  }, [order]);
+    setTotal(Infinity);
+  }, [order, q]);
 
   useEffect(() => {
     const fetchArticles = async () => {
@@ -53,10 +54,12 @@ export default function ArticleList({ order }: { order: string }) {
       setList((prevList) => ({ ...prevList, loading: true }));
       try {
         const orderBy = order === '최신순' ? 'recent' : 'like';
+        const keyword = q ? q : '';
         const { list, totalCount } = await getArticles({
           page,
           pageSize: 5,
           orderBy,
+          keyword,
         });
         setTotal(totalCount);
         setList((prevList) => ({
@@ -70,7 +73,7 @@ export default function ArticleList({ order }: { order: string }) {
     };
 
     fetchArticles();
-  }, [page, total]);
+  }, [page, total, q]);
 
   const loadMore = useCallback(
     (entries: IntersectionObserverEntry[]) => {

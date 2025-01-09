@@ -5,7 +5,7 @@ import Searchbar from '@/components/ArticleSearchbar';
 import Dropdown from '../ArticleDropdown';
 import ArticleList from '../ArticleList';
 
-export default function ArticleContent() {
+export default function ArticleContent({ q }: { q: string | undefined }) {
   const [order, setOrder] = useState('최신순');
   return (
     <>
@@ -14,7 +14,7 @@ export default function ArticleContent() {
         <Dropdown order={order} setOrder={setOrder} />
       </div>
       <div className='flex flex-col items-center mt-4 my-12'>
-        <ArticleList order={order} />
+        <ArticleList order={order} q={q} />
       </div>
     </>
   );

@@ -79,7 +79,7 @@ export default function BestArticleList() {
   }, [pageSize]);
 
   return (
-    <div className='md:flex md:gap-6'>
+    <div className='md:flex md:gap-6 w-[100%]'>
       {list.loading || pageSize === null ? <SkeletonUi cnt={pageSize ?? 1} /> : list.articles.map((article) => <BestArticle key={article.id} article={article} />)}
     </div>
   );
