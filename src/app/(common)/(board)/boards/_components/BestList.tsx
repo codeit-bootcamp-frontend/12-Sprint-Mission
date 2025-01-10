@@ -1,18 +1,19 @@
 "use client";
 
 import useResponsive from "@/hooks/useResponsive";
-import BestListWrapper from "./BestListWrapper";
 import BestItem from "./BestItem";
+import BoardListWrapper from "./BoardListWrapper";
 import { useEffect } from "react";
 import { PaginationResponse } from "@/types/common";
-import { Article } from "@/types/article";
+import { Article, ListMode } from "@/types/article";
 import useParams from "@/hooks/useParams";
 
 interface BestListProps {
+  mode: ListMode;
   data: PaginationResponse<Article>;
 }
 
-export default function BestList({ data }: BestListProps) {
+export default function BestList({ mode, data }: BestListProps) {
   const { searchParams, handleParams } = useParams();
   const currentSize = Number(searchParams.get("bestPageSize")) || 0;
   const pageSize = useResponsive({
@@ -30,9 +31,9 @@ export default function BestList({ data }: BestListProps) {
 
   return (
     <>
-      <BestListWrapper items={list}>
+      <BoardListWrapper mode={mode} items={list}>
         {(item) => <BestItem data={item} />}
-      </BestListWrapper>
+      </BoardListWrapper>
     </>
   );
 }

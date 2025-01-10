@@ -4,15 +4,17 @@ import { Pagination } from "@/components/Pagination";
 import usePagination from "@/hooks/usePagination";
 import BoardItem from "./BoardItem";
 import BoardListWrapper from "./BoardListWrapper";
-import { Article } from "@/types/article";
+import { Article, ListMode } from "@/types/article";
 import { ListQueryParams, PaginationResponse } from "@/types/common";
 import { Message } from "@/components/ui";
 import useParams from "@/hooks/useParams";
 
 interface BoardListProps extends ListQueryParams {
+  mode: ListMode;
   data: PaginationResponse<Article>;
 }
 export default function BoardList({
+  mode,
   data,
   page,
   pageSize,
@@ -44,7 +46,7 @@ export default function BoardList({
   }
   return (
     <>
-      <BoardListWrapper items={list}>
+      <BoardListWrapper mode={mode} items={list}>
         {(item) => <BoardItem data={item} />}
       </BoardListWrapper>
       <Pagination {...pagination} />

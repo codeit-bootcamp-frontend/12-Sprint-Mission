@@ -1,18 +1,23 @@
 import { getArticles } from "@/service/article";
 import BoardList from "./BoardList";
-import { BoardPageQueryParams } from "../page";
+import BestList from "./BestList";
+import { ListMode } from "@/types/article";
 
 interface BoardListProps {
-  searchParams?: Promise<Partial<BoardPageQueryParams>>;
+  mode?: ListMode;
+  page?: number;
+  orderBy?: string;
+  keyword?: string;
+  pageSize?: number;
 }
 
-export default async function BoardListAsync(props: BoardListProps) {
-  const searchParams = await props.searchParams;
-  const page = Number(searchParams?.page) || 1;
-  const pageSize = 10;
-  const orderBy = searchParams?.orderBy || "recent";
-  const keyword = searchParams?.keyword || "";
-
+export default async function BoardListAsync({
+  mode = "all",
+  page = 1,
+  orderBy = "recent",
+  keyword = "",
+  pageSize = 10,
+}: BoardListProps) {
   const data = await getArticles({
     page,
     pageSize,
@@ -20,8 +25,11 @@ export default async function BoardListAsync(props: BoardListProps) {
     orderBy,
   });
 
+  const Component = mode === "all" ? BoardList : BestList;
+
   return (
-    <BoardList
+    <Component
+      mode={mode}
       data={data}
       page={page}
       pageSize={pageSize}

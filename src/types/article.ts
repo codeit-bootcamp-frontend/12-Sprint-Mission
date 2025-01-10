@@ -10,3 +10,5 @@ export type Article = BaseData & {
   content: string;
   title: string;
 };
+
+export type ListMode = "all" | "best";

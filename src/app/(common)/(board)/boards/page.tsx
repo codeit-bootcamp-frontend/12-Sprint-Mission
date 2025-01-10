@@ -4,7 +4,6 @@ import { Button, Message } from "@/components/ui";
 import { PageWrapper } from "@/components/Page";
 import BoardFilter from "./_components/BoardFilter";
 import BoardListAsync from "./_components/BoardListAsync";
-import BestListAsync from "./_components/BestListAsync";
 
 export type BoardPageQueryParams = {
   page?: string;
@@ -13,18 +12,24 @@ export type BoardPageQueryParams = {
   bestPageSize?: string;
 };
 
-export default function BoardsPage({
+export default async function BoardsPage({
   searchParams,
 }: {
   searchParams: Promise<BoardPageQueryParams>;
 }) {
+  const { page, orderBy, keyword, bestPageSize } = await searchParams;
+
   return (
     <PageWrapper>
       <Section>
         <Section.Header title="베스트 게시글" />
         <Section.Content>
           <Suspense fallback={<Message>베스트 게시물 가져오는중...</Message>}>
-            <BestListAsync searchParams={searchParams} />
+            <BoardListAsync
+              mode="best"
+              orderBy="like"
+              pageSize={Number(bestPageSize) || 3}
+            />
           </Suspense>
         </Section.Content>
       </Section>
@@ -35,7 +40,12 @@ export default function BoardsPage({
         <Section.Content>
           <Suspense fallback={<Message>게시물 가져오는중...</Message>}>
             <BoardFilter />
-            <BoardListAsync searchParams={searchParams} />
+            <BoardListAsync
+              mode="all"
+              page={Number(page) || 1}
+              orderBy={orderBy}
+              keyword={keyword}
+            />
           </Suspense>
         </Section.Content>
       </Section>
