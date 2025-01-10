@@ -51,7 +51,7 @@ export function AxiosInterCeptor() {
             const accessToken = await handleRrefreshToken(data.refreshToken);
 
             if (accessToken !== data.accessToken) {
-              // next-auth jwt callback 호출 (trigger === "update" 조건)
+              // next-auth session update
               await update({ accessToken });
               error.config.headers.Authorization = `Bearer ${accessToken}`;
             }
