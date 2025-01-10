@@ -53,7 +53,9 @@ export default function Boards() {
         <Suspense
           fallback={
             <>
-              <SkeletonUi cnt={5} />
+              <div className='flex flex-col items-center mt-4 my-12'>
+                <SkeletonUi cnt={5} />
+              </div>
             </>
           }
         >
