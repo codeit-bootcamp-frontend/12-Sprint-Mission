@@ -1,5 +1,7 @@
 import { Temporary } from "@/components/ui";
 
+export const dynamic = "force-static";
+
 export default function PrivacyPage() {
   return (
     <Temporary
