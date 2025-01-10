@@ -22,7 +22,7 @@ export default {
           300: '#1251AA',
         },
         red: {
-          error: 'F74747',
+          error: '#F74747',
         },
       },
       screens: {
