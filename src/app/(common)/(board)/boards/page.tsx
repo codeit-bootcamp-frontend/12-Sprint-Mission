@@ -13,7 +13,7 @@ export type BoardPageQueryParams = {
   bestPageSize?: string;
 };
 
-export default async function BoardsPage({
+export default function BoardsPage({
   searchParams,
 }: {
   searchParams: Promise<BoardPageQueryParams>;
