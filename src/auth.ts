@@ -99,7 +99,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
 
       // 로그인 시도가 있었을때
       if (user) {
-        //로그인 시도
+        token.id = user.id;
         token.nickname = user.nickname;
         token.accessToken = user.accessToken;
         token.refreshToken = user.refreshToken;
@@ -109,6 +109,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
     },
     session: async ({ session, token }) => {
       if (token) {
+        session.user.id = token.id as string;
         session.user.nickname = token.nickname as string;
         session.accessToken = token.accessToken as string;
         session.refreshToken = token.refreshToken as string;
