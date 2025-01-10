@@ -1,10 +1,20 @@
+import "./DetailTop.css";
 import productImg from "./../assets/item.png";
 import wishIcon from "./../assets/icon_wish.svg";
 import useApi from "./../hooks/useApi";
 import ProfileBox from "./ProfileBox";
+import Product from "../types/Product";
 
-const DetailTop = ({ id }) => {
-  const { data, loading, error } = useApi(`https://panda-market-api.vercel.app/products/${id}`);
+interface ProductDetail extends Product {
+  isFavorite: boolean;
+}
+
+interface Props {
+  id?: string;
+}
+
+const DetailTop = ({ id }: Props) => {
+  const { data, loading, error } = useApi<ProductDetail>(`${id}`);
 
   if (loading) {
     return <div>Loading...</div>;
@@ -21,7 +31,7 @@ const DetailTop = ({ id }) => {
   return (
     <div className="product_detail_item">
       <div className="thum">
-        <img src={data.images && data.images[0] ? data.images[0] : productImg} alt={data.name} onError={(e) => (e.target.src = productImg)} />
+        <img src={data.images && data.images[0] ? data.images[0] : productImg} alt={data.name} onError={(e) => ((e.target as HTMLImageElement).src = productImg)} />
       </div>
       <div className="content">
         <div className="tit">{data.name}</div>
@@ -43,7 +53,7 @@ const DetailTop = ({ id }) => {
 
           <button className="btn_reset wish_area">
             <div className="icon">
-              <img src={wishIcon} alt="" />
+              <img src={wishIcon} alt="좋아요 버튼" />
             </div>
             <div className="numb">{data.favoriteCount}</div>
           </button>

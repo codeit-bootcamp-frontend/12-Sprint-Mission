@@ -1,103 +1,415 @@
 /* 초기화 */
 :root {
-  --black: #1F2937;
-  --gray: #F3F4F6;
-  --main: #3692FF;
+  --black: #1f2937;
+  --gray: #f3f4f6;
+  --main: #3692ff;
 }
 
-html {overflow-y:scroll;font-size: 10px;}
-body {margin:0;padding:0;font-size:1.6rem;background:#fff; color: var(--black);}
-body {font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;}
-html, h1, h2, h3, h4, h5, h6, form, fieldset, img {margin:0;padding:0;border:0;font-weight: 400;}
-h1, h2, h3, h4, h5, h6 {font-size: 1.6rem; font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;}
-article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {display:block}
-ul, dl,dt,dd {margin:0;padding:0;list-style:none}
-legend {position:absolute;margin:0;padding:0;font-size:0;line-height:0;text-indent:-9999em;overflow:hidden}
-label, input, button, select, img {vertical-align:middle;font-size: 1.6rem;}
-input, button {margin:0;padding:0;font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif; font-size: 1.6rem;}
-input[type="submit"] {cursor:pointer}
-button {cursor:pointer}
-textarea, select {font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif; font-size: 1.6rem;}
-select {margin:0}
-p {margin:0;padding:0;word-break:break-all}
-hr {display:none}
-pre {overflow-x:scroll;font-size: 1.6rem;}
-a {color: var(--black); text-decoration:none}
-*, :after, :before {
-  -webkit-box-sizing:border-box;
-  -moz-box-sizing:border-box;
-  box-sizing:border-box;
+html {
+  overflow-y: scroll;
+  font-size: 10px;
 }
-input[type=text],input[type=password], textarea {outline:none;}
-input[type=text]:focus,input[type=password]:focus, textarea:focus,select:focus {box-shadow: none;}
-img {display: block;}
+body {
+  margin: 0;
+  padding: 0;
+  font-size: 1.6rem;
+  background: #fff;
+  color: var(--black);
+}
+body {
+  font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+    sans-serif;
+}
+html,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+form,
+fieldset,
+img {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-weight: 400;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: 1.6rem;
+  font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+    sans-serif;
+}
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+ul,
+dl,
+dt,
+dd {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+legend {
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  font-size: 0;
+  line-height: 0;
+  text-indent: -9999em;
+  overflow: hidden;
+}
+label,
+input,
+button,
+select,
+img {
+  vertical-align: middle;
+  font-size: 1.6rem;
+}
+input,
+button {
+  margin: 0;
+  padding: 0;
+  font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+    sans-serif;
+  font-size: 1.6rem;
+}
+input[type="submit"] {
+  cursor: pointer;
+}
+button {
+  cursor: pointer;
+}
+textarea,
+select {
+  font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+    sans-serif;
+  font-size: 1.6rem;
+}
+select {
+  margin: 0;
+}
+p {
+  margin: 0;
+  padding: 0;
+  word-break: break-all;
+}
+hr {
+  display: none;
+}
+pre {
+  overflow-x: scroll;
+  font-size: 1.6rem;
+}
+a {
+  color: var(--black);
+  text-decoration: none;
+}
+*,
+:after,
+:before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+input[type="text"],
+input[type="password"],
+textarea {
+  outline: none;
+}
+input[type="text"]:focus,
+input[type="password"]:focus,
+textarea:focus,
+select:focus {
+  box-shadow: none;
+}
+img {
+  display: block;
+}
 
-.btn_reset {display: block; -webkit-appearance: none; -moz-appearance: none; appearance: none; background: none; border: none; padding: 0; margin: 0; box-shadow: none; font: inherit; color: inherit; cursor: pointer; outline: none; }
-.inp_reset {display: block; -webkit-appearance: none; -moz-appearance: none; appearance: none; background: none; border: none; padding: 0; margin: 0; box-shadow: none; font: inherit; color: inherit;}
+.btn_reset {
+  display: block;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  box-shadow: none;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  outline: none;
+}
+.inp_reset {
+  display: block;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  box-shadow: none;
+  font: inherit;
+  color: inherit;
+}
 
-.btn_blue {display: block; -webkit-appearance: none; -moz-appearance: none; appearance: none; background: none; border: none; padding: 0; margin: 0; box-shadow: none; font: inherit; color: inherit; cursor: pointer; outline: none;}
-.btn_blue {min-width: 88px; height: 42px; padding: 0 23px; background-color: var(--main); border-radius: 12px; color: #F3F4F6; text-align: center; font-size: 1.6rem; font-weight: 600; line-height: 42px; transition: all 0.2s;}
-.btn_blue:hover {background-color: #1967D6;}
-.btn_blue:active {background-color: #1251AA;}
-.btn_blue:disabled {background-color:  #9CA3AF; cursor: not-allowed;}
+.btn_blue {
+  display: block;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  box-shadow: none;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  outline: none;
+}
+.btn_blue {
+  min-width: 88px;
+  height: 42px;
+  padding: 0 23px;
+  background-color: var(--main);
+  border-radius: 12px;
+  color: #f3f4f6;
+  text-align: center;
+  font-size: 1.6rem;
+  font-weight: 600;
+  line-height: 42px;
+  transition: all 0.2s;
+}
+.btn_blue:hover {
+  background-color: #1967d6;
+}
+.btn_blue:active {
+  background-color: #1251aa;
+}
+.btn_blue:disabled {
+  background-color: #9ca3af;
+  cursor: not-allowed;
+}
 
-.btn_blue.sml {min-width: 74px; border-radius: 8px; font-weight: 400;}
-.btn_blue.lg {min-width: 240px; height: 48px; line-height: 48px; border-radius: 80px; font-size: 1.8rem; font-weight: 600;}
+.btn_blue.sml {
+  min-width: 74px;
+  border-radius: 8px;
+  font-weight: 400;
+}
+.btn_blue.lg {
+  min-width: 240px;
+  height: 48px;
+  line-height: 48px;
+  border-radius: 80px;
+  font-size: 1.8rem;
+  font-weight: 600;
+}
 
-.select_common {position: relative; z-index: 2;}
-.select_common > p {position: relative; z-index: 3; min-width: 130px; height: 42px; padding-left: 20px; padding-right: 50px; border: 1px solid #E5E7EB; background-color: #fff; border-radius: 12px; font-size: 1.6rem; font-weight: 400; line-height: 42px; cursor: pointer;}
-.select_common > p::after {content: ''; position: absolute; right: 20px; top: 50%; transform: translateY(-50%); width: 24px; height: 24px; background: url('./../src/assets/select_arrow.svg') no-repeat 50% 50% / cover; transition: all 0.2s;}
-.select_common > .select_list {visibility: hidden; opacity: 0; position: absolute; top: 0%; left: 0; z-index: 2; width: 100%; padding-top: 8px; transition: all 0.2s;}
-.select_common > .select_list > ul {overflow: hidden; border: 1px solid #E5E7EB; border-radius: 12px; }
-.select_common > .select_list > ul > li {display : flex; align-items: center; justify-content: center; height: 42px; background-color: #fff; font-size: 1.6rem; line-height: 1; cursor: pointer; transition: all 0.2s;}
-.select_common > .select_list > ul > li + li {border-top: 1px solid #E5E7EB;}
-.select_common > .select_list > ul > li:hover {background-color: var(--gray);}
-.select_common:hover > p::after {transform: translateY(-50%) rotate(180deg);}
-.select_common:hover .select_list {visibility: visible; opacity: 1; top: 100%;}
+.select_common {
+  position: relative;
+  z-index: 2;
+}
+.select_common > p {
+  position: relative;
+  z-index: 3;
+  min-width: 130px;
+  height: 42px;
+  padding-left: 20px;
+  padding-right: 50px;
+  border: 1px solid #e5e7eb;
+  background-color: #fff;
+  border-radius: 12px;
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 42px;
+  cursor: pointer;
+}
+.select_common > p::after {
+  content: "";
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 24px;
+  height: 24px;
+  background: url("./../src/assets/select_arrow.svg") no-repeat 50% 50% / cover;
+  transition: all 0.2s;
+}
+.select_common > .select_list {
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  top: 0%;
+  left: 0;
+  z-index: 2;
+  width: 100%;
+  padding-top: 8px;
+  transition: all 0.2s;
+}
+.select_common > .select_list > ul {
+  overflow: hidden;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+}
+.select_common > .select_list > ul > li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 42px;
+  background-color: #fff;
+  font-size: 1.6rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.select_common > .select_list > ul > li + li {
+  border-top: 1px solid #e5e7eb;
+}
+.select_common > .select_list > ul > li:hover {
+  background-color: var(--gray);
+}
 
-.select_common.active > p::after {transform: translateY(-50%) rotate(180deg) !important;}
-.select_common.active .select_list {visibility: visible !important; opacity: 1 !important; top: 100% !important;}
-
+.select_common.active > p::after {
+  transform: translateY(-50%) rotate(180deg) !important;
+}
+.select_common.active .select_list {
+  visibility: visible !important;
+  opacity: 1 !important;
+  top: 100% !important;
+}
 
 /* 레이아웃 */
-#root {padding-top: 70px;}
-.inner {max-width: 1200px; width: 100%; margin: 0 auto;}
-.main {padding: 24px 0 150px;}
-.item_list_wrap + .item_list_wrap {margin-top: 40px;}
-.blank {display : flex; align-items: center; justify-content: center; font-size: 20px; width: 100%; height: 500px; border: 1px solid #DFDFDF;}
+#root {
+  padding-top: 70px;
+}
+.inner {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+}
+.main {
+  padding: 24px 0 150px;
+}
+.item_list_wrap + .item_list_wrap {
+  margin-top: 40px;
+}
+.blank {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  width: 100%;
+  height: 500px;
+  border: 1px solid #dfdfdf;
+}
 
 /* 서브타이틀 */
-.tit_box {display : flex; align-items: center; margin-bottom: 24px;}
-.tit_box .subtitle {color: #111827; font-size: 2.0rem; font-weight: 700; line-height: 1.6;}
+.tit_box {
+  display: flex;
+  align-items: center;
+  margin-bottom: 24px;
+}
+.tit_box .subtitle {
+  color: #111827;
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.6;
+}
 
 /* 상품박스 레이아웃 */
-.product_list {display: flex; flex-wrap: wrap; margin: 0 -12px -40px;}
-.product_list > li {width: 100%; margin-bottom: 40px; padding: 0 12px;}
-.product_list.col2 > li {width: 50%;}
-.product_list.col3 > li {width: 33.3333%;} 
-.product_list.col4 > li {width: 25%;}
-.product_list.col5 > li {width: 20%;}
+.product_list {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -12px -40px;
+}
+.product_list > li {
+  width: 100%;
+  margin-bottom: 40px;
+  padding: 0 12px;
+}
+.product_list.col2 > li {
+  width: 50%;
+}
+.product_list.col3 > li {
+  width: 33.3333%;
+}
+.product_list.col4 > li {
+  width: 25%;
+}
+.product_list.col5 > li {
+  width: 20%;
+}
 
 @media (max-width: 1200px) {
-  .select_common:hover > p::after {transform: translateY(-50%) rotate(0);}
-  .select_common:hover .select_list {visibility: hidden; opacity: 0; top: 0%;}
-
-  .inner {padding-left: 24px; padding-right: 24px;}
-  .main {padding-bottom: 72px;}
+  .inner {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+  .main {
+    padding-bottom: 72px;
+  }
 
   /* 상품박스 레이아웃 */
-  .product_list {margin: 0 -8px -40px;}
-  .product_list > li {padding: 0 8px;}
+  .product_list {
+    margin: 0 -8px -40px;
+  }
+  .product_list > li {
+    padding: 0 8px;
+  }
 
-  .product_list.col2 {margin: 0 -5px -40px;}
-  .product_list.col2 > li {padding: 0 5px;}
+  .product_list.col2 {
+    margin: 0 -5px -40px;
+  }
+  .product_list.col2 > li {
+    padding: 0 5px;
+  }
 }
 
 @media (max-width: 768px) {
-  .inner {padding-left: 16px; padding-right: 16px;}
+  .inner {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
 
-  .select_common > p {display : flex; align-items: center; justify-content: center; min-width: 42px; width: 42px; height: 42px; margin: 0; padding: 0;}
-  .select_common > p::after {display: none;}
+  .select_common > p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 42px;
+    width: 42px;
+    height: 42px;
+    margin: 0;
+    padding: 0;
+  }
+  .select_common > p::after {
+    display: none;
+  }
 
-  .select_common > .select_list {left: auto; right: 0; width: 130px; padding-top: 4px;}
+  .select_common > .select_list {
+    left: auto;
+    right: 0;
+    width: 130px;
+    padding-top: 4px;
+  }
 }

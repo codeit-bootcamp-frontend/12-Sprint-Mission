@@ -2,16 +2,25 @@ import addImg from "./../assets/icon_add.svg";
 import removeIcon from "./../assets/icon_remove.svg";
 import { useEffect, useState, useRef } from "react";
 import "./FileInput.css";
+import { ItemInputQuery } from "../types/Query";
 
-function FileInput({ name, value, onChange }) {
-  const handleFileChange = (e) => {
-    onChange(name, e.target.files[0]);
+interface Props {
+  name: ItemInputQuery;
+  value: File;
+  onChange: (name: ItemInputQuery, value: File | null) => void;
+}
+
+function FileInput({ name, value, onChange }: Props) {
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files) {
+      onChange(name, e.target.files[0]);
+    }
   };
 
   const [fileImg, setFileImg] = useState("");
   const [limit, setLimit] = useState(false);
 
-  const fileInputRef = useRef(null);
+  const fileInputRef = useRef<HTMLInputElement | null>(null);
 
   useEffect(() => {
     if (value) {
@@ -22,22 +31,22 @@ function FileInput({ name, value, onChange }) {
     }
   }, [value]);
 
-  const handlePreviewRemove = (e) => {
+  const handlePreviewRemove = (e: React.MouseEvent<HTMLButtonElement>) => {
     setFileImg("");
     onChange(name, null);
     if (fileInputRef.current) {
-      fileInputRef.current.value = null;
+      fileInputRef.current.value = "";
     }
   };
 
-  const handleAddLimit = () => {
+  const handleAddLimit = (e: React.MouseEvent<HTMLLabelElement>) => {
     setLimit(true);
   };
 
   return (
     <>
       <div className="file_add_wrap">
-        <label onClick={fileImg ? handleAddLimit : null} htmlFor={!fileImg ? "add_img" : null}>
+        <label onClick={fileImg ? handleAddLimit : undefined} htmlFor={!fileImg ? "add_img" : undefined}>
           <img src={addImg} alt="이미지 등록" />
           <span>이미지 등록</span>
         </label>

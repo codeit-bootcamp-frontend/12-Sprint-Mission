@@ -1,4 +1,4 @@
-const useDate = (dateSet) => {
+const useDate = (dateSet: Date) => {
   const dateString = dateSet;
   const date = new Date(dateString);
   const year = date.getFullYear();
