@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
+import clsx from "clsx";
 import { Article, ListMode } from "@/types/article";
 import styles from "./BoardListWrapper.module.scss";
-import clsx from "clsx";
 
 interface BoardListWrapper {
   mode: ListMode;

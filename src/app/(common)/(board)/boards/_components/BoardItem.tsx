@@ -1,6 +1,6 @@
 import Link from "next/link";
-import { Author, Like, Thumbnail } from "@/components/ui";
 import { Article } from "@/types/article";
+import { Author, Like, Thumbnail } from "@/components/ui";
 import styles from "./BoardItem.module.scss";
 
 export default function BoardItem({ data }: { data: Article }) {

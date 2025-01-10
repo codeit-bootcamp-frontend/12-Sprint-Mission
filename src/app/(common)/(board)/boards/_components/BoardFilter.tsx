@@ -1,9 +1,9 @@
 "use client";
 
 import { ChangeEvent, useState } from "react";
+import useParams from "@/hooks/useParams";
 import { Search } from "@/components/Search";
 import { Select } from "@/components/ui";
-import useParams from "@/hooks/useParams";
 import styles from "./BoardFilter.module.scss";
 
 export default function BoardFilter() {

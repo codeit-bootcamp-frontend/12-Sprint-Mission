@@ -1,9 +1,9 @@
 import Link from "next/link";
-import { Author, Badge, Date, Like, Thumbnail } from "@/components/ui";
-import { Article } from "@/types/article";
-import styles from "./BestItem.module.scss";
 import Image from "next/image";
+import { Article } from "@/types/article";
+import { Author, Badge, Date, Like, Thumbnail } from "@/components/ui";
 import bestIcon from "@assets/img/icon/icon_best.svg";
+import styles from "./BestItem.module.scss";
 
 export default function BestItem({ data }: { data: Article }) {
   const { likeCount, writer, image, title, updatedAt, id } = data;

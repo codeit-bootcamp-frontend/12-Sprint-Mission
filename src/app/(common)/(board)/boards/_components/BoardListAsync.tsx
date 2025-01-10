@@ -1,7 +1,7 @@
 import { getArticles } from "@/service/article";
+import { ListMode } from "@/types/article";
 import BoardList from "./BoardList";
 import BestList from "./BestList";
-import { ListMode } from "@/types/article";
 
 interface BoardListProps {
   mode?: ListMode;

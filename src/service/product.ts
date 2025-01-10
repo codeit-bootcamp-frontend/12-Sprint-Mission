@@ -7,16 +7,15 @@ import {
   Product,
 } from "@type/product";
 
-export async function getProducts(
-  { page = 1, pageSize = 10, orderBy = "recent", keyword = "" },
-  signal: AbortSignal
-) {
+export async function getProducts({
+  page = 1,
+  pageSize = 10,
+  orderBy = "recent",
+  keyword = "",
+}) {
   const query = `page=${page}&pageSize=${pageSize}&orderBy=${orderBy}&keyword=${keyword}`;
   const response = await axiosInstance.get<PaginationResponse<Product>>(
-    `/products?${query}`,
-    {
-      signal,
-    }
+    `/products?${query}`
   );
 
   return response.data;

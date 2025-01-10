@@ -19,3 +19,5 @@ export type ImageUploadResponse = {
 };
 
 export type DeleteProductResponse = Pick<BaseData, "id">;
+
+export type ListMode = "all" | "best";

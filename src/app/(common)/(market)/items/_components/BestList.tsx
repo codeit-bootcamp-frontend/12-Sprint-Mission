@@ -4,20 +4,20 @@ import { useEffect } from "react";
 import useResponsive from "@/hooks/useResponsive";
 import useParams from "@/hooks/useParams";
 import { PaginationResponse } from "@/types/common";
-import { Article, ListMode } from "@/types/article";
-import BoardListWrapper from "./BoardListWrapper";
-import BestItem from "./BestItem";
+import { ListMode, Product } from "@/types/product";
+import ProductItem from "./ProductItem";
+import ProductListWrapper from "./ProductListWrapper";
 
 interface BestListProps {
   mode: ListMode;
-  data: PaginationResponse<Article>;
+  data: PaginationResponse<Product>;
 }
 
 export default function BestList({ mode, data }: BestListProps) {
   const { searchParams, handleParams } = useParams();
   const currentSize = Number(searchParams.get("bestPageSize")) || 0;
   const pageSize = useResponsive({
-    pc: 3,
+    pc: 4,
     tablet: 2,
     mobile: 1,
   });
@@ -31,9 +31,9 @@ export default function BestList({ mode, data }: BestListProps) {
 
   return (
     <>
-      <BoardListWrapper mode={mode} items={list}>
-        {(item) => <BestItem data={item} />}
-      </BoardListWrapper>
+      <ProductListWrapper mode={mode} items={list}>
+        {(item) => <ProductItem item={item} />}
+      </ProductListWrapper>
     </>
   );
 }

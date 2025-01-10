@@ -1,17 +1,57 @@
 import { PageWrapper } from "@/components/Page";
-import BestItems from "../_components/BestItems";
-import AllItems from "../_components/AllItems";
 import { Suspense } from "react";
 import { Message } from "@/components/ui";
+import { Section } from "@/components/Section";
+import ProductListAsync from "./_components/ProductListAsync";
+import ProductFilter from "./_components/ProductFilter";
 
-export default function ItemsPage() {
+export type ItemsPageQueryParams = {
+  page?: string;
+  orderBy?: string;
+  keyword?: string;
+  pageSize?: string;
+  bestPageSize?: string;
+};
+
+export default async function ItemsPage({
+  searchParams,
+}: {
+  searchParams: Promise<ItemsPageQueryParams>;
+}) {
+  const { page, orderBy, keyword, pageSize, bestPageSize } = await searchParams;
+
   return (
     <PageWrapper>
-      <Suspense fallback={<Message>베스트 상품을 불러오는중입니다...</Message>}>
-        <BestItems />
-      </Suspense>
+      <Section>
+        <Section.Header title="베스트 상품" />
+        <Section.Content>
+          <Suspense
+            fallback={<Message>베스트 상품을 불러오는중입니다...</Message>}
+          >
+            <ProductListAsync
+              mode="best"
+              orderBy="favorite"
+              pageSize={Number(bestPageSize) || 4}
+            />
+          </Suspense>
+        </Section.Content>
+      </Section>
+
       <Suspense fallback={<Message>전체 상품을 불러오는중입니다....</Message>}>
-        <AllItems />
+        <Section>
+          <Section.Header title="전체 상품">
+            <ProductFilter />
+          </Section.Header>
+          <Section.Content>
+            <ProductListAsync
+              mode="all"
+              page={Number(page) || 1}
+              orderBy={orderBy}
+              keyword={keyword}
+              pageSize={Number(pageSize) || 10}
+            />
+          </Section.Content>
+        </Section>
       </Suspense>
     </PageWrapper>
   );

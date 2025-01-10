@@ -1,13 +1,13 @@
 "use client";
 
-import { Pagination } from "@/components/Pagination";
+import useParams from "@/hooks/useParams";
 import usePagination from "@/hooks/usePagination";
+import { ListQueryParams, PaginationResponse } from "@/types/common";
+import { Article, ListMode } from "@/types/article";
+import { Pagination } from "@/components/Pagination";
+import { Message } from "@/components/ui";
 import BoardItem from "./BoardItem";
 import BoardListWrapper from "./BoardListWrapper";
-import { Article, ListMode } from "@/types/article";
-import { ListQueryParams, PaginationResponse } from "@/types/common";
-import { Message } from "@/components/ui";
-import useParams from "@/hooks/useParams";
 
 interface BoardListProps extends ListQueryParams {
   mode: ListMode;
