@@ -25,6 +25,9 @@ export default {
           error: 'F74747',
         },
       },
+      screens: {
+        pc: '1200px',
+      },
     },
   },
   plugins: [],

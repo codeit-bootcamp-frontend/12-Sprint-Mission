@@ -1,23 +1,20 @@
-'use client';
-
 import Image from 'next/image';
 import { Article } from '@/types';
 import dayjs from 'dayjs';
-import { useState } from 'react';
 
 const DEFAULT_IMAGE = '/assets/icons/profile.svg';
 
-export default function BestArticle({ article }: { article: Article }) {
-  const [imageUrl, setImageUrl] = useState(article.image ?? DEFAULT_IMAGE);
+export default function BestArticle({ article, hidden }: { article: Article; hidden: string }) {
   const date = dayjs(article.createdAt).format('YYYY. MM. DD');
+  const validImageUrl = article.image ?? DEFAULT_IMAGE;
 
   return (
-    <div className='flex-1 flex flex-col gap-6 rounded-lg p-6 bg-gray-50'>
+    <div className={`flex-1 flex flex-col gap-6 rounded-lg p-6 bg-gray-50 ${hidden}`}>
       <Image src='/assets/icons/badge.svg' alt='Best 뱃지 이미지' width={102} height={30} style={{ width: 102, height: 30 }} />
       <div className='flex gap-2 justify-between'>
         <p className='text-xl font-semibold'>{article.title}</p>
         <div className='shrink-0 flex justify-center items-center w-[72px] h-[72px] border rounded-md bg-white'>
-          <Image src={imageUrl} alt='상품 이미지' width={48} height={48} style={{ width: 48, height: 48 }} unoptimized onError={() => setImageUrl(DEFAULT_IMAGE)} />
+          <Image src={validImageUrl} alt='상품 이미지' width={48} height={48} style={{ width: 48, height: 48 }} unoptimized />
         </div>
       </div>
       <div className='flex justify-between text-sm'>

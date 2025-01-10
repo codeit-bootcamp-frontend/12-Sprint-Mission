@@ -1,11 +1,14 @@
 'use client';
 
 import { useState } from 'react';
+import { useSearchParams } from 'next/navigation';
 import Searchbar from '@/components/ArticleSearchbar';
 import Dropdown from '../ArticleDropdown';
 import ArticleList from './ArticleList';
 
-export default function ArticleContent({ q }: { q: string | undefined }) {
+export default function ArticleContent() {
+  const searchParams = useSearchParams();
+  const q = searchParams.get('q') || '';
   const [order, setOrder] = useState('최신순');
   return (
     <>
