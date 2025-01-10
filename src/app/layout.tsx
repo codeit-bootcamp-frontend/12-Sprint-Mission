@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { AxiosInterCeptor } from "@/context/AxiosInterCeptor";
 import { SessionProvider } from "next-auth/react";
 import "@assets/scss/style.scss";
+import { initServerInterceptor } from "@/service/serverAxios";
 
 export const metadata: Metadata = {
   title: "판다마켓",
@@ -14,6 +15,9 @@ export const metadata: Metadata = {
     description: "일상의 모든 물건을 거래해보세요",
   },
 };
+
+// server runtime 환경에서 axios에 interceptor 설정 (server에서만 동작함)
+await initServerInterceptor();
 
 export default function RootLayout({ children }: PropsWithChildren) {
   return (
