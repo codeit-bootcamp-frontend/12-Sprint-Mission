@@ -12,13 +12,13 @@ export default async function ModifyItemPage({
   params: Promise<{ id: string }>;
 }) {
   const session = await auth();
-
-  if (!session?.user) {
-    redirect("/login");
-  }
-
   const id = (await params).id;
   const detail = await getProduct(Number(id));
+  const isOwner = detail.ownerId === Number(session?.user.id);
+
+  if (!isOwner) {
+    redirect("/items");
+  }
 
   return (
     <PageWrapper>

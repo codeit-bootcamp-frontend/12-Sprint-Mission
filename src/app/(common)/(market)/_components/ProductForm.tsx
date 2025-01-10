@@ -16,9 +16,8 @@ import { ProductFormSchema, ProductFormType } from "@schemas/product";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Product } from "@type/product";
 import { FieldAdapter } from "@components/adaptor/rhf";
-import { redirect, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import useProductActions from "./useProductActions";
-import { useSession } from "next-auth/react";
 
 interface ProductFormProps {
   initialData?: Product;
@@ -32,7 +31,6 @@ export default function ProductForm({
   productId,
 }: ProductFormProps) {
   const router = useRouter();
-  const { data: session } = useSession();
   const { handleProductAdd, handleProductModify } =
     useProductActions(productId);
   const onFormSubmit = mode === "add" ? handleProductAdd : handleProductModify;
@@ -64,13 +62,6 @@ export default function ProductForm({
     } catch (err) {
       throw err;
     }
-  }
-
-  if (mode === "edit" && Number(session?.user?.id) !== initialData?.ownerId) {
-    if (typeof window !== "undefined") {
-      alert("권한이 없습니다.");
-    }
-    redirect("/items");
   }
 
   return (
