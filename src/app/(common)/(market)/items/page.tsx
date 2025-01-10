@@ -37,12 +37,16 @@ export default async function ItemsPage({
         </Section.Content>
       </Section>
 
-      <Suspense fallback={<Message>전체 상품을 불러오는중입니다....</Message>}>
-        <Section>
-          <Section.Header title="전체 상품">
+      <Section>
+        <Section.Header title="전체 상품">
+          <Suspense>
             <ProductFilter />
-          </Section.Header>
-          <Section.Content>
+          </Suspense>
+        </Section.Header>
+        <Section.Content>
+          <Suspense
+            fallback={<Message>전체 상품을 불러오는중입니다....</Message>}
+          >
             <ProductListAsync
               mode="all"
               page={Number(page) || 1}
@@ -50,9 +54,9 @@ export default async function ItemsPage({
               keyword={keyword}
               pageSize={Number(pageSize) || 10}
             />
-          </Section.Content>
-        </Section>
-      </Suspense>
+          </Suspense>
+        </Section.Content>
+      </Section>
     </PageWrapper>
   );
 }
