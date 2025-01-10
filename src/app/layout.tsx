@@ -2,7 +2,6 @@ import { PropsWithChildren } from "react";
 import type { Metadata } from "next";
 import { AxiosInterCeptor } from "@/context/AxiosInterCeptor";
 import { SessionProvider } from "next-auth/react";
-import "./globals.css";
 import "@assets/scss/style.scss";
 
 export const metadata: Metadata = {
