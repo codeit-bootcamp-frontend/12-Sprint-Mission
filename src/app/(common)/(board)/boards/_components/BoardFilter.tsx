@@ -1,51 +1,59 @@
 "use client";
 
-import { ChangeEvent, useState } from "react";
 import useParams from "@/hooks/useParams";
-import { Search } from "@/components/Search";
+import { Recent, Search } from "@/components/Search";
 import { Select } from "@/components/ui";
 import styles from "./BoardFilter.module.scss";
+import useRecentSearch from "@/app/(common)/(market)/items/_components/useRecentSearch";
 
 export default function BoardFilter() {
   const { searchParams, handleParams } = useParams();
 
-  const initialKeyword = searchParams.get("keyword") || "";
+  const keyword = searchParams.get("keyword") || "";
   const orderBy = searchParams.get("orderBy") || "recent";
 
-  const [keyword, setKeyword] = useState(initialKeyword);
+  const {
+    searchInput,
+    recentSearch,
+    handleSearchSubmit,
+    handleSearchChange,
+    handleSearchClear,
+    handleRecentSearchClick,
+    handleRecentSearchRemove,
+    handleRecentSearchClear,
+  } = useRecentSearch({ initialKeyword: keyword, onChange: handleSearch });
 
-  function handleKeywordSubmit() {
-    handleParams({ keyword });
+  function handleSearch(keyword: string) {
+    handleParams({ keyword, page: 1 });
   }
 
-  function handleKeywordChange(e: ChangeEvent<HTMLInputElement>) {
-    setKeyword(e.target.value);
-  }
-
-  function handleKeywordClear() {
-    handleParams({ keyword: "" });
-    setKeyword("");
-  }
-
-  function handleOrderChange(orderBy: string) {
-    handleParams({ orderBy });
+  function handleOrderBy(orderBy: string) {
+    handleParams({ orderBy, page: 1 });
   }
 
   return (
     <div className={styles.filter}>
       <div className={styles.keyword}>
-        <Search
-          value={keyword}
-          onChange={handleKeywordChange}
-          onSubmit={handleKeywordSubmit}
-          onClear={handleKeywordClear}
-          placeholder="검색어를 입력해주세요."
-        />
+        <Recent
+          title="최근검색"
+          data={recentSearch}
+          onItemClick={handleRecentSearchClick}
+          onItemClear={handleRecentSearchClear}
+          onItemRemove={handleRecentSearchRemove}
+        >
+          <Search
+            value={searchInput}
+            onChange={handleSearchChange}
+            onSubmit={handleSearchSubmit}
+            onClear={handleSearchClear}
+            placeholder="검색어를 입력해주세요."
+          />
+        </Recent>
       </div>
       <div className={styles.order}>
         <Select
           value={orderBy}
-          onChange={handleOrderChange}
+          onChange={handleOrderBy}
           options={[
             { value: "recent", label: "최신순" },
             { value: "like", label: "좋아요순" },

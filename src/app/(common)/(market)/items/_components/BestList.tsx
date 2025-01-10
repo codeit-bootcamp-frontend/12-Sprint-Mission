@@ -15,7 +15,7 @@ interface BestListProps {
 
 export default function BestList({ mode, data }: BestListProps) {
   const { searchParams, handleParams } = useParams();
-  const currentSize = Number(searchParams.get("bestPageSize")) || 0;
+  const currentSize = Number(searchParams.get("bestPageSize")) || 4;
   const pageSize = useResponsive({
     pc: 4,
     tablet: 2,

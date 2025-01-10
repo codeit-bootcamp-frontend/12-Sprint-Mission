@@ -2,28 +2,24 @@
 
 import useParams from "@/hooks/useParams";
 import usePagination from "@/hooks/usePagination";
-import { ListQueryParams, PaginationResponse } from "@/types/common";
+import { PaginationResponse } from "@/types/common";
 import { Article, ListMode } from "@/types/article";
 import { Pagination } from "@/components/Pagination";
 import { Message } from "@/components/ui";
 import BoardItem from "./BoardItem";
 import BoardListWrapper from "./BoardListWrapper";
 
-interface BoardListProps extends ListQueryParams {
+interface BoardListProps {
   mode: ListMode;
   data: PaginationResponse<Article>;
 }
-export default function BoardList({
-  mode,
-  data,
-  page,
-  pageSize,
-  keyword,
-}: BoardListProps) {
-  const { list, totalCount } = data;
-  const { handleParams } = useParams();
-
+export default function BoardList({ mode, data }: BoardListProps) {
+  const { searchParams, handleParams } = useParams();
+  const page = Number(searchParams.get("page")) || 1;
+  const pageSize = Number(searchParams.get("pageSize")) || 10;
+  const keyword = searchParams.get("keyword") || "";
   const visibleCount = 5;
+  const { list, totalCount } = data;
 
   const pagination = usePagination({
     page,

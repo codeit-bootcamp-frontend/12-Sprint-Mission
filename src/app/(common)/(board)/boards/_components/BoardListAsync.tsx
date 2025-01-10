@@ -27,14 +27,5 @@ export default async function BoardListAsync({
 
   const Component = mode === "all" ? BoardList : BestList;
 
-  return (
-    <Component
-      mode={mode}
-      data={data}
-      page={page}
-      pageSize={pageSize}
-      keyword={keyword}
-      orderBy={orderBy}
-    />
-  );
+  return <Component mode={mode} data={data} />;
 }
