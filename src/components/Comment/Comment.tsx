@@ -1,5 +1,3 @@
-"use client";
-
 import { useState } from "react";
 import useComment from "./useComment";
 import { Author } from "@components/ui";

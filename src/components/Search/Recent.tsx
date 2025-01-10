@@ -1,5 +1,3 @@
-"use client";
-
 import { cloneElement, ReactElement, useEffect, useRef, useState } from "react";
 import searchIcon from "@assets/img/icon/icon_search.svg";
 import styles from "./Recent.module.scss";

@@ -1,5 +1,3 @@
-"use client";
-
 import { FieldItem, Form, Textarea } from "@components/Field";
 import { Author, Button } from "@components/ui";
 import styles from "./CommentForm.module.scss";

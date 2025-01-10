@@ -1,4 +1,3 @@
-"use client";
 import { Alert, Message } from "@components/ui";
 import { Comment } from "./Comment";
 import emptyIcon from "@assets/img/icon/icon_inquiry_empty.svg";

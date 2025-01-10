@@ -1,5 +1,3 @@
-"use client";
-
 import { Dropdown, Avatar } from "@components/ui";
 import { signOut } from "next-auth/react";
 

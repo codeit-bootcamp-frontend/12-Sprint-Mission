@@ -1,5 +1,3 @@
-"use client";
-
 import { ChangeEvent, FormEvent, useRef } from "react";
 import Image from "next/image";
 import searchIcon from "@assets/img/icon/icon_search.svg";

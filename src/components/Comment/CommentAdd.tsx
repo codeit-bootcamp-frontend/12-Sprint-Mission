@@ -1,5 +1,3 @@
-"use client";
-
 import { CommentForm } from ".";
 import useComment from "./useComment";
 import styles from "./CommentAdd.module.scss";
