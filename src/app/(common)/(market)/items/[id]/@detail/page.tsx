@@ -1,9 +1,14 @@
-import { getProduct } from "@/service/product";
-import ProductDetail from "./ProductDetail";
-import axios from "axios";
 import { notFound } from "next/navigation";
+import { getProduct } from "@/service/product";
+import ProductDetail from "../../../_components/ProductDetail";
+import axios from "axios";
 
-export default async function ProductDetailAsync({ id }: { id: string }) {
+export default async function ItemDetailPage({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}) {
+  const id = (await params).id;
   try {
     const detail = await getProduct(Number(id));
 

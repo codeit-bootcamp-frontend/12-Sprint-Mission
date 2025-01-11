@@ -1,23 +1,21 @@
 import { getComments } from "@/service/comments";
-import { BoardName } from "@/types/comment";
-import Comments from "./Comments";
 import axios from "axios";
+import Comments from "../../../_components/Comments";
 import { notFound } from "next/navigation";
 
-export default async function CommentsAsync({
-  name,
-  id,
+export default async function ItemCommentsPage({
+  params,
 }: {
-  name: BoardName;
-  id: string;
+  params: Promise<{ id: string }>;
 }) {
+  const id = (await params).id;
   try {
-    const comments = await getComments(name, {
+    const comments = await getComments("products", {
       productId: Number(id),
       limit: 5,
     });
 
-    return <Comments name={name} data={comments} />;
+    return <Comments name="products" data={comments} />;
   } catch (error) {
     if (axios.isAxiosError(error)) {
       if (error.status === 404) {
