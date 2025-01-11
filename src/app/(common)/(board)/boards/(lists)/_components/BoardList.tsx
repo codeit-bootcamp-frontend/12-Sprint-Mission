@@ -1,39 +1,24 @@
 "use client";
 
-import { useEffect } from "react";
 import useParams from "@/hooks/useParams";
 import usePagination from "@/hooks/usePagination";
-import useResponsive from "@/hooks/useResponsive";
-import { ListMode, Product } from "@type/product";
 import { PaginationResponse } from "@/types/common";
-import { Message } from "@components/ui";
+import { Article } from "@/types/article";
 import { Pagination } from "@/components/Pagination";
-import ProductListWrapper from "./ProductListWrapper";
-import ProductItem from "./ProductItem";
+import { Message } from "@/components/ui";
+import BoardItem from "./BoardItem";
+import BoardListWrapper from "./BoardListWrapper";
 
-interface ProductListProps {
-  mode: ListMode;
-  data: PaginationResponse<Product>;
+interface BoardListProps {
+  data: PaginationResponse<Article>;
 }
-
-export default function ProductList({ mode, data }: ProductListProps) {
+export default function BoardList({ data }: BoardListProps) {
   const { searchParams, handleParams } = useParams();
   const page = Number(searchParams.get("page")) || 1;
-  const currentPageSize = Number(searchParams.get("pageSize")) || 10;
+  const pageSize = Number(searchParams.get("pageSize")) || 10;
   const keyword = searchParams.get("keyword") || "";
-  const pageSize = useResponsive({
-    pc: 10,
-    tablet: 6,
-    mobile: 4,
-  });
   const visibleCount = 5;
   const { list, totalCount } = data;
-
-  useEffect(() => {
-    if (pageSize === currentPageSize) return;
-
-    handleParams({ pageSize });
-  }, [pageSize, currentPageSize, handleParams]);
 
   const pagination = usePagination({
     page,
@@ -56,9 +41,9 @@ export default function ProductList({ mode, data }: ProductListProps) {
   }
   return (
     <>
-      <ProductListWrapper mode={mode} items={list}>
-        {(item) => <ProductItem item={item} keyword={keyword} />}
-      </ProductListWrapper>
+      <BoardListWrapper mode="all" items={list}>
+        {(item) => <BoardItem data={item} />}
+      </BoardListWrapper>
       <Pagination {...pagination} />
     </>
   );

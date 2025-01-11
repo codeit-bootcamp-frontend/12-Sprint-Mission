@@ -1,12 +1,12 @@
 "use client";
 
-import useRecentSearch from "./useRecentSearch";
 import useParams from "@/hooks/useParams";
 import { Recent, Search } from "@/components/Search";
-import { Button, Select } from "@/components/ui";
-import styles from "./ProductFilter.module.scss";
+import { Select } from "@/components/ui";
+import styles from "./BoardFilter.module.scss";
+import useRecentSearch from "@/hooks/useRecentSearch";
 
-export default function ProductFilter() {
+export default function BoardFilter() {
   const { searchParams, handleParams } = useParams();
 
   const keyword = searchParams.get("keyword") || "";
@@ -32,8 +32,8 @@ export default function ProductFilter() {
   }
 
   return (
-    <>
-      <div className={styles.search}>
+    <div className={styles.filter}>
+      <div className={styles.keyword}>
         <Recent
           title="최근검색"
           data={recentSearch}
@@ -46,25 +46,20 @@ export default function ProductFilter() {
             onChange={handleSearchChange}
             onSubmit={handleSearchSubmit}
             onClear={handleSearchClear}
-            placeholder="검색할 상품을 입력해주세요"
+            placeholder="검색어를 입력해주세요."
           />
         </Recent>
       </div>
-      <div className={styles.button}>
-        <Button href="/addItem" size="sm">
-          상품 등록하기
-        </Button>
-      </div>
-      <div className={styles.select}>
+      <div className={styles.order}>
         <Select
           value={orderBy}
           onChange={handleOrderBy}
           options={[
             { value: "recent", label: "최신순" },
-            { value: "favorite", label: "좋아요순" },
+            { value: "like", label: "좋아요순" },
           ]}
         />
       </div>
-    </>
+    </div>
   );
 }

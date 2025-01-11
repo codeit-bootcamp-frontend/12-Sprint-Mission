@@ -1,25 +1,38 @@
 "use client";
 
+import { useEffect } from "react";
 import useParams from "@/hooks/useParams";
 import usePagination from "@/hooks/usePagination";
+import useResponsive from "@/hooks/useResponsive";
+import { Product } from "@type/product";
 import { PaginationResponse } from "@/types/common";
-import { Article, ListMode } from "@/types/article";
+import { Message } from "@components/ui";
 import { Pagination } from "@/components/Pagination";
-import { Message } from "@/components/ui";
-import BoardItem from "./BoardItem";
-import BoardListWrapper from "./BoardListWrapper";
+import ProductListWrapper from "./ProductListWrapper";
+import ProductItem from "./ProductItem";
 
-interface BoardListProps {
-  mode: ListMode;
-  data: PaginationResponse<Article>;
+interface ProductListProps {
+  data: PaginationResponse<Product>;
 }
-export default function BoardList({ mode, data }: BoardListProps) {
+
+export default function ProductList({ data }: ProductListProps) {
   const { searchParams, handleParams } = useParams();
   const page = Number(searchParams.get("page")) || 1;
-  const pageSize = Number(searchParams.get("pageSize")) || 10;
+  const currentPageSize = Number(searchParams.get("pageSize")) || 10;
   const keyword = searchParams.get("keyword") || "";
+  const pageSize = useResponsive({
+    pc: 10,
+    tablet: 6,
+    mobile: 4,
+  });
   const visibleCount = 5;
   const { list, totalCount } = data;
+
+  useEffect(() => {
+    if (pageSize === currentPageSize) return;
+
+    handleParams({ pageSize });
+  }, [pageSize, currentPageSize, handleParams]);
 
   const pagination = usePagination({
     page,
@@ -42,9 +55,9 @@ export default function BoardList({ mode, data }: BoardListProps) {
   }
   return (
     <>
-      <BoardListWrapper mode={mode} items={list}>
-        {(item) => <BoardItem data={item} />}
-      </BoardListWrapper>
+      <ProductListWrapper mode="all" items={list}>
+        {(item) => <ProductItem item={item} keyword={keyword} />}
+      </ProductListWrapper>
       <Pagination {...pagination} />
     </>
   );

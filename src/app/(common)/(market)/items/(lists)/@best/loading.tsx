@@ -1,5 +1,5 @@
 import { Message } from "@/components/ui";
 
 export default function Loading() {
-  return <Message>베스트 상품을 불러오는중입니다...</Message>;
+  return <Message>상품상제정보를 가져오는중입니다...</Message>;
 }
