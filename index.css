@@ -1,0 +1,40 @@
+@media (max-width:1200px) {
+    body .Pc-size{
+        display: flex;
+    };
+    
+    
+
+
+
+@media (min-width:768px) and (max-width:1199px) {
+    .Tablet-size.pandalogo{
+        margin-left:24px;
+        margin-left: 16px;
+    }
+}; 
+
+@media (min-width:375px) and (max-width:767px) {
+.Moblet-size .loginbutton{
+    margin-left:24px;
+    margin-right:16px;
+}
+}
+
+footer{
+display: flex;
+justify-content: space-between;
+}
+
+
+#footerMenu ,#socialMedia{
+
+margin-left:100px;
+
+
+}
+#socialMedia img {
+width: 20px;
+height: 20px;
+}
+}   

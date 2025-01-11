@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+
+
+        <a href="/"
+          ><img
+            src="images/logo/panda-market-logo.png"
+            alt="판다마켓 홈"
+            width="153"
+        /></a>
+      </div>
+
+        <!-- 
+          id 이름은 camelCase(단어 연결 시 맨 처음 단어를 제외한 단어들의 첫 글자를 대문자로 표기)로, 
+          class 이름은 kebab-case(단어를 하이픈(-)으로 구분)를 사용하는 것을 권장합니다.
+          하지만 팀마다 선호하는 스타일이 다르기 때문에 naming convention 등 정해진 규칙에 따라 통일성 있게 사용하는 것이 더 중요합니다.
+        -->
+        <!-- 클릭 시 로그인 페이지로 이동. login.html 파일을 생성해 임시 페이지를 만들어 주세요. -->
+
+
+        <div class="Tabletsize">
+          <div class="loginbutto">
+            <a href="login.html" id="loginLinkButton" class="button">로그인</a>
+          </div>
+        </div>
+
+      </header>
+      </div>
+      <!-- 
+        웹페이지의 주요 콘텐츠는 <main> 시맨틱 태그에 넣어주세요. 
+        페이지 내용을 기능 및 특징에 따라 <section>으로 나누어 직관적으로 레이아웃을 살펴볼 수 있도록 구성해 보세요.
+      -->
+      <main>
+        <!-- 홈페이지 랜딩 시 가장 상단에 위치해 눈을 사로잡는 역할을 하는 요소를 '히어로 섹션' 또는 '히어로 이미지' 라고 불러요. -->
+        <!-- 
+          전체적인 레이아웃, 디자인, 및 동작성을 먼저 살펴본 후에 비슷한 요소들을 묶어서 개발하면 코드의 재사용성을 높일 수 있어요. 
+          판다마켓 홈페이지에서는 최상단의 히어로 섹션(hero)과 하단 배너 섹션(bottomBanner)의 디자인이 비슷해서 "banner" 클래스로 묶어주었어요. 
+        -->
+        <!-- 각 섹션 내에 컨테이너의 최대 너비를 1200px로 제한하고 화면 중앙에 정렬해 주는 inner wrapper div를 씌워줬어요. -->
+        <section id="hero" class="banner">
+          <div class="wrapper">
+            <h1>
+              일상의 모든 물건을<br />
+              거래해 보세요
+            </h1>
+            <a href="items.html" class="button pill-button">구경하러 가기</a>
+          </div>
+        </section>
+
+        <section id="features" class="wrapper">
+          <!-- features 섹션 내에 비슷한 레이아웃의 요소가 3개 있기 때문에 각 요소에게 feature 라는 클래스명을 부여했어요. -->
+          <div class="feature">
+            <!-- 
+              화면 크기에 따라 이미지 사이즈가 자동으로 조정되도록 이미지의 width를 고정된 px값이 아닌 부모 컨테이너의 너비의 50%로 설정해 주었어요. 
+              각 요소의 크기를 설정하는 방식은 반응형 웹 디자인(responsive web design)을 개발할 때 중요한 고려사항이에요.
+            -->
+            <img
+              src="images/home/feature1-image.png"
+              alt="인기 상품"
+              width="50%"
+            />
+            <div class="feature-content">
+              <h2 class="feature-tag">Hot item</h2>
+              <h1>인기 상품을<br />확인해 보세요</h1>
+              <p class="feature-description">
+                가장 HOT한 중고거래 물품을<br />판다마켓에서 확인해 보세요
+              </p>
+            </div>
+          </div>
+          <div class="feature">
+            <div class="feature-content">
+              <h2 class="feature-tag">Search</h2>
+              <h1>구매를 원하는<br />상품을 검색하세요</h1>
+              <p class="feature-description">
+                구매하고 싶은 물품은 검색해서
+                <br />쉽게 찾아보세요
+              </p>
+            </div>
+            <img
+              src="images/home/feature2-image.png"
+              alt="검색 기능"
+              width="50%"
+            />
+          </div>
+          <div class="feature">
+            <img
+              src="images/home/feature3-image.png"
+              alt="판매 상품 등록"
+              width="50%"
+            />
+            <div class="feature-content">
+              <h2 class="feature-tag">Register</h2>
+              <h1>판매를 원하는<br />상품을 등록하세요</h1>
+              <p class="feature-description">
+                어떤 물건이든 판매하고 싶은 상품을
+                <br />쉽게 등록하세요
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section id="bottomBanner" class="banner">
+          <div class="wrapper">
+            <h1>
+              믿을 수 있는
+              <br />
+              판다마켓 중고거래
+            </h1>
+          </div>
+        </section>
+      </main>
+
+      <footer>
+        <div>©codeit - 2024</div>
+        <div id="footerMenu">
+          <!-- 클릭 시 약관 및 FAQ 페이지로 이동. privacy.html과 faq.html 파일을 생성해 임시 페이지를 만들어 주세요. -->
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="faq.html">FAQ</a>
+        </div>
+        <div id="socialMedia">
+          <!--
+            target="_blank" 속성값을 넣어주어 링크가 새로운 탭에서 열리도록 했어요.
+            새 창에서 하이퍼링크를 열 때에는 보안상 취약점 또는 퍼포먼스 이슈가 발생할 수 있기 때문에 rel="noopener noreferrer" 속성값을 함께 넣어주는 경우가 많습니다.
+          -->
+          <a
+            href="https://www.facebook.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            ><img src="images/social/facebook-logo.svg" alt="페이스북" width="20"
+          /></a>
+          <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer"
+            ><img src="images/social/twitter-logo.svg" alt="트위터" width="20"
+          /></a>
+          <a
+            href="https://www.youtube.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            ><img src="images/social/youtube-logo.svg" alt="유튜브" width="20"
+          /></a>
+          <a
+            href="https://www.instagram.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            ><img
+              src="images/social/instagram-logo.svg"
+              alt="인스타그램"
+              width="20"
+          /></a>
+        </div>
+      </footer>
+    </body>
+  </html>

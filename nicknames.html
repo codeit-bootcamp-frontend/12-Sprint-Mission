@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- 기본 양식 생성 후, 제목을 수정하고 해당 페이지에 적용할 파비콘 및 스타일시트를 추가해 주세요. -->
+    <title>판다마켓 - 로그인</title>
+    <link rel="icon" href="images/logo/favicon.ico" />
+    <link
+      rel="stylesheet"
+      as="style"
+      crossorigin
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"
+    />
+    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="styles/global.css" />
+    <link rel="stylesheet" href="style.css"> 
+  </head>
+
+  <body>
+
+    <div class="container">
+      <img src="images/logo/panda-market-logo.png" alt="판다마켓 로고">
+  </div>
+  
+  <form method="post" action="index.html" id="form">
+      <div class="login-input"> 
+          <div class="input-group"></div>
+  
+          <!-- 이메일 레이블 추가 -->
+          <label for="email" id="email1" class="input-group">이메일</label> <!-- for="email"로 input과 연결 -->
+          <div class="login-input">
+              <input type="text" id="email" name="이메일" placeholder="이메일을 입력해주세요"/>
+              <span id="error-message1" class="error-message"></span>
+                
+          </div>
+  
+          <!-- 닉네임 레이블 추가 -->
+          <label for="nickname" class="input-group">닉네임</label> <!-- for="nickname"로 input과 연결 -->
+          <div class="login-input">
+              <input type="text" id="nickname" name="닉네임" placeholder="닉네임을 입력해주세요" autocomplete="username" />
+              <span id="error-message2" class="error-message"></span>
+              <p></p>
+          </div>
+  
+          <!-- 비밀번호 레이블 추가 -->
+          <label for="password" class="input-group">비밀번호</label> <!-- for="password"로 input과 연결 -->
+          <div class="login-input">
+              <input type="password" id="password" name="비밀번호" placeholder="비밀번호를 입력해주세요" autocomplete="current-password" />
+              <span id="error-message3" class="error-message3"></span>
+              <p></p>
+          </div>
+  
+      <!-- 비밀번호 확인 레이블 추가 -->
+<label for="confirm-password" class="input-group">비밀번호 확인</label>
+<div class="login-input">
+    <input type="password" id="confirm-password" name="비밀번호 확인" placeholder="비밀번호를 다시 입력해주세요" autocomplete="current-password" />
+    <span id="error-message4" class="error-message4"></span>
+</div>
+<p></p>
+<br/>
+
+  
+          <div class="submit_button2">
+              <a href="login.html">
+                  <img src="images/logo/sing_up.png" alt="회원가입 버튼">
+              </a>
+          </div>
+  
+          <div class="button_container"> 
+              <h3 class="login-text">간편 로그인</h3>
+              <div class="submit_button3">
+                  <a href="https://www.google.com/">
+                      <img src="images/logo/component.png" alt="구글 로그인">
+                  </a>
+              </div>
+              
+              <div class="submit_button4">
+                  <a href="https://www.kakaocorp.com/page/">
+                      <img src="images/logo/component2.png" alt="카카오 로그인">
+                  </a>
+              </div>
+          </div>     
+      </div>
+  </form>
+  
+ 
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- jQuery를 먼저 로드 -->
+<script src="./index.js"></script> <!-- 그 다음에 index.js -->
+  </body>
+  </html>
