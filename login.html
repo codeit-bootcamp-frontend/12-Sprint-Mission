@@ -14,7 +14,6 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- 기본 양식 생성 후, 제목을 수정하고 해당 페이지에 적용할 파비콘 및 스타일시트를 추가해 주세요. -->
     <title>판다마켓 - 로그인</title>
     <link rel="icon" href="images/logo/favicon.ico" />
     <link
@@ -28,27 +27,42 @@
   </head>
 
   <body>
-      
       <div class="container">
         <img src="images/logo/panda-market-logo.png" alt="판다마켓 로고">
       </div>
    
-      <h2 class="input-group">이메일</h2>
-      <form method="post" action="" id="">
+      <form method="post" action="" id="form">
+        <!-- 이메일 입력란 -->
         <div class="login-input">
-          <input type="text" name="이메일" placeholder="이메일을 입력해주세요"/>
-          <P></P>
-        <h2 class="input-group">비밀번호</h2>
-          <input type="password" name="" placeholder="비밀번호를 입력해주세요"/>
+          <label for="email" class="input-group">이메일</label>
+          <input type="text" id="email" name="이메일" placeholder="이메일을 입력해주세요" autocomplete="current-password" />
+          <span id="error-messagea1" class="error-messagea1"></span> <!-- 에러 메시지 출력 위치 -->
         </div>
-       <div class="login-input2">
-        <div class="submit_button">
-          <a href="nicknames.html">
-            <img src="images/logo/btn_large.png" alt="로그인 버튼">
-          </a>
+      </form>
+      
+        
+      <form method="post" action="" id="form">
+        <div class="login-input">
+          <label for="password" class="input-group">비밀번호</label>
+          <input type="password" id="password" name="비밀번호" placeholder="비밀번호를 입력해주세요" autocomplete="current-password" />
+          <div id="error-messagea2" class="error-messagea2" style="visibility: hidden;"></div>
         </div>
+      </form>
+      
 
-       
+        <div class="login-input2">
+          <div class="submit_button">
+            <a href="nicknames.html">
+              <img src="images/logo/btn_large.png" alt="로그인 버튼">
+            </a>
+          </div>
+        </div>
+      </form>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- jQuery를 먼저 로드 -->
+        <script src="./main.js"></script> 
+
+  </body>
+</html>
 
       <!--- <div>
             <h3 class="login-text2">간편 로그인</h3>  
@@ -65,9 +79,6 @@
            </div> 
           
         </div>-->
-      </form> 
-    </body>
-    </html>
-    
 
+       
  
