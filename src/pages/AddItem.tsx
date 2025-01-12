@@ -1,51 +1,53 @@
 import React, { useState } from "react";
-import "./AddItem.css";
-import AddItemForm from "../components/AddItemForm";
-import AddImgForm from "../components/AddImgForm";
-import AddTagForm from "../components/AddTagForm";
+import styles from "./addItem.module.css";
+import AddItemForm from "../components/AddItemForm.tsx";
+import AddImgForm from "../components/AddImgForm.tsx";
+import AddTagForm from "../components/AddTagForm.tsx";
 
-function AddItem() {
+const AddItem: React.FC = () => {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
-  const [tags, setTags] = useState([]);
+  const [tags, setTags] = useState<string[]>([]);
 
-  const addTag = (tag) => {
+  const addTag = (tag: string) => {
     if (!tags.includes(tag)) {
       setTags([...tags, tag]);
     }
   };
 
-  const removeTag = (tagToRemove) => {
+  const removeTag = (tagToRemove: string) => {
     setTags(tags.filter((tag) => tag !== tagToRemove));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
   };
 
-  const handleNameChange = (e) => {
-    setName(e.target.value);
-  };
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { id, value } = e.target;
 
-  const handleDescriptionChange = (e) => {
-    setDescription(e.target.value);
-  };
-
-  const handlePriceChange = (e) => {
-    setPrice(e.target.value);
+    if (id === "name") {
+      setName(value);
+    } else if (id === "description") {
+      setDescription(value);
+    } else if (id === "price") {
+      setPrice(value);
+    }
   };
 
   const isSubmitDisabled = !name || !description || !price || !tags.length;
 
   return (
-    <form onSubmit={handleSubmit}>
-      <main>
-        <div className="title">
+    <form onSubmit={handleSubmit} className={styles.form}>
+      <main className={styles.main}>
+        <div className={styles.title}>
           <h2>상품 등록하기</h2>
           <button
             type="submit"
-            className="additem-btn"
+            className={styles.addItemBtn}
             disabled={isSubmitDisabled}
           >
             등록
@@ -58,7 +60,7 @@ function AddItem() {
           type="text"
           placeholder="상품명을 입력해주세요"
           value={name}
-          onChange={handleNameChange}
+          onChange={handleChange}
         />
         <AddItemForm
           label="상품 소개"
@@ -67,7 +69,7 @@ function AddItem() {
           placeholder="상품 소개를 입력해주세요"
           isTextArea
           value={description}
-          onChange={handleDescriptionChange}
+          onChange={handleChange}
         />
         <AddItemForm
           label="판매가격"
@@ -75,12 +77,12 @@ function AddItem() {
           type="text"
           placeholder="판매가격을 입력해주세요"
           value={price}
-          onChange={handlePriceChange}
+          onChange={handleChange}
         />
         <AddTagForm tags={tags} onAddTag={addTag} onRemoveTag={removeTag} />
       </main>
     </form>
   );
-}
+};
 
 export default AddItem;

@@ -30,15 +30,17 @@ h2 {
   color: #1f2937;
 }
 
-.additem-btn {
+.addItemBtn {
   width: 74px;
   height: 42px;
   background-color: #3692ff;
   border: none;
   cursor: pointer;
+  border-radius: 8px;
+  color: #f3f4f6;
 }
 
-.additem-btn:disabled {
+.addItemBtn:disabled {
   background-color: #9ca3af;
   cursor: not-allowed;
 }

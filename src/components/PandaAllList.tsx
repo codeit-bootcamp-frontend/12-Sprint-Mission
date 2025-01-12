@@ -1,14 +1,27 @@
 import React, { useState } from "react";
-import ItemCard from "./ItemCard";
-import "../style.css";
 import { Link } from "react-router-dom";
+import ItemCard from "./ItemCard.tsx";
+import styles from "./pandaAllList.module.css";
 
-function PandaAllList({ items }) {
+interface Item {
+  id: string;
+  name: string;
+  price: number;
+  images: string[];
+  favoriteCount: number;
+  createdAt: string;
+}
+
+interface PandaAllListProps {
+  items: Item[];
+}
+
+function PandaAllList({ items }: PandaAllListProps) {
   const [sortType, setSortType] = useState("newest");
 
   const sortedItems = [...items].sort((a, b) => {
     if (sortType === "newest") {
-      return new Date(b.createdAt) - new Date(a.createdAt);
+      return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime();
     }
     if (sortType === "favorite") {
       return b.favoriteCount - a.favoriteCount;
@@ -18,23 +31,24 @@ function PandaAllList({ items }) {
 
   return (
     <div>
-      <div className="titleList">
-        <h2 className="title">전체 상품</h2>
-        <div className="titleOption">
+      <div className={styles.titleList}>
+        <h2 className={styles.title}>전체 상품</h2>
+        <div className={styles.titleOption}>
           <input
             type="text"
             placeholder="검색할 상품을 입력해주세요"
-            className="search-input"
+            className={styles.searchInput}
           />
-          <Link to="/additem" className="additem-btn">
+          <Link to="/additem" className={styles.addItemBtn}>
             상품 등록하기
           </Link>
-          <div className="sortDropdown">
-            <label htmlFor="sortSelect"></label>
+          <div className={styles.sortDropdown}>
+            <label htmlFor="sortSelect" className={styles.sortLabel}></label>
             <select
               id="sortSelect"
               value={sortType}
               onChange={(e) => setSortType(e.target.value)}
+              className={styles.sortSelect}
             >
               <option value="newest">최신순</option>
               <option value="favorite">좋아요순</option>
@@ -42,9 +56,9 @@ function PandaAllList({ items }) {
           </div>
         </div>
       </div>
-      <div className="allList">
+      <div className={styles.allList}>
         {sortedItems.slice(0, 10).map((item) => (
-          <ItemCard key={item.id} item={item} imgSizeClass="allImg" />
+          <ItemCard key={item.id} item={item} imgSizeClass={styles.allImg} />
         ))}
       </div>
     </div>
