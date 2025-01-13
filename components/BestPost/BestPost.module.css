@@ -28,7 +28,6 @@
 .BestPostTopic {
     width: 100%;
     height: 169px;
-    background-color: burlywood;
     display: flex;
     gap: 24px;
 }
@@ -49,12 +48,14 @@
     background-color: #3692ff;
     border-radius: 0px 0px 16px 16px;
     margin-left: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .BestTopicContent {
     width: 336px;
     height: 72px;
-    background-color: aqua;
     margin: 0 auto;
     display: flex;
     gap: 8px;
@@ -63,33 +64,98 @@
 .BestTopicDetail {
     width: 336px;
     height: 24px;
-    background-color: antiquewhite;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
 }
 
 .BestTopicContentText {
-    background-color: blueviolet;
     width: 256px;
     height: 64px;
+    font-family: Pretendard;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 32px;
+    text-align: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .BestTopicContentImg {
-    background-color: blueviolet;
     width: 72px;
     height: 72x;
+    border-radius: 6px;
+    border: 1px solid #e5e7eb;
 }
 
 .BestTopicDetailData {
-    background-color: aquamarine;
     width: 133px;
     height: 24px;
+    display: flex;
+    gap: 8px;
 }
 
 .BestTopicDetailDate {
-    background-color: aquamarine;
     width: 79px;
     height: 24px;
+    font-family: Pretendard;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: left;
+    color: #9ca3af;
 }
 
+.BestTopicImgInner {
+    display: flex;
+    height: 26px;
+    width: 54px;
+    gap: 4px;
+    align-items: center;
+}
+
+.BestPostTopicImgInnerText {
+    width: 34px;
+    height: 26px;
+    font-family: Pretendard;
+    font-size: 16px;
+    font-weight: 600;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 3px;
+    line-height: normal;
+    text-align: center;
+}
+
+.BestTopicDetailDataNickname {
+    width: 61px;
+    height: 100%;
+    white-space: nowrap;
+    font-family: Pretendard;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: left;
+}
+
+.BestTopicDetailDataFavorite {
+    display: flex;
+    align-items: center;
+    width: 64px;
+    height: 100%;
+    gap: 4px;
+}
+
+.BestTopicDetailDataFavoriteNum {
+    width: 44px;
+    height: 100%;
+    font-family: Pretendard;
+    font-size: 14px;
+    font-weight: 400;
+    text-align: left;
+    color: #6b7280;
+    display: flex;
+    align-items: center;
+}
