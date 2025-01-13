@@ -18,15 +18,22 @@ export default async function handler(
     res: NextApiResponse
 ) {
     const { page = 1, pageSize = 10, orderBy = "recent" } = req.query;
-    
+
     try {
         const articles = await fetchArticles(
             Number(page),
             Number(pageSize),
             orderBy as string
         );
-        res.status(200).json(articles);
+
+ 
+        const topArticles = articles.list
+            .sort((a: any, b: any) => b.likeCount - a.likeCount) 
+            .slice(0, 3); 
+
+        // 반환
+        res.status(200).json({ list: topArticles });
     } catch (error) {
-        res.status(500).json({ error: "Failed to fetch articles" });
+        res.status(500).json({ error: "Failed to fetch best posts" });
     }
 }
