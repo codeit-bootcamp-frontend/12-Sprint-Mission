@@ -49,6 +49,12 @@
     justify-content: center;
 }
 
+.PostCommentDataImg img {
+    width: 100%;  
+    height: 100%;
+    object-fit: cover; 
+  }
+
 .PostTitleBarText {
     width: 52px;
     height: 32px;
