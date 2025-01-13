@@ -3,7 +3,12 @@ import styles from "./Dropdown.module.css";
 import down from "@/public/down.svg";
 import Image from "next/image";
 
-const Dropdown = () => {
+// 부모 컴포넌트로 선택된 값 전달을 위한 onChange prop 추가
+type DropdownProps = {
+    onChange: (option: string) => void; // 부모 컴포넌트로 전달할 핸들러
+};
+
+const Dropdown: React.FC<DropdownProps> = ({ onChange }) => {
     const [isOpen, setIsOpen] = useState(false);
     const [selectedOption, setSelectedOption] = useState("최신순"); // 선택된 항목 저장
 
@@ -14,6 +19,9 @@ const Dropdown = () => {
     const handleSelectOption = (option: string) => {
         setSelectedOption(option); // 선택된 항목 저장
         setIsOpen(false); // 드롭다운 닫기
+        // "최신순" -> "recent", "좋아요순" -> "like"로 매핑
+        const mappedOption = option === "최신순" ? "recent" : "like";
+        onChange(mappedOption); // 부모 컴포넌트에 mappedOption 값 전달
     };
 
     return (

@@ -189,3 +189,23 @@
     text-align: left;
     color: #9ca3af;
 }
+
+.PostCommentBarInput {
+    position: relative;
+    padding-left: 40px; /* 이미지 공간 확보 */
+    padding-right: 10px; /* 오른쪽 여백 */
+    font-family: Pretendard;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 26px;
+    text-align: left;
+    color: #9ca3af;
+}
+
+.PostCommentBarInputWithImage {
+    background-image: url('/search.svg'); /* public 폴더 내의 파일 경로 */
+    background-size: 24px 24px; /* 이미지 크기 조정 */
+    background-repeat: no-repeat;
+    background-position: 10px center; /* 이미지가 왼쪽에 배치되도록 */
+    padding-left: 40px; /* 이미지 공간 확보 */
+}

@@ -10,6 +10,17 @@ async function fetchArticles(page: number, pageSize: number, orderBy: string) {
     }
 
     const data = await response.json();
+    
+    if (orderBy === "최신순") {
+        data.list.sort(
+            (a: any, b: any) =>
+                new Date(b.createdAt).getTime() -
+                new Date(a.createdAt).getTime()
+        );
+    } else if (orderBy === "좋아요순") {
+        data.list.sort((a: any, b: any) => b.likeCount - a.likeCount);
+    }
+
     return data;
 }
 
@@ -18,7 +29,7 @@ export default async function handler(
     res: NextApiResponse
 ) {
     const { page = 1, pageSize = 10, orderBy = "recent" } = req.query;
-    
+
     try {
         const articles = await fetchArticles(
             Number(page),
