@@ -1,0 +1,12 @@
+.title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #111827;
+}
+
+.best_section {
+  display: flex;
+  gap: 24px;
+
+  padding-top: 24px;
+}
