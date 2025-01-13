@@ -1,0 +1,51 @@
+.bestProduct .product-image {
+  margin-bottom: 16px;
+}
+
+.bestProducts {
+  display: flex;
+  justify-content: space-between;
+  align-items: top;
+  flex-wrap: wrap;
+  gap: 24px;
+
+  margin-bottom: 40px;
+}
+
+.name {
+  color: #1f2937;
+  font-size: 14px;
+  font-weight: 500;
+
+  margin-top: 0;
+  margin-bottom: 6px;
+}
+
+.price {
+  color: #1f2937;
+  font-size: 16px;
+  font-weight: 700;
+
+  margin-top: 0;
+  margin-bottom: 6px;
+}
+
+.favorite {
+  display: flex;
+  align-items: center;
+
+  gap: 4px;
+}
+
+.favoriteCount img {
+  width: 16px;
+  height: 16px;
+}
+
+.favoriteCount {
+  color: #4b5563;
+  font-size: 12px;
+  font-weight: 500;
+
+  margin: 0;
+}

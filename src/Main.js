@@ -1,15 +1,18 @@
+import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import App from "./components/App";
-import AddItemPage from "./components/AddItemPage";
+import ProductList from "./pages/productList/ProductList";
+import AddProductPage from "./components/productCreate/AddProductPage";
 
 function Main() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<App />} />
-        <Route path="/additem" element={<AddItemPage />} />
-      </Routes>
-    </BrowserRouter>
+    <React.StrictMode>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<ProductList />} />
+          <Route path="/addproduct" element={<AddProductPage />} />
+        </Routes>
+      </BrowserRouter>
+    </React.StrictMode>
   );
 }
 

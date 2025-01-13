@@ -1,0 +1,171 @@
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin-top: 24px;
+}
+
+.register-top {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-bottom: 24px;
+  /* min-width: 1152px; */
+}
+
+.register-Contents {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.register-top > h2 {
+  color: #1f2937;
+  font-size: 20px;
+  font-weight: 700;
+
+  margin: 0;
+}
+
+.registerBtn {
+  color: #f3f4f6;
+  font-size: 16px;
+  font-weight: 600;
+
+  background-color: #9ca3af;
+
+  width: 74px;
+  height: 42px;
+
+  border: 0 none;
+  border-radius: 8px;
+
+  padding: 12px 23px;
+}
+
+.register-Contents > section > h3,
+.productImgForm > label {
+  color: #1f2937;
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.register-Contents section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  gap: 16px;
+
+  margin-bottom: 32px;
+}
+
+.register-Contents input {
+  size: 16px;
+  font-weight: 400;
+
+  background-color: #f3f4f6;
+  border: 0 none;
+  border-radius: 12px;
+
+  width: 1152px;
+  height: 26px;
+  padding: 16px 24px 14px;
+}
+
+.productImg {
+  display: flex;
+}
+
+.previewImg {
+  width: 320px;
+  height: 314px;
+
+  border-radius: 12px;
+  margin-left: 24px;
+}
+
+.preview {
+  position: relative;
+}
+
+.clearPreviewImgBtn {
+  color: #ffffff;
+  background-color: #9ca3af;
+  position: absolute;
+
+  width: 20px;
+  height: 20px;
+
+  border: 0 none;
+  border-radius: 99px;
+
+  top: 14px;
+  right: 13px;
+
+  cursor: pointer;
+}
+
+.productImgForm .uploadImgBtn {
+  color: #9ca3af;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.register-Contents input::placeholder,
+.productInfo-input::placeholder {
+  color: #9ca3af;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.productImgForm input {
+  width: 282px;
+  height: 282px;
+}
+
+.productInfo-input {
+  background-color: #f3f4f6;
+  border: 0 none;
+  border-radius: 12px;
+
+  height: 250px;
+  width: 1152px;
+  padding: 16px 24px;
+}
+
+.hashTagForm {
+  display: flex;
+  gap: 12px;
+}
+
+.hashTag {
+  width: fit-content;
+  height: 36px;
+  display: inline-flex;
+  align-items: center;
+
+  background-color: #f3f4f6;
+  border: 0 none;
+  border-radius: 26px;
+
+  padding: 5px 12px 5px 16px;
+  gap: 8px;
+}
+
+.tag .tagName {
+  color: #1f2937;
+
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.tag .deleteTagBtn {
+  cursor: pointer;
+  /* margin: 6px 12px 6px 8px; */
+}
