@@ -3,6 +3,8 @@ import profile from "@/public/profile.svg";
 import Image from "next/image";
 import heart from "@/public/heart.svg";
 import { useEffect, useState } from "react";
+import Link from "next/link";
+import Dropdown from "../Dropdown/Dropdown";
 
 export default function Post() {
     const [articles, setArticles] = useState([]);
@@ -26,14 +28,16 @@ export default function Post() {
             <div className={styles.Post}>
                 <div className={styles.PostTitleBar}>
                     <div className={styles.PostTitleBarText}>게시글</div>
-                    <button className={styles.PostTitleBarBtn}>
-                        <p className={styles.PostTitleBardBtnText}>글쓰기</p>
-                    </button>
+                    <Link href="/write">
+                        <button className={styles.PostTitleBarBtn}>
+                            <p className={styles.PostTitleBardBtnText}>글쓰기</p>
+                        </button>
+                    </Link> 
                 </div>
                 <div className={styles.PostComment}>
                     <div className={styles.PostCommentBar}>
                         <input className={styles.PostCommentBarInput}></input>
-                        <div className={styles.PostCommentBarDropdown}></div>
+                        <Dropdown></Dropdown>
                     </div>
                     <div className={styles.PostCommentSection}>
                         {articles.map((article) => (
