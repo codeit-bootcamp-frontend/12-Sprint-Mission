@@ -1,0 +1,88 @@
+#footer {
+  position: relative;
+  padding: 33px 0 0;
+  height: 160px;
+  background-color: #111827;
+}
+
+#footer .footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#footer .text {
+  display: block;
+  color: #9CA3AF;
+}
+
+#footer .footerLink {
+  display: flex;
+  align-items: center;
+  gap: 0 30px;
+}
+
+#footer .footerLink li a {
+  display: block;
+  color: #E5E7EB;
+}
+
+#footer .text,
+#footer .footerLink,
+#footer .snsLink {
+  flex-shrink: 0;
+}
+
+#footer .text,
+#footer .snsLink {
+  width: 116px;
+}
+
+#footer .snsLink {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 0 13px;
+}
+
+#footer .snsLink li a {
+  display: block;
+}
+
+#footer .snsLink li a.faceBook {
+  width: 18px;
+  height: 18px;
+  background: url(/public/images/facebook_icon.svg)no-repeat center;
+  background-size: cover;
+}
+
+#footer .snsLink li a.twitter {
+  width: 19px;
+  height: 15px;
+  background: url(/public/images/twitter_icon.svg)no-repeat center;
+  background-size: cover;
+}
+
+#footer .snsLink li a.youtube {
+  width: 20px;
+  height: 13px;
+  background: url(/public/images/youtube_icon.svg)no-repeat center;
+  background-size: cover;
+}
+
+#footer .snsLink li a.insta {
+  width: 17px;
+  height: 17px;
+  background: url(/public/images/insta_icon.svg)no-repeat center;
+  background-size: cover;
+}
+
+@media (max-width: 767px) {
+
+  #footer .text {
+    position: absolute;
+    left: 16px;
+    bottom: 32px;
+  }
+
+}

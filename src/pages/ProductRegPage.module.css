@@ -1,0 +1,138 @@
+.subProductReg {
+  background-color: var(--white01) !important;
+}
+
+.productRegWrap .container {
+  position: relative;
+}
+
+.productRegWrap .LayoutBox {
+  display: flex;
+  gap: 0 24px;
+}
+
+.productRegWrap .productUploadeImg {
+  position: relative;
+  width: 282px;
+  height: 282px;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.productRegWrap .productUploadeImg img {
+  display: block;
+  width: 100%;
+}
+
+.productRegWrap .productUploadeImg .delBtn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 20px;
+  height: 24px;
+  background: url(/public/images/del_btn_icon.png)no-repeat center;
+  background-size: cover;
+}
+
+.formBox {
+  margin: 0 0 32px;
+}
+
+.formBox .inputFileBox label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 282px;
+  height: 282px;
+  background-color: var(--gray04);
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.formBox .inputFileBox label span {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px 0;
+  color: var(--gray01);
+  line-height: 1;
+}
+
+.formBox .inputFileBox label span::before {
+  content: '';
+  width: 48px;
+  height: 48px;
+  background: url(/public/images/add_btn_icon.png)no-repeat center;
+  background-size: cover;
+}
+
+.formBox .inputTextBox input {
+  padding: 20px 20px 20px 24px;
+  width: 100%;
+  border-radius: 12px;
+  background-color: var(--gray04);
+  font-size: 16px;
+}
+
+.formBox .inputTextBox input::placeholder {
+  color: var(--gray01);
+  font-size: 16px;
+}
+
+.formBox .textAreaBox textarea {
+  padding: 20px 20px 20px 24px;
+  width: 100%;
+  height: 282px;
+  border: 0;
+  background-color: var(--gray04);
+  font-family: 'pretendard', sans-serif;
+  font-size: 16px;
+  border-radius: 12px;
+}
+
+.formBox .textAreaBox textarea::placeholder {
+  color: var(--gray01);
+}
+
+.productRegBox .addBtn {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.addBtn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: block;
+  width: 74px;
+  height: 42px;
+  line-height: 42px;
+  text-align: center;
+  background-color: var(--blue);
+  border-radius: 8px;
+  color: var(--white01);
+  font-size: 16px;
+}
+
+.addBtn:disabled {
+  background-color: var(--gray01);
+  cursor: auto;
+}
+
+@media (max-width: 1199px) {
+
+  .addBtn {
+    right: 24px;
+  }
+
+}
+
+@media (max-width: 767px) {
+
+  .addBtn {
+    right: 16px;
+  }
+
+}

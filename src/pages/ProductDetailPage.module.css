@@ -1,0 +1,51 @@
+.btnBox {
+  display: flex;
+  justify-content: center;
+}
+
+.btnBox .button {
+  position: relative;
+  padding: 11px 40px;
+  display: block;
+  border-radius: 50px;
+  background-color: var(--gray01);
+  overflow: hidden;
+}
+
+.btnBox .button span {
+  display: flex;
+  align-items: center;
+  gap: 0 8px;
+  position: relative;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--gray04);
+  line-height: 1.4;
+}
+
+.btnBox .button span::after {
+  content: '';
+  margin-top: 3px;
+  width: 20px;
+  height: 18px;
+  background: url(/public/images/return_icon.svg)no-repeat center;
+}
+
+.btnBox .button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  bottom: 0;
+  transition: all .3s;
+  background-color: var(--blue);
+  border-radius: 50px;
+
+}
+
+.btnBox .button:hover::before {
+  width: 100%;
+
+}
+
