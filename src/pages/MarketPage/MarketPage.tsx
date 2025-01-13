@@ -1,15 +1,14 @@
-import React from "react";
 import BestItemsSection from "./components/BestItemsSection";
 import AllItemsSection from "./components/AllItemsSection";
-import "./MarketPage.css";
+import { Container } from "../../styles/CommonStyles";
 
-function MarketPage() {
+const MarketPage: React.FC = () => {
   return (
-    <div className="wrapper">
+    <Container>
       <BestItemsSection />
       <AllItemsSection />
-    </div>
+    </Container>
   );
-}
+};
 
 export default MarketPage;

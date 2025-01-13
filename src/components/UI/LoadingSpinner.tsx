@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import styled from "styled-components";
 import { PulseLoader } from "react-spinners";
 
@@ -31,12 +31,20 @@ const SpinnerOverlay = styled.div`
 // - 요소가 렌더링되기 전까지 비슷한 형태의 placeholder 레이아웃를 띄워주는 `skeleton` 로딩도 선호되는 방식이에요.
 // - 이번 미션에서는 `react-spinners`라는 라이브러리를 이용해 간단한 로딩 스피너를 적용해 볼게요.
 
-const LoadingSpinner = ({
+interface LoadingSpinnerProps {
+  isLoading: boolean;
+  size?: number; // 컴포넌트 내에서 디폴트 값을 부여한 경우엔 `?`를 사용해 optional props로 설정해 주세요
+  color?: string;
+  minLoadTime?: number;
+}
+
+const LoadingSpinner: React.FC<LoadingSpinnerProps> = ({
+  isLoading,
   size = 20,
   color = "var(--blue)",
   minLoadTime = 500,
 }) => {
-  const [isVisible, setIsVisible] = useState(true);
+  const [isVisible, setIsVisible] = useState(isLoading);
 
   // 로딩이 너무 빨라서 로딩 스피너가 순간적으로 나타났다 사라지는 것을 방지하기 위해 설정된 최소시간 동안은 스피너가 떠있도록 했어요.
   useEffect(() => {

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { FormEvent, useState } from "react";
 import {
   Button,
   Container,
@@ -24,29 +24,34 @@ const InputSection = styled.div`
   }
 `;
 
-function AddItemPage() {
+const AddItemPage: React.FC = () => {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
-  const [tags, setTags] = useState([]);
+  const [tags, setTags] = useState<string[]>([]);
 
   // 중복 등록 막기 위해 tags 배열에 없는 것 확인하고 삽입
-  const addTag = (tag) => {
+  const addTag = (tag: string) => {
     if (!tags.includes(tag)) {
       setTags([...tags, tag]);
     }
   };
 
-  const removeTag = (tagToRemove) => {
+  const removeTag = (tagToRemove: string) => {
     setTags(tags.filter((tag) => tag !== tagToRemove));
   };
 
   // form 제출 버튼 활성화 조건: 이미지 제외 모든 input에 값이 입력되어야 함
   const isSubmitDisabled = !name || !description || !price || !tags.length;
 
+  const handleSubmit = (e: FormEvent) => {
+    e.preventDefault();
+    // TODO: 제출 시 로직 추가
+  };
+
   return (
     <Container>
-      <form>
+      <form onSubmit={handleSubmit}>
         <TitleSection>
           <SectionTitle>상품 등록하기</SectionTitle>
           <Button type="submit" disabled={isSubmitDisabled}>
@@ -87,6 +92,6 @@ function AddItemPage() {
       </form>
     </Container>
   );
-}
+};
 
 export default AddItemPage;

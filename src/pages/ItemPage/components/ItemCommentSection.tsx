@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { ChangeEvent, useState } from "react";
 import styled from "styled-components";
 import { Button } from "../../../styles/CommonStyles";
 import CommentThread from "./CommentThread";
@@ -23,8 +23,8 @@ const TextArea = styled.textarea`
   border: none;
   border-radius: 12px;
   padding: 16px 24px;
-  height: 104px; // 디자인에 맞춰 textarea 영역의 기본 높이를 설정해 주세요
-  resize: none; // 우측 하단 코너의 textarea 영역 크기 조절 기능을 없애줍니다
+  height: 104px;
+  resize: none;
 
   &::placeholder {
     color: ${({ theme }) => theme.colors.gray[400]};
@@ -51,10 +51,16 @@ const PostCommentButton = styled(Button)`
   }
 `;
 
-function ItemCommentSection({ productId }) {
+interface ItemCommentSectionProps {
+  productId: number;
+}
+
+const ItemCommentSection: React.FC<ItemCommentSectionProps> = ({
+  productId,
+}) => {
   const [comment, setComment] = useState("");
 
-  const handleInputChange = (e) => {
+  const handleInputChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
     setComment(e.target.value);
   };
 
@@ -83,6 +89,6 @@ function ItemCommentSection({ productId }) {
       <CommentThread productId={productId} />
     </>
   );
-}
+};
 
 export default ItemCommentSection;

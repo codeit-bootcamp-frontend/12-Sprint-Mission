@@ -1,4 +1,3 @@
-import React from "react";
 import styled from "styled-components";
 import { ReactComponent as HeartSvg } from "../../../assets/images/icons/ic_heart.svg";
 import { FlexContainer } from "../../../styles/CommonStyles";
@@ -24,7 +23,17 @@ const ButtonContent = styled(FlexContainer)`
   gap: 4px;
 `;
 
-function LikeButton({ productId, isFavorite, favoriteCount }) {
+interface LikeButtonProps {
+  productId: number;
+  isFavorite: boolean;
+  favoriteCount: number;
+}
+
+const LikeButton: React.FC<LikeButtonProps> = ({
+  productId,
+  isFavorite,
+  favoriteCount,
+}) => {
   return (
     <PillButton>
       <ButtonContent>
@@ -32,12 +41,15 @@ function LikeButton({ productId, isFavorite, favoriteCount }) {
         <Icon
           iconComponent={HeartSvg}
           size={24}
-          fillColor={isFavorite && "var(--red)"}
+          // 조건부 연산자 `&&`을 사용했던 기존 코드의 경우엔 isFavorite이 false일 때 fillColor의 값으로 boolean인 false가 반환됩니다.
+          // 타입스크립트 전환 후 fillColor의 타입을 string으로 설정해주었기 때문에 fillColor는 string | boolean 일 수 없다는 타입스크립트 오류가 나요.
+          // 이렇게 조건에 따라 optional prop을 이용하고 싶지 않은 경우엔 undefined를 전달하면 해당 컴포넌트에서 기본값을 적용합니다.
+          fillColor={isFavorite ? "var(--red)" : undefined}
         />
         {favoriteCount.toLocaleString()}
       </ButtonContent>
     </PillButton>
   );
-}
+};
 
 export default LikeButton;

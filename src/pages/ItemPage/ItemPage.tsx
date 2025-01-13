@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import { Container, LineDivider, StyledLink } from "../../styles/CommonStyles";
@@ -7,6 +7,7 @@ import ItemProfileSection from "./components/ItemProfileSection";
 import ItemCommentSection from "./components/ItemCommentSection";
 import { ReactComponent as BackIcon } from "../../assets/images/icons/ic_back.svg";
 import LoadingSpinner from "../../components/UI/LoadingSpinner";
+import { Product } from "../../types/productTypes";
 
 const BackToMarketPageLink = styled(StyledLink)`
   display: flex;
@@ -17,18 +18,19 @@ const BackToMarketPageLink = styled(StyledLink)`
   margin: 0 auto;
 `;
 
-function ItemPage() {
-  const [product, setProduct] = useState(null);
+const ItemPage: React.FC = () => {
+  const [product, setProduct] = useState<Product | null>(null);
   const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [error, setError] = useState<string | null>(null);
 
-  // react-router-dom의 useParams 훅을 사용해 URL의 path parameter(상품 아이디)를 가져오세요.
-  // Route에서 정의한 path parameter의 이름과 useParams 훅에서 사용하는 변수명이 일치해야 정상적으로 추출돼요.
   const { productId } = useParams();
+
+  // useParams로 추출한 값은 string 형태로 반환되기 때문에, 컴포넌트에서 정의된 타입에 알맞게 변환해 주세요.
+  const productIdNumber = Number(productId);
 
   useEffect(() => {
     async function fetchProduct() {
-      if (!productId) {
+      if (!productIdNumber) {
         setError("상품 아이디가 제공되지 않았어요.");
         setIsLoading(false);
         return;
@@ -36,23 +38,26 @@ function ItemPage() {
 
       setIsLoading(true);
       try {
-        const data = await getProductDetail(productId);
+        const data: Product = await getProductDetail(productIdNumber);
         if (!data) {
           throw new Error("해당 상품의 데이터를 찾을 수 없습니다.");
         }
         setProduct(data);
       } catch (error) {
-        setError(error.message);
+        // error가 Error의 인스턴스인지 확인
+        if (error instanceof Error) {
+          setError(error.message);
+        } else {
+          setError("알 수 없는 오류가 발생했습니다.");
+        }
       } finally {
         setIsLoading(false);
       }
     }
 
     fetchProduct();
-  }, [productId]);
+  }, [productIdNumber]);
 
-  // 데이터 fetching 오류 발생 시 UI
-  // - 만약 서버에서 사용자 친화적으로 작성된 오류 메세지를 보내주지 않는다면 호출된 오류 메세지를 그대로 노출하는 것보다는 프론트단에서 별도의 내용을 넣어주는 것이 사용성에 좋아요
   if (error) {
     alert(`오류: ${error}`);
   }
@@ -61,7 +66,6 @@ function ItemPage() {
 
   return (
     <>
-      {/* 데이터를 불러올 동안 로딩 스피너 표시 */}
       <LoadingSpinner isLoading={isLoading} />
 
       <Container>
@@ -69,19 +73,16 @@ function ItemPage() {
 
         <LineDivider />
 
-        <ItemCommentSection productId={productId} />
+        <ItemCommentSection productId={productIdNumber} />
 
-        {/* Styled-components에 사용자 정의 prop을 전달해 스타일링 시 참고사항:
-        - 요소에 해당 HTML 태그의 기본 속성이 아닌 것이 추가되면 콘솔창에 "unknown prop"이 전달되고 있다는 경고가 뜰 수 있어요.
-        - prop 이름 앞에 `$`를 붙여주면 styled-components가 `transient props`로 인식하고 DOM 요소에 전달되지 않도록 필터링해요.
-      */}
-        <BackToMarketPageLink $pill="true" to="/items">
+        {/* BackToMarketPageLink의 베이스인 StyledLink에 $pill boolean 값을 전달 */}
+        <BackToMarketPageLink $pill to="/items">
           목록으로 돌아가기
           <BackIcon />
         </BackToMarketPageLink>
       </Container>
     </>
   );
-}
+};
 
 export default ItemPage;

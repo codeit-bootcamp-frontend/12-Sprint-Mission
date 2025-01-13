@@ -14,7 +14,7 @@ import {
 
 // updatedAt 표시: Date string을 현재 시간과 비교한 형식으로 변환해주는 함수
 // 7일 이내까지는 시간이 얼마나 흘렀는지를 분, 시간, 일 단위로 나타내고, 그보다 오래된 날짜는 포맷팅한 문자열로 리턴함
-export const formatUpdatedAt = (dateString) => {
+export const formatUpdatedAt = (dateString: Date) => {
   const date = new Date(dateString); // 입력된 날짜 문자열을 Date 객체로 변환
   const now = new Date(); // 현재 기준 Date 객체 생성
 

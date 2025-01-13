@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export const Container = styled.div`
-  /* 참고: 최상단 wrapper div를 flexbox로 만들어줬어요 */
   display: flex;
   flex-direction: column;
   padding: 16px;
@@ -58,7 +57,8 @@ export const Button = styled.button`
   }
 `;
 
-export const StyledLink = styled(Link)`
+// Styled-components에 전달하는 prop이 있다면 <{}> 안에 type을 작성해 주세요. 여기서는 `?`를 붙여주어 optional prop이라는 것을 명시했어요.
+export const StyledLink = styled(Link)<{ $pill?: boolean }>`
   background-color: ${({ theme }) => theme.colors.blue.primary};
   color: ${({ theme }) => theme.colors.white};
   padding: 11.5px 23px;
@@ -82,12 +82,10 @@ export const StyledLink = styled(Link)`
   }
 `;
 
-// 구분선을 만들 때 <div>를 사용할 수도 있지만 thematic break의 의미를 내포하고 있는 <hr> 태그를 사용하면 보다 semantic하고 접근성을 고려한 코드가 됩니다.
-export const LineDivider = styled.hr`
+export const LineDivider = styled.hr<{ $margin?: string }>`
   width: 100%;
   border: none;
   height: 1px;
   background-color: var(--gray-200);
-  margin: ${(props) =>
-    props.$margin || "16px 0"}; // margin을 optional prop으로 받기
+  margin: ${(props) => props.$margin || "16px 0"};
 `;

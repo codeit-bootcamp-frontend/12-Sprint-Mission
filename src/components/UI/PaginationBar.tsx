@@ -1,11 +1,45 @@
-import React from "react";
-import "./PaginationBar.css";
+import styled from "styled-components";
 import { ReactComponent as LeftArrow } from "../../assets/images/icons/arrow_left.svg";
 import { ReactComponent as RightArrow } from "../../assets/images/icons/arrow_right.svg";
 
-const PaginationBar = ({ totalPageNum, activePageNum, onPageChange }) => {
+const PaginationBarContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+`;
+
+// disabled는 버튼 태그의 고유 attribute이기 때문에 따로 타이핑하지 않아도 돼요.
+const PaginationButton = styled.button<{ $isActive?: boolean }>`
+  border: 1px solid var(--gray-200);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  color: ${({ $isActive }) => ($isActive ? "#fff" : "var(--gray-500)")};
+  background-color: ${({ $isActive }) =>
+    $isActive ? "var(--blue)" : "transparent"};
+  font-weight: 600;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: ${({ disabled }) => (disabled ? "default" : "pointer")};
+  opacity: ${({ disabled }) => (disabled ? 0.5 : 1)};
+`;
+
+interface PaginationBarProps {
+  totalPageNum: number;
+  activePageNum: number;
+  onPageChange: (pageNumber: number) => void;
+}
+
+const PaginationBar: React.FC<PaginationBarProps> = ({
+  totalPageNum,
+  activePageNum,
+  onPageChange,
+}) => {
   const maxVisiblePages = 5;
-  let startPage;
+  let startPage: number;
 
   if (totalPageNum <= maxVisiblePages) {
     startPage = 1;
@@ -20,33 +54,29 @@ const PaginationBar = ({ totalPageNum, activePageNum, onPageChange }) => {
   );
 
   return (
-    <div className="paginationBar">
-      <button
-        className="paginationButton"
+    <PaginationBarContainer>
+      <PaginationButton
         disabled={activePageNum === 1}
         onClick={() => onPageChange(activePageNum - 1)}
       >
         <LeftArrow />
-      </button>
+      </PaginationButton>
       {pages.map((page) => (
-        <button
+        <PaginationButton
           key={page}
-          className={`paginationButton ${
-            activePageNum === page ? "active" : ""
-          }`}
+          $isActive={activePageNum === page}
           onClick={() => onPageChange(page)}
         >
           {page}
-        </button>
+        </PaginationButton>
       ))}
-      <button
-        className="paginationButton"
+      <PaginationButton
         disabled={activePageNum === totalPageNum}
         onClick={() => onPageChange(activePageNum + 1)}
       >
         <RightArrow />
-      </button>
-    </div>
+      </PaginationButton>
+    </PaginationBarContainer>
   );
 };
 
