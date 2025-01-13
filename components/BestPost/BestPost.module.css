@@ -33,9 +33,63 @@
     gap: 24px;
 }
 
-.BestPostTopicmap {
+.BestPostTopicMap {
     width: 384px;
     height: 169px;
     border-radius: 8px;
-    background-color: #F9FAFB;
+    background-color: #f9fafb;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
 }
+
+.BestTopicImg {
+    width: 102px;
+    height: 30px;
+    background-color: #3692ff;
+    border-radius: 0px 0px 16px 16px;
+    margin-left: 24px;
+}
+
+.BestTopicContent {
+    width: 336px;
+    height: 72px;
+    background-color: aqua;
+    margin: 0 auto;
+    display: flex;
+    gap: 8px;
+}
+
+.BestTopicDetail {
+    width: 336px;
+    height: 24px;
+    background-color: antiquewhite;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.BestTopicContentText {
+    background-color: blueviolet;
+    width: 256px;
+    height: 64px;
+}
+
+.BestTopicContentImg {
+    background-color: blueviolet;
+    width: 72px;
+    height: 72x;
+}
+
+.BestTopicDetailData {
+    background-color: aquamarine;
+    width: 133px;
+    height: 24px;
+}
+
+.BestTopicDetailDate {
+    background-color: aquamarine;
+    width: 79px;
+    height: 24px;
+}
+
