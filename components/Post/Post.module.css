@@ -1,0 +1,78 @@
+.Post {
+    width: 1200px;
+    margin: 0 auto;
+    height: 756px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.PostTitleBar {
+    width: 100%;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.PostComment {
+    width: 100%;
+    background-color: blue;
+    height: 690px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.PostCommentBar {
+    width: 100%;
+    height: 42px;
+    background-color: blueviolet;
+}
+
+.PostCommentSection{
+    width: 100%;
+    height: 624px;
+    background-color: aquamarine;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.PostTitleBarBtn {
+    width: 88px;
+    height: 42px;
+    background-color: #3692ff;
+    border-radius: 8px;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.PostTitleBarText {
+    width: 52px;
+    height: 32px;
+    font-family: Pretendard;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 32px;
+    text-align: left;
+    color: #1f2937;
+}
+.PostTitleBardBtnText {
+    width: 42px;
+    height: 19px;
+    font-family: Pretendard;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 19.09px;
+    text-align: left;
+    color: #ffffff;
+}
+
+.PostCommentMap{ 
+    width: 100%;
+    height: 138px;
+    background-color: #FCFCFC;
+}
