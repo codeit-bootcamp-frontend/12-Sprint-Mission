@@ -1,0 +1,26 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+.bestproduct_img {
+  width: 282px;
+  height: 282px;
+  border-radius: 16px;
+  object-fit: cover;
+}
+
+.bestproduct_title {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.bestproduct_popularity {
+  width: 16px;
+  height: 16px;
+}
+
+.link {
+  text-decoration: none;
+  color: black;
+}

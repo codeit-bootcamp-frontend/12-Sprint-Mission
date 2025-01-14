@@ -1,0 +1,26 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+.allsection {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 43px;
+}
+
+.allsection_container {
+  width: 1200px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.allproduct_list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 23px;
+  justify-content: center;
+}

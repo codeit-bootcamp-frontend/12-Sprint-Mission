@@ -1,0 +1,20 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+.bestsection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bestsection_container {
+  width: 1200px;
+}
+
+.bestproduct_list {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+}
