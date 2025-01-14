@@ -1,0 +1,104 @@
+.HeaderContainer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    height: 70px;
+    border-bottom: 1px solid #dfdfdf;
+    background-color: white;
+}
+
+.Header {
+    width: calc(100% - 200px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.HeaderLogoContainer {
+    width: 386px;
+    height: 100%;
+    display: flex;
+    gap: 32px;
+}
+
+.HeaderProfile {
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+
+.HeaderLogo {
+    width: 153px;
+    height: 50px;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.HeaderNav {
+    width: 201px;
+    height: 68px;
+    display: flex;
+}
+
+.HeaderLogoText {
+    font-family: "ROKAFSans", sans-serif !important;
+    font-size: 25.63px;
+    font-weight: 700;
+    line-height: 34.6px;
+    text-align: left;
+    color: #3692ff;
+    width: 103px;
+    height: 35px;
+    margin-top: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@font-face {
+    font-family: "ROKAFSans";
+    src: url("/fonts/ROKAFSans-Bold.otf") format("opentype");
+    font-weight: 700;
+    font-style: normal;
+}
+
+.HeaderNavBoard {
+    width: 108px;
+    height: 68px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.HeaderNavMarket {
+    width: 93px;
+    height: 68px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.HeaderNavBoardText {
+    width: 78px;
+    height: 26px;
+    font-family: Pretendard;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 26px;
+    text-align: center;
+}
+
+.HeaderNavMarketText {
+    width: 63px;
+    height: 26px;
+    font-family: Pretendard;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 26px;
+    text-align: center;
+}
