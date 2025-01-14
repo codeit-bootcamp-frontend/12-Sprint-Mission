@@ -4,10 +4,12 @@ export async function fetchArticles({
   page = 1,
   pageSize = 10,
   orderBy = "recent",
+  keyword = "",
 }: {
   page?: number;
   pageSize?: number;
   orderBy?: "like" | "recent";
+  keyword?: string;
 }): Promise<FetchArticlesResponse> {
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
   if (!baseUrl) {
@@ -18,6 +20,10 @@ export async function fetchArticles({
   url.searchParams.append("page", String(page));
   url.searchParams.append("pageSize", String(pageSize));
   url.searchParams.append("orderBy", orderBy);
+
+  if (keyword) {
+    url.searchParams.append("keyword", keyword);
+  }
   try {
     const response = await fetch(url.toString());
     if (!response.ok) {

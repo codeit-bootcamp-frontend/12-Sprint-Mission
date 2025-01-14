@@ -40,6 +40,23 @@ export default function Page({ bestArticles, initialArticles, initialOrder }: Bo
   const [articles, setArticles] = useState<Article[]>(initialArticles.list);
   const [page, setPage] = useState(1);
   const [hasMore, setHasMore] = useState(true);
+  const [keyword, setKeyword] = useState("");
+
+  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setKeyword(e.target.value);
+  };
+
+  const handleSearchSubmit = () => {
+    setPage(1);
+    setArticles([]);
+    setHasMore(true);
+  };
+
+  const onKeyDownSearch = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter") {
+      handleSearchSubmit();
+    }
+  };
 
   const observerTarget = useRef<HTMLDivElement | null>(null);
 
@@ -71,6 +88,7 @@ export default function Page({ bestArticles, initialArticles, initialOrder }: Bo
           page,
           pageSize: 10,
           orderBy,
+          keyword,
         });
         if (page === 1) {
           setArticles(data.list);
@@ -86,7 +104,7 @@ export default function Page({ bestArticles, initialArticles, initialOrder }: Bo
       }
     }
 
-    if (page === 1 && articles.length > 0 && orderBy === initialOrder) {
+    if (page === 1 && articles.length > 0 && orderBy === initialOrder && keyword === "") {
       // 이미 SSR 데이터 있음
     } else {
       loadArticles();
@@ -110,7 +128,13 @@ export default function Page({ bestArticles, initialArticles, initialOrder }: Bo
       <div className={style.post_action}>
         <div className={style.search_container}>
           <Image src={searchIcon.src} alt="검색 아이콘" className={style.searchIcon} width={15} height={15} />
-          <input className={style.search_bar} placeholder="검색할 상품을 입력해주세요" />
+          <input
+            className={style.search_bar}
+            placeholder="검색할 상품을 입력해주세요"
+            value={keyword}
+            onChange={handleSearchChange}
+            onKeyDown={onKeyDownSearch}
+          />
         </div>
         <Dropdown isOpen={isOpen} selectedLabel={selectedLabel} onToggle={handleToggle} onSelect={handleSelect} />
       </div>
