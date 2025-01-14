@@ -1,0 +1,48 @@
+.item {
+  .thumbnail {
+    margin-bottom: 1.6rem;
+  }
+
+  &:hover {
+    figure {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.04);
+    }
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .title {
+    overflow: hidden;
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: var(--color-secondary-800);
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+    em {
+      color: var(--color-primary-200);
+      font-weight: 700;
+    }
+  }
+
+  .price {
+    font-weight: 700;
+    color: var(--color-secondary-800);
+  }
+
+  .action {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+
+    .count {
+      font-size: 1.2rem;
+      color: var(--color-secondary-600);
+    }
+  }
+}

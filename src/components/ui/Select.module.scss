@@ -1,0 +1,44 @@
+@use "@assets/scss/base/mixins";
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-width: 13rem;
+  height: 4.2rem;
+  padding: 0 1.2rem 0 2rem;
+  border-radius: 1.2rem;
+  border: 1px solid var(--color-secondary-200);
+
+  &:hover {
+    background: var(--color-secondary-100);
+  }
+
+  @include mixins.mobile {
+    overflow: hidden;
+    justify-content: center;
+    min-width: 0;
+    width: 4.2rem;
+    padding: 0;
+  }
+
+  .label {
+    @include mixins.mobile {
+      display: none;
+    }
+  }
+
+  .arrow {
+    @include mixins.mobile {
+      display: none;
+    }
+  }
+
+  .sort {
+    display: none;
+
+    @include mixins.mobile {
+      display: block;
+    }
+  }
+}

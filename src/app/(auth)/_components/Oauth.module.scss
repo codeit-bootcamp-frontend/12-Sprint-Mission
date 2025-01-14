@@ -1,0 +1,31 @@
+.oauth-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2.4rem;
+  padding: 1.6rem 2.3rem;
+  border-radius: 8px;
+  background: #e6f2ff;
+
+  .oauth-label {
+    font-weight: 500;
+  }
+
+  .oauth-providers {
+    display: flex;
+    align-items: center;
+    gap: 1.6rem;
+
+    .oauth-provider {
+      display: block;
+      width: 4.2rem;
+      height: 4.2rem;
+      border-radius: 50%;
+
+      img {
+        width: 100%;
+        height: auto;
+      }
+    }
+  }
+}

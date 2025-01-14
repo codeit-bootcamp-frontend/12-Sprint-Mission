@@ -1,5 +1,5 @@
 {
-  "name": "fe-weekly-mission",
+  "name": "next",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -9,16 +9,27 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "react": "^18",
-    "react-dom": "^18",
-    "next": "13.5.6"
+    "@hookform/resolvers": "^3.9.1",
+    "axios": "^1.7.8",
+    "clsx": "^2.1.1",
+    "dayjs": "^1.11.13",
+    "jwt-decode": "^4.0.0",
+    "lodash": "^4.17.21",
+    "next": "15.1.3",
+    "next-auth": "^5.0.0-beta.25",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-hook-form": "^7.54.2",
+    "zod": "^3.24.1"
   },
   "devDependencies": {
-    "typescript": "^5",
+    "@eslint/eslintrc": "^3",
     "@types/node": "^20",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
-    "eslint": "^8",
-    "eslint-config-next": "13.5.6"
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "15.1.3",
+    "sass": "^1.83.1",
+    "typescript": "^5"
   }
 }

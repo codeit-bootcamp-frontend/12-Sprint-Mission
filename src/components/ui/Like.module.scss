@@ -1,0 +1,23 @@
+.like {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.8rem;
+  font-size: 1.6rem;
+  color: var(--color-secondary-500);
+
+  img {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+.sm {
+  gap: 0.4rem;
+  font-size: 1.4rem;
+
+  img {
+    width: 16px;
+    height: 16px;
+  }
+}

@@ -1,0 +1,21 @@
+@use "@assets/scss/base/mixins";
+
+.alert {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding: 2.4rem;
+  border-radius: 1.6rem;
+  margin-bottom: 2rem;
+  font-weight: 500;
+
+  &.error {
+    color: var(--color-error-100);
+    background: #fedde0;
+  }
+
+  &.warn {
+    color: #9c7700;
+    background: #fff1c2;
+  }
+}

@@ -1,0 +1,61 @@
+@use "@assets/scss/base/mixins";
+
+.items {
+  display: flex;
+  gap: 4rem 2.4rem;
+  flex-wrap: wrap;
+
+  .item {
+    width: calc(20% - 1.92rem);
+  }
+
+  @include mixins.tablet {
+    gap: 4rem 1.6rem;
+
+    .item {
+      width: calc(33.333% - 1.067rem);
+
+      &:nth-child(n + 7) {
+        display: none;
+      }
+    }
+  }
+
+  @include mixins.mobile {
+    gap: 3.2rem 0.8rem;
+
+    .item {
+      width: calc(50% - 0.4rem);
+    }
+
+    &:nth-child(n + 5) {
+      display: none;
+    }
+  }
+}
+
+.items.best {
+  .item {
+    width: calc(25% - 1.8rem);
+  }
+
+  @include mixins.tablet {
+    .item {
+      width: calc(50% - 0.8rem);
+
+      &:nth-child(n + 3) {
+        display: none;
+      }
+    }
+  }
+
+  @include mixins.mobile {
+    .item {
+      width: 100%;
+
+      &:nth-child(n + 2) {
+        display: none;
+      }
+    }
+  }
+}

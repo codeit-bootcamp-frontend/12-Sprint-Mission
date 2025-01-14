@@ -1,0 +1,26 @@
+@use "@assets/scss/base/mixins";
+
+.form-item {
+  margin-bottom: 2.4rem;
+  position: relative;
+
+  @include mixins.mobile {
+    margin-bottom: 1.6rem;
+  }
+
+  .item-label {
+    display: inline-block;
+    margin-bottom: 1.6rem;
+    font-size: 1.8rem;
+    font-weight: 700;
+
+    @include mixins.mobile {
+      margin-bottom: 0.8rem;
+      font-size: 1.4rem;
+    }
+  }
+
+  .item-field {
+    position: relative;
+  }
+}

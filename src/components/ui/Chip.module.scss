@@ -1,0 +1,10 @@
+.chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  padding: 0 1.2rem 0 1.6rem;
+  height: 3.6rem;
+  background: var(--color-secondary-100);
+  border-radius: 9999px;
+}

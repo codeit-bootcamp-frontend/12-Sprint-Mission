@@ -1,0 +1,35 @@
+@use "@assets/scss/base/mixins";
+
+.container {
+  position: relative;
+  width: 100%;
+
+  .search {
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    height: 4.2rem;
+    padding: 0 1.6rem;
+    border-radius: 1.2rem;
+    background: var(--color-secondary-100);
+
+    &:has(:focus) {
+      outline: 1px solid var(--color-secondary-400);
+    }
+
+    .input {
+      flex: 1;
+      background: transparent;
+
+      &:focus {
+        outline: none;
+        border: none;
+      }
+
+      &::placeholder {
+        color: var(--color-secondary-400);
+      }
+    }
+  }
+}

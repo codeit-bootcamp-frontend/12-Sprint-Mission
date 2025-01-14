@@ -1,0 +1,29 @@
+@use "@assets/scss/base/mixins";
+.item {
+  margin-bottom: 2.4rem;
+}
+
+.best {
+  display: flex;
+  gap: 2.4rem;
+
+  .item {
+    width: 100%;
+  }
+
+  @include mixins.tablet {
+    .item:nth-child(n + 3) {
+      display: none;
+    }
+  }
+
+  @include mixins.mobile {
+    .list {
+      gap: 1.6rem;
+    }
+
+    .item:nth-child(n + 2) {
+      display: none;
+    }
+  }
+}

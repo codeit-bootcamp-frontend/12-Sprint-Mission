@@ -1,0 +1,33 @@
+.author {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+
+  .info {
+    font-size: 1.4rem;
+
+    .nickname {
+      margin-bottom: 2px;
+      font-weight: 500;
+      color: var(--color-secondary-600);
+    }
+  }
+
+  &.row {
+    gap: 0.8rem;
+
+    figure {
+      width: 2.4rem;
+      height: 2.4rem;
+
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+    .info {
+      display: flex;
+      gap: 0.8rem;
+    }
+  }
+}

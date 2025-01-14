@@ -1,0 +1,32 @@
+$breakpoint-mobile: 768px;
+$breakpoint-tablet: 1200px;
+
+@mixin mobile {
+  @media (width < $breakpoint-mobile) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (width < $breakpoint-tablet) {
+    @content;
+  }
+}
+
+@mixin inner {
+  max-width: calc(112rem + var(--gutter) * 2);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+@mixin tabletOnly {
+  @media ($breakpoint-mobile <= width <= $breakpoint-tablet) {
+    @content;
+  }
+}
+
+@mixin pcOnly {
+  @media (width >= $breakpoint-tablet) {
+    @content;
+  }
+}

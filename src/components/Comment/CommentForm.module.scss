@@ -1,0 +1,15 @@
+.meta {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.controls {
+  display: flex;
+  gap: 1rem;
+}
+
+.footer {
+  display: flex;
+  justify-content: flex-end;
+}

@@ -1,0 +1,137 @@
+@use "@assets/scss/base/mixins";
+
+.banner {
+  position: relative;
+  height: 54rem;
+  padding: 0 calc(20rem - var(--gutter));
+  background: #cfe5ff;
+
+  @include mixins.tablet {
+    height: auto;
+    padding: 0;
+  }
+
+  .inner {
+    @include mixins.inner;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    height: 100%;
+
+    @media (width < 1440px) {
+      justify-content: flex-start;
+      padding-top: 10rem;
+    }
+
+    @include mixins.tablet {
+      overflow: hidden;
+      align-items: center;
+      padding-top: 8.4rem;
+      text-align: center;
+    }
+
+    @include mixins.mobile {
+      padding-top: 4.8rem;
+    }
+  }
+
+  .banner-content {
+    position: relative;
+    z-index: 1;
+    margin-bottom: 10rem;
+
+    @include mixins.tablet {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 21rem;
+    }
+
+    @include mixins.mobile {
+      margin-bottom: 13.2rem;
+    }
+  }
+
+  .banner-title {
+    margin-bottom: 3.2rem;
+    font-size: 4rem;
+    font-weight: 700;
+    line-height: 1.4;
+    letter-spacing: 0.08rem;
+    color: var(--color-secondary-700);
+    white-space: pre-wrap;
+
+    @include mixins.tablet {
+      white-space: normal;
+    }
+
+    @include mixins.mobile {
+      margin-bottom: 1.8rem;
+      font-size: 3.2rem;
+      white-space: pre-wrap;
+    }
+  }
+
+  .banner-img {
+    position: absolute;
+    right: 2.4rem;
+    bottom: 0;
+    width: min(55vw, 74.6rem);
+    height: auto;
+
+    @include mixins.tablet {
+      position: relative;
+      right: auto;
+      bottom: auto;
+      width: calc(100% + var(--gutter) * 2);
+      margin: 0;
+    }
+  }
+}
+
+.hero-banner {
+  .banner-img {
+    @include mixins.mobile {
+      width: 120vw;
+    }
+  }
+}
+
+.footer-banner {
+  margin-top: 13.8rem;
+
+  @include mixins.tablet {
+    margin-top: 0;
+  }
+
+  .inner {
+    @include mixins.tablet {
+      padding-top: 20.1rem;
+    }
+
+    @include mixins.mobile {
+      padding-top: 12.1rem;
+    }
+  }
+
+  .banner-content {
+    margin-bottom: 17.2rem;
+
+    @include mixins.tablet {
+      margin-bottom: 21.7rem;
+    }
+
+    @include mixins.mobile {
+      margin-bottom: 13.1rem;
+    }
+  }
+
+  .banner-title {
+    margin-bottom: 0;
+
+    @include mixins.tablet {
+      white-space: pre-wrap;
+    }
+  }
+}
