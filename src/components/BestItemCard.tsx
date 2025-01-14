@@ -5,7 +5,7 @@ import badge from "@/assets/images/img_badge.svg";
 import heart from "@/assets/icons/heart.svg";
 import { formatDate } from "@/utils/formattedDate";
 
-export default function BestItemCard({ content, updatedAt, likeCount, writer, image, title, id }: Article) {
+export default function BestItemCard({ content, updatedAt, likeCount, writer, image, title }: Article) {
   const formattedDate = formatDate(updatedAt);
 
   return (

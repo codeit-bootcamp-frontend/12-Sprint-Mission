@@ -5,9 +5,7 @@ import heartIcon from "@/assets/icons/heart.svg";
 import Image from "next/image";
 import { formatDate } from "@/utils/formattedDate";
 
-interface ArticleItemCardProps extends Article {}
-
-export function ArticleItemCard({ title, content, image, likeCount, writer, updatedAt }: ArticleItemCardProps) {
+export function ArticleItemCard({ title, content, image, likeCount, writer, updatedAt }: Article) {
   const formattedDate = formatDate(updatedAt);
 
   return (
