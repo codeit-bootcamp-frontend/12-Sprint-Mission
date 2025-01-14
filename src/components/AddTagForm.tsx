@@ -1,12 +1,20 @@
-import React, { useState } from "react";
-import AddItemForm from "./AddItemForm";
+import React, { useState, KeyboardEvent } from "react";
+import AddItemForm from "./AddItemForm.tsx";
 import CloseIcon from "../asset/icon/ic_X.png";
-import "./AddTagForm.css";
+import styles from "./AddTagForm.module.css";
 
-function AddTagForm({ tags, onAddTag, onRemoveTag }) {
-  const [input, setInput] = useState("");
+interface AddTagFormProps {
+  tags: string[];
+  onAddTag: (tag: string) => void;
+  onRemoveTag: (tag: string) => void;
+}
 
-  const onPressEnter = (event) => {
+function AddTagForm({ tags, onAddTag, onRemoveTag }: AddTagFormProps) {
+  const [input, setInput] = useState<string>("");
+
+  function onPressEnter(
+    event: KeyboardEvent<HTMLInputElement | HTMLTextAreaElement>
+  ): void {
     if (event.nativeEvent.isComposing) return;
 
     const inputString = input.trim();
@@ -15,7 +23,7 @@ function AddTagForm({ tags, onAddTag, onRemoveTag }) {
       onAddTag(inputString);
       setInput("");
     }
-  };
+  }
 
   return (
     <div>
@@ -28,16 +36,16 @@ function AddTagForm({ tags, onAddTag, onRemoveTag }) {
         placeholder="태그를 입력해주세요"
       />
 
-      <div className="tag-buttons-section">
+      <div className={styles["tag-buttons-section"]}>
         {tags.map((tag) => (
-          <div key={`tag-${tag}`} className="tag">
-            <span className="tag-text">#{tag}</span>
+          <div key={`tag-${tag}`} className={styles["tag"]}>
+            <span className={styles["tag-text"]}>#{tag}</span>
             <img
               src={CloseIcon}
               alt="태그 삭제 버튼"
               onClick={() => onRemoveTag(tag)}
               aria-label={`${tag} 태그 삭제`}
-              className="tag-delete-button"
+              className={styles["tag-delete-button"]}
             />
           </div>
         ))}

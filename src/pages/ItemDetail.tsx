@@ -1,35 +1,26 @@
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-// import styled from "styled-components"; styled를 새롭게 배워서 사용해보려고 했는데...손에 익지 않아서 중도 포기합니다 ㅠ
 import defaultImage from "../asset/none.jpeg";
-import "./itemDetail.css";
+import styles from "./itemDetail.module.css";
 import heartIcon from "../asset/icon/ic_heart.png";
 import Profile from "../asset/icon/ic_profile.png";
 import Kebab from "../asset/icon/ic_kebab.png";
 import Back from "../asset/icon/ic_back.png";
-import DetailInquiry from "../components/DetailInquiry";
+import DetailInquiry from "../components/DetailInquiry.tsx";
 import DetailComments from "../components/DetailComments";
 
-// const ItemDetailSection = styled.div`
-//   width: 1200px;
-// `;
-
-// const MainImg = styled.div`
-//   margin-top: 70px;
-// `;
-
-function formatDate(dateString) {
+const formatDate = (dateString: string): string => {
   const date = new Date(dateString);
   const year = date.getFullYear();
   const month = (date.getMonth() + 1).toString().padStart(2, "0");
   const day = date.getDate().toString().padStart(2, "0");
   return `${year}.${month}.${day}`;
-}
+};
 
-function ItemDetail() {
-  const { productId } = useParams(); // URL에서 productId 가져오기
-  const [item, setItem] = useState(null); // 상품 데이터 상태
-  const [loading, setLoading] = useState(true); // 로딩 상태
+const ItemDetail: React.FC = () => {
+  const { productId } = useParams<{ productId: string }>();
+  const [item, setItem] = useState<any>(null);
+  const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
     const fetchItem = async () => {
@@ -40,7 +31,7 @@ function ItemDetail() {
         const data = await res.json();
         setItem(data);
       } catch (error) {
-        console.error("그만...", error);
+        console.error("Error fetching item details:", error);
       } finally {
         setLoading(false);
       }
@@ -73,33 +64,33 @@ function ItemDetail() {
   const formattedDate = formatDate(createdAt);
 
   return (
-    <div className="main-section">
-      <div className="main-container">
-        <div className="detail-section">
+    <div className={styles.mainSection}>
+      <div className={styles.mainContainer}>
+        <div className={styles.detailSection}>
           <div>
-            <img className="main-img" src={imageUrl} alt={name} />
+            <img className={styles.mainImg} src={imageUrl} alt={name} />
           </div>
-          <div className="detail-container">
-            <div className="item-title">
-              <div className="item-title-text">
-                <p className="item-name">{name}</p>
-                <p className="item-price">
+          <div className={styles.detailContainer}>
+            <div className={styles.itemTitle}>
+              <div className={styles.itemTitleText}>
+                <p className={styles.itemName}>{name}</p>
+                <p className={styles.itemPrice}>
                   {price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}원
                 </p>
               </div>
-              <img className="kebab-img" src={Kebab} alt="더보기 버튼" />
+              <img className={styles.kebabImg} src={Kebab} alt="더보기 버튼" />
             </div>
-            <div className="item-description">
-              <label className="item-description-label">상품소개</label>
-              <div className="item-description-text">{description}</div>
+            <div className={styles.itemDescription}>
+              <label className={styles.itemDescriptionLabel}>상품소개</label>
+              <div className={styles.itemDescriptionText}>{description}</div>
             </div>
 
-            <div className="item-tegs">
+            <div className={styles.itemTags}>
               <label>상품 태그</label>
               <div>
                 {tags.length > 0 ? (
                   tags.map((tag, index) => (
-                    <span className="item-tegs-box" key={index}>
+                    <span className={styles.itemTagBox} key={index}>
                       #{tag}
                     </span>
                   ))
@@ -108,36 +99,40 @@ function ItemDetail() {
                 )}
               </div>
             </div>
-            <div className="owner-info">
-              <div className="owner-info-profile">
+            <div className={styles.ownerInfo}>
+              <div className={styles.ownerInfoProfile}>
                 <img
-                  className="owner-profile-ic"
+                  className={styles.ownerProfileIcon}
                   src={Profile}
                   alt="프로필 아이콘"
                 />
-                <div className="owner-info-box">
-                  <p className="owner-nickname">{ownerNickname}</p>
-                  <p className="create">{formattedDate}</p>
+                <div className={styles.ownerInfoBox}>
+                  <p className={styles.ownerNickname}>{ownerNickname}</p>
+                  <p className={styles.createDate}>{formattedDate}</p>
                 </div>
               </div>
-              <div className="favorit-count">
-                <img className="heart-ic" src={heartIcon} alt="하트 아이콘" />
-                <p className="favorit-count-text">{favoriteCount}</p>
+              <div className={styles.favoriteCount}>
+                <img
+                  className={styles.heartIcon}
+                  src={heartIcon}
+                  alt="하트 아이콘"
+                />
+                <p className={styles.favoriteCountText}>{favoriteCount}</p>
               </div>
             </div>
           </div>
         </div>
         <DetailInquiry />
         <DetailComments />
-        <div className="back-btn-container">
-          <Link to="/" className="back-btn">
-            <p className="back-btn-text">목록으로 돌아가기</p>
+        <div className={styles.backBtnContainer}>
+          <Link to="/" className={styles.backBtn}>
+            <p className={styles.backBtnText}>목록으로 돌아가기</p>
             <img src={Back} alt="뒤로가기 아이콘" />
           </Link>
         </div>
       </div>
     </div>
   );
-}
+};
 
 export default ItemDetail;

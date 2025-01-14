@@ -1,70 +1,70 @@
-.main-section {
+.mainSection {
   display: flex;
   justify-content: center;
   margin-top: 94px;
 }
 
-.main-container {
+.mainContainer {
   width: 1200px;
 }
 
-.detail-section {
+.detailSection {
   display: flex;
   padding-bottom: 40px;
   border-bottom: 1px solid #e5e7eb;
   margin-bottom: 40px;
 }
 
-.main-img {
+.mainImg {
   width: 486px;
   height: 486px;
   border-radius: 16px;
   margin-right: 24px;
 }
 
-.detail-container {
+.detailContainer {
   display: flex;
   flex-direction: column;
   width: 100%;
   justify-content: space-between;
 }
 
-.item-title {
+.itemTitle {
   display: flex;
   justify-content: space-between;
   margin-bottom: 40px;
 }
 
-.item-title-text {
+.itemTitleText {
   display: flex;
   flex-direction: column;
 }
 
-.kebab-img {
+.kebabImg {
   width: 24px;
   height: 24px;
 }
 
-.item-name {
+.itemName {
   font-size: 24px;
   font-weight: 600;
   margin: 0 0 16px;
   color: #1f2937;
 }
 
-.item-price {
+.itemPrice {
   font-size: 40px;
   font-weight: 600;
   margin: 0;
   color: #1f2937;
 }
 
-.item-tegs {
+.itemTegs {
   display: flex;
   flex-direction: column;
 }
 
-.item-tegs-box {
+.itemTegsBox {
   background-color: #f3f4f6;
   padding: 5px 16px;
   border-radius: 26px;
@@ -74,30 +74,30 @@
   margin: 0 8px 8px 0;
 }
 
-.owner-info {
+.ownerInfo {
   display: flex;
   align-items: center;
   justify-content: space-between;
   height: 50px;
 }
 
-.owner-info-profile {
+.ownerInfoProfile {
   display: flex;
   align-items: center;
 }
 
-.owner-profile-ic {
+.ownerProfileIc {
   width: 40px;
   height: 40px;
   margin: 5px 16px 5px 0;
 }
 
-.owner-info-box {
+.ownerInfoBox {
   display: flex;
   flex-direction: column;
 }
 
-.owner-nickname {
+.ownerNickname {
   font-size: 14px;
   color: #4b5563;
   font-weight: 400;
@@ -111,7 +111,7 @@
   margin: 0;
 }
 
-.favorit-count {
+.favoritCount {
   display: flex;
   align-items: center;
   padding: 4px 12px;
@@ -121,42 +121,42 @@
   gap: 4px;
 }
 
-.heart-ic {
+.heartIc {
   width: 27px;
   height: 23px;
 }
 
-.favorit-count-text {
+.favoritCountText {
   font-size: 16px;
   color: #6b7280;
   font-weight: 400;
 }
 
-.item-description {
+.itemDescription {
   display: flex;
   flex-direction: column;
 }
 
-.item-description-label {
+.itemDescriptionLabel {
   font-size: 16px;
   font-weight: 600;
   margin: 0 0 16px;
   color: #4b5563;
 }
 
-.item-description-text {
+.itemDescriptionText {
   font-size: 16px;
   font-weight: 400;
   color: #4b5563;
 }
 
-.back-btn-container {
+.backBtnContainer {
   display: flex;
   width: 100%;
   justify-content: center;
 }
 
-.back-btn {
+.backBtn {
   display: flex;
   width: 240px;
   height: 48px;
@@ -173,6 +173,6 @@
   gap: 8px;
 }
 
-.back-btn:hover {
+.backBtn:hover {
   background-color: #3692cc;
 }
