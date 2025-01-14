@@ -21,10 +21,13 @@ export async function getProducts({
   return response.data;
 }
 
-export async function uploadProductImage(formData: FormData) {
+export async function uploadProductImage(file: File) {
+  const imgFormData = new FormData();
+  imgFormData.append("image", file);
+
   const response = await axiosInstance.post<ImageUploadResponse>(
     "/images/upload",
-    formData
+    imgFormData
   );
 
   return response.data;

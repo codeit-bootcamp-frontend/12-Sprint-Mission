@@ -17,10 +17,7 @@ export default function useProductActions(productId?: number) {
   async function handleProductAdd(formData: ProductFormType) {
     try {
       if (formData.images[0] instanceof File) {
-        const imgFormData = new FormData();
-        imgFormData.append("image", formData.images[0]);
-
-        const { url } = await uploadProductImage(imgFormData);
+        const { url } = await uploadProductImage(formData.images[0]);
         formData.images = [url];
       }
 
@@ -35,10 +32,7 @@ export default function useProductActions(productId?: number) {
 
     try {
       if (formData.images[0] instanceof File) {
-        const imgFormData = new FormData();
-        imgFormData.append("image", formData.images[0]);
-
-        const { url } = await uploadProductImage(imgFormData);
+        const { url } = await uploadProductImage(formData.images[0]);
         formData.images = [url];
       }
 
