@@ -9,7 +9,7 @@ export async function fetchArticles({
   pageSize?: number;
   orderBy?: "like" | "recent";
 }): Promise<FetchArticlesResponse> {
-  const baseUrl = process.env.BASE_URL;
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
   if (!baseUrl) {
     throw new Error("BASE_URL 환경변수가 설정되지 않았습니다.");
   }

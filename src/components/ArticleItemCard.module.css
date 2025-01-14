@@ -1,0 +1,70 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border-radius: 8px;
+  background-color: #fcfcfc;
+  gap: 24px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.content_wrapper {
+  display: flex;
+  justify-content: space-between;
+
+  font-size: 20px;
+  line-height: 32px;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.content_wrapper>div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  width: 72px;
+  height: 72px;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  background-color: #ffffff;
+}
+
+.content_wrapper>div>img {
+  width: 48px;
+  height: 48px;
+}
+
+.content_footer {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 24px;
+}
+
+.content_footer_wrapper {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.nickname {
+  font-size: 14px;
+  line-height: 24px;
+  color: #4b5536;
+}
+
+.date {
+  font-size: 14px;
+  line-height: 24px;
+  color: #9ca3af;
+}
+
+.likeCount {
+  display: flex;
+  text-align: center;
+  gap: 8px;
+  font-size: 16px;
+  line-height: 26px;
+  color: #6b7280;
+  padding-right: 5px;
+}
