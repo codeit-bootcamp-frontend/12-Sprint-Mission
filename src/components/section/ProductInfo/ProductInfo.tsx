@@ -1,11 +1,26 @@
 import "./ProductInfo.css";
 import ic_kebab from "../../../assets/icons/ic_kebab.svg";
+import defaultImg from "../../../assets/images/item-default-img-md.svg";
 import ProductMeta from "./ProductMeta";
+import { ProductMeta as ProductMetaType } from "../../../domains/product/index";
 
-function ProductInfo({ images, name, price, description, tags, meta }) {
+interface ProductInfoProps {
+  images: string[];
+  name: string;
+  price: number;
+  description: string;
+  tags: string[];
+  meta: ProductMetaType;
+}
+
+function ProductInfo({ images, name, price, description, tags, meta }: ProductInfoProps) {
   return (
     <div className="item-detail-info">
-      <img src={images} alt={name || "상품 이미지"} className="item-detail-thumbnail" />
+      <img
+        src={images && images.length > 0 ? images[0] : defaultImg}
+        alt={name || "상품 이미지"}
+        className="item-detail-thumbnail"
+      />
 
       <div className="item-detail-info-section">
         <div className="item-detail-header">

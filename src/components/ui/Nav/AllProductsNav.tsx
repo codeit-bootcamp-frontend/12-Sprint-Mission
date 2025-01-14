@@ -2,16 +2,21 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import Dropdown from "./Dropdown";
 import "./AllProductsNav.css";
+import { SortOption } from "../../../domains/product/index";
 
-function AllProductsNav({ onSortChange }) {
-  const [isOpen, setIsOpen] = useState(false);
-  const [selected, setSelected] = useState("최신순");
+interface AllProductsNavProps {
+  onSortChange: (newSortOption: SortOption) => void;
+}
 
-  const toggleDropdown = () => {
+function AllProductsNav({ onSortChange }: AllProductsNavProps) {
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [selected, setSelected] = useState<string>("최신순");
+
+  const toggleDropdown = (): void => {
     setIsOpen((prev) => !prev);
   };
 
-  const selectOption = (option, sortKey) => {
+  const selectOption = (option: string, sortKey: SortOption) => {
     setSelected(option);
     setIsOpen(false);
     onSortChange(sortKey);

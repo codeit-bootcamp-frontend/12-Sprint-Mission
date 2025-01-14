@@ -4,18 +4,19 @@ import "./AddItemPage.css";
 import ImageUpload from "../../components/ui/Input/ImageUpload";
 import InputItem from "../../components/ui/Input/InputItem";
 import TagInput from "../../components/ui/Input/TagInput";
+import { AddItemData } from "../../domains/product/index";
 
 function AddItemPage() {
-  const [formValues, setFormValues] = useState({
+  const [formValues, setFormValues] = useState<AddItemData>({
     name: "",
     description: "",
-    price: null,
+    price: 0,
     tags: [],
   });
 
   const { name, description, price, tags } = formValues;
 
-  const onAddTag = (tag) => {
+  const onAddTag = (tag: string): void => {
     if (!tags.includes(tag)) {
       setFormValues((prev) => ({
         ...prev,
@@ -24,7 +25,7 @@ function AddItemPage() {
     }
   };
 
-  const onRemoveTag = (tagToRemove) => {
+  const onRemoveTag = (tagToRemove: string): void => {
     setFormValues((prev) => ({
       ...prev,
       tags: prev.tags.filter((tag) => tag !== tagToRemove),
@@ -33,7 +34,7 @@ function AddItemPage() {
 
   const isFormValid = name && description && price && tags.length;
 
-  const handleInputChange = (field, value) => {
+  const handleInputChange = (field: keyof AddItemData, value: string | number | string[]) => {
     setFormValues((prev) => ({
       ...prev,
       [field]: value,

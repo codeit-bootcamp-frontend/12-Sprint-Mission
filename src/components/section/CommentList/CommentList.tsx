@@ -3,9 +3,14 @@ import "./CommentList.css";
 import profile from "../../../assets/images/profile.svg";
 import ic_kebab from "../../../assets/icons/ic_kebab.svg";
 import inquiry_empty from "../../../assets/images/Img_inquiry_empty.svg";
+import { Comment } from "../../../domains/product/index";
 
-function CommentList({ comments }) {
-  const getRelativeTime = (createdAt, updatedAt) => {
+interface CommentListProps {
+  comments: Comment[];
+}
+
+function CommentList({ comments }: CommentListProps) {
+  const getRelativeTime = (createdAt: string, updatedAt: string) => {
     if (updatedAt && updatedAt !== createdAt) {
       return formatRelativeTime(updatedAt);
     }

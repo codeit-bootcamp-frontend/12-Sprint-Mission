@@ -1,10 +1,16 @@
-import React from "react";
 import "./ProductMeta.css";
 import profile from "../../../assets/images/profile.svg";
 import heart_icon from "../../../assets/icons/heart-icon.svg";
 
-function ProductMeta({ ownerNickname, createdAt, favoriteCount }) {
-  const formatDate = (dateString) => {
+interface ProductMetaProps {
+  ownerNickname: string;
+  createdAt: string;
+  updatedAt?: string;
+  favoriteCount: number;
+}
+
+function ProductMeta({ ownerNickname, createdAt, favoriteCount }: ProductMetaProps) {
+  const formatDate = (dateString: string) => {
     const date = new Date(dateString);
     const year = date.getFullYear();
     const month = String(date.getMonth() + 1).padStart(2, "0");
