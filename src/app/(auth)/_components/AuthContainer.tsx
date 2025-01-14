@@ -1,12 +1,11 @@
-import { ReactNode } from "react";
+import { PropsWithChildren } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import logo from "@assets/img/common/logo_full.svg";
 import Oauth from "./Oauth";
 import styles from "./AuthContainer.module.scss";
 
-interface AuthContainerProps {
-  children: ReactNode;
+interface AuthContainerProps extends PropsWithChildren {
   mode?: "login" | "signup";
 }
 

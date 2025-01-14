@@ -1,13 +1,12 @@
 import Image from "next/image";
-import { ReactNode } from "react";
+import { PropsWithChildren } from "react";
 import clsx from "clsx";
 import styles from "./Message.module.scss";
 
-interface MessageProps {
+interface MessageProps extends PropsWithChildren {
   icon?: string;
   alt?: string;
   compact?: boolean;
-  children: ReactNode;
 }
 
 export function Message({

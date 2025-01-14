@@ -1,11 +1,10 @@
 import useCommentList from "@/components/Comment/useComments";
 import { BoardName, CommentList } from "@/types/comment";
-import { createContext, ReactNode, useContext } from "react";
+import { createContext, PropsWithChildren, useContext } from "react";
 
-interface CommentsProviderProps {
+interface CommentsProviderProps extends PropsWithChildren {
   name: BoardName;
   initialData: CommentList;
-  children: ReactNode;
 }
 
 interface CommentContextProps {
