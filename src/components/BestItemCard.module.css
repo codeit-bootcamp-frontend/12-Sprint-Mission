@@ -73,3 +73,9 @@
     padding: 0 24px 16px 24px;
   }
 }
+
+@media(max-width: 767px) {
+  .content_wrapper {
+    justify-content: space-between;
+  }
+}

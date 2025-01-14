@@ -6,9 +6,15 @@
 
 .best_section {
   display: flex;
+  flex-wrap: wrap;
   gap: 24px;
-
   padding-top: 24px;
+}
+
+.best_section>div {
+  flex: 1 1 340px;
+  min-width: 280px;
+  max-width: 1fr;
 }
 
 .post_header {
@@ -76,4 +82,23 @@
   display: flex;
   flex-direction: column;
   gap: 24px;
+}
+
+@media (max-width: 1199px) {
+  .post_action {
+    gap: 15px;
+  }
+
+  .best_section> :nth-child(3) {
+    display: none;
+    width: 100%;
+  }
+}
+
+@media (max-width: 767px) {
+
+  .best_section> :nth-child(2),
+  .best_section> :nth-child(3) {
+    display: none;
+  }
 }
