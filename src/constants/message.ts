@@ -70,3 +70,8 @@ export const COMMENT_EMPTY: {
     message: " 아직 문의가 없어요",
   },
 };
+
+export const COMMENT_BACK_LINK: { [key: string]: string } = {
+  articles: "/boards",
+  products: "/items",
+};
