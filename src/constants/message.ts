@@ -24,3 +24,12 @@ export const AUTH_VALIDATION_MESSAGES = {
   PASSWORD_MISMATCH: "비밀번호가 일치하지 않습니다.",
   USERNAME_REQUIRED: "닉네임을 입력해주세요",
 };
+
+export const ARTICLE_VALIDATION_MESSAGE = {
+  ARTICLE_IMAGE_REQUIRED: "이미지를 업로드해주세요",
+  ARTICLE_TITLE_REQUIRED: "제목을 입력해주세요",
+  ARTICLE_CONTENT_REQUIRED: "내용을 입력해주세요",
+  INVALID_IMAGE_TYPE: "지원하지않는 이미지 형식입니다.",
+  INVALID_IMAGE_SIZE: "이미지 용량을 확인해주세요.",
+  INVALID_IMAGE_COUNT: "1개만 업로드 가능합니다.",
+};
