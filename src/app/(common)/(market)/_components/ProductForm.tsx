@@ -54,11 +54,13 @@ export default function ProductForm({
 
   async function onSubmit(data: ProductFormType) {
     try {
-      await onFormSubmit(data);
+      const result = await onFormSubmit(data);
+      const id = result?.id;
+
       alert(
         mode === "add" ? "성공적으로 작성했습니다." : "성공적으로 수정했습니다."
       );
-      router.replace(mode === "add" ? "/items" : `/items/${initialData?.id}`);
+      router.replace(`/items/${id}`);
     } catch (err) {
       throw err;
     }

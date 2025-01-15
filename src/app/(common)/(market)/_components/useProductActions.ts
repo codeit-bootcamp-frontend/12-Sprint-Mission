@@ -21,7 +21,7 @@ export default function useProductActions(productId?: number) {
         formData.images = [url];
       }
 
-      await addProduct(formData);
+      return await addProduct(formData);
     } catch (err) {
       throw err;
     }
@@ -36,7 +36,7 @@ export default function useProductActions(productId?: number) {
         formData.images = [url];
       }
 
-      await modifyProduct(productId, formData);
+      return await modifyProduct(productId, formData);
     } catch (err) {
       throw err;
     }
