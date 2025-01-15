@@ -82,7 +82,7 @@ export default function ArticleForm({
               render={(props) => (
                 <Input
                   type="text"
-                  placeholder="상품명 입력해주세요"
+                  placeholder="제목을 입력해주세요"
                   {...props}
                 />
               )}
@@ -94,7 +94,7 @@ export default function ArticleForm({
               name="content"
               control={control}
               render={(props) => (
-                <Textarea placeholder="상품 소개를  입력해주세요" {...props} />
+                <Textarea placeholder="내용을 입력해주세요" {...props} />
               )}
             />
           </FieldItem>
