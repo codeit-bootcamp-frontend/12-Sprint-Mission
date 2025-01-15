@@ -21,7 +21,7 @@ export default function useArticleActions(articleId?: number) {
         formData.image = url;
       }
 
-      await addArticle(formData);
+      return await addArticle(formData);
     } catch (err) {
       throw err;
     }
@@ -36,7 +36,7 @@ export default function useArticleActions(articleId?: number) {
         formData.image = url;
       }
 
-      await modifyArticle(articleId, formData);
+      return await modifyArticle(articleId, formData);
     } catch (err) {
       throw err;
     }
