@@ -5,7 +5,7 @@ import defaultAvatar from "@assets/img/icon/icon_avatar.svg";
 import styles from "./Avatar.module.scss";
 
 interface AvatarProps {
-  img: string | undefined;
+  img?: string;
   nickname: string;
   hover?: boolean;
 }
@@ -21,7 +21,7 @@ export function Avatar({ nickname, img, hover }: AvatarProps) {
 
   return (
     <figure className={css}>
-      <Image src={avatarImg} alt={nickname} onError={handleError} />
+      <Image src={avatarImg} alt={nickname} onError={handleError} fill />
     </figure>
   );
 }
