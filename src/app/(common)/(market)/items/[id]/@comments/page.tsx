@@ -1,6 +1,6 @@
+import Comments from "@/app/(common)/_components/Comments";
 import { getComments } from "@/service/comments";
 import axios from "axios";
-import Comments from "../../../_components/Comments";
 import { notFound } from "next/navigation";
 
 export default async function ItemCommentsPage({
@@ -11,7 +11,7 @@ export default async function ItemCommentsPage({
   const id = (await params).id;
   try {
     const comments = await getComments("products", {
-      productId: Number(id),
+      id: Number(id),
       limit: 5,
     });
 

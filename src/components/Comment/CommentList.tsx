@@ -1,8 +1,8 @@
 import { Alert, Message } from "@components/ui";
 import { Comment } from "./Comment";
-import emptyIcon from "@assets/img/icon/icon_inquiry_empty.svg";
 import styles from "./CommentList.module.scss";
 import { useComments } from "@/context/CommentContext";
+import { COMMENT_EMPTY, COMMENT_LOADING } from "@/constants/message";
 
 export function CommentList() {
   const { name, comments, handleLoad, isLoading, error } = useComments();
@@ -11,8 +11,11 @@ export function CommentList() {
   return (
     <div className={styles.comments}>
       {list.length === 0 ? (
-        <Message icon={emptyIcon} alt="문의가 없습니다.">
-          아직 문의가 없어요
+        <Message
+          icon={COMMENT_EMPTY[name].image}
+          alt={COMMENT_EMPTY[name].message}
+        >
+          {COMMENT_EMPTY[name].message}
         </Message>
       ) : (
         <ul className={styles.list}>
@@ -26,7 +29,7 @@ export function CommentList() {
       {nextCursor && (
         <div className={styles.control}>
           {isLoading ? (
-            <Message compact>문의를 더 불러오고 있습니다.</Message>
+            <Message compact>{COMMENT_LOADING[name]}</Message>
           ) : (
             <button
               type="button"

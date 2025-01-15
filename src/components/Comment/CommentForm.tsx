@@ -1,14 +1,16 @@
 import { FieldItem, Form, Textarea } from "@components/Field";
 import { Author, Button } from "@components/ui";
 import styles from "./CommentForm.module.scss";
-import { Comment } from "@type/comment";
+import { BoardName, Comment } from "@type/comment";
 import useFormWithError from "@hooks/useFormWithError";
 import { CommentFormSchema, CommentFormType } from "@schemas/comment";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { FieldAdapter } from "@components/adaptor/rhf";
 import { useSession } from "next-auth/react";
+import { COMMENT_PLACEHOLDER, COMMENT_TITLE } from "@/constants/message";
 
 interface CommentForm {
+  name: BoardName;
   initialData?: Comment;
   onCommentSubmit: (data: CommentFormType) => Promise<void>;
   onClose?: () => void;
@@ -17,6 +19,7 @@ interface CommentForm {
 }
 
 export function CommentForm({
+  name,
   initialData,
   onCommentSubmit,
   onClose,
@@ -69,7 +72,9 @@ export function CommentForm({
     >
       <FieldItem>
         {!isEdit && (
-          <FieldItem.Label htmlFor="content">문의하기</FieldItem.Label>
+          <FieldItem.Label htmlFor="content">
+            {COMMENT_TITLE[name]}
+          </FieldItem.Label>
         )}
         <FieldAdapter
           name="content"
@@ -77,7 +82,7 @@ export function CommentForm({
           render={(props) => (
             <Textarea
               size="sm"
-              placeholder="개인정보를 공유 및 요청하거나, 명예 훼손, 무단 광고, 불법 정보 유포시 모니터링 후 삭제될 수 있으며, 이에 대한 민형사상 책임은 게시자에게 있습니다."
+              placeholder={COMMENT_PLACEHOLDER[name]}
               {...props}
             />
           )}

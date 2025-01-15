@@ -9,7 +9,11 @@ export function CommentAdd() {
 
   return (
     <div className={styles.form}>
-      <CommentForm onCommentSubmit={handleSubmit} onRefresh={refreshComments} />
+      <CommentForm
+        name={name}
+        onCommentSubmit={handleSubmit}
+        onRefresh={refreshComments}
+      />
     </div>
   );
 }

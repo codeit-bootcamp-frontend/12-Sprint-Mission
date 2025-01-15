@@ -8,14 +8,14 @@ export default function useComments(
   name: BoardName,
   initialComments: CommentList
 ) {
-  const { id: productId } = useParams();
+  const { id } = useParams();
   const [comments, setComments] = useState(initialComments);
   const { isLoading, error, wrappedFn: getData } = useAsync(getComments);
 
   async function handleLoad() {
     try {
       const result = await getData(name, {
-        productId: Number(productId),
+        id: Number(id),
         cursor: comments.nextCursor,
       });
 
@@ -35,7 +35,7 @@ export default function useComments(
 
   async function refreshComments() {
     const data = await getComments(name, {
-      productId: Number(productId),
+      id: Number(id),
       limit: 5,
     });
     setComments(data);

@@ -50,6 +50,7 @@ export function Comment({ name, comment }: Comment) {
       <li className={styles.item}>
         <div className={styles.form}>
           <CommentForm
+            name={name}
             initialData={comment}
             onCommentSubmit={handleUpdate}
             onClose={handleClose}
