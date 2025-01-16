@@ -1,4 +1,4 @@
-import Comments from "@/components/Comment/Comments";
+import { CommentAdd, CommentList } from "@/components/Comment";
 import { getComments } from "@/service/comments";
 
 export default async function ItemCommentsPage({
@@ -12,5 +12,10 @@ export default async function ItemCommentsPage({
     limit: 5,
   });
 
-  return <Comments name="products" data={comments} />;
+  return (
+    <>
+      <CommentAdd name="products" />
+      <CommentList name="products" data={comments} />
+    </>
+  );
 }

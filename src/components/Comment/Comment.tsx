@@ -1,3 +1,5 @@
+"use client";
+
 import { useState } from "react";
 import useComment from "./useComment";
 import { Author } from "@components/ui";
@@ -5,8 +7,6 @@ import { More } from "@components/Button";
 import { CommentForm } from ".";
 import styles from "./Comment.module.scss";
 import { BoardName, Comment as CommentItem } from "@type/comment";
-import { useComments } from "@/context/CommentContext";
-import { useSession } from "next-auth/react";
 
 interface Comment {
   name: BoardName;
@@ -14,23 +14,18 @@ interface Comment {
 }
 
 export function Comment({ name, comment }: Comment) {
-  const { data: session } = useSession();
-
   const [isModify, setIsModify] = useState(false);
+
   const {
     content,
     updatedAt,
-    writer: { nickname, image, id: writerId },
+    writer: { nickname, image },
   } = comment;
-  const { refreshComments } = useComments();
-  const {
-    isOwner,
-    handleUpdate,
-    handleDelete: handleDeleteComment,
-  } = useComment(name, comment);
+
+  const { isOwner, handleUpdate, handleDelete } = useComment(name, comment);
 
   function handleModify() {
-    if (Number(session?.user?.id) !== writerId) {
+    if (!isOwner) {
       return alert("작성자만 수정이 가능합니다.");
     }
     setIsModify(true);
@@ -38,11 +33,6 @@ export function Comment({ name, comment }: Comment) {
 
   function handleClose() {
     setIsModify(false);
-  }
-
-  async function handleDelete() {
-    await handleDeleteComment();
-    refreshComments();
   }
 
   if (isModify) {
@@ -55,7 +45,6 @@ export function Comment({ name, comment }: Comment) {
             onCommentSubmit={handleUpdate}
             onClose={handleClose}
             isEdit
-            onRefresh={refreshComments}
           />
         </div>
       </li>

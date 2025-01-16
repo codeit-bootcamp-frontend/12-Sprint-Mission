@@ -1,3 +1,5 @@
+"use client";
+
 import { FieldItem, Form, Textarea } from "@components/Field";
 import { Author, Button } from "@components/ui";
 import styles from "./CommentForm.module.scss";
@@ -6,7 +8,6 @@ import useFormWithError from "@hooks/useFormWithError";
 import { CommentFormSchema, CommentFormType } from "@schemas/comment";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { FieldAdapter } from "@components/adaptor/rhf";
-import { useSession } from "next-auth/react";
 import { COMMENT_PLACEHOLDER, COMMENT_TITLE } from "@/constants/message";
 
 interface CommentForm {
@@ -15,7 +16,6 @@ interface CommentForm {
   onCommentSubmit: (data: CommentFormType) => Promise<void>;
   onClose?: () => void;
   isEdit?: boolean;
-  onRefresh: () => void;
 }
 
 export function CommentForm({
@@ -24,7 +24,6 @@ export function CommentForm({
   onCommentSubmit,
   onClose,
   isEdit,
-  onRefresh,
 }: CommentForm) {
   const {
     control,
@@ -37,27 +36,16 @@ export function CommentForm({
     resolver: zodResolver(CommentFormSchema),
     defaultValues: initialData,
   });
-  const { data: session } = useSession();
 
   function handleClose() {
     reset();
     onClose?.();
   }
 
-  const message = isEdit
-    ? "성공적으로 수정했습니다."
-    : "성공적으로 작성했습니다.";
-
   async function onSubmit(data: CommentFormType) {
-    if (!session?.user) {
-      return alert("로그인이 필요합니다.");
-    }
-
     try {
       await onCommentSubmit(data);
-      alert(message);
-      onRefresh();
-      reset({ content: "" });
+      reset();
       onClose?.();
     } catch (err) {
       throw err;
