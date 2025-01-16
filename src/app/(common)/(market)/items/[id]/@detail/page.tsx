@@ -1,6 +1,7 @@
 import { getProduct } from "@/service/product";
 import ProductDetail from "../../../_components/ProductDetail";
 import { notFound } from "next/navigation";
+import { AxiosError } from "axios";
 
 export default async function ItemDetailPage({
   params,
@@ -8,11 +9,18 @@ export default async function ItemDetailPage({
   params: Promise<{ id: string }>;
 }) {
   const id = (await params).id;
-  const detail = await getProduct(Number(id));
 
-  if (!detail) {
-    notFound();
+  try {
+    const detail = await getProduct(Number(id));
+
+    return <ProductDetail detail={detail} />;
+  } catch (error) {
+    if (error instanceof AxiosError) {
+      if (error.status === 404) {
+        notFound();
+      }
+    }
+
+    throw new Error("페이지 정보를 가져오는데 문제가 생겼습니다.");
   }
-
-  return <ProductDetail detail={detail} />;
 }
