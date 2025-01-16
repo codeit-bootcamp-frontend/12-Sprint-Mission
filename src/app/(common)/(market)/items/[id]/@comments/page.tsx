@@ -1,4 +1,4 @@
-import Comments from "@/app/(common)/_components/Comments";
+import Comments from "@/components/Comment/Comments";
 import { getComments } from "@/service/comments";
 
 export default async function ItemCommentsPage({
