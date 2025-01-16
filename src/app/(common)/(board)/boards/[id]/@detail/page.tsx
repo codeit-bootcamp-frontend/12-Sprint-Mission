@@ -1,7 +1,7 @@
 import { getArticle } from "@/service/article";
 import { notFound } from "next/navigation";
 import BoardDetail from "../../../_components/BoardDetail";
-import { AxiosError } from "axios";
+import { isAxiosError } from "axios";
 
 export default async function BoardDetailPage({
   params,
@@ -15,7 +15,7 @@ export default async function BoardDetailPage({
 
     return <BoardDetail detail={detail} />;
   } catch (error) {
-    if (error instanceof AxiosError) {
+    if (isAxiosError(error)) {
       if (error.status === 404) {
         notFound();
       }

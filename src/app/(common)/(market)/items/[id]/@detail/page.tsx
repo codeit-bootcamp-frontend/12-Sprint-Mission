@@ -1,7 +1,7 @@
 import { getProduct } from "@/service/product";
 import ProductDetail from "../../../_components/ProductDetail";
 import { notFound } from "next/navigation";
-import { AxiosError } from "axios";
+import { isAxiosError } from "axios";
 
 export default async function ItemDetailPage({
   params,
@@ -15,7 +15,7 @@ export default async function ItemDetailPage({
 
     return <ProductDetail detail={detail} />;
   } catch (error) {
-    if (error instanceof AxiosError) {
+    if (isAxiosError(error)) {
       if (error.status === 404) {
         notFound();
       }

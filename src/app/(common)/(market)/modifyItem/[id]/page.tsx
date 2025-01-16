@@ -5,7 +5,7 @@ import { auth } from "@/auth";
 import { Suspense } from "react";
 import { Message } from "@/components/ui";
 import { notFound, redirect } from "next/navigation";
-import { AxiosError } from "axios";
+import { isAxiosError } from "axios";
 import { isRedirectError } from "next/dist/client/components/redirect-error";
 
 export default async function ModifyItemPage({
@@ -36,7 +36,7 @@ export default async function ModifyItemPage({
       </PageWrapper>
     );
   } catch (error) {
-    if (error instanceof AxiosError) {
+    if (isAxiosError(error)) {
       if (error.status === 404) {
         notFound();
       }

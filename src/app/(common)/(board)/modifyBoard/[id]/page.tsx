@@ -5,7 +5,7 @@ import { Suspense } from "react";
 import { Message } from "@/components/ui";
 import { getArticle } from "@/service/article";
 import ArticleForm from "../../_components/ArticleForm";
-import { AxiosError } from "axios";
+import { isAxiosError } from "axios";
 import { isRedirectError } from "next/dist/client/components/redirect-error";
 
 export default async function ModifyBoardPage({
@@ -41,7 +41,7 @@ export default async function ModifyBoardPage({
       </PageWrapper>
     );
   } catch (error) {
-    if (error instanceof AxiosError) {
+    if (isAxiosError(error)) {
       if (error.status === 404) {
         notFound();
       }
