@@ -6,6 +6,7 @@ import { Suspense } from "react";
 import { Message } from "@/components/ui";
 import { notFound, redirect } from "next/navigation";
 import { AxiosError } from "axios";
+import { isRedirectError } from "next/dist/client/components/redirect-error";
 
 export default async function ModifyItemPage({
   params,
@@ -20,7 +21,7 @@ export default async function ModifyItemPage({
     const isOwner = detail.ownerId === Number(session?.user.id);
 
     if (!isOwner) {
-      throw new Error("NO_PERMISSION");
+      redirect("/items");
     }
 
     return (
@@ -41,10 +42,8 @@ export default async function ModifyItemPage({
       }
     }
 
-    if (error instanceof Error) {
-      if (error.message === "NO_PERMISSION") {
-        redirect("/items");
-      }
+    if (isRedirectError(error)) {
+      throw error;
     }
 
     throw new Error("페이지 정보를 가져오는데 문제가 생겼습니다.");

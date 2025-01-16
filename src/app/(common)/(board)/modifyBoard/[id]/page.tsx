@@ -6,6 +6,7 @@ import { Message } from "@/components/ui";
 import { getArticle } from "@/service/article";
 import ArticleForm from "../../_components/ArticleForm";
 import { AxiosError } from "axios";
+import { isRedirectError } from "next/dist/client/components/redirect-error";
 
 export default async function ModifyBoardPage({
   params,
@@ -20,7 +21,7 @@ export default async function ModifyBoardPage({
     const isOwner = detail.writer.id === Number(session?.user.id);
 
     if (!isOwner) {
-      throw new Error("NO_PERMISSION");
+      redirect("/boards");
     }
 
     // 상세데이터에 이미지가 null로 오는경우 기본값을 undefined으로 변경시켜서 주입
@@ -46,10 +47,8 @@ export default async function ModifyBoardPage({
       }
     }
 
-    if (error instanceof Error) {
-      if (error.message === "NO_PERMISSION") {
-        redirect("/boards");
-      }
+    if (isRedirectError(error)) {
+      throw error;
     }
 
     throw new Error("페이지 정보를 가져오는데 문제가 생겼습니다.");
