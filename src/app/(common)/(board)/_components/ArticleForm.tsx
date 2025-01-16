@@ -55,7 +55,7 @@ export default function ArticleForm({
       alert(
         mode === "add" ? "성공적으로 작성했습니다." : "성공적으로 수정했습니다."
       );
-      router.replace(`/boards/${id}`);
+      router.replace(id ? `/boards/${id}` : "boards");
     } catch (err) {
       throw err;
     }

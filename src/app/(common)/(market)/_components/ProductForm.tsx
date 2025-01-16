@@ -60,7 +60,7 @@ export default function ProductForm({
       alert(
         mode === "add" ? "성공적으로 작성했습니다." : "성공적으로 수정했습니다."
       );
-      router.replace(`/items/${id}`);
+      router.replace(id ? `/items/${id}` : "/items");
     } catch (err) {
       throw err;
     }
