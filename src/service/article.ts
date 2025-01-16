@@ -10,9 +10,11 @@ export async function getArticles({
   orderBy = "recent",
   keyword = "",
 }) {
-  const query = `page=${page}&pageSize=${pageSize}&orderBy=${orderBy}&keyword=${keyword}`;
   const response = await axiosInstance.get<PaginationResponse<Article>>(
-    `/articles?${query}`
+    "articles",
+    {
+      params: { page, pageSize, orderBy, keyword },
+    }
   );
 
   return response.data;

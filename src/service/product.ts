@@ -13,9 +13,9 @@ export async function getProducts({
   orderBy = "recent",
   keyword = "",
 }) {
-  const query = `page=${page}&pageSize=${pageSize}&orderBy=${orderBy}&keyword=${keyword}`;
   const response = await axiosInstance.get<PaginationResponse<Product>>(
-    `/products?${query}`
+    "/products",
+    { params: { page, pageSize, orderBy, keyword } }
   );
 
   return response.data;
