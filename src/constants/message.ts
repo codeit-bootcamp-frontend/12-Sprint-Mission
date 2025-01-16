@@ -39,23 +39,23 @@ export const ARTICLE_VALIDATION_MESSAGE = {
 
 export const COMMENT_PLACEHOLDER: { [key: string]: string } = {
   articles: "댓글을 입력해주세요.",
-  boards:
+  products:
     "개인정보를 공유 및 요청하거나, 명예 훼손, 무단 광고, 불법 정보 유포시 모니터링 후 삭제될 수 있으며, 이에 대한 민형사상 책임은 게시자에게 있습니다.",
 };
 
 export const COMMENT_TITLE: { [key: string]: string } = {
   articles: "댓글달기",
-  boards: "문의하기",
+  products: "문의하기",
 };
 
 export const COMMENT_SUBJECT: { [key: string]: string } = {
   articles: "댓글",
-  boards: "문의",
+  products: "문의",
 };
 
 export const COMMENT_LOADING: { [key: string]: string } = {
   articles: "댓글을 더 불러오고 있습니다.",
-  boards: "문의를 더 불러오고 있습니다.",
+  products: "문의를 더 불러오고 있습니다.",
 };
 
 export const COMMENT_EMPTY: {
@@ -65,7 +65,7 @@ export const COMMENT_EMPTY: {
     image: emptyArticleCommentIcon,
     message: "아직 댓글이 없어요.\n지금 댓글을 달아보세요!",
   },
-  boards: {
+  products: {
     image: emptyProductCommentIcon,
     message: " 아직 문의가 없어요",
   },
