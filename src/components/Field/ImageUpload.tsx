@@ -5,33 +5,38 @@ import iconPlus from "@assets/img/icon/icon_plus.svg";
 import styles from "./ImageUpload.module.scss";
 import Image from "next/image";
 
+type FileType = File | string | undefined;
+
 interface ImageUploadProps {
-  value: (File | string)[];
-  onChange: (file: (File | string)[]) => void;
+  value: FileType[] | FileType;
+  onChange: (file: FileType[] | FileType) => void;
   error?: string;
   placeholder?: string;
 }
 
 export const ImageUpload = forwardRef(
   ({ value, onChange, error, placeholder }: ImageUploadProps, _) => {
+    const isArrayValue = Array.isArray(value);
+    const _value = isArrayValue ? value[0] : value;
     const preview =
-      value?.[0] instanceof File ? URL.createObjectURL(value[0]) : value?.[0];
+      _value instanceof File ? URL.createObjectURL(_value) : _value;
+
     const fileRef = useRef<HTMLInputElement>(null);
 
     useEffect(() => {
       return () => {
-        if (preview && value?.[0] instanceof File) {
+        if (preview && _value instanceof File) {
           URL.revokeObjectURL(preview);
         }
       };
-    }, [preview, value]);
+    }, [preview, _value]);
 
     function handleChange(e: ChangeEvent<HTMLInputElement>) {
       if (!e.target.files) return;
 
       const files = e.target.files;
 
-      onChange(Array.from(files));
+      onChange(isArrayValue ? Array.from(files) : files[0]);
 
       if (fileRef.current) {
         fileRef.current.value = "";
@@ -42,7 +47,7 @@ export const ImageUpload = forwardRef(
       if (!fileRef.current) return;
 
       fileRef.current.value = "";
-      onChange([]);
+      onChange(isArrayValue ? [] : undefined);
     }
 
     return (

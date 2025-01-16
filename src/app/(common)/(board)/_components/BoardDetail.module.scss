@@ -1,0 +1,38 @@
+.detail {
+  margin-bottom: 3.2rem;
+}
+
+.header {
+  margin-bottom: 1.6rem;
+  display: flex;
+  justify-content: space-between;
+
+  .title {
+    font-size: 2rem;
+    font-weight: 700;
+    word-break: break-all;
+  }
+}
+
+.meta {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--color-secondary-200);
+  padding-bottom: 1.6rem;
+  margin-bottom: 2.4rem;
+
+  .controls {
+    margin-left: 3.2rem;
+    padding-left: 3.2rem;
+    border-left: 1px solid var(--color-secondary-200);
+  }
+}
+
+.image {
+  max-width: 24rem;
+  margin-bottom: 2.4rem;
+}
+
+.content {
+  font-size: 1.8rem;
+}

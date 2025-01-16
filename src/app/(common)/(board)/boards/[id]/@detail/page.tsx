@@ -1,9 +1,9 @@
-import { getProduct } from "@/service/product";
-import ProductDetail from "../../../_components/ProductDetail";
+import { getArticle } from "@/service/article";
 import { notFound } from "next/navigation";
+import BoardDetail from "../../../_components/BoardDetail";
 import { isAxiosError } from "axios";
 
-export default async function ItemDetailPage({
+export default async function BoardDetailPage({
   params,
 }: {
   params: Promise<{ id: string }>;
@@ -11,9 +11,9 @@ export default async function ItemDetailPage({
   const id = (await params).id;
 
   try {
-    const detail = await getProduct(Number(id));
+    const detail = await getArticle(Number(id));
 
-    return <ProductDetail detail={detail} />;
+    return <BoardDetail detail={detail} />;
   } catch (error) {
     if (isAxiosError(error)) {
       if (error.status === 404) {

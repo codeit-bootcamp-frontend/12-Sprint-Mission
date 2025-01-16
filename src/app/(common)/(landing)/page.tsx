@@ -6,8 +6,6 @@ import {
   featureList,
 } from "./_components/landingContents";
 
-export const dynamic = "force-static";
-
 export default function LandingPage() {
   return (
     <>

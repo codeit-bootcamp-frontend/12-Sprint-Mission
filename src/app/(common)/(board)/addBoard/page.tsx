@@ -1,5 +1,10 @@
-import { Temporary } from "@/components/ui";
+import { PageWrapper } from "@/components/Page";
+import ArticleForm from "../_components/ArticleForm";
 
 export default function AddBoardPage() {
-  return <Temporary title="게시글 작성 페이지" />;
+  return (
+    <PageWrapper>
+      <ArticleForm mode="add" />
+    </PageWrapper>
+  );
 }

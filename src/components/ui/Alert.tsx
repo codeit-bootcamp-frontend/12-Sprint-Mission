@@ -1,13 +1,12 @@
 import Image from "next/image";
-import { ReactNode } from "react";
+import { PropsWithChildren } from "react";
 import clsx from "clsx";
 import iconError from "@assets/img/icon/icon_error.svg";
 import iconWarn from "@assets/img/icon/icon_warn.svg";
 import styles from "./Alert.module.scss";
 
-interface AlertProps {
+interface AlertProps extends PropsWithChildren {
   mode?: "error" | "warn";
-  children: ReactNode;
 }
 
 const iconImg = {

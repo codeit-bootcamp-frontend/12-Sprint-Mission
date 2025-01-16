@@ -1,15 +1,14 @@
-import { ButtonHTMLAttributes, ReactNode } from "react";
+import { ButtonHTMLAttributes, PropsWithChildren } from "react";
 import clsx from "clsx";
 import styles from "./Button.module.scss";
 import Link, { LinkProps } from "next/link";
 
-interface BaseButtonProps {
+interface BaseButtonProps extends PropsWithChildren {
   href?: string;
   size?: "sm" | "sm-48" | "md" | "lg" | "xl";
   variant?: "solid" | "outlined" | "text";
   color?: "primary" | "secondary" | "error";
   className?: string;
-  children: ReactNode;
 }
 type ButtonAsButton = ButtonHTMLAttributes<HTMLButtonElement> & BaseButtonProps;
 type ButtonAsLink = LinkProps & BaseButtonProps;

@@ -4,6 +4,7 @@ import { AxiosInterCeptor } from "@/context/AxiosInterCeptor";
 import { SessionProvider } from "next-auth/react";
 import "@assets/scss/style.scss";
 import { initServerInterceptor } from "@/service/serverAxios";
+import QueryClientProvider from "@/context/QueryClientProvider";
 
 export const metadata: Metadata = {
   title: "판다마켓",
@@ -25,8 +26,10 @@ export default function RootLayout({ children }: PropsWithChildren) {
       <body>
         <div id="root">
           <SessionProvider>
-            <AxiosInterCeptor />
-            {children}
+            <QueryClientProvider>
+              <AxiosInterCeptor />
+              {children}
+            </QueryClientProvider>
           </SessionProvider>
         </div>
       </body>
