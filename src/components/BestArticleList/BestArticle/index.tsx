@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import { Article } from '@/types';
 import dayjs from 'dayjs';
+import Link from 'next/link';
 
 const DEFAULT_IMAGE = '/assets/icons/profile.svg';
 
@@ -9,7 +10,7 @@ export default function BestArticle({ article, className }: { article: Article; 
   const validImageUrl = article.image ?? DEFAULT_IMAGE;
 
   return (
-    <div className={`flex-1 flex flex-col gap-6 rounded-lg p-6 bg-gray-50 ${className}`}>
+    <Link href={`/board/${article.id}`} className={`flex-1 flex flex-col gap-6 rounded-lg p-6 bg-gray-50 ${className}`}>
       <Image src='/assets/icons/badge.svg' alt='Best 뱃지 이미지' width={102} height={30} style={{ width: 102, height: 30 }} />
       <div className='flex gap-2 justify-between'>
         <p className='text-xl font-semibold'>{article.title}</p>
@@ -27,6 +28,6 @@ export default function BestArticle({ article, className }: { article: Article; 
         </div>
         <p className='text-gray-400'>{date}</p>
       </div>
-    </div>
+    </Link>
   );
 }

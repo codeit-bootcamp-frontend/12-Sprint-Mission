@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@fontsource/pretendard": "^5.1.0",
+    "@tanstack/react-query": "^5.64.1",
     "date-fns": "^4.1.0",
     "dayjs": "^1.11.13",
     "next": "15.1.3",

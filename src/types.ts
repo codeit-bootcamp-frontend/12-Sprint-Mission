@@ -51,3 +51,7 @@ export interface ArticleFormData {
   content: string;
   image: File | null;
 }
+
+export interface DetailArticle extends Article {
+  isLiked: boolean;
+}
