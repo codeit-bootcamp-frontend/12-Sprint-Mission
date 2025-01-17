@@ -20,3 +20,28 @@ export interface Article {
   updatedAt: string;
   writer: Writer;
 }
+
+export interface SigninSuccessResponse {
+  user: {
+    id: number;
+    nickname: string;
+    image: null;
+    createdAt: string;
+    updatedAt: string;
+    email: string;
+  };
+  accessToken: string;
+  refreshToken: string;
+}
+
+export interface SigninFailResponse {
+  message: string;
+  details: {
+    email?: {
+      message: string;
+    };
+    password?: {
+      message: string;
+    };
+  };
+}
