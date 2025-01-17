@@ -2,6 +2,7 @@ import { DetailArticle } from '@/types';
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import dayjs from 'dayjs';
+import CommentForm from '@/components/CommentForm';
 
 async function Title({ id }: { id: string }) {
   const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/articles/${id}`, {
@@ -43,6 +44,7 @@ export default async function DetailBoard({ params }: { params: Promise<{ id: st
   return (
     <main className='mt-[90px]'>
       <Title id={articleId} />
+      <CommentForm id={articleId} />
     </main>
   );
 }
