@@ -7,7 +7,7 @@ export async function submitComment(formData: FormData, accessToken: string | nu
   const formDataObject = Object.fromEntries(formData.entries());
 
   try {
-    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/products/${id}/comments`, {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/articles/${id}/comments`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -30,7 +30,7 @@ export async function submitComment(formData: FormData, accessToken: string | nu
       if (refreshResponse.ok) {
         const { accessToken: newAccessToken } = await refreshResponse.json();
 
-        const retryResponse = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/products/${id}/comments`, {
+        const retryResponse = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/articles/${id}/comments`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

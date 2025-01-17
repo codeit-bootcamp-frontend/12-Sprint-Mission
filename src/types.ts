@@ -55,3 +55,16 @@ export interface ArticleFormData {
 export interface DetailArticle extends Article {
   isLiked: boolean;
 }
+
+export interface Comment {
+  id: number;
+  content: string;
+  createdAt: string;
+  updatedAt: string;
+  writer: Writer & { image: null | string };
+}
+
+export interface Comments {
+  list: Comment[];
+  nextCursor: null | string;
+}

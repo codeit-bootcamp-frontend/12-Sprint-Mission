@@ -11,7 +11,7 @@ export default function ArticleForm() {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { isSubmitting, errors },
     watch,
     reset,
   } = useForm<ArticleFormData>({
@@ -71,8 +71,8 @@ export default function ArticleForm() {
     <form onSubmit={handleSubmit(onSubmit)} className='flex flex-col gap-4 mx-auto w-[100%] max-w-[1200px] px-6'>
       <div className='flex justify-between items-center'>
         <span className='font-bold text-xl'>게시글 쓰기</span>
-        <button type='submit' className={`${isFormValid ? 'bg-blue-100' : 'bg-gray-400'} text-white py-2 px-6 rounded-lg`} disabled={!isFormValid}>
-          등록
+        <button type='submit' className={`${isSubmitting || !isFormValid ? 'bg-gray-400' : 'bg-blue-100'} text-white py-2 px-6 rounded-lg`} disabled={isSubmitting || !isFormValid}>
+          {isSubmitting ? '등록 중' : '등록'}
         </button>
       </div>
       <label className='flex flex-col gap-2'>
