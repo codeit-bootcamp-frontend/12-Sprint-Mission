@@ -16,17 +16,21 @@ import { FieldAdapter } from "@components/adaptor/rhf";
 import { useRouter } from "next/navigation";
 import { ArticleFormSchema, ArticleFormType } from "@/schemas/article";
 
-interface ArticleFormProps {
-  initialData?: Article;
-  mode?: "add" | "edit";
+interface ArticleAddFormProps {
+  mode: "add";
+  onFormSubmit: (data: ArticleFormType) => Promise<Article | undefined>;
+}
+interface ArticleModifyFormProps {
+  initialData: Article;
+  mode: "edit";
   onFormSubmit: (data: ArticleFormType) => Promise<Article | undefined>;
 }
 
-export default function ArticleForm({
-  initialData,
-  mode = "add",
-  onFormSubmit,
-}: ArticleFormProps) {
+type ArticleFormProps = ArticleAddFormProps | ArticleModifyFormProps;
+
+export default function ArticleForm(props: ArticleFormProps) {
+  const { mode, onFormSubmit } = props;
+  const initialData = mode === "edit" ? props.initialData : undefined;
   const router = useRouter();
 
   const {

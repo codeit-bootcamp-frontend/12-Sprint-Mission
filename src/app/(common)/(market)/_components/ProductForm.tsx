@@ -18,17 +18,22 @@ import { Product } from "@type/product";
 import { FieldAdapter } from "@components/adaptor/rhf";
 import { useRouter } from "next/navigation";
 
-interface ProductFormProps {
-  initialData?: Product;
-  mode?: "add" | "edit";
+interface ProductAddFormProps {
+  mode: "add";
   onFormSubmit: (data: ProductFormType) => Promise<Product | undefined>;
 }
 
-export default function ProductForm({
-  initialData,
-  mode = "add",
-  onFormSubmit,
-}: ProductFormProps) {
+interface ProductModifyFormProps {
+  initialData: Product;
+  mode: "edit";
+  onFormSubmit: (data: ProductFormType) => Promise<Product | undefined>;
+}
+
+type ProductFormProps = ProductAddFormProps | ProductModifyFormProps;
+
+export default function ProductForm(props: ProductFormProps) {
+  const { mode, onFormSubmit } = props;
+  const initialData = mode === "edit" ? props.initialData : undefined;
   const router = useRouter();
 
   const {
