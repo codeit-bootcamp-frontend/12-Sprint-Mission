@@ -1,3 +1,4 @@
+import { BoardName } from "@/types/comment";
 import emptyProductCommentIcon from "@assets/img/icon/icon_inquiry_empty.svg";
 import emptyArticleCommentIcon from "@assets/img/icon/icon_reply_empty.svg";
 
@@ -37,30 +38,31 @@ export const ARTICLE_VALIDATION_MESSAGE = {
   INVALID_IMAGE_COUNT: "1개만 업로드 가능합니다.",
 };
 
-export const COMMENT_PLACEHOLDER: { [key: string]: string } = {
+export const COMMENT_PLACEHOLDER: Record<BoardName, string> = {
   articles: "댓글을 입력해주세요.",
   products:
     "개인정보를 공유 및 요청하거나, 명예 훼손, 무단 광고, 불법 정보 유포시 모니터링 후 삭제될 수 있으며, 이에 대한 민형사상 책임은 게시자에게 있습니다.",
 };
 
-export const COMMENT_TITLE: { [key: string]: string } = {
+export const COMMENT_TITLE: Record<BoardName, string> = {
   articles: "댓글달기",
   products: "문의하기",
 };
 
-export const COMMENT_SUBJECT: { [key: string]: string } = {
+export const COMMENT_SUBJECT: Record<BoardName, string> = {
   articles: "댓글",
   products: "문의",
 };
 
-export const COMMENT_LOADING: { [key: string]: string } = {
+export const COMMENT_LOADING: Record<BoardName, string> = {
   articles: "댓글을 더 불러오고 있습니다.",
   products: "문의를 더 불러오고 있습니다.",
 };
 
-export const COMMENT_EMPTY: {
-  [key: string]: { image: string; message: string };
-} = {
+export const COMMENT_EMPTY: Record<
+  BoardName,
+  { image: string; message: string }
+> = {
   articles: {
     image: emptyArticleCommentIcon,
     message: "아직 댓글이 없어요.\n지금 댓글을 달아보세요!",
@@ -71,7 +73,7 @@ export const COMMENT_EMPTY: {
   },
 };
 
-export const COMMENT_BACK_LINK: { [key: string]: string } = {
+export const COMMENT_BACK_LINK: Record<BoardName, string> = {
   articles: "/boards",
   products: "/items",
 };
