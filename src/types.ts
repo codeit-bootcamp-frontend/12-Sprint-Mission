@@ -45,3 +45,9 @@ export interface SigninFailResponse {
     };
   };
 }
+
+export interface ArticleFormData {
+  title: string;
+  content: string;
+  image: File | null;
+}

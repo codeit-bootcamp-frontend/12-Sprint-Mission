@@ -5,11 +5,7 @@ import { submitArticle } from '@/actions/submit-article';
 import { useState } from 'react';
 import Image from 'next/image';
 
-type ArticleFormData = {
-  title: string;
-  content: string;
-  image: File | null;
-};
+import { ArticleFormData } from '@/types';
 
 export default function ArticleForm() {
   const {
@@ -34,16 +30,19 @@ export default function ArticleForm() {
   const isFormValid = formValues.title && formValues.content;
 
   const onSubmit = async (data: ArticleFormData) => {
-    const formData = new FormData();
-
-    if (data.image) formData.append('image', data.image);
-    formData.append('title', data.title);
-    formData.append('content', data.content);
-
     try {
-      const result = await submitArticle(formData);
+      const formData = new FormData();
+
+      if (data.image) formData.append('image', data.image);
+
+      formData.append('title', data.title);
+      formData.append('content', data.content);
+      const accessToken = localStorage.getItem('accessToken');
+      const refreshToken = localStorage.getItem('refreshToken');
+      const result = await submitArticle(formData, accessToken, refreshToken);
       setResultMessage(result.message);
       reset({ title: '', content: '', image: null });
+      setPreviewImage(null);
     } catch (error) {
       setResultMessage(error instanceof Error ? error.message : '게시글 생성 중 오류가 발생했습니다.');
     }
