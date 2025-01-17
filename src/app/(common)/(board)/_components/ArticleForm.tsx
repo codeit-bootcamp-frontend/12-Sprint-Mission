@@ -103,7 +103,16 @@ export default function ArticleForm(props: ArticleFormProps) {
             <FieldAdapter
               name="image"
               control={control}
-              render={(props) => <ImageUpload {...props} />}
+              render={(props) => (
+                <ImageUpload
+                  {...props}
+                  value={props.value}
+                  onChange={(file) => {
+                    props.onChange(file);
+                    props.onBlur();
+                  }}
+                />
+              )}
             />
           </FieldItem>
         </Section.Content>

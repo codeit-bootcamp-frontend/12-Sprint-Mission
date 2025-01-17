@@ -85,7 +85,16 @@ export default function ProductForm(props: ProductFormProps) {
             <FieldAdapter
               name="images"
               control={control}
-              render={(props) => <ImageUpload {...props} />}
+              render={(props) => (
+                <ImageUpload
+                  {...props}
+                  value={props.value[0]}
+                  onChange={(file) => {
+                    props.onChange(file ? [file] : []);
+                    props.onBlur();
+                  }}
+                />
+              )}
             />
           </FieldItem>
           <FieldItem>
