@@ -19,7 +19,7 @@ function Header() {
           <Link href={'/'}>
             <Icon />
           </Link>
-          <Link href={'/community'}>자유게시판</Link>
+          <Link href={'/boards'}>자유게시판</Link>
           <Link href={'/items'}>중고마켓</Link>
         </div>
         <Link href={'/'}>
