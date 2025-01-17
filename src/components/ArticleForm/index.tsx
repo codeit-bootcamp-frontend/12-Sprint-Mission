@@ -27,6 +27,7 @@ export default function ArticleForm() {
     mode: 'onChange',
   });
   const [resultMessage, setResultMessage] = useState<string | null>(null);
+  const [previewImage, setPreviewImage] = useState<string | null>(null);
 
   const formValues = watch();
 
@@ -51,6 +52,19 @@ export default function ArticleForm() {
   const preventEnterSubmit = (e: React.KeyboardEvent) => {
     if (e.key === 'Enter') {
       e.preventDefault();
+    }
+  };
+
+  const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files ? event.target.files[0] : null;
+
+    // 기존 미리보기 이미지 URL이 존재하면 해제
+    if (previewImage) {
+      URL.revokeObjectURL(previewImage);
+    }
+
+    if (file) {
+      setPreviewImage(URL.createObjectURL(file)); // 선택된 이미지의 미리보기 URL을 생성
     }
   };
 
@@ -86,11 +100,14 @@ export default function ArticleForm() {
 
       <label className='flex flex-col'>
         <span className='font-bold text-lg'>이미지</span>
-        <div className='flex flex-col justify-center items-center gap-2 rounded-xl w-[168px] h-[168px] bg-gray-100 cursor-pointer md:w-[282px] md:h-[282px]'>
-          <Image src='/assets/icons/plus.svg' alt='이미지 등록 아이콘' width={44} height={44} style={{ width: 44, height: 44 }} />
-          <span className='text-gray-400'>이미지 등록</span>
+        <div className='flex gap-4'>
+          <div className='flex flex-col justify-center items-center gap-2 rounded-xl w-[168px] h-[168px] bg-gray-100 cursor-pointer md:w-[282px] md:h-[282px]'>
+            <Image src='/assets/icons/plus.svg' alt='이미지 등록 아이콘' width={44} height={44} style={{ width: 44, height: 44 }} />
+            <span className='text-gray-400'>이미지 등록</span>
+          </div>
+          <input type='file' {...register('image')} hidden onChange={handleImageChange} />
+          {previewImage && <Image src={previewImage} alt='업로드 할 이미지 미리보기' width={282} height={282} className='rounded-xl w-[168px] h-auto p-4 bg-gray-100 object-contain md:w-[282px]' />}
         </div>
-        <input type='file' {...register('image')} hidden readOnly />
       </label>
 
       {resultMessage && <p className='text-green-500'>{resultMessage}</p>}
