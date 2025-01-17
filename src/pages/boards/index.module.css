@@ -1,0 +1,33 @@
+.title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #111827;
+}
+
+.best_section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  padding-top: 24px;
+}
+
+.best_section>div {
+  flex: 1 1 340px;
+  min-width: 280px;
+  max-width: 1fr;
+}
+
+@media (max-width: 1199px) {
+  .best_section> :nth-child(3) {
+    display: none;
+    width: 100%;
+  }
+}
+
+@media (max-width: 767px) {
+
+  .best_section> :nth-child(2),
+  .best_section> :nth-child(3) {
+    display: none;
+  }
+}
