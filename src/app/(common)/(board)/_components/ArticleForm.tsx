@@ -14,24 +14,20 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { Article } from "@/types/article";
 import { FieldAdapter } from "@components/adaptor/rhf";
 import { useRouter } from "next/navigation";
-import useArticleActions from "./useArticleActions";
 import { ArticleFormSchema, ArticleFormType } from "@/schemas/article";
 
 interface ArticleFormProps {
   initialData?: Article;
   mode?: "add" | "edit";
-  articleId?: number;
+  onFormSubmit: (data: ArticleFormType) => Promise<Article | undefined>;
 }
 
 export default function ArticleForm({
   initialData,
   mode = "add",
-  articleId,
+  onFormSubmit,
 }: ArticleFormProps) {
   const router = useRouter();
-  const { handleArticleAdd, handleArticleModify } =
-    useArticleActions(articleId);
-  const onFormSubmit = mode === "add" ? handleArticleAdd : handleArticleModify;
 
   const {
     control,

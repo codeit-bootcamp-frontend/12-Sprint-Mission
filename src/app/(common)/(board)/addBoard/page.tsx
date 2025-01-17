@@ -1,10 +1,10 @@
 import { PageWrapper } from "@/components/Page";
-import ArticleForm from "../_components/ArticleForm";
+import ArticleAddForm from "../_components/ArticleAddForm";
 
 export default function AddBoardPage() {
   return (
     <PageWrapper>
-      <ArticleForm mode="add" />
+      <ArticleAddForm />
     </PageWrapper>
   );
 }

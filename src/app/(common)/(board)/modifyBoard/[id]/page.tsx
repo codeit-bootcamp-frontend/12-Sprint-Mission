@@ -4,9 +4,9 @@ import { notFound, redirect } from "next/navigation";
 import { Suspense } from "react";
 import { Message } from "@/components/ui";
 import { getArticle } from "@/service/article";
-import ArticleForm from "../../_components/ArticleForm";
 import { isAxiosError } from "axios";
 import { isRedirectError } from "next/dist/client/components/redirect-error";
+import ArticleModifyForm from "../../_components/ArticleModifyForm";
 
 export default async function ModifyBoardPage({
   params,
@@ -32,11 +32,7 @@ export default async function ModifyBoardPage({
         <Suspense
           fallback={<Message>게시물정보를 가져오는 중입니다...</Message>}
         >
-          <ArticleForm
-            mode="edit"
-            initialData={filteredDetail}
-            articleId={Number(id)}
-          />
+          <ArticleModifyForm initialData={filteredDetail} />
         </Suspense>
       </PageWrapper>
     );

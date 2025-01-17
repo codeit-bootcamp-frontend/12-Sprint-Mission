@@ -17,23 +17,19 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { Product } from "@type/product";
 import { FieldAdapter } from "@components/adaptor/rhf";
 import { useRouter } from "next/navigation";
-import useProductActions from "./useProductActions";
 
 interface ProductFormProps {
   initialData?: Product;
   mode?: "add" | "edit";
-  productId?: number;
+  onFormSubmit: (data: ProductFormType) => Promise<Product | undefined>;
 }
 
 export default function ProductForm({
   initialData,
   mode = "add",
-  productId,
+  onFormSubmit,
 }: ProductFormProps) {
   const router = useRouter();
-  const { handleProductAdd, handleProductModify } =
-    useProductActions(productId);
-  const onFormSubmit = mode === "add" ? handleProductAdd : handleProductModify;
 
   const {
     control,
