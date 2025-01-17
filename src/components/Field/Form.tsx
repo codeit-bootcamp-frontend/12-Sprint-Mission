@@ -1,11 +1,10 @@
-import { FormEvent, ReactNode } from "react";
+import { FormEvent, PropsWithChildren } from "react";
 import { Alert, LoadingSpinner } from "@components/ui";
 
-interface FormProps {
+interface FormProps extends PropsWithChildren {
   isLoading: boolean;
   error: Error | null;
   onSubmit: (e: FormEvent) => void;
-  children: ReactNode;
 }
 
 export function Form({ isLoading, error, onSubmit, children }: FormProps) {

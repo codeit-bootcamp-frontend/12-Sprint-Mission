@@ -1,22 +1,22 @@
 "use client";
 
-import { useRouter } from "next/navigation";
-import { Form, FieldItem, Input } from "@components/Field";
+import { FieldItem, Input } from "@components/Field";
 import { Button } from "@components/ui";
 import useFormWithError from "@hooks/useFormWithError";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { signinFormSchmea, SigninFormType } from "@schemas/auth";
 import { FieldAdapter } from "@components/adaptor/rhf";
-import { signIn } from "next-auth/react";
+import { ServerForm } from "@/components/Field/ServerForm";
+import { useActionState } from "react";
+import action from "../login/action";
 
 export default function LoginForm() {
-  const router = useRouter();
-
+  const [formStatus, formAction, isPending] = useActionState(action, {
+    message: "",
+  });
   const {
     control,
-    formError,
-    handleSubmit,
-    formState: { isSubmitting, isValid },
+    formState: { isValid },
   } = useFormWithError<SigninFormType>({
     mode: "onBlur",
     resolver: zodResolver(signinFormSchmea),
@@ -26,29 +26,11 @@ export default function LoginForm() {
     },
   });
 
-  async function onSubmit(data: SigninFormType) {
-    try {
-      const respone = await signIn("credentials", {
-        redirect: false,
-        ...data,
-      });
-
-      if (respone?.error) {
-        throw new Error(respone?.code);
-      }
-
-      alert("로그인에 성공했습니다.");
-      router.replace("/items");
-    } catch (err) {
-      throw err;
-    }
-  }
-
   return (
-    <Form
-      isLoading={isSubmitting}
-      error={formError}
-      onSubmit={handleSubmit(onSubmit)}
+    <ServerForm
+      action={formAction}
+      isLoading={isPending}
+      error={formStatus?.message}
     >
       <FieldItem>
         <FieldItem.Label htmlFor="email">이메일</FieldItem.Label>
@@ -81,6 +63,6 @@ export default function LoginForm() {
       <Button type="submit" size="xl" disabled={!isValid}>
         로그인
       </Button>
-    </Form>
+    </ServerForm>
   );
 }

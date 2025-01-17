@@ -1,22 +1,23 @@
 "use client";
 
-import { useRouter } from "next/navigation";
-import { Form, FieldItem, Input } from "@components/Field";
+import { FieldItem, Input } from "@components/Field";
 import { Button } from "@components/ui";
 import useFormWithError from "@hooks/useFormWithError";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { signupFormSchema, SignupFormType } from "@schemas/auth";
 import { FieldAdapter } from "@components/adaptor/rhf";
-import { signUp } from "@/service/auth";
+import action from "../signup/action";
+import { useActionState } from "react";
+import { ServerForm } from "@/components/Field/ServerForm";
 
 export default function SignupForm() {
-  const router = useRouter();
+  const [formStatus, formAction, isPending] = useActionState(action, {
+    message: "",
+  });
 
   const {
     control,
-    formError,
-    handleSubmit,
-    formState: { isSubmitting, isValid },
+    formState: { isValid },
   } = useFormWithError<SignupFormType>({
     mode: "onBlur",
     resolver: zodResolver(signupFormSchema),
@@ -28,21 +29,11 @@ export default function SignupForm() {
     },
   });
 
-  async function onSubmit(data: SignupFormType) {
-    try {
-      await signUp(data);
-      alert("회원가입에 성공했습니다. \n로그인 페이지로 이동합니다.");
-      router.replace("/login");
-    } catch (err) {
-      throw err;
-    }
-  }
-
   return (
-    <Form
-      isLoading={isSubmitting}
-      error={formError}
-      onSubmit={handleSubmit(onSubmit)}
+    <ServerForm
+      action={formAction}
+      isLoading={isPending}
+      error={formStatus?.message}
     >
       <FieldItem>
         <FieldItem.Label htmlFor="email">이메일</FieldItem.Label>
@@ -101,6 +92,6 @@ export default function SignupForm() {
       <Button type="submit" size="xl" disabled={!isValid}>
         회원가입
       </Button>
-    </Form>
+    </ServerForm>
   );
 }

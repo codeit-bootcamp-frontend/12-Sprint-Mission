@@ -1,12 +1,10 @@
-"use client";
-
 import { Button } from "@components/ui";
 import { Profile } from "@components/Header";
 import styles from "./Util.module.scss";
-import { useSession } from "next-auth/react";
+import { auth } from "@/auth";
 
-export function Util() {
-  const { data: session } = useSession();
+export async function Util() {
+  const session = await auth();
 
   return (
     <div className={styles.util}>

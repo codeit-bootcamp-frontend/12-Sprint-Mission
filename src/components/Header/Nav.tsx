@@ -9,7 +9,7 @@ const MENU = [
   {
     path: "/boards",
     title: "자유게시판",
-    activePathList: ["/boards", "/addboard", "/board"],
+    activePathList: ["/boards", "/addBoard", "/modifyBoard"],
   },
   {
     path: "/items",

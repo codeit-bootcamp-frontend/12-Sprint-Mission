@@ -1,14 +1,14 @@
 import { PageWrapper } from "@/components/Page";
-import ProductForm from "../../_components/ProductForm";
-import { getProduct } from "@/service/product";
 import { auth } from "@/auth";
+import { notFound, redirect } from "next/navigation";
 import { Suspense } from "react";
 import { Message } from "@/components/ui";
-import { notFound, redirect } from "next/navigation";
+import { getArticle } from "@/service/article";
+import ArticleForm from "../../_components/ArticleForm";
 import { isAxiosError } from "axios";
 import { isRedirectError } from "next/dist/client/components/redirect-error";
 
-export default async function ModifyItemPage({
+export default async function ModifyBoardPage({
   params,
 }: {
   params: Promise<{ id: string }>;
@@ -17,20 +17,25 @@ export default async function ModifyItemPage({
   const id = (await params).id;
 
   try {
-    const detail = await getProduct(Number(id));
-    const isOwner = detail.ownerId === Number(session?.user.id);
+    const detail = await getArticle(Number(id));
+    const isOwner = detail.writer.id === Number(session?.user.id);
 
     if (!isOwner) {
-      redirect("/items");
+      redirect("/boards");
     }
+
+    // 상세데이터에 이미지가 null로 오는경우 기본값을 undefined으로 변경시켜서 주입
+    const filteredDetail = { ...detail, image: detail.image ?? undefined };
 
     return (
       <PageWrapper>
-        <Suspense fallback={<Message>상품정보를 가져오는 중입니다...</Message>}>
-          <ProductForm
+        <Suspense
+          fallback={<Message>게시물정보를 가져오는 중입니다...</Message>}
+        >
+          <ArticleForm
             mode="edit"
-            initialData={detail}
-            productId={Number(id)}
+            initialData={filteredDetail}
+            articleId={Number(id)}
           />
         </Suspense>
       </PageWrapper>

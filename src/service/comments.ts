@@ -9,15 +9,11 @@ import { CommentFormType } from "@schemas/comment";
 
 export async function getComments(
   name: BoardName,
-  {
-    productId,
-    limit = 5,
-    cursor,
-  }: { productId: number; limit?: number; cursor?: number }
+  { id, limit = 5, cursor }: { id: number; limit?: number; cursor?: number }
 ) {
   const query = `limit=${limit}${cursor ? `&cursor=${cursor}` : ""}`;
   const response = await axiosInstance.get<CommentList>(
-    `/${name}/${productId}/comments?${query}`
+    `/${name}/${id}/comments?${query}`
   );
 
   return response.data;

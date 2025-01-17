@@ -2,6 +2,7 @@ import { getArticles } from "@/service/article";
 import { Section } from "@/components/Section";
 import BoardList from "../_components/BoardList";
 import BoardFilter from "../_components/BoardFilter";
+import { Button } from "@/components/ui";
 
 type ItemsPageQueryParams = {
   page?: string;
@@ -22,7 +23,11 @@ export default async function AllListPage({
 
   return (
     <Section>
-      <Section.Header title="게시글" />
+      <Section.Header title="게시글">
+        <Button href="/addBoard" size="sm">
+          글쓰기
+        </Button>
+      </Section.Header>
       <Section.Content>
         <BoardFilter />
         <BoardList data={data} />
