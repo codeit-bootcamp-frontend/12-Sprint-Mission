@@ -2,7 +2,7 @@
 import { submitComment } from '@/actions/submit-comment';
 import { useForm } from 'react-hook-form';
 import { useState } from 'react';
-import { useRouter } from 'next/navigation';
+import { useQueryClient } from '@tanstack/react-query';
 
 interface CommentFormData {
   content: string;
@@ -20,9 +20,9 @@ export default function CommentForm({ id }: { id: string }) {
     mode: 'onChange',
   });
   const [resultMessage, setResultMessage] = useState<string | null>(null);
-  const router = useRouter();
   const formValues = watch();
   const isFormValid = formValues.content;
+  const queryClient = useQueryClient();
 
   const onSubmit = async (data: CommentFormData) => {
     try {
@@ -33,7 +33,12 @@ export default function CommentForm({ id }: { id: string }) {
       const result = await submitComment(formData, accessToken, refreshToken, Number(id));
       setResultMessage(result.message);
       reset({ content: '' });
-      if (result.success) router.refresh();
+
+      if (result.success) {
+        queryClient.invalidateQueries({
+          queryKey: ['article-comments', Number(id)],
+        });
+      }
     } catch (err) {
       setResultMessage(err instanceof Error ? err.message : '댓글 등록 중 오류가 발생했습니다.');
     }
