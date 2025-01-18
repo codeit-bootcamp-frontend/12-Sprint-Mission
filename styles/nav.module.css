@@ -1,0 +1,39 @@
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 200px;
+  height: 70px;
+  align-items: center;
+  border-bottom: 1px solid #dfdfdf;
+  @media (max-width: 1200px) {
+    padding: 0 24px;
+  }
+  @media (max-width: 768px) {
+    padding: 0 16px;
+  }
+}
+
+.menu {
+  font-size: 18px;
+  font-weight: bold;
+  gap: 30px;
+  display: flex;
+  align-items: center;
+}
+
+.menu a {
+  text-decoration: none;
+  color: #4b5563;
+}
+
+.profileIc {
+  width: 40px;
+  height: 40px;
+  margin-left: auto;
+}

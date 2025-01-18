@@ -1,0 +1,17 @@
+.itemPage {
+  display: flex;
+  margin-top: 70px;
+  width: 100%;
+  justify-content: center;
+}
+
+.itemPageContainer {
+  width: 1201px;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: bold;
+  color: #111827;
+  margin-bottom: 24px;
+}
