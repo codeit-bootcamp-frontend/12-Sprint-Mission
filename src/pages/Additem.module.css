@@ -1,0 +1,142 @@
+.container {
+  width: 100%;
+  max-width: 1040px;
+  margin: 36px auto 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.register {
+  height: 42px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.register h1 {
+  color: #1f2937;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 32px;
+}
+
+.register button {
+  background-color: #9ca3af;
+  color: #f3f4f6;
+  font-weight: 600;
+  padding: 12px 23px;
+  width: 72px;
+  border: none;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.register_img,
+.register_name,
+.register_info,
+.register_price,
+.register_tag {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+h2 {
+  color: #1f2937;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 26px;
+}
+
+input,
+textarea {
+  background-color: #f3f4f6;
+  color: #1f1f1f;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  width: 100%;
+  padding: 16px 24px;
+  outline: none;
+  border: none;
+  border-radius: 12px;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #9ca3af;
+}
+
+textarea {
+  height: 242px;
+}
+
+/* 이미지 로드 */
+.img_upload_container {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+.upload_box {
+  background-color: #f3f4f6;
+  width: 242px;
+  aspect-ratio: 1 / 1;
+  border: none;
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.upload_box img {
+  width: 48px;
+  height: 48px;
+}
+
+.upload_box span {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 26px;
+  color: #9ca3af;
+}
+
+/* 이미지 미리보기 */
+.image_preview {
+  position: relative;
+  width: 242px;
+  aspect-ratio: 1 / 1;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.image_preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* 삭제 버튼 */
+.remove_button {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  border: none;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.remove_button img {
+  width: 100%;
+  height: 100%;
+}

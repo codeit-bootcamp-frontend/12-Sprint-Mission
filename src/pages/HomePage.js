@@ -140,7 +140,7 @@ function HomePage() {
             <img src={SearchImg} alt="돋보기" />
           </button>
         </form>
-        <Link to="/" style={{ textDecoration: "none" }}>
+        <Link to={"/additem"} style={{ textDecoration: "none" }}>
           <button className={styles.register} type="button">
             상품 등록하기
           </button>
