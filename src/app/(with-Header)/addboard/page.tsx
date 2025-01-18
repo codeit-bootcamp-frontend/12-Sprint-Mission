@@ -2,7 +2,7 @@ import ArticleForm from '@/components/ArticleForm';
 
 export default function Addboard() {
   return (
-    <main className='mt-[80px]'>
+    <main className='my-[80px]'>
       <ArticleForm />
     </main>
   );

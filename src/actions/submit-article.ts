@@ -17,7 +17,8 @@ export async function submitArticle(formData: FormData, accessToken: string | nu
     });
 
     if (response.ok) {
-      return { success: true, message: '게시글 생성이 완료되었습니다.' };
+      const { id }: { id: number } = await response.json();
+      return { success: true, message: '게시글 생성이 완료되어 3초 후 페이지를 이동합니다.', id };
     }
     if (response.status === 401) {
       const refreshResponse = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/auth/refresh-token`, {
@@ -40,7 +41,8 @@ export async function submitArticle(formData: FormData, accessToken: string | nu
         });
 
         if (retryResponse.ok) {
-          return { success: true, message: '게시글 생성이 완료되었습니다.', accessToken: newAccessToken };
+          const { id }: { id: number } = await retryResponse.json();
+          return { success: true, message: '게시글 생성이 완료되어 3초 후 페이지를 이동합니다.', accessToken: newAccessToken, id };
         } else {
           return { success: false, message: '게시글 생성 중 오류가 발생했습니다.' };
         }

@@ -6,6 +6,7 @@ import { useState } from 'react';
 import Image from 'next/image';
 
 import { ArticleFormData } from '@/types';
+import { useRouter } from 'next/navigation';
 
 export default function ArticleForm() {
   const {
@@ -24,6 +25,7 @@ export default function ArticleForm() {
   });
   const [resultMessage, setResultMessage] = useState<string | null>(null);
   const [previewImage, setPreviewImage] = useState<string | null>(null);
+  const router = useRouter();
 
   const formValues = watch();
 
@@ -43,6 +45,17 @@ export default function ArticleForm() {
       setResultMessage(result.message);
       reset({ title: '', content: '', image: null });
       setPreviewImage(null);
+
+      if (result.accessToken) localStorage.setItem('accessToken', result.accessToken);
+
+      if (result.success) {
+        setTimeout(() => {
+          router.push(`/board/${result.id}`);
+        }, 3000);
+      }
+      if (result.message.includes('세션')) {
+        router.push(`/signin`);
+      }
     } catch (error) {
       setResultMessage(error instanceof Error ? error.message : '게시글 생성 중 오류가 발생했습니다.');
     }
@@ -90,24 +103,21 @@ export default function ArticleForm() {
         <span className='font-bold text-lg'>*내용</span>
         <textarea
           {...register('content', { required: '내용을 반드시 입력해야 합니다.' })}
-          className='w-full h-[200px] rounded-xl py-4 px-6 bg-gray-100 resize-none md:h-[300px]'
+          className='w-full h-[120px] rounded-xl py-4 px-6 bg-gray-100 resize-none md:h-[200px]'
           onKeyDown={preventEnterSubmit}
           placeholder='내용을 입력해주세요'
         />
         {errors.content && <span className='text-red-error'>{errors.content.message}</span>}
       </label>
-
-      <label className='flex flex-col'>
-        <span className='font-bold text-lg'>이미지</span>
-        <div className='flex gap-4'>
-          <div className='flex flex-col justify-center items-center gap-2 rounded-xl w-[168px] h-[168px] bg-gray-100 cursor-pointer md:w-[282px] md:h-[282px]'>
-            <Image src='/assets/icons/plus.svg' alt='이미지 등록 아이콘' width={44} height={44} style={{ width: 44, height: 44 }} />
-            <span className='text-gray-400'>이미지 등록</span>
-          </div>
+      <span className='font-bold text-lg'>이미지</span>
+      <div className='flex gap-4'>
+        <label className='flex flex-col justify-center items-center gap-2 rounded-xl w-[168px] h-[168px] bg-gray-100 cursor-pointer md:w-[282px] md:h-[282px]'>
+          <Image src='/assets/icons/plus.svg' alt='이미지 등록 아이콘' width={44} height={44} style={{ width: 44, height: 44 }} />
+          <span className='text-gray-400'>이미지 등록</span>
           <input type='file' {...register('image')} hidden onChange={handleImageChange} />
-          {previewImage && <Image src={previewImage} alt='업로드 할 이미지 미리보기' width={282} height={282} className='rounded-xl w-[168px] h-auto p-4 bg-gray-100 object-contain md:w-[282px]' />}
-        </div>
-      </label>
+        </label>
+        {previewImage && <Image src={previewImage} alt='업로드 할 이미지 미리보기' width={282} height={282} className='rounded-xl w-[168px] h-auto p-4 bg-gray-100 object-contain md:w-[282px]' />}
+      </div>
 
       {resultMessage && <p className='text-green-500'>{resultMessage}</p>}
     </form>
