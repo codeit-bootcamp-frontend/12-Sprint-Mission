@@ -3,6 +3,7 @@ import { submitComment } from '@/actions/submit-comment';
 import { useForm } from 'react-hook-form';
 import { useState } from 'react';
 import { useQueryClient } from '@tanstack/react-query';
+import { useRouter } from 'next/navigation';
 
 interface CommentFormData {
   content: string;
@@ -12,7 +13,7 @@ export default function CommentForm({ id }: { id: string }) {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isSubmitting },
     watch,
     reset,
   } = useForm<CommentFormData>({
@@ -20,14 +21,12 @@ export default function CommentForm({ id }: { id: string }) {
     mode: 'onChange',
   });
   const [resultMessage, setResultMessage] = useState<string | null>(null);
-  const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
+  const router = useRouter();
   const formValues = watch();
   const isFormValid = formValues.content;
   const queryClient = useQueryClient();
 
   const onSubmit = async (data: CommentFormData) => {
-    if (isSubmitting) return;
-    setIsSubmitting(true);
     try {
       const formData = new FormData();
       formData.append('content', data.content);
@@ -37,15 +36,19 @@ export default function CommentForm({ id }: { id: string }) {
       setResultMessage(result.message);
       reset({ content: '' });
 
+      if (result.accessToken) localStorage.setItem('accessToken', result.accessToken);
+
       if (result.success) {
         queryClient.invalidateQueries({
           queryKey: ['article-comments', Number(id)],
         });
       }
+
+      if (result.message.includes('세션')) {
+        router.push(`/signin`);
+      }
     } catch (err) {
       setResultMessage(err instanceof Error ? err.message : '댓글 등록 중 오류가 발생했습니다.');
-    } finally {
-      setIsSubmitting(false);
     }
   };
 
@@ -60,7 +63,7 @@ export default function CommentForm({ id }: { id: string }) {
         />
         {errors.content && <span className='text-red-error'>{errors.content.message}</span>}
       </label>
-      <button type='submit' className={`${isFormValid ? 'bg-blue-100' : 'bg-gray-400'} ml-auto w-[100px] text-white py-2 px-6 rounded-lg`} disabled={!isFormValid}>
+      <button type='submit' className={`${isSubmitting || !isFormValid ? 'bg-gray-400' : 'bg-blue-100'} ml-auto w-[100px] text-white py-2 px-6 rounded-lg`} disabled={isSubmitting || !isFormValid}>
         등록
       </button>
       {resultMessage && <p className='text-green-500'>{resultMessage}</p>}
