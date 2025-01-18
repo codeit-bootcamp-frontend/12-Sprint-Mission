@@ -20,11 +20,14 @@ export default function CommentForm({ id }: { id: string }) {
     mode: 'onChange',
   });
   const [resultMessage, setResultMessage] = useState<string | null>(null);
+  const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
   const formValues = watch();
   const isFormValid = formValues.content;
   const queryClient = useQueryClient();
 
   const onSubmit = async (data: CommentFormData) => {
+    if (isSubmitting) return;
+    setIsSubmitting(true);
     try {
       const formData = new FormData();
       formData.append('content', data.content);
@@ -41,6 +44,8 @@ export default function CommentForm({ id }: { id: string }) {
       }
     } catch (err) {
       setResultMessage(err instanceof Error ? err.message : '댓글 등록 중 오류가 발생했습니다.');
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
