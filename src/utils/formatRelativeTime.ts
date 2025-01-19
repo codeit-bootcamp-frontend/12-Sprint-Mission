@@ -21,7 +21,7 @@ export function formatRelativeTime(dateString: string): string {
     { label: "초", seconds: 1 },
   ];
 
-  for (let interval of intervals) {
+  for (const interval of intervals) {
     const count: number = Math.floor(diffInSeconds / interval.seconds);
     if (count >= 1) {
       return `${count}${interval.label} 전`;
