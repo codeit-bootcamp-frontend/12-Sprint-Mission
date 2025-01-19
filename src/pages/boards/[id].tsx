@@ -3,6 +3,8 @@ import { fetchCommentsByArticleId } from "@/lib/fetchCommentsByArticleId";
 import { ArticleDetailResponse, FetchCommentsResponse } from "@/types";
 import { GetServerSideProps, GetServerSidePropsContext } from "next";
 import { formatDate } from "@/utils/formattedDate";
+import { addComment } from "@/services/commentService";
+import { useState } from "react";
 import CommentCard from "@/components/CommentCard";
 import Image from "next/image";
 import style from "./[id].module.css";
@@ -16,6 +18,26 @@ interface DetailPageProps {
 
 export default function Page({ article, comments }: DetailPageProps) {
   const formattedDate = formatDate(article.updatedAt);
+  const [commentContent, setCommentContent] = useState("");
+
+  const handleCommentChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    setCommentContent(e.target.value);
+  };
+
+  const handleCommentSubmit = async () => {
+    if (!commentContent.trim()) return;
+
+    try {
+      await addComment({
+        articleId: article.id,
+        content: commentContent,
+      });
+      setCommentContent("");
+      alert("댓글이 등록되었습니다.");
+    } catch (err: any) {
+      alert(err.message || "댓글 등록 실패");
+    }
+  };
 
   return (
     <div className={style.container}>
@@ -44,9 +66,11 @@ export default function Page({ article, comments }: DetailPageProps) {
         <div className={style.section}>
           <div className={style.input_wrapper}>
             <p>댓글달기</p>
-            <textarea placeholder="댓글을 입력해주세요." />
+            <textarea placeholder="댓글을 입력해주세요." value={commentContent} onChange={handleCommentChange} />
             <div>
-              <button>등록</button>
+              <button onClick={handleCommentSubmit} disabled={!commentContent}>
+                등록
+              </button>
             </div>
           </div>
           <div className={style.comment_wrapper}>
