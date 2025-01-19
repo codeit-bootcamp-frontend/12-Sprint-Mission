@@ -6,6 +6,10 @@ import CloseIcon from "../img/close.svg";
 function AddItem() {
   const [image, setImage] = useState(null);
   const [tags, setTags] = useState([]);
+  const [productName, setProductName] = useState(""); // 상품명 상태
+  const [productInfo, setProductInfo] = useState(""); // 상품 소개 상태
+  const [productPrice, setProductPrice] = useState(""); // 판매 가격 상태
+  const [isFormValid, setIsFormValid] = useState(false); // 폼 유효성 상태
 
   const handleImageUpload = (event) => {
     const file = event.target.files[0]; // 하나의 파일만 선택
@@ -24,36 +28,43 @@ function AddItem() {
       event.preventDefault();
 
       const inputValue = event.target.value.trim(); // 입력값 정리
-      console.log("Input Value:", inputValue);
-
-      // 중복 태그 확인 및 상태 업데이트
       setTags((prevTags) => {
         if (inputValue && !prevTags.includes(inputValue)) {
-          console.log("Adding Tag:", inputValue);
           return [...prevTags, inputValue]; // 새로운 태그 추가
-        } else {
-          console.log("Tag already exists or invalid:", inputValue);
-          return prevTags; // 상태 변경 없음
         }
+        return prevTags; // 상태 변경 없음
       });
 
       event.target.value = ""; // 입력 필드 초기화
     }
   };
 
-  useEffect(() => {
-    console.log("Current Tags:", tags);
-  }, [tags]);
-
   const handleTagRemove = (index) => {
     setTags(tags.filter((_, i) => i !== index)); // 해당 태그 삭제
   };
+
+  // 모든 필드가 입력되었는지 확인하는 유효성 검사 로직
+  useEffect(() => {
+    const isValid =
+      productName.trim() !== "" &&
+      productInfo.trim() !== "" &&
+      productPrice.trim() !== "" &&
+      tags.length > 0;
+    setIsFormValid(isValid);
+  }, [productName, productInfo, productPrice, tags]);
 
   return (
     <form className={styles.container}>
       <div className={styles.register}>
         <h1>상품 등록하기</h1>
-        <button>등록</button>
+        <button
+          className={
+            isFormValid ? styles.active_button : styles.disabled_button
+          }
+          disabled={!isFormValid}
+        >
+          등록
+        </button>
       </div>
 
       <div className={styles.register_img}>
@@ -91,15 +102,29 @@ function AddItem() {
 
       <div className={styles.register_name}>
         <h2>상품명</h2>
-        <input placeholder="상품명을 입력해주세요" type="text" />
+        <input
+          placeholder="상품명을 입력해주세요"
+          type="text"
+          value={productName}
+          onChange={(e) => setProductName(e.target.value)} // 상태 업데이트
+        />
       </div>
       <div className={styles.register_info}>
         <h2>상품 소개</h2>
-        <textarea placeholder="상품 소개를 입력하세요" />
+        <textarea
+          placeholder="상품 소개를 입력하세요"
+          value={productInfo}
+          onChange={(e) => setProductInfo(e.target.value)} // 상태 업데이트
+        />
       </div>
       <div className={styles.register_price}>
         <h2>판매가격</h2>
-        <input placeholder="판매 가격을 입력해주세요" type="number" />
+        <input
+          placeholder="판매 가격을 입력해주세요"
+          type="number"
+          value={productPrice}
+          onChange={(e) => setProductPrice(e.target.value)} // 상태 업데이트
+        />
       </div>
 
       <div className={styles.register_tag}>

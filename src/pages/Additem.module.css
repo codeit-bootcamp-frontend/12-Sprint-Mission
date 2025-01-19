@@ -21,15 +21,25 @@
   line-height: 32px;
 }
 
-.register button {
+.disabled_button {
   background-color: #9ca3af;
   color: #f3f4f6;
   font-weight: 600;
   padding: 12px 23px;
   width: 72px;
   border: none;
-  cursor: pointer;
   border-radius: 8px;
+}
+
+.active_button {
+  background-color: #3692ff;
+  color: #f3f4f6;
+  font-weight: 600;
+  padding: 12px 23px;
+  width: 72px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
 }
 
 .register_img,
