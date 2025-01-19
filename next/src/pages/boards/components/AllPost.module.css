@@ -1,0 +1,24 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.title {
+  display: flex;
+  justify-content: space-between;
+}
+
+.input {
+  display: flex;
+  gap: 16px;
+}
+
+.link {
+  padding: 12px 23px;
+  border: none;
+  border-radius: 8px;
+  text-decoration: none;
+  color: white;
+  background-color: #3692ff;
+}

@@ -1,0 +1,13 @@
+.input {
+  width: 100%;
+  padding: 9px 20px;
+  gap: 10px;
+  border: none;
+  border-radius: 12px;
+  background-color: #f3f4f6;
+  background-image: url("/images/ic_search.svg");
+  background-repeat: no-repeat;
+  background-position: 16px center;
+  background-size: 24px 24px;
+  padding-left: 44px;
+}
