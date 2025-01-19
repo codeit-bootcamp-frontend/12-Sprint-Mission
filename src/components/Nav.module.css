@@ -68,4 +68,11 @@
   .nav {
     padding: 9px 16px;
   }
+  .navLeft,
+  .menu {
+    gap: 8px;
+  }
+  .menu > li {
+    font-size: 16px;
+  }
 }

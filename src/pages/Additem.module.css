@@ -13,14 +13,12 @@
   justify-content: space-between;
   align-items: center;
 }
-
 .register h1 {
   color: #1f2937;
   font-size: 20px;
   font-weight: 700;
   line-height: 32px;
 }
-
 .disabled_button {
   background-color: #9ca3af;
   color: #f3f4f6;
@@ -30,7 +28,6 @@
   border: none;
   border-radius: 8px;
 }
-
 .active_button {
   background-color: #3692ff;
   color: #f3f4f6;
@@ -62,7 +59,7 @@ h2 {
 input,
 textarea {
   background-color: #f3f4f6;
-  color: #1f1f1f;
+  color: #1f2937;
   font-size: 16px;
   font-weight: 400;
   line-height: 24px;
@@ -71,13 +68,12 @@ textarea {
   outline: none;
   border: none;
   border-radius: 12px;
+  resize: none;
 }
-
 input::placeholder,
 textarea::placeholder {
   color: #9ca3af;
 }
-
 textarea {
   height: 242px;
 }
@@ -88,7 +84,6 @@ textarea {
   align-items: flex-start;
   gap: 24px;
 }
-
 .upload_box {
   background-color: #f3f4f6;
   width: 242px;
@@ -102,19 +97,16 @@ textarea {
   flex-direction: column;
   gap: 12px;
 }
-
 .upload_box img {
   width: 48px;
   height: 48px;
 }
-
 .upload_box span {
   font-size: 16px;
   font-weight: 400;
   line-height: 26px;
   color: #9ca3af;
 }
-
 /* 이미지 미리보기 */
 .image_preview {
   position: relative;
@@ -123,13 +115,11 @@ textarea {
   border-radius: 12px;
   overflow: hidden;
 }
-
 .image_preview img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
-
 /* 삭제 버튼 */
 .remove_button {
   position: absolute;
@@ -145,7 +135,6 @@ textarea {
   align-items: center;
   cursor: pointer;
 }
-
 .remove_button img {
   width: 100%;
   height: 100%;
@@ -157,7 +146,6 @@ textarea {
   flex-wrap: wrap;
   gap: 12px;
 }
-
 /* 개별 태그 */
 .tag_item {
   display: flex;
@@ -171,7 +159,6 @@ textarea {
   border-radius: 26px;
   gap: 8px;
 }
-
 /* 태그 삭제 버튼 */
 .tag_remove_button {
   background: none;
@@ -182,8 +169,17 @@ textarea {
   justify-content: center;
   padding: 0;
 }
-
 .tag_remove_button img {
   width: 20px;
   height: 20px;
+}
+
+@media (max-width: 1199px) {
+  .img_upload_container {
+    gap: 10px;
+  }
+  .upload_box,
+  .image_preview {
+    width: 168px;
+  }
 }
