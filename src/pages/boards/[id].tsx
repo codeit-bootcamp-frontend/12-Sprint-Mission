@@ -34,8 +34,12 @@ export default function Page({ article, comments }: DetailPageProps) {
       });
       setCommentContent("");
       alert("댓글이 등록되었습니다.");
-    } catch (err: any) {
-      alert(err.message || "댓글 등록 실패");
+    } catch (err: unknown) {
+      if (err instanceof Error) {
+        alert(err.message || "댓글 등록 실패");
+      } else {
+        alert("댓글 등록 실패");
+      }
     }
   };
 

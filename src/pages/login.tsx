@@ -15,8 +15,12 @@ export default function LoginPage() {
       saveTokens(accessToken, refreshToken);
       alert("로그인 성공!");
       router.push("/boards");
-    } catch (error: any) {
-      alert(error.message || "로그인 실패");
+    } catch (err: unknown) {
+      if (err instanceof Error) {
+        alert(err.message || "로그인 실패");
+      } else {
+        alert("로그인 실패");
+      }
     }
   };
 

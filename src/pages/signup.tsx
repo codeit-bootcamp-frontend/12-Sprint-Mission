@@ -25,8 +25,12 @@ export default function SignupPage() {
       // 3) 이후 페이지 이동
       alert("회원가입 성공");
       router.push("/boards");
-    } catch (err: any) {
-      alert(err.message || "회원가입 오류");
+    } catch (err: unknown) {
+      if (err instanceof Error) {
+        alert(err.message || "회원가입 오류");
+      } else {
+        alert("회원가입 오류");
+      }
     }
   };
 
