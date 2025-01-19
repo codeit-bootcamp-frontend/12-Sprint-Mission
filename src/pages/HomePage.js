@@ -26,14 +26,12 @@ function HomePage() {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const navigate = useNavigate();
 
-  // Helper function to categorize screen size
   function getScreenCategory(width) {
     if (width >= 768 && width <= 1199) return "tablet";
     if (width >= 375 && width <= 767) return "mobile";
     return "desktop";
   }
 
-  // Helper function to calculate pageSize
   function getPageSize(screenCategory, type) {
     const pageSizeMap = {
       desktop: { best: 4, list: 10 },
@@ -43,7 +41,6 @@ function HomePage() {
     return pageSizeMap[screenCategory]?.[type] || 10;
   }
 
-  // Update pageSize based on screenCategory
   const updatePageSettings = useCallback(() => {
     setOrder((prev) => ({
       ...prev,
@@ -51,7 +48,7 @@ function HomePage() {
     }));
   }, [screenCategory]);
 
-  // Load BestProduct data
+  // 인기상품 데이터 로드
   const loadBestProducts = useCallback(async () => {
     try {
       const response = await getList({
@@ -65,7 +62,7 @@ function HomePage() {
     }
   }, [screenCategory]);
 
-  // Load ProductList data
+  // 상품 데이터 로드
   const handleLoad = useCallback(async () => {
     setLoading(true);
     try {
