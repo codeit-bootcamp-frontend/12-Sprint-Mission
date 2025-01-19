@@ -1,0 +1,79 @@
+.articleCard {
+  width: 384px;
+  height: 169px;
+  background-color: #f9fafb;
+  border-radius: 8px;
+}
+
+.articleContainer {
+  margin: 0 24px 16px;
+}
+
+.bestBadge {
+  margin-bottom: 16px;
+  width: 102px;
+  height: 30px;
+}
+
+.articleMain {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+
+.articleTitle {
+  font-size: 20px;
+  text-align: center;
+  margin: 0;
+}
+
+.imageBack {
+  display: flex;
+  background-color: #ffffff;
+  width: 72px;
+  height: 82px;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  border-radius: 6px;
+  border: 1px solid #e5e7eb;
+}
+
+.articleImage {
+  object-fit: cover;
+  border-radius: 6px;
+}
+.defaultImage {
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.articleInfo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+}
+
+.nickNameLike {
+  display: flex;
+  align-items: center;
+}
+
+.articleNickname {
+  margin: 0 8px 0 0;
+  color: #4b5563;
+}
+.heartIcon {
+  margin: 0 4px 0 0;
+}
+
+.articleLikeCount {
+  margin: 0 124px 0 0;
+  color: #4b5563;
+}
+
+.articleDate {
+  margin: 0;
+  color: #9ca3af;
+}
