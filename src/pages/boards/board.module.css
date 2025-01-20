@@ -1,0 +1,112 @@
+.board_best {
+  display: flex;
+  gap: 24px;
+}
+.boart_common_wrap {
+  margin-top: 40px;
+}
+.boart_common_title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+.boart_common_title > div {
+  margin: 0;
+}
+.board_common_sort {
+  display: flex;
+  margin-bottom: 24px;
+  align-items: center;
+}
+.sch_box {
+  width: 100%;
+  height: 42px;
+  padding: 0 16px;
+  background-color: #f3f4f6;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+}
+.sch_box > input {
+  background: inherit;
+  border: none;
+  box-shadow: none;
+  border-radius: 0;
+  padding: 0;
+  overflow: visible;
+}
+.sch_box > input:focus {
+  outline: none;
+}
+.sch_box > input {
+  flex: 1;
+  height: 40px;
+  font-size: 16px;
+}
+.sch_box > input::placeholder {
+  color: #9ca3af;
+}
+.select_box {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-width: 130px;
+  margin-left: 16px;
+  height: 42px;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  padding: 0 20px;
+  cursor: pointer;
+  background: url("/assets/img/icon_arrow_down.svg") no-repeat calc(100% - 20px)
+    50%;
+}
+.select_box > div {
+  font-size: 16px;
+  line-height: 1;
+  background-color: #fff;
+}
+.select_box > ul {
+  position: absolute;
+  top: calc(100% + 5px);
+  right: 0;
+  width: 100%;
+  padding: 10px 0;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  background-color: #fff;
+}
+.select_box > ul > li {
+  font-size: 16px;
+  padding-left: 20px;
+  display: flex;
+  align-items: center;
+  height: 35px;
+  cursor: pointer;
+}
+.select_box > ul > li:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 1200px) {
+  .board_best {
+    gap: 16px;
+  }
+}
+
+@media (max-width: 744px) {
+  .select_box {
+    min-width: 42px;
+    justify-content: center;
+    max-width: 42px;
+    padding: 0;
+    background: none;
+  }
+  .select_box > ul {
+    width: auto;
+  }
+  .select_box > ul > li {
+    white-space: nowrap;
+    padding-right: 20px;
+  }
+}

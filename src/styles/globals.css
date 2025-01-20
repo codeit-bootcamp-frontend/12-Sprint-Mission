@@ -1,0 +1,183 @@
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css");
+/* 초기화 */
+html {
+  overflow-y: scroll;
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-size: 12px;
+  font-family: "Pretendard Variable", Pretendard, -apple-system,
+    BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI",
+    "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+  background: #fff;
+  line-height: 1.6;
+  color: #1f2937;
+}
+html,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+form,
+fieldset,
+img {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: 1em;
+  font-family: "Malgun Gothic", dotum, sans-serif;
+}
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+ul,
+dl,
+dt,
+dd {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+legend {
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  font-size: 0;
+  line-height: 0;
+  text-indent: -9999em;
+  overflow: hidden;
+}
+label,
+input,
+button,
+select,
+img {
+  vertical-align: middle;
+  font-size: 1em;
+}
+input,
+button {
+  margin: 0;
+  padding: 0;
+  font-family: "Pretendard Variable", Pretendard, -apple-system,
+    BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI",
+    "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+  font-size: 1em;
+}
+input[type="submit"] {
+  cursor: pointer;
+}
+button {
+  cursor: pointer;
+}
+textarea,
+select {
+  font-family: "Pretendard Variable", Pretendard, -apple-system,
+    BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI",
+    "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+  font-size: 1em;
+}
+select {
+  margin: 0;
+}
+p {
+  margin: 0;
+  padding: 0;
+  word-break: break-all;
+}
+a {
+  color: #1f2937;
+  text-decoration: none;
+}
+*,
+:after,
+:before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* 공통 css */
+body {
+  padding-top: 70px;
+}
+.page_wrap {
+  margin-top: 24px;
+}
+.inner {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+}
+.common_title {
+  margin-bottom: 24px;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.btn {
+  background: inherit;
+  border: none;
+  box-shadow: none;
+  border-radius: 0;
+  padding: 0;
+  overflow: visible;
+  cursor: pointer;
+}
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 23px;
+  height: 42px;
+  border-radius: 8px;
+  background-color: #3692ff;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+}
+.empty_box {
+  width: 100%;
+  padding: 100px 0;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 600;
+}
+@media (max-width: 1200px) {
+  .inner {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
+
+@media (max-width: 744px) {
+  .inner {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
