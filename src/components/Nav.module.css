@@ -51,11 +51,18 @@
   margin: 0;
 }
 
-.menu > li {
+.menu > li a {
+  color: #4b5563;
   display: inline-block;
+  text-decoration: none;
   font-size: 18px;
   font-weight: 700;
   line-height: 26px;
+  padding-top: 15px;
+}
+
+.menu li a.active {
+  color: #3692ff;
 }
 
 @media (max-width: 1199px) {

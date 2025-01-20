@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import logoImg from "../img/logoImg.png";
 import profileImg from "../img/profile.png";
 import styles from "./Nav.module.css";
@@ -11,8 +12,26 @@ function Nav() {
             <img className={styles.logoImg} src={logoImg} alt="판다마켓 로고" />
           </a>
           <ul className={styles.menu}>
-            <li>자유게시판</li>
-            <li>중고마켓</li>
+            <li>
+              <NavLink
+                to="/boards"
+                className={({ isActive }) =>
+                  isActive ? styles.active : undefined
+                }
+              >
+                자유게시판
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/items"
+                className={({ isActive }) =>
+                  isActive ? styles.active : undefined
+                }
+              >
+                중고마켓
+              </NavLink>
+            </li>
           </ul>
         </div>
         <img
