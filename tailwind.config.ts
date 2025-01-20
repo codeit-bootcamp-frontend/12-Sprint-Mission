@@ -29,6 +29,7 @@ export default {
       },
       screens: {
         pc: '1200px',
+        'sm-mobile': '400px',
       },
     },
   },

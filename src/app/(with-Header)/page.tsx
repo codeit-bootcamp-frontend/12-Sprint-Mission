@@ -1,6 +1,38 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
+function Footer() {
+  return (
+    <footer className='flex flex-wrap justify-around items-center px-4 h-[160px] bg-gray-900'>
+      <nav className='flex gap-6 md:order-2'>
+        <Link href='/privacy' className='text-gray-200'>
+          Privacy Policy
+        </Link>
+        <Link href='/faq' className='text-gray-200'>
+          FAQ
+        </Link>
+      </nav>
+
+      <nav className='flex gap-2 items-center md:order-3'>
+        <a href='https://facebook.com' target='_blank' rel='noopener noreferrer'>
+          <Image src='/assets/icons/ic_facebook.svg' alt='페이스북 아이콘' width={20} height={20} />
+        </a>
+        <a href='https://x.com' target='_blank' rel='noopener noreferrer'>
+          <Image src='/assets/icons/ic_twitter.svg' alt='트위터 아이콘' width={20} height={20} />
+        </a>
+        <a href='https://yotube.com' target='_blank' rel='noopener noreferrer'>
+          <Image src='/assets/icons/ic_youtube.svg' alt='유튜브 아이콘' width={20} height={20} />
+        </a>
+        <a href='https://instagram.com' target='_blank' rel='noopener noreferrer'>
+          <Image src='/assets/icons/ic_instagram.svg' alt='인스타그램 아이콘' width={20} height={20} />
+        </a>
+      </nav>
+
+      <span className='w-[100%] text-gray-400 md:w-auto md:order-1'>@codeit - 2024</span>
+    </footer>
+  );
+}
+
 interface Content {
   keyword: string;
   subTitle1: string;
@@ -95,6 +127,7 @@ export default function Home() {
       <TopBanner />
       <ContentList />
       <BottomBanner />
+      <Footer />
     </main>
   );
 }
