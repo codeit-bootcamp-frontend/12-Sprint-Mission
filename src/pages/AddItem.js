@@ -6,30 +6,38 @@ import CloseIcon from "../img/close.svg";
 function AddItem() {
   const [image, setImage] = useState(null);
   const [tags, setTags] = useState([]);
-  const [productName, setProductName] = useState(""); // 상품명 상태
-  const [productInfo, setProductInfo] = useState(""); // 상품 소개 상태
-  const [productPrice, setProductPrice] = useState(""); // 판매 가격 상태
+  const [productName, setProductName] = useState("");
+  const [productInfo, setProductInfo] = useState("");
+  const [productPrice, setProductPrice] = useState("");
   const [isFormValid, setIsFormValid] = useState(false); // 폼 유효성 상태
+  const [errorMessage, setErrorMessage] = useState("");
 
+  // 이미지 업로드
   const handleImageUpload = (event) => {
-    const file = event.target.files[0]; // 하나의 파일만 선택
+    const file = event.target.files[0];
     if (file) {
+      if (image) {
+        setErrorMessage("이미지 등록은 최대 1개까지 가능합니다.");
+        return;
+      }
       const newImage = URL.createObjectURL(file); // Blob URL 생성
       setImage(newImage);
+      setErrorMessage(""); // 오류 메시지 초기화
     }
   };
 
   const handleImageRemove = () => {
     setImage(null);
+    setErrorMessage(""); // 이미지를 삭제하면 오류 메시지 초기화
   };
 
+  // 태그 생성
   const handleTagAdd = (event) => {
     if (event.key === "Enter") {
       event.preventDefault();
 
-      let inputValue = event.target.value.trim(); // 입력값 정리
+      let inputValue = event.target.value.trim();
       if (inputValue) {
-        // 이미 #으로 시작하지 않으면 추가
         if (!inputValue.startsWith("#")) {
           inputValue = `#${inputValue}`;
         }
@@ -104,6 +112,8 @@ function AddItem() {
             </div>
           )}
         </div>
+        {/* 경고 메시지 표시 */}
+        {errorMessage && <p className={styles.error_message}>{errorMessage}</p>}
       </div>
 
       <div className={styles.register_name}>
