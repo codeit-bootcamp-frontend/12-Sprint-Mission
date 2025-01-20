@@ -1,0 +1,110 @@
+.cardList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px 1.87%;
+}
+
+.cardList li {
+  width: 18.5%;
+}
+
+.cardList li a {
+  display: block;
+}
+
+.cardList li a:hover .imgBox {
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, .2);
+}
+
+.cardList li a:hover .imgBox img {
+  transform: scale(1.2);
+}
+
+.cardList li .imgBox {
+  position: relative;
+  padding-top: 100%;
+  margin-bottom: 16px;
+  border-radius: 16px;
+  overflow: hidden;
+  transition: all .5s;
+}
+
+.cardList li .imgBox img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: all .5s;
+}
+
+.cardList li .textBox {
+  margin-bottom: 6px;
+}
+
+.cardList li .textBox h4 {
+  margin-bottom: 6px;
+  color: var(--gray02);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.7;
+}
+
+.cardList li .textBox .price {
+  display: block;
+  font-weight: 700;
+  line-height: 1.6;
+  color: var(--gray02);
+}
+
+.cardList li .likeBox {
+  height: 18px;
+  display: flex;
+  align-items: center;
+  gap: 0 4px;
+}
+
+.cardList li .likeBox span {
+  display: flex;
+  align-items: center;
+  gap: 0 5px;
+  position: relative;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--gray03);
+}
+
+.cardList li .likeBox span::before {
+  content: '';
+  width: 14px;
+  height: 12px;
+  background: url(/public/images/like_btn.svg)no-repeat center;
+  background-size: cover;
+}
+
+.cardList.bestCardBox li {
+  width: 23.59%;
+}
+
+@media (max-width: 1199px) {
+
+  .cardList.bestCardBox li {
+    width: 49%;
+  }
+
+}
+
+@media (max-width: 767px) {
+
+  .cardList.bestCardBox {
+    gap: 20px 0;
+  }
+
+  .cardList.bestCardBox li {
+    width: 100%;
+  }
+
+}

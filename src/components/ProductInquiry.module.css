@@ -1,0 +1,51 @@
+.inquiryBox {
+  padding: 40px 0 0;
+  margin-bottom: 100px;
+}
+
+.inquiryBox .text {
+  display: block;
+  margin-bottom: 9px;
+  color: #111827;
+  line-height: 1.6;
+  font-weight: 600;
+}
+
+.inquiryBox form textarea {
+  margin-bottom: 16px;
+  padding: 16px 24px;
+  width: 100%;
+  height: 104px;
+  overflow-y: auto;
+  background-color: var(--gray04);
+  border-radius: 12px;
+  border: 0;
+  font-size: 16px;
+  font-family: 'pretendard', sans-serif;
+}
+
+.inquiryBox form textarea::placeholder {
+  color: var(--gray01);
+}
+
+.inquiryBox form .btnBox {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.addBtn {
+  display: block;
+  width: 74px;
+  height: 42px;
+  line-height: 42px;
+  text-align: center;
+  background-color: var(--blue);
+  border-radius: 8px;
+  color: var(--white01);
+  font-size: 16px;
+}
+
+.addBtn:disabled {
+  background-color: var(--gray01);
+  cursor: auto;
+}

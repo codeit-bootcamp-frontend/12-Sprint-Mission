@@ -1,0 +1,35 @@
+.productBox {
+  position: relative;
+  margin-bottom: 49px;
+}
+
+.productBox .product {
+  position: relative;
+}
+
+.productBox:last-child {
+  margin-bottom: 0;
+}
+
+.searchWrap {
+  display: flex;
+  gap: 0 12px;
+  position: absolute;
+  top: -9px;
+  right: 0;
+  height: 42px;
+  border-radius: 12px;
+}
+
+.searchWrap .btnBox .addBtn {
+  display: block;
+  width: 133px;
+  height: 42px;
+  line-height: 42px;
+  border-radius: 8px;
+  background-color: var(--blue);
+  text-align: center;
+  font-weight: 600;
+  color: #fff;
+  font-size: 16px;
+}

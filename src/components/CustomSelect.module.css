@@ -1,0 +1,66 @@
+.selectBox .select {
+  position: relative;
+  display: block;
+  padding: 0 0 0 20px;
+  width: 130px;
+  height: 42px;
+  line-height: 42px;
+  border: 1px solid #E5E7EB;
+  border-radius: 12px;
+  color: var(--gray02);
+}
+
+.selectBox .select::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 24px;
+  width: 14px;
+  height: 8px;
+  background: url(/public/images/arrow_icon.svg)no-repeat center;
+  background-size: cover;
+  transition: all .3s;
+}
+
+.selectBox .select.active::after {
+  transform: translateY(-50%) rotate(-180deg);
+}
+
+.selectBox .select.active + .viewList {
+  opacity: 1;
+  z-index: 99;
+}
+
+.selectBox .viewList {
+  position: relative;
+  opacity: 0;
+  margin-top: 8px;
+  border: 1px solid #E5E7EB;
+  border-radius: 12px;
+  overflow: hidden;
+  z-index: -1;
+  transition: all .3s;
+  background-color: var(--white01);
+}
+
+.selectBox .viewList li {
+  border-bottom: 1px solid #E5E7EB;
+}
+
+.selectBox .viewList li:last-child {
+  border-bottom: 0;
+}
+
+.selectBox .viewList li a {
+  text-align: center;
+  display: block;
+  height: 42px;
+  line-height: 42px;
+  color: var(--gray02);
+  background-color: #fff;
+}
+
+.selectBox .viewList li a:hover {
+  font-weight: 500;
+}

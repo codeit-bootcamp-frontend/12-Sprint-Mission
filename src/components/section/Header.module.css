@@ -1,0 +1,112 @@
+#header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 70px;
+  background-color: #fff;
+  border-bottom: 1px solid #DFDFDF;
+  z-index: 99;
+}
+
+#header nav {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+#header nav .depth01 {
+  display: flex;
+  align-items: center;
+}
+
+#header nav .depth01 li h2 a {
+  display: block;
+  padding: 24px 15px;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--gray03);
+  transition: all .3s;
+}
+
+#header nav .depth01 li h2 a.active {
+  color: var(--blue);
+}
+
+#header nav .depth01 li h2 a:hover {
+  color: var(--blue);
+}
+
+#header .header {
+  position: relative;
+  height: 70px;
+  display: flex;
+  align-items: center;
+}
+
+#header .logo {
+  margin-right: 32px;
+}
+
+#header .logo h1 a,
+#header .logo h1 a img {
+  display: block;
+}
+
+#header .loginBox {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 0;
+}
+
+#header .loginBox a {
+  display: block;
+  width: 40px;
+  height: 40px;
+  background: url(/public/images/user_icon.svg)no-repeat center;
+  background-size: cover;
+}
+
+@media (max-width: 1199px) {
+
+  #header nav .depth01 li h2 a {
+    padding: 25px 15px;
+    font-size: 16px;
+  }
+
+}
+
+@media (max-width: 767px) {
+
+  #header .logo h1 a img {
+    width: 120px;
+  }
+
+  #header .logo {
+    margin-right: 20px;
+  }
+
+  #header nav .depth01 li h2 a {
+    padding: 27px 10px;
+    font-size: 14px;
+  }
+
+}
+
+@media (max-width: 414px) {
+
+  #header .logo h1 a img {
+    width: 100px;
+  }
+
+  #header nav .depth01 li h2 a {
+    padding: 28px 8px;
+    font-size: 12px;
+  }
+
+  #header .logo {
+    margin-right: 10px;
+  }
+
+}

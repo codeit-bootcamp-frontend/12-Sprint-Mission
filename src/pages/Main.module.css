@@ -1,0 +1,388 @@
+p.title {
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 1.4;
+}
+
+.infoBox {
+  display: flex;
+  height: 444px;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.infoBox .imgBox {
+  flex-shrink: 0;
+  width: 580px;
+}
+
+.infoBox .imgBox img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.infoBox .infoText {
+  display: block;
+  margin-bottom: 12px;
+  color: #3692FF;
+  font-size: 18px;
+  line-height: 1.44;
+  font-weight: 700;
+}
+
+.infoBox .textBox {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 21px 0 52px;
+  background-color: #FCFCFC;
+}
+
+.infoBox .textBox p.title {
+  margin-bottom: 24px;
+}
+
+.infoBox .textBox p.text {
+  font-size: 24px;
+  line-height: 1.33;
+  font-size: 24px;
+  font-weight: 500;
+}
+
+@media (max-width: 1199px) {
+
+  .infoBox {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .infoBox .imgBox {
+    width: 100%;
+  }
+
+  .infoBox .textBox p.title {
+    font-size: 32px;
+  }
+
+  .infoBox .textBox p.title br {
+    display: none;
+  }
+
+  .infoBox .textBox p.text {
+    font-size: 18px;
+    line-height: 1.56;
+  }
+
+  .infoBox .textBox {
+    padding: 24px 0 0 0;
+  }
+
+}
+
+@media (max-width: 767px) {
+
+  .infoBox .infoText {
+    margin-bottom: 8px;
+    font-size: 16px;
+  }
+
+  .infoBox .textBox p.title {
+    margin-bottom: 16px;
+    font-size: 24px;
+  }
+
+  .infoBox .textBox p.text {
+    font-size: 16px;
+  }
+
+}
+
+/* 공통-영역 */
+#productSection01 .container,
+#productSection02 .container,
+#productSection03 .container {
+  max-width: 988px;
+}
+
+#productSection01,
+#productSection02,
+#productSection03 {
+  padding: 138px 0;
+}
+
+@media (max-width: 1199px) {
+
+  #productSection01,
+  #productSection02,
+  #productSection03 {
+    padding: 26px 0;
+    background-color: #fcfcfc;
+  }
+
+}
+
+@media (max-width: 767px) {
+
+  #productSection01,
+  #productSection02,
+  #productSection03 {
+    padding: 20px 0;
+  }
+
+}
+
+/* 영역1 */
+#mainSection {
+  overflow: hidden;
+  background-color: #CFE5FF;
+}
+
+#mainSection .container {
+  max-width: 1110px;
+}
+
+#mainSection .box {
+  position: relative;
+  padding: 200px 0 0;
+  height: 540px;
+  z-index: 1;
+}
+
+#mainSection .mainContent {
+  display: flex;
+  justify-content: space-between;
+  gap: 0 7px;
+}
+
+#mainSection .text {
+  padding: 40px 0 0;
+}
+
+#mainSection img {
+  max-width: 746px;
+  width: 100%;
+  display: block;
+}
+
+
+#mainSection .title {
+  margin-bottom: 32px;
+}
+
+#mainSection .view {
+  display: block;
+  width: 357px;
+  height: 56px;
+  line-height: 58px;
+  border-radius: 50px;
+  text-align: center;
+  background-color: #3692FF;
+  color: #fff;
+  transition: all .3s;
+  font-size: 20px;
+}
+
+#mainSection .view:hover {
+  background-color: #1967D6;
+}
+
+@media (max-width: 1199px) {
+
+  #mainSection .mainContent {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #mainSection .mainContent .img {
+    width: 100%;
+    padding-top: 211px;
+  }
+
+  #mainSection .mainContent .img img {
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  #mainSection .container {
+    padding: 0;
+  }
+
+  #mainSection .box {
+    padding: 84px 0 0;
+    height: auto;
+  }
+
+  #mainSection .text {
+    padding: 0;
+  }
+
+  #mainSection .view {
+    margin: 0 auto;
+  }
+
+  #mainSection .title {
+    margin-bottom: 24px;
+    text-align: center;
+  }
+
+  #mainSection .title br {
+    display: none;
+  }
+
+}
+
+@media (max-width: 767px) {
+
+  #mainSection .mainContent .img {
+    padding-top: 132px;
+  }
+
+  #mainSection .box {
+    padding: 48px 0 0;
+  }
+
+  #mainSection .title {
+    margin-bottom: 18px;
+    font-size: 32px;
+  }
+
+  #mainSection .title br {
+    display: block;
+  }
+
+  #mainSection .view {
+    width: 240px;
+    height: 48px;
+    line-height: 48px;
+  }
+
+}
+
+/* 영역2 */
+@media (max-width: 767px) {
+
+  #productSection01 {
+    padding: 52px 0 20px;
+  }
+
+}
+
+/* 영역3 */
+#productSection02 .infoBox {
+  flex-direction: row-reverse;
+}
+
+#productSection02 .infoBox .textBox {
+  padding: 0 64px 0 48px;
+  text-align: right;
+}
+
+@media (max-width: 1199px) {
+
+  #productSection02 .infoBox {
+    flex-direction: column;
+  }
+
+  #productSection02 .infoBox .textBox {
+    padding: 24px 0 0 0;
+  }
+
+}
+
+/* 영역4 */
+@media (max-width: 1199px) {
+
+  #productSection03 {
+    padding: 26px 0 56px;
+  }
+
+}
+
+@media (max-width: 767px) {
+
+  #productSection03 {
+    padding: 20px 0 83px;
+  }
+
+}
+
+/* 영역5 */
+#infoSection {
+  position: relative;
+  background-color: #CFE5FF;
+}
+
+#infoSection::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 138px;
+  background-color: #fcfcfc;
+}
+
+#infoSection .box {
+  padding: 281px 0 0;
+  position: relative;
+  height: 678px;
+  z-index: 1;
+}
+
+#infoSection img {
+  display: block;
+  width: 100%;
+}
+
+#infoSection .text {
+  flex-shrink: 0;
+  padding-top: 113px;
+}
+
+#infoSection .layoutBox {
+  display: flex;
+  gap: 0 69px;
+  justify-content: space-between;
+}
+
+@media (max-width: 1199px) {
+
+  #infoSection .box {
+    padding: 201px 0 0;
+    height: auto;
+  }
+
+  #infoSection::after {
+    display: none;
+  }
+
+  #infoSection .layoutBox {
+    flex-direction: column;
+  }
+
+  #infoSection .text {
+    margin-bottom: 217px;
+    padding-top: 0;
+    text-align: center;
+  }
+
+}
+
+@media (max-width: 767px) {
+
+  #infoSection .box {
+    padding: 121px 0 0;
+  }
+
+  #infoSection .text {
+    margin-bottom: 131px;
+  }
+
+  #infoSection p.title {
+    font-size: 32px;
+  }
+
+}
