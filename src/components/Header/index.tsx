@@ -5,6 +5,24 @@ import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { useAuthStore } from '@/stores/useAuthStore';
 import { useEffect, useState } from 'react';
+import { Dispatch, SetStateAction } from 'react';
+
+type Setter<T> = Dispatch<SetStateAction<T>>;
+
+function DropDown({ setIsClickProfile }: { setIsClickProfile: Setter<boolean> }) {
+  const { setAccessToken } = useAuthStore();
+  const onClick = () => {
+    setIsClickProfile(false);
+    localStorage.removeItem('accessToken');
+    localStorage.removeItem('refreshToken');
+    setAccessToken('');
+  };
+  return (
+    <ul className='flex flex-col items-center absolute right-0 top-12 border rounded-lg w-28 bg-white text-gray-500' onClick={onClick}>
+      <li className='py-2 px-4'>로그아웃</li>
+    </ul>
+  );
+}
 
 function Icon() {
   return (
@@ -20,6 +38,7 @@ export default function Header() {
   const { accessToken } = useAuthStore();
 
   const [isMounted, setIsMounted] = useState(false);
+  const [isClickProfile, setIsClickProfile] = useState(false);
 
   useEffect(() => {
     setIsMounted(true);
@@ -41,9 +60,10 @@ export default function Header() {
         </div>
         {isMounted &&
           (accessToken ? (
-            <Link href={'/'}>
+            <button onClick={() => setIsClickProfile(!isClickProfile)} className='relative'>
               <Image src='/assets/icons/profile.svg' alt='프로필 이미지' width={40} height={40} style={{ width: 40, height: 40 }} />
-            </Link>
+              {isClickProfile && <DropDown setIsClickProfile={setIsClickProfile} />}
+            </button>
           ) : (
             <Link href={'/signin'} className='rounded-lg px-6 py-2 bg-blue-100 text-white'>
               로그인
