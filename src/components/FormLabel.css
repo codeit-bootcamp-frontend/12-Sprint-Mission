@@ -1,1 +1,7 @@
-.add_form_list > li .title {display: block; margin-bottom: 16px; font-size: 1.8rem; font-weight: 700; line-height: 1.4444;}
+.add_form_list > li .title {
+  display: block;
+  margin-bottom: 16px;
+  font-size: 1.8rem;
+  font-weight: 700;
+  line-height: 1.4444;
+}

@@ -2,15 +2,20 @@ import "./ProductItem.css";
 import default_Img from "./../assets/item.png";
 import wishImg from "./../assets/icon_wish.svg";
 import { Link } from "react-router-dom";
+import Product from "../types/Product";
 
-const ProductItem = ({ item }) => {
+interface ProductItemProps {
+  item: Product;
+}
+
+const ProductItem = ({ item }: ProductItemProps) => {
   const { images, name, price, favoriteCount, id } = item;
 
   return (
     <div className="product_item">
       <div className="thum">
         <Link to={`/ProductDetail/${id}`}>
-          <img src={images && images[0] ? images[0] : default_Img} alt={name} onError={(e) => (e.target.src = default_Img)} />
+          <img src={images && images[0] ? images[0] : default_Img} alt={name} onError={(e) => (e.currentTarget.src = default_Img)} />
         </Link>
       </div>
       <div className="content">

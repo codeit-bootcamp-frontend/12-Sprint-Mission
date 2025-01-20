@@ -1,0 +1,100 @@
+.product_detail_comment {
+  margin-top: 40px;
+  padding-top: 40px;
+  border-top: 1px solid #e5e7eb;
+}
+.product_detail_comment .comment_top .tit {
+  margin-bottom: 9px;
+  font-size: 1.6rem;
+  font-weight: 600;
+  line-height: 1.625;
+}
+.product_detail_comment .comment_top .textarea_box {
+  margin-bottom: 16px;
+}
+.product_detail_comment .comment_top .textarea_box textarea {
+  width: 100%;
+  min-height: 104px;
+  padding: 16px 24px;
+  border-radius: 12px;
+  background-color: #f3f4f6;
+  resize: none;
+}
+.product_detail_comment .comment_top .textarea_box textarea::placeholder {
+  color: #9ca3af;
+}
+.product_detail_comment .comment_top > button {
+  margin-left: auto;
+}
+.product_detail_comment .comment_list {
+  margin-top: 24px;
+}
+.product_detail_comment .comment_list > li {
+  position: relative;
+  padding-bottom: 12px;
+  padding-right: 40px;
+  border-bottom: 1px solid #e5e7eb;
+  word-break: keep-all;
+}
+.product_detail_comment .comment_list > li + li {
+  margin-top: 24px;
+}
+.product_detail_comment .comment_list > li .comment_menu {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.product_detail_comment .comment_list > li .comment_menu > button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 4px;
+  transition: all 0.2s;
+}
+.product_detail_comment .comment_list > li .comment_menu > button:hover {
+  background: #f3f4f6;
+}
+.product_detail_comment .comment_list > li .comment_menu > ul {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  background-color: #fff;
+  overflow: hidden;
+}
+.product_detail_comment .comment_list > li .comment_menu > ul > li {
+}
+.product_detail_comment .comment_list > li .comment_menu > ul > li > button {
+  width: 140px;
+  height: 46px;
+  text-align: center;
+  color: #6b7280;
+  font-size: 1.6rem;
+  transition: all 0.2s;
+}
+.product_detail_comment .comment_list > li .comment_menu > ul > li > button:hover {
+  background: #f3f4f6;
+}
+.product_detail_comment .comment_list > li .text_area {
+  margin-bottom: 24px;
+  font-size: 1.4rem;
+  font-weight: 400;
+  line-height: 1.7142;
+}
+.comment_empty {
+  text-align: center;
+}
+.comment_empty .thum {
+  display: flex;
+  justify-content: center;
+}
+.comment_empty p {
+  margin-top: 8px;
+  font-size: 1.6rem;
+  color: #9ca3af;
+  font-weight: 400;
+  line-height: 1.625;
+}

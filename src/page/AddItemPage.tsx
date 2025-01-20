@@ -1,10 +1,11 @@
-import SubTitle from "./../components/SubTitle";
+import SubTitle from "../components/SubTitle";
 import "./AddItemPage.css";
 import removeIcon from "./../assets/icon_remove.svg";
-import FormItem from "./../components/FormItem";
-import { useState, useEffect } from "react";
-import FormLabel from "./../components/FormLabel";
+import FormItem from "../components/FormItem";
+import { useState, useEffect, FormEventHandler } from "react";
+import FormLabel from "../components/FormLabel";
 import "./../components/FormLabel.css";
+import { ItemInputQuery } from "../types/Query";
 
 const AddItemPage = () => {
   const [fakeTag, setFakeTag] = useState("");
@@ -18,11 +19,12 @@ const AddItemPage = () => {
 
   const tagList = inputValue.tag.split("|");
 
-  const handleSubmit = (e) => {
-    //e.preventDefault();
+  // 질문하기 const handleSubmit = (e : React.FormEvent<HTMLFormElement>) => {    <- handler의 차이 마우스 올렸을땐 handler가 있지만 오류가 남.. 빼야 오류가 없음
+  const handleSubmit: FormEventHandler<HTMLFormElement> = (e) => {
+    e.preventDefault();
   };
 
-  const handleChange = (name, value) => {
+  const handleChange = (name: ItemInputQuery, value: string) => {
     if (name === "price") {
       const priceValue = value.replaceAll(",", "");
       const nextPrice = Number(priceValue) || 0;
@@ -43,25 +45,27 @@ const AddItemPage = () => {
     }
   };
 
-  const handleInputChange = (e) => {
+  // 질문하기 name에 string이 들어가는데 이유를 모르겠음 일단 as사용해서 오류 없앰. as 를 사용하는게 맞는지 모르겠음.
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
-    handleChange(name, value);
+    handleChange(name as ItemInputQuery, value);
   };
 
-  const handleFakeTag = (e) => {
+  const handleFakeTag = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFakeTag(e.target.value);
   };
 
-  const handleTagChange = (e) => {
-    if (e.keyCode === 13) {
+  const handleTagChange = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter") {
       e.preventDefault();
       handleChange("tag", fakeTag);
-      e.target.value = "";
+      // 질문하기 e.target.value에 주로 사용되던데 이유를 모르겠음.
+      e.currentTarget.value = "";
       setFakeTag("");
     }
   };
 
-  const handleTagRemove = (tagName) => {
+  const handleTagRemove = (tagName: string) => {
     setInputValue((prev) => {
       const tagUpdate = prev.tag
         .split("|")

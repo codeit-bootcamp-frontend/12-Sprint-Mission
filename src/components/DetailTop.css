@@ -1,0 +1,105 @@
+.product_detail_item {
+  display: flex;
+}
+.product_detail_item .thum {
+  overflow: hidden;
+  width: 486px;
+  height: 486px;
+  border-radius: 25px;
+}
+.product_detail_item .thum img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.product_detail_item .content {
+  display: flex;
+  flex-direction: column;
+  width: calc(100% - 510px);
+  margin-left: 24px;
+}
+.product_detail_item .content .tit {
+  margin-bottom: 16px;
+  font-size: 2.4rem;
+  font-weight: 600;
+  line-height: 1.3333;
+}
+.product_detail_item .content .price {
+  padding-bottom: 16px;
+  margin-bottom: 24px;
+  border-bottom: 1px solid #e5e7eb;
+  font-size: 4rem;
+  font-weight: 600;
+}
+.product_detail_item .content .info {
+}
+.product_detail_item .content .info + .info {
+  margin-top: 24px;
+}
+.product_detail_item .content .info > p {
+  margin-bottom: 16px;
+  font-size: 1.6rem;
+  font-weight: 600;
+  line-height: 1.625;
+}
+.product_detail_item .content .info > .desc {
+  color: #4b5563;
+  font-size: 1.6rem;
+  line-height: 1.625;
+}
+.product_detail_item .content .info > .tag {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.product_detail_item .content .info > .tag > li {
+  padding: 6px 16px;
+  background-color: #f3f4f6;
+  border-radius: 50px;
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 1.625;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+.product_detail_item .content .info > .tag > li:hover {
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.15);
+}
+.product_detail_item .content .profile_box {
+  display: flex;
+  align-items: center;
+  margin-top: auto;
+}
+.product_detail_item .content .profile_box .wish_area {
+  position: relative;
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  padding: 4px 12px;
+  border: 1px solid #e5e7eb;
+  border-radius: 35px;
+  transition: all 0.2s;
+}
+.product_detail_item .content .profile_box .wish_area:hover {
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.15);
+}
+.product_detail_item .content .profile_box .wish_area::before {
+  content: "";
+  width: 1px;
+  height: 34px;
+  background-color: #e5e7eb;
+  position: absolute;
+  left: -24px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.product_detail_item .content .profile_box .wish_area .icon img {
+  height: 24px;
+}
+.product_detail_item .content .profile_box .wish_area .numb {
+  margin-left: 4px;
+  color: #6b7280;
+  font-size: 1.6rem;
+  font-weight: 500;
+  line-height: 1.625;
+}

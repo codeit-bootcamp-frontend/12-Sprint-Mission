@@ -1,31 +1,124 @@
-.add_form_list > li .input_file_box {display : flex;}
-.add_form_list > li .input_file_box label {display : flex; align-items: center; justify-content: center; flex-direction: column; width: 282px; height: 282px; background-color: #F3F4F6; border-radius: 12px; cursor: pointer;}
-.add_form_list > li .input_file_box label > span {margin-top: 12px; color: #9CA3AF; font-size: 1.6rem; font-weight: 400; line-height: 1.625; }
-.add_form_list > li .input_file_box input {display: none;}
-.add_form_list > li .input_file_box .file_img_list > li {position: relative; overflow: hidden; width: 282px; height: 282px; margin-left: 24px; border-radius: 12px;}
-.add_form_list > li .input_file_box .file_img_list > li > .remove_btn {position: absolute; top: 12px; right: 12px; z-index: 2;}
-.add_form_list > li .input_file_box .file_img_list > li > img {width: 100%; height: 100%; object-fit: cover;}
+.add_form_list > li .input_file_box {
+  display: flex;
+}
+.add_form_list > li .input_file_box label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 282px;
+  height: 282px;
+  background-color: #f3f4f6;
+  border-radius: 12px;
+  cursor: pointer;
+}
+.add_form_list > li .input_file_box label > span {
+  margin-top: 12px;
+  color: #9ca3af;
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 1.625;
+}
+.add_form_list > li .input_file_box input {
+  display: none;
+}
+.add_form_list > li .input_file_box .file_img_list > li {
+  position: relative;
+  overflow: hidden;
+  width: 282px;
+  height: 282px;
+  margin-left: 24px;
+  border-radius: 12px;
+}
+.add_form_list > li .input_file_box .file_img_list > li > .remove_btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 2;
+}
+.add_form_list > li .input_file_box .file_img_list > li > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 
-.limit_text {position: relative; z-index: -1; margin-top: -26px; color: #F74747; font-size: 1.6rem; line-height: 1.625; opacity: 0; transition: all 0.2s ease-in-out;}
-.limit_text.active {opacity: 1; margin-top: 16px; margin-bottom: -8px;}
+.limit_text {
+  position: relative;
+  z-index: -1;
+  margin-top: -26px;
+  color: #f74747;
+  font-size: 1.6rem;
+  line-height: 1.625;
+  opacity: 0;
+  transition: all 0.2s ease-in-out;
+}
+.limit_text.active {
+  opacity: 1;
+  margin-top: 16px;
+  margin-bottom: -8px;
+}
 
 @media (max-width: 1200px) {
-  .add_form_list > li .input_file_box label {width: 168px; height: 168px;}
-  .add_form_list > li .input_file_box .file_img_list > li {width: 168px; height: 168px; margin-left: 10px;}
-  .limit_text {width: 168px; white-space: nowrap; font-size: 1.4rem;}
+  .add_form_list > li .input_file_box label {
+    width: 168px;
+    height: 168px;
+  }
+  .add_form_list > li .input_file_box .file_img_list > li {
+    width: 168px;
+    height: 168px;
+    margin-left: 10px;
+  }
+  .limit_text {
+    width: 168px;
+    white-space: nowrap;
+    font-size: 1.4rem;
+  }
 }
 
 @media (max-width: 768px) {
-  .add_form_list > li .input_file_box {justify-content: space-between;}
-  .add_form_list > li .input_file_box .file_add_wrap {position: relative; width: calc(50% - 5px); height: 0; padding-top: calc(50% - 5px);}
-  .add_form_list > li .input_file_box label {position: absolute; top: 0; left: 0; width: 100%; height: 100%;}
+  .add_form_list > li .input_file_box {
+    justify-content: space-between;
+  }
+  .add_form_list > li .input_file_box .file_add_wrap {
+    position: relative;
+    width: calc(50% - 5px);
+    height: 0;
+    padding-top: calc(50% - 5px);
+  }
+  .add_form_list > li .input_file_box label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
 
-  .add_form_list > li .input_file_box:has( .limit_text.active) .file_add_wrap {padding-top: calc(50% + 15px);}
-  .add_form_list > li .input_file_box:has( .limit_text.active) label {height: calc(100% - 20px);}
+  .add_form_list > li .input_file_box:has(.limit_text.active) .file_add_wrap {
+    padding-top: calc(50% + 15px);
+  }
+  .add_form_list > li .input_file_box:has(.limit_text.active) label {
+    height: calc(100% - 20px);
+  }
 
-  .add_form_list > li .input_file_box .file_img_list {position: relative; width: calc(50% - 5px); height: 0; padding-top: calc(50% - 5px);}
-  .add_form_list > li .input_file_box .file_img_list > li {position: absolute; top: 0; left: 0; width: 100%; height: 100%; margin-left: 0;}
+  .add_form_list > li .input_file_box .file_img_list {
+    position: relative;
+    width: calc(50% - 5px);
+    height: 0;
+    padding-top: calc(50% - 5px);
+  }
+  .add_form_list > li .input_file_box .file_img_list > li {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    margin-left: 0;
+  }
 
-  .limit_text {margin-top: -50px;}
-  .limit_text.active {margin-top: -13px;}
+  .limit_text {
+    margin-top: -50px;
+  }
+  .limit_text.active {
+    margin-top: -13px;
+  }
 }

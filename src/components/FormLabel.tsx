@@ -1,4 +1,9 @@
-const FormLabel = ({ htmlFor, labelName }) => {
+interface Props {
+  htmlFor: string;
+  labelName: string;
+}
+
+const FormLabel = ({ htmlFor, labelName }: Props) => {
   return (
     <label htmlFor={htmlFor} className="title">
       {labelName}
