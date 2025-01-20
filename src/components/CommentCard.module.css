@@ -1,0 +1,43 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding-bottom: 12px;
+  background-color: #fcfcfc;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.content {
+  font-size: 14px;
+  line-height: 24px;
+  color: #1f2937;
+}
+
+.info {
+  display: flex;
+  gap: 8px;
+}
+
+.info div {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.nickname {
+  font-size: 12px;
+  line-height: 18px;
+  color: #4b5563;
+}
+
+.date {
+  font-size: 12px;
+  line-height: 18px;
+  color: #9ca3af;
+}

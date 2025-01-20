@@ -1,0 +1,115 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.header h2 {
+  font-size: 20px;
+  line-height: 32px;
+  font-weight: 700;
+  color: #1f2937;
+}
+
+.header button {
+  display: flex;
+  align-items: center;
+  height: 42px;
+  padding: 12px 23px;
+  border: none;
+  border-radius: 8px;
+  background-color: #9ca3af;
+  color: #f3f4f6;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 26px;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.label {
+  font-size: 18px;
+  line-height: 26px;
+  font-weight: 700;
+  color: #1f2937;
+}
+
+.input {
+  padding: 16px 24px;
+  border: none;
+  border-radius: 12px;
+  background-color: #f3f4f6;
+  height: 56px;
+}
+
+.textarea {
+  padding: 16px 24px;
+  border: none;
+  border-radius: 12px;
+  background-color: #f3f4f6;
+  height: 282px;
+  resize: none;
+}
+
+.imageUploadContainer {
+  display: flex;
+  gap: 16px;
+}
+
+.uploadBox {
+  width: 200px;
+  height: 200px;
+  border: 2px dashed #ddd;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background-color: #f8f8f8;
+  transition: all 0.2s ease;
+}
+
+.uploadBox:hover {
+  border-color: #999;
+  background-color: #f0f0f0;
+}
+
+.plusIcon {
+  font-size: 32px;
+  color: #999;
+  margin-bottom: 8px;
+}
+
+.hiddenInput {
+  display: none;
+}
+
+.previewBox {
+  width: 200px;
+  height: 200px;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid #ddd;
+}
+
+.previewImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}

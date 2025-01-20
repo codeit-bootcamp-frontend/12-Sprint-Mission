@@ -5,7 +5,7 @@ export default function BoardHeader() {
   const router = useRouter();
 
   const handleClick = () => {
-    router.push("/boards/write");
+    router.push("/addboard");
   };
 
   return (

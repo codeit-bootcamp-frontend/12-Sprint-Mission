@@ -1,0 +1,142 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.header h2 {
+  font-size: 20px;
+  line-height: 32px;
+  font-weight: 700;
+  color: #1f2937;
+}
+
+.header_wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.header_section {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  padding-bottom: 20px;
+}
+
+.header_section div {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.nickname {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 24px;
+  color: #4b5563;
+}
+
+.date {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 24px;
+  color: #9ca3af;
+}
+
+.like_button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 4px 12px;
+  margin-left: 32px;
+  height: 40px;
+  border-radius: 35px;
+  border: 1px solid #e5e7eb;
+  background-color: #ffffff;
+
+
+  font-size: 16px;
+  line-height: 26px;
+  font-weight: 500;
+  color: #6b7280;
+}
+
+.button_wrapper {
+  height: 34px;
+  border-left: 1px solid #e5e7eb;
+}
+
+.content {
+  font-size: 18px;
+  line-height: 26px;
+  color: #1f2937;
+}
+
+.input_wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.input_wrapper p {
+  font-size: 16px;
+  line-height: 26px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.input_wrapper textarea {
+  padding: 16px 24px;
+  width: 100%;
+  height: 104px;
+  border: none;
+  border-radius: 12px;
+  background-color: #f3f4f6;
+  resize: none;
+}
+
+.input_wrapper div {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.input_wrapper button {
+  display: flex;
+  align-items: center;
+  height: 42px;
+  padding: 12px 23px;
+  border: none;
+  border-radius: 8px;
+  background-color: #9ca3af;
+  color: #ffffff;
+  font-size: 16px;
+  line-height: 26px;
+  font-weight: 600;
+}
+
+.comment_wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}

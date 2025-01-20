@@ -8,6 +8,10 @@
   border-bottom: 1px solid #e5e7eb;
 }
 
+.link {
+  text-decoration: none;
+}
+
 .content_wrapper {
   display: flex;
   justify-content: space-between;

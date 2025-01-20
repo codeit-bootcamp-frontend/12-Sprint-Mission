@@ -8,6 +8,10 @@
   background-color: #f9fafb;
 }
 
+.link {
+  text-decoration: none;
+}
+
 .content_wrapper {
   display: flex;
   gap: 20px;
