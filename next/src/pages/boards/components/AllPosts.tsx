@@ -5,28 +5,17 @@ import { useEffect, useState } from "react";
 import { getPostsData } from "@/src/api/api";
 import ToggleBtn from "@/src/components/ToggleBtn";
 import Link from "next/link";
-
-type Post = {
-  id: number;
-  content: string;
-  image: string;
-  likeCount: number;
-  createdAt: string;
-  writer: {
-    id: number;
-    nickname: string;
-  };
-};
+import { PostData } from "@/src/types";
 
 export default function AllPosts() {
-  const [postList, setPostList] = useState<Post[]>([]);
+  const [postList, setPostList] = useState<PostData[]>([]);
   const [orderBy, setOrderBy] = useState<"recent" | "like">("recent");
-  const [filterPostList, setFilterPostList] = useState<Post[]>([]);
+  const [filterPostList, setFilterPostList] = useState<PostData[]>([]);
   const [searchValue, setSearchValue] = useState<string>("");
 
   const getPostListData = async (orderBy: "recent" | "like") => {
     try {
-      const data: Post[] = await getPostsData({
+      const data: PostData[] = await getPostsData({
         orderBy,
         pageSize: 4,
       });
@@ -43,7 +32,7 @@ export default function AllPosts() {
 
   const handleSearch = () => {
     const filtered = postList.filter((post) =>
-      post.content.includes(searchValue)
+      post.content!.includes(searchValue)
     );
     setFilterPostList(filtered);
   };

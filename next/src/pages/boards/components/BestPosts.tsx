@@ -2,23 +2,12 @@ import { getPostsData } from "@/src/api/api";
 import { useEffect, useState } from "react";
 import BestPost from "./BestPost";
 import styles from "./BestPosts.module.css";
-
-type Post = {
-  id: number;
-  content: string;
-  image: string;
-  likeCount: number;
-  createdAt: string;
-  writer: {
-    id: number;
-    nickname: string;
-  };
-};
+import { PostData } from "@/src/types";
 
 // 479, 767, 1023
 
 export default function BestPosts() {
-  const [bestPosts, setBestPosts] = useState<Post[]>([]);
+  const [bestPosts, setBestPosts] = useState<PostData[]>([]);
   const [pageSize, setPageSize] = useState<number>(3);
 
   const pageSizeCheck = () => {
@@ -34,7 +23,7 @@ export default function BestPosts() {
 
   const getBestPosts = async (currentPageSize: number) => {
     try {
-      const data: Post[] = await getPostsData({
+      const data: PostData[] = await getPostsData({
         orderBy: "like",
         pageSize: currentPageSize,
       });

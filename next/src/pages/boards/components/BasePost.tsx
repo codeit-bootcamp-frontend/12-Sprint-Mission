@@ -1,26 +1,15 @@
 import Image from "next/image";
 import styles from "./BasePost.module.css";
 import formatDate from "@/src/utils/date";
-
-interface BasePostProps {
-  id: number;
-  content: string;
-  image: string;
-  likeCount: number;
-  createdAt: string;
-  writer: {
-    id: number;
-    nickname: string;
-  };
-}
+import { PostData } from "@/src/types";
 
 export default function BasePost({
   content,
   image,
-  writer,
+  writer = { nickname: "익명 사용자" },
   likeCount,
   createdAt,
-}: BasePostProps) {
+}: PostData) {
   return (
     <div className={styles.container}>
       <div className={styles.product}>
@@ -44,7 +33,7 @@ export default function BasePost({
             width={24}
             height={24}
           />
-          <p>{writer.nickname}</p>
+          <p>{writer!.nickname}</p>
           <p>{formatDate(createdAt)}</p>
         </div>
         <div className={styles.like}>

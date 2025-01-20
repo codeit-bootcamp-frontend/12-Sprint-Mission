@@ -1,26 +1,15 @@
 import Image from "next/image";
 import styles from "./BestPost.module.css";
 import formatDate from "@/src/utils/date";
-
-interface BestPostProps {
-  id: number;
-  content: string;
-  image: string;
-  likeCount: number;
-  createdAt: string;
-  writer: {
-    id: number;
-    nickname: string;
-  };
-}
+import { PostData } from "@/src/types";
 
 export default function BestPost({
   content,
   image,
-  writer,
+  writer = { nickname: "익명 사용자" },
   likeCount,
   createdAt,
-}: BestPostProps) {
+}: PostData) {
   return (
     <div className={styles.container}>
       <div className={styles.tag}>
@@ -34,11 +23,11 @@ export default function BestPost({
       </div>
       <div className={styles.content}>
         <p>{content}</p>
-        <Image width={72} height={72} src={image} alt={`${image} 이미지`} />
+        <Image width={72} height={72} src={image!} alt={`${image} 이미지`} />
       </div>
       <div className={styles.info}>
         <div className={styles.userInfo}>
-          <p>{writer.nickname}</p>
+          <p>{writer!.nickname}</p>
           <div className={styles.likeCount}>
             <Image
               src={"/images/ic_heart.svg"}
