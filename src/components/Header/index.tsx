@@ -65,7 +65,7 @@ export default function Header() {
               {isClickProfile && <DropDown setIsClickProfile={setIsClickProfile} />}
             </button>
           ) : (
-            <Link href={'/signin'} className='rounded-lg px-6 py-2 bg-blue-100 text-white'>
+            <Link href={'/signin'} className='rounded-lg px-3 py-2 bg-blue-100 text-white md:px-6'>
               로그인
             </Link>
           ))}
