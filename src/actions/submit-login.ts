@@ -22,6 +22,10 @@ export async function submitLogin(_: any, formData: FormData) {
       },
       body: JSON.stringify({ email, password }),
     });
+    if (response.status === 400) {
+      const errorDetails = await response.json();
+      throw new Error(errorDetails?.message || '잘못된 요청입니다.');
+    }
     if (!response.ok) throw new Error(response.statusText);
     const responseJson: SigninSuccessResponse | SigninFailResponse = await response.json();
     return {
@@ -33,7 +37,7 @@ export async function submitLogin(_: any, formData: FormData) {
     console.error(err);
     return {
       status: false,
-      error: `로그인을 실패했습니다. : ${err}`,
+      error: `로그인을 실패했습니다. ${err instanceof Error ? err.message : err}`,
     };
   }
 }
