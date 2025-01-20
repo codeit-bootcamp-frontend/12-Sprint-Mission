@@ -27,20 +27,26 @@ function AddItem() {
     if (event.key === "Enter") {
       event.preventDefault();
 
-      const inputValue = event.target.value.trim(); // 입력값 정리
-      setTags((prevTags) => {
-        if (inputValue && !prevTags.includes(inputValue)) {
-          return [...prevTags, inputValue]; // 새로운 태그 추가
+      let inputValue = event.target.value.trim(); // 입력값 정리
+      if (inputValue) {
+        // 이미 #으로 시작하지 않으면 추가
+        if (!inputValue.startsWith("#")) {
+          inputValue = `#${inputValue}`;
         }
-        return prevTags; // 상태 변경 없음
-      });
+        // 태그 중복 확인 후 추가
+        if (!tags.includes(inputValue)) {
+          setTags((prevTags) => [...prevTags, inputValue]);
+        }
+      }
 
-      event.target.value = ""; // 입력 필드 초기화
+      setTimeout(() => {
+        event.target.value = ""; // 입력 필드 초기화 (타이밍 조정)
+      }, 0);
     }
   };
 
   const handleTagRemove = (index) => {
-    setTags(tags.filter((_, i) => i !== index)); // 해당 태그 삭제
+    setTags(tags.filter((_, i) => i !== index));
   };
 
   // 모든 필드가 입력되었는지 확인하는 유효성 검사 로직

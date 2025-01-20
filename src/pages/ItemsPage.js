@@ -4,11 +4,11 @@ import { getList } from "../api";
 import BestProduct from "../components/BestProductList";
 import ProductList from "../components/ProductList";
 import Pagination from "../components/Pagination";
-import styles from "./HomePage.module.css";
+import styles from "./ItemsPage.module.css";
 import SearchImg from "../img/search.png";
 import ArrowImg from "../img/arrow_down.png";
 
-function HomePage() {
+function ItemsPage() {
   const [order, setOrder] = useState({
     orderby: "recent",
     page: 1,
@@ -171,4 +171,4 @@ function HomePage() {
   );
 }
 
-export default HomePage;
+export default ItemsPage;
