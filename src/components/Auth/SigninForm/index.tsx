@@ -10,12 +10,14 @@ const SUBMIT_BTN_CLASSNAME = 'mt-4 rounded-full py-4 font-semibold text-xl text-
 interface Valid {
   email: string;
   password: string;
+  isEmailValid: boolean;
+  isPasswordValid: boolean;
   isValid: boolean;
 }
 
 export default function SigninForm() {
   const [state, action, isPending] = useActionState(submitLogin, null);
-  const [valid, setValid] = useState<Valid>({ email: '', password: '', isValid: false });
+  const [valid, setValid] = useState<Valid>({ email: '', password: '', isEmailValid: true, isPasswordValid: true, isValid: false });
   const router = useRouter();
   const { setAccessToken } = useAuthStore();
 
@@ -29,11 +31,21 @@ export default function SigninForm() {
     }
   }, [state, router, setAccessToken]);
 
-  useEffect(() => {
-    const isEmailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(valid.email);
-    const isPasswordValid = valid.password.length >= 8;
-    setValid((prev) => ({ ...prev, isValid: isEmailValid && isPasswordValid }));
-  }, [valid.email, valid.password]);
+  const validateInputs = (email: string, password: string) => {
+    const isEmailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    const isPasswordValid = password.length >= 8;
+    const isValid = isEmailValid && isPasswordValid;
+    return { isEmailValid, isPasswordValid, isValid };
+  };
+
+  const handleInputChange = (field: 'email' | 'password', value: string) => {
+    setValid((prev) => {
+      const newValidState = { ...prev, [field]: value };
+      const { isEmailValid, isPasswordValid, isValid } = validateInputs(newValidState.email, newValidState.password);
+      if (field === 'email') return { ...newValidState, isEmailValid, isValid };
+      return { ...newValidState, isPasswordValid, isValid };
+    });
+  };
 
   return (
     <form action={action} className='flex flex-col gap-4 w-[80%]'>
@@ -45,19 +57,13 @@ export default function SigninForm() {
         name='email'
         id='email'
         placeholder='이메일을 입력해주세요'
-        className='rounded-xl p-4 bg-gray-100 focus:outline-blue-100'
+        className={`rounded-xl p-4 border-2 bg-gray-100 outline-none ${valid.isEmailValid ? 'border-blue-100' : 'border-red-error'}`}
         required
         aria-required
         value={valid.email}
-        onChange={(e) => {
-          setValid((prev) => {
-            return {
-              ...prev,
-              email: e.target.value,
-            };
-          });
-        }}
+        onChange={(e) => handleInputChange('email', e.target.value)}
       />
+      {!valid.isEmailValid && <span className='text-red-error'>잘못된 이메일입니다.</span>}
       <label htmlFor='password' className='text-lg font-bold'>
         비밀번호
       </label>
@@ -66,19 +72,13 @@ export default function SigninForm() {
         name='password'
         id='password'
         placeholder='비밀번호를 입력해주세요'
-        className='rounded-xl p-4 bg-gray-100 focus:outline-blue-100'
+        className={`rounded-xl p-4 border-2 bg-gray-100 outline-none ${valid.isPasswordValid ? 'border-blue-100' : 'border-red-error'}`}
         required
         aria-required
         value={valid.password}
-        onChange={(e) => {
-          setValid((prev) => {
-            return {
-              ...prev,
-              password: e.target.value,
-            };
-          });
-        }}
+        onChange={(e) => handleInputChange('password', e.target.value)}
       />
+      {!valid.isPasswordValid && <span className='text-red-error'>8자리 이상 비밀번호를 입력해주세요.</span>}
       {isPending ? (
         <div className={`${SUBMIT_BTN_CLASSNAME} bg-gray-400`}>로그인 중입니다.</div>
       ) : (
