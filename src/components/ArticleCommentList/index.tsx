@@ -7,6 +7,17 @@ import { Comment, Comments } from '@/types';
 import getDiffTime from '@/utils/getDiffTime';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
+import { isEmpty } from 'es-toolkit/compat';
+
+function EmptyCommentList() {
+  return (
+    <div className='flex flex-col items-center text-gray-400'>
+      <Image src='/assets/images/Img_reply_empty.png' alt='댓글 없음 이미지' width={140} height={140} />
+      <p>아직 댓글이 없어요</p>
+      <p>지금 댓글을 달아보세요!</p>
+    </div>
+  );
+}
 
 function MovePageBtn() {
   const router = useRouter();
@@ -98,22 +109,25 @@ export default function ArticleCommentList({ id }: { id: number }) {
   if (isLoading) {
     return (
       <div className='flex flex-col mx-auto w-[100%] max-w-[1200px] px-6'>
-        <SkeletonComment />
-        <SkeletonComment />
-        <SkeletonComment />
+        {Array.from({ length: 3 }, (_, i) => (
+          <SkeletonComment key={i} />
+        ))}
       </div>
     );
   }
-
   return (
     <div className='flex flex-col mx-auto w-[100%] max-w-[1200px] px-6'>
-      {data?.pages.map((page, index) => (
-        <div key={index}>
-          {page.list.map((comment) => (
-            <ArticleComment key={comment.id} comment={comment} />
-          ))}
-        </div>
-      ))}
+      {isEmpty(data?.pages[0]?.list) ? (
+        <EmptyCommentList />
+      ) : (
+        data?.pages.map((page, index) => (
+          <div key={index}>
+            {page.list.map((comment) => (
+              <ArticleComment key={comment.id} comment={comment} />
+            ))}
+          </div>
+        ))
+      )}
 
       {isFetching && (
         <div className='flex justify-center items-center py-4'>
