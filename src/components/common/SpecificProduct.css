@@ -1,0 +1,266 @@
+.specific-product-item {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.specific-product-container {
+  display: flex;
+  max-width: 1200px;
+  margin: 0 auto;
+  margin-top: 24px;
+  border-bottom: 1px solid #e5e7eb;
+  height: 536px;
+}
+
+.specific-product-info {
+  padding-left: 24px;
+}
+
+.specific-product-name {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 32px;
+  color: #1f2937;
+}
+
+.specific-product-price {
+  font-weight: 600;
+  font-size: 40px;
+  line-height: 47.73px;
+  color: #1f2937;
+}
+
+.specific-product-introduce-title {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 26px;
+  color: #4b5563;
+}
+
+.specific-product-introduce-description {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+  color: #4b5563;
+}
+
+.specific-product-tag-title {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 26px;
+  color: #4b5563;
+}
+
+.owner-section {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+
+  padding-top: 67px;
+}
+
+.user-image-container {
+  background-color: #9ca3af;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.user-information-section {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.user-ownernickname {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 24px;
+  color: #4b5563;
+  margin: 0;
+}
+.user-createdat {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  color: #9ca3af;
+  margin: 0;
+}
+
+.specific-heart-section {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  border: 1px solid #e5e7eb;
+  border-radius: 35px;
+  padding: 4px 12px;
+}
+
+.ask-input {
+  width: 1200px;
+  height: 104px;
+  border-radius: 12px;
+  padding: 16px 24px;
+  gap: 10px;
+  background-color: #f3f4f6;
+}
+
+.register-button-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 24px;
+}
+
+.register-button {
+  margin-left: auto;
+  width: 74px;
+  height: 42px;
+  border-radius: 8px;
+  padding: 12px 23px;
+  gap: 10px;
+  background-color: #9ca3af;
+  color: white;
+}
+
+.register-button-active {
+  background-color: #3692ff;
+}
+
+.comment-section {
+  margin-top: 24px;
+}
+
+.comment-container {
+  border-bottom: 1px solid #e5e7eb;
+  padding-bottom: 20px;
+}
+
+.comment-kebab-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.comment-user-container {
+  display: flex;
+  gap: 8px;
+}
+
+.comment-user-content {
+  margin: 24px 0px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+}
+
+.comment-image-container {
+  background-color: #9ca3af;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+}
+
+.comment-user-information {
+  gap: 4px;
+}
+
+.comment-user-nickname {
+  font-weight: 400px;
+  font-size: 12px;
+  line-height: 18px;
+  color: #4b5563;
+}
+
+.comment-user-when {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 18px;
+  columns: #9ca3af;
+}
+
+.search-button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin: 64px 0;
+}
+
+.search-button {
+  width: 240px;
+  height: 48px;
+  border-radius: 40px;
+  padding: 6px 32px;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 26px;
+  color: #f3f4f6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.return-icon {
+  width: 24px;
+  height: 24px;
+}
+
+.edit-comment-container {
+  width: 100%;
+}
+
+.edit-comment-input {
+  width: 100%;
+  padding: 16px 24px;
+  background-color: #f3f4f6;
+  border-radius: 12px;
+  height: 80px;
+  gap: 10px;
+}
+
+.edit-buttons-container {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.cancel-button {
+  padding: 4px 12px;
+  background-color: #e2e2e2;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 28px;
+  color: #737373;
+  margin-top: 16px;
+}
+
+.save-button {
+  padding: 12px 23px;
+  background-color: #3692ff;
+  color: white;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  gap: 10px;
+
+  margin-top: 16px;
+}
+
+.cancel-button:hover {
+  background-color: #d2d2d2;
+}
+
+.save-button:hover {
+  background-color: #0056b3;
+}
+
+.no-comment-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

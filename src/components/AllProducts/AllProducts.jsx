@@ -5,6 +5,7 @@ import SearchForm from "../SearchForm/SearchForm";
 import Pagination from "../Pagination/Pagination";
 import "./AllProducts.css";
 import useDevice from "../../hooks/useDevice";
+import { Link } from "react-router-dom";
 
 function AllProducts() {
   const [allItemList, setAllItemList] = useState([]);
@@ -58,6 +59,7 @@ function AllProducts() {
         {allItemList.map((item) => (
           <li key={item.id}>
             <ProductItem
+              id={item.id}
               imageUrl={item.images[0]}
               name={item.name}
               price={item.price}

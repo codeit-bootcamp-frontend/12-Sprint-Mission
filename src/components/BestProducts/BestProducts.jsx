@@ -3,6 +3,7 @@ import { getData } from "../../api";
 import ProductItem from "../common/product";
 import "./BestProducts.css";
 import useDevice from "../../hooks/useDevice";
+import { Link } from "react-router-dom";
 
 function BestProducts() {
   const [itemList, setItemList] = useState([]);
@@ -45,6 +46,7 @@ function BestProducts() {
           <li key={item.id}>
             {" "}
             <ProductItem
+              id={item.id}
               imageUrl={item.images[0]}
               name={item.name}
               price={item.price}
