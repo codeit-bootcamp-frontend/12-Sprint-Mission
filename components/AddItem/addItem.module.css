@@ -1,0 +1,210 @@
+:root {
+  --blue: #3692ff;
+  --gray900: #111827;
+  --gray800: #1f2937;
+  --gray700: #374151;
+  --gray600: #4b5563;
+  --gray500: #6b7280;
+  --gray400: #9ca3af;
+  --gray200: #e5e7eb;
+  --gray100: #f3f4f6;
+  --gray50: #f9fafb;
+}
+
+body {
+  box-sizing: border-box;
+  margin: 0;
+  font-family: "Pretendard Variable", Pretendard, -apple-system,
+    BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI",
+    "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+}
+
+section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  /* 임시 여백 */
+  padding-top: 12rem; /* 16px * 12 */
+  padding-bottom: 8rem;
+}
+
+/* 상품 등록 전체 스타일 */
+.add_items {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  min-width: 1200px;
+}
+
+.add_items_form {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  width: 100%;
+}
+
+.product_img,
+.product_title,
+.product_info,
+.sale_cost,
+.tag {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.product_add {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  width: 100%;
+}
+
+.product_img {
+  display: flex;
+  flex-direction: column;
+}
+
+.add_items h2 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.add_items input {
+  box-sizing: border-box;
+  font-family: Pretendard;
+  width: 100%;
+  padding: 16px 24px;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  background-color: var(--gray100);
+  color: var(--gray400);
+}
+
+.add_items textarea {
+  font-family: Pretendard;
+  width: 100%;
+  padding: 16px 24px;
+  min-height: 282px;
+  border: none;
+  border-radius: 12px;
+  background-color: var(--gray100);
+  color: var(--gray400);
+  font-size: 16px;
+  resize: none; /* 세로 크기만 조정 가능 */
+  overflow-y: auto; /* 내용이 많을 경우 스크롤 */
+  box-sizing: border-box; /* 패딩 포함 크기 계산 */
+}
+
+.add_items textarea:focus {
+  outline: none;
+  border-color: var(--blue);
+  box-shadow: 0 0 0 2px rgba(54, 146, 255, 0.3);
+}
+
+.add_items input:focus {
+  outline: none;
+  border-color: var(--blue);
+  box-shadow: 0 0 0 2px rgba(54, 146, 255, 0.3);
+}
+
+.product_add button {
+  padding: 10px 20px;
+  background-color: var(--blue);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.product_add button:hover {
+  background-color: #2873cc;
+}
+
+/* 상품 이미지 등록 */
+.image_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 282px;
+  height: 282px;
+  border: 1px dashed var(--gray400);
+  border-radius: 4px;
+}
+
+.upload_label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.file_input {
+  display: none;
+}
+
+.upload_placeholder {
+  color: var(--gray400);
+  font-size: 16px;
+}
+
+.upload_placeholder_plus {
+  color: var(--gray400);
+  font-size: 68px;
+  text-align: center;
+}
+
+.image_preview {
+  position: relative;
+  width: 282px;
+  height: 282px;
+}
+
+.uploaded_image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.delete_img_btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: var(--gray400);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 태그 */
+.tag_item {
+  margin: 5px;
+  padding: 5px 10px;
+  background-color: #f0f0f0;
+  border-radius: 20px;
+  font-size: 14px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.delete_tag_btn {
+  background: var(--gray400);
+  border: none;
+  border-radius: 9999px;
+  color: white;
+  margin-left: 5px;
+  cursor: pointer;
+}

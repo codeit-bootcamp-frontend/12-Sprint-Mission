@@ -1,0 +1,189 @@
+.section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 110vh;
+  padding-top: 16rem;
+  padding-bottom: 16rem;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  min-width: 1200px;
+}
+
+.detail_container {
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+  max-width: 1200px;
+  max-height: 496px;
+  margin-bottom: 40px;
+}
+
+.image_section img {
+  width: 100%;
+  min-height: 486px;
+  object-fit: cover;
+}
+
+.details_section {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.product_name,
+.price {
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--gray800);
+  margin: 0;
+  padding-bottom: 16px;
+}
+
+.price {
+  font-size: 40px;
+}
+
+.hr {
+  width: 100%;
+  border: 1px solid var(--gray200);
+}
+
+.product_intro,
+.product_tag {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0;
+  color: var(--gray600);
+}
+
+.product_intro {
+  padding: 24px 0 16px 0;
+}
+
+.product_tag {
+  padding-bottom: 16px;
+}
+
+.product_intro_detail {
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--gray600);
+  margin: 0;
+  padding-bottom: 24px;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  padding-bottom: 62px;
+}
+
+.tag {
+  font-size: 16px;
+  font-weight: 400;
+  background: var(--gray100);
+  margin-right: 8px;
+  padding: 6px 16px;
+  border-radius: 26px;
+}
+
+.favorite_count {
+  margin-top: 10px;
+  font-size: 18px;
+  color: red;
+}
+
+.comment_section {
+  margin-top: 40px;
+}
+
+.do_comment {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--gray900);
+}
+
+.comment_section textarea {
+  font-family: Pretendard;
+  width: 100%;
+  height: 80px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 12px;
+  padding: 16px 24px;
+  background-color: var(--gray100);
+  color: var(--gray400);
+  font-size: 16px;
+  font-weight: 400;
+  resize: none; /* 세로 크기만 조정 가능 */
+  overflow-y: auto; /* 내용이 많을 경우 스크롤 */
+  box-sizing: border-box; /* 패딩 포함 크기 계산 */
+}
+
+.submit_button {
+  margin-top: 10px;
+  background: #ccc;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: not-allowed;
+}
+
+.submit_button.active {
+  background: #3692ff;
+  cursor: pointer;
+}
+
+.comment_list {
+  margin-top: 20px;
+  max-height: 16rem; /* 댓글 목록의 최대 높이 설정 */
+  overflow-y: auto; /* 댓글 목록이 길어지면 스크롤 */
+  padding-right: 10px; /* 스크롤바 공간 확보 */
+}
+
+.comment {
+  display: flex;
+  margin-top: 10px;
+}
+
+.comment img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.nickname {
+  font-weight: bold;
+}
+
+.timestamp {
+  color: #aaa;
+  font-size: 12px;
+}
+
+.back_button {
+  display: flex;
+  justify-content: center;
+}
+
+.back_button button {
+  margin-top: 4rem;
+  font-family: Pretendard;
+  background-color: var(--blue);
+  padding: 11px 39.5px;
+  border: none;
+  border-radius: 40px;
+  color: var(--gray100);
+  font-size: 18px;
+  font-weight: 600;
+  text-align: center;
+  width: 240px;
+  height: 48px;
+  cursor: pointer;
+}
