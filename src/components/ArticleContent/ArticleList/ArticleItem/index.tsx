@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { Article } from '@/types';
 import dayjs from 'dayjs';
 import { useState } from 'react';
+import Link from 'next/link';
 
 const DEFAULT_IMAGE = '/assets/icons/profile.svg';
 
@@ -12,7 +13,7 @@ export default function ArticleItem({ article }: { article: Article }) {
   const date = dayjs(article.createdAt).format('YYYY. MM. DD');
 
   return (
-    <div className='flex flex-col gap-6 rounded-lg p-6 bg-gray-50'>
+    <Link href={`/board/${article.id}`} className='flex flex-col gap-6 rounded-lg p-6 bg-gray-50 cursor-pointer'>
       <div className='flex gap-2 justify-between'>
         <p className='text-xl font-semibold'>{article.title}</p>
         <div className='shrink-0 flex justify-center items-center w-[72px] h-[72px] border rounded-md bg-white'>
@@ -30,6 +31,6 @@ export default function ArticleItem({ article }: { article: Article }) {
           <p>{article.likeCount}</p>
         </div>
       </div>
-    </div>
+    </Link>
   );
 }

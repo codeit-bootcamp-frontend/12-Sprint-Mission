@@ -1,6 +1,7 @@
 import BestArticleList from '@/components/BestArticleList';
 import { Suspense } from 'react';
 import ArticleContent from '@/components/ArticleContent';
+import Link from 'next/link';
 
 function SkeletonUi({ cnt }: { cnt: number }) {
   return (
@@ -48,7 +49,9 @@ export default function Boards() {
       <section className='max-w-[1200px] mt-6 mx-auto px-6'>
         <div className='flex items-center'>
           <p className='flex-1 text-xl text-gray-900 font-bold'>게시글</p>
-          <button className='rounded-lg py-3 px-6 bg-blue-100 font-semibold text-white'>글쓰기</button>
+          <Link href='/addboard' className='rounded-lg py-3 px-6 bg-blue-100 font-semibold text-white'>
+            글쓰기
+          </Link>
         </div>
         <Suspense
           fallback={

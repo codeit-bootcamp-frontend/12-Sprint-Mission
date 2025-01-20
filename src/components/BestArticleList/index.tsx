@@ -19,11 +19,11 @@ export default async function BestArticleList() {
   return (
     <div className='md:flex md:gap-6 w-[100%]'>
       {list.map((article, i) => {
-        let hidden = '';
-        if (i === 1) hidden = 'hidden md:flex';
-        else if (i === 2) hidden = 'hidden pc:flex';
+        let className = '';
+        if (i === 1) className = 'hidden md:flex';
+        else if (i === 2) className = 'hidden pc:flex';
 
-        return <BestArticle key={article.id} article={article} hidden={hidden} />;
+        return <BestArticle key={article.id} article={article} className={className} />;
       })}
     </div>
   );
