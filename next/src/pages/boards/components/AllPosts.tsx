@@ -4,7 +4,6 @@ import BasePost from "./BasePost";
 import { useEffect, useState } from "react";
 import { getPostsData } from "@/src/api/api";
 import ToggleBtn from "@/src/components/ToggleBtn";
-import { setPriority } from "os";
 import Link from "next/link";
 
 type Post = {
@@ -22,6 +21,8 @@ type Post = {
 export default function AllPosts() {
   const [postList, setPostList] = useState<Post[]>([]);
   const [orderBy, setOrderBy] = useState<"recent" | "like">("recent");
+  const [filterPostList, setFilterPostList] = useState<Post[]>([]);
+  const [searchValue, setSearchValue] = useState<string>("");
 
   const getPostListData = async (orderBy: "recent" | "like") => {
     try {
@@ -30,6 +31,7 @@ export default function AllPosts() {
         pageSize: 4,
       });
       setPostList(data);
+      setFilterPostList(data);
     } catch (e) {
       console.error("베이스 포스트 데이터를 패칭하는데 실패했습니다.", e);
     }
@@ -37,6 +39,13 @@ export default function AllPosts() {
 
   const onChangeOrderBy = (orderByValue: "recent" | "like") => {
     setOrderBy(orderByValue);
+  };
+
+  const handleSearch = () => {
+    const filtered = postList.filter((post) =>
+      post.content.includes(searchValue)
+    );
+    setFilterPostList(filtered);
   };
 
   useEffect(() => {
@@ -52,11 +61,16 @@ export default function AllPosts() {
         </Link>
       </div>
       <div className={styles.input}>
-        <Input placeholder={"검색할 상품을 입력해주세요"} />
+        <Input
+          value={searchValue}
+          placeholder={"검색할 상품의 내용을 입력해주세요"}
+          onChange={setSearchValue}
+          onEnter={handleSearch}
+        />
         <ToggleBtn onChangeOrderBy={onChangeOrderBy} />
       </div>
       <div>
-        {postList.map((post) => {
+        {filterPostList.map((post) => {
           return <BasePost key={post.id} {...post} />;
         })}
       </div>

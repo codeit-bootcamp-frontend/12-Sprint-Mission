@@ -57,6 +57,7 @@ export default function BestPosts() {
 
   useEffect(() => {
     getBestPosts(pageSize);
+    console.log("베스트포스트 데이터", getBestPosts);
   }, [pageSize]);
 
   return (
