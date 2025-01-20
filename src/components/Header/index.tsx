@@ -3,6 +3,8 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
+import { useAuthStore } from '@/stores/useAuthStore';
+import { useEffect, useState } from 'react';
 
 function Icon() {
   return (
@@ -15,6 +17,13 @@ function Icon() {
 
 export default function Header() {
   const pathname = usePathname();
+  const { accessToken } = useAuthStore();
+
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   return (
     <header className='fixed top-0 left-0 right-0 z-10 bg-white border-b'>
@@ -30,9 +39,16 @@ export default function Header() {
             중고마켓
           </Link>
         </div>
-        <Link href={'/'}>
-          <Image src='/assets/icons/profile.svg' alt='프로필 이미지' width={40} height={40} style={{ width: 40, height: 40 }} />
-        </Link>
+        {isMounted &&
+          (accessToken ? (
+            <Link href={'/'}>
+              <Image src='/assets/icons/profile.svg' alt='프로필 이미지' width={40} height={40} style={{ width: 40, height: 40 }} />
+            </Link>
+          ) : (
+            <Link href={'/signin'} className='rounded-lg px-6 py-2 bg-blue-100 text-white'>
+              로그인
+            </Link>
+          ))}
       </nav>
     </header>
   );

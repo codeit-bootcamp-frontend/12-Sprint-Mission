@@ -1,6 +1,7 @@
 'use client';
 
 import { submitLogin } from '@/actions/submit-login';
+import { useAuthStore } from '@/stores/useAuthStore';
 import { useRouter } from 'next/navigation';
 import { useActionState, useEffect } from 'react';
 
@@ -9,15 +10,17 @@ const SUBMIT_BTN_CLASSNAME = 'mt-4 rounded-full py-4 bg-gray-400 font-semibold t
 export default function SigninForm() {
   const [state, action, isPending] = useActionState(submitLogin, null);
   const router = useRouter();
+  const { setAccessToken } = useAuthStore();
 
   useEffect(() => {
     if (state && !state.status) alert(state.error);
     if (state?.response && 'accessToken' in state?.response) {
       localStorage.setItem('accessToken', state.response.accessToken);
       localStorage.setItem('refreshToken', state.response.refreshToken);
+      setAccessToken(state.response.accessToken);
       router.replace('/');
     }
-  }, [state, router]);
+  }, [state, router, setAccessToken]);
 
   return (
     <form action={action} className='flex flex-col gap-4 w-[60%]'>
