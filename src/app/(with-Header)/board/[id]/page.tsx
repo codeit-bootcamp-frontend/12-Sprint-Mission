@@ -24,7 +24,7 @@ async function Title({ id }: { id: string }) {
         <p className='text-xl font-bold text-gray-800'>{article.title}</p>
         <div className='flex items-center gap-2'>
           <div className='flex items-center gap-4 mr-4 border-r pr-4'>
-            {article.image && <Image src={article.image} alt='게시글 작성자 프로필 이미지' width={40} height={40} className='rounded-full' />}
+            <Image src={article.image ?? '/assets/icons/profile.svg'} alt='게시글 작성자 프로필 이미지' width={40} height={40} className='rounded-full w-[40px] h-[40px]' />
             <span className='text-sm font-medium text-gray-600'>{article.writer.nickname}</span>
             <span className='text-sm font-medium text-gray-400'>{date}</span>
           </div>
