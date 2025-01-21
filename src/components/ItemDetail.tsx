@@ -1,7 +1,10 @@
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
+import { Item, CommentsList } from "../api/api";
+import ShowOptions from "./ShowOptions";
 import heartImg from "../assets/ic_heart.svg";
 import profileImg from "../assets/ic_profile.svg";
-import ShowOptions from "./ShowOptions";
+import defaultImg from "../assets/img_default.svg";
 
 const ItemDetailWrap = styled.div`
   display: flex;
@@ -11,7 +14,6 @@ const ItemDetailWrap = styled.div`
     flex-direction: column;
   }
 `;
-
 const ItemDetailImg = styled.img`
   width: 486px;
   height: 486px;
@@ -27,39 +29,33 @@ const ItemDetailImg = styled.img`
     height: 100%;
   }
 `;
-
 const ItemDetailText = styled.ol`
   display: flex;
   flex-direction: column;
   gap: 24px;
   width: 100%;
 `;
-
 const ItemNamePrice = styled.div`
   display: flex;
   flex-direction: column;
   gap: 16px;
   font-weight: var(--font-weight-semibold);
 `;
-
 const ItemName = styled.p`
   display: flex;
   justify-content: space-between;
   position: relative;
   font-size: 24px;
 `;
-
 const ItemPrice = styled.p`
   font-size: 40px;
 `;
-
 const Line = styled.hr`
   width: 100%;
   height: 1px;
   background-color: var(--gray-scale-200);
   border: none;
 `;
-
 const ItemDescription = styled.div`
   display: flex;
   flex-direction: column;
@@ -68,21 +64,17 @@ const ItemDescription = styled.div`
   line-height: 26px;
   color: var(--gray-scale-600);
 `;
-
 const ItemTagsWrap = styled.div`
   display: flex;
   flex-direction: column;
   gap: 16px;
   font-size: 16px;
 `;
-
 const ItemSubject = styled.p`
   font-weight: var(--font-weight-semibold);
   color: var(--gray-scale-600);
 `;
-
 const ItemTags = styled.div``;
-
 const ItemTag = styled.span`
   display: inline-block;
   margin-right: 8px;
@@ -93,36 +85,30 @@ const ItemTag = styled.span`
   font-weight: var(--font-weight-regular);
   color: var(--gray-scale-800);
 `;
-
 const ItemWriterFavorite = styled.ul`
   display: flex;
   justify-content: space-between;
   padding-top: 38px;
 `;
-
 const ItemWriter = styled.li`
   display: flex;
   gap: 16px;
   font-size: 14px;
 `;
-
 const ItemWriterText = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
   gap: 2px;
 `;
-
 const WriterId = styled.p`
   font-weight: var(--font-weight-medium);
   color: var(--gray-scale-600);
 `;
-
 const WriteDate = styled.p`
   font-weight: var(--font-weight-regular);
   color: var(--gray-scale-400);
 `;
-
 const ItemFavorite = styled.li`
   display: flex;
   align-items: center;
@@ -135,15 +121,34 @@ const ItemFavorite = styled.li`
   font-weight: var(--font-weight-medium);
 `;
 
-function ItemDetail({ item = { item }, formatDate, tags }) {
+// 타입 설정
+interface ItemDetailProps {
+  item: Item;
+  formatDate: (dateString: string) => string;
+  tags: string[];
+}
+
+function ItemDetail({ item, formatDate, tags }: ItemDetailProps) {
+  const navigate = useNavigate;
+  const handleItemEdit = (item: Item | CommentsList) => {};
+  const handleItemDelete = (item: Item | CommentsList) => {};
   return (
     <ItemDetailWrap>
-      <ItemDetailImg src={item.images} alt="상품이미지" />
+      <ItemDetailImg
+        src={
+          item.images && item.images.length > 0 ? item.images[0] : defaultImg
+        }
+        alt="상품이미지"
+      />
       <ItemDetailText>
         <ItemNamePrice>
           <ItemName>
             {item.name}
-            <ShowOptions />
+            <ShowOptions
+              handleEditClick={handleItemEdit}
+              handleDeleteClick={handleItemDelete}
+              item={item}
+            />
           </ItemName>
           <ItemPrice>{item.price}</ItemPrice>
           <Line />

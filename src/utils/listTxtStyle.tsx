@@ -2,7 +2,6 @@ import styled, { css } from "styled-components";
 
 const CommonListWrapUl = css`
   display: flex;
-  justify-content: space-between;
   gap: 40px 16px;
   flex-wrap: wrap;
   margin-top: 24px;
@@ -14,6 +13,7 @@ export const ListWrapUl = styled.ul`
     gap: 40px 2%;
   }
   @media (max-width: 767px) {
+    justify-content: space-between;
     gap: 32px 0;
   }
 

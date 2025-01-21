@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import styled from "styled-components";
+import { Item, CommentsList } from "../api/api";
 import keBabImg from "../assets/ic_kebab.svg";
 
 const ShowOptionsBtn = styled.img`
@@ -7,7 +8,6 @@ const ShowOptionsBtn = styled.img`
   right: 0;
   cursor: pointer;
 `;
-
 const ShowOptionBox = styled.ul`
   position: absolute;
   z-index: 2;
@@ -23,7 +23,6 @@ const ShowOptionBox = styled.ul`
   text-align: center;
   color: var(--gray-scale-800);
 `;
-
 const ShowOption = styled.li`
   padding: 0 20px;
   cursor: pointer;
@@ -36,13 +35,24 @@ const ShowOption = styled.li`
   }
 `;
 
-function ShowOptions({ handleEditClick, comment }) {
+// 타입 설정
+interface ShowOptionsProps {
+  handleEditClick: (item: CommentsList | Item) => void;
+  handleDeleteClick: (item: CommentsList | Item) => void;
+  item: CommentsList | Item;
+}
+
+function ShowOptions({
+  handleEditClick,
+  handleDeleteClick,
+  item,
+}: ShowOptionsProps) {
   const [showOptions, setShowOptions] = useState(false);
-  const selectRef = useRef(null);
+  const selectRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    function handleClickOutside(event) {
-      if (selectRef.current && !selectRef.current.contains(event.target)) {
+    function handleClickOutside(e: MouseEvent) {
+      if (selectRef.current && !selectRef.current.contains(e.target as Node)) {
         setShowOptions(false);
       }
     }
@@ -64,10 +74,12 @@ function ShowOptions({ handleEditClick, comment }) {
         />
         {showOptions && (
           <ShowOptionBox>
-            <ShowOption onClick={() => handleEditClick(comment)}>
+            <ShowOption onClick={() => handleEditClick(item)}>
               수정하기
             </ShowOption>
-            <ShowOption>삭제하기</ShowOption>
+            <ShowOption onClick={() => handleDeleteClick(item)}>
+              삭제하기
+            </ShowOption>
           </ShowOptionBox>
         )}
       </div>

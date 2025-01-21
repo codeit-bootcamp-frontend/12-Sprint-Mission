@@ -5,7 +5,6 @@ const CommentLabel = styled.label`
   color: var(--gray-scale-900);
   font-weight: var(--font-weight-semibold);
 `;
-
 const CommentInput = styled.textarea`
   width: 100%;
   height: 104px;
@@ -23,7 +22,6 @@ const CommentInput = styled.textarea`
     height: 130px;
   }
 `;
-
 const CommentSubmitButton = styled.button`
   float: right;
   padding: 12px 23px;
@@ -44,7 +42,20 @@ const CommentSubmitButton = styled.button`
   cursor: pointer;
 `;
 
-function CommentForm({ handleSubmit, value, setValue, isValid }) {
+// 타입 설정
+interface CommentFormProps {
+  handleSubmit: (e: React.FormEvent) => void;
+  value: string;
+  setValue: React.Dispatch<React.SetStateAction<string>>;
+  isValid: (value: string) => boolean;
+}
+
+function CommentForm({
+  handleSubmit,
+  value,
+  setValue,
+  isValid,
+}: CommentFormProps) {
   return (
     <form onSubmit={handleSubmit}>
       <CommentLabel htmlFor="questionSubmit">문의하기</CommentLabel>

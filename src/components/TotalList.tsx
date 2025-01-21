@@ -1,5 +1,7 @@
+import { Dispatch, SetStateAction } from "react";
+import { Link } from "react-router-dom";
+import { Item } from "../api/api";
 import styled from "styled-components";
-import heartImg from "../assets/ic_heart.svg";
 import {
   ListWrapUl,
   ItemTxtWrap,
@@ -9,10 +11,10 @@ import {
   FavoriteImg,
   FavoriteCount,
 } from "../utils/listTxtStyle";
-import { Link } from "react-router-dom";
+import heartImg from "../assets/ic_heart.svg";
+import defaultImg from "../assets/img_default.svg";
 
 const TotalListLi = styled.li``;
-
 const TotalListImg = styled.img`
   display: inline-block;
   height: 221px;
@@ -26,10 +28,27 @@ const TotalListImg = styled.img`
   }
 `;
 
-function TotalListItem({ item }) {
+// 타입 설정
+type TotalListProps = {
+  items: Item[];
+  page: number;
+  pageSize: number;
+  setPage: Dispatch<SetStateAction<number>>;
+  totalCount: number;
+};
+type TotalListItemProps = {
+  item: Item;
+};
+
+function TotalListItem({ item }: TotalListItemProps) {
   return (
     <>
-      <TotalListImg src={item.images} alt="상품이미지" />
+      <TotalListImg
+        src={
+          item.images && item.images.length > 0 ? item.images[0] : defaultImg
+        }
+        alt="상품이미지"
+      />
       <ItemTxtWrap>
         <ItemTitle>{item.name}</ItemTitle>
         <ItemPrice>{item.price}원</ItemPrice>
@@ -42,14 +61,20 @@ function TotalListItem({ item }) {
   );
 }
 
-function TotalList({ fullItems }) {
+function TotalList({
+  items,
+  page,
+  pageSize,
+  setPage,
+  totalCount,
+}: TotalListProps) {
   return (
     <ListWrapUl>
-      {fullItems.map((fullItem) => {
+      {items.map((item) => {
         return (
-          <Link to={`/items/${fullItem.id}`}>
-            <TotalListLi key={fullItem.id}>
-              <TotalListItem item={fullItem} />
+          <Link to={`/items/${item.id}`}>
+            <TotalListLi key={item.id}>
+              <TotalListItem item={item} />
             </TotalListLi>
           </Link>
         );

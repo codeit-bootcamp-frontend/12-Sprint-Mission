@@ -1,4 +1,4 @@
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState, useEffect, ChangeEvent } from "react";
 import styled from "styled-components";
 import icClose from "../assets/ic_X.svg";
 import icPlus from "../assets/ic_plus.svg";
@@ -9,13 +9,11 @@ const InputFileLabel = styled.p`
   font-weight: var(--font-weight-bold);
   color: var(--gray-scale-800);
 `;
-
 const InputWrap = styled.div`
   display: flex;
   flex-direction: column;
   gap: 16px;
 `;
-
 const InputInnerWrap = styled.div`
   display: flex;
   align-items: end;
@@ -26,13 +24,11 @@ const InputInnerWrap = styled.div`
     gap: 10px;
   }
 `;
-
 const Label = styled.label`
   @media (max-width: 767px) {
     width: 49%;
   }
 `;
-
 const InputFileButton = styled.div`
   display: flex;
   flex-direction: column;
@@ -53,16 +49,13 @@ const InputFileButton = styled.div`
     aspect-ratio: 1 / 1;
   }
 `;
-
 const InputFileIcon = styled.img`
   width: 48px;
   height: 48px;
 `;
-
 const InputFile = styled.input`
   display: none;
 `;
-
 const PreviewWrap = styled.div`
   width: 282px;
   height: 282px;
@@ -72,7 +65,6 @@ const PreviewWrap = styled.div`
     height: auto;
   }
 `;
-
 const ClearButton = styled.button`
   position: absolute;
   top: 12px;
@@ -85,24 +77,30 @@ const PreviewImg = styled.img`
   object-fit: cover;
   border-radius: 12px;
 `;
-
 const ErrorTxt = styled.p`
   font-size: 16px;
   font-weight: var(--font-weight-regular);
   color: var(--error);
 `;
 
-function FileInput({ name, value, onChange }) {
-  const [preview, setPreview] = useState();
-  const [error, setError] = useState(null);
-  const inputRef = useRef();
+// 타입 설정
+type FileInputProps = {
+  name: string;
+  value: File | null;
+  onChange: (name: string, value: File | null) => void;
+};
 
-  const handleChange = (e) => {
-    const imgValue = e.target.files[0];
+function FileInput({ name, value, onChange }: FileInputProps) {
+  const [preview, setPreview] = useState<string | undefined>();
+  const [error, setError] = useState<string | null>(null);
+  const inputRef = useRef<HTMLInputElement | null>(null);
+
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const imgValue = e.target.files ? e.target.files[0] : null;
     onChange(name, imgValue);
   };
 
-  const handleDisabledClick = (e) => {
+  const handleDisabledClick = (e: React.MouseEvent<HTMLInputElement>) => {
     if (value) {
       e.preventDefault();
       setError("*이미지 등록은 최대 1개까지 가능합니다.");
@@ -112,7 +110,6 @@ function FileInput({ name, value, onChange }) {
   const handleClearClick = () => {
     const inputNode = inputRef.current;
     if (!inputNode) return;
-
     inputNode.value = "";
     onChange(name, null);
     setError(null);
@@ -124,7 +121,7 @@ function FileInput({ name, value, onChange }) {
     setPreview(imgPreview);
 
     return () => {
-      setPreview();
+      setPreview(undefined);
       URL.revokeObjectURL(imgPreview);
     };
   }, [value]);

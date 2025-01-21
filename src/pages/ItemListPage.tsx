@@ -1,14 +1,15 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, FormEvent } from "react";
 import { Link } from "react-router-dom";
-import { getItems } from "../api/api";
+import { getItems, Item } from "../api/api";
 import styled from "styled-components";
-import BestList from "../components/BestList";
 import useWindowSize from "../utils/useWindowSize";
-import TotalList from "../components/TotalList";
+import ContentWrap from "../components/ContentWrap";
 import Sort from "../components/Sort";
-import Pagination from "../components/Pagination";
 import SectionTitle from "../components/SectionTitle";
 import Search from "../components/Search";
+import BestList from "../components/BestList";
+import TotalList from "../components/TotalList";
+import Pagination from "../components/Pagination";
 
 const TotalProductTop = styled.div`
   display: grid;
@@ -23,7 +24,6 @@ const TotalProductTop = styled.div`
     grid-template-columns: 1fr;
   }
 `;
-
 const AddItem = styled.button`
   grid-area: button;
   width: 133px;
@@ -43,78 +43,77 @@ const AddItem = styled.button`
   }
 `;
 
+// type 설정
+type SortOrder = "recent" | "favorite";
+
 function Items() {
-  const [order, setOrder] = useState("recent");
-  const [items, setItems] = useState([]);
-
-  const { width } = useWindowSize();
-  const initialPageSize = width >= 1200 ? 4 : width >= 768 ? 2 : 1;
-  const initialFullPageSize = width >= 1200 ? 10 : width >= 768 ? 6 : 4;
-  const [pageSize, setPageSize] = useState(initialPageSize);
-  const [fullPageSize, setFullPageSize] = useState(initialFullPageSize);
-
-  const [fullPage, setFullPage] = useState(1);
-  const [fullItems, setFullItems] = useState([]);
+  const [order, setOrder] = useState<SortOrder>("recent");
+  const [bestItems, setBestItems] = useState<Item[]>([]);
+  const [bestPageSize, setBestPageSize] = useState(4);
+  const [pageSize, setPageSize] = useState(10);
+  const [page, setPage] = useState(1);
+  const [items, setItems] = useState<Item[]>([]);
   const [totalCount, setTotalCount] = useState(0);
-
   const [keyword, setKeyword] = useState("");
 
-  const handleKeywordSubmit = (e) => {
+  const { width } = useWindowSize();
+
+  const handleKeywordSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const searchKeyword = e.target["keyword"].value.trim();
+    const searchKeyword = (e.target as HTMLFormElement)["keyword"].value.trim();
     if (searchKeyword) {
       setKeyword(searchKeyword);
+      setPage(1);
     }
   };
 
+  // 베스트 상품
   const handleLoad = async () => {
-    const options = { orderBy: "favorite", pageSize: pageSize };
+    const options = { orderBy: "favorite", pageSize: bestPageSize };
     const { list } = await getItems(options);
-    setItems(list);
+    setBestItems(list);
   };
 
-  const handleLoadFull = async (options) => {
+  // 전체 상품
+  const handleLoadFull = async () => {
     const fullOptions = {
       orderBy: order,
-      pageSize: fullPageSize,
+      pageSize: pageSize,
       keyword: keyword,
-      page: fullPage,
+      page: page,
     };
     const { list, totalCount } = await getItems(fullOptions);
-    setFullItems(list);
+    setItems(list);
     setTotalCount(totalCount);
   };
 
-  useEffect(() => {
-    handleLoad();
-  }, [pageSize]);
-
+  // 화면 크기에 따른 페이지 당 아이템 개수 설정
   useEffect(() => {
     if (width >= 1200) {
-      setFullPageSize(10);
-      setPageSize(4);
+      setPageSize(10);
+      setBestPageSize(4);
     } else if (width >= 768) {
-      setFullPageSize(6);
-      setPageSize(2);
+      setPageSize(6);
+      setBestPageSize(2);
     } else {
-      setFullPageSize(4);
-      setPageSize(1);
+      setPageSize(4);
+      setBestPageSize(1);
     }
   }, [width]);
 
+  // 베스트 상품
+  useEffect(() => {
+    handleLoad();
+  }, [bestPageSize]);
+
+  // 전체 상품
   useEffect(() => {
     handleLoadFull();
-  }, [fullPage, order, keyword, fullPageSize]);
-
-  useEffect(() => {
-    if (keyword) {
-      handleLoadFull(order, keyword);
-    }
-  }, [keyword, order]);
+  }, [page, order, keyword, pageSize]);
 
   return (
-    <>
-      <BestList items={items} />
+    <ContentWrap>
+      <BestList items={bestItems} setPageSize={setBestPageSize} />
       <article className="total-product">
         <TotalProductTop>
           <SectionTitle>전체 상품</SectionTitle>
@@ -125,20 +124,20 @@ function Items() {
           <Sort setOrder={setOrder} width={width} />
         </TotalProductTop>
         <TotalList
-          fullItems={fullItems}
-          fullPage={fullPage}
-          fullPageSize={fullPageSize}
-          setFullPage={setFullPage}
+          items={items}
+          page={page}
+          pageSize={pageSize}
+          setPage={setPage}
           totalCount={totalCount}
         ></TotalList>
         <Pagination
-          fullPage={fullPage}
-          fullPageSize={fullPageSize}
-          setFullPage={setFullPage}
+          page={page}
+          pageSize={pageSize}
+          setPage={setPage}
           totalCount={totalCount}
         />
       </article>
-    </>
+    </ContentWrap>
   );
 }
 

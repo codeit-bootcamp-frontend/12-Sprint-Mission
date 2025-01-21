@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import styled from "styled-components";
 import homeIcon from "../assets/logo.svg";
@@ -22,11 +23,9 @@ const NavWrap = styled.nav`
     padding: 0 16px;
   }
 `;
-
 const LinkToHome = styled.img`
   width: 153px;
 `;
-
 const SubMenuWrap = styled.div`
   display: flex;
   width: 100%;
@@ -37,7 +36,26 @@ const SubMenuWrap = styled.div`
   color: var(--gray-scale-600);
   font-weight: var(--font-weight-bold);
 `;
+const LoginButton = styled(NavLink)`
+  display: inline-block;
+  width: 128px;
+  height: 48px;
+  background-color: var(--primary-color-100);
+  border-radius: 8px;
+  color: var(--gray-scale-0);
+  text-align: center;
+  line-height: 48px;
+  font-weight: var(--font-weight-semibold);
+  text-decoration: none;
 
+  &:hover {
+    background-color: var(--primary-color-200);
+  }
+
+  &:active {
+    background-color: var(--primary-color-300);
+  }
+`;
 function getLinkStyle({ isActive }) {
   return {
     color: isActive ? "var(--primary-color-100)" : "inherit",
@@ -46,8 +64,12 @@ function getLinkStyle({ isActive }) {
 }
 
 function Nav() {
-  const location = useLocation();
+  const [isLoggedIn, setIsLOggedIn] = useState(false);
 
+  const handleLogin = () => setIsLOggedIn(true);
+  const handleLogout = () => setIsLOggedIn(false);
+
+  const location = useLocation();
   const isItemsActive =
     location.pathname === "/items" || location.pathname === "/additem";
 
@@ -57,23 +79,23 @@ function Nav() {
         <Link to="/" className="home">
           <LinkToHome src={homeIcon} alt="홈으로" />
         </Link>
-        <SubMenuWrap className="sub-menu">
-          <NavLink to="/boards" style={getLinkStyle}>
-            자유게시판
-          </NavLink>
-          <NavLink
-            to="/items"
-            style={({ isActive }) => ({
-              color: isItemsActive ? "var(--primary-color-100)" : "inherit",
-              fontWeight: isItemsActive ? "var(--font-weight-bold)" : "inherit",
-            })}
-          >
-            중고마켓
-          </NavLink>
-        </SubMenuWrap>
-        <Link to className="btn-mypage">
-          <img src={profileImg} alt="프로필" />
-        </Link>
+        {isLoggedIn ? (
+          <>
+            <SubMenuWrap className="sub-menu">
+              <NavLink to="/boards" style={getLinkStyle}>
+                자유게시판
+              </NavLink>
+              <NavLink to="/items" style={getLinkStyle}>
+                중고마켓
+              </NavLink>
+            </SubMenuWrap>
+            <Link to className="btn-mypage">
+              <img src={profileImg} alt="프로필" />
+            </Link>
+          </>
+        ) : (
+          <LoginButton to="/login">로그인</LoginButton>
+        )}
       </NavWrap>
     </>
   );

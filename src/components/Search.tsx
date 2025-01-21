@@ -1,3 +1,4 @@
+import { FormEvent } from "react";
 import styled from "styled-components";
 import IcSearchImg from "../assets/ic_search.svg";
 
@@ -6,7 +7,6 @@ const SearchForm = styled.form`
   display: flex;
   gap: 10px;
 `;
-
 const SearchInput = styled.input`
   grid-area: search;
   width: 325px;
@@ -28,8 +28,13 @@ const SearchInput = styled.input`
   }
 `;
 
-function Search({ handleKeywordSubmit }) {
-  const handleSubmit = (e) => {
+// 타입 설정
+type SearchProps = {
+  handleKeywordSubmit: (e: FormEvent<HTMLFormElement>) => void;
+};
+
+function Search({ handleKeywordSubmit }: SearchProps) {
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     handleKeywordSubmit(e);
   };

@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import styled, { css } from "styled-components";
+import { addItem } from "api/api";
+import ContentWrap from "../components/ContentWrap";
 import FileInput from "../components/FileInput";
 import SectionTitle from "../components/SectionTitle";
 import icClose from "../assets/ic_X.svg";
@@ -9,13 +11,11 @@ const AddForm = styled.form`
   flex-direction: column;
   gap: 32px;
 `;
-
 const FormTopSection = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
 `;
-
 const SubmitButton = styled.button`
   padding: 12px 23px;
   background-color: var(--primary-color-100);
@@ -33,20 +33,17 @@ const SubmitButton = styled.button`
     background-color: var(--gray-scale-400);
   }
 `;
-
 const Label = styled.label`
   line-height: 26px;
   font-size: 18px;
   font-weight: var(--font-weight-bold);
   color: var(--gray-scale-800);
 `;
-
 const InputWrap = styled.div`
   display: flex;
   flex-direction: column;
   gap: 16px;
 `;
-
 const input = css`
   padding: 24px;
   border: none;
@@ -58,21 +55,17 @@ const input = css`
     color: var(--gray-scale-400);
   }
 `;
-
 const Input = styled.input`
   ${input};
 `;
-
 const TextArea = styled.textarea`
   ${input};
   height: 282px;
 `;
-
 const TagsWrap = styled.div`
   display: flex;
   gap: 12px;
 `;
-
 const TagBox = styled.span`
   display: flex;
   align-items: center;
@@ -81,43 +74,66 @@ const TagBox = styled.span`
   background-color: var(--gray-scale-100);
   border-radius: 26px;
 `;
-
 const RemoveTagButton = styled.button`
   height: 24px;
   cursor: pointer;
 `;
 
+// 타입 설정
+type FormValues = {
+  imgFile: File | null;
+  title: string;
+  content: string;
+  price: number;
+  tag: string;
+};
+
 function AddItem() {
-  const [values, setValues] = useState({
+  const [values, setValues] = useState<FormValues>({
     imgFile: null,
     title: "",
     content: "",
-    price: "",
+    price: 0,
     tag: "",
   });
 
-  const [tags, setTags] = useState([]);
+  const [tags, setTags] = useState<string[]>([]);
+
+  // 텍스트 입력 중인 상태인지 아닌지 추적함
   const [isComposing, setIsComposing] = useState(false);
 
-  const handleChange = (name, value) => {
+  const handleChange = (name: string, value: string | File | null) => {
     setValues((prevValues) => ({
       ...prevValues,
       [name]: value,
     }));
   };
-
-  const handleInputChange = (e) => {
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const { name, value } = e.target;
     handleChange(name, value);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const formData = { ...values, tags };
-    console.log("폼 제출 데이터:", formData);
+    const imageUrl = values.imgFile ? URL.createObjectURL(values.imgFile) : "";
+    const formData = {
+      images: imageUrl ? [imageUrl] : [],
+      tags: tags,
+      price: values.price,
+      description: values.content,
+      name: values.title,
+    };
+    try {
+      const result = await addItem(formData);
+      console.log("상품이 성공적으로 추가되었습니다:", result);
+    } catch (error) {
+      console.error("상품 추가 실패:", error);
+    }
   };
 
-  const handleTagKeyDown = (e) => {
+  const handleTagKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter" && !isComposing) {
       e.preventDefault();
 
@@ -132,20 +148,20 @@ function AddItem() {
       setValues((prevValues) => ({ ...prevValues, tag: "" }));
     }
   };
+  const handleRemoveTag = (index: number) => {
+    setTags((prevTags) => prevTags.filter((_, i) => i !== index));
+  };
 
+  // 입력 중인 텍스트가 아직 완성되지 않았을 때 발생하는 입력 과정에 대해 관리하기 위한 코드 (한국어 입력시 필요)
   const handleCompositionStart = () => {
     setIsComposing(true);
   };
-
   const handleCompositionEnd = () => {
     setIsComposing(false);
   };
 
-  const handleRemoveTag = (index) => {
-    setTags((prevTags) => prevTags.filter((_, i) => i !== index));
-  };
-
-  const isValid = (values, tags) => {
+  // 필수 입력값을 제대로 채웠는지 확인하는 함수
+  const isValid = (values: FormValues, tags: string[]): boolean => {
     return (
       values.title.trim() !== "" &&
       values.content.trim() !== "" &&
@@ -157,7 +173,7 @@ function AddItem() {
   useEffect(() => {}, [values, tags]);
 
   return (
-    <>
+    <ContentWrap>
       <AddForm id="submitForm" onSubmit={handleSubmit}>
         <FormTopSection>
           <SectionTitle>상품 등록하기</SectionTitle>
@@ -167,7 +183,7 @@ function AddItem() {
         </FormTopSection>
         <FileInput
           name="imgFile"
-          value={values.imgFile}
+          value={values.imgFile ?? null}
           onChange={handleChange}
         />
         <InputWrap>
@@ -232,7 +248,7 @@ function AddItem() {
           )}
         </InputWrap>
       </AddForm>
-    </>
+    </ContentWrap>
   );
 }
 
