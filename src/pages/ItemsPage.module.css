@@ -131,15 +131,21 @@ h2 {
   width: 130px;
   height: 84px;
   list-style: none;
-  display: flex;
+  /* display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  align-items: center;
+  align-items: center; */
 }
 
 .dropdown_menu li {
   font-size: 14px;
+  padding: 12px;
+  text-align: center;
   cursor: pointer;
+}
+
+.dropdown_menu_recent {
+  border-bottom: 1px solid #e5e7eb;
 }
 
 @media (max-width: 1199px) {

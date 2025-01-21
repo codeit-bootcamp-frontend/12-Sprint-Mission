@@ -6,7 +6,7 @@ import ProductList from "../components/ProductList";
 import Pagination from "../components/Pagination";
 import styles from "./ItemsPage.module.css";
 import SearchImg from "../img/search.png";
-import ArrowImg from "../img/arrow_down.png";
+import ArrowImg from "../img/arrow_down.svg";
 
 function ItemsPage() {
   const [order, setOrder] = useState({
@@ -155,8 +155,18 @@ function ItemsPage() {
           </div>
           {dropdownOpen && (
             <ul className={styles.dropdown_menu}>
-              <li onClick={() => handleOrderChange("recent")}>최신순</li>
-              <li onClick={() => handleOrderChange("favorite")}>베스트순</li>
+              <li
+                className={styles.dropdown_menu_recent}
+                onClick={() => handleOrderChange("recent")}
+              >
+                최신순
+              </li>
+              <li
+                className={styles.dropdown_menu_favorite}
+                onClick={() => handleOrderChange("favorite")}
+              >
+                베스트순
+              </li>
             </ul>
           )}
         </div>
