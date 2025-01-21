@@ -6,7 +6,7 @@ import { PostData } from "../../../types";
 export default function BestPost({
   content,
   image,
-  writer = { nickname: "익명 사용자" },
+  writer,
   likeCount,
   createdAt,
 }: PostData) {
@@ -23,11 +23,16 @@ export default function BestPost({
       </div>
       <div className={styles.content}>
         <p>{content}</p>
-        <Image width={72} height={72} src={image!} alt={`${image} 이미지`} />
+        <Image
+          width={72}
+          height={72}
+          src={image ?? `/images/null.svg`}
+          alt={`${image ?? `기본`} 이미지`}
+        />
       </div>
       <div className={styles.info}>
         <div className={styles.userInfo}>
-          <p>{writer!.nickname}</p>
+          <p>{writer?.nickname ?? "Unknown"}</p>
           <div className={styles.likeCount}>
             <Image
               src={"/images/ic_heart.svg"}

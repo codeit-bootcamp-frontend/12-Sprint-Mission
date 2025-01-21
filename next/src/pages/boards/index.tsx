@@ -3,8 +3,22 @@ import MainHeader from "../../components/MainHeader";
 import BestPosts from "./components/BestPosts";
 import AllPosts from "./components/AllPosts";
 import Head from "next/head";
+import fetchPosts from "@/lib/fetch-posts";
+import { InferGetServerSidePropsType } from "next";
 
-export default function Page() {
+export const getServerSideProps = async () => {
+  const initialPosts = await fetchPosts({ orderBy: "like", pageSize: 3 });
+
+  return {
+    props: {
+      initialPosts,
+    },
+  };
+};
+
+export default function Page({
+  initialPosts,
+}: InferGetServerSidePropsType<typeof getServerSideProps>) {
   return (
     <>
       <Head>
@@ -12,7 +26,7 @@ export default function Page() {
       </Head>
       <MainHeader />
       <div className={styles.container}>
-        <BestPosts />
+        <BestPosts initialPosts={initialPosts} />
         <AllPosts />
       </div>
     </>

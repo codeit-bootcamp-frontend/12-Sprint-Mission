@@ -1,14 +1,18 @@
-import { getPostsData } from "../../../api/api";
-import { useEffect, useState } from "react";
+import { PostData } from "@/types";
 import BestPost from "./BestPost";
 import styles from "./BestPosts.module.css";
-import { PostData } from "../../../types";
+import { useEffect, useState } from "react";
+import fetchPosts from "@/lib/fetch-posts";
+
+interface BestPostProps {
+  initialPosts: PostData[];
+}
 
 // 479, 767, 1023
 
-export default function BestPosts() {
-  const [bestPosts, setBestPosts] = useState<PostData[]>([]);
-  const [pageSize, setPageSize] = useState<number>(3);
+export default function BestPosts({ initialPosts }: BestPostProps) {
+  const [pageSize, setPageSize] = useState(3);
+  const [bestPosts, setBestPosts] = useState<PostData[]>(initialPosts);
 
   const pageSizeCheck = () => {
     const pageWidth = window.innerWidth;
@@ -18,18 +22,6 @@ export default function BestPosts() {
       setPageSize(2);
     } else {
       setPageSize(3);
-    }
-  };
-
-  const getBestPosts = async (currentPageSize: number) => {
-    try {
-      const data: PostData[] = await getPostsData({
-        orderBy: "like",
-        pageSize: currentPageSize,
-      });
-      setBestPosts(data);
-    } catch (e) {
-      console.error("베스트 게시글 데이터 패칭에 실패", e);
     }
   };
 
@@ -45,10 +37,12 @@ export default function BestPosts() {
   }, []);
 
   useEffect(() => {
-    getBestPosts(pageSize);
-    console.log("베스트포스트 데이터", getBestPosts);
+    const fetchBestPosts = async () => {
+      const posts = await fetchPosts({ orderBy: "like", pageSize });
+      setBestPosts(posts);
+    };
+    fetchBestPosts();
   }, [pageSize]);
-
   return (
     <div className={styles.container}>
       <h3 className={styles.title}>베스트 게시글</h3>
