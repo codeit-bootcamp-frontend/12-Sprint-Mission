@@ -1,7 +1,8 @@
-import SearchForm from "@/components/SearchForm";
-import ArticleList from "@/components/ArticleList";
+import SearchForm from "@/components/ui/SearchForm";
+import ArticleList from "@/components/board/ArticleList";
 import { useEffect, useState } from "react";
 import axios from "@/lib/axios";
+import Header from "@/components/layout/Header";
 
 export default function Boards() {
   const [articles, setArticles] = useState([]);
@@ -18,6 +19,7 @@ export default function Boards() {
 
   return (
     <>
+      <Header />
       <h1>자유게시판</h1>
       <SearchForm />
       <ArticleList articles={articles} />

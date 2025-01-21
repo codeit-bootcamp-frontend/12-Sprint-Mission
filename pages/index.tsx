@@ -1,7 +1,7 @@
 export default function Home() {
   return (
     <div>
-      <h1>Welcome to Panda Market</h1>
+      <h1>Panda Market Root Page</h1>
     </div>
   );
 }
