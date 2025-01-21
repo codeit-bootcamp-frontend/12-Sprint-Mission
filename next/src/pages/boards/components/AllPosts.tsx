@@ -1,5 +1,5 @@
 import styles from "./AllPost.module.css";
-import Input from "@/src/components/Input";
+import Input from "../../../components/Input";
 import BasePost from "./BasePost";
 import { useEffect, useState } from "react";
 import { getPostsData } from "@/src/api/api";
