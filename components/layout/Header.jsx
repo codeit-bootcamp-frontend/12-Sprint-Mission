@@ -1,8 +1,10 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { useRouter } from "next/router";
-import styles from "./Header.module.css";
+import styles from "@/styles/Header.module.css";
 import Logo from "@/public/logo/logo.svg";
+import profile from "@/public/icons/ic_profile_medium.png";
 
 function getLinkStyle(path, currentPath) {
   return path === currentPath ? { color: "var(--blue)" } : {};
@@ -15,7 +17,7 @@ function Header() {
     <header className={styles.globalHeader}>
       <div className={styles.headerLeft}>
         <Link href="/" className={styles.headerLogo}>
-          <img src={Logo} alt="판다마켓 로고" />
+          <Image src={Logo} alt="판다마켓 로고" />
         </Link>
         <nav>
           <ul>
@@ -42,9 +44,7 @@ function Header() {
           </ul>
         </nav>
       </div>
-      <Link className={`${styles.loginLink} button`} href="/login">
-        로그인
-      </Link>
+      <Image src={profile} alt="profile" width={40} height={40} />
     </header>
   );
 }
