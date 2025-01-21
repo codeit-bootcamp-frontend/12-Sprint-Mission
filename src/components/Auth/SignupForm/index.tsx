@@ -55,6 +55,7 @@ export default function SignupForm() {
           className={`rounded-xl p-4 bg-gray-100 ${errors.email ? 'border-2 border-red-error outline-red-error' : 'outline-blue-100'}`}
           {...register('email', { required: true, pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i })}
           onKeyDown={preventEnterSubmit}
+          autoComplete='email'
         />
         {errors?.email?.type === 'required' && <span className='text-red-error'>이메일을 입력해주세요.</span>}
         {errors?.email?.type === 'pattern' && <span className='text-red-error'>잘못된 이메일입니다.</span>}
@@ -67,6 +68,7 @@ export default function SignupForm() {
           className={`rounded-xl p-4 bg-gray-100 ${errors.nickname ? 'border-2 border-red-error outline-red-error' : 'outline-blue-100'}`}
           {...register('nickname', { required: true, maxLength: 10 })}
           onKeyDown={preventEnterSubmit}
+          autoComplete='username'
         />
         {errors?.nickname?.type === 'required' && <span className='text-red-error'>닉네임을 입력해주세요.</span>}
         {errors?.nickname?.type === 'maxLength' && <span className='text-red-error'>닉네임을 10자리 이하로 입력해주세요.</span>}
@@ -79,6 +81,7 @@ export default function SignupForm() {
           className={`rounded-xl p-4 bg-gray-100 ${errors.password ? 'border-2 border-red-error outline-red-error' : 'outline-blue-100'}`}
           {...register('password', { required: true, minLength: 8, onChange: () => trigger('passwordConfirmation') })}
           onKeyDown={preventEnterSubmit}
+          autoComplete='new-password'
         />
         {errors?.password?.type === 'required' && <span className='text-red-error'>비밀번호를 입력해주세요.</span>}
         {errors?.password?.type === 'minLength' && <span className='text-red-error'>비밀번호를 8자리 이상 입력해주세요.</span>}
@@ -95,6 +98,7 @@ export default function SignupForm() {
             },
           })}
           onKeyDown={preventEnterSubmit}
+          autoComplete='new-password'
         />
         {errors?.passwordConfirmation?.type === 'isMatchPassword' && <span className='text-red-error'>비밀번호가 일치하지 않습니다.</span>}
       </label>
