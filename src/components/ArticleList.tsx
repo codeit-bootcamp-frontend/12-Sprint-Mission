@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, useMemo } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Article, FetchArticlesResponse } from "@/types";
 import { fetchArticles } from "@/lib/fetchArticles";
 import { ArticleItemCard } from "@/components/ArticleItemCard";
