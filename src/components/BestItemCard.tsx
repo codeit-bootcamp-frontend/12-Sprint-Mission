@@ -7,7 +7,13 @@ import { formatDate } from "@/utils/formattedDate";
 import Link from "next/link";
 import { useMemo } from "react";
 
-export default function BestItemCard({ id, content, updatedAt, likeCount, writer, image, title }: Article) {
+interface BestItemCardProps {
+  article: Article;
+}
+
+export default function BestItemCard({ article }: BestItemCardProps) {
+  const { id, title, content, image, updatedAt, writer, likeCount } = article;
+
   const formattedDate = useMemo<string>(() => {
     return formatDate(updatedAt);
   }, [updatedAt]);

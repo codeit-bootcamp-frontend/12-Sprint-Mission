@@ -132,7 +132,7 @@ export default function ArticleList({ initialArticles, initialOrder }: ArticleLi
 
       <div className={style.all_section}>
         {articles.map((article) => (
-          <ArticleItemCard key={article.id} {...article} />
+          <ArticleItemCard key={article.id} article={article} />
         ))}
       </div>
 

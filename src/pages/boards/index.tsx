@@ -19,7 +19,7 @@ export default function Page({ bestArticles, initialArticles, initialOrder }: Bo
         <h3 className={style.title}>베스트 게시글</h3>
         <div className={style.best_section}>
           {bestArticles.list.map((article: Article) => (
-            <BestItemCard key={article.id} {...article} />
+            <BestItemCard key={article.id} article={article} />
           ))}
         </div>
       </div>
