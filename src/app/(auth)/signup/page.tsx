@@ -1,3 +1,9 @@
+import SignupForm from '@/components/Auth/SignupForm';
+
 export default function Signup() {
-  return <main className='my-[80px]'>회원가입 페이지입니다.</main>;
+  return (
+    <main className='flex flex-col items-center gap-6 mt-12 mx-auto max-w-[1200px]'>
+      <SignupForm />
+    </main>
+  );
 }

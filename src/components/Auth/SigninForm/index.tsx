@@ -57,7 +57,7 @@ export default function SigninForm() {
         name='email'
         id='email'
         placeholder='이메일을 입력해주세요'
-        className={`rounded-xl p-4 border-2 bg-gray-100 outline-none ${valid.isEmailValid ? 'border-blue-100' : 'border-red-error'}`}
+        className={`rounded-xl p-4 bg-gray-100 ${valid.isEmailValid ? 'outline-blue-100' : 'border-2 border-red-error  outline-red-error'}`}
         required
         aria-required
         value={valid.email}
@@ -72,7 +72,7 @@ export default function SigninForm() {
         name='password'
         id='password'
         placeholder='비밀번호를 입력해주세요'
-        className={`rounded-xl p-4 border-2 bg-gray-100 outline-none ${valid.isPasswordValid ? 'border-blue-100' : 'border-red-error'}`}
+        className={`rounded-xl p-4 bg-gray-100 ${valid.isPasswordValid ? 'outline-blue-100' : 'border-2 border-red-error  outline-red-error'}`}
         required
         aria-required
         value={valid.password}

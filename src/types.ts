@@ -68,3 +68,40 @@ export interface Comments {
   list: Comment[];
   nextCursor: null | string;
 }
+
+export interface SignupFormData {
+  email: string;
+  nickname: string;
+  password: string;
+  passwordConfirmation: string;
+}
+
+export interface SignupResponse {
+  accessToken: string;
+  refreshToken: string;
+  user: {
+    id: number;
+    email: string;
+    image: null | string;
+    nickname: string;
+    updatedAt: string;
+    createdAt: string;
+  };
+}
+export interface SignupFailResponse {
+  message: string;
+  details: {
+    email?: {
+      message: string;
+    };
+    nickanme?: {
+      message: string;
+    };
+    password?: {
+      message: string;
+    };
+    passwordConfirmation?: {
+      message: string;
+    };
+  };
+}
