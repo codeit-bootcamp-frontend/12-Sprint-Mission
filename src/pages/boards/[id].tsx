@@ -4,7 +4,7 @@ import { ArticleDetailResponse, FetchCommentsResponse } from "@/types";
 import { GetServerSideProps, GetServerSidePropsContext } from "next";
 import { formatDate } from "@/utils/formattedDate";
 import { addComment } from "@/services/commentService";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import CommentCard from "@/components/CommentCard";
 import Image from "next/image";
 import style from "./[id].module.css";
@@ -17,7 +17,9 @@ interface DetailPageProps {
 }
 
 export default function Page({ article, comments }: DetailPageProps) {
-  const formattedDate = formatDate(article.updatedAt);
+  const formattedDate = useMemo<string>(() => {
+    return formatDate(article.updatedAt);
+  }, [article.updatedAt]);
   const [commentContent, setCommentContent] = useState("");
 
   const handleCommentChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {

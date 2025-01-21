@@ -3,13 +3,16 @@ import ProfileImg from "@/assets/images/profile.svg";
 import { Comment } from "@/types";
 import { formatRelativeTime } from "@/utils/formatRelativeTime";
 import Image from "next/image";
+import { useMemo } from "react";
 
 interface CommentProps {
   comment: Comment;
 }
 
 export default function CommentCard({ comment }: CommentProps) {
-  const formatDate = formatRelativeTime(comment.updatedAt);
+  const formatDate = useMemo<string>(() => {
+    return formatRelativeTime(comment.updatedAt);
+  }, [comment.updatedAt]);
 
   return (
     <div className={style.container}>

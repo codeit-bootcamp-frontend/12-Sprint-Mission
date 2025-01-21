@@ -5,9 +5,12 @@ import heartIcon from "@/assets/icons/heart.svg";
 import Image from "next/image";
 import { formatDate } from "@/utils/formattedDate";
 import Link from "next/link";
+import { useMemo } from "react";
 
 export function ArticleItemCard({ id, title, content, image, likeCount, writer, updatedAt }: Article) {
-  const formattedDate = formatDate(updatedAt);
+  const formattedDate = useMemo<string>(() => {
+    return formatDate(updatedAt);
+  }, [updatedAt]);
 
   return (
     <div className={style.container}>
