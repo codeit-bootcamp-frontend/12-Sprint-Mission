@@ -1,10 +1,7 @@
-export const formatDate = (dateString: string): string => {
-  const date = new Date(dateString);
-  return date
-    .toLocaleDateString("ko-KR", {
-      year: "numeric",
-      month: "2-digit",
-      day: "2-digit",
-    })
-    .replace(/\./g, ". ");
+import dayjs from "dayjs";
+
+const DATE_FORMAT = "YYYY.MM.DD";
+
+export const formatDate = (dateInput: string | number | Date): string => {
+  return dayjs(dateInput).format("YYYY.MM.DD");
 };
