@@ -2,29 +2,21 @@ import styles from "./AllPost.module.css";
 import Input from "../../../components/Input";
 import BasePost from "./BasePost";
 import { useEffect, useState } from "react";
-import { getPostsData } from "../../../api/api";
 import ToggleBtn from "../../../components/ToggleBtn";
 import Link from "next/link";
 import { PostData } from "../../../types";
+import fetchPosts from "@/lib/fetch-posts";
 
-export default function AllPosts() {
-  const [postList, setPostList] = useState<PostData[]>([]);
+interface AllPostProps {
+  initialAllPosts: PostData[];
+}
+
+export default function AllPosts({ initialAllPosts }: AllPostProps) {
+  const [postList, setPostList] = useState<PostData[]>(initialAllPosts);
   const [orderBy, setOrderBy] = useState<"recent" | "like">("recent");
-  const [filterPostList, setFilterPostList] = useState<PostData[]>([]);
+  const [filterPostList, setFilterPostList] =
+    useState<PostData[]>(initialAllPosts);
   const [searchValue, setSearchValue] = useState<string>("");
-
-  const getPostListData = async (orderBy: "recent" | "like") => {
-    try {
-      const data: PostData[] = await getPostsData({
-        orderBy,
-        pageSize: 4,
-      });
-      setPostList(data);
-      setFilterPostList(data);
-    } catch (e) {
-      console.error("베이스 포스트 데이터를 패칭하는데 실패했습니다.", e);
-    }
-  };
 
   const onChangeOrderBy = (orderByValue: "recent" | "like") => {
     setOrderBy(orderByValue);
@@ -38,7 +30,11 @@ export default function AllPosts() {
   };
 
   useEffect(() => {
-    getPostListData(orderBy);
+    const fetchOrderByPost = async () => {
+      const posts = await fetchPosts({ orderBy: orderBy, pageSize: 4 });
+      setFilterPostList(posts);
+    };
+    fetchOrderByPost();
   }, [orderBy]);
 
   return (

@@ -5,14 +5,14 @@ import { useEffect, useState } from "react";
 import fetchPosts from "@/lib/fetch-posts";
 
 interface BestPostProps {
-  initialPosts: PostData[];
+  initialBestPosts: PostData[];
 }
 
 // 479, 767, 1023
 
-export default function BestPosts({ initialPosts }: BestPostProps) {
+export default function BestPosts({ initialBestPosts }: BestPostProps) {
   const [pageSize, setPageSize] = useState(3);
-  const [bestPosts, setBestPosts] = useState<PostData[]>(initialPosts);
+  const [bestPosts, setBestPosts] = useState<PostData[]>(initialBestPosts);
 
   const pageSizeCheck = () => {
     const pageWidth = window.innerWidth;

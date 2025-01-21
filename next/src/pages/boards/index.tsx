@@ -7,17 +7,20 @@ import fetchPosts from "@/lib/fetch-posts";
 import { InferGetServerSidePropsType } from "next";
 
 export const getServerSideProps = async () => {
-  const initialPosts = await fetchPosts({ orderBy: "like", pageSize: 3 });
+  const initialBestPosts = await fetchPosts({ orderBy: "like", pageSize: 3 });
+  const initialAllPosts = await fetchPosts({ orderBy: "recent", pageSize: 4 });
 
   return {
     props: {
-      initialPosts,
+      initialBestPosts: initialBestPosts,
+      initialAllPosts: initialAllPosts,
     },
   };
 };
 
 export default function Page({
-  initialPosts,
+  initialBestPosts,
+  initialAllPosts,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) {
   return (
     <>
@@ -26,8 +29,8 @@ export default function Page({
       </Head>
       <MainHeader />
       <div className={styles.container}>
-        <BestPosts initialPosts={initialPosts} />
-        <AllPosts />
+        <BestPosts initialBestPosts={initialBestPosts} />
+        <AllPosts initialAllPosts={initialAllPosts} />
       </div>
     </>
   );
