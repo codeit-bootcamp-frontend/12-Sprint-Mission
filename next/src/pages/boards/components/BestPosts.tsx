@@ -1,8 +1,8 @@
-import { getPostsData } from "@/src/api/api";
+import { getPostsData } from "../../../api/api";
 import { useEffect, useState } from "react";
 import BestPost from "./BestPost";
 import styles from "./BestPosts.module.css";
-import { PostData } from "@/src/types";
+import { PostData } from "../../../types";
 
 // 479, 767, 1023
 

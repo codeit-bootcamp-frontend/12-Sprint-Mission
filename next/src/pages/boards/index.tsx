@@ -1,5 +1,5 @@
 import styles from "./index.module.css";
-import MainHeader from "@/src/components/MainHeader";
+import MainHeader from "../../components/MainHeader";
 import BestPosts from "./components/BestPosts";
 import AllPosts from "./components/AllPosts";
 import Head from "next/head";

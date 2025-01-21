@@ -2,10 +2,10 @@ import styles from "./AllPost.module.css";
 import Input from "../../../components/Input";
 import BasePost from "./BasePost";
 import { useEffect, useState } from "react";
-import { getPostsData } from "@/src/api/api";
-import ToggleBtn from "@/src/components/ToggleBtn";
+import { getPostsData } from "../../../api/api";
+import ToggleBtn from "../../../components/ToggleBtn";
 import Link from "next/link";
-import { PostData } from "@/src/types";
+import { PostData } from "../../../types";
 
 export default function AllPosts() {
   const [postList, setPostList] = useState<PostData[]>([]);

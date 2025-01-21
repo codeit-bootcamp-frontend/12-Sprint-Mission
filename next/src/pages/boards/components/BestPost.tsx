@@ -1,7 +1,7 @@
 import Image from "next/image";
 import styles from "./BestPost.module.css";
-import formatDate from "@/src/utils/date";
-import { PostData } from "@/src/types";
+import formatDate from "../../../utils/date";
+import { PostData } from "../../../types";
 
 export default function BestPost({
   content,
