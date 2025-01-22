@@ -9,6 +9,9 @@ import { useIsMo, useIsTa } from "@/hooks/useMediaQuery";
 import { useOutsideClick } from "@/hooks/useOutsideClick";
 
 export default function Page() {
+  const isMo = useIsMo();
+  const isTa = useIsTa();
+
   const [sortState, setSortState] = useState(false);
   const [order, setOrder] = useState("recent");
   const [keyword, setKeyword] = useState("");
@@ -16,17 +19,11 @@ export default function Page() {
   const [list, setList] = useState<Article[]>([]);
   const [commonList, setCommonList] = useState<Article[]>([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [pageSize, setPageSize] = useState(10);
-  const [bestPageSize, setBestPageSize] = useState(3);
 
-  const isMo = useIsMo();
-  const isTa = useIsTa();
-
-  const [isMount, setIsMount] = useState(false);
-
-  useEffect(() => {
-    setIsMount(true);
-  }, []);
+  const [pageSize, setPageSize] = useState(() => (isMo ? 5 : isTa ? 7 : 10));
+  const [bestPageSize, setBestPageSize] = useState(() =>
+    isMo ? 1 : isTa ? 2 : 3
+  );
 
   useEffect(() => {
     if (isMo) {
@@ -39,7 +36,7 @@ export default function Page() {
       setPageSize(10);
       setBestPageSize(3);
     }
-  }, [isMo, isTa, isMount]);
+  }, [isMo, isTa]);
 
   const onSortToggle = () => {
     setSortState(!sortState);
@@ -92,11 +89,13 @@ export default function Page() {
    * 모바일, 태블릿 사이즈에서 새로고침 시 처음에 피씨가 잠깐 적용됨
    * isMount를 적용해도 안됨..
    */
-  isMo && isMount
-    ? console.log("모바일")
-    : isTa && isMount
-    ? console.log("타블렛")
-    : console.log("피씨");
+  // if (isMount) {
+  //   isMo
+  //     ? console.log("모바일")
+  //     : isTa
+  //     ? console.log("타블렛")
+  //     : console.log("피씨");
+  // }
 
   const handleScroll = () => {
     const bottom =
@@ -147,13 +146,12 @@ export default function Page() {
           </div>
           <div className={styles.select_box} onClick={onSortToggle} ref={ref}>
             <div>
-              {isMo && isMount ? (
+              <span className={styles.mo}>
                 <img src="/assets/img/icon_sort.svg" alt="검색" />
-              ) : order === "recent" ? (
-                "최신순"
-              ) : (
-                "좋아요순"
-              )}
+              </span>
+              <span className={styles.pc}>
+                {order === "recent" ? "최신순" : "좋아요순"}
+              </span>
             </div>
             {sortState && (
               <ul>
