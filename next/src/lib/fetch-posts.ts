@@ -1,3 +1,4 @@
+import { baseURL } from "@/constants";
 import { PostData, PostListData } from "../types";
 
 export default async function fetchPosts({
@@ -12,7 +13,7 @@ export default async function fetchPosts({
     orderBy,
     keyword,
   });
-  const url = `https://panda-market-api.vercel.app/articles?${params.toString()}`;
+  const url = `${baseURL}/articles?${params.toString()}`;
 
   try {
     const response = await fetch(url);
