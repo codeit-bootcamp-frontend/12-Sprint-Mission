@@ -3,7 +3,7 @@ import styles from "./board.module.css";
 import BoardBestList from "@/components/board-best-list";
 import BoardList from "@/components/board-list";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { Article } from "../../../types";
 import { useIsMo, useIsTa } from "@/hooks/useMediaQuery";
 import { useOutsideClick } from "@/hooks/useOutsideClick";
@@ -42,7 +42,7 @@ export default function Page() {
     setSortState(!sortState);
   };
 
-  const fetchData = async () => {
+  const fetchData = useCallback(async () => {
     try {
       /**
        * 아래코드의 문제점
@@ -56,7 +56,6 @@ export default function Page() {
        * Promise.all을 활용해서 병렬로 처리해서 시간을 단축시킴.
        * 구조분해문법 사용해서 좀 더 깔끔하게 처리
        */
-
       const [bestResponse, commonResponse] = await Promise.all([
         fetchBoardList(1, bestPageSize, "like"),
         fetchBoardList(1, pageSize, order, keyword),
@@ -69,11 +68,15 @@ export default function Page() {
     } finally {
       setIsLoading(false);
     }
-  };
+  }, [order, keyword, pageSize, bestPageSize]);
 
+  /**
+   * useEffect 의존성 배열에 fetchData 추가
+   * useCallback 사용으로 불필요한 랜더링과 함수의 재성성 방지
+   */
   useEffect(() => {
     fetchData();
-  }, [order, keyword, pageSize, bestPageSize]);
+  }, [fetchData]);
 
   const sortChange = (state: string) => {
     if (state !== order) {
