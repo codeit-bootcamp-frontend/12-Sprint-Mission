@@ -44,8 +44,23 @@ export default function Page() {
 
   const fetchData = async () => {
     try {
-      const bestResponse = await fetchBoardList(1, bestPageSize, "like");
-      const commonResponse = await fetchBoardList(1, pageSize, order, keyword);
+      /**
+       * 아래코드의 문제점
+       * 두개를 각각 처리. 첫 번째 요청이 완료된 후 두번째 요청을 시작하게되므로 느림.
+       * 이러한걸 waterfall(순차처리)된다고 함. 주로 비동기 작업에 활용됨.
+       *
+       * const bestResponse = await fetchBoardList(1, bestPageSize, "like");
+       * const commonResponse = await fetchBoardList(1, pageSize, order, keyword);
+       *
+       * 해결 방법
+       * Promise.all을 활용해서 병렬로 처리해서 시간을 단축시킴.
+       * 구조분해문법 사용해서 좀 더 깔끔하게 처리
+       */
+
+      const [bestResponse, commonResponse] = await Promise.all([
+        fetchBoardList(1, bestPageSize, "like"),
+        fetchBoardList(1, pageSize, order, keyword),
+      ]);
 
       setList(bestResponse);
       setCommonList(commonResponse);
