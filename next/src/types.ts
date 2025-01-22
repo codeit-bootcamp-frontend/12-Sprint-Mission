@@ -16,3 +16,7 @@ export interface PostListData {
   list: PostData[];
   totalCount: number;
 }
+
+export interface OrderByValue {
+  orderByValue: "recent" | "like";
+}
