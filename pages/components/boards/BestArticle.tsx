@@ -31,8 +31,8 @@ const BestArticle: React.FC<BestArticleProps> = ({ article }) => {
                 src={DefaultImage}
                 alt="디폴트이미지"
                 className={styles.defaultImage}
-                width={200}
-                height={200}
+                width={48}
+                height={45}
               />
             )}
           </div>

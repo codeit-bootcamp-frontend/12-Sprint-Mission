@@ -1,18 +1,30 @@
 .boardContainer {
   margin: 94px auto 0;
   width: 1200px;
+  @media (min-width: 768px) and (max-width: 1199px) {
+    width: 700px;
+  }
+  @media (max-width: 767px) {
+    width: 343px;
+  }
 }
 
 .bestLabel {
   font-weight: bold;
   color: #111827;
   font-size: 20px;
+  @media (max-width: 767px) {
+    font-size: 18px;
+  }
 }
 
 .bestArticles {
   display: flex;
   gap: 24px;
   margin: 24px 0 40px;
+  @media (min-width: 768px) and (max-width: 1199px) {
+    gap: 18px;
+  }
 }
 
 .labelSection {
@@ -26,6 +38,9 @@
   font-weight: bold;
   color: #111827;
   font-size: 20px;
+  @media (max-width: 767px) {
+    font-size: 18px;
+  }
 }
 
 .postEditBtn {
@@ -58,6 +73,12 @@
   background-size: 24px 24px;
   padding-left: 44px;
   margin-right: 16px;
+  @media (min-width: 768px) and (max-width: 1199px) {
+    margin-right: 6px;
+  }
+  @media (max-width: 767px) {
+    margin-right: 13px;
+  }
 }
 
 .searchInput::placeholder {
@@ -82,6 +103,9 @@
   border: 1px solid #e5e7eb;
   border-radius: 12px;
   background-color: #ffffff;
+  @media (max-width: 767px) {
+    width: 42px;
+  }
 }
 
 .sortDropdown span {
@@ -104,11 +128,15 @@
   overflow-y: auto;
   z-index: 1000;
   padding: 0;
-  margin: 0;
+  margin: 5px 0 0;
   list-style-type: none;
   font-size: 16px;
   font-weight: 400;
   color: #1f2937;
+  @media (max-width: 767px) {
+    left: -50%;
+    width: 80px;
+  }
 }
 
 .dropdownItem {

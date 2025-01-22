@@ -3,6 +3,12 @@
   height: 169px;
   background-color: #f9fafb;
   border-radius: 8px;
+  @media (min-width: 768px) and (max-width: 1199px) {
+    height: 198px;
+  }
+  @media (max-width: 767px) {
+    height: 198px;
+  }
 }
 
 .articleContainer {
@@ -69,7 +75,7 @@
 }
 
 .articleLikeCount {
-  margin: 0 124px 0 0;
+  margin: 0;
   color: #4b5563;
 }
 

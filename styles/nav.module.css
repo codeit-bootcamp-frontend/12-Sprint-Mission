@@ -1,22 +1,20 @@
-.nav {
+.navContainer {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   z-index: 10;
   background-color: #ffffff;
+  border-bottom: 1px solid #dfdfdf;
+}
+
+.nav {
   display: flex;
   justify-content: space-between;
-  padding: 0 200px;
+  max-width: 1200px;
+  margin: 0 auto;
   height: 70px;
   align-items: center;
-  border-bottom: 1px solid #dfdfdf;
-  @media (max-width: 1200px) {
-    padding: 0 24px;
-  }
-  @media (max-width: 768px) {
-    padding: 0 16px;
-  }
 }
 
 .menu {
