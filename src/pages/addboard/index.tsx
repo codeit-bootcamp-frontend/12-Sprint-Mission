@@ -1,11 +1,25 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import styles from "./addboard.module.css";
 import FormInput from "@/components/form/form-input";
 import FormTextarea from "@/components/form/form-textarea";
 
 export default function Page() {
+  const [title, setTitle] = useState("");
+  const [content, setContent] = useState("");
+  const [submitState, setSubmitState] = useState(true);
+
   const [imageSrc, setImageSrc] = useState<string>("");
   const fileRef = useRef<HTMLInputElement>(null);
+
+  const onChangeTitle: React.ChangeEventHandler<HTMLInputElement> = (e) => {
+    setTitle(e.target.value);
+  };
+
+  const onChangeContent: React.ChangeEventHandler<HTMLTextAreaElement> = (
+    e
+  ) => {
+    setContent(e.target.value);
+  };
 
   const encodeFileToBase64: React.ChangeEventHandler<HTMLInputElement> = (
     e
@@ -31,11 +45,19 @@ export default function Page() {
     }
   };
 
+  useEffect(() => {
+    if (title !== "" && content !== "") {
+      setSubmitState(false);
+    } else {
+      setSubmitState(true);
+    }
+  }, [title, content]);
+
   return (
     <>
       <div className={styles.add_common_title}>
         <div className="common_title">게시글 쓰기</div>
-        <button className="btn" type="button" disabled={true}>
+        <button className="btn" type="button" disabled={submitState}>
           등록
         </button>
       </div>
@@ -44,13 +66,22 @@ export default function Page() {
           <li>
             <div className={`${styles.form_tit} ${styles.req}`}>제목</div>
             <div className={styles.form_content}>
-              <FormInput type="text" placeholder="제목을 입력해주세요" />
+              <FormInput
+                type="text"
+                placeholder="제목을 입력해주세요"
+                value={title}
+                onChange={onChangeTitle}
+              />
             </div>
           </li>
           <li>
             <div className={`${styles.form_tit} ${styles.req}`}>내용</div>
             <div className={styles.form_content}>
-              <FormTextarea placeholder="내용을 입력해주세요" />
+              <FormTextarea
+                placeholder="내용을 입력해주세요"
+                value={content}
+                onChange={onChangeContent}
+              />
             </div>
           </li>
           <li>

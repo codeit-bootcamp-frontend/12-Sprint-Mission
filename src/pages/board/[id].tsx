@@ -1,4 +1,3 @@
-import { useRouter } from "next/router";
 import styles from "./board.module.css";
 import FormTextarea from "@/components/form/form-textarea";
 import Link from "next/link";
@@ -8,6 +7,7 @@ import formatDate from "@/lib/format-data";
 import fetchComments from "@/lib/fetch-comments";
 import ToggleMenu from "@/components/toggle-menu";
 import BoardComment from "@/components/board-comment";
+import { useEffect, useState } from "react";
 
 export const getServerSideProps = async (
   context: GetServerSidePropsContext
@@ -28,10 +28,25 @@ export default function Page({
   comment,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) {
   // null 일수도 있어서 예외처리를 해줘야 아래 data 사용 시 ?. 처리 안해줘도 됨.
-  console.log(comment);
   if (!data) return "문제가 발생했습니다. 다시 시도해주세요.";
-  const router = useRouter();
-  const id = router.query["id"];
+
+  const [commentContent, setCommentContent] = useState("");
+  const [commentState, setCommentState] = useState(true);
+
+  const onChangeComment: React.ChangeEventHandler<HTMLTextAreaElement> = (
+    e
+  ) => {
+    setCommentContent(e.target.value);
+  };
+
+  useEffect(() => {
+    if (commentContent !== "") {
+      setCommentState(false);
+    } else {
+      setCommentState(true);
+    }
+  }, [commentContent]);
+
   return (
     <>
       <div className={styles.board_info}>
@@ -64,9 +79,11 @@ export default function Page({
       <div className={styles.comment_add}>
         <h3>댓글달기</h3>
         <FormTextarea
+          value={commentContent}
+          onChange={onChangeComment}
           placeholder="댓글을 입력해주세요."
           height={104}></FormTextarea>
-        <button className="btn" disabled={true}>
+        <button className="btn" disabled={commentState}>
           등록
         </button>
       </div>
