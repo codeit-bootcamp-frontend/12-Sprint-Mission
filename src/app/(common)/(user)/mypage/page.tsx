@@ -1,5 +1,5 @@
 import { auth } from "@/auth";
-import { getUser } from "@/service/auth";
+import { getUser } from "@/service/user";
 import { redirect } from "next/navigation";
 import Profile from "../_components/Profile";
 
