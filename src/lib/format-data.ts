@@ -1,8 +1,8 @@
-export default function formatDate(dateString: string) {
-  const date = new Date(dateString);
-  const year = date.getFullYear();
-  const month = String(date.getMonth() + 1).padStart(2, "0");
-  const day = String(date.getDate()).padStart(2, "0");
+import dayjs from "dayjs";
 
-  return `${year}. ${month}. ${day}`;
+export default function formatDate(dateString: string) {
+  const isoDate = new Date(dateString);
+  const formattedDate = dayjs(isoDate).format("YYYY. MM. DD");
+
+  return formattedDate;
 }

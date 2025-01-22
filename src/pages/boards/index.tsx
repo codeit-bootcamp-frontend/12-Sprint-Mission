@@ -84,19 +84,6 @@ export default function Page() {
     setSortState(false);
   });
 
-  /**
-   * 질문하기 [Next.js + useMediaQuery]
-   * 모바일, 태블릿 사이즈에서 새로고침 시 처음에 피씨가 잠깐 적용됨
-   * isMount를 적용해도 안됨..
-   */
-  // if (isMount) {
-  //   isMo
-  //     ? console.log("모바일")
-  //     : isTa
-  //     ? console.log("타블렛")
-  //     : console.log("피씨");
-  // }
-
   const handleScroll = () => {
     const bottom =
       window.innerHeight + document.documentElement.scrollTop ===
