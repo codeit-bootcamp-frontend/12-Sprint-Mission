@@ -5,8 +5,9 @@ import MarketPage from "./pages/MarketPage/MarketPage";
 import AddItemPage from "./pages/AddItemPage/AddItemPage";
 import CommunityFeedPage from "./pages/CommunityFeedPage/CommunityFeedPage";
 import Header from "./components/Layout/Header";
+import ItemPage from "./pages/ItemPage/ItemPage";
 
-function App() {
+function App(): JSX.Element {
   return (
     <BrowserRouter>
       {/* Global Navigation Bar */}
@@ -17,6 +18,7 @@ function App() {
           <Route index element={<HomePage />} />
           <Route path="login" element={<LoginPage />} />
           <Route path="items" element={<MarketPage />} />
+          <Route path="items/:productId" element={<ItemPage />} />
           <Route path="additem" element={<AddItemPage />} />
           <Route path="community" element={<CommunityFeedPage />} />
         </Routes>
