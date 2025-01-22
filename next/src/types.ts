@@ -1,4 +1,4 @@
-export interface PostData {
+export interface Post {
   id: number;
   title: string;
   content: string;
@@ -12,8 +12,8 @@ export interface PostData {
   };
 }
 
-export interface PostListData {
-  list: PostData[];
+export interface Posts {
+  list: Post[];
   totalCount: number;
 }
 

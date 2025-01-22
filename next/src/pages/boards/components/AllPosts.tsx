@@ -4,18 +4,17 @@ import BasePost from "./BasePost";
 import { useEffect, useState } from "react";
 import ToggleBtn from "../../../components/ToggleBtn";
 import Link from "next/link";
-import { PostData } from "../../../types";
+import { Post } from "../../../types";
 import fetchPosts from "@/lib/fetch-posts";
 
 interface AllPostProps {
-  initialAllPosts: PostData[];
+  initialAllPosts: Post[];
 }
 
 export default function AllPosts({ initialAllPosts }: AllPostProps) {
-  const [postList, setPostList] = useState<PostData[]>(initialAllPosts);
+  const [postList, setPostList] = useState<Post[]>(initialAllPosts);
   const [orderBy, setOrderBy] = useState<"recent" | "like">("recent");
-  const [filterPostList, setFilterPostList] =
-    useState<PostData[]>(initialAllPosts);
+  const [filterPostList, setFilterPostList] = useState<Post[]>(initialAllPosts);
   const [searchValue, setSearchValue] = useState<string>("");
 
   const onChangeOrderBy = (orderByValue: "recent" | "like") => {

@@ -1,7 +1,7 @@
 import Image from "next/image";
 import styles from "./BestPost.module.css";
 import formatDate from "../../../utils/date";
-import { PostData } from "../../../types";
+import { Post } from "../../../types";
 
 export default function BestPost({
   content,
@@ -9,7 +9,7 @@ export default function BestPost({
   writer,
   likeCount,
   createdAt,
-}: PostData) {
+}: Post) {
   return (
     <div className={styles.container}>
       <div className={styles.tag}>

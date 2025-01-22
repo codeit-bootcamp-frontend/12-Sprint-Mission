@@ -1,12 +1,12 @@
 import { baseURL } from "@/constants";
-import { PostData, PostListData } from "../types";
+import { Post, Posts } from "../types";
 
 export default async function fetchPosts({
   page = "1",
   pageSize = 3,
   orderBy = "recent",
   keyword = "",
-}): Promise<PostData[]> {
+}): Promise<Post[]> {
   const params = new URLSearchParams({
     page: String(page),
     pageSize: String(pageSize),
@@ -20,10 +20,9 @@ export default async function fetchPosts({
     if (!response.ok) {
       throw new Error(`Failed to fetch, ${response.statusText}`);
     }
-    const data: PostListData = await response.json();
+    const data: Posts = await response.json();
     return data.list;
   } catch (err) {
-    console.error(err);
-    return [];
+    throw new Error(`FetchPosts Error: ${(err as Error).message}`);
   }
 }

@@ -1,7 +1,7 @@
 import Image from "next/image";
 import styles from "./BasePost.module.css";
 import formatDate from "../../../utils/date";
-import { PostData } from "../../../types";
+import { Post } from "../../../types";
 
 export default function BasePost({
   content,
@@ -9,7 +9,7 @@ export default function BasePost({
   writer = { nickname: "익명 사용자" },
   likeCount,
   createdAt,
-}: PostData) {
+}: Post) {
   return (
     <div className={styles.container}>
       <div className={styles.product}>

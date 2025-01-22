@@ -1,18 +1,18 @@
-import { PostData } from "@/types";
+import { Post } from "@/types";
 import BestPost from "./BestPost";
 import styles from "./BestPosts.module.css";
 import { useEffect, useState } from "react";
 import fetchPosts from "@/lib/fetch-posts";
 
 interface BestPostProps {
-  initialBestPosts: PostData[];
+  initialBestPosts: Post[];
 }
 
 // 479, 767, 1023
 
 export default function BestPosts({ initialBestPosts }: BestPostProps) {
   const [pageSize, setPageSize] = useState(3);
-  const [bestPosts, setBestPosts] = useState<PostData[]>(initialBestPosts);
+  const [bestPosts, setBestPosts] = useState<Post[]>(initialBestPosts);
 
   const pageSizeCheck = () => {
     const pageWidth = window.innerWidth;
