@@ -6,7 +6,13 @@ export default async function fetchPosts({
   orderBy = "recent",
   keyword = "",
 }): Promise<PostData[]> {
-  const url = `https://panda-market-api.vercel.app/articles?page=${page}&pageSize=${pageSize}&orderBy=${orderBy}&keyword=${keyword}`;
+  const params = new URLSearchParams({
+    page: String(page),
+    pageSize: String(pageSize),
+    orderBy,
+    keyword,
+  });
+  const url = `https://panda-market-api.vercel.app/articles?${params.toString()}`;
 
   try {
     const response = await fetch(url);
