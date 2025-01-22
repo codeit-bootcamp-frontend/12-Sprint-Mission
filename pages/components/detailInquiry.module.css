@@ -1,0 +1,53 @@
+.form-container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 24px;
+}
+
+.form-label {
+  font-size: 16px;
+  font-weight: 600;
+  color: #111827;
+  margin: 0 0 9px;
+}
+
+.form-textarea {
+  width: 100%;
+  background-color: #f3f4f6;
+  padding: 16px 24px;
+  margin: 0 0 16px;
+}
+
+.form-textarea::placeholder {
+  font-size: 16px;
+  font-weight: 400;
+  color: #9ca3af;
+}
+
+.form-button {
+  right: 0;
+  width: 74px;
+  height: 42px;
+  border-radius: 8px;
+  border: none;
+  color: #f3f4f6;
+}
+
+.form-button.disabled {
+  background-color: #9ca3af;
+  cursor: not-allowed;
+}
+
+.form-button.enabled {
+  background-color: #3692ff;
+  cursor: pointer;
+}
+
+.button-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.form-button:hover {
+  background-color: #3694cc;
+}

@@ -1,0 +1,70 @@
+.itemPage {
+  display: flex;
+  margin-top: 70px;
+  width: 100%;
+  justify-content: center;
+}
+
+.itemPage-container {
+  width: 1201px;
+}
+
+.allList,
+.bestList {
+  display: flex;
+}
+.allList {
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.allImg {
+  width: 221px;
+  height: 221px;
+  border-radius: 16px;
+}
+.title {
+  font-size: 20px;
+  font-weight: bold;
+  color: #111827;
+  margin-bottom: 24px;
+}
+
+.titleList {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.titleOption {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.searchInput {
+  width: 325px;
+  height: 42px;
+  background-color: #f3f4f6;
+  border-radius: 12px;
+  border: none;
+  margin: 0;
+}
+
+.searchInput > input::placeholder {
+  color: #9ca3af;
+  font-size: 16px;
+}
+
+.addItemBtn {
+  display: flex;
+  background-color: #3692ff;
+  font-size: 16px;
+  color: #ffffff;
+  border-radius: 8px;
+  width: 133px;
+  height: 42px;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}

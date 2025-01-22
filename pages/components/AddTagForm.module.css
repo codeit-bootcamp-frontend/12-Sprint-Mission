@@ -1,0 +1,22 @@
+.tag-buttons-section {
+  display: flex;
+  align-items: center;
+
+  border-radius: 26px;
+}
+
+.tag {
+  background-color: #f3f4f6;
+  width: 110px;
+  height: 36px;
+  border-radius: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-right: 12px;
+}
+
+.tag-delete-button {
+  cursor: pointer;
+}

@@ -1,0 +1,149 @@
+.boardContainer {
+  margin: 94px auto 0;
+  width: 1200px;
+  @media (min-width: 768px) and (max-width: 1199px) {
+    width: 700px;
+  }
+  @media (max-width: 767px) {
+    width: 343px;
+  }
+}
+
+.bestLabel {
+  font-weight: bold;
+  color: #111827;
+  font-size: 20px;
+  @media (max-width: 767px) {
+    font-size: 18px;
+  }
+}
+
+.bestArticles {
+  display: flex;
+  gap: 24px;
+  margin: 24px 0 40px;
+  @media (min-width: 768px) and (max-width: 1199px) {
+    gap: 18px;
+  }
+}
+
+.labelSection {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.postLabel {
+  font-weight: bold;
+  color: #111827;
+  font-size: 20px;
+  @media (max-width: 767px) {
+    font-size: 18px;
+  }
+}
+
+.postEditBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  width: 88px;
+  height: 42px;
+  border-radius: 8px;
+  color: #ffffff;
+  background-color: #3692ff;
+}
+
+.searchSection {
+  display: flex;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.searchInput {
+  width: 1054px;
+  height: 42px;
+  background-color: #f3f4f6;
+  border: none;
+  border-radius: 12px;
+  background-image: url("../pages/assets/icon/ic_search.png");
+  background-repeat: no-repeat;
+  background-position: 10px center;
+  background-size: 24px 24px;
+  padding-left: 44px;
+  margin-right: 16px;
+  @media (min-width: 768px) and (max-width: 1199px) {
+    margin-right: 6px;
+  }
+  @media (max-width: 767px) {
+    margin-right: 13px;
+  }
+}
+
+.searchInput::placeholder {
+  font-size: 16px;
+  color: #9ca3af;
+}
+
+.allArticles {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.sortDropdown {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  width: 130px;
+  height: 42px;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  background-color: #ffffff;
+  @media (max-width: 767px) {
+    width: 42px;
+  }
+}
+
+.sortDropdown span {
+  font-size: 16px;
+  font-weight: 400;
+  color: #1f2937;
+  margin-right: 24px;
+  display: inline-block;
+}
+
+.dropdownList {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  max-height: 150px;
+  overflow-y: auto;
+  z-index: 1000;
+  padding: 0;
+  margin: 5px 0 0;
+  list-style-type: none;
+  font-size: 16px;
+  font-weight: 400;
+  color: #1f2937;
+  @media (max-width: 767px) {
+    left: -50%;
+    width: 80px;
+  }
+}
+
+.dropdownItem {
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+.dropdownItem:hover {
+  background-color: #f0f0f0;
+}
