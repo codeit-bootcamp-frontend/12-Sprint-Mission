@@ -1,0 +1,63 @@
+.itemcard{
+    display: flex;
+    flex-direction: column;
+    width: 282px;
+    height: 378px;
+    
+   
+
+}
+
+.itemcard img{
+    width: 282px;
+    height: 282px;
+    border-radius: 16px;
+  
+
+}
+
+.itemdescription{
+    display: flex;
+    flex-direction: column;
+    width: 282px;
+    height: 80px;
+
+
+}
+
+.description{
+    
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 24px;
+    text-align: left;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+    margin: 0px 0px 6px 0px;
+
+}
+
+.itemprice{
+    
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 26px;
+    text-align: left;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+    margin: 0px 0px 6px 0px;
+
+}
+
+.favouriteCount{
+
+    
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 18px;
+    text-align: left;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+    margin: 0px 0px 6px 0px;
+
+}

@@ -1,0 +1,37 @@
+.main{
+    height: 70px;
+    border-bottom: 1px solid #DFDFDF; 
+
+}
+.container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 200px;
+    
+}
+
+.navbuttons{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    
+}
+
+.navbuttonspages {
+    margin: 0px 15px;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 26px;
+    text-align: center;
+    color: black;
+    
+
+}
+
+.navbuttons img{
+    margin-right: 15px;
+}
+
+
