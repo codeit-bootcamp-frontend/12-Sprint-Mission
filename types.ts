@@ -18,3 +18,26 @@ export interface BoardListResponse {
   list: Article[];
   totalCount: number;
 }
+
+export interface Review extends Article {
+  isLiked: boolean;
+}
+
+export interface CommentWriter {
+  id: number;
+  nickname: string;
+  image: string | null;
+}
+
+export interface Comment {
+  id: number;
+  content: string;
+  createdAt: string;
+  updatedAt: string;
+  writer: CommentWriter;
+}
+
+export interface CommentListResponse {
+  list: Comment[];
+  nextCursor: string | null;
+}

@@ -132,7 +132,7 @@ export default function Page() {
       <div className={styles.boart_common_wrap}>
         <div className={styles.boart_common_title}>
           <div className="common_title">게시글</div>
-          <Link className="btn" href="">
+          <Link className="btn" href="/addboard">
             글쓰기
           </Link>
         </div>

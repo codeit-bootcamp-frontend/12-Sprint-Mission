@@ -1,0 +1,67 @@
+.add_common_title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.form_list {
+}
+.form_list > li {
+}
+.form_list > li + li {
+  margin-top: 24px;
+}
+.form_tit {
+  margin-bottom: 12px;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.44;
+}
+.form_tit.req::before {
+  content: "*";
+}
+.form_content {
+}
+
+.form_file input[type="file"] {
+  display: none;
+}
+.form_file input[type="file"] + label {
+  width: 282px;
+  height: 282px;
+  background-color: #f3f4f6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border-radius: 12px;
+}
+.form_file input[type="file"] + label span {
+  font-size: 16px;
+  color: #9ca3af;
+  margin-top: 12px;
+}
+
+.form_file .img_box {
+  position: relative;
+  width: 282px;
+  height: 0;
+  padding-top: 282px;
+  overflow: hidden;
+}
+.form_file .img_box .close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 3;
+  cursor: pointer;
+}
+.form_file .img_box > img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+}

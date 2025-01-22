@@ -50,6 +50,7 @@
   flex-direction: column;
 }
 .board_common_box .right figure {
+  overflow: hidden;
   display: block;
   margin-bottom: 16px;
   margin-left: auto;

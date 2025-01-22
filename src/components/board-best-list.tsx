@@ -6,7 +6,7 @@ import formatDate from "@/lib/format-data";
 export default function BoardBestList(data: Article) {
   return (
     <li className={styles.board_best_box}>
-      <Link href="">
+      <Link href={`/board/${data.id}`}>
         <div className={styles.best}>
           <img src="/assets/img/icon_best.svg" alt="베스트" />
           Best
