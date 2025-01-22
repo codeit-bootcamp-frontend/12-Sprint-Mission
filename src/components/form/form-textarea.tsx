@@ -10,7 +10,7 @@ const FormTextarea = ({ placeholder, height }: Props) => {
     <textarea
       className={styles.textarea}
       placeholder={placeholder}
-      style={{ height: height ? `${height}px` : "auto" }}></textarea>
+      style={{ height: height ? `${height}px` : "" }}></textarea>
   );
 };
 

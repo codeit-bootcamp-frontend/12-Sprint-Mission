@@ -6,7 +6,8 @@ import { GetServerSidePropsContext, InferGetServerSidePropsType } from "next";
 import fetchBoard from "@/lib/fetch-board";
 import formatDate from "@/lib/format-data";
 import fetchComments from "@/lib/fetch-comments";
-import formatDateNow from "@/lib/format-data-now";
+import ToggleMenu from "@/components/toggle-menu";
+import BoardComment from "@/components/board-comment";
 
 export const getServerSideProps = async (
   context: GetServerSidePropsContext
@@ -34,15 +35,7 @@ export default function Page({
   return (
     <>
       <div className={styles.board_info}>
-        <div className={styles.menu}>
-          <p>
-            <img src="/assets/img/icon_dot.svg" alt="메뉴버튼" />
-          </p>
-          <ul>
-            <li>수정</li>
-            <li>삭제</li>
-          </ul>
-        </div>
+        <ToggleMenu />
         <div className="common_title">{data.title}</div>
         <div className={styles.btm}>
           <div className={styles.profile}>
@@ -53,7 +46,11 @@ export default function Page({
             <span>{formatDate(data.updatedAt)}</span>
           </div>
           <div className={styles.like_btn}>
-            <img src="/assets/img/icon_wish.svg" alt="좋아요 버튼" />
+            {data.isLiked ? (
+              <img src="/assets/img/icon_wish_active.svg" alt="좋아요 버튼" />
+            ) : (
+              <img src="/assets/img/icon_wish.svg" alt="좋아요 버튼" />
+            )}
             <span>{data.likeCount}</span>
           </div>
         </div>
@@ -83,36 +80,7 @@ export default function Page({
       ) : (
         <ul className={styles.list}>
           {comment?.map((el) => {
-            return (
-              <li>
-                <div className={styles.menu}>
-                  <p>
-                    <img src="/assets/img/icon_dot.svg" alt="메뉴버튼" />
-                  </p>
-                  <ul>
-                    <li>수정</li>
-                    <li>삭제</li>
-                  </ul>
-                </div>
-                <h3>{el.content}</h3>
-                <div className={styles.info}>
-                  <figure>
-                    <img
-                      src={
-                        el.writer.image
-                          ? el.writer.image
-                          : "/assets/img/icon_my.svg"
-                      }
-                      alt={el.writer.nickname}
-                    />
-                  </figure>
-                  <div className={styles.right}>
-                    <p>{el.writer.nickname}</p>
-                    <span>{formatDateNow(el.updatedAt)}</span>
-                  </div>
-                </div>
-              </li>
-            );
+            return <BoardComment key={el.id} {...el} />;
           })}
         </ul>
       )}
