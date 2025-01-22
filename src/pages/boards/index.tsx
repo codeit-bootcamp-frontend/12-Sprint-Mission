@@ -89,13 +89,12 @@ export default function Page() {
     setSearch(e.target.value);
   };
 
-  const onSearchEnter: React.KeyboardEventHandler<HTMLInputElement> = (e) => {
-    if (e.key === "Enter") {
-      setKeyword(search);
-      setTimeout(() => {
-        setSearch("");
-      }, 100);
-    }
+  const onSearchSubmit: React.FormEventHandler<HTMLFormElement> = (e) => {
+    e.preventDefault();
+    setKeyword(search);
+    setTimeout(() => {
+      setSearch("");
+    }, 100);
   };
 
   const ref = useOutsideClick(() => {
@@ -139,16 +138,15 @@ export default function Page() {
         </div>
 
         <div className={styles.board_common_sort}>
-          <div className={styles.sch_box}>
+          <form className={styles.sch_box} onSubmit={onSearchSubmit}>
             <img src="/assets/img/icon_search.svg" alt="검색" />
             <input
               type="text"
               placeholder="검색할 상품을 입력해주세요"
               onChange={onSearch}
               value={search}
-              onKeyDown={onSearchEnter}
             />
-          </div>
+          </form>
           <div className={styles.select_box} onClick={onSortToggle} ref={ref}>
             <div>
               <span className={styles.mo}>
