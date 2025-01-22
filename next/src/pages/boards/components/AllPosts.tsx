@@ -14,27 +14,23 @@ interface AllPostProps {
 export default function AllPosts({ initialAllPosts }: AllPostProps) {
   const [postList, setPostList] = useState<Post[]>(initialAllPosts);
   const [orderBy, setOrderBy] = useState<"recent" | "like">("recent");
-  const [filterPostList, setFilterPostList] = useState<Post[]>(initialAllPosts);
   const [searchValue, setSearchValue] = useState<string>("");
 
   const onChangeOrderBy = (orderByValue: "recent" | "like") => {
     setOrderBy(orderByValue);
   };
 
-  const handleSearch = () => {
-    const filtered = postList.filter((post) =>
-      post.content!.includes(searchValue)
-    );
-    setFilterPostList(filtered);
-  };
-
   useEffect(() => {
     const fetchOrderByPost = async () => {
       const posts = await fetchPosts({ orderBy: orderBy, pageSize: 4 });
-      setFilterPostList(posts);
+      setPostList(posts);
     };
     fetchOrderByPost();
   }, [orderBy]);
+
+  const filteredPosts = postList.filter((post) =>
+    post.content!.includes(searchValue)
+  );
 
   return (
     <div className={styles.container}>
@@ -49,12 +45,12 @@ export default function AllPosts({ initialAllPosts }: AllPostProps) {
           value={searchValue}
           placeholder={"검색할 상품의 내용을 입력해주세요"}
           onChange={setSearchValue}
-          onEnter={handleSearch}
+          onEnter={() => {}}
         />
         <ToggleBtn onChangeOrderBy={onChangeOrderBy} />
       </div>
       <div>
-        {filterPostList.map((post) => {
+        {filteredPosts.map((post) => {
           return <BasePost key={post.id} {...post} />;
         })}
       </div>
