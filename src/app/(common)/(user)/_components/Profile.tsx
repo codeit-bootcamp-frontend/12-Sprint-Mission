@@ -3,7 +3,6 @@
 import { Avatar, Button } from "@/components/ui";
 import styles from "./Profile.module.scss";
 import dayjs from "dayjs";
-import Link from "next/link";
 
 export default function Profile({
   nickname,
@@ -16,9 +15,7 @@ export default function Profile({
 }) {
   return (
     <div className={styles.profile}>
-      <div className={styles.pic}>
-        <Avatar nickname={nickname} img={image} />
-      </div>
+      <Avatar nickname={nickname} img={image} className={styles.pic} />
       <div className={styles.info}>
         <h2 className={styles.name}>{nickname}</h2>
         <div className={styles.date}>
