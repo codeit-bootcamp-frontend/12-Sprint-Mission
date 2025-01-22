@@ -1,7 +1,8 @@
 import { auth } from "@/auth";
-import { getUser } from "@/service/user";
+import { getUser, getUserActivity } from "@/service/user";
 import { redirect } from "next/navigation";
 import Profile from "../_components/Profile";
+import Activity from "../_components/Activity";
 
 export default async function UserPage() {
   const session = await auth();
@@ -10,9 +11,15 @@ export default async function UserPage() {
   }
 
   const { nickname, image, createdAt } = await getUser();
+  const { products, favorites } = await getUserActivity();
+
   return (
-    <div>
+    <>
       <Profile nickname={nickname} image={image} createdAt={createdAt} />
-    </div>
+      <Activity
+        productsCount={Number(products.totalCount)}
+        favoritesCount={Number(favorites.totalCount)}
+      />
+    </>
   );
 }
