@@ -23,7 +23,7 @@ export default async function RootLayout({ children }: PropsWithChildren) {
     <html lang="ko">
       <body>
         <div id="root">
-          <SessionProvider session={session}>
+          <SessionProvider session={session} key={session?.user.id}>
             <QueryClientProvider>{children}</QueryClientProvider>
           </SessionProvider>
         </div>
