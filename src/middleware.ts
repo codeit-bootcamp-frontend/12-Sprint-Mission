@@ -13,5 +13,7 @@ export const config = {
     "/addItem",
     "/modifyItem/:path",
     "/mypage",
+    "/changePassword",
+    "/editProfile",
   ],
 };
