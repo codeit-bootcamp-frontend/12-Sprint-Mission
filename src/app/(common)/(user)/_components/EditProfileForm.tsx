@@ -9,6 +9,7 @@ import { Form } from "@/components/Field";
 import { ChangeEvent, useEffect, useRef } from "react";
 import action from "../editProfile/action";
 import { useRouter } from "next/navigation";
+import FormControl from "./FormControl";
 
 export default function EditProfileForm({
   nickname,
@@ -79,7 +80,7 @@ export default function EditProfileForm({
       />
       <Avatar nickname={nickname} img={preview} className={styles.pic} />
 
-      <div className={styles.control}>
+      <div className={styles.picButton}>
         <Button
           type="button"
           variant="outlined"
@@ -87,10 +88,16 @@ export default function EditProfileForm({
         >
           사진변경
         </Button>
+      </div>
+
+      <FormControl>
+        <Button color="secondary" variant="text" onClick={() => router.back()}>
+          취소
+        </Button>
         <Button type="submit" disabled={!isValid}>
           저장
         </Button>
-      </div>
+      </FormControl>
     </Form>
   );
 }

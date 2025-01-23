@@ -11,6 +11,7 @@ import {
   ChangePasswordFormType,
 } from "@/schemas/user";
 import action from "../changePassword/action";
+import FormControl from "./FormControl";
 
 export default function ChangePasswordForm() {
   const {
@@ -88,9 +89,19 @@ export default function ChangePasswordForm() {
           )}
         />
       </FieldItem>
-      <Button type="submit" size="xl" disabled={!isValid}>
-        변경하기
-      </Button>
+      <FormControl>
+        <Button
+          type="button"
+          variant="text"
+          color="secondary"
+          onClick={() => router.back()}
+        >
+          취소
+        </Button>
+        <Button type="submit" disabled={!isValid}>
+          변경하기
+        </Button>
+      </FormControl>
     </Form>
   );
 }
