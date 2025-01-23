@@ -1,9 +1,9 @@
 import { PropsWithChildren } from "react";
 import type { Metadata } from "next";
-import { AxiosInterCeptor } from "@/context/AxiosInterCeptor";
 import { SessionProvider } from "next-auth/react";
 import "@assets/scss/style.scss";
 import QueryClientProvider from "@/context/QueryClientProvider";
+import { auth } from "@/auth";
 
 export const metadata: Metadata = {
   title: "판다마켓",
@@ -16,16 +16,15 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({ children }: PropsWithChildren) {
+export default async function RootLayout({ children }: PropsWithChildren) {
+  const session = await auth();
+
   return (
     <html lang="ko">
       <body>
         <div id="root">
-          <SessionProvider>
-            <QueryClientProvider>
-              <AxiosInterCeptor />
-              {children}
-            </QueryClientProvider>
+          <SessionProvider session={session}>
+            <QueryClientProvider>{children}</QueryClientProvider>
           </SessionProvider>
         </div>
       </body>
