@@ -1,0 +1,13 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: 1200px;
+  height: 100vh;
+  margin: 0 auto;
+  padding-top: 24px;
+
+  @media (max-width: 767px) {
+    padding: 24px 24px 0 24px;
+  }
+}

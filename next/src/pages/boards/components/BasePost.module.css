@@ -1,0 +1,56 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 24px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid #e5e7eb;
+  background-color: #fcfcfc;
+}
+
+.product {
+  display: flex;
+  justify-content: space-between;
+}
+
+.product h3 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.userInfo {
+  display: flex;
+  gap: 8px;
+}
+
+.userInfo p:nth-of-type(1) {
+  font-weight: 400;
+  font-size: 14px;
+  color: #4b5563;
+}
+
+.userInfo p:nth-of-type(2) {
+  font-weight: 400;
+  font-size: 14px;
+  color: #9ca3af;
+}
+
+.like {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding-right: 15px;
+}
+
+.like > p {
+  font-weight: 400;
+  font-size: 16px;
+  color: #6b7280;
+}

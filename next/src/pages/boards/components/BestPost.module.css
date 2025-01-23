@@ -1,0 +1,55 @@
+.container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 46px 24px 24px 16px;
+  position: relative;
+  background-color: #f9fafb;
+}
+
+.tag {
+  position: absolute;
+  top: 0;
+  left: 24px;
+  display: flex;
+  gap: 4px;
+  padding: 2px 24px;
+  border-radius: 0 0 16px 16px;
+  background-color: #3692ff;
+}
+
+.tag p {
+  font-weight: 600;
+  font-size: 16px;
+  color: white;
+}
+
+.content {
+  display: flex;
+  gap: 8px;
+}
+
+.content p {
+  font-size: 20px;
+  font-weight: 600;
+  word-break: keep-all;
+  color: #1f2937;
+}
+
+.info {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  font-weight: 400;
+  color: #4b5563;
+}
+
+.userInfo {
+  display: flex;
+}
+
+.likeCount {
+  margin-left: 8px;
+  display: flex;
+}
