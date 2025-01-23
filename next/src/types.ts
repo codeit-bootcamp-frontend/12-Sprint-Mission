@@ -17,6 +17,4 @@ export interface Posts {
   totalCount: number;
 }
 
-export interface OrderByValue {
-  orderByValue: "recent" | "like";
-}
+export type OrderByValue = "recent" | "like";

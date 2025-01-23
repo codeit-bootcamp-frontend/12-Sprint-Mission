@@ -1,28 +1,36 @@
+import { OrderByValue } from "@/types";
 import styles from "./ToggleBtn.module.css";
 import Image from "next/image";
 import { useState } from "react";
 
 type ToggleBtnProps = {
-  onChangeOrderBy: (orderByValue: "recent" | "like") => void;
+  onChangeOrderBy: (orderByValue: OrderByValue) => void;
+  orderBy: OrderByValue;
 };
 
-export default function ToggleBtn({ onChangeOrderBy }: ToggleBtnProps) {
-  const [toggleText, setToggleText] = useState("최신순");
+export default function ToggleBtn({
+  onChangeOrderBy,
+  orderBy,
+}: ToggleBtnProps) {
   const [toggleClick, setToggleClick] = useState(false);
+
+  const textMapper = {
+    recent: "최신순",
+    like: "좋아요순",
+  };
 
   const onClickToggle = () => {
     setToggleClick(!toggleClick);
   };
 
   const onSelectOption = (option: string) => {
-    setToggleText(option);
     onChangeOrderBy(option === "최신순" ? "recent" : "like");
     setToggleClick(!toggleClick);
   };
 
   return (
     <div className={styles.container}>
-      <p>{toggleText}</p>
+      <p>{textMapper[orderBy]}</p>
       <Image
         onClick={onClickToggle}
         className={styles.toggle}

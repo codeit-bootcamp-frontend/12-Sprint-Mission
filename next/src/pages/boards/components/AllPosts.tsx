@@ -4,7 +4,7 @@ import BasePost from "./BasePost";
 import { useEffect, useState } from "react";
 import ToggleBtn from "../../../components/ToggleBtn";
 import Link from "next/link";
-import { Post } from "../../../types";
+import { OrderByValue, Post } from "../../../types";
 import fetchPosts from "@/lib/fetch-posts";
 
 interface AllPostProps {
@@ -13,10 +13,10 @@ interface AllPostProps {
 
 export default function AllPosts({ initialAllPosts }: AllPostProps) {
   const [postList, setPostList] = useState<Post[]>(initialAllPosts);
-  const [orderBy, setOrderBy] = useState<"recent" | "like">("recent");
+  const [orderBy, setOrderBy] = useState<OrderByValue>("recent");
   const [searchValue, setSearchValue] = useState<string>("");
 
-  const onChangeOrderBy = (orderByValue: "recent" | "like") => {
+  const onChangeOrderBy = (orderByValue: OrderByValue) => {
     setOrderBy(orderByValue);
   };
 
@@ -47,7 +47,7 @@ export default function AllPosts({ initialAllPosts }: AllPostProps) {
           onChange={setSearchValue}
           onEnter={() => {}}
         />
-        <ToggleBtn onChangeOrderBy={onChangeOrderBy} />
+        <ToggleBtn onChangeOrderBy={onChangeOrderBy} orderBy={orderBy} />
       </div>
       <div>
         {filteredPosts.map((post) => {
