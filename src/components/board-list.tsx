@@ -6,7 +6,7 @@ import formatDate from "@/lib/format-data";
 export default function BoardList(data: Article) {
   return (
     <li className={styles.board_common_box}>
-      <Link href="">
+      <Link href={`/board/${data.id}`}>
         <div className={styles.left}>
           <h4>{data.title}</h4>
           <div className={styles.bottom}>

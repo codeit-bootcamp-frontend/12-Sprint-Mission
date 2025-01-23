@@ -53,6 +53,7 @@
   line-clamp: 2;
 }
 .board_best_box .content figure {
+  overflow: hidden;
   display: block;
   width: 70px;
   height: 70px;

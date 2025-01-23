@@ -1,0 +1,132 @@
+.board_info {
+  position: relative;
+}
+.board_info .common_title {
+  padding-right: 30px;
+}
+.board_info .btm {
+  display: flex;
+  align-items: center;
+  padding: 0 0 16px;
+  border-bottom: 1px solid #e5e7eb;
+}
+.board_info .btm .profile {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  padding-right: 32px;
+  margin-right: 32px;
+  border-right: 1px solid #e5e7eb;
+}
+.board_info .btm .profile > figure {
+  overflow: hidden;
+  display: block;
+  margin-right: 16px;
+  width: 40px;
+  height: 40px;
+  border-radius: 9999px;
+}
+.board_info .btm .profile > figure > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.board_info .btm .profile > p {
+  margin-right: 8px;
+  font-weight: 500;
+  color: #4b5563;
+}
+.board_info .btm .profile > span {
+  color: #9ca3af;
+}
+.board_info .btm .like_btn {
+  cursor: pointer;
+  padding: 4px 12px;
+  border: 1px solid #e5e7eb;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+}
+.board_info .btm .like_btn > img {
+  margin-right: 4px;
+  height: 32px;
+}
+.board_info .btm .like_btn > span {
+  font-size: 16px;
+  font-weight: 500;
+  color: #6b7280;
+  line-height: 1;
+}
+
+.content {
+  min-height: 200px;
+  padding-top: 24px;
+  padding-bottom: 32px;
+  font-size: 18px;
+  line-height: 1.4444;
+  font-weight: 400;
+}
+.content > img {
+  display: block;
+  max-width: 100%;
+  margin-bottom: 12px;
+}
+.comment_add {
+  margin-bottom: 40px;
+}
+.comment_add > h3 {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+.comment_add > button {
+  margin-top: 16px;
+  margin-left: auto;
+}
+
+.empty {
+  padding: 40px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.empty > img {
+  height: 140px;
+}
+.empty > span {
+  font-size: 16px;
+  color: #9ca3af;
+  line-height: 1.625;
+  text-align: center;
+}
+
+.list {
+  margin-bottom: 64px;
+}
+
+.link {
+  height: 48px;
+  width: 240px;
+  margin: 0 auto;
+}
+
+@media (max-width: 744px) {
+  .board_info .btm .profile {
+    padding-right: 16px;
+    margin-right: 16px;
+  }
+  .board_info .btm .profile > p {
+    margin-right: 5px;
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+  }
+
+  .board_info .btm .like_btn > img {
+    height: 24px;
+  }
+}

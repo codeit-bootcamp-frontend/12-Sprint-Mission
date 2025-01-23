@@ -3,12 +3,14 @@ import styles from "./board.module.css";
 import BoardBestList from "@/components/board-best-list";
 import BoardList from "@/components/board-list";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { Article } from "../../../types";
 import { useIsMo, useIsTa } from "@/hooks/useMediaQuery";
 import { useOutsideClick } from "@/hooks/useOutsideClick";
 
 export default function Page() {
+  const isMo = useIsMo();
+  const isTa = useIsTa();
   const [sortState, setSortState] = useState(false);
   const [order, setOrder] = useState("recent");
   const [keyword, setKeyword] = useState("");
@@ -16,18 +18,10 @@ export default function Page() {
   const [list, setList] = useState<Article[]>([]);
   const [commonList, setCommonList] = useState<Article[]>([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [pageSize, setPageSize] = useState(10);
-  const [bestPageSize, setBestPageSize] = useState(3);
-
-  const isMo = useIsMo();
-  const isTa = useIsTa();
-
-  const [isMount, setIsMount] = useState(false);
-
-  useEffect(() => {
-    setIsMount(true);
-  }, []);
-
+  const [pageSize, setPageSize] = useState(() => (isMo ? 5 : isTa ? 7 : 10));
+  const [bestPageSize, setBestPageSize] = useState(() =>
+    isMo ? 1 : isTa ? 2 : 3
+  );
   useEffect(() => {
     if (isMo) {
       setPageSize(5);
@@ -39,16 +33,31 @@ export default function Page() {
       setPageSize(10);
       setBestPageSize(3);
     }
-  }, [isMo, isTa, isMount]);
+  }, [isMo, isTa]);
+
 
   const onSortToggle = () => {
     setSortState(!sortState);
   };
 
-  const fetchData = async () => {
+  const fetchData = useCallback(async () => {
     try {
-      const bestResponse = await fetchBoardList(1, bestPageSize, "like");
-      const commonResponse = await fetchBoardList(1, pageSize, order, keyword);
+      /**
+       * 아래코드의 문제점
+       * 두개를 각각 처리. 첫 번째 요청이 완료된 후 두번째 요청을 시작하게되므로 느림.
+       * 이러한걸 waterfall(순차처리)된다고 함. 주로 비동기 작업에 활용됨.
+       *
+       * const bestResponse = await fetchBoardList(1, bestPageSize, "like");
+       * const commonResponse = await fetchBoardList(1, pageSize, order, keyword);
+       *
+       * 해결 방법
+       * Promise.all을 활용해서 병렬로 처리해서 시간을 단축시킴.
+       * 구조분해문법 사용해서 좀 더 깔끔하게 처리
+       */
+      const [bestResponse, commonResponse] = await Promise.all([
+        fetchBoardList(1, bestPageSize, "like"),
+        fetchBoardList(1, pageSize, order, keyword),
+      ]);
 
       setList(bestResponse);
       setCommonList(commonResponse);
@@ -57,11 +66,15 @@ export default function Page() {
     } finally {
       setIsLoading(false);
     }
-  };
+  }, [order, keyword, pageSize, bestPageSize]);
 
+  /**
+   * useEffect 의존성 배열에 fetchData 추가
+   * useCallback 사용으로 불필요한 랜더링과 함수의 재성성 방지
+   */
   useEffect(() => {
     fetchData();
-  }, [order, keyword, pageSize, bestPageSize]);
+  }, [fetchData]);
 
   const sortChange = (state: string) => {
     if (state !== order) {
@@ -74,29 +87,18 @@ export default function Page() {
     setSearch(e.target.value);
   };
 
-  const onSearchEnter: React.KeyboardEventHandler<HTMLInputElement> = (e) => {
-    if (e.key === "Enter") {
-      setKeyword(search);
-      setTimeout(() => {
-        setSearch("");
-      }, 100);
-    }
+  const onSearchSubmit: React.FormEventHandler<HTMLFormElement> = (e) => {
+    e.preventDefault();
+    setKeyword(search);
+    setTimeout(() => {
+      setSearch("");
+    }, 100);
+
   };
 
   const ref = useOutsideClick(() => {
     setSortState(false);
   });
-
-  /**
-   * 질문하기 [Next.js + useMediaQuery]
-   * 모바일, 태블릿 사이즈에서 새로고침 시 처음에 피씨가 잠깐 적용됨
-   * isMount를 적용해도 안됨..
-   */
-  isMo && isMount
-    ? console.log("모바일")
-    : isTa && isMount
-    ? console.log("타블렛")
-    : console.log("피씨");
 
   const handleScroll = () => {
     const bottom =
@@ -129,31 +131,30 @@ export default function Page() {
       <div className={styles.boart_common_wrap}>
         <div className={styles.boart_common_title}>
           <div className="common_title">게시글</div>
-          <Link className="btn" href="">
+          <Link className="btn" href="/addboard">
+
             글쓰기
           </Link>
         </div>
 
         <div className={styles.board_common_sort}>
-          <div className={styles.sch_box}>
+          <form className={styles.sch_box} onSubmit={onSearchSubmit}>
             <img src="/assets/img/icon_search.svg" alt="검색" />
             <input
               type="text"
               placeholder="검색할 상품을 입력해주세요"
               onChange={onSearch}
               value={search}
-              onKeyDown={onSearchEnter}
             />
-          </div>
+          </form>
           <div className={styles.select_box} onClick={onSortToggle} ref={ref}>
             <div>
-              {isMo && isMount ? (
+              <span className={styles.mo}>
                 <img src="/assets/img/icon_sort.svg" alt="검색" />
-              ) : order === "recent" ? (
-                "최신순"
-              ) : (
-                "좋아요순"
-              )}
+              </span>
+              <span className={styles.pc}>
+                {order === "recent" ? "최신순" : "좋아요순"}
+              </span>
             </div>
             {sortState && (
               <ul>
