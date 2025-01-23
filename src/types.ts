@@ -105,3 +105,7 @@ export interface SignupFailResponse {
     };
   };
 }
+
+export interface CommentWithAccessToken extends Comment {
+  accessToken: string;
+}
