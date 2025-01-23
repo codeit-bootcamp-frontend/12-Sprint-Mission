@@ -1,5 +1,7 @@
 .board_info {
   position: relative;
+}
+.board_info .common_title {
   padding-right: 30px;
 }
 .board_info .btm {
@@ -115,7 +117,13 @@
     margin-right: 16px;
   }
   .board_info .btm .profile > p {
-    margin-right: 0px;
+    margin-right: 5px;
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
   }
 
   .board_info .btm .like_btn > img {

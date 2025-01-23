@@ -51,13 +51,15 @@ export default function Page({
     <>
       <div className={styles.board_info}>
         <ToggleMenu />
-        <div className="common_title">{data.title}</div>
+        <div className={`common_title ${styles.common_title}`}>
+          {data.title}
+        </div>
         <div className={styles.btm}>
           <div className={styles.profile}>
             <figure>
               <img src="/assets/img/icon_my.svg" alt={data.writer.nickname} />
             </figure>
-            <p>{data?.writer.nickname}</p>
+            <p>{data.writer.nickname}</p>
             <span>{formatDate(data.updatedAt)}</span>
           </div>
           <div className={styles.like_btn}>
