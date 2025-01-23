@@ -21,9 +21,9 @@ function BestProductContainer() {
   return (
     <>
       <h2>베스트 상품</h2>
-      <div className="product_list">
+      <div className="product_list" style={{ textDecoration: "none" }}>
         {itemList?.list?.map((item) => (
-          <NavLink to={`/items/${item.id}`}>
+          <NavLink to={`/items/${item.id}`} style={{ textDecoration: "none" }}>
             <ProductItem
               imageUrl={item.images[0]}
               title={item.name}

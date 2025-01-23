@@ -60,7 +60,7 @@ function AllProductContainer() {
 
       <div className="product_list">
         {itemList?.list?.map((item, index) => (
-          <Link to={`/items/${item.id}`}>
+          <Link to={`/items/${item.id}`} style={{ textDecoration: "none" }}>
             <ProductItem
               key={index}
               imageUrl={item.images[0]}
