@@ -3,38 +3,22 @@ import BestPost from "./BestPost";
 import styles from "./BestPosts.module.css";
 import { useEffect, useState } from "react";
 import fetchPosts from "@/lib/fetch-posts";
+import { useMediaQuery } from "@/hooks/useMediaQuery";
 
 interface BestPostProps {
   initialBestPosts: Post[];
 }
 
-// 479, 767, 1023
-
 export default function BestPosts({ initialBestPosts }: BestPostProps) {
+  const { isMobile, isTablet, isDesktop } = useMediaQuery();
   const [pageSize, setPageSize] = useState(3);
   const [bestPosts, setBestPosts] = useState<Post[]>(initialBestPosts);
 
-  const pageSizeCheck = () => {
-    const pageWidth = window.innerWidth;
-    if (pageWidth < 480) {
-      setPageSize(1);
-    } else if (pageWidth >= 480 && pageWidth < 768) {
-      setPageSize(2);
-    } else {
-      setPageSize(3);
-    }
-  };
-
   useEffect(() => {
-    pageSizeCheck();
-
-    const handleResize = () => pageSizeCheck();
-    window.addEventListener("resize", handleResize);
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
+    if (isMobile) setPageSize(1);
+    if (isTablet) setPageSize(2);
+    if (isDesktop) setPageSize(3);
+  }, [isMobile, isTablet, isDesktop]);
 
   useEffect(() => {
     const fetchBestPosts = async () => {
@@ -43,6 +27,7 @@ export default function BestPosts({ initialBestPosts }: BestPostProps) {
     };
     fetchBestPosts();
   }, [pageSize]);
+
   return (
     <div className={styles.container}>
       <h3 className={styles.title}>베스트 게시글</h3>
