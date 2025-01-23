@@ -11,7 +11,6 @@ import { useOutsideClick } from "@/hooks/useOutsideClick";
 export default function Page() {
   const isMo = useIsMo();
   const isTa = useIsTa();
-
   const [sortState, setSortState] = useState(false);
   const [order, setOrder] = useState("recent");
   const [keyword, setKeyword] = useState("");
@@ -19,12 +18,10 @@ export default function Page() {
   const [list, setList] = useState<Article[]>([]);
   const [commonList, setCommonList] = useState<Article[]>([]);
   const [isLoading, setIsLoading] = useState(true);
-
   const [pageSize, setPageSize] = useState(() => (isMo ? 5 : isTa ? 7 : 10));
   const [bestPageSize, setBestPageSize] = useState(() =>
     isMo ? 1 : isTa ? 2 : 3
   );
-
   useEffect(() => {
     if (isMo) {
       setPageSize(5);
@@ -37,6 +34,7 @@ export default function Page() {
       setBestPageSize(3);
     }
   }, [isMo, isTa]);
+
 
   const onSortToggle = () => {
     setSortState(!sortState);
@@ -95,6 +93,7 @@ export default function Page() {
     setTimeout(() => {
       setSearch("");
     }, 100);
+
   };
 
   const ref = useOutsideClick(() => {
@@ -133,6 +132,7 @@ export default function Page() {
         <div className={styles.boart_common_title}>
           <div className="common_title">게시글</div>
           <Link className="btn" href="/addboard">
+
             글쓰기
           </Link>
         </div>
