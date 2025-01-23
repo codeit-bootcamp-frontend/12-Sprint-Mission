@@ -1,0 +1,41 @@
+.ImgUploadButton {
+  display: block;
+  width: 282px;
+  height: 282px;
+  background-color: #f3f4f6;
+  border-radius: 12px;
+  margin: 24px;
+  div {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+}
+
+.imgPreview {
+  display: block;
+  width: 282px;
+  height: 282px;
+  background-color: #f3f4f6;
+  border-radius: 12px;
+  margin-top: 24px;
+}
+
+.uploadImageContent {
+  display: flex;
+  gap: 24px;
+}
+
+.imgDelete {
+  background-color: transparent;
+  border-style: none;
+  position: absolute;
+  top: 35px;
+  right: 5px;
+}
+
+.imgContents {
+  position: relative;
+}

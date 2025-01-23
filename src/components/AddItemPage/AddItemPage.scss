@@ -1,0 +1,44 @@
+.formContent {
+  width: 1200px;
+  height: 1186px;
+  margin: 24px auto;
+  position: relative;
+}
+
+.formTitle {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 32px;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  margin-bottom: 24px;
+  cursor: pointer;
+}
+
+.formBtn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: #9ca3af;
+  width: 74px;
+  height: 42px;
+  border-radius: 8px;
+  border-style: none;
+  color: #f3f4f6;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 26px;
+  cursor: pointer;
+
+  &.active {
+    background-color: #007bff; /* Blue when enabled */
+    color: white;
+  }
+
+  &.disabled {
+    background-color: #ccc; /* Gray when disabled */
+    color: #888; /* Gray text */
+    cursor: not-allowed;
+  }
+}
