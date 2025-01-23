@@ -1,5 +1,6 @@
 import { z } from "zod";
 import { AUTH_VALIDATION_MESSAGES as MESSAGE } from "@constants/message";
+import { ACCEPT_FILE_TYPES, MAX_FILE_SIZE } from "@/constants/file";
 
 export const changePasswordFormSchema = z
   .object({
@@ -22,3 +23,28 @@ export const changePasswordFormSchema = z
   });
 
 export type ChangePasswordFormType = z.infer<typeof changePasswordFormSchema>;
+
+const imageFile = z
+  .instanceof(File)
+  .refine(
+    (file) => {
+      return file.size <= MAX_FILE_SIZE;
+    },
+    {
+      message: `${MESSAGE.INVALID_IMAGE_SIZE} (${
+        MAX_FILE_SIZE / 1024 / 1024
+      }MB 초과)`,
+    }
+  )
+  .refine(
+    (file) => {
+      return ACCEPT_FILE_TYPES.includes(file.type);
+    },
+    { message: MESSAGE.INVALID_IMAGE_TYPE }
+  );
+
+export const editProfileFormSchmea = z.object({
+  image: z.union([imageFile, z.string()]).optional(),
+});
+
+export type EditProfileFormType = z.infer<typeof editProfileFormSchmea>;

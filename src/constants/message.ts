@@ -27,6 +27,8 @@ export const AUTH_VALIDATION_MESSAGES = {
   PASSWORD_MIN_LENGTH: "비밀번호를 8자 이상 입력해주세요.",
   PASSWORD_MISMATCH: "비밀번호가 일치하지 않습니다.",
   USERNAME_REQUIRED: "닉네임을 입력해주세요",
+  INVALID_IMAGE_SIZE: "이미지 용량을 확인해주세요.",
+  INVALID_IMAGE_TYPE: "지원하지않는 이미지 형식입니다.",
 };
 
 export const ARTICLE_VALIDATION_MESSAGE = {
