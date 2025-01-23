@@ -3,3 +3,24 @@
   margin: 0 auto;
   padding-top: 29px;
 }
+
+.link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 40px auto;
+  width: 240px;
+  height: 48px;
+
+  color: white;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 26px;
+  text-align: center;
+  text-underline-position: from-font;
+  text-decoration: none;
+
+  background-color: #3692ff;
+  padding: 4px 10px;
+  border-radius: 40px;
+}
