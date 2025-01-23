@@ -2,6 +2,10 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-bottom: 24px;
+}
+.add_common_title > div {
+  margin: 0;
 }
 .form_list > li + li {
   margin-top: 24px;
@@ -57,4 +61,20 @@
   height: 100%;
   object-fit: cover;
   border-radius: 12px;
+}
+
+@media (max-width: 1200px) {
+  .form_file input[type="file"] + label {
+    width: 168px;
+    height: 168px;
+  }
+  .form_file .img_box {
+    width: 168px;
+    padding-top: 168px;
+  }
+}
+@media (max-width: 744px) {
+  .form_tit {
+    font-size: 14px;
+  }
 }

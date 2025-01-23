@@ -44,3 +44,9 @@
 .textarea::placeholder {
   color: #9ca3af;
 }
+
+@media (max-width: 744px) {
+  .textarea {
+    height: 200px;
+  }
+}
