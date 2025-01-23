@@ -3,13 +3,15 @@ import styles from "./BasePost.module.css";
 import formatDate from "../../../utils/date";
 import { Post } from "../../../types";
 
-export default function BasePost({
-  content,
-  image,
-  writer = { nickname: "익명 사용자" },
-  likeCount,
-  createdAt,
-}: Post) {
+type BasePostProps = {
+  post: Post;
+};
+
+export default function BasePost({ post }: BasePostProps) {
+  const { content, image, writer, createdAt, likeCount } = post;
+  //post.writer.nickname 구조분해
+  const { nickname } = writer;
+
   return (
     <div className={styles.container}>
       <div className={styles.product}>
@@ -33,7 +35,7 @@ export default function BasePost({
             width={24}
             height={24}
           />
-          <p>{writer!.nickname}</p>
+          <p>{nickname}</p>
           <p>{formatDate(createdAt)}</p>
         </div>
         <div className={styles.like}>

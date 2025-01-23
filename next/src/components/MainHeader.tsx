@@ -6,7 +6,7 @@ export default function MainHeader() {
   return (
     <div className={styles.container}>
       <div className={styles.nav}>
-        <Link href={"/"}>
+        <Link href="/">
           <Image
             src="/images/logo.svg"
             alt="로고이미지"
@@ -15,10 +15,10 @@ export default function MainHeader() {
           />
         </Link>
         <div className={styles.navList}>
-          <Link className={styles.link} href={"/"}>
+          <Link className={styles.link} href="/">
             자유게시판
           </Link>
-          <Link className={styles.link} href={"/"}>
+          <Link className={styles.link} href="/">
             중고마켓
           </Link>
         </div>

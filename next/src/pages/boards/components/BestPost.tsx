@@ -3,13 +3,12 @@ import styles from "./BestPost.module.css";
 import formatDate from "../../../utils/date";
 import { Post } from "../../../types";
 
-export default function BestPost({
-  content,
-  image,
-  writer,
-  likeCount,
-  createdAt,
-}: Post) {
+type BestPostProps = {
+  post: Post;
+};
+
+export default function BestPost({ post }: BestPostProps) {
+  const { content, image, writer, likeCount, createdAt } = post;
   return (
     <div className={styles.container}>
       <div className={styles.tag}>

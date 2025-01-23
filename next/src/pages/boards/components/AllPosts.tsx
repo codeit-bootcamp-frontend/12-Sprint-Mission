@@ -36,14 +36,14 @@ export default function AllPosts({ initialAllPosts }: AllPostProps) {
     <div className={styles.container}>
       <div className={styles.title}>
         <h3>게시글</h3>
-        <Link href={"/"} className={styles.link}>
+        <Link href="/" className={styles.link}>
           글쓰기
         </Link>
       </div>
       <div className={styles.input}>
         <Input
           value={searchValue}
-          placeholder={"검색할 상품의 내용을 입력해주세요"}
+          placeholder="검색할 상품의 내용을 입력해주세요"
           onChange={setSearchValue}
           onEnter={() => {}}
         />
@@ -51,7 +51,7 @@ export default function AllPosts({ initialAllPosts }: AllPostProps) {
       </div>
       <div>
         {filteredPosts.map((post) => {
-          return <BasePost key={post.id} {...post} />;
+          return <BasePost key={post.id} post={post} />;
         })}
       </div>
     </div>

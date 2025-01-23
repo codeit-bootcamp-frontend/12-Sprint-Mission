@@ -48,7 +48,7 @@ export default function BestPosts({ initialBestPosts }: BestPostProps) {
       <h3 className={styles.title}>베스트 게시글</h3>
       <div className={styles.posts}>
         {bestPosts.map((post) => {
-          return <BestPost key={post.id} {...post} />;
+          return <BestPost key={post.id} post={post} />;
         })}
       </div>
     </div>
