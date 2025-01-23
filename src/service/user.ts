@@ -25,3 +25,21 @@ export async function getUserActivity() {
     favorites: favoritesResponse.data,
   };
 }
+
+export async function changeUserPassword({
+  password,
+  newPassword,
+  newPasswordConfirmation,
+}: {
+  password: string;
+  newPassword: string;
+  newPasswordConfirmation: string;
+}) {
+  const response = await axiosInstance.patch<User>("/users/me/password", {
+    passwordConfirmation: newPasswordConfirmation,
+    password: newPassword,
+    currentPassword: password,
+  });
+
+  return response.data;
+}
