@@ -1,59 +1,40 @@
 'use server';
+import { Article, ResponseWithAccessToken } from '@/types';
+import apiHelper from '@/utils/apiHelper';
+import { AxiosError } from 'axios';
 
-export async function submitArticle(formData: FormData, accessToken: string | null, refreshToken: string | null) {
+interface submitArticleResponse {
+  success: boolean;
+  message: string;
+  accessToken?: string;
+  id?: number;
+}
+
+export async function submitArticle(formData: FormData, accessToken: string | null, refreshToken: string | null): Promise<submitArticleResponse> {
   if (!accessToken || !refreshToken) {
     return { success: false, message: '로그인이 필요합니다.' };
   }
   const formDataObject = Object.fromEntries(formData.entries());
 
   try {
-    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/articles`, {
-      method: 'POST',
+    const response = await apiHelper.post<Article | ResponseWithAccessToken<Article>>('/articles', formDataObject, {
       headers: {
-        'Content-Type': 'application/json',
         Authorization: `Bearer ${accessToken}`,
+        'x-refresh-token': refreshToken,
       },
-      body: JSON.stringify(formDataObject),
     });
 
-    if (response.ok) {
-      const { id }: { id: number } = await response.json();
-      return { success: true, message: '게시글 생성이 완료되어 3초 후 페이지를 이동합니다.', id };
+    const result: submitArticleResponse = { success: true, message: '게시글 생성이 완료되어 3초 후 페이지를 이동합니다.', id: response.data.id };
+    if ('accessToken' in response.data) {
+      const newAccessToken = response.data.accessToken as string;
+      result.accessToken = newAccessToken;
     }
-    if (response.status === 401) {
-      const refreshResponse = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/auth/refresh-token`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ refreshToken }),
-      });
-      if (refreshResponse.ok) {
-        const { accessToken: newAccessToken } = await refreshResponse.json();
-
-        const retryResponse = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/articles`, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            Authorization: `Bearer ${newAccessToken}`,
-          },
-          body: JSON.stringify(formDataObject),
-        });
-
-        if (retryResponse.ok) {
-          const { id }: { id: number } = await retryResponse.json();
-          return { success: true, message: '게시글 생성이 완료되어 3초 후 페이지를 이동합니다.', accessToken: newAccessToken, id };
-        } else {
-          return { success: false, message: '게시글 생성 중 오류가 발생했습니다.' };
-        }
-      }
-
-      return { success: false, message: '세션이 만료되었습니다. 다시 로그인해주세요.' };
-    }
-
-    return { success: false, message: '게시글 생성 중 오류가 발생했습니다.' };
+    return result;
   } catch (error) {
     console.log(error);
-    return { success: false, message: '서버 요청에 실패했습니다.' };
+    if (error instanceof AxiosError && error.message.includes('리프레시')) {
+      return { success: false, message: '세션이 만료되었습니다. 다시 로그인해주세요.' };
+    }
+    return { success: false, message: '게시글 생성 중 오류가 발생했습니다.' };
   }
 }

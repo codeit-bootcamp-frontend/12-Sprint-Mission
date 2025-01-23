@@ -1,7 +1,7 @@
 'use server';
-import apiClient from '@/utils/apiClient';
+import apiHelper from '@/utils/apiHelper';
 import { AxiosError } from 'axios';
-import { Comment, CommentWithAccessToken } from '@/types';
+import { Comment, ResponseWithAccessToken } from '@/types';
 
 interface SubmitCommentResponse {
   success: boolean;
@@ -16,7 +16,7 @@ export async function submitComment(formData: FormData, accessToken: string | nu
   const formDataObject = Object.fromEntries(formData.entries());
 
   try {
-    const response = await apiClient.post<Comment | CommentWithAccessToken>(`/articles/${id}/comments`, formDataObject, {
+    const response = await apiHelper.post<Comment | ResponseWithAccessToken<Comment>>(`/articles/${id}/comments`, formDataObject, {
       headers: {
         Authorization: `Bearer ${accessToken}`,
         'x-refresh-token': refreshToken,
@@ -27,6 +27,7 @@ export async function submitComment(formData: FormData, accessToken: string | nu
       const newAccessToken = response.data.accessToken as string;
       result.accessToken = newAccessToken;
     }
+
     return result;
   } catch (error) {
     console.log(error);

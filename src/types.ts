@@ -106,6 +106,4 @@ export interface SignupFailResponse {
   };
 }
 
-export interface CommentWithAccessToken extends Comment {
-  accessToken: string;
-}
+export type ResponseWithAccessToken<T> = T & { accessToken: string };

@@ -1,16 +1,16 @@
-import { Comment, CommentWithAccessToken } from '@/types';
+import { ResponseWithAccessToken } from '@/types';
 import axios, { AxiosError, AxiosResponse } from 'axios';
 
-const apiClient = axios.create({
+const apiHelper = axios.create({
   baseURL: process.env.NEXT_PUBLIC_API_URL,
   headers: {
     'Content-Type': 'application/json',
   },
 });
 
-apiClient.interceptors.response.use(
-  (response: AxiosResponse<Comment>) => response,
-  async (error: AxiosError) => {
+apiHelper.interceptors.response.use(
+  <T>(response: AxiosResponse<T>) => response,
+  async <T>(error: AxiosError) => {
     if (error.response?.status === 401) {
       const refreshToken: string = error?.config?.headers?.['x-refresh-token'] ?? '';
       if (refreshToken) {
@@ -21,7 +21,7 @@ apiClient.interceptors.response.use(
 
           if (error.config) {
             error.config.headers['Authorization'] = `baerer ${newAccessToken}`;
-            const response: AxiosResponse<CommentWithAccessToken> = await apiClient.request(error.config);
+            const response: AxiosResponse<ResponseWithAccessToken<T>> = await apiHelper.request(error.config);
             response.data.accessToken = newAccessToken;
             return response;
           }
@@ -36,4 +36,4 @@ apiClient.interceptors.response.use(
   },
 );
 
-export default apiClient;
+export default apiHelper;
