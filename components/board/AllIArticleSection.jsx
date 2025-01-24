@@ -9,7 +9,7 @@ import ArticleList from "@/components/board/ArticleList";
 export default function AllArticleSection() {
   const [articles, setArticles] = useState([]); //게시글 데이터
   const [page, setPage] = useState(1); //쿼리스트링
-  const [pageSize] = useState(30); // 한 페이지당 게시글 수(무한스크롤 때문에 임시코드)
+  const [pageSize] = useState(30); // 한 페이지당 게시글 수(무한스크롤 일단 임시코드)
   const [orderBy, setOrderBy] = useState("recent"); // 기본 정렬: 최신순
   const [keyword, setKeyword] = useState(""); // 검색 키워드
 
@@ -77,6 +77,12 @@ export default function AllArticleSection() {
     setKeyword(searchKeyword);
     setPage(1);
     getArticles(1, orderBy, searchKeyword);
+
+    if (searchKeyword === "") {
+      getArticles(1, orderBy, ""); // 기본 게시글 목록 호출
+    } else {
+      getArticles(1, orderBy, searchKeyword); // 검색된 게시글 목록 호출
+    }
   };
 
   //최초 게시글 불러오기
@@ -95,7 +101,7 @@ export default function AllArticleSection() {
         </div>
 
         <div className={styles.searchContainer}>
-          <SearchForm />
+          <SearchForm onSearch={handleSearch} />
           <Dropdown onSelect={handleOrderChange} />
         </div>
 
