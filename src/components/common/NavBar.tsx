@@ -1,3 +1,4 @@
+import React from "react";
 import logoImage from "../../assets/logo.png";
 import profileImage from "../../assets/profile_icon.png";
 import "./NavBar.css";
@@ -7,7 +8,7 @@ function NavBar() {
     <header>
       <div className="nav">
         <div className="nav-left">
-          <a href="/index.html" className="main-page">
+          <a href="/" className="main-page">
             <img src={logoImage} alt="로고 이미지" />
           </a>
           <a href="http://www.naver.com">

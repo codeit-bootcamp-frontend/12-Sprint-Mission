@@ -1,12 +1,20 @@
 import { baseURL } from "../constants/VariableSetting";
 
-export async function CreateCommentAPI({ productId, accessToekn }) {
+type ProductParams = {
+  productId: number;
+  accessToken: string;
+};
+
+export async function CreateCommentAPI({
+  productId,
+  accessToken,
+}: ProductParams) {
   const response = await fetch(`${baseURL}/products/${productId}/comments`, {
     method: "POST",
     body: JSON.stringify({}),
     headers: {
       "Content-Type": "application/json",
-      Authorization: `Bearer ${accessToekn}`,
+      Authorization: `Bearer ${accessToken}`,
     },
   });
 
