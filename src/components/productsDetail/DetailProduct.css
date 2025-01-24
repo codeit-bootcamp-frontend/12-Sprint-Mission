@@ -1,0 +1,233 @@
+.productDetailForm {
+  margin-top: 94px;
+  margin-bottom: 40px;
+}
+
+.productDetailContents {
+  /* width: 1200px; */
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+
+  padding-bottom: 40px;
+  border-bottom: solid #e5e7eb;
+}
+
+.productInfo {
+  width: 690px;
+  height: 496px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.productDetailContents .productImage {
+  width: 486px;
+  width: 486px;
+  border-radius: 16px;
+  object-fit: cover;
+}
+
+.productDetailContents .productName {
+  color: #1f2937;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.productDetailContents .productPrice {
+  color: #1f2937;
+  font-size: 40px;
+  font-weight: 600;
+}
+
+.productDetailContents .prodcuctDescriptionTitle,
+.productDetailContents .prodcuctTagTitle {
+  color: #4b5563;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.productDetailContents .prodcuctDescription {
+  color: #4b5563;
+  font-size: 16px;
+  font-weight: 400;
+}
+.productTags {
+  display: flex;
+  justify-content: flex-start;
+  gap: 10px;
+}
+
+.productDetailContents .productTag {
+  width: auto;
+  color: #1f2937;
+  font-size: 16px;
+  font-weight: 400;
+  background-color: #f3f4f6;
+  border-radius: 26px;
+  border: none;
+
+  padding: 6px 16px;
+}
+.authorContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.authorForm {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 16px;
+}
+
+.authorInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.favoriteCountForm {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  /* font-size: 16px;
+  font-weight: 500; */
+  color: #6b7280;
+  height: 40px;
+  width: 87px;
+  border: 1px solid #e5e7eb;
+  border-radius: 35px;
+
+  padding: 4px 12px;
+}
+
+/* 여기부터는 아래 영역 */
+.inquiryForm {
+  width: 1200px;
+  margin-bottom: 24px;
+}
+
+.inquiryInput {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.inquiryInputTitle {
+  color: #111827;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 9px;
+}
+
+.inquiryInputBox {
+  background-color: #f3f4f6;
+  border: 0 none;
+  border-radius: 12px;
+  padding: 16px 24px;
+  height: 104px;
+}
+
+.inquiryInputBox::placeholder {
+  color: #9ca3af;
+}
+
+.inquiryRegisterBtn {
+  color: #f3f4f6;
+  font-size: 16px;
+  font-weight: 600;
+
+  background-color: #9ca3af;
+
+  width: 74px;
+  height: 42px;
+
+  border: 0 none;
+  border-radius: 8px;
+
+  padding: 12px 23px;
+
+  float: right;
+}
+
+.comments {
+  list-style-type: none;
+  width: 1200px;
+
+  margin-bottom: 64px;
+}
+
+.commentForm {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 12px;
+  border-bottom: solid #e5e7eb;
+}
+
+.comment {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.commentWriterInfo {
+  width: 92px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.kebabButton {
+  border: none;
+  background-color: white;
+  cursor: pointer;
+}
+
+.commentContent {
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.commentImage {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+}
+
+.commentWriter {
+  color: #4b5563;
+  font-size: 12px;
+  font-weight: 400;
+  margin: 0 0 4px;
+}
+
+.commentUpdatedAt {
+  color: #9ca3af;
+  font-size: 12px;
+  font-weight: 400;
+  margin: 0;
+}
+
+.backListBtn {
+  color: #f3f4f6;
+  font-size: 18px;
+  font-weight: 600;
+
+  background-color: #3692ff;
+
+  width: 240px;
+  height: 48px;
+
+  border: 0 none;
+  border-radius: 40px;
+
+  margin: 0 0 40px;
+  cursor: pointer;
+}
