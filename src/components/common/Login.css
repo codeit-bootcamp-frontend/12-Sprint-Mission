@@ -1,0 +1,170 @@
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css");
+
+:root {
+  --blue: #3692ff;
+  --gray900: #111827;
+  --gray800: #1f2937;
+  --gray700: #374151;
+  --gray600: #4b5563;
+  --gray500: #6b7289;
+  --gray400: #9ca3af;
+  --gray200: #e5e7eb;
+  --gray100: #f3f4f6;
+  --gray50: #f9fafb;
+}
+
+* {
+  font-family: Pretendard;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  gap: 40px;
+  margin: 231px 640px;
+}
+
+.login-area {
+  max-width: 640px;
+}
+
+.login-form label {
+  display: inline-block;
+  color: var(--gray800);
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.login-form input {
+  background-color: var(--gray100);
+
+  border-radius: 12px;
+  border-style: none;
+
+  min-width: 592px;
+  min-height: 26px;
+
+  padding: 15px 24px;
+  margin-bottom: 24px;
+}
+
+.login-form input.error {
+  border: 1px #f74747 solid;
+  margin-bottom: 8px;
+}
+
+.login-form .error-msg {
+  color: #f74747;
+  font-size: 14px;
+  font-weight: 600;
+
+  padding-left: 16px;
+  margin-top: 0px;
+  margin-bottom: 18px;
+}
+
+.signup input:focus {
+  border: 2px solid var(--blue);
+  outline: none;
+}
+
+.login-form input::placeholder {
+  color: var(--gray400);
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.password-form {
+  position: relative;
+}
+
+.password-form .visibility {
+  position: absolute;
+  top: 53px;
+  right: 24px;
+}
+.password-form .visibility {
+  cursor: pointer;
+}
+
+.login-form button {
+  font-size: 20px;
+  font-weight: 600;
+  text-align: center;
+  color: var(--gray100);
+  background-color: var(--gray400);
+
+  min-width: 640px;
+  min-height: 56px;
+
+  padding: 16px 124px;
+
+  border-radius: 40px;
+  border-style: none;
+
+  margin-bottom: 24px;
+  cursor: pointer;
+}
+
+.login.disabled {
+  pointer-events: none;
+}
+
+.easyLogin-area {
+  background-color: #e6f2ff;
+  height: 74px;
+}
+
+.easyLogin-form {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 16px 23px;
+}
+
+.easyLogin-title > p {
+  color: var(--gray800);
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.easyLogin-type {
+  /* padding: 16px 23px; */
+}
+
+.signup {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* margin-top: 50px; */
+}
+
+@media (max-width: 767px) {
+  main {
+    margin: 80px 16px 231px;
+  }
+
+  .login-form {
+    max-width: 400px;
+  }
+
+  .login-form input {
+    min-width: 352px;
+  }
+
+  .login-form button {
+    min-width: 400px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1199px) {
+  main {
+    margin: 190px 52px 325px;
+  }
+}
