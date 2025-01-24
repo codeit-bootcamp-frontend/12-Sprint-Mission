@@ -94,7 +94,10 @@ export default function EditProfileForm({
         <Button color="secondary" variant="text" onClick={() => router.back()}>
           취소
         </Button>
-        <Button type="submit" disabled={!isValid}>
+        <Button
+          type="submit"
+          disabled={!isValid || !(imageValue instanceof File)}
+        >
           저장
         </Button>
       </FormControl>
