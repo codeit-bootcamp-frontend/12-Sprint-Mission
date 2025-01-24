@@ -1,5 +1,4 @@
 import { PageWrapper } from "@/components/Page";
-import ProductForm from "../../_components/ProductForm";
 import { getProduct } from "@/service/product";
 import { auth } from "@/auth";
 import { Suspense } from "react";
@@ -7,6 +6,7 @@ import { Message } from "@/components/ui";
 import { notFound, redirect } from "next/navigation";
 import { isAxiosError } from "axios";
 import { isRedirectError } from "next/dist/client/components/redirect-error";
+import ProductModifyForm from "../../_components/ProductModifyForm";
 
 export default async function ModifyItemPage({
   params,
@@ -27,11 +27,7 @@ export default async function ModifyItemPage({
     return (
       <PageWrapper>
         <Suspense fallback={<Message>상품정보를 가져오는 중입니다...</Message>}>
-          <ProductForm
-            mode="edit"
-            initialData={detail}
-            productId={Number(id)}
-          />
+          <ProductModifyForm initialData={detail} />
         </Suspense>
       </PageWrapper>
     );

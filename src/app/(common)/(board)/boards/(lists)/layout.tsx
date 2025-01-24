@@ -1,7 +1,7 @@
 import { PageWrapper } from "@/components/Page";
 import { ReactNode } from "react";
 
-export default function dss({
+export default function ListLayout({
   all,
   best,
   children,

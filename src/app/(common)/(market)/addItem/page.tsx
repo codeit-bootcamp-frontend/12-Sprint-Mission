@@ -1,10 +1,10 @@
 import { PageWrapper } from "@/components/Page";
-import ProductForm from "../_components/ProductForm";
+import ProductAddForm from "../_components/ProductAddForm";
 
 export default function AddItemPage() {
   return (
     <PageWrapper>
-      <ProductForm mode="add" />
+      <ProductAddForm />
     </PageWrapper>
   );
 }

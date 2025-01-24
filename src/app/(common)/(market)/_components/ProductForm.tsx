@@ -17,23 +17,24 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { Product } from "@type/product";
 import { FieldAdapter } from "@components/adaptor/rhf";
 import { useRouter } from "next/navigation";
-import useProductActions from "./useProductActions";
 
-interface ProductFormProps {
-  initialData?: Product;
-  mode?: "add" | "edit";
-  productId?: number;
+interface ProductAddFormProps {
+  mode: "add";
+  onFormSubmit: (data: ProductFormType) => Promise<Product | undefined>;
 }
 
-export default function ProductForm({
-  initialData,
-  mode = "add",
-  productId,
-}: ProductFormProps) {
+interface ProductModifyFormProps {
+  initialData: Product;
+  mode: "edit";
+  onFormSubmit: (data: ProductFormType) => Promise<Product | undefined>;
+}
+
+type ProductFormProps = ProductAddFormProps | ProductModifyFormProps;
+
+export default function ProductForm(props: ProductFormProps) {
+  const { mode, onFormSubmit } = props;
+  const initialData = mode === "edit" ? props.initialData : undefined;
   const router = useRouter();
-  const { handleProductAdd, handleProductModify } =
-    useProductActions(productId);
-  const onFormSubmit = mode === "add" ? handleProductAdd : handleProductModify;
 
   const {
     control,
@@ -84,7 +85,16 @@ export default function ProductForm({
             <FieldAdapter
               name="images"
               control={control}
-              render={(props) => <ImageUpload {...props} />}
+              render={(props) => (
+                <ImageUpload
+                  {...props}
+                  value={props.value[0]}
+                  onChange={(file) => {
+                    props.onChange(file ? [file] : []);
+                    props.onBlur();
+                  }}
+                />
+              )}
             />
           </FieldItem>
           <FieldItem>

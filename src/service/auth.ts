@@ -1,6 +1,6 @@
 import { SigninFormType, SignupFormType } from "@schemas/auth";
 import { axiosInstance } from "@service/axios";
-import { RefreshResponse, AuthResponse, User } from "@type/auth";
+import { RefreshResponse, AuthResponse } from "@type/auth";
 import axios from "axios";
 
 export async function login({ email, password }: SigninFormType) {
@@ -24,12 +24,6 @@ export async function signUp({
     password,
     passwordConfirmation,
   });
-
-  return response.data;
-}
-
-export async function getUser() {
-  const response = await axiosInstance.get<User>("/users/me");
 
   return response.data;
 }
