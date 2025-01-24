@@ -1,12 +1,12 @@
 import AllArticlesSection from "@/components/board/AllIArticleSection.jsx";
-import Header from "@/components/layout/Header";
-import styles from "@/styles/Boards.module.css";
+import BestArticlesSection from "@/components/board/BestArticleSection.jsx";
+import "@/styles/Boards.module.css";
 
 export default function Boards() {
   return (
-    <>
-      <Header />
+    <div className="container">
+      <BestArticlesSection />
       <AllArticlesSection />
-    </>
+    </div>
   );
 }

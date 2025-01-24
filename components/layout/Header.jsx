@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import styles from "@/styles/Header.module.css";
 import Logo from "@/public/logo/logo.svg";
-import profile from "@/public/icons/ic_profile_medium.png";
+import profile from "@/public/icons/ic_profile.png";
 
 function getLinkStyle(path, currentPath) {
   return path === currentPath ? { color: "var(--blue)" } : {};

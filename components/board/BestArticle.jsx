@@ -4,12 +4,19 @@ import like from "@/public/icons/ic_heart.svg";
 import profile from "@/public/icons/ic_profile.png";
 import styles from "@/styles/Boards.module.css";
 import defaultImg from "@/public/icons/img_default.png";
+import badge from "@/public/icons/img_badge.png";
 
-export default function ArticleList({ articles = [] }) {
+export default function BestArticle({ articles = [] }) {
   return (
-    <div>
+    <div className={styles.bestArticle}>
       {articles.map((articles) => (
-        <div key={articles.id} className={styles.articleContainer}>
+        <div key={articles.id} className={styles.bestArticleContainer}>
+          <Image
+            src={badge}
+            alt="badge"
+            width={102}
+            style={{ alignItems: "top" }}
+          />
           <div className={styles.articleInfo}>
             <Link href={`/boards/${articles.id}`}>
               <p className={styles.articleTitle}>{articles.title}</p>
