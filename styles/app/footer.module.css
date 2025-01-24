@@ -1,0 +1,91 @@
+.footerWrap {
+  /* Default */
+  padding: 0 200px;
+
+  /* 1920 이상 */
+  @media (min-width: 1920px) {
+    padding: 0;
+  }
+  /* Mobile */
+  @media (min-width: 375px) and (max-width: 767px) {
+    padding: 0 16px;
+  }
+  @media (max-width: 374px) {
+    padding: 0 16px;
+  }
+}
+.footerWrap {
+  @media (min-width: 375px) and (max-width: 767px) {
+    padding: 0 30px;
+  }
+  /* Tablet */
+  @media (min-width: 768px) and (max-width: 1199px) {
+    padding: 0 24px;
+  }
+}
+.footer {
+  position: relative;
+  padding: 32px 0 108px;
+  background: var(--gray-900);
+  color: var(--gray-200);
+  font-size: 1.4em;
+}
+.footerWrap {
+  -webkit-display: flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  /* Default */
+  @media (min-width: 1920px) {
+    max-width: 1110px;
+    margin: 0 auto;
+  }
+}
+.footerWrap .copyright {
+  font-weight: 500;
+  color: var(--gray-400);
+
+  /* Mobile */
+  @media (min-width: 375px) and (max-width: 767px) {
+    position: absolute;
+    bottom: 30px;
+  }
+}
+.footerWrap .btnLink {
+  -webkit-display: flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  align-items: center;
+  font-weight: 500;
+}
+.footerWrap .btnLink > a {
+  margin-right: 30px;
+}
+.footerWrap .btnLink > a:last-child {
+  margin-right: 0;
+}
+.footerWrap .socialBox {
+  -webkit-display: flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  align-items: center;
+}
+.footerWrap .socialBox li {
+  margin-right: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.footerWrap .socialBox li:hover {
+  /* PC */
+  @media (min-width: 1200px) {
+    opacity: 0.7;
+  }
+}
+.footerWrap .socialBox li:last-child {
+  margin-right: 0;
+}

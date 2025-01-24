@@ -1,0 +1,250 @@
+@charset "utf-8";
+
+/* 폰트 */
+/* rokaf */
+@font-face {
+  src: url("/assets/fonts/rokaf/ROKAF-Sans-Medium.ttf") format("truetype");
+  font-family: "Rokaf";
+  font-weight: 500;
+}
+@font-face {
+  src: url("/assets/fonts/rokaf/ROKAF-Sans-Bold.ttf") format("truetype");
+  font-family: "Rokaf";
+  font-weight: 700;
+}
+/* pretendard */
+@font-face {
+  src: url("/assets/fonts/pretendard/Pretendard-Light.woff") format("woff");
+  font-family: "pretendard";
+  font-weight: 300;
+}
+@font-face {
+  src: url("/assets/fonts/pretendard/Pretendard-Regular.woff")
+    format("woff");
+  font-family: "pretendard";
+  font-weight: 400;
+}
+@font-face {
+  src: url("/assets/fonts/pretendard/Pretendard-Medium.woff")
+    format("woff");
+  font-family: "pretendard";
+  font-weight: 500;
+}
+@font-face {
+  src: url("/assets/fonts/pretendard/Pretendard-SemiBold.woff")
+    format("woff");
+  font-family: "pretendard";
+  font-weight: 600;
+}
+@font-face {
+  src: url("/assets/fonts/pretendard/Pretendard-Bold.woff") format("woff");
+  font-family: "pretendard";
+  font-weight: 700;
+}
+
+/* palette color 변수 지정 */
+:root {
+  --white: #fff;
+  --black: #000;
+  --sky: #e6f2ff;
+  --red: #f74747;
+  --gray: #dfdfdf;
+  --primary: #3692ff; /*브랜드 주요 색상*/
+  --primary-foreground: #1967d6;
+  --primary-active: #2f80ed;
+  --gray-01: #ededed;
+  --gray-10: #dfdfdf;
+  --gray-50: #f9fafb;
+  --gray-100: #f3f4f6;
+  --gray-200: #e5e7eb;
+  --gray-300: #d1d5db;
+  --gray-400: #9ca3af;
+  --gray-500: #6b7280;
+  --gray-600: #4b5563;
+  --gray-700: #374151;
+  --gray-800: #1f2937;
+  --gray-900: #111827;
+}
+
+/*공통 Reset*/
+* {
+  box-sizing: border-box;
+}
+html,
+body,
+h1,
+h2,
+h3,
+h4,
+h5 {
+  letter-spacing: -0.4px;
+}
+html,
+body,
+div,
+span,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+abbr,
+address,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+samp,
+small,
+strong,
+sub,
+sup,
+var,
+b,
+i,
+button,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+}
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+a {
+  display: block;
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+  background: transparent;
+  text-decoration: none;
+  color: inherit;
+}
+img,
+iframe,
+video {
+  max-width: 100%;
+}
+section,
+header,
+footer {
+  position: relative;
+  overflow: hidden;
+}
+img {
+  display: block;
+  image-rendering: -moz-auto;
+  image-rendering: -o-auto;
+  image-rendering: auto;
+  image-rendering: -webkit-optimize-contrast;
+  -ms-interpolation-mode: nearest-neighbor;
+}
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input:focus,
+textarea:focus {
+  outline: none;
+}
+textarea {
+  resize: none;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 30px var(--gray-100) inset;
+  -webkit-text-fill-color: var(--gray-400);
+}
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  transition: background-color 5000s ease-in-out 0s;
+}
+body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: visible;
+  overflow-y: auto;
+  font-weight: normal;
+  font-size: 10px;
+  color: var(--black);
+  font-family: "pretendard";
+}

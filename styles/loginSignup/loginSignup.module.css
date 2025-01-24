@@ -1,0 +1,185 @@
+@charset "utf-8";
+/* 로그인, 회원가입 페이지 */
+
+.containWrap {
+  height: 100vh;
+}
+.signInLayout {
+  -webkit-display: flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  align-items: center;
+  max-width: 640px;
+  height: (env(safe-area-inset-bottom) + inherit);
+  padding-top: 15vh;
+  padding-bottom: 15vh;
+  margin: 0 auto;
+
+  /* Mobile */
+  @media (min-width: 375px) and (max-width: 767px) {
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-top: 10vh;
+    padding-bottom: 10vh;
+  }
+}
+.signInLayout .logo > a {
+  -webkit-display: flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.signInLayout .logo .logoImg {
+  height: auto;
+
+  /* Mobile */
+  @media (min-width: 375px) and (max-width: 767px) {
+    width: 20%;
+  }
+}
+.signInLayout .logo .companyName {
+  margin-left: 20px;
+  font-size: 6.6em;
+  font-weight: 700;
+  font-family: "Rokaf";
+  color: var(--primary);
+
+  /* Mobile */
+  @media (min-width: 375px) and (max-width: 767px) {
+    margin-left: 10px;
+    font-size: 3.5em;
+  }
+}
+.formWrap {
+  width: 100%;
+
+  /* Mobile */
+  @media (min-width: 375px) and (max-width: 767px) {
+    max-width: 400px;
+  }
+}
+.formWrap .inputBox:nth-of-type(1) {
+  margin-top: 40px;
+}
+.formWrap .inputBox {
+  margin-bottom: 25px;
+}
+.formWrap .inputBox.pointer input {
+  padding-right: 40px;
+}
+.formWrap .inputBox .btnVisible {
+  cursor: pointer;
+  position: absolute;
+  right: 10px;
+  top: 17px;
+}
+.formWrap label {
+  display: inline-block;
+  margin-bottom: 16px;
+  font-size: 1.8em;
+  font-weight: 700;
+  color: var(--gray-800);
+}
+.formWrap input {
+  width: 100%;
+  height: 56px;
+  padding: 0 24px;
+  border-radius: 12px;
+  border: 2px solid var(--gray-100);
+  font-family: "pretendard";
+  font-weight: 500;
+  font-size: 1.6em;
+  background: var(--gray-100);
+  color: var(--gray-800);
+  transition: 0.2s;
+}
+.formWrap .txtWarning {
+  margin-top: 10px;
+  margin-left: 15px;
+  font-size: 1.4em;
+  font-weight: 600;
+  color: var(--red);
+}
+.formWrap input::placeholder {
+  color: var(--gray-400);
+}
+.formWrap input:focus {
+  outline: 0;
+  border: 2px solid var(--primary);
+}
+/* 삭제 처리 */
+/* .formWrap input:required:focus{
+    border:2px solid var(--red);
+} */
+.formWrap input.inputError {
+  border: 2px solid var(--red);
+}
+.inputBox .cover {
+  position: relative;
+}
+.formWrap .btnBox {
+  margin: 24px 0;
+}
+.formWrap .btnBox button {
+  width: 100%;
+  height: 56px;
+  border-radius: 40px;
+  font-size: 2em;
+  font-weight: 600;
+  background: var(--primary);
+  cursor: pointer;
+  color: var(--gray-100);
+}
+.formWrap .btnBox .btnSubmit:disabled {
+  background: var(--gray-400);
+  cursor: auto;
+}
+.signSocial {
+  width: 100%;
+
+  /* Mobile */
+  @media (min-width: 375px) and (max-width: 767px) {
+    max-width: 400px;
+  }
+}
+.signSocial .layoutBox {
+  width: 100%;
+  -webkit-dispaly: flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 23px;
+  border-radius: 8px;
+  border: 1px solid var(--gray-100);
+  background: var(--sky);
+  font-size: 1.6em;
+  font-weight: 400;
+}
+.signSocial .cover {
+  -webkit-dispaly: flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+}
+.signSocial .cover .btnGoogle {
+  margin-right: 15px;
+}
+.signSocial .cover div {
+  cursor: pointer;
+}
+.returnLink {
+  margin-top: 24px;
+  font-size: 1.4em;
+  font-weight: 400;
+  color: var(--gray-800);
+}
+.returnLink > a {
+  display: inline-block;
+  margin-left: 3px;
+  color: var(--primary);
+}

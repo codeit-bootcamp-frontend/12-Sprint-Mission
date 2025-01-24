@@ -1,0 +1,119 @@
+/* 공통 */
+.skeletonBox {
+  position: relative;
+  flex: 1;
+  max-width: 25%;
+  height: max-content;
+  border-radius: 10px;
+  border: 1px solid var(--gray-50);
+  box-sizing: border-box;
+  overflow: hidden;
+  background: var(--gray-200);
+
+  @media (max-width: 1200px) {
+    max-width: 100%;
+  }
+
+  /* Mobile */
+  @media (max-width: 768px) {
+    max-width: 100%;
+  }
+}
+.skeletonBox:after {
+  content: "";
+  display: block;
+  padding-bottom: 100%;
+}
+.skeletonLoading {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    #e5e5e5 30%,
+    #f0f0f0 38%,
+    #f0f0f0 40%,
+    #e5e5e5 48%
+  );
+  border-radius: 1rem;
+  background-size: 200% 100%;
+  background-position: 100% 0;
+  animation: load 0.8s infinite;
+}
+
+@keyframes load {
+  100% {
+    background-position: -100% 0;
+  }
+}
+
+/* Srction1 */
+.section1Wrap {
+  -webkit-dispaly: flex;
+  display: flex;
+  gap: 40px 2.5%;
+  flex-wrap: wrap;
+
+  @media (max-width: 1200px) {
+    gap: 40px 5%;
+  }
+}
+.section1Wrap .skeletonBox:nth-of-type(3),
+.section1Wrap .skeletonBox:nth-of-type(4) {
+  @media (max-width: 1200px) {
+    display: none;
+  }
+}
+.section1Wrap .skeletonBox:nth-of-type(2),
+.section1Wrap .skeletonBox:nth-of-type(3),
+.section1Wrap .skeletonBox:nth-of-type(4) {
+  @media (max-width: 768px) {
+    display: none;
+  }
+}
+
+/* Srction2 */
+.section2Wrap {
+  -webkit-dispaly: flex;
+  display: flex;
+  gap: 40px 2.5%;
+  flex-wrap: wrap;
+
+  @media (max-width: 1200px) {
+    gap: 40px 5%;
+  }
+  @media (max-width: 768px) {
+    gap: 40px 4%;
+  }
+}
+.section2Wrap .skeletonBox {
+  max-width: 18%;
+  min-width: 18%;
+
+  @media (max-width: 1200px) {
+    min-width: 30%;
+    max-width: 30%;
+  }
+  @media (max-width: 768px) {
+    min-width: 48%;
+    max-width: 48%;
+  }
+}
+.section2Wrap .skeletonBox:nth-of-type(7),
+.section2Wrap .skeletonBox:nth-of-type(8),
+.section2Wrap .skeletonBox:nth-of-type(9),
+.section2Wrap .skeletonBox:nth-of-type(10) {
+  @media (max-width: 1200px) {
+    display: none;
+  }
+}
+.section2Wrap .skeletonBox:nth-of-type(5),
+.section2Wrap .skeletonBox:nth-of-type(6),
+.section2Wrap .skeletonBox:nth-of-type(7),
+.section2Wrap .skeletonBox:nth-of-type(8),
+.section2Wrap .skeletonBox:nth-of-type(9),
+.section2Wrap .skeletonBox:nth-of-type(10) {
+  @media (max-width: 768px) {
+    display: none;
+  }
+}

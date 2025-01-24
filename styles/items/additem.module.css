@@ -1,0 +1,240 @@
+.pagiContainer {
+  margin-top: 69px;
+  /* Default */
+  padding: 0 200px;
+
+  /* 1920 이상 */
+  @media (min-width: 1920px) {
+    padding: 0;
+    max-width: 1110px;
+    margin: 69px auto 0;
+  }
+  /* Tablet, Mobile */
+  @media (max-width: 1199px) {
+    padding: 0 24px;
+  }
+}
+
+.submitContainer {
+  -webkit-display: flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 0;
+}
+
+.submitTitle {
+  font-size: 2em;
+  font-weight: 600;
+}
+
+.btnSubmit {
+  height: 42px;
+  padding: 0 23px;
+  border-radius: 8px;
+  background: var(--primary);
+  color: var(--gray-100);
+  font-size: 1.6em;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btnSubmit:disabled {
+  background: var(--gray-400);
+  cursor: default;
+}
+
+.inputContainer {
+  margin-bottom: 32px;
+}
+
+.inputContainer input::placeholder,
+.inputContainer textarea::placeholder {
+  color: var(--gray-400);
+}
+
+.inputContainer input[type="text"],
+.inputContainer input[type="number"],
+.inputContainer textarea {
+  width: 100%;
+  padding: 16px 24px;
+  border: none;
+  border-radius: 12px;
+  background: var(--gray-100);
+  color: var(--gray-800);
+  font-size: 1.6em;
+}
+
+.inputContainer textarea {
+  height: calc(100vw * (282 / 1100));
+  max-height: 282px;
+}
+
+.inputTitle {
+  margin-bottom: 15px;
+  font-size: 1.8em;
+  font-weight: 600;
+}
+
+.previewContainer {
+  -webkit-display: flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  gap: 2%;
+
+  /* Mobile */
+  @media (max-width: 768px) {
+    gap: 2%;
+    justify-content: space-between;
+  }
+}
+
+.previewContainer .coverTile {
+  max-width: 23%;
+  flex: 1;
+
+  /* Mobile */
+  @media (max-width: 768px) {
+    max-width: 48%;
+  }
+}
+
+.inputContainer input[type="file"] {
+  position: absolute;
+  width: 0;
+  height: 0;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+}
+
+.fileBox label {
+  display: inline-block;
+  border-radius: 12px;
+  color: #fff;
+  cursor: pointer;
+  background: var(--gray-100);
+  position: relative;
+  width: 100%;
+  height: 100%;
+  max-height: min-content;
+}
+
+.fileBox label::after {
+  content: "";
+  display: block;
+  padding-bottom: 100%;
+}
+
+.fileBox label .cover {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.fileBox label .cover > img {
+  display: inline-block;
+}
+
+.fileBox label .imgUpload {
+  margin-top: 10px;
+  font-size: 1.6em;
+  font-weight: 300;
+  color: var(--gray-400);
+}
+
+.btnImgUpload {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.tagContainer {
+  -webkit-display: flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  margin-top: 15px;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: calc(env(safe-area-inset-bottom) + 100px);
+}
+
+.tagContainer li {
+  -webkit-display: flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  align-items: center;
+  height: 36px;
+  line-height: 36px;
+  padding: 0 15px;
+  border-radius: 26px;
+  background: var(--gray-100);
+  color: var(--gray-800);
+  font-size: 1.6em;
+  font-weight: 400;
+  letter-spacing: 0.2px;
+}
+
+.circle {
+  margin-left: 8px;
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  border-radius: 50%;
+  background: var(--gray-400);
+  text-align: center;
+  cursor: pointer;
+}
+
+.circle > img {
+  display: inline-block;
+}
+
+.previewContainer .thumbnail {
+  position: relative;
+  border: 1px solid var(--gray-50);
+  overflow: hidden;
+  border-radius: 12px;
+  display: inline-block;
+  border-radius: 12px;
+  color: #fff;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  max-height: min-content;
+}
+.previewContainer .thumbnail::after {
+  content: "";
+  display: block;
+  padding-bottom: 100%;
+}
+
+.previewContainer .thumbnail > img {
+  display: block;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  object-fit: contain;
+  position-area: center;
+}
+
+.thumbnail .circle {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  line-height: 23px;
+}
+
+.warnMessage {
+  margin-top: 15px;
+  color: var(--red);
+  font-size: 1.6em;
+  font-weight: 400;
+}
