@@ -7,40 +7,39 @@ import Dropdown from "@/components/button/DropdownButton";
 import ArticleList from "@/components/board/ArticleList";
 
 export default function AllArticleSection() {
-  const [articles, setArticles] = useState([]); // 게시글 데이터
-  const [page, setPage] = useState(1); // 현재 페이지 번호
-  const [isLoading, setIsLoading] = useState(false); // 로딩 상태
-  const [hasMore, setHasMore] = useState(true); // 추가 데이터 여부
+  const [articles, setArticles] = useState([]); //게시글 데이터
+  const [page, setPage] = useState(1); //쿼리스트링
+  const [pageSize] = useState(30); // 한 페이지당 게시글 수(무한스크롤 때문에 임시코드)
+  const [orderBy, setOrderBy] = useState("recent"); // 기본 정렬: 최신순
+  const [keyword, setKeyword] = useState(""); // 검색 키워드
+
+  const [isLoading, setIsLoading] = useState(false); //로딩 상태
+  const [hasMore, setHasMore] = useState(true); //다음 페이지(데이터)가 있는지
 
   const observer = useRef();
 
-  // 데이터 가져오기 함수
-  const getArticles = async (currentPage) => {
+  //게시글 불러오기
+  const getArticles = async (currentPage, currentOrderBy, currentKeyword) => {
     setIsLoading(true);
     try {
-      const res = await axios.get(`/articles`, {
+      const response = await axios.get(`/articles`, {
         params: {
           page: currentPage,
-          pageSize: 10,
-          orderBy: "recent", // 정렬 기준
-        },
-        headers: {
-          accept: "application/json",
+          pageSize,
+          orderBy: currentOrderBy,
+          keyword: currentKeyword,
         },
       });
 
-      const nextArticles = res.data.list;
+      const nextArticles = response.data.list;
 
-      // 중복 데이터 방지
+      // 첫 페이지(쿼리스트링)일 경우 새로운 데이터 업데이트, 아닐 경우 기존 데이터 배열 뒤에 추가
       setArticles((prev) => {
-        const newArticles = nextArticles.filter(
-          (article) =>
-            !prev.some((prevArticle) => prevArticle.id === article.id)
-        );
-        return [...prev, ...newArticles];
+        if (currentPage === 1) return nextArticles;
+        return [...prev, ...nextArticles];
       });
 
-      // 추가 데이터가 없으면 로드 중단
+      // 다음 페이지(데이터)가 있는지 확인
       setHasMore(nextArticles.length > 0);
     } catch (error) {
       console.error("Error fetching articles:", error);
@@ -48,26 +47,41 @@ export default function AllArticleSection() {
     setIsLoading(false);
   };
 
-  // Intersection Observer로 무한 스크롤 구현
+  //임시 무한스크롤 코드
   const lastArticleElementRef = useCallback(
     (node) => {
-      if (isLoading) return; // 로딩 중이면 관찰 중지
+      if (isLoading) return;
       if (observer.current) observer.current.disconnect();
 
       observer.current = new IntersectionObserver((entries) => {
         if (entries[0].isIntersecting && hasMore) {
-          setPage((prevPage) => prevPage + 1); // 다음 페이지로 이동
+          setPage((prevPage) => prevPage + 1);
         }
       });
 
-      if (node) observer.current.observe(node); // 마지막 요소 관찰
+      if (node) observer.current.observe(node);
     },
     [isLoading, hasMore]
   );
 
-  // 페이지가 변경될 때 데이터를 가져옴
+  //드롭다운 데이터
+  const handleOrderChange = (value) => {
+    const order = value === "최신순" ? "recent" : "like";
+    setOrderBy(order);
+    setPage(1);
+    getArticles(1, order, keyword);
+  };
+
+  //검색
+  const handleSearch = (searchKeyword) => {
+    setKeyword(searchKeyword);
+    setPage(1);
+    getArticles(1, orderBy, searchKeyword);
+  };
+
+  //최초 게시글 불러오기
   useEffect(() => {
-    getArticles(page);
+    getArticles(page, orderBy, keyword);
   }, [page]);
 
   return (
@@ -80,13 +94,11 @@ export default function AllArticleSection() {
           </Link>
         </div>
 
-        {/* 검색 및 필터*/}
         <div className={styles.searchContainer}>
           <SearchForm />
-          <Dropdown />
+          <Dropdown onSelect={handleOrderChange} />
         </div>
 
-        {/* 게시글 목록 */}
         <ArticleList articles={articles} />
 
         <div>

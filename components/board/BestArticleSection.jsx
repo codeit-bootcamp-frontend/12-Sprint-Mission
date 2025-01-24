@@ -6,6 +6,7 @@ import BestArticle from "./BestArticle";
 export default function BestArticleSection() {
   const [bestArticles, setBestArticles] = useState([]);
 
+  // 베스트 게시글 불러오기
   async function getBestArticles() {
     try {
       const res = await axios.get("/articles");

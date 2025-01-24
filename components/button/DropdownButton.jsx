@@ -54,15 +54,18 @@ const DropdownItem = styled.li`
   }
 `;
 
-const Dropdown = () => {
+// DropdownButton.jsx
+const Dropdown = ({ onSelect }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [selected, setSelected] = useState("최신순");
 
   const toggleDropdown = () => setIsOpen(!isOpen);
 
+  // 선택된 값에 따라 상태 업데이트
   const handleSelect = (value) => {
     setSelected(value);
-    setIsOpen(false);
+    setIsOpen(false); // 드롭다운 닫기
+    onSelect(value); // 선택된 값 부모로 전달
   };
 
   return (
