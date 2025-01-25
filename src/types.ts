@@ -42,3 +42,23 @@ export interface PostPayload {
   content: string;
   image?: File | null;
 }
+
+export interface SignupRequest {
+  email: string;
+  nickname: string;
+  password: string;
+  passwordConfirmation: string;
+}
+
+export interface SignupResponse {
+  user: {
+    id: number;
+    email: string;
+    image: null;
+    nickname: string;
+    updatedAt: string;
+    createdAt: string;
+  };
+  accessToken: string;
+  refreshToken: string;
+}

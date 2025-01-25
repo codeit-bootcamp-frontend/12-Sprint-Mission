@@ -2,34 +2,31 @@ import { useState } from "react";
 import styles from "./SignUpForm.module.css";
 import Image from "next/image";
 import Link from "next/link";
+import { SignupRequest } from "@/types";
 
 interface SignUpFormProps {
-  onSubmit: (formData: {
-    email: string;
-    nickname: string;
-    password: string;
-    passwordConfirmation: string;
-  }) => Promise<void>;
+  onSubmit: (request: SignupRequest) => Promise<void>;
 }
 
 export default function SignUpForm({ onSubmit }: SignUpFormProps) {
-  const [email, setEmail] = useState("");
-  const [nickname, setNickname] = useState("");
-  const [password, setPassword] = useState("");
-  const [passwordConfirmation, setPasswordConfirmation] = useState("");
-
+  const [form, setForm] = useState<SignupRequest>({
+    email: "",
+    nickname: "",
+    password: "",
+    passwordConfirmation: "",
+  });
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setForm((prev) => ({ ...prev, [name]: value }));
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    await onSubmit({
-      email,
-      nickname,
-      password,
-      passwordConfirmation,
-    });
+    await onSubmit(form);
   };
 
   return (
@@ -40,12 +37,13 @@ export default function SignUpForm({ onSubmit }: SignUpFormProps) {
         </label>
         <div className={styles.inputContainer}>
           <input
-            value={email}
+            name="email"
+            value={form.email}
             type="email"
             id="email"
             placeholder="이메일을 입력해주세요"
             className={styles.inputField}
-            onChange={(e) => setEmail(e.target.value)}
+            onChange={handleChange}
           />
         </div>
       </div>
@@ -56,12 +54,13 @@ export default function SignUpForm({ onSubmit }: SignUpFormProps) {
         </label>
         <div className={styles.inputContainer}>
           <input
-            value={nickname}
+            name="nickname"
+            value={form.nickname}
             type="text"
             id="nickname"
             placeholder="닉네임을 입력해주세요"
             className={styles.inputField}
-            onChange={(e) => setNickname(e.target.value)}
+            onChange={handleChange}
           />
         </div>
       </div>
@@ -72,12 +71,13 @@ export default function SignUpForm({ onSubmit }: SignUpFormProps) {
         </label>
         <div className={styles.inputContainer}>
           <input
+            name="password"
             type={showPassword ? "text" : "password"}
             id="password"
             placeholder="비밀번호를 입력해주세요"
             className={styles.inputField}
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            value={form.password}
+            onChange={handleChange}
           />
           <button type="button" onClick={() => setShowPassword(!showPassword)} className={styles.toggleButton}>
             {showPassword ? "O" : "X"}
@@ -91,12 +91,13 @@ export default function SignUpForm({ onSubmit }: SignUpFormProps) {
         </label>
         <div className={styles.inputContainer}>
           <input
+            name="passwordConfirmation"
             type={showConfirmPassword ? "text" : "password"}
             id="confirmPassword"
             placeholder="비밀번호를 다시 한 번 입력해주세요"
             className={styles.inputField}
-            value={passwordConfirmation}
-            onChange={(e) => setPasswordConfirmation(e.target.value)}
+            value={form.passwordConfirmation}
+            onChange={handleChange}
           />
           <button
             type="button"

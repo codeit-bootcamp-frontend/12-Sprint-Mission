@@ -5,19 +5,15 @@ import SignUpForm from "@/components/SignUpForm";
 import { useRouter } from "next/router";
 import { signup } from "@/services/authService";
 import { saveTokens } from "@/utils/tokenHandler";
+import { SignupRequest } from "@/types";
 
 export default function SignupPage() {
   const router = useRouter();
 
-  const handleSignup = async (formData: {
-    email: string;
-    nickname: string;
-    password: string;
-    passwordConfirmation: string;
-  }) => {
+  const handleSignup = async (signupRequest: SignupRequest) => {
     try {
       // 1) 회원가입 요청
-      const { accessToken, refreshToken } = await signup(formData);
+      const { accessToken, refreshToken } = await signup(signupRequest);
 
       // 2) 응답 받은 토큰 저장
       saveTokens(accessToken, refreshToken);

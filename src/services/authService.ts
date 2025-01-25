@@ -1,16 +1,11 @@
-interface SignupPayload {
-  email: string;
-  nickname: string;
-  password: string;
-  passwordConfirmation: string;
-}
+import { SignupRequest, SignupResponse } from "@/types";
 
 interface LoginPayload {
   email: string;
   password: string;
 }
 
-export async function signup(payload: SignupPayload) {
+export async function signup(payload: SignupRequest): Promise<SignupResponse> {
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
   if (!baseUrl) {
     throw new Error("BASE_URL 환경변수가 설정되지 않았습니다.");
