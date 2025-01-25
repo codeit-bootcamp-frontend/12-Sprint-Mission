@@ -62,3 +62,21 @@ export interface SignupResponse {
   accessToken: string;
   refreshToken: string;
 }
+
+export interface LoginRequest {
+  email: string;
+  password: string;
+}
+
+export interface LoginResponse {
+  user: {
+    id: number;
+    email: string;
+    image: null;
+    nickname: string;
+    updatedAt: string;
+    createdAt: string;
+  };
+  accessToken: string;
+  refreshToken: string;
+}

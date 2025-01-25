@@ -5,13 +5,14 @@ import LoginForm from "@/components/LoginForm";
 import { useRouter } from "next/router";
 import { saveTokens } from "@/utils/tokenHandler";
 import { login } from "@/services/authService";
+import { LoginRequest } from "@/types";
 
 export default function LoginPage() {
   const router = useRouter();
 
-  const handleLogin = async (formData: { email: string; password: string }) => {
+  const handleLogin = async (loginRequest: LoginRequest) => {
     try {
-      const { accessToken, refreshToken } = await login(formData);
+      const { accessToken, refreshToken } = await login(loginRequest);
       saveTokens(accessToken, refreshToken);
       alert("로그인 성공!");
       router.push("/boards");

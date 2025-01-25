@@ -2,19 +2,27 @@ import styles from "./LoginForm.module.css";
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { LoginRequest } from "@/types";
 
 interface LoginFormProps {
-  onSubmit: (formData: { email: string; password: string }) => Promise<void>;
+  onSubmit: (request: LoginRequest) => Promise<void>;
 }
 
 export default function LoginForm({ onSubmit }: LoginFormProps) {
   const [showPassword, setShowPassword] = useState(false);
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [form, setFrom] = useState<LoginRequest>({
+    email: "",
+    password: "",
+  });
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    await onSubmit({ email, password });
+    await onSubmit(form);
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFrom((prev) => ({ ...prev, [name]: value }));
   };
 
   return (
@@ -25,12 +33,13 @@ export default function LoginForm({ onSubmit }: LoginFormProps) {
         </label>
         <div className={styles.inputContainer}>
           <input
+            name="email"
             type="email"
             id="email"
             placeholder="이메일을 입력해주세요"
             className={styles.inputField}
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            value={form.email}
+            onChange={handleChange}
           />
         </div>
       </div>
@@ -41,12 +50,13 @@ export default function LoginForm({ onSubmit }: LoginFormProps) {
         </label>
         <div className={styles.inputContainer}>
           <input
+            name="password"
             type={showPassword ? "text" : "password"}
             id="password"
             placeholder="비밀번호를 입력해주세요"
             className={styles.inputField}
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            value={form.password}
+            onChange={handleChange}
           />
           <button type="button" onClick={() => setShowPassword(!showPassword)} className={styles.toggleButton}>
             {showPassword ? "O" : "X"}

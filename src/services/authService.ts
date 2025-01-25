@@ -1,9 +1,4 @@
-import { SignupRequest, SignupResponse } from "@/types";
-
-interface LoginPayload {
-  email: string;
-  password: string;
-}
+import { LoginRequest, LoginResponse, SignupRequest, SignupResponse } from "@/types";
 
 export async function signup(payload: SignupRequest): Promise<SignupResponse> {
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
@@ -34,7 +29,7 @@ export async function signup(payload: SignupRequest): Promise<SignupResponse> {
   }
 }
 
-export async function login(payload: LoginPayload) {
+export async function login(payload: LoginRequest): Promise<LoginResponse> {
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
   if (!baseUrl) {
     throw new Error("BASE_URL 환경변수가 설정되지 않았습니다.");
