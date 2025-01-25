@@ -1,0 +1,59 @@
+.login_wrap {
+  max-width: 640px;
+  width: 100%;
+  margin: 0 auto;
+}
+.logo {
+  margin-bottom: 40px;
+  text-align: center;
+}
+.login_list {
+}
+.login_list > li {
+}
+.login_list > li + li {
+  margin-top: 24px;
+}
+.login_list > li .title {
+  margin-bottom: 16px;
+  font-size: 18px;
+  font-weight: 700;
+}
+.login_list > li .content {
+}
+.login_list > li .sns {
+  padding: 16px 23px;
+  background-color: #e6f2ff;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.login_list > li .sns h3 {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1;
+}
+.login_list > li .sns ul {
+  display: flex;
+  align-items: center;
+}
+.login_list > li .sns ul > li {
+}
+.login_list > li .sns ul > li + li {
+  margin-left: 16px;
+}
+.login_list > li .sns ul > li img {
+  height: 42px;
+}
+.login_list > li .link > p {
+  text-align: center;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.7142;
+}
+.login_list > li .link p > a {
+  color: #3182f6;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}

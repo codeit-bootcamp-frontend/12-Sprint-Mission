@@ -27,8 +27,11 @@ export default function HeaderLayout() {
             <Link href="">중고마켓</Link>
           </li>
         </ul>
-        <Link className={styles.my} href="">
+        {/* <Link className={styles.my} href="">
           <img src="/assets/img/icon_my.svg" alt="마이페이지" />
+        </Link> */}
+        <Link href="/login" className={`btn ${styles.my}`}>
+          로그인
         </Link>
       </div>
     </header>
