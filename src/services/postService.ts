@@ -1,11 +1,6 @@
 import { getAccessToken } from "@/utils/tokenHandler";
 import { uploadImage } from "./imageService";
-
-interface PostPayload {
-  title: string;
-  content: string;
-  image?: File | null;
-}
+import { PostPayload } from "@/types";
 
 export async function createPost(payload: PostPayload) {
   const accessToken = getAccessToken();

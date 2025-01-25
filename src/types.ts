@@ -36,3 +36,9 @@ export interface FetchCommentsResponse {
   nextCursor: number;
   list: Comment[];
 }
+
+export interface PostPayload {
+  title: string;
+  content: string;
+  image?: File | null;
+}
