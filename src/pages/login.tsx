@@ -6,9 +6,19 @@ import { useRouter } from "next/router";
 import { saveTokens } from "@/utils/tokenHandler";
 import { login } from "@/services/authService";
 import { LoginRequest } from "@/types";
+import { useEffect } from "react";
 
 export default function LoginPage() {
   const router = useRouter();
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const accessToken = localStorage.getItem("ACCESS_TOKEN_KEY");
+      if (accessToken) {
+        router.replace("/");
+      }
+    }
+  }, [router]);
 
   const handleLogin = async (loginRequest: LoginRequest) => {
     try {

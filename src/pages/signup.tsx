@@ -6,9 +6,19 @@ import { useRouter } from "next/router";
 import { signup } from "@/services/authService";
 import { saveTokens } from "@/utils/tokenHandler";
 import { SignupRequest } from "@/types";
+import { useEffect } from "react";
 
 export default function SignupPage() {
   const router = useRouter();
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const accessToken = localStorage.getItem("ACCESS_TOKEN_KEY");
+      if (accessToken) {
+        router.replace("/");
+      }
+    }
+  }, [router]);
 
   const handleSignup = async (signupRequest: SignupRequest) => {
     try {
@@ -20,7 +30,7 @@ export default function SignupPage() {
 
       // 3) 이후 페이지 이동
       alert("회원가입 성공");
-      router.push("/boards");
+      router.push("/login");
     } catch (err: unknown) {
       if (err instanceof Error) {
         alert(err.message || "회원가입 오류");
