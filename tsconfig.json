@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "module": "commonjs",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "allowJs": true, // JavaScript 파일 허용
+    "checkJs": true, // JavaScript 파일 타입 체크
+    "outDir": "./dist", // 컴파일된 파일 위치
+    "jsx": "react-jsx"
+  },
+  "include": ["src/**/*", "custom.d.ts"],
+  "exclude": ["node_modules"]
+}

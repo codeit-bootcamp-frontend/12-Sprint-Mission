@@ -1,21 +1,21 @@
-import { useEffect, useRef, useState } from "react";
+import { ChangeEvent, FormEvent, useEffect, useRef, useState } from "react";
 import "./AddItem.css";
 import registerImage from "../assets/images/registerImage.png";
 import useDevice from "../hooks/useDevice";
 
 function Additem() {
-  const [productName, setProductName] = useState("");
-  const [productIntroduction, setProductIntroduction] = useState("");
-  const [sellingPrice, setSellingPrice] = useState("");
-  const [tagInput, setTagInput] = useState("");
-  const [tags, setTags] = useState(["티셔츠", "상의"]);
-  const [preview, setPreview] = useState();
+  const [productName, setProductName] = useState<string>("");
+  const [productIntroduction, setProductIntroduction] = useState<string>("");
+  const [sellingPrice, setSellingPrice] = useState<string>("");
+  const [tagInput, setTagInput] = useState<string>("");
+  const [tags, setTags] = useState<string[]>(["티셔츠", "상의"]);
+  const [preview, setPreview] = useState<string | undefined>();
 
   const { mode } = useDevice();
 
-  const fileInput = useRef(null);
+  const fileInput = useRef<HTMLInputElement>(null);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault(); //페이지 새로고침 방지
     console.log({
       productName,
@@ -26,11 +26,13 @@ function Additem() {
   };
 
   const handleImageClick = () => {
-    fileInput.current.click();
+    if (fileInput.current) {
+      fileInput.current.click();
+    }
   };
 
-  const handleProductImage = (e) => {
-    const file = e.target.files[0];
+  const handleProductImage = (e: ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
     if (file) {
       const imageUrl = URL.createObjectURL(file);
       setPreview(imageUrl);
@@ -41,30 +43,30 @@ function Additem() {
     const inputNode = fileInput.current;
     if (!inputNode) return;
     inputNode.value = "";
-    setPreview(null);
+    setPreview(undefined);
   };
 
-  const handleTagClearClick = (tagToRemove) => {
+  const handleTagClearClick = (tagToRemove: string) => {
     setTags(tags.filter((tag) => tag !== tagToRemove));
   };
 
-  const handleProductName = (e) => {
+  const handleProductName = (e: ChangeEvent<HTMLInputElement>) => {
     setProductName(e.target.value);
   };
 
-  const handleProductIntroduction = (e) => {
+  const handleProductIntroduction = (e: ChangeEvent<HTMLTextAreaElement>) => {
     setProductIntroduction(e.target.value);
   };
 
-  const handleSellingPrice = (e) => {
+  const handleSellingPrice = (e: ChangeEvent<HTMLInputElement>) => {
     setSellingPrice(e.target.value);
   };
 
-  const handleTag = (e) => {
+  const handleTag = (e: ChangeEvent<HTMLInputElement>) => {
     setTagInput(e.target.value);
   };
 
-  const isFormComplete = () => {
+  const isFormComplete = (): boolean => {
     return (
       productName.trim() !== "" &&
       productIntroduction.trim() !== "" &&
@@ -79,7 +81,6 @@ function Additem() {
         <header className="header">
           <h2 className="header__title">상품 등록하기</h2>
           <button
-            onClick={handleSubmit}
             className="header__submit-btn"
             type="submit"
             disabled={!isFormComplete()}

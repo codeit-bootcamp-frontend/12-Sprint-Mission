@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { getData } from "../../api";
+import { getData, OrderByType, Product } from "../../api";
 import ProductItem from "../common/product";
 import SearchForm from "../SearchForm/SearchForm";
 import Pagination from "../Pagination/Pagination";
@@ -8,11 +8,11 @@ import useDevice from "../../hooks/useDevice";
 import { Link } from "react-router-dom";
 
 function AllProducts() {
-  const [allItemList, setAllItemList] = useState([]);
-  const [selectedOption, setSelectedOption] = useState("recent");
-  const [currentPage, setCurrentPage] = useState(1);
-  const [totalPages, setTotalPages] = useState(0);
-  const [size, setSize] = useState(282);
+  const [allItemList, setAllItemList] = useState<Product[]>([]);
+  const [selectedOption, setSelectedOption] = useState<OrderByType>("recent");
+  const [currentPage, setCurrentPage] = useState<number>(1);
+  const [totalPages, setTotalPages] = useState<number>(0);
+  const [size, setSize] = useState<number>(282);
 
   const { mode } = useDevice();
 
@@ -41,7 +41,7 @@ function AllProducts() {
     fetchAllItems();
   }, [currentPage, selectedOption, mode]);
 
-  const handlePageChange = (pageNumber) => {
+  const handlePageChange = (pageNumber: number) => {
     if (pageNumber < 1 || pageNumber > totalPages) return;
     setCurrentPage(pageNumber);
   };
@@ -56,18 +56,20 @@ function AllProducts() {
         />
       </div>
       <ul className={`all-product-list ${mode}`}>
-        {allItemList.map((item) => (
-          <li key={item.id}>
-            <ProductItem
-              id={item.id}
-              imageUrl={item.images[0]}
-              name={item.name}
-              price={item.price}
-              likeCount={item.favoriteCount}
-              size={size}
-            />
-          </li>
-        ))}
+        {allItemList.map(
+          ({ id, images, name, price, favoriteCount }: Product) => (
+            <li key={id}>
+              <ProductItem
+                id={id}
+                imageUrl={images[0]}
+                name={name}
+                price={price}
+                likeCount={favoriteCount}
+                size={size}
+              />
+            </li>
+          )
+        )}
       </ul>
       <Pagination
         currentPage={currentPage}

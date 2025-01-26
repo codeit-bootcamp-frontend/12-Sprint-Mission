@@ -1,6 +1,16 @@
 import "./Pagination.css";
 
-function Pagination({ currentPage, totalPages, onPageChange }) {
+interface PaginationProps {
+  currentPage: number;
+  totalPages: number;
+  onPageChange: Function;
+}
+
+function Pagination({
+  currentPage,
+  totalPages,
+  onPageChange,
+}: PaginationProps) {
   const getPageNumbers = () => {
     let pages = [];
     const maxPages = 5;
