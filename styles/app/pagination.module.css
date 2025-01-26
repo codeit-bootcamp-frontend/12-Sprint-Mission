@@ -1,0 +1,36 @@
+.pagination {
+  -webkit-display: flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin: 40px 0 50px;
+}
+
+.pagination li {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  margin: 0 2.5px;
+  border: 1px solid var(--gray-10);
+  border-radius: 50%;
+  text-align: center;
+  cursor: pointer;
+  font-size: 1.6em;
+  color: var(--gray-800);
+}
+
+.pagination li.active {
+  border: 1px solid var(--primary-active);
+  background: var(--primary-active);
+  color: var(--white);
+}
+
+.pagination li svg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
