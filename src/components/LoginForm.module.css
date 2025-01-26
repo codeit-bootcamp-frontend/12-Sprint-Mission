@@ -116,3 +116,13 @@
   text-decoration: underline;
   cursor: pointer;
 }
+
+.errorInput {
+  border-color: #f74747;
+}
+
+.errorMessage {
+  color: #f74747;
+  font-size: 14px;
+  margin-top: 0.20rem;
+}

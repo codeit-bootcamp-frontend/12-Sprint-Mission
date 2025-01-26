@@ -2,7 +2,9 @@ import styles from "./LoginForm.module.css";
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { LoginRequest } from "@/types";
+import { loginSchema, LoginRequest } from "@/types";
+import { useForm, SubmitHandler } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
 
 interface LoginFormProps {
   onSubmit: (request: LoginRequest) => Promise<void>;
@@ -10,38 +12,41 @@ interface LoginFormProps {
 
 export default function LoginForm({ onSubmit }: LoginFormProps) {
   const [showPassword, setShowPassword] = useState(false);
-  const [form, setFrom] = useState<LoginRequest>({
-    email: "",
-    password: "",
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm<LoginRequest>({
+    resolver: zodResolver(loginSchema),
   });
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    await onSubmit(form);
-  };
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-    setFrom((prev) => ({ ...prev, [name]: value }));
+  const onFormSubmit: SubmitHandler<LoginRequest> = async (data) => {
+    try {
+      await onSubmit(data);
+      reset();
+    } catch (err) {
+      console.error("서버오류", err);
+      alert("로그인 중 오류가 발생했습니다. 다시 시도해주세요.");
+    }
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit(onFormSubmit)}>
       <div className={styles.formGroup}>
         <label className={styles.label} htmlFor="email">
           이메일
         </label>
         <div className={styles.inputContainer}>
           <input
-            name="email"
+            {...register("email")}
             type="email"
             id="email"
             placeholder="이메일을 입력해주세요"
-            className={styles.inputField}
-            value={form.email}
-            onChange={handleChange}
+            className={`${styles.inputField} ${errors.email ? styles.errorInput : ""}`}
           />
         </div>
+        {errors.email && <p className={styles.errorMessage}>{errors.email.message}</p>}
       </div>
 
       <div className={styles.formGroup}>
@@ -50,18 +55,17 @@ export default function LoginForm({ onSubmit }: LoginFormProps) {
         </label>
         <div className={styles.inputContainer}>
           <input
-            name="password"
+            {...register("password")}
             type={showPassword ? "text" : "password"}
             id="password"
             placeholder="비밀번호를 입력해주세요"
-            className={styles.inputField}
-            value={form.password}
-            onChange={handleChange}
+            className={`${styles.inputField} ${errors.password ? styles.errorInput : ""}`}
           />
           <button type="button" onClick={() => setShowPassword(!showPassword)} className={styles.toggleButton}>
             {showPassword ? "O" : "X"}
           </button>
         </div>
+        {errors.password && <p className={styles.errorMessage}>{errors.password.message}</p>}
       </div>
 
       <button type="submit" className={styles.button}>
