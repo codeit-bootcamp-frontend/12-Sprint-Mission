@@ -1,4 +1,4 @@
-import { getAccessToken } from "@/utils/tokenHandler";
+import { authenticatedFetch } from "@/utils/requestHandler";
 
 interface CommentPayload {
   articleId: number;
@@ -6,29 +6,27 @@ interface CommentPayload {
 }
 
 export async function addComment(payload: CommentPayload) {
-  const accessToken = getAccessToken();
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
 
   if (!baseUrl) {
     throw new Error("BASE_URL 환경변수가 설정되지 않았습니다.");
   }
-  if (!accessToken) {
-    throw new Error("로그인이 필요합니다");
-  }
-  const url = new URL(`${baseUrl}/articles/${payload.articleId}/comments`);
-  const response = await fetch(url, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${accessToken}`,
-    },
-    body: JSON.stringify({ content: payload.content }),
-  });
 
-  if (!response.ok) {
-    const errorText = await response.text();
-    console.error("댓글 등록 실패:", errorText);
-  }
+  const url = new URL(`${baseUrl}/articles/${payload.articleId}/comments`).toString();
+  try {
+    const response = await authenticatedFetch(url, {
+      method: "POST",
+      body: JSON.stringify({ content: payload.content }),
+    });
 
-  return response.json();
+    if (!response.ok) {
+      const errorData = await response.json();
+      throw new Error(errorData.message || "댓글 작성 실패");
+    }
+
+    return response.json();
+  } catch (error) {
+    console.error("댓글 작성 오류:", error);
+    throw error;
+  }
 }

@@ -18,3 +18,17 @@ export function clearTokens() {
   localStorage.removeItem(ACCESS_TOKEN_KEY);
   localStorage.removeItem(REFRESH_TOKEN_KEY);
 }
+
+export function isAccessTokenExpired(): boolean {
+  const accessToken = getAccessToken();
+  if (!accessToken) return true;
+
+  try {
+    const payload = JSON.parse(atob(accessToken.split(".")[1]));
+    const currentTime = Math.floor(Date.now() / 1000);
+    return payload.exp < currentTime;
+  } catch (error) {
+    console.error("Access Token 파싱 오류:", error);
+    return true;
+  }
+}
