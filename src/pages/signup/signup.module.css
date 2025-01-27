@@ -57,3 +57,11 @@
   text-decoration: underline;
   text-underline-offset: 3px;
 }
+@media (max-width: 744px) {
+  .logo {
+    margin-bottom: 24px;
+  }
+  .logo img {
+    height: 70px;
+  }
+}
