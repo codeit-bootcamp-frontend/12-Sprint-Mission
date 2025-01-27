@@ -25,7 +25,6 @@ export default function HeaderLayout() {
       return;
     }
   };
-
   return (
     <header className={styles.header}>
       <div className="inner">

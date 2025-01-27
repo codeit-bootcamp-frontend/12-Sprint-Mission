@@ -18,7 +18,6 @@ export interface BoardListResponse {
   list: Article[];
   totalCount: number;
 }
-
 export interface Review extends Article {
   isLiked: boolean;
 }

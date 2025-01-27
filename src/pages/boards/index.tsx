@@ -11,7 +11,6 @@ import { useOutsideClick } from "@/hooks/useOutsideClick";
 export default function Page() {
   const isMo = useIsMo();
   const isTa = useIsTa();
-
   const [sortState, setSortState] = useState(false);
   const [order, setOrder] = useState("recent");
   const [keyword, setKeyword] = useState("");
@@ -19,7 +18,6 @@ export default function Page() {
   const [list, setList] = useState<Article[]>([]);
   const [commonList, setCommonList] = useState<Article[]>([]);
   const [isLoading, setIsLoading] = useState(true);
-
   const [pageSize, setPageSize] = useState(() => (isMo ? 5 : isTa ? 7 : 10));
   const [bestPageSize, setBestPageSize] = useState(() =>
     isMo ? 1 : isTa ? 2 : 3
@@ -100,7 +98,6 @@ export default function Page() {
   const ref = useOutsideClick(() => {
     setSortState(false);
   });
-
   const handleScroll = () => {
     const bottom =
       window.innerHeight + document.documentElement.scrollTop ===

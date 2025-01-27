@@ -5,4 +5,5 @@ export default function formatDate(dateString: string) {
   const formattedDate = dayjs(isoDate).format("YYYY. MM. DD");
 
   return formattedDate;
+
 }
