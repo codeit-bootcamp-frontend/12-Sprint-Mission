@@ -1,14 +1,23 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getDataById } from "../../api";
-import SpecificProduct from "../../components/common/SpecificProduct";
+import SpecificProduct, {
+  SpecificProductProps,
+} from "../../components/common/SpecificProduct";
+
+//omit으로 size 속성 제외
+interface ItemData
+  extends Omit<SpecificProductProps, "size" | "imageUrl" | "likeCount"> {
+  images: string[];
+  favoriteCount: number;
+}
 
 function ItemPage() {
-  const { productSlug } = useParams();
-  const [item, setItem] = useState();
-  const [size, setSize] = useState(486);
+  const { productSlug } = useParams<{ productSlug: string }>();
+  const [item, setItem] = useState<ItemData | null>();
+  const [size, setSize] = useState<number>(486);
 
-  const fetchItems = async () => {
+  const fetchItems = async (): Promise<void> => {
     try {
       const data = await getDataById(productSlug);
       setItem(data);

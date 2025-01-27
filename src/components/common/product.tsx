@@ -3,7 +3,23 @@ import heartImage from "../../assets/images/heart.png";
 import useDevice from "../../hooks/useDevice";
 import { Link } from "react-router-dom";
 
-function ProductItem({ id, imageUrl, name, price, likeCount, size }) {
+interface ProductItemData {
+  id: number;
+  imageUrl: string;
+  name: string;
+  price: number;
+  likeCount: number;
+  size: number;
+}
+
+function ProductItem({
+  id,
+  imageUrl,
+  name,
+  price,
+  likeCount,
+  size,
+}: ProductItemData) {
   return (
     <div className="product-item">
       <Link

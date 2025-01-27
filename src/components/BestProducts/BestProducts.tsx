@@ -1,15 +1,15 @@
 import { useState, useEffect } from "react";
-import { getData } from "../../api";
+import { getData, Product } from "../../api";
 import ProductItem from "../common/product";
 import "./BestProducts.css";
 import useDevice from "../../hooks/useDevice";
 import { Link } from "react-router-dom";
 
 function BestProducts() {
-  const [itemList, setItemList] = useState([]);
-  const [currentPage, setCurrentPage] = useState(1);
+  const [itemList, setItemList] = useState<Product[]>([]);
+  const [currentPage, setCurrentPage] = useState<number>(1);
 
-  const [size, setSize] = useState(282);
+  const [size, setSize] = useState<number>(282);
 
   const { mode } = useDevice();
 

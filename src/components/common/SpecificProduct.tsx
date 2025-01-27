@@ -5,10 +5,34 @@ import ickebabImage from "../../assets/images/ickebab.png";
 import returnImage from "../../assets/images/return.png";
 import nocommentImage from "../../assets/images/nocomment.png";
 import "./SpecificProduct.css";
-import { getUserData, postCommentData } from "../../api";
+import { getCommentData, postCommentData } from "../../api";
 import { Link, useParams } from "react-router-dom";
 
-function SpecificProduct({
+export interface SpecificProductProps {
+  imageUrl: string;
+  size: number;
+  name: string;
+  price: number;
+  description: string;
+  likeCount: number;
+  tags: string[];
+  ownerNickname: string;
+  createdAt: string;
+}
+
+interface User {
+  id: number;
+  content: string;
+  writer: Writer;
+  createdAt: string;
+  updatedAt: string;
+}
+
+interface Writer {
+  nickname: string;
+}
+
+const SpecificProduct: React.FC<SpecificProductProps> = ({
   imageUrl,
   size,
   name,
@@ -18,18 +42,18 @@ function SpecificProduct({
   tags,
   ownerNickname,
   createdAt,
-}) {
-  const [users, setUsers] = useState([]);
-  const { productSlug } = useParams();
-  const [editingId, setEditingId] = useState(null);
-  const [editContent, setEditContent] = useState("");
-  const [askContent, setAskContent] = useState(""); //문의하기
-  const [isValidUsers, setisValidUsers] = useState(false); //user 코멘트가 있는지
+}) => {
+  const [users, setUsers] = useState<User[]>([]);
+  const { productSlug } = useParams<{ productSlug: string }>();
+  const [editingId, setEditingId] = useState<number | null>(null);
+  const [editContent, setEditContent] = useState<string>("");
+  const [askContent, setAskContent] = useState<string>(""); //문의하기
+  const [isValidUsers, setisValidUsers] = useState<boolean>(false); //user 코멘트가 있는지
 
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const data = await getUserData({ productId: productSlug, limit: 3 });
+        const data = await getCommentData({ productId: productSlug, limit: 3 });
         console.log(data.list);
         if (data.list && data.list.length > 0) {
           setUsers(data.list);
@@ -45,7 +69,7 @@ function SpecificProduct({
   }, []);
 
   //2024.01.02 형식으로 렌더링되게.
-  const formatDate = (dateString) => {
+  const formatDate = (dateString: string): string => {
     const date = new Date(dateString);
     const year = date.getFullYear();
     // getMonth()는 0부터 시작하므로 +1을 해주고, padStart로 2자리 맞추기
@@ -56,9 +80,9 @@ function SpecificProduct({
   };
 
   //..시간 전으로 렌더링되게.
-  function getTimeDifference(createdAt, updatedAt) {
-    const created = new Date(createdAt);
-    const updated = new Date(updatedAt);
+  function getTimeDifference(createdAt: string, updatedAt: string): string {
+    const created: number = new Date(createdAt).getTime();
+    const updated: number = new Date(updatedAt).getTime();
 
     // 밀리초 단위의 차이를 시간으로 변환
     const diffInHours = Math.floor((updated - created) / (1000 * 60 * 60));
@@ -79,21 +103,21 @@ function SpecificProduct({
 
   //수정하기 버튼 클릭했을 때 실행되어야 할 함수
 
-  const handleEditClick = (userId, content) => {
+  const handleEditClick = (userId: number, content: string): void => {
     setEditingId(userId);
     setEditContent(content);
   };
 
   // 취소하기 버튼 클릭했을 때 실행되어야 할 함수
 
-  const handleCancelClick = () => {
+  const handleCancelClick = (): void => {
     setEditingId(null);
     setEditContent("");
   };
 
   // 수정완료 버튼 클릭했을 때 실행되어야 할 함수
 
-  const handleSaveEdit = async (userId) => {
+  const handleSaveEdit = async (userId: number): Promise<void> => {
     try {
       const response = await postCommentData({
         productId: productSlug,
@@ -195,7 +219,9 @@ function SpecificProduct({
           <h3>문의하기</h3>
           <input
             value={askContent}
-            onChange={(e) => setAskContent(e.target.value)}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+              setAskContent(e.target.value)
+            }
             type="text"
             placeholder="개인정보를 공유 및 요청하거나, 명예 훼손, 무단 광고, 불법 정보 유포시 모니터링 후 삭제될 수 있으며, 이에 대한 민형사상 책임은 게시자에게 있습니다."
             className="ask-input"
@@ -221,7 +247,9 @@ function SpecificProduct({
                       <input
                         type="text"
                         value={editContent}
-                        onChange={(e) => setEditContent(e.target.value)}
+                        onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                          setEditContent(e.target.value)
+                        }
                         className="edit-comment-input"
                       />
                       <div className="edit-buttons-container">
@@ -291,6 +319,6 @@ function SpecificProduct({
       </Link>
     </div>
   );
-}
+};
 
 export default SpecificProduct;

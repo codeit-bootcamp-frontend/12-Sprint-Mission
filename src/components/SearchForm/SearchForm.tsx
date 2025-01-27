@@ -2,8 +2,14 @@ import { Link } from "react-router-dom";
 import searchImage from "../../assets/images/search.png";
 import "./SearchForm.css";
 import useDevice from "../../hooks/useDevice";
+import { OrderByType } from "../../api";
 
-function SearchForm({ selectedOption, setSelectedOption }) {
+interface SearchFormProps {
+  selectedOption: OrderByType;
+  setSelectedOption: (option: OrderByType) => void;
+}
+
+function SearchForm({ selectedOption, setSelectedOption }: SearchFormProps) {
   const { mode } = useDevice();
   return (
     <form className="search-form">
@@ -22,7 +28,7 @@ function SearchForm({ selectedOption, setSelectedOption }) {
       </Link>
       <select
         value={selectedOption}
-        onChange={(e) => setSelectedOption(e.target.value)}
+        onChange={(e) => setSelectedOption(e.target.value as OrderByType)}
         className="search-select"
       >
         <option value="recent">최신순</option>
