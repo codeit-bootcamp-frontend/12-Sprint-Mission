@@ -66,6 +66,12 @@
   line-height: 1;
   background-color: #fff;
 }
+.select_box > div > .pc {
+  display: block;
+}
+.select_box > div > .mo {
+  display: none;
+}
 .select_box > ul {
   position: absolute;
   top: calc(100% + 5px);
@@ -101,6 +107,12 @@
     max-width: 42px;
     padding: 0;
     background: none;
+  }
+  .select_box > div > .pc {
+    display: none;
+  }
+  .select_box > div > .mo {
+    display: block;
   }
   .select_box > ul {
     width: auto;
