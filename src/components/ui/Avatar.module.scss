@@ -8,4 +8,8 @@
   &.hover:hover {
     outline: 2px solid var(--color-secondary-100);
   }
+
+  img {
+    object-fit: cover;
+  }
 }

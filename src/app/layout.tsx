@@ -1,10 +1,9 @@
 import { PropsWithChildren } from "react";
 import type { Metadata } from "next";
-import { AxiosInterCeptor } from "@/context/AxiosInterCeptor";
 import { SessionProvider } from "next-auth/react";
 import "@assets/scss/style.scss";
-import { initServerInterceptor } from "@/service/serverAxios";
 import QueryClientProvider from "@/context/QueryClientProvider";
+import { auth } from "@/auth";
 
 export const metadata: Metadata = {
   title: "판다마켓",
@@ -17,19 +16,15 @@ export const metadata: Metadata = {
   },
 };
 
-// server runtime 환경에서 axios에 interceptor 설정 (server에서만 동작함)
-await initServerInterceptor();
+export default async function RootLayout({ children }: PropsWithChildren) {
+  const session = await auth();
 
-export default function RootLayout({ children }: PropsWithChildren) {
   return (
     <html lang="ko">
       <body>
         <div id="root">
-          <SessionProvider>
-            <QueryClientProvider>
-              <AxiosInterCeptor />
-              {children}
-            </QueryClientProvider>
+          <SessionProvider session={session} key={session?.user.id}>
+            <QueryClientProvider>{children}</QueryClientProvider>
           </SessionProvider>
         </div>
       </body>

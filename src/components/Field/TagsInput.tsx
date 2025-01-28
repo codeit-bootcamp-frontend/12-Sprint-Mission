@@ -1,4 +1,4 @@
-import { forwardRef, KeyboardEvent, useRef } from "react";
+import { forwardRef, KeyboardEvent } from "react";
 import clsx from "clsx";
 import { Tags } from "@components/ui";
 import { Error } from "@components/Field";
@@ -13,12 +13,11 @@ interface TagsInputProps {
   error?: string;
 }
 
-export const TagsInput = forwardRef(
+export const TagsInput = forwardRef<HTMLInputElement, TagsInputProps>(
   (
     { value, onChange, error, isValid, placeholder = "" }: TagsInputProps,
-    _
+    ref
   ) => {
-    const inputRef = useRef<HTMLInputElement>(null);
     const valid = isValid && value.length;
     const css = clsx(
       styles["field-box"],
@@ -26,19 +25,20 @@ export const TagsInput = forwardRef(
       error && styles.error
     );
 
-    function handleKeyDown(e: KeyboardEvent) {
+    function handleKeyDown(e: KeyboardEvent<HTMLInputElement>) {
       if (e.nativeEvent.isComposing) return;
 
       if (e.key === "Enter") {
         e.preventDefault();
-        if (!inputRef.current) return;
 
-        const tag = inputRef.current.value.trim();
-        if (tag && !value.includes(tag)) {
-          const newTags = [...value, tag];
-          onChange(newTags);
+        const input = e.currentTarget;
+        const tag = input.value.trim();
+
+        if (tag) {
+          const newTags = new Set([...value, tag]);
+          onChange(Array.from(newTags));
+          input.value = "";
         }
-        inputRef.current.value = "";
       }
     }
 
@@ -46,11 +46,12 @@ export const TagsInput = forwardRef(
       const newTags = value.filter((item) => item !== tag);
       onChange(newTags);
     }
+
     return (
       <>
         <div className={styles.field}>
           <input
-            ref={inputRef}
+            ref={ref}
             type="text"
             className={css}
             onKeyDown={handleKeyDown}

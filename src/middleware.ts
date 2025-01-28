@@ -7,5 +7,13 @@ export default auth((req) => {
 });
 
 export const config = {
-  matcher: ["/addBoard", "/modifyBoard/:path", "/addItem", "/modifyItem/:path"],
+  matcher: [
+    "/addBoard",
+    "/modifyBoard/:path",
+    "/addItem",
+    "/modifyItem/:path",
+    "/mypage",
+    "/changePassword",
+    "/editProfile",
+  ],
 };

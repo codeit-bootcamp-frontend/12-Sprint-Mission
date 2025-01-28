@@ -14,24 +14,24 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { Article } from "@/types/article";
 import { FieldAdapter } from "@components/adaptor/rhf";
 import { useRouter } from "next/navigation";
-import useArticleActions from "./useArticleActions";
 import { ArticleFormSchema, ArticleFormType } from "@/schemas/article";
 
-interface ArticleFormProps {
-  initialData?: Article;
-  mode?: "add" | "edit";
-  articleId?: number;
+interface ArticleAddFormProps {
+  mode: "add";
+  onFormSubmit: (data: ArticleFormType) => Promise<Article | undefined>;
+}
+interface ArticleModifyFormProps {
+  initialData: Article;
+  mode: "edit";
+  onFormSubmit: (data: ArticleFormType) => Promise<Article | undefined>;
 }
 
-export default function ArticleForm({
-  initialData,
-  mode = "add",
-  articleId,
-}: ArticleFormProps) {
+type ArticleFormProps = ArticleAddFormProps | ArticleModifyFormProps;
+
+export default function ArticleForm(props: ArticleFormProps) {
+  const { mode, onFormSubmit } = props;
+  const initialData = mode === "edit" ? props.initialData : undefined;
   const router = useRouter();
-  const { handleArticleAdd, handleArticleModify } =
-    useArticleActions(articleId);
-  const onFormSubmit = mode === "add" ? handleArticleAdd : handleArticleModify;
 
   const {
     control,
@@ -103,7 +103,16 @@ export default function ArticleForm({
             <FieldAdapter
               name="image"
               control={control}
-              render={(props) => <ImageUpload {...props} />}
+              render={(props) => (
+                <ImageUpload
+                  {...props}
+                  value={props.value}
+                  onChange={(file) => {
+                    props.onChange(file);
+                    props.onBlur();
+                  }}
+                />
+              )}
             />
           </FieldItem>
         </Section.Content>

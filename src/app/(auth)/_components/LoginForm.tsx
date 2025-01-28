@@ -1,22 +1,20 @@
 "use client";
 
-import { FieldItem, Input } from "@components/Field";
+import { useRouter } from "next/navigation";
+import { FieldItem, Form, Input } from "@components/Field";
 import { Button } from "@components/ui";
 import useFormWithError from "@hooks/useFormWithError";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { signinFormSchmea, SigninFormType } from "@schemas/auth";
 import { FieldAdapter } from "@components/adaptor/rhf";
-import { ServerForm } from "@/components/Field/ServerForm";
-import { useActionState } from "react";
 import action from "../login/action";
 
 export default function LoginForm() {
-  const [formStatus, formAction, isPending] = useActionState(action, {
-    message: "",
-  });
   const {
     control,
-    formState: { isValid },
+    formError,
+    handleSubmit,
+    formState: { isSubmitting, isValid },
   } = useFormWithError<SigninFormType>({
     mode: "onBlur",
     resolver: zodResolver(signinFormSchmea),
@@ -25,12 +23,22 @@ export default function LoginForm() {
       password: "",
     },
   });
+  const router = useRouter();
+
+  async function onSubmit(data: SigninFormType) {
+    const response = await action(data);
+    if (response.success) {
+      router.replace("/items");
+    } else {
+      throw new Error(response.message);
+    }
+  }
 
   return (
-    <ServerForm
-      action={formAction}
-      isLoading={isPending}
-      error={formStatus?.message}
+    <Form
+      isLoading={isSubmitting}
+      error={formError}
+      onSubmit={handleSubmit(onSubmit)}
     >
       <FieldItem>
         <FieldItem.Label htmlFor="email">이메일</FieldItem.Label>
@@ -63,6 +71,6 @@ export default function LoginForm() {
       <Button type="submit" size="xl" disabled={!isValid}>
         로그인
       </Button>
-    </ServerForm>
+    </Form>
   );
 }
