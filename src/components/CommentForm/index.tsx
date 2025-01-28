@@ -4,6 +4,7 @@ import { useForm } from 'react-hook-form';
 import { useState } from 'react';
 import { useQueryClient } from '@tanstack/react-query';
 import { useRouter } from 'next/navigation';
+import { useAuthStore } from '@/stores/useAuthStore';
 
 interface CommentFormData {
   content: string;
@@ -26,6 +27,8 @@ export default function CommentForm({ id }: { id: string }) {
   const isFormValid = formValues.content;
   const queryClient = useQueryClient();
 
+  const { setAccessToken } = useAuthStore();
+
   const onSubmit = async (data: CommentFormData) => {
     try {
       const formData = new FormData();
@@ -36,7 +39,10 @@ export default function CommentForm({ id }: { id: string }) {
       setResultMessage(result.message);
       reset({ content: '' });
 
-      if (result.accessToken) localStorage.setItem('accessToken', result.accessToken);
+      if (result.accessToken) {
+        localStorage.setItem('accessToken', result.accessToken);
+        setAccessToken(result.accessToken);
+      }
 
       if (result.success) {
         queryClient.invalidateQueries({

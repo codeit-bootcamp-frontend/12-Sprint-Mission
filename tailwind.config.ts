@@ -17,6 +17,7 @@ export default {
           50: '#F9FAFB',
         },
         blue: {
+          40: '#CFE5FF',
           50: '#E6F2FF',
           100: '#3692FF',
           200: '#1967D6',
@@ -28,6 +29,7 @@ export default {
       },
       screens: {
         pc: '1200px',
+        'sm-mobile': '400px',
       },
     },
   },

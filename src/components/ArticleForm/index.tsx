@@ -4,9 +4,9 @@ import { useForm } from 'react-hook-form';
 import { submitArticle } from '@/actions/submit-article';
 import { useState } from 'react';
 import Image from 'next/image';
-
 import { ArticleFormData } from '@/types';
 import { useRouter } from 'next/navigation';
+import { useAuthStore } from '@/stores/useAuthStore';
 
 export default function ArticleForm() {
   const {
@@ -26,6 +26,7 @@ export default function ArticleForm() {
   const [resultMessage, setResultMessage] = useState<string | null>(null);
   const [previewImage, setPreviewImage] = useState<string | null>(null);
   const router = useRouter();
+  const { setAccessToken } = useAuthStore();
 
   const formValues = watch();
 
@@ -46,7 +47,10 @@ export default function ArticleForm() {
       reset({ title: '', content: '', image: null });
       setPreviewImage(null);
 
-      if (result.accessToken) localStorage.setItem('accessToken', result.accessToken);
+      if (result.accessToken) {
+        localStorage.setItem('accessToken', result.accessToken);
+        setAccessToken(result.accessToken);
+      }
 
       if (result.success) {
         setTimeout(() => {
