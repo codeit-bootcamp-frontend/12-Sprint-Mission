@@ -5,9 +5,18 @@ import badge from "@/assets/images/img_badge.svg";
 import heart from "@/assets/icons/heart.svg";
 import { formatDate } from "@/utils/formattedDate";
 import Link from "next/link";
+import { useMemo } from "react";
 
-export default function BestItemCard({ id, content, updatedAt, likeCount, writer, image, title }: Article) {
-  const formattedDate = formatDate(updatedAt);
+interface BestItemCardProps {
+  article: Article;
+}
+
+export default function BestItemCard({ article }: BestItemCardProps) {
+  const { id, title, content, image, updatedAt, writer, likeCount } = article;
+
+  const formattedDate = useMemo<string>(() => {
+    return formatDate(updatedAt);
+  }, [updatedAt]);
 
   return (
     <Link href={`boards/${id}`} className={style.link}>

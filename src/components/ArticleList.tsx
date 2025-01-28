@@ -14,17 +14,12 @@ interface ArticleListProps {
 
 export default function ArticleList({ initialArticles, initialOrder }: ArticleListProps) {
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedLabel, setSelectedLabel] = useState(initialOrder === "like" ? "인기순" : "최신순");
   const [orderBy, setOrderBy] = useState<"recent" | "like">(initialOrder);
 
-  const handleToggle = () => {
-    setIsOpen((prev) => !prev);
-  };
+  const selectedLabel = orderBy === "like" ? "인기순" : "최신순";
 
-  const handleSelect = (label: string, value: string) => {
-    setSelectedLabel(label);
-    const newOrder = value === "like" ? "like" : "recent";
-    setOrderBy(newOrder);
+  const handleSelect = (label: "최신순" | "인기순", value: "recent" | "like") => {
+    setOrderBy(value);
 
     // 정렬이 바뀌면 page/게시글 초기화
     setPage(1);
@@ -32,6 +27,10 @@ export default function ArticleList({ initialArticles, initialOrder }: ArticleLi
     setHasMore(true);
 
     setIsOpen(false);
+  };
+
+  const handleToggle = () => {
+    setIsOpen((prev) => !prev);
   };
 
   // 검색어 (keyword)
@@ -132,7 +131,7 @@ export default function ArticleList({ initialArticles, initialOrder }: ArticleLi
 
       <div className={style.all_section}>
         {articles.map((article) => (
-          <ArticleItemCard key={article.id} {...article} />
+          <ArticleItemCard key={article.id} article={article} />
         ))}
       </div>
 

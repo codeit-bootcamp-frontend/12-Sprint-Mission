@@ -2,52 +2,53 @@ import { useState } from "react";
 import styles from "./SignUpForm.module.css";
 import Image from "next/image";
 import Link from "next/link";
+import { signupSchema, SignupRequest } from "@/types";
+import { useForm, SubmitHandler } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
 
 interface SignUpFormProps {
-  onSubmit: (formData: {
-    email: string;
-    nickname: string;
-    password: string;
-    passwordConfirmation: string;
-  }) => Promise<void>;
+  onSubmit: (request: SignupRequest) => Promise<void>;
 }
 
 export default function SignUpForm({ onSubmit }: SignUpFormProps) {
-  const [email, setEmail] = useState("");
-  const [nickname, setNickname] = useState("");
-  const [password, setPassword] = useState("");
-  const [passwordConfirmation, setPasswordConfirmation] = useState("");
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm<SignupRequest>({
+    resolver: zodResolver(signupSchema),
+  });
 
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-
-    await onSubmit({
-      email,
-      nickname,
-      password,
-      passwordConfirmation,
-    });
+  const onFormSubmit: SubmitHandler<SignupRequest> = async (data) => {
+    try {
+      await onSubmit(data);
+      reset();
+    } catch (error) {
+      console.error("서버 오류:", error);
+      alert("회원가입 중 오류가 발생했습니다. 다시 시도해주세요.");
+    }
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit(onFormSubmit)}>
       <div className={styles.formGroup}>
         <label className={styles.label} htmlFor="email">
           이메일
         </label>
         <div className={styles.inputContainer}>
           <input
-            value={email}
+            {...register("email")}
             type="email"
             id="email"
             placeholder="이메일을 입력해주세요"
-            className={styles.inputField}
-            onChange={(e) => setEmail(e.target.value)}
+            className={`${styles.inputField} ${errors.email ? styles.errorInput : ""}`}
           />
         </div>
+        {errors.email && <p className={styles.errorMessage}>{errors.email.message}</p>}
       </div>
 
       <div className={styles.formGroup}>
@@ -56,14 +57,14 @@ export default function SignUpForm({ onSubmit }: SignUpFormProps) {
         </label>
         <div className={styles.inputContainer}>
           <input
-            value={nickname}
+            {...register("nickname")}
             type="text"
             id="nickname"
             placeholder="닉네임을 입력해주세요"
-            className={styles.inputField}
-            onChange={(e) => setNickname(e.target.value)}
+            className={`${styles.inputField} ${errors.nickname ? styles.errorInput : ""}`}
           />
         </div>
+        {errors.nickname && <p className={styles.errorMessage}>{errors.nickname.message}</p>}
       </div>
 
       <div className={styles.formGroup}>
@@ -72,31 +73,30 @@ export default function SignUpForm({ onSubmit }: SignUpFormProps) {
         </label>
         <div className={styles.inputContainer}>
           <input
+            {...register("password")}
             type={showPassword ? "text" : "password"}
             id="password"
             placeholder="비밀번호를 입력해주세요"
-            className={styles.inputField}
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            className={`${styles.inputField} ${errors.password ? styles.errorInput : ""}`}
           />
           <button type="button" onClick={() => setShowPassword(!showPassword)} className={styles.toggleButton}>
             {showPassword ? "O" : "X"}
           </button>
         </div>
+        {errors.password && <p className={styles.errorMessage}>{errors.password.message}</p>}
       </div>
 
       <div className={styles.formGroup}>
-        <label className={styles.label} htmlFor="confirmPassword">
+        <label className={styles.label} htmlFor="passwordConfirmation">
           비밀번호 확인
         </label>
         <div className={styles.inputContainer}>
           <input
+            {...register("passwordConfirmation")}
             type={showConfirmPassword ? "text" : "password"}
-            id="confirmPassword"
+            id="passwordConfirmation"
             placeholder="비밀번호를 다시 한 번 입력해주세요"
-            className={styles.inputField}
-            value={passwordConfirmation}
-            onChange={(e) => setPasswordConfirmation(e.target.value)}
+            className={`${styles.inputField} ${errors.passwordConfirmation ? styles.errorInput : ""}`}
           />
           <button
             type="button"
@@ -106,6 +106,7 @@ export default function SignUpForm({ onSubmit }: SignUpFormProps) {
             {showConfirmPassword ? "O" : "X"}
           </button>
         </div>
+        {errors.passwordConfirmation && <p className={styles.errorMessage}>{errors.passwordConfirmation.message}</p>}
       </div>
 
       <button type="submit" className={styles.button}>

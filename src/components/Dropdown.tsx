@@ -6,7 +6,7 @@ interface DropdownProps {
   isOpen: boolean;
   selectedLabel: string;
   onToggle: () => void;
-  onSelect: (label: string, value: string) => void;
+  onSelect: (label: "최신순" | "인기순", value: "recent" | "like") => void;
 }
 
 export default function Dropdown({ isOpen, selectedLabel, onToggle, onSelect }: DropdownProps) {

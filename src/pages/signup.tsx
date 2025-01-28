@@ -5,26 +5,32 @@ import SignUpForm from "@/components/SignUpForm";
 import { useRouter } from "next/router";
 import { signup } from "@/services/authService";
 import { saveTokens } from "@/utils/tokenHandler";
+import { SignupRequest } from "@/types";
+import { useEffect } from "react";
 
 export default function SignupPage() {
   const router = useRouter();
 
-  const handleSignup = async (formData: {
-    email: string;
-    nickname: string;
-    password: string;
-    passwordConfirmation: string;
-  }) => {
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const accessToken = localStorage.getItem("ACCESS_TOKEN_KEY");
+      if (accessToken) {
+        router.replace("/");
+      }
+    }
+  }, [router]);
+
+  const handleSignup = async (signupRequest: SignupRequest) => {
     try {
       // 1) 회원가입 요청
-      const { accessToken, refreshToken } = await signup(formData);
+      const { accessToken, refreshToken } = await signup(signupRequest);
 
       // 2) 응답 받은 토큰 저장
       saveTokens(accessToken, refreshToken);
 
       // 3) 이후 페이지 이동
       alert("회원가입 성공");
-      router.push("/boards");
+      router.push("/login");
     } catch (err: unknown) {
       if (err instanceof Error) {
         alert(err.message || "회원가입 오류");
