@@ -34,7 +34,6 @@ export default async function action(data: ChangePasswordFormType) {
     };
   } catch (error) {
     if (isAxiosError(error)) {
-      console.log(error);
       const message =
         error.response?.data.message || "알 수 없는 에러가 발생했어요.";
       return {
