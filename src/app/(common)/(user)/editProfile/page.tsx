@@ -9,7 +9,12 @@ export default async function EditProfilePage() {
     redirect("/login");
   }
 
-  const { nickname, image } = await getUser();
+  const userInfo = await getUser();
+  if (!userInfo) {
+    redirect("/login");
+  }
+
+  const { nickname, image } = userInfo;
 
   return <EditProfileForm nickname={nickname} image={image} />;
 }
