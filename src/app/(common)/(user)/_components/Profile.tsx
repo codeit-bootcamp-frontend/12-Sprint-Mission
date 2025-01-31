@@ -2,7 +2,7 @@
 
 import { Avatar, Button } from "@/components/ui";
 import styles from "./Profile.module.scss";
-import dayjs from "dayjs";
+import { toDate } from "@/util/formatter";
 
 export default function Profile({
   nickname,
@@ -18,9 +18,7 @@ export default function Profile({
       <Avatar nickname={nickname} img={image} className={styles.pic} />
       <div className={styles.info}>
         <h2 className={styles.name}>{nickname}</h2>
-        <div className={styles.date}>
-          가입일 : {dayjs(createdAt).format("YYYY-MM-DD")}
-        </div>
+        <div className={styles.date}>가입일 : {toDate(createdAt)}</div>
       </div>
       <ul className={styles.menu}>
         <li>
