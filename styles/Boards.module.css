@@ -1,0 +1,141 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  max-width: 1200px;
+  margin: 94px auto;
+}
+
+.bestArticle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 24px;
+}
+
+.bestArticleContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: var(--gray-50);
+  height: 169px;
+  width: 384px;
+  padding: 0 24px 16px;
+  margin: 0 auto;
+  border-radius: 8px;
+}
+
+.button {
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 8px;
+  padding: 11.5px 23px;
+  background-color: var(--primary-100);
+  color: #ffffff;
+}
+
+.button:hover {
+  background-color: var(--primary-200);
+}
+
+.button:focus {
+  background-color: var(--primary-300);
+}
+
+.button:disabled {
+  background-color: #9ca3af;
+  cursor: default;
+  pointer-events: none;
+}
+
+.bestArticle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.search {
+  display: flex;
+  background-color: var(--gray-100);
+}
+
+.searchContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+
+.allArticle {
+  display: flex;
+  justify-content: space-between;
+}
+
+.containerTitle {
+  font-size: 20px;
+  line-height: 32px;
+  font-weight: 700;
+}
+
+.articleContainer {
+  background-color: #fcfcfc;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 32px;
+  text-align: left;
+  margin: 24px auto;
+  padding: 5px 5px 24px;
+  border-bottom: 1px solid var(--gray-200);
+}
+
+.articleTitle {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 32px;
+  text-align: left;
+}
+
+.articleInfo {
+  display: flex;
+  justify-content: space-between;
+  align-items: top;
+}
+
+.writerInfo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.like {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.writer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+}
+
+.nickname {
+  font-size: 14px;
+  line-height: 24px;
+  font-weight: 400;
+  color: var(--gray-600);
+}
+
+.date {
+  font-size: 14px;
+  line-height: 24px;
+  font-weight: 400;
+  color: var(--gray-400);
+}
+
+.likeCount {
+  font-size: 14px;
+  line-height: 24px;
+  font-weight: 400;
+  color: var(--gray-500);
+}
