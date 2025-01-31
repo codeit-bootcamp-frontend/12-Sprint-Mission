@@ -1,0 +1,47 @@
+/* 드롭다운 컨테이너 */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* 드롭다운 버튼 */
+.dropdown_button {
+  background-color: #f8f9fa;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 8px 12px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.dropdown_button:hover {
+  background-color: #e9ecef;
+}
+
+/* 드롭다운 메뉴 */
+.dropdown_menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  list-style: none;
+  padding: 0;
+  margin: 8px 0 0;
+  z-index: 10;
+  width: 120px;
+}
+
+.dropdown_item {
+  padding: 10px 12px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.dropdown_item:hover {
+  background-color: #f1f3f5;
+}
