@@ -29,4 +29,16 @@
   font-size: 12px;
   font-weight: 600;
   line-height: 26px;
+  cursor: pointer;
+
+  &.active {
+    background-color: #007bff; /* Blue when enabled */
+    color: white;
+  }
+
+  &.disabled {
+    background-color: #ccc; /* Gray when disabled */
+    color: #888; /* Gray text */
+    cursor: not-allowed;
+  }
 }

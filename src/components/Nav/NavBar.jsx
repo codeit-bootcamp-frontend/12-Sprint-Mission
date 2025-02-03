@@ -1,5 +1,5 @@
-import logo from "../images/판다 얼굴.svg";
-import profile from "../images/Group 33728.svg";
+import logo from "../../img/판다 얼굴.svg";
+import profile from "../../img/Group 33728.svg";
 import "../Nav/NavBar.css";
 import { NavLink } from "react-router-dom";
 
@@ -16,7 +16,7 @@ function NavBar() {
             <NavLink className="navContent" to="./Itempage">
               자유게시판
             </NavLink>
-            <NavLink className="navContent" to="./Itempage">
+            <NavLink className="navContent" to="./items">
               중고마켓
             </NavLink>
           </div>
