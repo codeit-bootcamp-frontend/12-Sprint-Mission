@@ -5,6 +5,9 @@
   border: none;
   border-radius: 12px;
   background-color: #f3f4f6;
+}
+
+.inputWithSearch {
   background-image: url("/images/ic_search.svg");
   background-repeat: no-repeat;
   background-position: 16px center;

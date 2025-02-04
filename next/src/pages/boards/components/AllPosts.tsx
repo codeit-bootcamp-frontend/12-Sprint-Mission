@@ -5,14 +5,14 @@ import { useEffect, useState } from "react";
 import ToggleBtn from "../../../components/ToggleBtn";
 import Link from "next/link";
 import { OrderByValue, Post } from "../../../types";
-import fetchPosts from "@/lib/fetch-posts";
+import getArticles from "@/lib/get-articles";
 
 interface AllPostProps {
   initialAllPosts: Post[];
 }
 
 export default function AllPosts({ initialAllPosts }: AllPostProps) {
-  const [postList, setPostList] = useState<Post[]>(initialAllPosts);
+  const [posts, setPosts] = useState<Post[]>(initialAllPosts);
   const [orderBy, setOrderBy] = useState<OrderByValue>("recent");
   const [searchValue, setSearchValue] = useState<string>("");
 
@@ -22,13 +22,13 @@ export default function AllPosts({ initialAllPosts }: AllPostProps) {
 
   useEffect(() => {
     const fetchOrderByPost = async () => {
-      const posts = await fetchPosts({ orderBy: orderBy, pageSize: 4 });
-      setPostList(posts);
+      const posts = await getArticles({ orderBy: orderBy, pageSize: 4 });
+      setPosts(posts);
     };
     fetchOrderByPost();
   }, [orderBy]);
 
-  const filteredPosts = postList.filter((post) =>
+  const filteredPosts = posts.filter((post) =>
     post.content!.includes(searchValue)
   );
 
@@ -44,8 +44,9 @@ export default function AllPosts({ initialAllPosts }: AllPostProps) {
         <Input
           value={searchValue}
           placeholder="검색할 상품의 내용을 입력해주세요"
-          onChange={setSearchValue}
+          onChange={(e) => setSearchValue(e.target.value)}
           onEnter={() => {}}
+          withSearch={true}
         />
         <ToggleBtn onChangeOrderBy={onChangeOrderBy} orderBy={orderBy} />
       </div>

@@ -1,0 +1,39 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  max-width: 1200px;
+  min-height: 100vh;
+  margin: 24px auto 0;
+}
+
+.head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.title {
+  font-weight: 700;
+  font-size: 20px;
+  color: #1f2937;
+}
+
+.button {
+  padding: 12px 23px;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  background-color: #3c9af7;
+  cursor: pointer;
+}
+
+.button:disabled {
+  background-color: #9ca3af;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}

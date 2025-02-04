@@ -1,0 +1,70 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.titleSection {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.title {
+  font-weight: 700;
+  font-size: 20px;
+  color: #1f2937;
+}
+
+.infoSection {
+  display: flex;
+  align-items: center;
+}
+
+.user {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding-right: 32px;
+  border-right: 1px solid #e5e7eb;
+}
+
+.nickname {
+  font-weight: 500;
+  font-size: 14px;
+  color: #4b5563;
+}
+
+.date {
+  font-weight: 400;
+  font-size: 14px;
+  color: #9ca3af;
+}
+
+.like {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-left: 32px;
+  padding: 4px 12px;
+  border: 1px solid #e5e7eb;
+  border-radius: 35px;
+}
+
+.linkCount {
+  font-weight: 500;
+  font-size: 16px;
+  color: #6b7280;
+}
+
+.contentSection {
+  width: 100%;
+  padding-top: 24px;
+  border-top: 1px solid #e5e7eb;
+}
+
+.content {
+  font-weight: 400;
+  font-size: 18px;
+  color: #1f2937;
+}

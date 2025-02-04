@@ -1,0 +1,17 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.title {
+  font-weight: 700;
+  font-size: 18px;
+  color: #1f2937;
+}
+
+/* css 우선순위 더 높게함. */
+.container .titleInput {
+  padding: 16px 24px;
+  font-size: 16px;
+}

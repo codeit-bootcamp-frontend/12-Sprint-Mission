@@ -1,0 +1,37 @@
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.inputContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.label {
+  font-weight: 700;
+  font-size: 18px;
+  color: #1f2937;
+}
+
+.input {
+  padding: 16px 24px;
+  font-weight: 400;
+  font-size: 16px;
+}
+
+.btn {
+  padding: 16px 124px;
+  border-radius: 40px;
+  border: none;
+  font-weight: 600;
+  font-size: 20px;
+  background-color: #3692ff;
+}
+
+.btn:disabled {
+  background-color: #9ca3af;
+}

@@ -6,7 +6,7 @@
   padding: 0px 200px;
   border-bottom: 1px solid #dfdfdf;
 
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
     padding: 0px 24px;
   }
 }

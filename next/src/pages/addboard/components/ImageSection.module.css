@@ -1,0 +1,52 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.title {
+  font-weight: 700;
+  font-size: 18px;
+  color: #1f2937;
+}
+
+.label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 282px;
+  height: 282px;
+  border-radius: 12px;
+  background-color: #f3f4f6;
+  cursor: pointer;
+}
+
+.labelContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.imageContainer {
+  position: relative;
+}
+
+.delete {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+
+.delete:hover{
+  
+}
+
+.span {
+  font-weight: 400;
+  font-size: 16px;
+  color: #9ca3af;
+}
+
+.input {
+  display: none;
+}

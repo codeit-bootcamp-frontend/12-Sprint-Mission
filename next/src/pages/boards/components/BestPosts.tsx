@@ -2,7 +2,7 @@ import { Post } from "@/types";
 import BestPost from "./BestPost";
 import styles from "./BestPosts.module.css";
 import { useEffect, useState } from "react";
-import fetchPosts from "@/lib/fetch-posts";
+import getArticles from "@/lib/get-articles";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
 
 interface BestPostProps {
@@ -22,7 +22,7 @@ export default function BestPosts({ initialBestPosts }: BestPostProps) {
 
   useEffect(() => {
     const fetchBestPosts = async () => {
-      const posts = await fetchPosts({ orderBy: "like", pageSize });
+      const posts = await getArticles({ orderBy: "like", pageSize });
       setBestPosts(posts);
     };
     fetchBestPosts();
