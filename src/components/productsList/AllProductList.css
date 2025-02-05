@@ -72,7 +72,7 @@
 .allProducts {
   display: flex;
   justify-content: space-between;
-  align-items: end;
+  align-items: center;
   flex-wrap: wrap;
   gap: 24px;
 
