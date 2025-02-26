@@ -4,6 +4,8 @@ import BestList from "./_components/BestList";
 import { Button } from "@/components/ui";
 import BoardFilter from "./_components/BoardFilter";
 import BoardList from "./_components/BoardList";
+import { Suspense } from "react";
+import { Loading } from "@/components/ui/Loading";
 
 export default function BoardsPage() {
   return (
@@ -11,19 +13,23 @@ export default function BoardsPage() {
       <Section>
         <Section.Header title="베스트 상품" />
         <Section.Content>
-          <BestList />
+          <Suspense fallback={<Loading>loading...</Loading>}>
+            <BestList />
+          </Suspense>
         </Section.Content>
       </Section>
       <Section>
-        <Section.Header title="게시글">
-          <Button href="/addBoard" size="sm">
-            글쓰기
-          </Button>
-        </Section.Header>
-        <Section.Content>
-          <BoardFilter />
-          <BoardList />
-        </Section.Content>
+        <Suspense fallback={<Loading>loading...</Loading>}>
+          <Section.Header title="게시글">
+            <Button href="/addBoard" size="sm">
+              글쓰기
+            </Button>
+          </Section.Header>
+          <Section.Content>
+            <BoardFilter />
+            <BoardList />
+          </Section.Content>
+        </Suspense>
       </Section>
     </PageWrapper>
   );
