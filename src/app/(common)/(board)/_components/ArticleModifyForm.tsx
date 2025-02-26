@@ -2,14 +2,14 @@
 
 import { Article } from "@/types/article";
 import ArticleForm from "./ArticleForm";
-import useArticleActions from "./useArticleActions";
+import { useArticleModify } from "@/service/article.queries";
 
 export default function ArticleModifyForm({
   initialData,
 }: {
   initialData: Article;
 }) {
-  const { handleArticleModify } = useArticleActions(initialData.id);
+  const { mutateAsync: handleArticleModify } = useArticleModify(initialData.id);
 
   return (
     <ArticleForm

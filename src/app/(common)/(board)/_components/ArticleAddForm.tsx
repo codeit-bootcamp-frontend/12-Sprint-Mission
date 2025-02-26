@@ -1,10 +1,10 @@
 "use client";
 
 import ArticleForm from "./ArticleForm";
-import useArticleActions from "./useArticleActions";
+import { useArticleAdd } from "@/service/article.queries";
 
 export default function ArticleAddForm() {
-  const { handleArticleAdd } = useArticleActions();
+  const { mutateAsync: handleArticleAdd } = useArticleAdd();
 
   return <ArticleForm mode="add" onFormSubmit={handleArticleAdd} />;
 }
