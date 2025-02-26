@@ -1,8 +1,8 @@
-import { Article, DeleteArticleResponse } from "@/types/article";
-import { axiosInstance } from "./axios";
+import { Article, DeleteArticleResponse } from "@/service/article.type";
+import { axiosInstance } from "../util/axios";
 import { PaginationResponse } from "@/types/common";
-import { ImageUploadResponse } from "@/types/product";
-import { ArticleFormType } from "@/schemas/article";
+import { ImageUploadResponse } from "@/service/product.type";
+import { ArticleFormType } from "@/service/article.schema";
 
 export async function getArticles({
   page = 1,

@@ -2,7 +2,7 @@
 
 import { CommentForm } from ".";
 import styles from "./CommentAdd.module.scss";
-import { BoardName } from "@/types/comment";
+import { BoardName } from "@/service/comment.type";
 import { useCommentAdd } from "@/service/comment.queries";
 import { useParams } from "next/navigation";
 

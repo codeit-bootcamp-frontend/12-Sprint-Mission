@@ -4,7 +4,7 @@ import { FieldItem, Form, Input } from "@components/Field";
 import { Button } from "@components/ui";
 import useFormWithError from "@hooks/useFormWithError";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { signinFormSchmea, SigninFormType } from "@schemas/auth";
+import { signinFormSchmea, SigninFormType } from "@/service/auth.schema";
 import { FieldAdapter } from "@components/adaptor/rhf";
 import { signIn } from "next-auth/react";
 

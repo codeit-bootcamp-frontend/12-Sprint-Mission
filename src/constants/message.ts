@@ -1,4 +1,4 @@
-import { BoardName } from "@/types/comment";
+import { BoardName } from "@/service/comment.type";
 import emptyProductCommentIcon from "@assets/img/icon/icon_inquiry_empty.svg";
 import emptyArticleCommentIcon from "@assets/img/icon/icon_reply_empty.svg";
 

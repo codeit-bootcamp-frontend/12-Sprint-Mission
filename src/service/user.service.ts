@@ -1,8 +1,8 @@
-import { User } from "@/types/auth";
-import { axiosInstance } from "./axios";
-import { Product } from "@/types/product";
+import { User } from "@/service/auth.type";
+import { axiosInstance } from "../util/axios";
+import { Product } from "@/service/product.type";
 import { PaginationResponse } from "@/types/common";
-import { Article, ImageUploadResponse } from "@/types/article";
+import { Article, ImageUploadResponse } from "@/service/article.type";
 
 export async function getUser() {
   const response = await axiosInstance.get<User>("/users/me");

@@ -5,9 +5,9 @@ import { FieldItem, Form, Input } from "@components/Field";
 import { Button } from "@components/ui";
 import useFormWithError from "@hooks/useFormWithError";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { signupFormSchema, SignupFormType } from "@schemas/auth";
+import { signupFormSchema, SignupFormType } from "@/service/auth.schema";
 import { FieldAdapter } from "@components/adaptor/rhf";
-import { signUp } from "@/service/auth";
+import { signUp } from "@/service/auth.service";
 import { isAxiosError } from "axios";
 
 export default function SignupForm() {

@@ -12,9 +12,9 @@ import {
 } from "@components/Field";
 import { Button } from "@components/ui";
 import useFormWithError from "@hooks/useFormWithError";
-import { ProductFormSchema, ProductFormType } from "@schemas/product";
+import { ProductFormSchema, ProductFormType } from "@/service/product.schema";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Product } from "@type/product";
+import { Product } from "@/service/product.type";
 import { FieldAdapter } from "@components/adaptor/rhf";
 import { useRouter } from "next/navigation";
 

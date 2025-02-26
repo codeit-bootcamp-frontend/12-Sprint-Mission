@@ -5,7 +5,7 @@ import { Author } from "@components/ui";
 import { More } from "@components/Button";
 import { CommentForm } from ".";
 import styles from "./Comment.module.scss";
-import { BoardName, Comment as CommentItem } from "@type/comment";
+import { BoardName, Comment as CommentItem } from "@/service/comment.type";
 import { useCommentDelete, useCommentModify } from "@/service/comment.queries";
 import { useSession } from "next-auth/react";
 

@@ -4,7 +4,10 @@ import { Avatar, Button } from "@/components/ui";
 import styles from "./EditProfileForm.module.scss";
 import useFormWithError from "@/hooks/useFormWithError";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { editProfileFormSchmea, EditProfileFormType } from "@/schemas/user";
+import {
+  editProfileFormSchmea,
+  EditProfileFormType,
+} from "@/service/user.schema";
 import { Form } from "@/components/Field";
 import { ChangeEvent, useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";

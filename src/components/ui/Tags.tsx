@@ -1,6 +1,6 @@
 import { Chip } from "@components/ui";
 import styles from "./Tags.module.scss";
-import { Tags as TagsType } from "@type/product";
+import { Tags as TagsType } from "@/service/product.type";
 
 interface TagsProps {
   tags: TagsType;

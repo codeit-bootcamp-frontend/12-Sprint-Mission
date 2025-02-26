@@ -1,11 +1,11 @@
-import { ProductFormType } from "@schemas/product";
-import { axiosInstance } from "@service/axios";
+import { ProductFormType } from "@/service/product.schema";
+import { axiosInstance } from "@/util/axios";
 import { PaginationResponse } from "@type/common";
 import {
   DeleteProductResponse,
   ImageUploadResponse,
   Product,
-} from "@type/product";
+} from "@/service/product.type";
 
 export async function getProducts({
   page = 1,

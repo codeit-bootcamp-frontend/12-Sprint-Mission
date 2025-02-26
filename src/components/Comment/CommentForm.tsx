@@ -3,9 +3,9 @@
 import { FieldItem, Form, Textarea } from "@components/Field";
 import { Author, Button } from "@components/ui";
 import styles from "./CommentForm.module.scss";
-import { BoardName, Comment } from "@type/comment";
+import { BoardName, Comment } from "@/service/comment.type";
 import useFormWithError from "@hooks/useFormWithError";
-import { CommentFormSchema, CommentFormType } from "@schemas/comment";
+import { CommentFormSchema, CommentFormType } from "@/service/comment.schema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { FieldAdapter } from "@components/adaptor/rhf";
 import { COMMENT_PLACEHOLDER, COMMENT_TITLE } from "@/constants/message";

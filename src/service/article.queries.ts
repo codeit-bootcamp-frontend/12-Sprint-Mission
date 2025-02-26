@@ -1,4 +1,4 @@
-import { ListMode } from "@/types/article";
+import { ListMode } from "@/service/article.type";
 import { ListQueryParams } from "@/types/common";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import {
@@ -9,8 +9,8 @@ import {
   modifyArticle,
   toggleLike,
   uploadArticleImage,
-} from "./article";
-import { ArticleFormType } from "@/schemas/article";
+} from "./article.service";
+import { ArticleFormType } from "@/service/article.schema";
 
 export function useGetArticles(
   mode: ListMode,

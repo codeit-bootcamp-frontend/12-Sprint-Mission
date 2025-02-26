@@ -3,8 +3,8 @@
 import {
   changePasswordFormSchema,
   ChangePasswordFormType,
-} from "@/schemas/user";
-import { changeUserPassword } from "@/service/user";
+} from "@/service/user.schema";
+import { changeUserPassword } from "@/service/user.service";
 import { isAxiosError } from "axios";
 import { revalidatePath } from "next/cache";
 

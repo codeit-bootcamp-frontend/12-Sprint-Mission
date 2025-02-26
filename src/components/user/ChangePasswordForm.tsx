@@ -9,7 +9,7 @@ import { FieldAdapter } from "@components/adaptor/rhf";
 import {
   changePasswordFormSchema,
   ChangePasswordFormType,
-} from "@/schemas/user";
+} from "@/service/user.schema";
 import FormControl from "./FormControl";
 import action from "@/app/(common)/(user)/changePassword/action";
 

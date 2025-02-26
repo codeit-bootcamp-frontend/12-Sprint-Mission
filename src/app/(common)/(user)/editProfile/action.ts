@@ -1,7 +1,10 @@
 "use server";
 
-import { editProfileFormSchmea, EditProfileFormType } from "@/schemas/user";
-import { editProfileImage, uploadProfileImage } from "@/service/user";
+import {
+  editProfileFormSchmea,
+  EditProfileFormType,
+} from "@/service/user.schema";
+import { editProfileImage, uploadProfileImage } from "@/service/user.service";
 import { isAxiosError } from "axios";
 
 export default async function action(data: EditProfileFormType) {

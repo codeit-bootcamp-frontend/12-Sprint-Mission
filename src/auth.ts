@@ -1,5 +1,5 @@
-import { signinFormSchmea } from "@/schemas/auth";
-import { login, refreshAccessToken } from "@/service/auth";
+import { signinFormSchmea } from "@/service/auth.schema";
+import { login, refreshAccessToken } from "@/service/auth.service";
 import axios from "axios";
 import { jwtDecode } from "jwt-decode";
 import NextAuth, { CredentialsSignin } from "next-auth";

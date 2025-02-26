@@ -1,7 +1,7 @@
 import { auth, update } from "@/auth";
 import axios from "axios";
 import { getSession } from "next-auth/react";
-import { refreshAccessToken } from "./auth";
+import { refreshAccessToken } from "../service/auth.service";
 import { cache } from "react";
 
 export const axiosInstance = axios.create({

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Article } from "@/types/article";
+import { Article } from "@/service/article.type";
 import { Author, Like, Thumbnail } from "@/components/ui";
 import styles from "./BoardItem.module.scss";
 

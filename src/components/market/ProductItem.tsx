@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Like, Thumbnail } from "@components/ui";
 import { toWon } from "@util/formatter";
 import styles from "./ProductItem.module.scss";
-import { Product } from "@type/product";
+import { Product } from "@/service/product.type";
 
 function HighLightWithKeyword({
   content,

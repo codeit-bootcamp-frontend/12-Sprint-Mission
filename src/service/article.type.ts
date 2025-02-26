@@ -1,4 +1,4 @@
-import { BaseData } from "./common";
+import { BaseData } from "../types/common";
 
 export type Article = BaseData & {
   likeCount: number;

@@ -1,5 +1,5 @@
-import { User } from "./auth";
-import { BaseData } from "./common";
+import { User } from "./auth.type";
+import { BaseData } from "../types/common";
 
 export type BoardName = "articles" | "products";
 

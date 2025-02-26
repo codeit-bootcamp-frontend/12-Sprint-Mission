@@ -11,10 +11,10 @@ import {
 import { Button } from "@components/ui";
 import useFormWithError from "@hooks/useFormWithError";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Article } from "@/types/article";
+import { Article } from "@/service/article.type";
 import { FieldAdapter } from "@components/adaptor/rhf";
 import { useRouter } from "next/navigation";
-import { ArticleFormSchema, ArticleFormType } from "@/schemas/article";
+import { ArticleFormSchema, ArticleFormType } from "@/service/article.schema";
 
 interface ArticleAddFormProps {
   mode: "add";

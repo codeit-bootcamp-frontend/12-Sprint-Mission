@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Article } from "@/types/article";
+import { Article } from "@/service/article.type";
 import { Author, Badge, Date, Like, Thumbnail } from "@/components/ui";
 import bestIcon from "@assets/img/icon/icon_best.svg";
 import styles from "./BestItem.module.scss";

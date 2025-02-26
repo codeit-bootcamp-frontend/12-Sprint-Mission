@@ -1,7 +1,7 @@
 import { auth } from "@/auth";
 import EditProfileForm from "@/components/user/EditProfileForm";
 import { redirect } from "next/navigation";
-import { getUser } from "@/service/user";
+import { getUser } from "@/service/user.service";
 
 export default async function EditProfilePage() {
   const session = await auth();

@@ -1,5 +1,5 @@
 import { auth } from "@/auth";
-import { getUser, getUserActivity } from "@/service/user";
+import { getUser, getUserActivity } from "@/service/user.service";
 import { redirect } from "next/navigation";
 import Profile from "@/components/user/Profile";
 import Activity from "@/components/user/Activity";

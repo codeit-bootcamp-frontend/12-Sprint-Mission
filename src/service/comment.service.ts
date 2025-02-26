@@ -1,11 +1,11 @@
-import { axiosInstance } from "@service/axios";
+import { axiosInstance } from "@/util/axios";
 import {
   BoardName,
   Comment,
   DeleteCommentResponse,
   CommentList,
-} from "@type/comment";
-import { CommentFormType } from "@schemas/comment";
+} from "@/service/comment.type";
+import { CommentFormType } from "@/service/comment.schema";
 
 export async function getComments(
   name: BoardName,

@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 import clsx from "clsx";
-import { ListMode, Product } from "@/types/product";
+import { ListMode, Product } from "@/service/product.type";
 import styles from "./ProductListWrapper.module.scss";
 
 interface ProductListWrapper {

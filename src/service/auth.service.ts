@@ -1,6 +1,6 @@
-import { SigninFormType, SignupFormType } from "@schemas/auth";
-import { axiosInstance } from "@service/axios";
-import { RefreshResponse, AuthResponse } from "@type/auth";
+import { SigninFormType, SignupFormType } from "@/service/auth.schema";
+import { axiosInstance } from "@/util/axios";
+import { RefreshResponse, AuthResponse } from "@/service/auth.type";
 import axios from "axios";
 
 export async function login({ email, password }: SigninFormType) {

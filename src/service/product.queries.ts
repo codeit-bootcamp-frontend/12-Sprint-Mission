@@ -1,6 +1,6 @@
-import { ListMode } from "@/types/article";
+import { ListMode } from "@/service/article.type";
 import { ListQueryParams } from "@/types/common";
-import { ProductFormType } from "@schemas/product";
+import { ProductFormType } from "@/service/product.schema";
 import {
   addProduct,
   deleteProduct,
@@ -9,7 +9,7 @@ import {
   modifyProduct,
   toggleLike,
   uploadProductImage,
-} from "@service/product";
+} from "@/service/product.service";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 
 export function useGetProducts(

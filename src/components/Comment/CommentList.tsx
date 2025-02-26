@@ -9,7 +9,7 @@ import {
   COMMENT_LOADING,
 } from "@/constants/message";
 import { BackToList } from "../Button";
-import { BoardName } from "@/types/comment";
+import { BoardName } from "@/service/comment.type";
 import { useParams } from "next/navigation";
 import { useGetComments } from "@/service/comment.queries";
 

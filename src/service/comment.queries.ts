@@ -1,4 +1,4 @@
-import { BoardName } from "@/types/comment";
+import { BoardName } from "@/service/comment.type";
 import { CursorParams } from "@/types/common";
 import {
   useInfiniteQuery,
@@ -10,8 +10,8 @@ import {
   getComments,
   removeComment,
   updateComment,
-} from "./comments";
-import { CommentFormType } from "@/schemas/comment";
+} from "./comment.service";
+import { CommentFormType } from "@/service/comment.schema";
 
 export function useGetComments(
   name: BoardName,
