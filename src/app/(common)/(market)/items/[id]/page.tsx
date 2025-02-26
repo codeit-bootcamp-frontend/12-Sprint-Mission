@@ -1,6 +1,6 @@
 import { PageWrapper } from "@/components/Page";
 import { CommentAdd, CommentList } from "@/components/Comment";
-import ProductDetail from "../../_components/ProductDetail";
+import ProductDetail from "@/components/market/ProductDetail";
 
 export default function ItemDetailPage() {
   return (

@@ -1,5 +1,5 @@
 import { auth } from "@/auth";
-import EditProfileForm from "../_components/EditProfileForm";
+import EditProfileForm from "@/components/user/EditProfileForm";
 import { redirect } from "next/navigation";
 import { getUser } from "@/service/user";
 

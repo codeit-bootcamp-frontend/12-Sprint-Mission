@@ -1,6 +1,6 @@
 import { redirect } from "next/navigation";
-import AuthContainer from "../_components/AuthContainer";
-import LoginForm from "../_components/LoginForm";
+import AuthContainer from "@/components/auth/AuthContainer";
+import LoginForm from "@/components/auth/LoginForm";
 import { auth } from "@/auth";
 
 export default async function LoginPage() {

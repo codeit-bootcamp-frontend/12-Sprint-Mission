@@ -1,10 +1,10 @@
+import { Suspense } from "react";
 import { PageWrapper } from "@/components/Page";
 import { Section } from "@/components/Section";
-import BestList from "./_components/BestList";
-import ProductFilter from "./_components/ProductFilter";
-import ProductList from "./_components/ProductList";
-import { Suspense } from "react";
-import { Loading } from "@/components/ui/Loading";
+import { Loading } from "@/components/ui";
+import BestList from "@/components/market/BestList";
+import ProductFilter from "@/components/market/ProductFilter";
+import ProductList from "@/components/market/ProductList";
 
 export default function ItemsPage() {
   return (

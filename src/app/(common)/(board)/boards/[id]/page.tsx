@@ -1,6 +1,6 @@
 import { PageWrapper } from "@/components/Page";
 import { CommentAdd, CommentList } from "@/components/Comment";
-import BoardDetail from "../../_components/BoardDetail";
+import BoardDetail from "@/components/board/BoardDetail";
 
 export default function ArticleDetailPage() {
   return (

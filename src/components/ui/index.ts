@@ -16,3 +16,4 @@ export * from "./Modal";
 export * from "./Date";
 export * from "./Like";
 export * from "./Badge";
+export * from "./Loading";

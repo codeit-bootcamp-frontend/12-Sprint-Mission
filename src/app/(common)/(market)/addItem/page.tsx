@@ -1,7 +1,7 @@
 "use client";
 
 import { PageWrapper } from "@/components/Page";
-import ProductForm from "../_components/ProductForm";
+import ProductForm from "@/components/market/ProductForm";
 import { useProductAdd } from "@/service/product.queries";
 
 export default function AddItemPage() {

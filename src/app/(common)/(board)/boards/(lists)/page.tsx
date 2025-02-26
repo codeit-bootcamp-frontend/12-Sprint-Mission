@@ -1,11 +1,10 @@
+import { Suspense } from "react";
 import { PageWrapper } from "@/components/Page";
 import { Section } from "@/components/Section";
-import BestList from "./_components/BestList";
-import { Button } from "@/components/ui";
-import BoardFilter from "./_components/BoardFilter";
-import BoardList from "./_components/BoardList";
-import { Suspense } from "react";
-import { Loading } from "@/components/ui/Loading";
+import { Button, Loading } from "@/components/ui";
+import BestList from "@/components/board/BestList";
+import BoardFilter from "@/components/board/BoardFilter";
+import BoardList from "@/components/board/BoardList";
 
 export default function BoardsPage() {
   return (

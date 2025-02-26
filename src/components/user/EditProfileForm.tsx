@@ -7,9 +7,9 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { editProfileFormSchmea, EditProfileFormType } from "@/schemas/user";
 import { Form } from "@/components/Field";
 import { ChangeEvent, useEffect, useRef } from "react";
-import action from "../editProfile/action";
 import { useRouter } from "next/navigation";
 import FormControl from "./FormControl";
+import action from "@/app/(common)/(user)/editProfile/action";
 
 export default function EditProfileForm({
   nickname,

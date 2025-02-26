@@ -1,8 +1,8 @@
 import { auth } from "@/auth";
 import { getUser, getUserActivity } from "@/service/user";
 import { redirect } from "next/navigation";
-import Profile from "../_components/Profile";
-import Activity from "../_components/Activity";
+import Profile from "@/components/user/Profile";
+import Activity from "@/components/user/Activity";
 
 export default async function UserPage() {
   const session = await auth();

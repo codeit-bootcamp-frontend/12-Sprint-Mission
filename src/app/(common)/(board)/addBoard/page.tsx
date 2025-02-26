@@ -1,7 +1,7 @@
 "use client";
 
 import { PageWrapper } from "@/components/Page";
-import ArticleForm from "../_components/ArticleForm";
+import ArticleForm from "@/components/board/ArticleForm";
 import { useArticleAdd } from "@/service/article.queries";
 
 export default function AddBoardPage() {

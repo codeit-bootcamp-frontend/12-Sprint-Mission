@@ -1,11 +1,11 @@
 "use client";
 
-import { PageWrapper } from "@/components/Page";
 import { notFound, redirect, useParams } from "next/navigation";
 import { useSession } from "next-auth/react";
 import { useArticleModify, useGetArticle } from "@/service/article.queries";
-import { Loading } from "@/components/ui/Loading";
-import ArticleForm from "../../_components/ArticleForm";
+import { PageWrapper } from "@/components/Page";
+import { Loading } from "@/components/ui";
+import ArticleForm from "@/components/board/ArticleForm";
 
 export default function ModifyBoardPage() {
   const { data: session } = useSession();

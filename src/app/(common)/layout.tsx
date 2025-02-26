@@ -1,6 +1,6 @@
 import { PropsWithChildren } from "react";
-import { Header, Logo, Nav, Util } from "@components/Header";
-import { Footer } from "@components/Footer";
+import { Header, Logo, Nav, Util } from "@/components/layout/Header";
+import { Footer } from "@/components/layout/Footer";
 import styles from "./layout.module.css";
 
 export default function Layout({ children }: PropsWithChildren) {

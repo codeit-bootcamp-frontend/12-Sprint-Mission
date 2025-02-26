@@ -1,11 +1,11 @@
 "use client";
 
-import { PageWrapper } from "@/components/Page";
 import { notFound, redirect, useParams } from "next/navigation";
 import { useSession } from "next-auth/react";
 import { useGetProduct, useProductModify } from "@/service/product.queries";
-import { Loading } from "@/components/ui/Loading";
-import ProductForm from "../../_components/ProductForm";
+import { PageWrapper } from "@/components/Page";
+import { Loading } from "@/components/ui";
+import ProductForm from "@/components/market/ProductForm";
 
 export default function ModifyItemPage() {
   const { data: session } = useSession();

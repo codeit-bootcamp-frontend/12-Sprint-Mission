@@ -10,8 +10,8 @@ import {
   changePasswordFormSchema,
   ChangePasswordFormType,
 } from "@/schemas/user";
-import action from "../changePassword/action";
 import FormControl from "./FormControl";
+import action from "@/app/(common)/(user)/changePassword/action";
 
 export default function ChangePasswordForm() {
   const {

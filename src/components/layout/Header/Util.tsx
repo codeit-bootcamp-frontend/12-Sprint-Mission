@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from "@components/ui";
-import { Profile } from "@components/Header";
+import { Profile } from "@/components/layout/Header";
 import styles from "./Util.module.scss";
 import { useSession } from "next-auth/react";
 
