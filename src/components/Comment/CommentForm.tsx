@@ -13,7 +13,7 @@ import { COMMENT_PLACEHOLDER, COMMENT_TITLE } from "@/constants/message";
 interface CommentForm {
   name: BoardName;
   initialData?: Comment;
-  onCommentSubmit: (data: CommentFormType) => Promise<void>;
+  onCommentSubmit: (data: CommentFormType) => Promise<Comment>;
   onClose?: () => void;
   isEdit?: boolean;
 }
@@ -34,7 +34,9 @@ export function CommentForm({
   } = useFormWithError<CommentFormType>({
     mode: "onChange",
     resolver: zodResolver(CommentFormSchema),
-    defaultValues: initialData,
+    defaultValues: initialData || {
+      content: "",
+    },
   });
 
   function handleClose() {
@@ -45,7 +47,9 @@ export function CommentForm({
   async function onSubmit(data: CommentFormType) {
     try {
       await onCommentSubmit(data);
-      reset();
+      reset({
+        content: "",
+      });
       onClose?.();
     } catch (err) {
       throw err;

@@ -11,41 +11,31 @@ import {
 import { More } from "@components/Button";
 import { toWon } from "@util/formatter";
 import styles from "./ProductDetail.module.scss";
-import { Product } from "@type/product";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
-import useProductActions from "./useProductActions";
+import { notFound, useParams, useRouter } from "next/navigation";
+import {
+  useGetProduct,
+  useProductDelete,
+  useProductToggleLike,
+} from "@/service/product.queries";
 import { useSession } from "next-auth/react";
+import { Loading } from "@/components/ui/Loading";
 
-interface ProductDetail {
-  detail: Product;
-}
-
-export default function ProductDetail({ detail }: ProductDetail) {
-  const {
-    id,
-    images,
-    name,
-    price,
-    description,
-    tags,
-    ownerId,
-    ownerNickname,
-    updatedAt,
-    favoriteCount,
-    isFavorite,
-  } = detail;
-  const { data: session } = useSession();
+export default function ProductDetail() {
   const router = useRouter();
-  const { handleLike, handleProductDelete } = useProductActions(id);
-  const isOwner = ownerId === Number(session?.user?.id);
+  const { data: session } = useSession();
+  const { id } = useParams<{ id: string }>();
+  const productId = Number(id);
+
+  const { data: detail, isPending } = useGetProduct(productId);
+  const { mutate: toggleLike } = useProductToggleLike(productId);
+  const { mutateAsync: deleteProdcut } = useProductDelete(productId);
 
   async function handleToggleLike() {
     if (!session?.user) {
       return alert("로그인이 필요합니다.");
     }
-    await handleLike(!isFavorite);
-    router.refresh();
+    toggleLike(!isFavorite);
   }
 
   function handleModify() {
@@ -63,14 +53,36 @@ export default function ProductDetail({ detail }: ProductDetail) {
 
     if (confirm("정말 삭제할까요?")) {
       try {
-        await handleProductDelete();
+        await deleteProdcut();
         alert("상품을 삭제했습니다.");
         router.replace("/items");
       } catch (err) {
-        console.log(err);
+        console.error(err);
       }
     }
   }
+
+  if (isPending) {
+    return <Loading>loading...</Loading>;
+  }
+
+  if (!detail) {
+    notFound();
+  }
+
+  const {
+    images,
+    name,
+    price,
+    description,
+    tags,
+    ownerId,
+    ownerNickname,
+    updatedAt,
+    favoriteCount,
+    isFavorite,
+  } = detail;
+  const isOwner = ownerId === Number(session?.user?.id);
 
   return (
     <div className={styles.detail}>
