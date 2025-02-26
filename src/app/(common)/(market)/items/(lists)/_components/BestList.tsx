@@ -6,7 +6,10 @@ import { useGetProducts } from "@/service/product.queries";
 import { Loading } from "@/components/ui/Loading";
 
 export default function BestList() {
-  const { data, isPending } = useGetProducts("best", { pageSize: 4 });
+  const { data, isPending } = useGetProducts("best", {
+    pageSize: 4,
+    orderBy: "favorite",
+  });
 
   if (isPending) {
     return <Loading>loading...</Loading>;

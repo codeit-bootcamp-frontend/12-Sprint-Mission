@@ -6,7 +6,10 @@ import { useGetArticles } from "@/service/article.queries";
 import { Loading } from "@/components/ui/Loading";
 
 export default function BestList() {
-  const { data, isPending } = useGetArticles("best", { pageSize: 3 });
+  const { data, isPending } = useGetArticles("best", {
+    pageSize: 3,
+    orderBy: "like",
+  });
 
   if (isPending) {
     return <Loading>loading...</Loading>;

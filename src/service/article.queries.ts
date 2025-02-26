@@ -18,11 +18,7 @@ export function useGetArticles(
 ) {
   return useQuery({
     queryKey: ["articles", mode, params],
-    queryFn: () =>
-      getArticles({
-        ...params,
-        orderBy: mode === "best" ? "like" : "recent",
-      }),
+    queryFn: () => getArticles(params),
   });
 }
 

@@ -17,6 +17,7 @@ export default function ProductList() {
   const page = Number(searchParams.get("page")) || 1;
   const currentPageSize = Number(searchParams.get("pageSize")) || 10;
   const keyword = searchParams.get("keyword") || "";
+  const orderBy = searchParams.get("orderBy") || "recent";
   const visibleCount = 5;
   const pageSize = useResponsive({
     pc: 10,
@@ -28,6 +29,7 @@ export default function ProductList() {
     page,
     pageSize,
     keyword,
+    orderBy,
   });
 
   const pagination = usePagination({

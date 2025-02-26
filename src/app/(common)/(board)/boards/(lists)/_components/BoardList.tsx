@@ -14,6 +14,7 @@ export default function BoardList() {
 
   const page = Number(searchParams.get("page")) || 1;
   const keyword = searchParams.get("keyword") || "";
+  const orderBy = searchParams.get("orderBy") || "recent";
   const pageSize = 10;
   const visibleCount = 5;
 
@@ -21,6 +22,7 @@ export default function BoardList() {
     page,
     pageSize,
     keyword,
+    orderBy,
   });
 
   const pagination = usePagination({

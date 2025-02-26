@@ -18,11 +18,7 @@ export function useGetProducts(
 ) {
   return useQuery({
     queryKey: ["products", mode, params],
-    queryFn: () =>
-      getProducts({
-        ...params,
-        orderBy: mode === "best" ? "favorite" : "recent",
-      }),
+    queryFn: () => getProducts(params),
   });
 }
 
