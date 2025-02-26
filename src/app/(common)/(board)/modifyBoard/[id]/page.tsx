@@ -2,10 +2,10 @@
 
 import { PageWrapper } from "@/components/Page";
 import { notFound, redirect, useParams } from "next/navigation";
-import ArticleModifyForm from "../../_components/ArticleModifyForm";
 import { useSession } from "next-auth/react";
-import { useGetArticle } from "@/service/article.queries";
+import { useArticleModify, useGetArticle } from "@/service/article.queries";
 import { Loading } from "@/components/ui/Loading";
+import ArticleForm from "../../_components/ArticleForm";
 
 export default function ModifyBoardPage() {
   const { data: session } = useSession();
@@ -13,6 +13,7 @@ export default function ModifyBoardPage() {
   const articleId = Number(id);
 
   const { data: detail, isPending } = useGetArticle(articleId);
+  const { mutateAsync: handleArticleModify } = useArticleModify(articleId);
 
   if (isPending) {
     return <Loading>게시물 정보를 가져오는 중입니다.</Loading>;
@@ -31,7 +32,11 @@ export default function ModifyBoardPage() {
 
   return (
     <PageWrapper>
-      <ArticleModifyForm initialData={filteredDetail} />
+      <ArticleForm
+        mode="edit"
+        onFormSubmit={handleArticleModify}
+        initialData={filteredDetail}
+      />
     </PageWrapper>
   );
 }

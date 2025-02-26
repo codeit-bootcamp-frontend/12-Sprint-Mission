@@ -1,10 +1,15 @@
+"use client";
+
 import { PageWrapper } from "@/components/Page";
-import ArticleAddForm from "../_components/ArticleAddForm";
+import ArticleForm from "../_components/ArticleForm";
+import { useArticleAdd } from "@/service/article.queries";
 
 export default function AddBoardPage() {
+  const { mutateAsync: handleArticleAdd } = useArticleAdd();
+
   return (
     <PageWrapper>
-      <ArticleAddForm />
+      <ArticleForm mode="add" onFormSubmit={handleArticleAdd} />
     </PageWrapper>
   );
 }
