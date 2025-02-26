@@ -1,32 +1,22 @@
 "use client";
 
-import { useEffect } from "react";
-import useResponsive from "@/hooks/useResponsive";
-import useParams from "@/hooks/useParams";
-import { PaginationResponse } from "@/types/common";
-import { Article } from "@/types/article";
 import BoardListWrapper from "./BoardListWrapper";
 import BestItem from "./BestItem";
+import { useGetArticles } from "@/service/article.queries";
+import { Loading } from "@/components/ui/Loading";
 
-interface BestListProps {
-  data: PaginationResponse<Article>;
-}
+export default function BestList() {
+  const { data, isPending } = useGetArticles("best", { pageSize: 3 });
 
-export default function BestList({ data }: BestListProps) {
-  const { searchParams, handleParams } = useParams();
-  const currentSize = Number(searchParams.get("bestPageSize")) || 3;
-  const pageSize = useResponsive({
-    pc: 3,
-    tablet: 2,
-    mobile: 1,
-  });
-  const { list } = data;
+  if (isPending) {
+    return <Loading>loading...</Loading>;
+  }
 
-  useEffect(() => {
-    if (pageSize === currentSize) return;
+  const list = data?.list ?? [];
 
-    handleParams({ bestPageSize: pageSize });
-  }, [pageSize, currentSize, handleParams]);
+  if (list.length === 0) {
+    return <div>게시물이 없습니다.</div>;
+  }
 
   return (
     <>
