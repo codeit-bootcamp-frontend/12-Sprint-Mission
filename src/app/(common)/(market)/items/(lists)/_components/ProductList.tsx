@@ -4,29 +4,43 @@ import { useEffect } from "react";
 import useParams from "@/hooks/useParams";
 import usePagination from "@/hooks/usePagination";
 import useResponsive from "@/hooks/useResponsive";
-import { Product } from "@type/product";
-import { PaginationResponse } from "@/types/common";
 import { Message } from "@components/ui";
 import { Pagination } from "@/components/Pagination";
 import ProductListWrapper from "./ProductListWrapper";
 import ProductItem from "./ProductItem";
+import { useGetProducts } from "@/service/product.queries";
+import { Loading } from "@/components/ui/Loading";
 
-interface ProductListProps {
-  data: PaginationResponse<Product>;
-}
-
-export default function ProductList({ data }: ProductListProps) {
+export default function ProductList() {
   const { searchParams, handleParams } = useParams();
+
   const page = Number(searchParams.get("page")) || 1;
   const currentPageSize = Number(searchParams.get("pageSize")) || 10;
   const keyword = searchParams.get("keyword") || "";
+  const visibleCount = 5;
   const pageSize = useResponsive({
     pc: 10,
     tablet: 6,
     mobile: 4,
   });
-  const visibleCount = 5;
-  const { list, totalCount } = data;
+
+  const { data, isPending } = useGetProducts("all", {
+    page,
+    pageSize,
+    keyword,
+  });
+
+  const pagination = usePagination({
+    page,
+    pageSize,
+    totalCount: data?.totalCount || 0,
+    visibleCount,
+    onChange: (pageNumber) => {
+      handleParams({ page: pageNumber.toString() });
+    },
+  });
+
+  const list = data?.list ?? [];
 
   useEffect(() => {
     if (pageSize === currentPageSize) return;
@@ -34,15 +48,9 @@ export default function ProductList({ data }: ProductListProps) {
     handleParams({ pageSize });
   }, [pageSize, currentPageSize, handleParams]);
 
-  const pagination = usePagination({
-    page,
-    pageSize,
-    totalCount,
-    visibleCount,
-    onChange: (pageNumber) => {
-      handleParams({ page: pageNumber.toString() });
-    },
-  });
+  if (isPending) {
+    return <Loading>loading...</Loading>;
+  }
 
   if (list.length === 0) {
     return (

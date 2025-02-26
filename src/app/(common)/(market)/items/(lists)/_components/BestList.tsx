@@ -1,32 +1,22 @@
 "use client";
 
-import { useEffect } from "react";
-import useResponsive from "@/hooks/useResponsive";
-import useParams from "@/hooks/useParams";
-import { PaginationResponse } from "@/types/common";
-import { Product } from "@/types/product";
 import ProductItem from "./ProductItem";
 import ProductListWrapper from "./ProductListWrapper";
+import { useGetProducts } from "@/service/product.queries";
+import { Loading } from "@/components/ui/Loading";
 
-interface BestListProps {
-  data: PaginationResponse<Product>;
-}
+export default function BestList() {
+  const { data, isPending } = useGetProducts("best", { pageSize: 4 });
 
-export default function BestList({ data }: BestListProps) {
-  const { searchParams, handleParams } = useParams();
-  const currentSize = Number(searchParams.get("bestPageSize")) || 4;
-  const pageSize = useResponsive({
-    pc: 4,
-    tablet: 2,
-    mobile: 1,
-  });
-  const { list } = data;
+  if (isPending) {
+    return <Loading>loading...</Loading>;
+  }
 
-  useEffect(() => {
-    if (pageSize === currentSize) return;
+  const list = data?.list ?? [];
 
-    handleParams({ bestPageSize: pageSize });
-  }, [pageSize, currentSize, handleParams]);
+  if (list.length === 0) {
+    return <div>상품이 없습니다.</div>;
+  }
 
   return (
     <>
