@@ -2,14 +2,14 @@
 
 import { Product } from "@/types/product";
 import ProductForm from "./ProductForm";
-import useProductActions from "./useProductActions";
+import { useProductModify } from "@/service/product.queries";
 
 export default function ProductModifyForm({
   initialData,
 }: {
   initialData: Product;
 }) {
-  const { handleProductModify } = useProductActions(initialData.id);
+  const { mutateAsync: handleProductModify } = useProductModify(initialData.id);
 
   return (
     <ProductForm

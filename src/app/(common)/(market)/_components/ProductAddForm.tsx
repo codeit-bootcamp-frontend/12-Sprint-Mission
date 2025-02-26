@@ -1,10 +1,10 @@
 "use client";
 
 import ProductForm from "./ProductForm";
-import useProductActions from "./useProductActions";
+import { useProductAdd } from "@/service/product.queries";
 
 export default function ProductAddForm() {
-  const { handleProductAdd } = useProductActions();
+  const { mutateAsync: handleProductAdd } = useProductAdd();
 
   return <ProductForm mode="add" onFormSubmit={handleProductAdd} />;
 }
