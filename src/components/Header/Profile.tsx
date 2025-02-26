@@ -9,8 +9,10 @@ interface ProfileProps {
 }
 
 export function Profile({ nickname, image }: ProfileProps) {
-  function handleLogout() {
+  async function handleLogout() {
     if (confirm("정말로 로그아웃 하시겠습니까?")) {
+      // 기본 signOut의 locatio href의 행동을 통해
+      // 각종 캐시(리액트쿼리, 세션등을 초기) 초기화.
       signOut();
     }
   }

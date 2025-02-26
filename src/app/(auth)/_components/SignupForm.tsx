@@ -7,7 +7,8 @@ import useFormWithError from "@hooks/useFormWithError";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { signupFormSchema, SignupFormType } from "@schemas/auth";
 import { FieldAdapter } from "@components/adaptor/rhf";
-import action from "../signup/action";
+import { signUp } from "@/service/auth";
+import { isAxiosError } from "axios";
 
 export default function SignupForm() {
   const {
@@ -28,11 +29,16 @@ export default function SignupForm() {
   const router = useRouter();
 
   async function onSubmit(data: SignupFormType) {
-    const response = await action(data);
-    if (response.success) {
+    try {
+      await signUp(data);
+      alert("가입에 성공했습니다. 로그인을 해주세요");
       router.replace("/login");
-    } else {
-      throw new Error(response.message);
+    } catch (error) {
+      const message = isAxiosError(error)
+        ? error.response?.data.message
+        : "알 수 없는 에러가 발생했어요.";
+
+      throw new Error(message);
     }
   }
 

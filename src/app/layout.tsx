@@ -3,7 +3,6 @@ import type { Metadata } from "next";
 import { SessionProvider } from "next-auth/react";
 import "@assets/scss/style.scss";
 import QueryClientProvider from "@/context/QueryClientProvider";
-import { auth } from "@/auth";
 
 export const metadata: Metadata = {
   title: "판다마켓",
@@ -16,14 +15,12 @@ export const metadata: Metadata = {
   },
 };
 
-export default async function RootLayout({ children }: PropsWithChildren) {
-  const session = await auth();
-
+export default function RootLayout({ children }: PropsWithChildren) {
   return (
     <html lang="ko">
       <body>
         <div id="root">
-          <SessionProvider session={session} key={session?.user.id}>
+          <SessionProvider>
             <QueryClientProvider>{children}</QueryClientProvider>
           </SessionProvider>
         </div>

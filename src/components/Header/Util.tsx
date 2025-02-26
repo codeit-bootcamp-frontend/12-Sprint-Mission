@@ -1,11 +1,12 @@
+"use client";
+
 import { Button } from "@components/ui";
 import { Profile } from "@components/Header";
 import styles from "./Util.module.scss";
-import { auth } from "@/auth";
-import { getUser } from "@/service/user";
+import { useSession } from "next-auth/react";
 
-export async function Util() {
-  const session = await auth();
+export function Util() {
+  const { data: session } = useSession();
 
   if (!session) {
     return (
@@ -17,11 +18,11 @@ export async function Util() {
     );
   }
 
-  const { nickname, image } = await getUser();
+  const { nickname, image } = session.user;
 
   return (
     <div className={styles.util}>
-      <Profile nickname={nickname || ""} image={image || ""} />
+      <Profile nickname={nickname} image={image || ""} />
     </div>
   );
 }
