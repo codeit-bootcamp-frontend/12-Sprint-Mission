@@ -4,9 +4,15 @@ import { Button } from "@components/ui";
 import { Profile } from "@/components/layout/Header";
 import styles from "./Util.module.scss";
 import { useSession } from "next-auth/react";
+import { useQuery } from "@tanstack/react-query";
+import { getUserOptions } from "@/service/user.queries";
 
 export function Util() {
   const { data: session } = useSession();
+  const { data } = useQuery({
+    ...getUserOptions,
+    enabled: !!session,
+  });
 
   if (!session) {
     return (
@@ -18,11 +24,9 @@ export function Util() {
     );
   }
 
-  const { nickname, image } = session.user;
-
   return (
     <div className={styles.util}>
-      <Profile nickname={nickname} image={image || ""} />
+      {data && <Profile nickname={data.nickname} image={data.image || ""} />}
     </div>
   );
 }

@@ -11,9 +11,11 @@ import {
   ChangePasswordFormType,
 } from "@/service/user.schema";
 import FormControl from "./FormControl";
-import action from "@/app/(common)/(user)/changePassword/action";
+import { useChangePassword } from "@/service/user.queries";
+import { isAxiosError } from "axios";
 
 export default function ChangePasswordForm() {
+  const { mutateAsync: changePassword } = useChangePassword();
   const {
     control,
     formError,
@@ -31,11 +33,15 @@ export default function ChangePasswordForm() {
   const router = useRouter();
 
   async function onSubmit(data: ChangePasswordFormType) {
-    const response = await action(data);
-    if (response.success) {
+    try {
+      await changePassword(data);
       router.replace("/mypage");
-    } else {
-      throw new Error(response.message);
+    } catch (error) {
+      throw new Error(
+        isAxiosError(error)
+          ? error.response?.data.message
+          : "알 수 없는 에러가 발생했습니다."
+      );
     }
   }
 

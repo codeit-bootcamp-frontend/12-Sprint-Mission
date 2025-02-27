@@ -12,15 +12,15 @@ import { Form } from "@/components/Field";
 import { ChangeEvent, useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
 import FormControl from "./FormControl";
-import action from "@/app/(common)/(user)/editProfile/action";
+import { useSuspenseQuery } from "@tanstack/react-query";
+import { getUserOptions, useUpdateUser } from "@/service/user.queries";
+import { isAxiosError } from "axios";
 
-export default function EditProfileForm({
-  nickname,
-  image,
-}: {
-  nickname: string;
-  image: string;
-}) {
+export default function EditProfileForm() {
+  const {
+    data: { nickname, image },
+  } = useSuspenseQuery(getUserOptions);
+  const { mutateAsync: updateUser } = useUpdateUser();
   const {
     formError,
     watch,
@@ -60,11 +60,15 @@ export default function EditProfileForm({
   }
 
   async function onSubmit(data: EditProfileFormType) {
-    const response = await action(data);
-    if (response.success) {
+    try {
+      await updateUser(data);
       router.replace("/mypage");
-    } else {
-      throw new Error(response.message);
+    } catch (error) {
+      throw new Error(
+        isAxiosError(error)
+          ? error.response?.data.message
+          : "알 수 없는 에러가 발생했습니다."
+      );
     }
   }
 

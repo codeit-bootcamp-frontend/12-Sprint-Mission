@@ -3,16 +3,14 @@
 import { Avatar, Button } from "@/components/ui";
 import styles from "./Profile.module.scss";
 import { toDate } from "@/util/formatter";
+import { useSuspenseQuery } from "@tanstack/react-query";
+import { getUserOptions } from "@/service/user.queries";
 
-export default function Profile({
-  nickname,
-  image,
-  createdAt,
-}: {
-  nickname: string;
-  image: string;
-  createdAt: string;
-}) {
+export default function Profile() {
+  const {
+    data: { nickname, image, createdAt },
+  } = useSuspenseQuery(getUserOptions);
+
   return (
     <div className={styles.profile}>
       <Avatar nickname={nickname} img={image} className={styles.pic} />

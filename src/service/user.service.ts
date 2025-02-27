@@ -3,6 +3,7 @@ import { axiosInstance } from "../util/axios";
 import { Product } from "@/service/product.type";
 import { PaginationResponse } from "@/types/common";
 import { Article, ImageUploadResponse } from "@/service/article.type";
+import { ChangePasswordFormType, EditProfileFormType } from "./user.schema";
 
 export async function getUser() {
   const response = await axiosInstance.get<User>("/users/me");
@@ -21,8 +22,8 @@ export async function getUserActivity() {
   ]);
 
   return {
-    products: productsResponse.data,
-    favorites: favoritesResponse.data,
+    products: productsResponse.data.totalCount,
+    favorites: favoritesResponse.data.totalCount,
   };
 }
 
@@ -30,11 +31,7 @@ export async function changeUserPassword({
   password,
   newPassword,
   newPasswordConfirmation,
-}: {
-  password: string;
-  newPassword: string;
-  newPasswordConfirmation: string;
-}) {
+}: ChangePasswordFormType) {
   const response = await axiosInstance.patch<User>("/users/me/password", {
     passwordConfirmation: newPasswordConfirmation,
     password: newPassword,
@@ -56,10 +53,8 @@ export async function uploadProfileImage(file: File) {
   return response.data;
 }
 
-export async function editProfileImage(image: string) {
-  const response = await axiosInstance.patch<User>("/users/me", {
-    image,
-  });
+export async function updateUser(userData: EditProfileFormType) {
+  const response = await axiosInstance.patch<User>("/users/me", userData);
 
   return response.data;
 }

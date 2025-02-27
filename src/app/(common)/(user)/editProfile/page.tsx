@@ -1,20 +1,16 @@
-import { auth } from "@/auth";
 import EditProfileForm from "@/components/user/EditProfileForm";
-import { redirect } from "next/navigation";
-import { getUser } from "@/service/user.service";
+import { getQueryClient } from "@/util/getQueryClient";
+import { getUserOptions } from "@/service/user.queries";
+import { dehydrate, HydrationBoundary } from "@tanstack/react-query";
 
 export default async function EditProfilePage() {
-  const session = await auth();
-  if (!session) {
-    redirect("/login");
-  }
+  const queryClient = getQueryClient();
 
-  const userInfo = await getUser();
-  if (!userInfo) {
-    redirect("/login");
-  }
+  queryClient.prefetchQuery(getUserOptions);
 
-  const { nickname, image } = userInfo;
-
-  return <EditProfileForm nickname={nickname} image={image} />;
+  return (
+    <HydrationBoundary state={dehydrate(queryClient)}>
+      <EditProfileForm />
+    </HydrationBoundary>
+  );
 }
