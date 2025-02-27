@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { SessionProvider } from "next-auth/react";
 import "@assets/scss/style.scss";
 import QueryClientProvider from "@/context/QueryClientProvider";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
 export const metadata: Metadata = {
   title: "판다마켓",
@@ -21,7 +22,10 @@ export default function RootLayout({ children }: PropsWithChildren) {
       <body>
         <div id="root">
           <SessionProvider>
-            <QueryClientProvider>{children}</QueryClientProvider>
+            <QueryClientProvider>
+              {children}
+              <ReactQueryDevtools initialIsOpen={false} />
+            </QueryClientProvider>
           </SessionProvider>
         </div>
       </body>
