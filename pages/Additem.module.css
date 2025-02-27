@@ -1,0 +1,38 @@
+.edit {
+  @media (max-width: 1199px) {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  @media (max-width: 767px) {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+
+.additem .edit {
+  max-width: 1201px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.edit_title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 42px;
+  white-space: nowrap;
+  margin: 24px 0;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 32px;
+}
+
+.titleBtn {
+  height: 42px;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 23px;
+  background-color: #9ca3af;
+  color: #f3f4f6;
+}

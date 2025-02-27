@@ -1,0 +1,28 @@
+.itemImg {
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+  margin-bottom: 10px;
+  object-fit: cover;
+  aspect-ratio: 1;
+}
+
+.itemName {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+.itemPrice {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 26px;
+}
+
+.favorite {
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 18px;
+}

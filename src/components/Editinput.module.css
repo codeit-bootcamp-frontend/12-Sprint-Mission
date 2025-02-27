@@ -1,0 +1,74 @@
+.editinput {
+  max-width: 1200px;
+  width: 100%;
+  background-color: #f3f4f6;
+  border: none;
+  border-radius: 12px;
+  padding: 16px 24px;
+  resize: none;
+}
+
+.editinput_name,
+.editinput_price,
+.editinput_tag {
+  height: 56px;
+}
+
+.editinput_info {
+  height: 282px;
+}
+
+.imageSection {
+  display: flex;
+  flex-direction: row;
+}
+
+.image_preview {
+  position: relative;
+  width: 282px;
+  height: 282px;
+
+  @media (max-width: 767px) {
+    width: 168px;
+    height: 168px;
+  }
+}
+
+.image_preview img {
+  position: absolute;
+  left: 24px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border: 1px;
+  border-radius: 12px;
+}
+
+.image_upload {
+  background-color: #f3f4f6;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 282px;
+  height: 282px;
+  cursor: pointer;
+  border-radius: 12px;
+
+  @media (max-width: 767px) {
+    width: 168px;
+    height: 168px;
+  }
+}
+
+.upload_input {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  gap: 12px;
+  color: #9ca3af;
+}
+
+.hidden_input {
+  display: none;
+}

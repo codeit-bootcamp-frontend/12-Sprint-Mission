@@ -1,0 +1,148 @@
+/* * {
+  font-family: "Pretendard", sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  word-break: keep-all;
+} */
+
+.container {
+  margin: 0 auto;
+  padding: 16px;
+  color: #1f2937;
+
+  @media (min-width: 768px) {
+    max-width: 640px;
+    padding: 53px;
+  }
+}
+
+.header {
+  display: block;
+  text-align: center;
+  margin-bottom: 24px;
+
+  @media (min-width: 768px) {
+    margin-bottom: 40px;
+  }
+}
+
+.logo {
+  width: 198px;
+  height: 66px;
+
+  @media (min-width: 768px) {
+    width: 396px;
+    height: 132px;
+  }
+}
+
+.formDiv {
+  display: block;
+  position: relative;
+  margin-bottom: 16px;
+
+  @media (min-width: 768px) {
+    margin-bottom: 24px;
+  }
+}
+
+.formLabel {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 17px;
+  color: #1f2937;
+
+  @media (min-width: 768px) {
+    font-size: 18px;
+    line-height: 21px;
+  }
+}
+
+.formInput {
+  background-color: #f3f4f6;
+  width: 100%;
+  margin-top: 8px;
+  padding: 16px 24px;
+  border: none;
+  border-radius: 12px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+
+  @media (min-width: 768px) {
+    margin-top: 16px;
+  }
+}
+
+.toggleTag {
+  position: absolute;
+  top: 43px;
+  right: 24px;
+
+  @media (min-width: 768px) {
+    top: 53px;
+  }
+}
+
+.toggleImg {
+  cursor: pointer;
+  width: 24px;
+  height: 24px;
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+  background-color: #9ca3af;
+  width: 100%;
+  padding: 16px 124px;
+  border: none;
+  border-radius: 40px;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 32px;
+  color: #f3f4f6;
+  margin-bottom: 24px;
+}
+
+.disabled {
+  background-color: #3692ff;
+}
+
+.loginBox {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #e6f2ff;
+  border: none;
+  border-radius: 8px;
+  padding: 16px 24px;
+  margin-bottom: 25px;
+}
+
+.loginImgBox {
+  display: flex;
+  gap: 16px;
+}
+
+.loginLink {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 24px;
+  text-align: center;
+}
+
+.errorMessage {
+  margin-top: 8px;
+  padding-left: 16px;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 24px;
+  color: #f74747;
+}
+
+.errorInput {
+  border: 1px solid #f74747;
+}

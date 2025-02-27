@@ -1,0 +1,64 @@
+.nav {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #dfdfdf;
+  padding-left: 200px;
+  padding-right: 200px;
+  gap: 32px;
+
+  @media (max-width: 1199px) {
+    padding-left: 24px;
+    padding-right: 24px;
+    gap: 20px;
+  }
+  @media (max-width: 767px) {
+    margin: 0;
+    padding-left: 16px;
+    padding-right: 16px;
+    gap: 8px;
+  }
+}
+
+.logoImage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @media (max-width: 767px) {
+    content: url("/image/NavLogoMobile.svg");
+    width: 80px;
+  }
+}
+
+.nav_center {
+  display: flex;
+  flex: 1;
+  align-items: center;
+
+  @media (max-width: 767px) {
+    gap: 8px;
+  }
+}
+
+.nav_button {
+  background-color: #ffffff;
+  border: none;
+  padding: 21px 15px;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 26px;
+  color: #4b5563;
+
+  @media (max-width: 1199px) {
+    padding: 21px 15px;
+  }
+  @media (max-width: 767px) {
+    padding: 25px 0px;
+    font-size: 16px;
+  }
+}
+
+.nav_user > img {
+  width: 40px;
+  height: 40px;
+}

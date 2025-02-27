@@ -1,0 +1,57 @@
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  padding: 0;
+  background-color: #ffffff;
+  font-size: 18px;
+  line-height: 26px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* 홈페이지 로그인에 사용할 버튼 */
+.button_Home {
+  width: 128px;
+  height: 48px;
+  background-color: #3692ff;
+  border-radius: 8px;
+  color: #fef4f6;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+/* 홈페이지 구경하러가기에 사용할 버튼 */
+.button_itemsMove {
+  width: 357px;
+  height: 56px;
+  background-color: #3692ff;
+  border-radius: 40px;
+  margin-bottom: 60px;
+  color: #fef4f6;
+
+  @media (max-width: 1199px) {
+    margin-bottom: 0;
+  }
+  @media (max-width: 767px) {
+    width: 240px;
+    height: 48px;
+  }
+}
+
+/* Nav 컴포넌트에서 사용할 버튼 */
+.button_nav_activate {
+  color: #3692ff;
+}
+
+/* Additem페이지에서 사용할 등록 버튼 */
+.button_register {
+  background-color: #9ca3af;
+  color: #f3f4f6;
+  height: 42px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 12px 23px;
+}
