@@ -17,6 +17,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { Product } from "@/service/product.type";
 import { FieldAdapter } from "@components/adaptor/rhf";
 import { useRouter } from "next/navigation";
+import { isAxiosError } from "axios";
 
 interface ProductAddFormProps {
   mode: "add";
@@ -62,8 +63,12 @@ export default function ProductForm(props: ProductFormProps) {
         mode === "add" ? "성공적으로 작성했습니다." : "성공적으로 수정했습니다."
       );
       router.replace(id ? `/items/${id}` : "/items");
-    } catch (err) {
-      throw err;
+    } catch (error) {
+      throw new Error(
+        isAxiosError(error)
+          ? error.response?.data.message
+          : "알 수 없는 에러가 발생했습니다."
+      );
     }
   }
 
