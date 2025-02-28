@@ -29,6 +29,10 @@ const nextConfig: NextConfig = {
         protocol: 'https',
         hostname: 'flexible.img.hani.co.kr',
       },
+      {
+        protocol: 'https',
+        hostname: 'image.hanatour.com',
+      },
     ],
   },
 };
