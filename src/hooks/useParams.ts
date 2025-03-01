@@ -1,9 +1,10 @@
-import { usePathname, useSearchParams } from "next/navigation";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useCallback } from "react";
 
 export default function useParams() {
   const pathname = usePathname();
   const searchParams = useSearchParams();
+  const router = useRouter();
 
   const handleParams = useCallback(
     function handleParams(updateParams: Record<string, string | number>) {
@@ -18,13 +19,9 @@ export default function useParams() {
         }
       });
 
-      // 기존 ssr 방식 (서버에 재요청이 감)
-      //router.push(`${pathname}?${params.toString()}`);
-
-      // csr 방식
-      window.history.pushState(null, "", `${pathname}?${params.toString()}`);
+      router.push(`${pathname}?${params.toString()}`);
     },
-    [searchParams, pathname]
+    [searchParams, pathname, router]
   );
 
   return { searchParams, handleParams };
