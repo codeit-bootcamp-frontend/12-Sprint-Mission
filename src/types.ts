@@ -107,3 +107,21 @@ export interface SignupFailResponse {
 }
 
 export type ResponseWithAccessToken<T> = T & { accessToken: string };
+
+export interface Item {
+  id: number;
+  name: string;
+  description: string;
+  price: number;
+  tags: string[];
+  images: string | null[];
+  ownerId: number;
+  favoriteCount: number;
+  createdAt: string;
+  updatedAt: string;
+}
+
+export interface ItemsResponse {
+  list: Item[];
+  totalCount: number;
+}
