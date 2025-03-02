@@ -1,10 +1,10 @@
-import Banner from "./_components/Banner";
-import Feature from "./_components/Feature";
+import Banner from "@/components/landing/Banner";
+import Feature from "@/components/landing/Feature";
 import {
   heroBannerData,
   footerBannerData,
   featureList,
-} from "./_components/landingContents";
+} from "@/components/landing/landingContents";
 
 export default function LandingPage() {
   return (

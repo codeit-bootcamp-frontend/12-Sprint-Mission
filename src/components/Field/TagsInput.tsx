@@ -3,7 +3,7 @@ import clsx from "clsx";
 import { Tags } from "@components/ui";
 import { Error } from "@components/Field";
 import styles from "./Input.module.scss";
-import { Tags as TagsType } from "@type/product";
+import { Tags as TagsType } from "@/service/product.type";
 
 interface TagsInputProps {
   value: TagsType;

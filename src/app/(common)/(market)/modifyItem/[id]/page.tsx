@@ -1,47 +1,40 @@
+"use client";
+
+import { notFound, redirect, useParams } from "next/navigation";
+import { useSession } from "next-auth/react";
+import { useGetProduct, useProductModify } from "@/service/product.queries";
 import { PageWrapper } from "@/components/Page";
-import { getProduct } from "@/service/product";
-import { auth } from "@/auth";
-import { Suspense } from "react";
-import { Message } from "@/components/ui";
-import { notFound, redirect } from "next/navigation";
-import { isAxiosError } from "axios";
-import { isRedirectError } from "next/dist/client/components/redirect-error";
-import ProductModifyForm from "../../_components/ProductModifyForm";
+import { Loading } from "@/components/ui";
+import ProductForm from "@/components/market/ProductForm";
 
-export default async function ModifyItemPage({
-  params,
-}: {
-  params: Promise<{ id: string }>;
-}) {
-  const session = await auth();
-  const id = (await params).id;
+export default function ModifyItemPage() {
+  const { data: session } = useSession();
+  const { id } = useParams<{ id: string }>();
+  const productId = Number(id);
 
-  try {
-    const detail = await getProduct(Number(id));
-    const isOwner = detail.ownerId === Number(session?.user.id);
+  const { data: detail, isPending } = useGetProduct(productId);
+  const { mutateAsync: handleProductModify } = useProductModify(productId);
 
-    if (!isOwner) {
-      redirect("/items");
-    }
-
-    return (
-      <PageWrapper>
-        <Suspense fallback={<Message>상품정보를 가져오는 중입니다...</Message>}>
-          <ProductModifyForm initialData={detail} />
-        </Suspense>
-      </PageWrapper>
-    );
-  } catch (error) {
-    if (isAxiosError(error)) {
-      if (error.status === 404) {
-        notFound();
-      }
-    }
-
-    if (isRedirectError(error)) {
-      throw error;
-    }
-
-    throw new Error("페이지 정보를 가져오는데 문제가 생겼습니다.");
+  if (isPending) {
+    return <Loading>상품 정보를 가져오는 중입니다.</Loading>;
   }
+
+  if (!detail) {
+    notFound();
+  }
+
+  const isOwner = detail.ownerId === Number(session?.user.id);
+  if (!isOwner) {
+    redirect("/items");
+  }
+
+  return (
+    <PageWrapper>
+      <ProductForm
+        mode="edit"
+        onFormSubmit={handleProductModify}
+        initialData={detail}
+      />
+    </PageWrapper>
+  );
 }

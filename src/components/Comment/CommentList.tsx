@@ -9,19 +9,21 @@ import {
   COMMENT_LOADING,
 } from "@/constants/message";
 import { BackToList } from "../Button";
-import useComments from "./useComments";
-import { BoardName, CommentList as CommentData } from "@/types/comment";
+import { BoardName } from "@/service/comment.type";
 import { useParams } from "next/navigation";
+import { useGetComments } from "@/service/comment.queries";
 
 interface CommentListType {
   name: BoardName;
-  data: CommentData;
 }
 
-export function CommentList({ name, data }: CommentListType) {
+export function CommentList({ name }: CommentListType) {
   const { id } = useParams();
-  const { isLoading, error, comments, hasNextPage, fetchNextPage } =
-    useComments(Number(id), name, data);
+  const { isLoading, error, data, hasNextPage, fetchNextPage } = useGetComments(
+    name,
+    { id: Number(id), limit: 3 }
+  );
+  const comments = data?.pages.flatMap((page) => page.list) || [];
 
   return (
     <>

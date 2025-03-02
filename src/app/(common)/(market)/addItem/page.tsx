@@ -1,10 +1,15 @@
+"use client";
+
 import { PageWrapper } from "@/components/Page";
-import ProductAddForm from "../_components/ProductAddForm";
+import ProductForm from "@/components/market/ProductForm";
+import { useProductAdd } from "@/service/product.queries";
 
 export default function AddItemPage() {
+  const { mutateAsync: handleProductAdd } = useProductAdd();
+
   return (
     <PageWrapper>
-      <ProductAddForm />
+      <ProductForm mode="add" onFormSubmit={handleProductAdd} />;
     </PageWrapper>
   );
 }

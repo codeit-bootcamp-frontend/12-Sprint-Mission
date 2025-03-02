@@ -5,6 +5,11 @@ export type ListQueryParams = {
   orderBy: string;
 };
 
+export type CursorParams = {
+  limit: number;
+  cursor: number;
+};
+
 export type PaginationResponse<T> = {
   totalCount: number;
   list: T[];

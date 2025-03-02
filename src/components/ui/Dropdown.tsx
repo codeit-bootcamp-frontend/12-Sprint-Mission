@@ -3,6 +3,7 @@
 import {
   cloneElement,
   createContext,
+  isValidElement,
   ReactElement,
   ReactNode,
   useContext,
@@ -115,9 +116,11 @@ function Menu({ children }: { children: ReactNode }) {
 function Item({
   onClick,
   children,
+  asChild = false,
 }: {
   onClick?: () => void;
   children: ReactNode;
+  asChild?: boolean;
 }) {
   const { setIsOpen } = useDropdownDispatch();
 
@@ -126,6 +129,20 @@ function Item({
     if (onClick) {
       onClick();
     }
+  }
+
+  if (
+    asChild &&
+    isValidElement<{ onClick?: () => void; className?: string }>(children)
+  ) {
+    return (
+      <li>
+        {cloneElement(children, {
+          onClick: handleClick,
+          className: styles.item,
+        })}
+      </li>
+    );
   }
 
   return (

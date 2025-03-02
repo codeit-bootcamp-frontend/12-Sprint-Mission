@@ -2,9 +2,9 @@ import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useCallback } from "react";
 
 export default function useParams() {
-  const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
+  const router = useRouter();
 
   const handleParams = useCallback(
     function handleParams(updateParams: Record<string, string | number>) {

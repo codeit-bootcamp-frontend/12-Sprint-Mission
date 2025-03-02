@@ -1,12 +1,13 @@
 "use client";
 
 import { useState } from "react";
-import useComment from "./useComment";
 import { Author } from "@components/ui";
 import { More } from "@components/Button";
 import { CommentForm } from ".";
 import styles from "./Comment.module.scss";
-import { BoardName, Comment as CommentItem } from "@type/comment";
+import { BoardName, Comment as CommentItem } from "@/service/comment.type";
+import { useCommentDelete, useCommentModify } from "@/service/comment.queries";
+import { useSession } from "next-auth/react";
 
 interface Comment {
   name: BoardName;
@@ -15,14 +16,17 @@ interface Comment {
 
 export function Comment({ name, comment }: Comment) {
   const [isModify, setIsModify] = useState(false);
+  const { data: session } = useSession();
 
   const {
+    id: commentId,
     content,
     updatedAt,
-    writer: { nickname, image },
+    writer: { nickname, image, id: writerId },
   } = comment;
-
-  const { isOwner, handleUpdate, handleDelete } = useComment(name, comment);
+  const isOwner = writerId === Number(session?.user.id);
+  const { mutateAsync: handleUpdate } = useCommentModify(name, commentId);
+  const { mutate: handleDelete } = useCommentDelete(name, commentId);
 
   function handleModify() {
     if (!isOwner) {

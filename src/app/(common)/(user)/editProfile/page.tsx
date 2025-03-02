@@ -1,15 +1,19 @@
-import { auth } from "@/auth";
-import EditProfileForm from "../_components/EditProfileForm";
-import { redirect } from "next/navigation";
-import { getUser } from "@/service/user";
+import EditProfileForm from "@/components/user/EditProfileForm";
+import { getQueryClient } from "@/util/getQueryClient";
+import { getUserOptions } from "@/service/user.queries";
+import { dehydrate, HydrationBoundary } from "@tanstack/react-query";
 
-export default async function EditProfilePage() {
-  const session = await auth();
-  if (!session) {
-    redirect("/login");
-  }
+// build시에 ssg로 빌드되는것을 막기위해서
+export const dynamic = "force-dynamic";
 
-  const { nickname, image } = await getUser();
+export default function EditProfilePage() {
+  const queryClient = getQueryClient();
 
-  return <EditProfileForm nickname={nickname} image={image} />;
+  void queryClient.prefetchQuery(getUserOptions);
+
+  return (
+    <HydrationBoundary state={dehydrate(queryClient)}>
+      <EditProfileForm />
+    </HydrationBoundary>
+  );
 }

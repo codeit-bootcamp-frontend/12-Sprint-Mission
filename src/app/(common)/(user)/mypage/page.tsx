@@ -1,25 +1,22 @@
-import { auth } from "@/auth";
-import { getUser, getUserActivity } from "@/service/user";
-import { redirect } from "next/navigation";
-import Profile from "../_components/Profile";
-import Activity from "../_components/Activity";
+import Profile from "@/components/user/Profile";
+import Activity from "@/components/user/Activity";
+import { getQueryClient } from "@/util/getQueryClient";
+import { dehydrate, HydrationBoundary } from "@tanstack/react-query";
+import { getUserActivityOptions, getUserOptions } from "@/service/user.queries";
+
+// build시에 ssg로 빌드되는것을 막기위해서
+export const dynamic = "force-dynamic";
 
 export default async function UserPage() {
-  const session = await auth();
-  if (!session) {
-    redirect("/");
-  }
+  const queryClient = getQueryClient();
 
-  const { nickname, image, createdAt } = await getUser();
-  const { products, favorites } = await getUserActivity();
+  queryClient.prefetchQuery(getUserOptions);
+  queryClient.prefetchQuery(getUserActivityOptions);
 
   return (
-    <>
-      <Profile nickname={nickname} image={image} createdAt={createdAt} />
-      <Activity
-        productsCount={Number(products.totalCount)}
-        favoritesCount={Number(favorites.totalCount)}
-      />
-    </>
+    <HydrationBoundary state={dehydrate(queryClient)}>
+      <Profile />
+      <Activity />
+    </HydrationBoundary>
   );
 }

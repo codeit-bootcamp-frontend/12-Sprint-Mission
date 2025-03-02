@@ -1,52 +1,42 @@
+"use client";
+
+import { notFound, redirect, useParams } from "next/navigation";
+import { useSession } from "next-auth/react";
+import { useArticleModify, useGetArticle } from "@/service/article.queries";
 import { PageWrapper } from "@/components/Page";
-import { auth } from "@/auth";
-import { notFound, redirect } from "next/navigation";
-import { Suspense } from "react";
-import { Message } from "@/components/ui";
-import { getArticle } from "@/service/article";
-import { isAxiosError } from "axios";
-import { isRedirectError } from "next/dist/client/components/redirect-error";
-import ArticleModifyForm from "../../_components/ArticleModifyForm";
+import { Loading } from "@/components/ui";
+import ArticleForm from "@/components/board/ArticleForm";
 
-export default async function ModifyBoardPage({
-  params,
-}: {
-  params: Promise<{ id: string }>;
-}) {
-  const session = await auth();
-  const id = (await params).id;
+export default function ModifyBoardPage() {
+  const { data: session } = useSession();
+  const { id } = useParams<{ id: string }>();
+  const articleId = Number(id);
 
-  try {
-    const detail = await getArticle(Number(id));
-    const isOwner = detail.writer.id === Number(session?.user.id);
+  const { data: detail, isPending } = useGetArticle(articleId);
+  const { mutateAsync: handleArticleModify } = useArticleModify(articleId);
 
-    if (!isOwner) {
-      redirect("/boards");
-    }
-
-    // 상세데이터에 이미지가 null로 오는경우 기본값을 undefined으로 변경시켜서 주입
-    const filteredDetail = { ...detail, image: detail.image ?? undefined };
-
-    return (
-      <PageWrapper>
-        <Suspense
-          fallback={<Message>게시물정보를 가져오는 중입니다...</Message>}
-        >
-          <ArticleModifyForm initialData={filteredDetail} />
-        </Suspense>
-      </PageWrapper>
-    );
-  } catch (error) {
-    if (isAxiosError(error)) {
-      if (error.status === 404) {
-        notFound();
-      }
-    }
-
-    if (isRedirectError(error)) {
-      throw error;
-    }
-
-    throw new Error("페이지 정보를 가져오는데 문제가 생겼습니다.");
+  if (isPending) {
+    return <Loading>게시물 정보를 가져오는 중입니다.</Loading>;
   }
+
+  if (!detail) {
+    notFound();
+  }
+
+  const isOwner = detail.writer.id === Number(session?.user.id);
+  if (!isOwner) {
+    redirect("/boards");
+  }
+
+  const filteredDetail = { ...detail, image: detail.image ?? undefined };
+
+  return (
+    <PageWrapper>
+      <ArticleForm
+        mode="edit"
+        onFormSubmit={handleArticleModify}
+        initialData={filteredDetail}
+      />
+    </PageWrapper>
+  );
 }
