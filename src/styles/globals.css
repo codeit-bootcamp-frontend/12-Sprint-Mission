@@ -162,6 +162,14 @@ body {
   font-size: 16px;
   font-weight: 600;
 }
+.btn.large {
+  height: 56px;
+  font-size: 20px;
+}
+.btn.block {
+  display: block;
+  width: 100%;
+}
 .btn.round {
   border-radius: 999px;
 }

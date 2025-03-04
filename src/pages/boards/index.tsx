@@ -34,8 +34,6 @@ export default function Page() {
       setBestPageSize(3);
     }
   }, [isMo, isTa]);
-
-
   const onSortToggle = () => {
     setSortState(!sortState);
   };
@@ -93,13 +91,11 @@ export default function Page() {
     setTimeout(() => {
       setSearch("");
     }, 100);
-
   };
 
   const ref = useOutsideClick(() => {
     setSortState(false);
   });
-
   const handleScroll = () => {
     const bottom =
       window.innerHeight + document.documentElement.scrollTop ===
@@ -132,7 +128,6 @@ export default function Page() {
         <div className={styles.boart_common_title}>
           <div className="common_title">게시글</div>
           <Link className="btn" href="/addboard">
-
             글쓰기
           </Link>
         </div>

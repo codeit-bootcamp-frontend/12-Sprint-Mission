@@ -38,6 +38,7 @@
 }
 .header .my {
   margin-left: auto;
+  cursor: pointer;
 }
 
 @media (max-width: 744px) {
