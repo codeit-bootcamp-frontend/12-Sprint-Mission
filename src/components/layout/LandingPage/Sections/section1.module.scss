@@ -1,0 +1,60 @@
+.container{
+    width: auto;
+    height: 540px;
+    background-color:#CFE5FF;
+    position: relative;
+    display: flex;
+    
+}
+
+.s1img{
+    width: 746px;
+    height: 340px;
+    position: absolute;
+    bottom: 0px;
+    right: 350px;
+
+}
+
+.s5img{
+    width: 746px;
+    height: 397px;
+    position: absolute;
+    bottom: 0px;
+    right: 350px;
+
+}
+
+.textandbutton{
+    width: 357px;
+    height: 260px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: absolute;
+    bottom: 40px;
+    left: 405px;
+    gap: 50px;
+}
+
+.textandbutton h1{
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 56px;
+}
+
+.custombutton{
+    border-radius: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.custombutton p{
+    color: white;
+   
+    font-size: 20px;
+    line-height: 32px;
+    font-weight: 600;
+
+}

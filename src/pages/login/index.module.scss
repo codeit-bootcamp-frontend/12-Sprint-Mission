@@ -1,0 +1,34 @@
+@import "@/styles/colors.scss";
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+
+}
+
+.signuptext p{
+    font-size: 14px;
+    line-height: 24px;
+}
+
+.signuptext span{
+    text-decoration: underline;
+    color: $blue;
+}
+
+.formButton{
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+.errorMessage{
+    color: red;
+    margin-left: 10px;
+}
+
+.errorInput{
+    border-color: red !important;
+}

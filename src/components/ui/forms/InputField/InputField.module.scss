@@ -1,0 +1,54 @@
+@import "@/styles/colors.scss";
+
+.container{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+ 
+}
+.label{
+    font-size: 18px;
+    line-height: 26px;
+    font-weight: 700;
+   
+}
+
+.input{
+    background-color: $gray50;
+    width: 640px;
+    height: 56px;
+    padding-left: 15px;
+    border-radius: 12px;
+    border: none ;
+    margin-bottom: 5px;
+ 
+}
+
+.inputError{
+    border: 1px solid red;
+    background-color: $gray50;
+    width: 640px;
+    height: 56px;
+    padding-left: 15px;
+    border-radius: 12px;
+    margin-bottom: 5px;
+}
+
+
+.inputWrapper {
+    position: relative;
+}
+
+.passwordEyes{
+    position: absolute;
+    right: 25px;
+    top: 18px; 
+    cursor: pointer;
+
+}
+
+.passwordeyeopen{
+    position: absolute;
+    right: 1px;
+    top: 4px;
+}

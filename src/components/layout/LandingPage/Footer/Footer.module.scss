@@ -1,0 +1,36 @@
+.container{
+    height: 160px;
+    width: auto;
+    position: relative;
+    background-color: #111827;
+    
+
+}
+
+.section{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding-top: 32px;
+   
+
+}
+
+.container p{
+    color: white;
+
+}
+
+
+
+.footersection2{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+ 
+}
+
+.footersection3{
+    display: flex;
+    gap: 10px;
+}
